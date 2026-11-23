@@ -1,0 +1,77 @@
+{
+ "app": "Twilio",
+ "queries": [
+  "Twilio API authentication documentation",
+  "Twilio MCP server",
+  "Twilio API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://www.twilio.com/docs/iam/api",
+  "https://www.twilio.com/docs",
+  "https://twilio-api.readme.io/reference/authentication",
+  "https://www.twilio.com/docs/ai/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Our API: the basics - Twilio",
+   "href": "https://www.twilio.com/docs/iam/api"
+  },
+  {
+   "title": "Docs: API Reference, Tutorials, and Integration | Twilio",
+   "href": "https://www.twilio.com/docs"
+  },
+  {
+   "title": "How to Use an API Key and Secret to Authenticate Twilio CLI ...",
+   "href": "https://help.twilio.com/articles/36881264279067-How-to-Use-API-Key-and-Secret-to-Authenticate-Twilio-CLI-Commands"
+  },
+  {
+   "title": "API Keys and How to Change Them - Twilio Help Center",
+   "href": "https://help.twilio.com/articles/9318455807771-API-Keys-and-How-to-Change-Them"
+  },
+  {
+   "title": "Authentication - twilio-api.readme.io",
+   "href": "https://twilio-api.readme.io/reference/authentication"
+  },
+  {
+   "title": "Twilio MCP server",
+   "href": "https://www.twilio.com/docs/ai/mcp"
+  },
+  {
+   "title": "Use the Twilio Alpha MCP Server to Automate Development",
+   "href": "https://www.twilio.com/en-us/blog/introducing-twilio-alpha-mcp-server"
+  },
+  {
+   "title": "GitHub - twilio-labs/mcp: Monorepo providing 1) OpenAPI to ...",
+   "href": "https://github.com/twilio-labs/mcp"
+  },
+  {
+   "title": "twilio-mcp-server - GitHub",
+   "href": "https://github.com/skbhati199/twilio-mcp-server"
+  },
+  {
+   "title": "Twilio MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/twilio"
+  },
+  {
+   "title": "Text Messaging APIs - Scalable & Reliable - Try Free",
+   "href": "https://www.bing.com/aclick?ld=e80tH_viXHEKRgJ7H2Y4GxoDVUCUwDUfSA_48U3vg4bBGDDpRFYv7dfdAfGXBD8U0f6tJvnQjj8gr0x1BVCZ7ljrNtBECcS-2MH7XYxoCRdC_drtNRNi-7gPq-Q86-MnektS6Lojwf19VrOZHBPAWao0XsGrX85SY5407zO_g1Zc395JpDxWWxz-z4TFjyyqc7nIcTx-vB1eRI_EZ6i84Y57mpN9M&u=aHR0cHMlM2ElMmYlMmZ3d3cuYmFuZHdpZHRoLmNvbSUyZnR3aWxpby1hbHRlcm5hdGl2ZSUyZiUzZnV0bV9jb250ZW50JTNkJTI2X2J0JTNkJTI2X2JrJTNkdHdpbGlvJTI1MjBmcmVlJTI2X2JtJTNkcCUyNl9ibiUzZG8lMjZfYmclM2QxMTU3Nzg3Njc0OTY5MTU1JTI2a21jYSUzZDQ0NjczMTg1OSUyNmttYWclM2QxMTU3Nzg3Njc0OTY5MTU1JTI2bXNjbGtpZCUzZDhlYmJjYWI1MDAyNTEwODkzZjNlYTFiMTIyY2YxMGJlJTI2dXRtX3NvdXJjZSUzZGJpbmclMjZ1dG1fbWVkaXVtJTNkY3BjJTI2dXRtX2NhbXBhaWduJTNkJTI1NUJCVyUyNTVEJTI1MjBCaW5nJTI1MjAlMjU3QyUyNTIwU2VhcmNoJTI1MjAlMjU3QyUyNTIwQW1lcmljYXMlMjUyMCUyNTdDJTI1MjBVQy1DQSUyNTIwJTI1N0MlMjUyMEVOJTI1MjAlMjU3QyUyNTIwRXZlcmdyZWVuJTI1MjAlMjU3QyUyNTIwVVMlMjUyMENvbXBldGl0b3IlMjUyMCUyNTdDJTI1MjBUd2lsaW8lMjZ1dG1fdGVybSUzZHR3aWxpbyUyNTIwZnJlZSUyNnV0bV9jb250ZW50JTNkVHdpbGlvJTI1MjBFeGFjdA&rlid=8ebbcab5002510893f3ea1b122cf10be"
+  },
+  {
+   "title": "Twilio Pricing | Twilio",
+   "href": "https://www.twilio.com/en-us/pricing"
+  },
+  {
+   "title": "Twilio Api Pricing | Developer Cost Guide (2026)",
+   "href": "https://checkapicost.com/providers/twilio-api-pricing"
+  },
+  {
+   "title": "Twilio Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/twilio/twilio-plans-pricing/"
+  },
+  {
+   "title": "Twilio Pricing (2026): Plans, Free Tier & Limits",
+   "href": "https://www.comparetier.com/software/twilio/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:56:35.993225"
+}

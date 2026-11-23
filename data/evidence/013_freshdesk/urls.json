@@ -1,0 +1,77 @@
+{
+ "app": "Freshdesk",
+ "queries": [
+  "Freshdesk API authentication documentation",
+  "Freshdesk MCP server",
+  "Freshdesk API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.freshdesk.com/api/",
+  "https://support.freshdesk.com/support/solutions/articles/50000011661-connect-to-external-systems-using-api-actions",
+  "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk",
+  "https://support.freshdesk.com/support/solutions/articles/50000014407-mcp-integration-frequently-asked-questions-faq-"
+ ],
+ "search_hits": [
+  {
+   "title": "Freshdesk",
+   "href": "https://developers.freshdesk.com/api/"
+  },
+  {
+   "title": "Freshdesk Developers",
+   "href": "https://developers.freshdesk.com/"
+  },
+  {
+   "title": "API & Webhooks : Freshdesk Support",
+   "href": "https://support.freshdesk.com/support/solutions/folders/272646"
+  },
+  {
+   "title": "Freshworks Developer Docs | REST APIs",
+   "href": "https://developers.freshworks.com/docs/app-sdk/v3.0/support_ticket/rest-apis/"
+  },
+  {
+   "title": "Connect to external systems using API actions : Freshdesk Support",
+   "href": "https://support.freshdesk.com/support/solutions/articles/50000011661-connect-to-external-systems-using-api-actions"
+  },
+  {
+   "title": "Model Context Protocol (MCP) integration in Freshdesk",
+   "href": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk"
+  },
+  {
+   "title": "Model Context Protocol (MCP) integration in Freshdesk",
+   "href": "https://crmsupport.freshworks.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk"
+  },
+  {
+   "title": "GitHub - WYRE-AI/freshdesk-mcp: MCP server for Freshdesk ...",
+   "href": "https://github.com/WYRE-AI/freshdesk-mcp"
+  },
+  {
+   "title": "Freshdesk MCP Server - GitHub",
+   "href": "https://github.com/Enreign/freshdeck-mcp"
+  },
+  {
+   "title": "MCP Integration: Frequently asked questions (FAQ) : Freshdesk ...",
+   "href": "https://support.freshdesk.com/support/solutions/articles/50000014407-mcp-integration-frequently-asked-questions-faq-"
+  },
+  {
+   "title": "Freshdesk\u2122 Official WebSite - Freshdesk\u2122 Ticketing Tool",
+   "href": "https://www.bing.com/aclick?ld=e8GtvFSu_xd65s4DMCVTsBbDVUCUxqjxv8hPG0QRwvP_NjodpcHZPcSj5U0kwcsi5E1YmlFZGdSBtXKKi5vHTiL3_Vg9hupRhw6TfsSzSRjMQ5VNPm46VAaKDrQgP-sqndjbeGOTygfYln3AV5ONB1HchOSwXzwzv38BuZmJGd2sckY2gGFtKby7ZpDQvzEYZqb8N-yNi9UL9njErqz_SHbvfDVU0&u=aHR0cHMlM2ElMmYlMmZ3d3cuZnJlc2h3b3Jrcy5jb20lMmZmcmVzaGRlc2slMmZscCUyZmZyZXNoZGVzay1icmFuZC0yJTJmJTNmdGFjdGljX2lkJTNkMzM4NzI3NSUyNmRldmljZSUzZGMlMjZtYXRjaHR5cGUlM2RwJTI2bmV0d29yayUzZG8lMjZnY2xpZCUzZCUyNmF1ZGllbmNlJTNka3dkLTgxMzY0MTEwMDQ3NDYwJTNhbG9jLTkwJTI2YWRfaWQlM2QlMjZtc2Nsa2lkJTNkODM1MmFiOTRlMDNiMWQyMDA2MzJjMDkwYzBmMWMyYTklMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZ1dG1fY2FtcGFpZ24lM2RGRC1TZWFyY2gtQnJhbmQtSW5kaWEtVGllci0yJTI2dXRtX3Rlcm0lM2RmcmVzaCUyNTIwZGVzY2slMjZ1dG1fY29udGVudCUzZEJyYW5kLU1pc3NwZWxscy1QTQ&rlid=8352ab94e03b1d200632c090c0f1c2a9"
+  },
+  {
+   "title": "Freshdesk Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/freshdesk/freshdesk-plans-pricing/"
+  },
+  {
+   "title": "Freshdesk Developers",
+   "href": "https://developers.freshdesk.com/"
+  },
+  {
+   "title": "Freshdesk",
+   "href": "https://developers.freshdesk.com/api/"
+  },
+  {
+   "title": "Freshdesk Customer Support Software Pricing & Plans | Freshdesk",
+   "href": "https://www.freshworks.com/freshdesk/pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:47:37.000032"
+}

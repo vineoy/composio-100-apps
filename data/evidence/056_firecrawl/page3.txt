@@ -1,0 +1,77 @@
+URL: https://docs.firecrawl.dev/mcp-server
+FETCHED: 2026-11-23T17:34:50.621217
+VIA: direct
+
+Firecrawl MCP: Get Started
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Choose how the connection will authenticate. Signing in and adding an API key are two paths to the same access: both reach the full tool surface on your team’s plan.
+Try Instantly
+No account or key. Search, Scrape, and Parse within daily limits.
+Start keyless setup
+Sign in
+Browser sign-in from Codex, Claude Code, or your favorite harness.
+Connect account
+Use an API key
+Configure an API key in your client, no browser needed.
+Configure an API key
+Use ChatGPT, Codex, Claude, or Grok Bot? Install the native Firecrawl connector in one click:
+Add to ChatGPT & Codex
+Install the native Firecrawl connector in ChatGPT and Codex.
+Open in ChatGPT
+Add to Claude
+Install the native Firecrawl connector in Claude.
+Open in Claude
+Add to Grok Bot
+Install the Firecrawl plugin in Grok Bot.
+Open in Grok Bot
+Using Claude Desktop, Cowork, or the Code tab? Follow the
+Claude Desktop guide
+to connect once under the server name
+firecrawl
+. Setting up Grok Bot? See the
+Grok Bot guide
+.
+Sign in
+Point your client at the OAuth server URL. Your client opens a browser window where you sign in to Firecrawl and approve a team:
+{
+"mcpServers"
+: {
+"firecrawl"
+: {
+"type"
+:
+"http"
+,
+"url"
+:
+"https://mcp.firecrawl.dev/v2/mcp-oauth"
+}
+}
+}
+No API key or headers are needed. Review and revoke connections from
+MCP settings
+.
+This is a server URL for your MCP client, not a page to open directly in a browser. API-key connections use
+https://mcp.firecrawl.dev/v2/mcp
+with a bearer token instead; see
+Add an API key
+.
+Client setup
+For Agents
+Start keyless or use an API key.
+For Humans
+Sign in via browser.
+Using GitHub Copilot? Follow the
+Copilot CLI and VS Code guide
+.
+Next:
+choose a tool
+or
+run the server locally
+.
+Suggest edits
+Raise issue

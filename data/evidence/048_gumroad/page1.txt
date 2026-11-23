@@ -1,0 +1,93 @@
+URL: https://gumroad.com/mcp
+FETCHED: 2026-11-23T17:29:13.864159
+VIA: direct
+
+Gumroad MCP | Sell digital products from your AI assistant
+10.1K
+Discover
+Blog
+Pricing
+Features
+About
+Gumclaw
+Log in
+Start selling
+Discover
+Blog
+Pricing
+Features
+About
+Gumclaw
+Log in
+Start selling
+An MCP server for selling digital products
+What can you do with it?
+Model Context Protocol (MCP) lets your AI assistant work with your store. Manage ebooks, templates, courses, and other digital products without leaving the chat.
+“Show my recent sales.”
+See which products people bought and what they paid.
+“Draft my next product.”
+Ask for a product name, price, and description. Add the product files in Gumroad before publishing.
+“Check my latest payouts.”
+Check recent payout amounts and their status.
+Choose your assistant
+Which assistant can I connect?
+Gumroad MCP for Muse
+Submitted for review. The Gumroad connector is not yet available in Muse.
+Read the technical details
+Gumroad MCP for Claude
+Available now in Claude’s connector directory.
+Listed in Claude’s connector directory. You can also add it as a custom connector.
+Set up Gumroad MCP
+Gumroad MCP for Cursor
+Available now as a custom connector.
+Set up Gumroad MCP
+Gumroad MCP for Google Antigravity
+Available now as a custom connector.
+Set up Gumroad MCP
+Gumroad MCP for ChatGPT
+Available now in ChatGPT’s plugin directory.
+Listed in ChatGPT’s plugin directory.
+Set up Gumroad MCP
+Every assistant connects to its own URL and asks for OAuth access to your Gumroad account. Each connector page lists the exact address to paste.
+Set up Gumroad MCP
+How do you connect?
+Setup takes three steps in the assistant you use. You stay signed in to Gumroad, and you can revoke access whenever you want.
+1. Add the connector
+Add Gumroad from your assistant’s connector directory, or open its connector settings and add a remote MCP server using the URL from its connector page.
+Gumroad MCP for Claude connector page
+Gumroad MCP for Cursor connector page
+Gumroad MCP for Google Antigravity connector page
+Gumroad MCP for ChatGPT connector page
+2. Connect your Gumroad account
+Sign in to Gumroad when prompted. Review the requested permissions before you authorize access.
+3. Start a conversation
+Select the connector in your chat. Try asking, “Show my Gumroad products.”
+Full step-by-step guide
+The help center covers the permissions you grant, revoking access, and what to do when publishing fails.
+Connecting AI assistants to your Gumroad store
+What access do you give your assistant?
+What data can it read?
+Your products, sales, buyer emails, and payouts, according to the permissions you grant. You can grant some and not others.
+Can it publish products?
+New products start as unpublished drafts. With product access, the connector can publish or unpublish them. Review these actions in your MCP client.
+How do customers buy?
+Share your product’s Gumroad link. Customers pay through Gumroad checkout. The MCP server does not take payments in your chat.
+How do I revoke access?
+Revoke the connection any time in
+Settings > Applications
+. Disconnecting the connector in your chat app does not revoke its access token, so revoke it here to end the connection.
+Subscribe to get tips and tactics to grow the way you want.
+→
+Ⓒ Gumroad, Inc.
+Discover
+Blog
+Pricing
+Features
+About
+Gumclaw
+Small Bets
+Gumroad MCP
+Help
+Board meetings
+Terms of Service
+Privacy Policy

@@ -1,34 +1,85 @@
 {
  "source": "research_v1.json",
- "n": 7,
+ "n": 51,
  "categories": [
-  "CRM and Sales"
+  "CRM and Sales",
+  "Communications and Messaging",
+  "Data, SEO and Scraping",
+  "Ecommerce",
+  "Marketing, Ads, Email and Social",
+  "Support and Helpdesk"
  ],
  "auth_distribution": {
-  "OAuth2": 6,
-  "Bearer token": 4,
-  "API key": 4,
-  "Basic": 1,
-  "other": 1
+  "OAuth2": 37,
+  "Bearer token": 25,
+  "API key": 21,
+  "Basic": 14,
+  "JWT": 6,
+  "other": 4
  },
  "access_distribution": {
-  "free_self_serve": 6,
-  "trial_self_serve": 0,
-  "paid_plan": 0,
-  "admin_approval": 0,
-  "partner_gated": 0,
+  "free_self_serve": 31,
+  "trial_self_serve": 3,
+  "paid_plan": 6,
+  "admin_approval": 5,
+  "partner_gated": 1,
   "no_public_api": 0,
-  "unknown": 1
+  "unknown": 5
  },
  "access_heatmap": {
   "CRM and Sales": {
    "free_self_serve": 6,
    "trial_self_serve": 0,
+   "paid_plan": 1,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 3
+  },
+  "Communications and Messaging": {
+   "free_self_serve": 10,
+   "trial_self_serve": 0,
    "paid_plan": 0,
    "admin_approval": 0,
    "partner_gated": 0,
    "no_public_api": 0,
-   "unknown": 1
+   "unknown": 0
+  },
+  "Data, SEO and Scraping": {
+   "free_self_serve": 0,
+   "trial_self_serve": 1,
+   "paid_plan": 0,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 0
+  },
+  "Ecommerce": {
+   "free_self_serve": 7,
+   "trial_self_serve": 0,
+   "paid_plan": 3,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 0
+  },
+  "Marketing, Ads, Email and Social": {
+   "free_self_serve": 5,
+   "trial_self_serve": 0,
+   "paid_plan": 1,
+   "admin_approval": 3,
+   "partner_gated": 1,
+   "no_public_api": 0,
+   "unknown": 0
+  },
+  "Support and Helpdesk": {
+   "free_self_serve": 3,
+   "trial_self_serve": 2,
+   "paid_plan": 1,
+   "admin_approval": 2,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 2
   }
  },
  "access_order": [
@@ -41,31 +92,166 @@
   "unknown"
  ],
  "api_type_distribution": {
-  "REST": 5,
-  "both": 1,
-  "unknown": 1
+  "REST": 42,
+  "both": 3,
+  "unknown": 3,
+  "GraphQL": 2,
+  "other: MTProto / HTTP": 1
  },
  "breadth_distribution": {
-  "unknown": 4,
-  "broad": 3
+  "broad": 14,
+  "moderate": 12,
+  "very_broad": 12,
+  "unknown": 11,
+  "narrow": 2
  },
  "mcp_distribution": {
-  "unknown": 4,
-  "official": 3
+  "official": 27,
+  "none": 11,
+  "unknown": 8,
+  "community": 5
  },
  "verdict_distribution": {
-  "ready": 6,
+  "ready": 43,
+  "feasible": 7,
   "unknown": 1
  },
  "confidence_distribution": {
-  "high": 6,
+  "high": 50,
   "low": 1
  },
- "blocker_buckets": {},
+ "blocker_buckets": {
+  "Admin / app-review approval": 4,
+  "Other": 1,
+  "Paid plan required": 1,
+  "Partner / sales gate": 1
+ },
  "composio_coverage": {
-  "have": 7,
-  "missing": 0,
-  "missing_apps": []
+  "have": 42,
+  "missing": 9,
+  "missing_apps": [
+   {
+    "id": 10,
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "access": "paid_plan",
+    "verdict": "ready",
+    "auth": [
+     "API key",
+     "Basic",
+     "JWT",
+     "OAuth2"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 16,
+    "name": "LiveAgent",
+    "category": "Support and Helpdesk",
+    "access": "trial_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key",
+     "Bearer token",
+     "OAuth2"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 20,
+    "name": "Gladly",
+    "category": "Support and Helpdesk",
+    "access": "admin_approval",
+    "verdict": "ready",
+    "auth": [
+     "Basic"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 30,
+    "name": "Vonage",
+    "category": "Communications and Messaging",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key",
+     "Basic",
+     "JWT"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 37,
+    "name": "systeme.io",
+    "category": "Marketing, Ads, Email and Social",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key"
+    ],
+    "mcp": "none",
+    "composio": false
+   },
+   {
+    "id": 42,
+    "name": "WooCommerce",
+    "category": "Ecommerce",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key",
+     "Basic",
+     "other"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 45,
+    "name": "Magento (Adobe Commerce)",
+    "category": "Ecommerce",
+    "access": "paid_plan",
+    "verdict": "ready",
+    "auth": [
+     "Bearer token",
+     "JWT",
+     "OAuth2"
+    ],
+    "mcp": "none",
+    "composio": false
+   },
+   {
+    "id": 47,
+    "name": "Ecwid",
+    "category": "Ecommerce",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "Bearer token",
+     "OAuth2"
+    ],
+    "mcp": "none",
+    "composio": false
+   },
+   {
+    "id": 50,
+    "name": "fanbasis",
+    "category": "Ecommerce",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key",
+     "other"
+    ],
+    "mcp": "official",
+    "composio": false
+   }
+  ]
  },
  "easy_wins": [
   {
@@ -105,17 +291,209 @@
    ],
    "mcp": "unknown",
    "composio": true
+  },
+  {
+   "id": 23,
+   "name": "Zoho Cliq",
+   "category": "Communications and Messaging",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 26,
+   "name": "Discord",
+   "category": "Communications and Messaging",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Basic",
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "community",
+   "composio": true
+  },
+  {
+   "id": 28,
+   "name": "WhatsApp Business",
+   "category": "Communications and Messaging",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 29,
+   "name": "Aircall",
+   "category": "Communications and Messaging",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Basic",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 37,
+   "name": "systeme.io",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key"
+   ],
+   "mcp": "none",
+   "composio": false
+  },
+  {
+   "id": 40,
+   "name": "SendGrid",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "Bearer token"
+   ],
+   "mcp": "community",
+   "composio": true
+  },
+  {
+   "id": 47,
+   "name": "Ecwid",
+   "category": "Ecommerce",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": false
+  },
+  {
+   "id": 49,
+   "name": "Amazon Selling Partner",
+   "category": "Ecommerce",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 51,
+   "name": "DataForSEO",
+   "category": "Data, SEO and Scraping",
+   "access": "trial_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Basic"
+   ],
+   "mcp": "none",
+   "composio": true
   }
  ],
- "outreach": [],
+ "outreach": [
+  {
+   "id": 15,
+   "name": "Pylon",
+   "category": "Support and Helpdesk",
+   "access": "admin_approval",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "official",
+   "composio": true
+  },
+  {
+   "id": 20,
+   "name": "Gladly",
+   "category": "Support and Helpdesk",
+   "access": "admin_approval",
+   "verdict": "ready",
+   "auth": [
+    "Basic"
+   ],
+   "mcp": "official",
+   "composio": false
+  },
+  {
+   "id": 31,
+   "name": "Google Ads",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "admin_approval",
+   "verdict": "feasible",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 32,
+   "name": "Meta Ads",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "admin_approval",
+   "verdict": "feasible",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 33,
+   "name": "LinkedIn Ads",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "partner_gated",
+   "verdict": "feasible",
+   "auth": [
+    "OAuth2"
+   ],
+   "mcp": "community",
+   "composio": true
+  },
+  {
+   "id": 38,
+   "name": "Pinterest",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "admin_approval",
+   "verdict": "feasible",
+   "auth": [
+    "Basic",
+    "OAuth2"
+   ],
+   "mcp": "official",
+   "composio": true
+  }
+ ],
  "no_api": [],
  "headlines": [
-  "OAuth2 dominates: 6 of 7 apps (86%) support it; API key is the next most common.",
-  "6 of 7 apps are free self-serve for developers; 0 are gated (paid plan, admin approval, or partner/sales).",
-  "3 apps already ship an official MCP server, 0 have community MCP - the rest is whitespace for agent toolkits.",
-  "Most common blocker: n/a (0 apps).",
-  "3 easy wins: self-serve + documented API + no official MCP yet - build these toolkits first.",
-  "0 apps need outreach or are blocked - business development, not engineering.",
-  "Composio already ships toolkits for 7 of 7; 0 are catalog whitespace."
+  "OAuth2 dominates: 37 of 51 apps (73%) support it; API key is the next most common.",
+  "31 of 51 apps are free self-serve for developers; 12 are gated (paid plan, admin approval, or partner/sales).",
+  "27 apps already ship an official MCP server, 5 have community MCP - the rest is whitespace for agent toolkits.",
+  "Most common blocker: Admin / app-review approval (4 apps).",
+  "12 easy wins: self-serve + documented API + no official MCP yet - build these toolkits first.",
+  "6 apps need outreach or are blocked - business development, not engineering.",
+  "Composio already ships toolkits for 42 of 51; 9 are catalog whitespace."
  ]
 }

@@ -1,0 +1,143 @@
+URL: https://www.twilio.com/docs/iam/api
+FETCHED: 2026-11-23T16:56:35.989208
+VIA: direct
+
+Our API: the basics | Twilio
+Skip to content
+Skip to navigation
+Skip to topbar
+Twilio Docs
+Search
+Search
+Page tools
+Copy as markdown
+Useful for sharing or LLM
+Copy and view
+Copy as markdown
+View as markdown
+Open in assistant
+Open in ChatGPT
+Open in Claude
+Open in Cursor
+Open in Perplexity
+Build with AI
+Connect your AI agent
+Install Twilio Skills
+Accelerate development with AI
+On this page
+Looking for more inspiration?
+Visit the
+Developer Hub
+Copy as markdown
+Copy and view
+Copy as markdown
+View as markdown
+Open in assistant
+Open in ChatGPT
+Open in Claude
+Open in Cursor
+Open in Perplexity
+Build with AI
+Connect your AI agent
+Install Twilio Skills
+Our API: the basics
+The Twilio REST API allows you to query metadata about your
+account
+,
+phone numbers
+, calls, text messages, and recordings. You can also do some fancy things like
+make outbound phone calls
+and
+send text messages
+.
+Base URL
+All URLs referenced in the documentation have the following base:
+REST API base URL
+Copy code block
+https://api.twilio.com/2010-04-01
+The Twilio REST API is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.
+Authentication
+To authenticate requests to the Twilio APIs, Twilio supports
+HTTP Basic authentication
+. Use your
+API key SID
+as the username and your
+API key secret
+as the password. You can create an API key
+in the Twilio Console
+or
+using the API
+.
+Learn more about
+Twilio API authentication
+.
+List accounts
+curl
+Report code block
+Copy code block
+1
+curl
+-X
+GET "https://api.twilio.com/2010-04-01/Accounts.json?PageSize=20"
+\
+2
+-u $TWILIO_API_KEY
+:
+$TWILIO_API_SECRET
+Subresources
+Twilio Accounts have the following subresources. Click on a link to read the API documentation for accessing or modifying each resource:
+Phone Numbers
+Search for Phone Numbers
+Purchase Phone Numbers
+Update Phone Number Properties
+Addresses
+Usage
+View Usage Data for an Account
+Set Triggers for Usage Thresholds
+Accounts
+Accounts
+Subaccounts
+Applications
+Applications
+Connect Apps
+Authorized Connect Apps
+Make calls with Twilio
+Twilio's
+Voice API
+enables you to make, retrieve, control and monitor calls. Using this REST API, you can
+make outbound phone calls
+,
+modify calls in progress
+, and
+query metadata
+about calls. See the
+Voice API Documentation
+for guides, REST resources, and
+troubleshooting tips
+.
+Connect with SIP
+Programmable Voice SIP lets you route your voice calls with global reach to any landline phone, mobile phone, browser, mobile app, or any other SIP endpoint. Check out Twilio's
+SIP Resources for Voice
+including
+SIP Domains
+,
+IP Access Control Lists
+, and
+Credential Lists
+.
+Send messages with Twilio
+With Twilio's Messaging API, you can send and receive
+SMS
+and
+MMS
+messages as well as query meta-data about text messages such as
+delivery status
+,
+associated media
+, and leverage tools like
+Messaging Services
+to manage your messages globally at scale. Check out our
+Messaging API Documentation
+for guides, REST resources, and
+debugging tips
+.

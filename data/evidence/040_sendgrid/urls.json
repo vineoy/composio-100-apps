@@ -1,0 +1,77 @@
+{
+ "app": "SendGrid",
+ "queries": [
+  "SendGrid API authentication documentation",
+  "SendGrid MCP server",
+  "SendGrid API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://ahoy.sendgrid.com/rs/294-TKB-300/images/SendGrid_API_Guide.pdf",
+  "https://github.com/FINCH285/SendGrid-MCP-Server",
+  "https://github.com/recepyavuz0/sendgrid-mcp-server",
+  "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/authentication"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication | SendGrid Docs | Twilio",
+   "href": "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/authentication"
+  },
+  {
+   "title": "Authentication | SendGrid Docs | Twilio",
+   "href": "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication"
+  },
+  {
+   "title": "API Guide - SendGrid",
+   "href": "https://ahoy.sendgrid.com/rs/294-TKB-300/images/SendGrid_API_Guide.pdf"
+  },
+  {
+   "title": "Sendgrid API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/450/sendgrid"
+  },
+  {
+   "title": "login - app.sendgrid.com",
+   "href": "https://app.sendgrid.com/docs/API_Reference/mail/index.html"
+  },
+  {
+   "title": "Build a SendGrid MCP Server for AI Email Workflows - Twilio",
+   "href": "https://www.twilio.com/en-us/blog/developers/community/build-a-sendgrid-mcp-server-for-ai-email-workflows"
+  },
+  {
+   "title": "GitHub - FINCH285/SendGrid-MCP-Server",
+   "href": "https://github.com/FINCH285/SendGrid-MCP-Server"
+  },
+  {
+   "title": "GitHub - recepyavuz0/sendgrid-mcp-server: Sendrid API ...",
+   "href": "https://github.com/recepyavuz0/sendgrid-mcp-server"
+  },
+  {
+   "title": "SendGrid MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/deyikong/sendgrid-mcp"
+  },
+  {
+   "title": "SendGrid MCP Server and REST API | MCP.ai",
+   "href": "https://mcp.ai/sendgrid/en"
+  },
+  {
+   "title": "Email API Pricing | Twilio",
+   "href": "https://www.twilio.com/en-us/products/email-api/pricing"
+  },
+  {
+   "title": "Is SendGrid Free? Yes \u2014 Paid Starts at $19.95/mo (2026)",
+   "href": "https://costbench.com/software/email-api/sendgrid/free-plan/"
+  },
+  {
+   "title": "SendGrid Pricing Explained (2026): Email API Plans",
+   "href": "https://www.sequenzy.com/pricing/sendgrid"
+  },
+  {
+   "title": "SendGrid Pricing 2026: 4 Plans from $19.95\u2013$89.95/mo",
+   "href": "https://costbench.com/software/email-api/sendgrid/"
+  },
+  {
+   "title": "SendGrid Pricing 2026: Free Tier, Plans & Credits Guide",
+   "href": "https://www.getaiperks.com/en/ai/sendgrid-pricing-free-credits"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:16:19.246697"
+}

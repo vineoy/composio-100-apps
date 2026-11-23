@@ -1,0 +1,76 @@
+{
+ "app": "Salesforce Commerce Cloud",
+ "queries": [
+  "Salesforce Commerce Cloud API authentication documentation",
+  "Salesforce Commerce Cloud MCP server",
+  "Salesforce Commerce Cloud API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "http://developer.salesforce.com/docs/commerce",
+  "https://developer.salesforce.com/docs/commerce/commerce-api/overview",
+  "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization.html"
+ ],
+ "search_hits": [
+  {
+   "title": "B2C Commerce API | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/commerce/commerce-api/overview"
+  },
+  {
+   "title": "Authorization | SCAPI | B2C Commerce API | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization.html"
+  },
+  {
+   "title": "Configure Headless Commerce API Authentication via Account ...",
+   "href": "https://help.salesforce.com/s/articleView?id=commerce.oci_impl_configure_headless_api_auth.htm&language=en_US&type=5"
+  },
+  {
+   "title": "OCAPI Client Authentication and Authorization in B2C Commerce",
+   "href": "https://help.salesforce.com/s/articleView?id=cc.b2c_ocapi_client_authentication_and_authorization.htm&language=en_US&type=5"
+  },
+  {
+   "title": "Salesforce B2C Developer Documentation Resources",
+   "href": "https://salesforcecommercecloud.github.io/b2c-dev-doc/"
+  },
+  {
+   "title": "Commerce Cloud MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/BrinsilElias/commercecloud-mcp-server"
+  },
+  {
+   "title": "MCP (Model Context Protocol) | Agentic B2C Developer Toolkit",
+   "href": "https://salesforcecommercecloud.github.io/b2c-developer-tooling/mcp/"
+  },
+  {
+   "title": "Introducing MCP Support Across Salesforce",
+   "href": "https://developer.salesforce.com/blogs/2025/06/introducing-mcp-support-across-salesforce"
+  },
+  {
+   "title": "The MCP Server for Marketing Cloud Engagement is Now GA",
+   "href": "https://developer.salesforce.com/blogs/2026/06/the-mcp-server-for-marketing-cloud-engagement-is-now-ga"
+  },
+  {
+   "title": "Commerce Cloud MCP Server for Salesforce Commerce",
+   "href": "https://ecommerceguide.com/mcp/commerce-cloud-mcp-server/"
+  },
+  {
+   "title": "B2C Commerce API | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/commerce/commerce-api/overview"
+  },
+  {
+   "title": "Salesforce Commerce Cloud Pricing and Editions | Salesforce",
+   "href": "https://www.salesforce.com/commerce/pricing/"
+  },
+  {
+   "title": "SCAPI | B2C Commerce API | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html"
+  },
+  {
+   "title": "Salesforce Pricing: See Pricing Plans for All Salesforce ...",
+   "href": "https://www.salesforce.com/pricing/"
+  },
+  {
+   "title": "Certification - Salesforce Certified B2C Commerce Developer",
+   "href": "https://trailhead.salesforce.com/credentials/b2ccommercedeveloper"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:24:33.422618"
+}

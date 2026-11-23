@@ -1,0 +1,142 @@
+URL: https://support.freshdesk.com/support/solutions/articles/50000014407-mcp-integration-frequently-asked-questions-faq-
+FETCHED: 2026-11-23T16:47:36.998983
+VIA: direct
+
+MCP Integration: Frequently asked questions (FAQ) : Freshdesk Support
+Login
+Support home
+›
+Resources
+Community
+›
+Video Library
+›
+Agent Training
+›
+Products
+Freshservice
+›
+Freshdesk
+›
+Freshchat
+›
+Freshcaller
+›
+Freshsales
+›
+Freshteam
+›
+Freshworks Neo
+›
+Freshsurvey
+›
+Solution home
+Freshdesk Integrations
+Model Context Protocol (MCP) integration
+MCP Integration: Frequently asked questions (FAQ)
+Modified on: Fri, 6 Nov, 2026 at  1:44 PM
+The following FAQs address common questions and clarifications.
+Info
+: For an overview of MCP integration, including setup and configuration steps, see the
+MCP integration article
+.
+TABLE OF CONTENTS
+Understand MCP
+Setup and configuration
+Security and access control
+Capabilities and limitations
+Billing and pricing
+Understand MCP
+What is the Model Context Protocol (MCP)?
+The Model Context Protocol (MCP) is an open standard that enables AI assistants, such as Claude and Microsoft Copilot, to connect directly to Freshdesk. Through MCP, these assistants can perform actions on your behalf, such as creating tickets, updating contacts, or retrieving conversation history, without leaving the AI client.
+Which Freshdesk products support MCP?
+MCP is supported only in Freshdesk 2021 and Freshdesk Unified Omni 2026. Following is the compatibility matrix:
+Product / Plan Variant
+GA Support (Post-Sep 10, 2026)
+Notes
+Freshdesk Standalone 2021 (Latest version)
+Supported
+Full support for GA release.
+Freshdesk Unified Omni 2026
+Supported
+Full support for GA release.
+Legacy Freshdesk Variants (Pre-2021) / Other SKUs
+Not Supported
+EAP access ends September 10, 2026.
+Which AI clients are supported?
+You can use any AI client that supports the MCP standard. Connect your preferred MCP-compatible client to Freshdesk using the MCP server URL and the API key provided in your Freshdesk administrator settings.
+Setup and configuration
+How do I find my MCP settings in Freshdesk?
+Go to
+Admin Settings
+>
+Apps & Integrations
+>
+MCP
+. On the
+MCP Details
+page, you can copy your MCP server URL, generate an API key, and manage your connection.
+Is MCP enabled by default?
+Yes. MCP is enabled by default for your Freshdesk instance. Administrators can disable it at any time from the
+MCP Details
+page.
+How does authentication work for MCP?
+Freshdesk MCP uses API key authentication. Each user manually connects their AI client using their individual Freshdesk API key and the MCP server URL. You can find your API key in your Freshdesk profile settings.
+Can I control which tools or actions are available through MCP?
+Currently, tool-level access management is not available. All supported MCP tools are available by default to any user who connects using a valid API key.
+Is Freshdesk available as a native connector in AI clients like Claude or Gemini?
+Not yet. Freshdesk is not currently listed as a native connector in AI client marketplaces. To connect an AI client to Freshdesk via MCP, you must manually enter the MCP server URL and authenticate using your API key.
+Security and access control
+Who can use MCP to interact with Freshdesk?
+Any user with a valid Freshdesk API key can connect an AI client to MCP. The actions available through MCP strictly match the permissions granted by the user's Freshdesk role. MCP does not grant additional permissions.
+Can an AI agent access data that a user isn't permitted to see?
+No. MCP calls execute within the context of the authenticated user's API key. All Freshdesk role-based access controls and data scoping rules apply identically to MCP requests.
+Capabilities and limitations
+What actions can an AI agent take through MCP?
+Available actions include creating, updating, and retrieving tickets; searching contacts and companies; and fetching conversation history. For a complete list of tools, see
+list of available tools
+.
+Does MCP work in real time?
+Yes. MCP calls execute in real time against your live Freshdesk data.
+What happens if an AI agent sends an unsupported or invalid request?
+The MCP server returns a structured error to the AI client. The client then handles the error gracefully and informs the user.
+Billing and pricing
+How does the pricing model work for MCP?
+Starting September 10, 2026, MCP usage is measured in Actions. An action is a successful tool invocation. Note that complex requests requiring multiple tools might consume multiple actions. Any call to an MCP server counts as one action, regardless of whether it reads or writes data, and regardless of which AI client made the call.
+How many MCP actions are included in my plan?
+See
+Supported Plans and Limits
+for latest information.
+Note
+: Allowances are prorated for customers on shorter billing cycles. The action count resets at the start of each billing cycle.
+Will unused MCP actions roll over to the following billing cycle?
+No. MCP action allowances are tied to your current billing cycle and do not roll over.
+Will I receive notifications before reaching my action limit?
+Yes. Account admins receive notifications as usage approaches the limit. Notifications are sent when usage reaches 50%, 75%, 90%, 95%, 99%, and 100% of the allowance.
+Can I purchase additional MCP actions?
+Yes. You can purchase an MCP Action Pack add-on to increase your MCP action allowance.
+Contact your account manager or visit the billing section in your administrator settings to purchase an add-on. See
+Pricing
+for details.
+How will Early Access Program (EAP) participants transition to the new pricing model?
+If you participated in the Early Access Program (EAP), which had no pricing, your account will automatically transition to the general availability (GA) pricing model. No action is required on your part.
+Important
+: 
+
+• If you were on the Early Access Program (EAP), standard pricing and limits take effect on
+October 5, 2026
+.
+
+•
+During the EAP, if you used the MCP integration on any plan other than Freshdesk Standalone 2021 (the latest version) or Freshdesk Unified Omni 2026 variant, the integration will stop working after
+September 10, 2026
+.
+Related articles
+Manage MCP Add-ons in Freshdesk
+Model Context Protocol (MCP) integration in Freshdesk
+Data Usage Analytics
+How to integrate Xero?
+Freshdesk Omni
+The agentic AI solution for modern, omnichannel customer service.
+Start free trial
+Learn more

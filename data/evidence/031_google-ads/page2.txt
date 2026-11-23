@@ -1,0 +1,292 @@
+URL: https://developers.google.com/google-ads/api/rest/auth
+FETCHED: 2026-11-23T17:04:05.527818
+VIA: direct
+
+Authorization and HTTP Headers  |  Google Ads API  |  Google for Developers
+Skip to main content
+Ads API
+/
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Polski
+Português – Brasil
+Tiếng Việt
+Türkçe
+Русский
+עברית
+العربيّة
+فارسی
+हिंदी
+বাংলা
+ภาษาไทย
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Home
+Products
+Google Ads API
+Libraries and samples
+Send feedback
+Authorization and HTTP Headers
+Stay organized with collections
+Save and categorize content based on your preferences.
+Page Summary
+outlined_flag
+When calling the Google Ads API, you need both OAuth 2.0 application credentials and a developer token.
+If making API calls with a Google Ads manager account, you must specify a
+login-customer-id
+header.
+You can use desktop/web app flows or service accounts to obtain OAuth 2.0 credentials.
+A developer token is required in the
+developer-token
+HTTP header for every API call.
+The
+request-id
+response header uniquely identifies an API request and is useful for debugging.
+Note:
+If you are new to the Google Ads API, we recommend reading the
+Getting
+Started
+guide first, which covers how to
+set up your account and make your first API call. Make sure to follow the
+curl
+tab.
+You need OAuth 2.0 credentials when calling the Google Ads API. If you're making API
+calls with a Google Ads manager account, you also need to specify a
+login-customer-id
+header with each request. This page describes how to set
+these values and documents several additional API-specific HTTP headers that are
+sent and received when using the REST interface.
+OAuth 2.0 credentials
+The Google Ads API uses OAuth 2.0 for authorizing API requests. Both OAuth 2.0
+user
+authentication flow
+and
+service
+account flow
+are supported. For more details,
+see
+OAuth 2.0 in the Google Ads API
+.
+If you are new to Google APIs, you can use the
+gcloud command-line
+tool
+or the
+OAuth 2.0
+Playground
+to experiment with OAuth
+2.0 credentials and the Google Ads API before writing code for your app.
+We recommend that you use one of the OAuth 2.0 libraries available at
+https://oauth.net/code/
+to implement the OAuth 2.0
+authorization workflows. However, we have listed the curl instructions in case
+you need to implement it yourself.
+Service accounts
+Follow the steps to configure a
+Google Cloud project for the
+Google Ads API
+. Record the
+service account email
+and
+service account key
+. Next, follow the
+common instructions in the
+Service
+Accounts
+guide to set
+up the service account to access your Google Ads account.
+User authentication
+Follow the steps to
+configure a Google Cloud Console project for the
+Google Ads API
+. Record
+the
+client ID
+and
+client secret
+. Next, follow the
+desktop app flow
+instructions
+or the
+web app flow
+instructions
+to generate a
+refresh token
+and an
+access token
+. The
+scope
+to use
+for Google Ads API access is
+https://www.googleapis.com/auth/adwords
+.
+Generate new access tokens
+Service accounts
+When you have the
+service account email
+and
+service account key
+,
+follow the
+Using OAuth 2.0 for Server to Server Applications
+guide to generate a
+JWT claim set
+, which can then be exchanged to obtain
+an OAuth 2.0 access token. Make sure to select the
+HTTP/REST
+tab while
+following the guide. The OAuth 2.0
+scope
+to use for Google Ads API access is
+https://www.googleapis.com/auth/adwords
+. In addition, you can skip the
+sub
+parameter when constructing the JWT claim set, because the setup steps
+grant the service account direct access to the Google Ads account, thus avoiding
+the need to impersonate a Google Ads user.
+You then use the
+access token
+in the
+Authorization
+HTTP header of
+every API call to the Google Ads API:
+GET /v26/customers:listAccessibleCustomers HTTP/1.1
+Host: googleads.googleapis.com
+Authorization: Bearer
+ACCESS_TOKEN
+User authentication
+Once you have an OAuth 2.0
+client ID
+,
+client secret
+, and
+refresh
+token
+, you can generate a new access token for use in API calls with the
+curl
+command line tool:
+Note:
+The version
+v3
+in the OAuth endpoint URL is unrelated to the Google Ads API
+version and shouldn't change when migrating to newer versions of Google Ads API.
+curl
+\
+--data
+"grant_type=refresh_token"
+\
+--data
+"client_id=
+CLIENT_ID
+"
+\
+--data
+"client_secret=
+CLIENT_SECRET
+"
+\
+--data
+"refresh_token=
+REFRESH_TOKEN
+"
+\
+https://www.googleapis.com/oauth2/v3/token
+You then use the
+access token
+returned by the curl request in the
+Authorization
+HTTP header of every API call to the Google Ads API:
+GET /v26/customers:listAccessibleCustomers HTTP/1.1
+Host: googleads.googleapis.com
+Authorization: Bearer
+ACCESS_TOKEN
+Request headers
+The following sections describe the HTTP headers required or used when making
+requests to the Google Ads API.
+Login customer ID
+For Google Ads API calls made by a manager to a client account (that is, when logging
+in as a manager to make API calls to one of its client accounts), you also need
+to supply the
+login-customer-id
+HTTP header. This value represents the Google Ads
+customer ID of the manager making the API call.
+Including this header is equivalent to choosing an account in the Google Ads UI
+after signing in or clicking your profile image at the top right corner of the
+page. When specifying the customer ID, be sure to remove any hyphens (—). For
+example:
+1234567890
+, not
+123-456-7890
+. Refer to the
+Google Ads access model
+guide
+to learn more about login customer ID.
+GET /v26/customers:listAccessibleCustomers HTTP/1.1
+Host: googleads.googleapis.com
+Authorization: Bearer
+ACCESS_TOKEN
+login-customer-id:
+MANAGER_CUSTOMER_ID
+Key Point:
+If you're not authorizing as a manager account--in other words, if
+your OAuth 2.0 credentials are for a user of the target Google Ads
+client
+account
+directly--you don't need to supply a
+login-customer-id
+header.
+Linked customer ID
+The Linked customer ID header is used by partners (such as third-party app
+analytics providers or data partners) when acting on a linked Google Ads account.
+See the
+API Call Structure
+guide
+for more details.
+Authorization: Bearer
+ACCESS_TOKEN
+login-customer-id:
+PARTNER_CUSTOMER_ID
+linked-customer-id:
+ADVERTISER_CUSTOMER_ID
+Response headers
+The following headers are returned in HTTP responses from the API.
+Request ID
+The
+request-id
+is a string that uniquely identifies the API request. When
+debugging or troubleshooting problems with specific API calls, the
+request-id
+is an important identifier to have handy when contacting Google developer
+support.
+Tip:
+To view response headers, including
+google-ads-request-id
+, when using
+curl, add the
+-i
+or
+--include
+option to your command.
+request-id: 2a5Cj89VV7CNhya1DZjjrC
+Previous
+arrow_back
+Overview
+Next
+REST interface design
+arrow_forward
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the
+Creative Commons Attribution 4.0 License
+, and code samples are licensed under the
+Apache 2.0 License
+. For details, see the
+Google Developers Site Policies
+. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-11-13 UTC.

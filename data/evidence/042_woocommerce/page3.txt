@@ -1,0 +1,166 @@
+URL: https://woocommerce.com/document/woocommerce-ai/mcp-server/
+FETCHED: 2026-11-23T17:21:03.567145
+VIA: direct
+
+Connect an AI client to the WooCommerce AI MCP server Documentation - WooCommerce
+Skip to navigation
+Skip to content
+Extensions
+Extensions
+Pre-Sales Support
+Stripe
+WooCommerce Square
+PayPal Braintree
+AutomateWoo
+Expand
+Product CSV Import Suite
+Order/Customer CSV Export
+Facebook for WooCommerce
+WooCommerce Subscriptions
+Expand
+WooCommerce Memberships
+Expand
+WooCommerce Bookings
+Expand
+Product Bundles
+Expand
+Product Recommendations
+Expand
+Composite Products
+Expand
+Smart Coupons
+Cashier for WooCommerce
+Affiliate For WooCommerce
+Mix and Match Products
+Google Product Feed
+Groups WooCommerce
+Gift Cards
+Expand
+API Manager
+Table Rate Shipping
+Advanced Shipping Packages
+Name Your Price
+Order Delivery
+Product Vendors
+PDF Invoice
+Pre-orders
+Force Sells
+Google for WooCommerce
+Expand
+Import Export Suite for WooCommerce
+Bulk Updater for WooCommerce Subscriptions
+Expand
+Enhancer for WooCommerce Subscriptions
+Expand
+Product Add-ons
+Expand
+Xero
+Expand
+Zapier Integration
+Expand
+Anti-Fraud
+Klarna
+Expand
+Kustom Checkout
+Buy One Get One Free
+WooCommerce Shipping & Tax
+Conditional Shipping and Payments
+Email Customizer Pro
+Back In Stock Notifications
+EU VAT Number
+Sensei
+Expand
+Chained Products
+Shipment Tracking
+Expand
+Saved Addresses For WooCommerce
+Volume Discount Coupons
+Smart Product Designer
+Sales Analysis
+Smart Refunder
+WooCommerce Product Search
+Expand
+Photography
+Expand
+Easy Subscriptions
+All-in-one PDF Invoice and Packing Slips Suite
+Expand
+SensAI
+Delivery and Pickup Scheduler
+Flexi Booking and Appointment
+Flexi Product Delivery Date
+Product Prices by User Role
+Call for Price Pro
+Currency per product
+Order Delivery Date
+Abandoned Cart Pro
+Payment Gateway Based Fees and Discounts
+Product Input Fields
+Flexi Custom Order Status
+Flexi BOGO
+Smart Stock & Inventory Manager
+Advanced Bulk Edit
+Opayo
+Flexi Custom Order Numbers
+WooCommerce AI
+Product Feed Manager
+Connect an AI client to the WooCommerce AI MCP server
+Connect an external Model Context Protocol (MCP) client to your store’s WooCommerce AI server. Use the endpoint generated for your store, then authorize the client and confirm a read-only request before allowing store changes.
+Note
+:
+This is a
+Developer level
+doc. If you are unfamiliar working with code and resolving potential conflicts, we recommend you work with a
+Woo Agency Partner
+for larger projects, or find a WooCommerce developer on
+Codeable
+for smaller customizations. We are unable to provide support for customizations under our
+Support Policy
+.
+WooCommerce and WooCommerce AI are active.
+Your store and user account are connected to WordPress.com.
+Your account can manage WooCommerce.
+The MCP client supports remote HTTP servers and the authentication flow used by the endpoint.
+In WordPress admin, go to
+WooCommerce > Settings > WooCommerce AI > Advanced > MCP server
+.
+Enable
+Progressive MCP server
+if it is off.
+Open
+Setup
+, choose your client, and copy the generated server URL or configuration.
+The WordPress.com URL includes your store identifier. Its structure is:
+https://public-api.wordpress.com/wpcom/v2/sites/{site}/woocommerce-ai-mcp/v1
+Copy the complete URL from your store’s
+Setup
+screen, including its store identifier.
+Follow
+Claude Code’s MCP instructions
+for your installed client version. Add the copied endpoint with:
+claude mcp add --transport http woocommerce-ai "YOUR_COPIED_SERVER_URL"
+In Claude Code, open
+/mcp
+and complete the authentication flow when prompted. The WordPress.com connection uses OAuth on first use; this path does not require copying a WooCommerce consumer secret into the client configuration.
+Confirm that the client lists the server as connected and discovers its tools. Start with a read-only store query and compare the returned result with WordPress admin. If authentication or discovery fails, check the copied endpoint, site and user connection, and the client’s error before retrying.
+Return to the MCP server settings to enable or disable the tools exposed to external clients. Changes save as you change the controls. A disabled tool is removed from discovery and rejected if a client tries to use it. These controls are distinct from
+chat ability settings
+.
+Combined exposure groups read tools behind the load-provider and execute-tool helpers. In this mode, the settings table shows those two helpers with fixed, disabled toggles. Individual exposure lists tools directly and provides per-tool controls. After changing the exposure mode, refresh the client’s tool list to see the available tools.
+Developers can connect directly to the store endpoint using a WooCommerce REST API key. Use the endpoint:
+https://your-store.example/wp-json/woocommerce-ai/mcp
+The direct transport accepts the X-MCP-API-Key header in consumer_key:consumer_secret format. Use a dedicated key with the least required permission and keep its secret in the client’s supported secure configuration. Read keys permit read operations; write or read/write keys permit the corresponding writes. Keep the key out of screenshots and shared files.
+Follow your client’s official instructions for adding the API-key header.
+On this page
+Prerequisites
+Copy the store endpoint
+Example: Claude Code
+Verify the connection
+Manage exposed tools
+Optional: direct API-key connection
+30-day
+money-back guarantee
+Support
+teams across the world
+Safe and secure
+online payments

@@ -1,0 +1,105 @@
+URL: https://www.liveagent.com/features/api/
+FETCHED: 2026-11-23T16:50:22.737453
+VIA: direct
+
+API features | LiveAgent
+API
+LiveAgent’s API enables seamless software communication, supporting actions like company retrieval and conversation creation. Integrate with tools via Zapier, access resources like demos, and enhance customer support with features like collaboration tools and iOS app.
+API
+Integration
+Automation
+What is an API?
+An API (Application Programming Interface) is a list of commands that one software can send to another. Thanks to API you can reconnect multiple programs, tools, and automate and influence many tasks. Two different software can “communicate” directly via API.
+How does LiveAgent’s API work?
+LiveAgent’s API enables seamless software communication, allowing you to send information from or into your LiveAgent account from other apps via API. This means you can automate tasks, streamline workflows, and connect your favorite tools without manual intervention.
+Why is LiveAgent’s API valuable?
+Integrating LiveAgent’s API into your workflow offers numerous benefits:
+Automation
+: Automate repetitive tasks and reduce manual work
+Seamless Integration
+: Connect LiveAgent with your existing tools and software
+Improved Efficiency
+: Streamline your workflow and save time
+Better Data Management
+: Sync data across multiple platforms automatically
+Scalability
+: Grow your operations without increasing manual workload
+Cost-Effective
+: Reduce operational costs through automation
+Enhanced Productivity
+: Allow your team to focus on high-value tasks
+Available LiveAgent API Actions
+LiveAgent’s API supports a wide range of actions to help you automate your customer support operations:
+Retrieve the list of companies
+Delete conversations
+Create new conversations
+Register new customers
+Retrieve the list of departments
+Remove knowledge base entries
+Generate department reports
+And many more…
+Join our newsletter
+The latest tips and deals delivered straight to your inbox.
+Email address
+Subscribe
+Connecting AI Tools Instead of Custom Code
+If you want an AI client like Claude Desktop to work with your tickets directly, rather than building a custom integration on top of the API, LiveAgent’s
+MCP server
+gives it a standardized, permission-scoped way to search, tag, and act on tickets.
+Knowledge base resources
+Need more help with LiveAgent’s API? Check out these detailed guides:
+Complete API reference
+.
+Frequently asked questions
+What is an API?
+An API (Application Programming Interface) is a list of commands that one software can send to another. Thanks to API you can reconnect multiple programs, tools, and automate and influence many tasks. Two different software can communicate directly via API.
+What can I do with LiveAgent's API?
+With LiveAgent's API, you can retrieve company lists, delete conversations, create new conversations, register new customers, retrieve department lists, remove knowledge base entries, generate department reports, and perform many other actions to automate your workflow.
+How do I integrate LiveAgent with other tools?
+You can integrate LiveAgent with hundreds of
+tools using Zapier
+. Simply connect your favorite tool with LiveAgent through Zapier, and you can automate tasks and streamline your workflow without any coding required.
+Do I need technical knowledge to use the API?
+While the API is powerful and flexible, you can also use Zapier for no-code integrations with hundreds of popular tools. For more advanced integrations, technical knowledge may be helpful, but LiveAgent provides comprehensive API documentation and support.
+Learn more
+Help Desk Integrations
+Help Desk Integrations
+Boost workflow efficiency with LiveAgent's
+help desk
+integrations like Slack, Zapier, and API. Automate processes, share data, and enhance customer service. Try...
+Sep 9, 2020
+7 min read
+Integrations
+Automation
++4
+Top-rated support desk software
+Top-rated support desk software
+With LiveAgent you can easily integrate your CRM, knowledge base, and third-party apps to provide a unified customer experience.
+Dec 5, 2025
+2 min read
+Zapier
+Zapier
+Zapier seamlessly
+integrates LiveAgent with 200+ apps, enhancing workflow automation without coding. Benefit from quick, intuitive connections with tools like S...
+Sep 24, 2019
+3 min read
+Contact Us
+Cookie Consent
+We use cookies to enhance your browsing experience and analyze our traffic. See our
+privacy policy
+.
+Reject all
+Manage preferences
+Accept All
+Cookie Settings
+Close
+Necessary Cookies
+These cookies are required for the website to function and cannot be disabled.
+Analytics Cookies
+These cookies help us understand how visitors interact with our website.
+Marketing Cookies
+These cookies are used to measure the effectiveness of our advertising campaigns and to support relevant advertising on third-party platforms.
+Functional Cookies
+These cookies are used to remember your preferences and improve your experience.
+Cancel
+Save Preferences

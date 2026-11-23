@@ -1,0 +1,77 @@
+{
+ "app": "Mailchimp",
+ "queries": [
+  "Mailchimp API authentication documentation",
+  "Mailchimp MCP server",
+  "Mailchimp API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://mailchimp.com/developer",
+  "https://mailchimp.com/developer/marketing/api-concepts/authentication",
+  "https://mailchimp.com/developer",
+  "https://mailchimp.com/developer/marketing/build/ai-tools/mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication | Mailchimp | Developer",
+   "href": "https://mailchimp.com/developer/marketing/api-concepts/authentication"
+  },
+  {
+   "title": "Developer - Mailchimp",
+   "href": "https://mailchimp.com/developer/"
+  },
+  {
+   "title": "Mailchimp API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/131/mailchimp"
+  },
+  {
+   "title": "Navigating the Mailchimp API Documentation: A Beginner\u2019s ...",
+   "href": "https://ones.com/blog/navigating-the-mailchimp-api-documentation-a-beginners-walkthrough/"
+  },
+  {
+   "title": "Mailchimp API Authentication - Universal API - mindcloud.co",
+   "href": "https://mindcloud.co/docs/universal/rest/mailchimp/latest/introduction/authentication"
+  },
+  {
+   "title": "MCP server | Mailchimp | Developer",
+   "href": "https://mailchimp.com/developer/marketing/build/ai-tools/mcp-server"
+  },
+  {
+   "title": "How to Use Mailchimp's Transactional Messaging MCP",
+   "href": "https://mailchimp.com/developer/transactional/guides/how-to-use-mailchimps-transactional-messaging-mcp/"
+  },
+  {
+   "title": "GitHub - damientilman/mailchimp-mcp-server: The most complete ...",
+   "href": "https://github.com/damientilman/mailchimp-mcp-server"
+  },
+  {
+   "title": "GitHub - AgentX-ai/mailchimp-mcp: Allows AI agents to ...",
+   "href": "https://github.com/AgentX-ai/mailchimp-mcp"
+  },
+  {
+   "title": "Mailchimp MCP server: what actually works | Plainpaper",
+   "href": "https://plainpaper.io/tools/mailchimp/"
+  },
+  {
+   "title": "Developer - Mailchimp",
+   "href": "https://mailchimp.com/developer/"
+  },
+  {
+   "title": "Generate your API key | Mailchimp | Developer",
+   "href": "https://mailchimp.com/developer/marketing/build/get-started/generate-your-api-key"
+  },
+  {
+   "title": "Mailchimp API: Rate Limits and Integration Guide (2026)",
+   "href": "https://www.activepieces.com/blog/mailchimp-api-rate-limits-and-integration-guide-2026"
+  },
+  {
+   "title": "Mailchimp API | API Explorer",
+   "href": "https://requestly.com/api-explorer/mailchimp/"
+  },
+  {
+   "title": "Mailchimp Free API Key & Live Test | FreeAPI - findfreeapi.com",
+   "href": "https://findfreeapi.com/en/service/mailchimp"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:09:02.302154"
+}

@@ -1,0 +1,100 @@
+URL: https://docs.newapi.ai/en/docs/api/management/oauth/oauth-telegram-login-get
+FETCHED: 2026-11-23T17:00:50.281477
+VIA: direct
+
+Telegram Login | New API Documentation
+New API
+Search
+⌘
+K
+API Reference
+AI Model API
+Management API
+Authentication System Description (Auth)
+Channel management
+Default
+Groups
+Logs
+Model management
+Oauth
+Discord OAuth Login
+GET
+Bind Email
+GET
+GitHub OAuth Login
+GET
+LinuxDO OAuth Login
+GET
+OIDC Login
+GET
+Generate OAuth State
+GET
+Bind Telegram
+GET
+Telegram Login
+GET
+Bind WeChat
+GET
+WeChat OAuth Login
+GET
+Payment
+Redemption
+Security verification
+Statistics
+System
+System settings
+Tasks
+Token management
+Two factor auth
+User auth
+User management
+Vendors
+User Guide
+Installation
+API Reference
+AI Applications
+Skills
+Help & Support
+Business Cooperation
+Management API
+Oauth
+Telegram Login
+Copy Markdown
+Open
+🔓 No Authentication Required (OAuth Callback)
+loading...
+GET
+/
+api
+/
+oauth
+/
+telegram
+/
+login
+Send
+Response Body
+200
+cURL
+JavaScript
+Go
+Python
+Java
+C#
+curl -X GET "https://loading/api/oauth/telegram/login"
+200
+Empty
+How is this guide?
+Good
+Bad
+Last updated on
+Bind Telegram
+GET
+Previous Page
+Bind WeChat
+GET
+Next Page
+curl
+-X
+GET
+"https://loading/api/oauth/telegram/login"

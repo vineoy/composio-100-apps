@@ -1,0 +1,77 @@
+{
+ "app": "Telegram",
+ "queries": [
+  "Telegram API authentication documentation",
+  "Telegram MCP server",
+  "Telegram API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://core.telegram.org/api/auth",
+  "https://core.telegram.org/gateway/api",
+  "https://docs.newapi.ai/en/docs/api/management/oauth/oauth-telegram-login-get",
+  "https://github.com/sparfenyuk/mcp-telegram"
+ ],
+ "search_hits": [
+  {
+   "title": "User Authorization - Telegram APIs",
+   "href": "https://core.telegram.org/api/auth"
+  },
+  {
+   "title": "Telegram Gateway API",
+   "href": "https://core.telegram.org/gateway/api"
+  },
+  {
+   "title": "Telegram API - Docs, SDKs & Integration",
+   "href": "https://apitracker.io/a/telegram"
+  },
+  {
+   "title": "Telegram Login | New API Documentation",
+   "href": "https://docs.newapi.ai/en/docs/api/management/oauth/oauth-telegram-login-get"
+  },
+  {
+   "title": "Telegra API",
+   "href": "https://documentation.telegramd.com/"
+  },
+  {
+   "title": "GitHub - sparfenyuk/mcp-telegram: MCP server to work with ...",
+   "href": "https://github.com/sparfenyuk/mcp-telegram"
+  },
+  {
+   "title": "Telegram MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/telegram-mcp"
+  },
+  {
+   "title": "GitHub - chaindead/telegram-mcp: Telegram MCP for managing ...",
+   "href": "https://github.com/chaindead/telegram-mcp"
+  },
+  {
+   "title": "Telegram MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/chaindead/telegram-mcp"
+  },
+  {
+   "title": "Telegram MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/dryeab/mcp-telegram"
+  },
+  {
+   "title": "Telegram Bot API Pricing: Is It Free? Full Cost Breakdown (2026)",
+   "href": "https://www.botract.com/blog/telegram-bot-cost-pricing-guide"
+  },
+  {
+   "title": "Is the Telegram Bot API Free? Pricing & Limits (2026)",
+   "href": "https://aziqdev.com/blog/telegram-bot-api-pricing"
+  },
+  {
+   "title": "Telegram Bot API Pricing 2026: Free vs Paid Tiers Explained",
+   "href": "https://www.linkedin.com/pulse/telegram-bot-api-pricing-2026-free-vs-paid-tiers-explained-rp16f"
+  },
+  {
+   "title": "Telegram API Price: Free vs. Paid Costs in 2026 \u00b7 TgFather",
+   "href": "https://tgfather.com/blog/en/telegram-api-price/"
+  },
+  {
+   "title": "Telegram Bot API Pricing 2026: Free vs Paid Tiers Explained",
+   "href": "https://www.optimum-web.com/blog/telegram-bot-api-pricing-2026-complete-guide/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:00:50.286154"
+}

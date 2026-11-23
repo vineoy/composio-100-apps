@@ -69,9 +69,11 @@ def table_rows(rows):
         disputes = (r.get("verification") or {}).get("disputes", [])
         flags = (r.get("verification") or {}).get("flags", [])
         human = (r.get("verification") or {}).get("human_corrected")
+        corrections = (r.get("verification") or {}).get("corrections", [])
         badges = ""
         if disputes: badges += f"<span class='badge b-dis' title='resolved by arbiter'>{len(disputes)} disputed→resolved</span>"
         if human: badges += "<span class='badge b-hum'>human-corrected</span>"
+        if corrections: badges += f"<span class='badge b-hum' title='{esc(', '.join(c['field'] for c in corrections))}'>{len(corrections)} verified fix</span>"
         if r.get("error"): badges += "<span class='badge b-err'>research error</span>"
         detail = f"""<tr class="detail" id="d{r['id']}"><td colspan="10"><div class="dwrap">
 <b>Notes:</b> {esc(r.get('auth_notes',''))} · {esc(r.get('access_notes',''))} · {esc(r.get('api_notes',''))}
@@ -97,7 +99,7 @@ def table_rows(rows):
 
 def run():
     rows, source = A.load_final()
-    analysis = load_json("analysis.json") or A.run()
+    analysis = A.run()  # always regenerate so stats match the dataset (fast, no API calls)
     acc = load_json("verification/accuracy.json")
     diff = load_json("verification/diff_report.json")
     audit_sample = load_json("verification/audit_sample.json")
@@ -122,11 +124,13 @@ def run():
                           for f, p in acc.get("per_field", {}).items())
         miss_rows = "".join(f"<tr><td>{esc(m['name'])}</td><td>{esc(m['field'])}</td><td>{esc(m['our_value'])}</td><td>{esc(m.get('correction',''))}</td></tr>"
                             for m in acc.get("misses", [])) or "<tr><td colspan='4'>No confirmed misses in the sample.</td></tr>"
+        tot = acc.get("totals", {})
         ver_html += f"""<h4>Human audit: accuracy before → after ({acc.get('sample_apps',0)}-app stratified sample)</h4>
-<div class="accbig"><div class="accbox"><span class="accnum">{v1p}</span><span>pass-1 accuracy</span></div>
+<div class="accbig"><div class="accbox"><span class="accnum">{v1p}</span><span>pass-1 accuracy (human-checked)</span></div>
 <div class="accarrow">→</div>
-<div class="accbox final"><span class="accnum">{fp}</span><span>final accuracy (after loops + human checks)</span></div></div>
-<table class="small"><tr><th>Field</th><th>v1 accuracy</th><th>final accuracy</th><th>checks</th></tr>{pf_rows}</table>
+<div class="accbox final"><span class="accnum">{fp}</span><span>after corrections (confirmed errors fixed)</span></div></div>
+<p class="mut">{tot.get('wrong',0)} wrong values found · {tot.get('corrected',0)} corrected · {tot.get('unsure',0)} marked unsure · {tot.get('right',0)} right.</p>
+<table class="small"><tr><th>Field</th><th>pass-1 accuracy</th><th>after corrections</th><th>checks</th></tr>{pf_rows}</table>
 <p class="mut method">{esc(acc.get('method',''))}</p>
 <h4>Misses found by the human audit (shown honestly)</h4>
 <table class="small"><tr><th>App</th><th>Field</th><th>Our value</th><th>Correction</th></tr>{miss_rows}</table>"""
@@ -141,6 +145,17 @@ def run():
 <li><b>{len(unknowns)}</b> apps still carry at least one honest "unknown"{(': ' + ', '.join(esc(r['name']) for r in unknowns[:12])) if unknowns else ''}.</li>
 <li><b>{len(hard_apps)}</b> apps appear to have no public API at all{(': ' + ', '.join(esc(r['name']) for r in hard_apps)) if hard_apps else ''} — a valid finding, not a failure.</li>
 </ul>"""
+    loopc = load_json("verification/loop_c.json")
+    if loopc:
+        lc_rows = []
+        for item in loopc:
+            for c in item.get("checks", []):
+                ok = "✓ confirmed" if c.get("browser_verified") else "✗ contradicted"
+                lc_rows.append(f"<tr><td>{esc(item['name'])}</td><td>{esc(c.get('field',''))}</td><td>{esc(c.get('claimed',''))}</td>"
+                               f"<td>{ok}</td><td class='mut'>{esc(c.get('note',''))[:160]}</td></tr>")
+        ver_html += f"""<h4>Loop C — browser deep-checks of the hardest apps</h4>
+<p class="mut">A real browser visited the actual auth/pricing pages for ambiguous cases; claims were confirmed or contradicted by what the page shows. Contradictions were corrected in the final dataset.</p>
+<table class="small"><tr><th>App</th><th>Field</th><th>Claimed</th><th>Result</th><th>What the page showed</th></tr>{''.join(lc_rows)}</table>"""
 
     # ---- easy wins / outreach ----
     def app_list(items):

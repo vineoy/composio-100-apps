@@ -1,0 +1,251 @@
+URL: https://github.com/MetaThreads/meta-threads-mcp
+FETCHED: 2026-11-23T17:15:23.852358
+VIA: direct
+
+GitHub - MetaThreads/meta-threads-mcp: Unofficial MCP server for Meta's Threads API. · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+15 Commits
+15 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github/
+workflows
+.github/
+workflows
+assets
+assets
+src/
+meta_threads_mcp
+src/
+meta_threads_mcp
+tests
+tests
+.gitignore
+.gitignore
+.python-version
+.python-version
+CHANGELOG.md
+CHANGELOG.md
+LICENSE
+LICENSE
+README.md
+README.md
+fastmcp.json
+fastmcp.json
+pyproject.toml
+pyproject.toml
+uv.lock
+uv.lock
+View all files
+Repository files navigation
+meta-threads-mcp
+Unofficial MCP server for Meta's Threads API. Enables LLMs like Claude to publish posts, manage replies, and track insights through the Model Context Protocol.
+Features
+Full Threads API coverage via MCP tools
+Create text, image, and video posts
+Reply management (reply, hide/unhide, get conversation)
+Post and user insights/metrics
+Publishing quota tracking
+Built on
+meta-threads-sdk
+and
+FastMCP
+Installation
+pip install meta-threads-mcp
+Or with uv:
+uv add meta-threads-mcp
+Running on FastMCP Cloud
+The easiest way to run this MCP server is to deploy it on
+FastMCP Cloud
+:
+Go to
+fastmcp.cloud
+and sign in
+Connect your GitHub repository
+FastMCP Cloud will automatically detect the
+fastmcp.json
+configuration and deploy your server
+Configuration
+Claude Desktop
+Add to your
+claude_desktop_config.json
+:
+{
+"mcpServers"
+: {
+"threads"
+: {
+"command"
+:
+"
+meta-threads-mcp
+"
+}
+  }
+}
+Authentication
+The server expects a bearer token in the format:
+<access_token>:<user_id>
+The client passes this token via the request context when calling tools.
+Available Tools
+Posts
+Tool
+Description
+Parameters
+threads_create_post
+Create and publish a text post
+text
+(required),
+reply_control
+(optional)
+threads_create_image_post
+Create post with image
+image_url
+(required),
+text
+(optional)
+threads_create_video_post
+Create post with video
+video_url
+(required),
+text
+(optional)
+threads_get_post
+Get a post by ID
+post_id
+(required)
+threads_get_user_posts
+Get user's recent posts
+limit
+(optional, default 10)
+threads_delete_post
+Delete a post
+post_id
+(required)
+threads_get_publishing_limit
+Check remaining quota
+none
+Replies
+Tool
+Description
+Parameters
+threads_reply_to_post
+Reply to a post
+post_id
+(required),
+text
+(required)
+threads_get_replies
+Get replies to a post
+post_id
+(required)
+threads_get_conversation
+Get full conversation thread
+post_id
+(required)
+threads_hide_reply
+Hide a reply
+reply_id
+(required)
+threads_unhide_reply
+Unhide a reply
+reply_id
+(required)
+Insights
+Tool
+Description
+Parameters
+threads_get_media_insights
+Get metrics for a post
+media_id
+(required)
+threads_get_user_insights
+Get user-level metrics
+none
+User
+Tool
+Description
+Parameters
+threads_get_profile
+Get current user's profile
+none
+Reply Control Options
+When creating posts, you can control who can reply:
+EVERYONE
+(default) - Anyone can reply
+ACCOUNTS_YOU_FOLLOW
+- Only accounts you follow can reply
+MENTIONED_ONLY
+- Only mentioned accounts can reply
+Rate Limits
+250 posts per 24 hours
+1000 replies per 24 hours
+Use
+threads_get_publishing_limit
+to check your current quota.
+Development
+Setup
+git clone https://github.com/MetaThreads/meta-threads-mcp.git
+cd
+meta-threads-mcp
+uv sync --dev
+Running Tests
+uv run pytest
+Linting & Type Checking
+uv run ruff check src tests
+uv run ruff format src tests
+uv run mypy src
+Testing with FastMCP CLI
+fastmcp dev src/meta_threads_mcp/server.py
+License
+MIT License - see
+LICENSE
+for details.
+Related Projects
+meta-threads-sdk
+- Python SDK for Meta's Threads API
+FastMCP
+- Simple MCP server framework
+About
+Unofficial MCP server for Meta's Threads API.
+Resources
+Readme
+MIT license
+Activity
+Custom properties
+Stars
+0
+stars
+Watchers
+0
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

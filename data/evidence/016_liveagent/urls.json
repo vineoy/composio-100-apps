@@ -1,0 +1,77 @@
+{
+ "app": "LiveAgent",
+ "queries": [
+  "LiveAgent API authentication documentation",
+  "LiveAgent MCP server",
+  "LiveAgent API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://support.liveagent.com/840770-Complete-API-reference",
+  "https://www.liveagent.com/features/api/",
+  "https://faq.liveagent.com/640789-Where-Can-I-Find-the-LiveAgent-API-Documentation",
+  "https://www.liveagent.com/features/mcp-server/"
+ ],
+ "search_hits": [
+  {
+   "title": "LiveAgent API",
+   "href": "https://support.liveagent.com/docs/api/v3/"
+  },
+  {
+   "title": "Complete API reference - LiveAgentLiveAgent API - Docs, SDKs & IntegrationAPI features | LiveAgentWhere Can I Find the LiveAgent API Documentation?GitHub - QualityUnit/LiveAgent-api-python: Python client for ...LiveAgent API v1 vs v3: Authentication Differences, API Key ...",
+   "href": "https://support.liveagent.com/840770-Complete-API-reference"
+  },
+  {
+   "title": "LiveAgent API - Docs, SDKs & Integration",
+   "href": "https://apitracker.io/a/liveagent"
+  },
+  {
+   "title": "API features | LiveAgent",
+   "href": "https://www.liveagent.com/features/api/"
+  },
+  {
+   "title": "Where Can I Find the LiveAgent API Documentation?",
+   "href": "https://faq.liveagent.com/640789-Where-Can-I-Find-the-LiveAgent-API-Documentation"
+  },
+  {
+   "title": "Connect AI tools to LiveAgent with MCP",
+   "href": "https://www.liveagent.com/features/mcp-server/"
+  },
+  {
+   "title": "MCP Integration for agents - support.liveagent.com",
+   "href": "https://support.liveagent.com/647358-MCP-Integration-for-agents"
+  },
+  {
+   "title": "LiveAgent MCP Server - GitHub",
+   "href": "https://github.com/QualityUnit/liveagent-mcp-server"
+  },
+  {
+   "title": "QualityUnit/liveagent-mcp-server - GitHub",
+   "href": "https://github.com/QualityUnit/liveagent-mcp-server/tree/main"
+  },
+  {
+   "title": "MCP tools reference - support.liveagent.com",
+   "href": "https://support.liveagent.com/578762-MCP-tools-reference"
+  },
+  {
+   "title": "LiveAgent Pricing & Plans: AI on Every Plan, 30-Day Free Trial",
+   "href": "https://www.liveagent.com/pricing/"
+  },
+  {
+   "title": "LiveAgent Pricing (2026): Free vs Paid Plans - Softwr",
+   "href": "https://www.softwr.com/pricing/liveagent"
+  },
+  {
+   "title": "LiveAgent API",
+   "href": "https://support.liveagent.com/docs/api/v3/"
+  },
+  {
+   "title": "LiveAgent Pricing 2026LiveAgent: Help Desk Software with AI Agents and Live ChatLiveAgent Pricing 2026: Complete Breakdown - supportwire.aiLiveAgent pricing decoded: 2026 buyer's guide to tiers ...",
+   "href": "https://www.g2.com/products/liveagent/pricing"
+  },
+  {
+   "title": "LiveAgent: Help Desk Software with AI Agents and Live Chat",
+   "href": "https://www.liveagent.com/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:50:22.739898"
+}

@@ -6,11 +6,32 @@
   "Slack API free tier developer credentials pricing"
  ],
  "urls": [
-  "https://slack.com/intl/en-in/",
+  "https://docs.slack.dev/authentication/",
+  "https://docs.slack.dev/apis/",
   "https://docs.slack.dev/ai/slack-mcp-server/",
   "https://docs.slack.dev/ai/mcp-overview/"
  ],
  "search_hits": [
+  {
+   "title": "Authentication overview | Slack Developer Docs",
+   "href": "https://docs.slack.dev/authentication/"
+  },
+  {
+   "title": "Slack APIs | Slack Developer Docs",
+   "href": "https://docs.slack.dev/apis/"
+  },
+  {
+   "title": "Slack Authentication API - apis.io",
+   "href": "https://apis.io/apis/slack/slack-authentication-api/"
+  },
+  {
+   "title": "Slack Auth API \u2014 Documentation, OpenAPI | APIs.io APIs",
+   "href": "https://apis.apis.io/apis/slack/slack-auth-api/"
+  },
+  {
+   "title": "Slack authentication | Documentation",
+   "href": "https://docs.weweb.io/database-and-apis/auth/providers/slack.html"
+  },
   {
    "title": "Slack MCP Server",
    "href": "https://grokipedia.com/page/Slack_MCP_Server"
@@ -52,5 +73,5 @@
    "href": "https://slack.com/intl/en-gb/pricing/free"
   }
  ],
- "fetched_at": "2026-11-23T16:25:11.646467"
+ "fetched_at": "2026-11-23T16:55:33.981616"
 }

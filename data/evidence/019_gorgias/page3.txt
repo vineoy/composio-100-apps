@@ -1,0 +1,43 @@
+URL: https://developers.gorgias.com/reference/introduction
+FETCHED: 2026-11-23T16:53:58.277144
+VIA: direct
+
+Introduction
+For AI agents: the docs index is at https://developers.gorgias.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+📘
+Before you start
+Please make sure to check out our
+Quickstart
+guide to make sure you understand the difference between
+Private
+and
+Public
+apps and to learn about the steps you need to follow when building them.
+The Gorgias API is structured with
+REST
+in mind. Our API has predictable resource-oriented URLs, accepts
+JSON-encoded
+request bodies, returns
+JSON-encoded
+responses, and uses standard HTTP response codes, authentication, and verbs.
+On this page, you'll find the complete REST API reference, examples, definitions of objects, and guides.
+🚫
+Resources, resources' attributes, and resources' operations not documented in this documentation
+should not be used
+and should be considered as non-existing.
+They are reserved for internal use and can be changed or removed at any time without prior notice.
+You should not rely on them at any time.
+🗞 Developer Newsletter
+Please sign up for our monthly developer newsletter if you start using our API.
+It contains important updates about upcoming and breaking changes to the API.
+Sign Up
+Updated
+11 months ago
+Did this page help you?
+Yes
+No
+Updated
+11 months ago
+Did this page help you?
+Yes
+No

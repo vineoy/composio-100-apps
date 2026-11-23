@@ -1,0 +1,209 @@
+URL: https://docs.bigcommerce.com/developer/docs/ai-agent-setup
+FETCHED: 2026-11-23T17:22:37.797608
+VIA: direct
+
+Docs MCP Server | BigCommerce Docs
+For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
+Skip to navigation
+On this page
+Pick your agent
+Setup your agent
+Claude Code
+Codex
+Cursor
+Claude Desktop
+Verify it’s working
+Scroll to top
+This page is for Developer.
+The docs site exposes a
+Model Context Protocol (MCP) server
+that AI tools can search and reference. Once connected, your AI tool can answer questions like
+“How does the BigCommerce checkout API work?”
+by pulling directly from the docs.
+Docs search only
+This server lets your AI tool search and reference the BigCommerce documentation. It can’t read or change your store, orders, catalog, or account settings. If you’re looking for an MCP server that interacts with your storefront, see the
+BigCommerce MCP Server
+. For everything else, use the
+REST and GraphQL APIs
+.
+BigCommerce docs MCP server
+https://docs.bigcommerce.com/_mcp/server
+For schema-aware workflows, you can also download BigCommerce
+OpenAPI Specifications
+and add them to tools that import OpenAPI files.
+Pick your agent
+Claude Code
+Terminal — Anthropic’s coding agent.
+Codex
+Terminal — OpenAI’s coding agent.
+Cursor
+IDE — AI-first VS Code fork.
+Claude Desktop
+Desktop — general Q&A about the BigCommerce platform.
+Setup your agent
+Claude Code
+1
+Copy the install command
+Pick the scope you want.
+For a single project
+, click the
+Copy page
+dropdown in the upper right of any docs page and select
+Connect to Claude Code
+, or copy it from here:
+claude
+mcp
+add
+--transport
+http
+docs-bigcommerce-com
+https://docs.bigcommerce.com/_mcp/server
+For every project on your machine
+, copy this one instead:
+claude
+mcp
+add
+--transport
+http
+--scope
+user
+docs-bigcommerce-com
+https://docs.bigcommerce.com/_mcp/server
+2
+Run it in your terminal
+Paste the command into a terminal. For the project-only command, run it from that project’s directory.
+3
+Confirm it's connected
+Run
+claude mcp list
+to see the server listed, then run
+/mcp
+inside Claude Code to check that it’s connected.
+Codex
+Run this in your terminal to add the docs server:
+codex
+mcp
+add
+docs-bigcommerce-com
+--url
+https://docs.bigcommerce.com/_mcp/server
+Confirm it appears with
+codex mcp list
+, then use
+/mcp
+inside the Codex TUI to check its status.
+Cursor
+Fastest:
+click the
+Copy page
+dropdown in the upper right of any docs page and select
+Connect to Cursor
+. Cursor opens and asks you to confirm the new server. No file editing needed.
+To set it up manually instead, add the BigCommerce docs server entry to one of these files. In recent Cursor versions, the
+Settings → Tools & MCPs → New MCP Server
+button opens
+mcp.json
+for direct editing rather than a Name/URL form.
+.cursor/mcp.json
+in your project root (project-scoped), or
+~/.cursor/mcp.json
+in your home directory (available in every project)
+.cursor/mcp.json
+{
+"
+mcpServers
+"
+:
+{
+"
+docs-bigcommerce-com
+"
+:
+{
+"
+name
+"
+:
+"
+docs-bigcommerce-com
+"
+,
+"
+url
+"
+:
+"
+https://docs.bigcommerce.com/_mcp/server
+"
+,
+"
+headers
+"
+:
+{}
+}
+}
+}
+Save the file — Cursor picks the new server up automatically.
+Claude Desktop
+Node.js must be installed for
+npx
+to work.
+1
+Locate and open the config file
+In Claude Desktop, go to
+Settings > Developer > Edit Config
+— this reveals
+claude_desktop_config.json
+in Finder (macOS) or Explorer (Windows). Open that file in VS Code, Cursor, or any text editor.
+2
+Add the BigCommerce docs server
+Add the following to the
+mcpServers
+section:
+claude_desktop_config.json
+{
+"
+mcpServers
+"
+:
+{
+"
+docs-bigcommerce-com
+"
+:
+{
+"
+command
+"
+:
+"
+npx
+"
+,
+"
+args
+"
+:
+[
+"
+mcp-remote
+"
+,
+"
+https://docs.bigcommerce.com/_mcp/server
+"
+]
+}
+}
+}
+3
+Restart Claude Desktop
+Fully
+restart Claude Desktop — quit and reopen, not just close the window.
+Verify it’s working
+Once you’ve connected, try asking your AI tool:
+“What MCP tools do you have available?”
+— you should see tools from the BigCommerce docs server.
+“Search the BigCommerce docs for webhooks.”
+— if it returns results pulled from the docs, you’re set.

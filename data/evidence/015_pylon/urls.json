@@ -1,0 +1,77 @@
+{
+ "app": "Pylon",
+ "queries": [
+  "Pylon API authentication documentation",
+  "Pylon MCP server",
+  "Pylon API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.usepylon.com/pylon-docs/developer/api",
+  "https://docs.usepylon.com/pylon-docs/developer/api/api-reference",
+  "https://pylon.page/docs/api-reference",
+  "https://www.usepylon.com/integrations/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "API | Pylon",
+   "href": "https://docs.usepylon.com/pylon-docs/developer/api"
+  },
+  {
+   "title": "API reference - Pylon",
+   "href": "https://docs.usepylon.com/pylon-docs/developer/api/api-reference"
+  },
+  {
+   "title": "pylon API Documentation | Basler Product Documentation",
+   "href": "https://docs.baslerweb.com/pylonapi/index"
+  },
+  {
+   "title": "API Reference - Pylon Docs",
+   "href": "https://pylon.page/docs/api-reference"
+  },
+  {
+   "title": "API Integrations | Pylon",
+   "href": "https://pylon.elevio.help/en/articles/105-api-integrations"
+  },
+  {
+   "title": "Pylon MCP server: connect ChatGPT, Claude, and Cursor",
+   "href": "https://www.usepylon.com/integrations/mcp"
+  },
+  {
+   "title": "Official Pylon MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/pylon-mcp"
+  },
+  {
+   "title": "pylonapi/pylon-mcp: MCP server for Pylon AI - GitHub",
+   "href": "https://github.com/pylonapi/pylon-mcp"
+  },
+  {
+   "title": "GitHub - lwsinclair/pylon-mcp: MCP server for the Pylon API",
+   "href": "https://github.com/lwsinclair/pylon-mcp"
+  },
+  {
+   "title": "Pylon MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/pylon-remote"
+  },
+  {
+   "title": "Pricing | Pylon",
+   "href": "https://www.usepylon.com/pricing"
+  },
+  {
+   "title": "Pylon - Pricing",
+   "href": "https://getpylon.com/pricing/"
+  },
+  {
+   "title": "Pylon Pricing 2026: Plans, Hidden Costs & Alternatives",
+   "href": "https://toolradar.com/tools/pylon/pricing"
+  },
+  {
+   "title": "Pylon Plans Pricing \u2014 API Pricing Plans | APIs.io Plans",
+   "href": "https://apis.io/plans/pylon/pylon-plans-pricing/"
+  },
+  {
+   "title": "API | Pylon",
+   "href": "https://docs.usepylon.com/pylon-docs/developer/api"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:49:15.203320"
+}

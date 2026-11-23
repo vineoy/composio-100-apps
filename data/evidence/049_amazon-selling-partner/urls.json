@@ -1,0 +1,77 @@
+{
+ "app": "Amazon Selling Partner",
+ "queries": [
+  "Amazon Selling Partner API authentication documentation",
+  "Amazon Selling Partner MCP server",
+  "Amazon Selling Partner API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.amazonservices.com/cancellation-of-sp-api-fees",
+  "https://developer-docs.amazon/sp-api",
+  "https://developer-docs.amazon/sp-api",
+  "https://developer-docs.amazon/sp-api/docs/connecting-to-the-selling-partner-api"
+ ],
+ "search_hits": [
+  {
+   "title": "Selling Partner API",
+   "href": "https://developer-docs.amazon/sp-api/"
+  },
+  {
+   "title": "Connect to the SP-API - Selling Partner API",
+   "href": "https://developer-docs.amazon/sp-api/docs/connecting-to-the-selling-partner-api"
+  },
+  {
+   "title": "Amazon Selling Partner API (SP-API) | Build & Automate - Amazon Selling ...",
+   "href": "https://developer.amazonservices.com/"
+  },
+  {
+   "title": "SP-API Resource Hub | Amazon Developer Resources - Amazon Selling ...",
+   "href": "https://developer.amazonservices.com/resource-hub"
+  },
+  {
+   "title": "Selling Partner API (SP-API) | Sell on Amazon",
+   "href": "https://sell.amazon.com/developers"
+  },
+  {
+   "title": "Preparing for the 2026 Holiday Shopping Season with Amazon's Selling ...",
+   "href": "https://sell.amazon.com/blog/announcements/amazons-selling-partner-plugin-ads-mcp"
+  },
+  {
+   "title": "GitHub - mattcoatsworth/AmazonSeller-mcp-server",
+   "href": "https://github.com/mattcoatsworth/AmazonSeller-mcp-server"
+  },
+  {
+   "title": "GitHub - KuudoAI/amazon-selling-partner-mcp: MCP server for the Amazon ...",
+   "href": "https://github.com/kuudoai/amazon-selling-partner-mcp"
+  },
+  {
+   "title": "Amazon Selling Partner connector | Claude by Anthropic",
+   "href": "https://claude.com/marketplace/connectors/amazon-selling-partner"
+  },
+  {
+   "title": "Amazon Selling Partner API MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/amazonseller-mcp-server"
+  },
+  {
+   "title": "Amazon Selling Partner API (SP-API) | Build & Automate - Amazon Selling ...",
+   "href": "https://developer.amazonservices.com/"
+  },
+  {
+   "title": "Amazon Cancels Third-Party SP-API Developer Fees - Amazon Selling ...",
+   "href": "https://developer.amazonservices.com/cancellation-of-sp-api-fees"
+  },
+  {
+   "title": "SP-API 2026: Free vs Paid Tools and Real Costs for Sellers",
+   "href": "https://www.esellerhub.com/blog/sp-api-pricing-2026-free-vs-paid-tools-costs/"
+  },
+  {
+   "title": "Amazon introduces fees for third-party developer API access in 2026",
+   "href": "https://ppc.land/amazon-introduces-fees-for-third-party-developer-api-access-in-2026/"
+  },
+  {
+   "title": "Selling Partner API",
+   "href": "https://developer-docs.amazon/sp-api/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:29:33.470670"
+}

@@ -1,0 +1,54 @@
+URL: https://developer.aircall.io/docs/authentication
+FETCHED: 2026-11-23T17:02:16.679390
+VIA: direct
+
+Overview
+For AI agents: the docs index is at https://developer.aircall.io/llms.txt. Append .md to any documentation page URL to get its markdown version.
+Getting Started
+Aircall supports two ways to authenticate with the REST API: Basic Authentication and OAuth.
+Use Basic Authentication when you are connecting your own internal tools or private integration to Aircall. Use OAuth when your app needs to access Aircall data on behalf of other users or customers.
+Use case
+Basic Authentication
+OAuth
+Connect your own system and tools to Aircall
+✅
+❌
+Build an integration for multiple Aircall users outside
+your organization
+❌
+✅
+This guide explains the two methods in more detail and helps you choose the right authentication method before you start building.
+Basic Authentication
+Basic Authentication lets you authenticate requests with an
+API ID
+and
+token
+that you generate from your
+Aircall Dashboard
+.
+To connect a tool or service, copy these credentials and paste them into the platform that you want to integrate with. This method does not require an authorization flow. Use Basic Authentication when you want to connect quickly without setting up OAuth.
+When to use Basic Authentication
+You're connecting your own system or tool to Aircall
+You don't need to access data on behalf of other users
+You're building a private integration and are not an approved
+tech partner
+For full technical details, see the
+REST API reference > Basic Auth
+OAuth
+OAuth lets your application access Aircall data on behalf of a user after they grant permission. It's more complex to implement than Basic Authentication, but it's the standard approach for integrations that serve multiple customers.
+When to use OAuth
+You're building an integration for multiple Aircall users
+Users need to authorize access to their own Aircall accounts
+You’re building a public integration and are an approved tech partner
+For full technical details, see the
+REST API reference > OAuth
+Updated
+4 months ago
+What’s Next
+Choose one of the guides below to continue setting up authentication
+Authenticate with API Keys
+Set Up OAuth for Your Integration
+Did this page help you?
+Yes
+No
+Copy Page

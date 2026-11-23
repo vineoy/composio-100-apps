@@ -1,0 +1,69 @@
+URL: https://developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-vonage-mcp
+FETCHED: 2026-11-23T17:03:09.580277
+VIA: direct
+
+Introduction to Vonage MCP Servers
+Skip to Main Content
+Introduction to the Vonage MCP Servers
+What Is the Model Context Protocol (MCP)?
+The
+Model Context Protocol (MCP)
+is an open standard that defines how AI models can discover and use external tools, APIs, and data sources in a consistent, secure way.
+Just as
+OpenAPI
+helps developers understand how to call an API, MCP gives
+AI agents
+a structured way to understand and use tools.
+Each MCP tool clearly defines:
+What it does
+What inputs it requires
+What it returns
+By using this shared structure, agents can make API calls safely — without any hardcoded integrations.
+What are the Vonage MCP Servers?
+Vonage provides a few different individual MCP implementations, based on your needs. We have a Documentation Server which exposes our documentation to LLM models so you can get up-to-date answers, and a Server API Binding MCP server that expose Vonage APIs and developer tools in an AI-native format that can be used directly by MCP-compatible clients — such as Claude Desktop or VS Code’s MCP extension.
+In practice, this means developers and AI agents can query documentation, manage Vonage applications, and automate communication tasks simply by using natural language, providing several benefits:
+AI-Native Discovery
+– Expose Vonage APIs directly to AI tools and assistants.
+Faster Setup
+– Access documentation and account tools instantly.
+Secure & Structured
+– All tool interactions follow a clear, schema-based format.
+Consistent Developer Experience
+– The same MCP pattern works across documentation, configuration, and other Vonage services.
+Vonage MCP Server Types
+Vonage offers two MCP Servers designed for different purposes:
+MCP Server
+Description
+Purpose
+Documentation MCP Server
+Lets AI assistants search and return information from the Vonage API Documentation.
+Quickly find API details, guides, and code snippets without leaving your IDE.
+Server API Bindings MCP Server
+Also known as our Tooling MCP Server, it provides tools for managing Vonage applications, numbers, and reports programmatically.
+Enables configuration and account management directly through AI commands.
+Each server follows the same MCP structure, making them interoperable and easy to use together.
+How It Works
+Here’s an example of how the Vonage MCP Server fits into an AI workflow:
+A developer asks their AI assistant:
+“Show me how to send a WhatsApp message using Vonage APIs.”
+The assistant’s
+MCP client
+checks what servers are available and finds the
+Documentation MCP Server
+.
+The server returns relevant documentation sections directly from the official Vonage Developer Portal.
+Later, the developer asks:
+“Create a new Vonage app with messaging enabled.”
+The assistant switches to the
+Tooling MCP Server
+, which calls the appropriate API to create and configure the app — no manual setup required.
+This workflow bridges natural language and API actions, allowing developers to stay focused on building rather than searching or scripting.
+Supported Clients
+The Vonage MCP Server works with any AI or IDE environment that supports the Model Context Protocol, including:
+Claude Desktop
+VS Code MCP Extension
+Cursor IDE
+Setup guides are available for each environment in the installation guides
+for the documentation server
+and for the
+server API bindings server

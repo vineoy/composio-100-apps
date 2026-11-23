@@ -1,0 +1,276 @@
+URL: https://github.com/FINCH285/SendGrid-MCP-Server
+FETCHED: 2026-11-23T17:16:19.244655
+VIA: direct
+
+GitHub - FINCH285/SendGrid-MCP-Server · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+9 Commits
+9 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+tools
+tools
+.env.example
+.env.example
+.gitignore
+.gitignore
+LICENSE
+LICENSE
+README.md
+README.md
+auth.py
+auth.py
+client.py
+client.py
+config.py
+config.py
+main.py
+main.py
+requirements.txt
+requirements.txt
+View all files
+Repository files navigation
+SendGrid MCP Server
+A production-ready
+Model Context Protocol (MCP) Server
+for SendGrid email services, built with
+FastMCP 2.0
+. This server enables AI models like Claude, GPT, and others to send emails, manage contacts, and interact with SendGrid's powerful email platform.
+🚀 Features
+📧 Email Management
+: Send HTML/text emails with templates and attachments
+👥 Contact Management
+: Add contacts and manage mailing lists
+🔐 Secure Authentication
+: Bearer token authentication with fallback support
+⚡ Rate Limiting
+: Built-in API rate limiting to prevent abuse
+🛡️ Production Ready
+: Comprehensive error handling and logging
+🔧 Easy Configuration
+: Environment-based configuration management
+📋 Requirements
+Python 3.8+
+SendGrid API Key
+FastMCP 2.0
+🛠️ Installation
+Clone the repository:
+git clone https://github.com/FINCH285/SendGrid-MCP-Server.git
+cd
+SendGrid-MCP-Server
+Install dependencies:
+pip install -r requirements.txt
+Set up environment variables:
+cp .env.example .env
+Edit
+.env
+with your SendGrid configuration:
+SENDGRID_API_KEY
+=
+your_sendgrid_api_key_here
+DEFAULT_FROM_EMAIL
+=
+your-verified-email@example.com
+DEFAULT_FROM_NAME
+=
+Your Name
+DEFAULT_TEMPLATE_ID
+=
+your-template-id
+RATE_LIMIT
+=
+10
+DEBUG
+=
+false
+🚀 Usage
+Running the Server
+python main.py
+The server will start and listen for MCP connections via STDIO.
+Available Tools
+Email Tools
+send_email
+- Send HTML/text emails to multiple recipients
+get_template_info
+- Fetch SendGrid template details
+send_template_email
+- Send emails using dynamic templates
+Contact Tools
+add_contact
+- Add/update contacts with custom fields
+get_contact_lists
+- Retrieve all contact lists
+🔧 Configuration
+Authentication
+The server supports two authentication methods:
+Environment Variable
+: Set
+SENDGRID_API_KEY
+in your
+.env
+file
+Bearer Token
+: Pass API key via Authorization header in MCP requests
+📚 SendGrid Configuration example
+{
+"mcpServers"
+: {
+"sendgrid-mcp"
+: {
+"command"
+:
+"python"
+,
+"args"
+: [
+"/path/to/your/project/main.py"
+],
+"cwd"
+:
+"/path/to/your/project"
+,
+"disabled"
+:
+false
+,
+"env"
+: {
+"SENDGRID_API_KEY"
+:
+"SG.your-actual-api-key-here"
+}
+    }
+  }
+}
+For Windows users, use paths like:
+"args"
+: [
+"
+C:
+\\
+Users
+\\
+YourUsername
+\\
+project-folder
+\\
+main.py
+"
+]
+"cwd"
+:
+"
+C:
+\\
+Users
+\\
+YourUsername
+\\
+project-folder
+"
+For macOS/Linux users, use paths like:
+"args"
+: [
+"
+/Users/yourusername/project-folder/main.py
+"
+]
+"cwd"
+:
+"
+/Users/yourusername/project-folder
+"
+Key configuration elements:
+"sendgrid-mcp": The server name/identifier (customizable)
+args: Specifies the path to your main.py file
+cwd: Sets the working directory to your project folder
+disabled: Set to false to enable the server
+env: Contains your SendGrid API key (replace with your actual key starting with "SG.")
+🏗️ Architecture
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   AI Model      │◄──►│   FastMCP       │◄──►│   SendGrid      │
+│  (Claude/GPT)   │    │   Server        │    │     API         │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         │ MCP Protocol          │ HTTP/REST            │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Tools Layer   │    │   Auth Layer    │    │   Config Layer  │
+│ • email_tools   │    │ • Bearer Token  │    │ • Environment   │
+│ • contact_tools │    │ • API Key Auth  │    │ • Rate Limits   │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+🤝 Contributing
+Fork the repository
+Create a feature branch (
+git checkout -b feature/amazing-feature
+)
+Commit your changes (
+git commit -m 'Add amazing feature'
+)
+Push to the branch (
+git push origin feature/amazing-feature
+)
+Open a Pull Request
+📄 License
+This project is licensed under the MIT License - see the
+LICENSE
+file for details.
+🆘 Support
+Issues
+:
+GitHub Issues
+SendGrid Documentation
+:
+SendGrid API Docs
+FastMCP Documentation
+:
+FastMCP Docs
+🙏 Acknowledgments
+SendGrid
+for their excellent email API
+FastMCP
+for the MCP framework
+Anthropic
+for the Model Context Protocol specification
+About
+No description, website, or topics provided.
+Resources
+Readme
+MIT license
+Activity
+Stars
+1
+star
+Watchers
+0
+watching
+Forks
+1
+fork
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

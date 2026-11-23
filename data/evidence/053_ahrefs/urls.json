@@ -1,0 +1,77 @@
+{
+ "app": "Ahrefs",
+ "queries": [
+  "Ahrefs API authentication documentation",
+  "Ahrefs MCP server",
+  "Ahrefs API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.ahrefs.com/en/ahrefs-connect/docs/api-guide",
+  "https://help.ahrefs.com/en/articles/6559232-about-api-v3",
+  "https://help.ahrefs.com/en/collections/87796-api",
+  "https://docs.ahrefs.com/en/mcp/docs/introduction"
+ ],
+ "search_hits": [
+  {
+   "title": "Ahrefs for Developers",
+   "href": "https://docs.ahrefs.com/"
+  },
+  {
+   "title": "API guide | Ahrefs for Developers",
+   "href": "https://docs.ahrefs.com/en/ahrefs-connect/docs/api-guide"
+  },
+  {
+   "title": "Ahrefs SEO API: SEO & AEO Data API for Developers",
+   "href": "https://ahrefs.com/seo-api"
+  },
+  {
+   "title": "About API v3 | Help Center - Ahrefs",
+   "href": "https://help.ahrefs.com/en/articles/6559232-about-api-v3"
+  },
+  {
+   "title": "API | Help Center - Ahrefs",
+   "href": "https://help.ahrefs.com/en/collections/87796-api"
+  },
+  {
+   "title": "What is Ahrefs MCP | Ahrefs for Developers",
+   "href": "https://docs.ahrefs.com/en/mcp/docs/introduction"
+  },
+  {
+   "title": "Getting started with Ahrefs MCP | Help Center - Ahrefs",
+   "href": "https://help.ahrefs.com/en/articles/13913559-getting-started-with-ahrefs-mcp"
+  },
+  {
+   "title": "What Is an MCP Server, and Why Should Marketers Care? - Ahrefs",
+   "href": "https://ahrefs.com/blog/what-is-mcp-server/"
+  },
+  {
+   "title": "GitHub - ahrefs/ahrefs-mcp-server: Official Ahrefs MCP Server",
+   "href": "https://github.com/ahrefs/ahrefs-mcp-server"
+  },
+  {
+   "title": "Ahrefs SEO MCP | SEO & AEO Data in ChatGPT and Claude",
+   "href": "https://ahrefs.com/seo-mcp"
+  },
+  {
+   "title": "Plans & Pricing - Ahrefs",
+   "href": "https://ahrefs.com/pricing"
+  },
+  {
+   "title": "Ahrefs SEO API: SEO & AEO Data API for Developers",
+   "href": "https://ahrefs.com/seo-api"
+  },
+  {
+   "title": "Public | Ahrefs for Developers",
+   "href": "https://docs.ahrefs.com/en/api/reference/public"
+  },
+  {
+   "title": "Ahrefs for Developers",
+   "href": "https://docs.ahrefs.com/"
+  },
+  {
+   "title": "Ahrefs API Pricing: Complete Guide to Plans, Costs & Alternatives (2026)",
+   "href": "https://www.toolsurf.com/ahrefs-api-pricing-complete-guide-to-plans-costs-alternatives-2025-2026-plans-features-best-deals-compared/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:33:29.274806"
+}

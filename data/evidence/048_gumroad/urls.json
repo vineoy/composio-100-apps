@@ -1,0 +1,76 @@
+{
+ "app": "Gumroad",
+ "queries": [
+  "Gumroad API authentication documentation",
+  "Gumroad MCP server",
+  "Gumroad API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://gumroad.com/mcp",
+  "https://gumroad.com/pricing",
+  "https://github.com/Contrite42/gumroad-mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "API - Gumroad",
+   "href": "https://gumroad.com/api"
+  },
+  {
+   "title": "Gumroad API \u2014 Documentation & Guide | Akousa Tools",
+   "href": "https://tools.akousa.net/api-directory/gumroad"
+  },
+  {
+   "title": "Create an application for the API - Gumroad Help Center",
+   "href": "https://gumroad.com/help/article/280-create-application-api"
+  },
+  {
+   "title": "Gumroad v2 API \u2014 Documentation, OpenAPI | APIs.io APIs",
+   "href": "https://apis.io/apis/gumroad/v2-api/"
+  },
+  {
+   "title": "Gumroad API \u2014 Documentation & Guide | Akousa",
+   "href": "https://akousa.net/api-directory/gumroad-creators"
+  },
+  {
+   "title": "Gumroad MCP | Sell digital products from your AI assistant",
+   "href": "https://gumroad.com/mcp"
+  },
+  {
+   "title": "GitHub - Contrite42/gumroad-mcp-server: MCP server for the ...",
+   "href": "https://github.com/Contrite42/gumroad-mcp-server"
+  },
+  {
+   "title": "GitHub - keithah/gumroad-mcp: MCP server for Gumroad API ...",
+   "href": "https://github.com/keithah/gumroad-mcp"
+  },
+  {
+   "title": "Gumroad MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/rmarescu/gumroad-mcp"
+  },
+  {
+   "title": "Connecting AI assistants to your Gumroad store - Gumroad Help ...",
+   "href": "https://gumroad.com/help/article/355-connect-ai-assistants-to-gumroad"
+  },
+  {
+   "title": "API - Gumroad",
+   "href": "https://gumroad.com/api"
+  },
+  {
+   "title": "Gumroad pricing: 10% + 50\u00a2 direct, 30% via Discover",
+   "href": "https://gumroad.com/pricing"
+  },
+  {
+   "title": "Gumroad - Rapid",
+   "href": "https://rapidapi.com/zakutynsky/api/Gumroad/pricing"
+  },
+  {
+   "title": "Gumroad Pricing 2026 \u2014 Creator Economy Platform Costs ...",
+   "href": "https://www.getpricepulse.com/companies/gumroad-pricing.html"
+  },
+  {
+   "title": "Gumroad fees in 2026: what Gumroad takes from every sale",
+   "href": "https://eden.so/blog/gumroad-fees/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:29:13.869841"
+}

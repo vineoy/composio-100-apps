@@ -1,0 +1,77 @@
+{
+ "app": "Discord",
+ "queries": [
+  "Discord API authentication documentation",
+  "Discord MCP server",
+  "Discord API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.discord.com/developers/reference",
+  "https://docs.discord.com/developers/topics/oauth2",
+  "https://github.com/discord/discord-api-docs",
+  "https://github.com/jonvanausdeln/discord-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "API Reference - Documentation - Discord",
+   "href": "https://docs.discord.com/developers/reference"
+  },
+  {
+   "title": "OAuth2 - Documentation - Discord",
+   "href": "https://docs.discord.com/developers/topics/oauth2"
+  },
+  {
+   "title": "GitHub - discord/discord-api-docs: Official Discord Developer ...Discord authentication | DocumentationDiscord API - Documentation, Review & Integration Guidediscord-auth/docs/API.md at main \u00b7 NullStudioInc/discord-authIntroduction - Discord Userdoccers",
+   "href": "https://github.com/discord/discord-api-docs"
+  },
+  {
+   "title": "Discord authentication | Documentation",
+   "href": "https://user-documentation.vercel.app/database-and-apis/auth/providers/discord.html"
+  },
+  {
+   "title": "Discord API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/1142/discord"
+  },
+  {
+   "title": "GitHub - jonvanausdeln/discord-mcp: MCP Server for ...",
+   "href": "https://github.com/jonvanausdeln/discord-mcp"
+  },
+  {
+   "title": "Model Context Protocol - Discord Server | Programming",
+   "href": "https://discord.com/servers/model-context-protocol-1312302100125843476"
+  },
+  {
+   "title": "Discord MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/elyxlz/discord-mcp"
+  },
+  {
+   "title": "GitHub - ExilProductions/discord-mcp: A MCP Server for ...",
+   "href": "https://github.com/ExilProductions/discord-mcp"
+  },
+  {
+   "title": "Join the Model Context Protocol Discord Server!",
+   "href": "https://discord.com/invite/model-context-protocol-1312302100125843476"
+  },
+  {
+   "title": "Discord API Free Tier 2026: Limits, Pricing & What Changed ...",
+   "href": "https://agentdeals.dev/vendor/discord-api"
+  },
+  {
+   "title": "Discord API Discount & Pricing Guide [2026] (discord api ...",
+   "href": "https://aitoolsatlas.ai/tools/discord-api/discount"
+  },
+  {
+   "title": "Discord API Free vs Paid Plans Compared [2026] (discord api ...",
+   "href": "https://aitoolsatlas.ai/tools/discord-api/free-vs-paid"
+  },
+  {
+   "title": "Discord Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/discord/discord-plans-pricing/"
+  },
+  {
+   "title": "Home | Discord Developer Portal",
+   "href": "https://discord.com/developers/home"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:59:57.607831"
+}

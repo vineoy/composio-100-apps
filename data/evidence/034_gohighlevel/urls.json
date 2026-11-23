@@ -1,0 +1,77 @@
+{
+ "app": "GoHighLevel",
+ "queries": [
+  "GoHighLevel API authentication documentation",
+  "GoHighLevel MCP server",
+  "GoHighLevel API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation",
+  "https://help.gohighlevel.com/support/solutions/articles/155000006639-conversation-ai-public-api",
+  "https://help.gohighlevel.com/support/solutions/articles/155000005741-how-to-setup-and-use-the-highlevel-mcp-server",
+  "https://help.gohighlevel.com/support/solutions/articles/155000005855-how-to-use-the-mcp-server-within-ask-ai"
+ ],
+ "search_hits": [
+  {
+   "title": "HighLevel API Documentation - HighLevel Support Portal",
+   "href": "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation"
+  },
+  {
+   "title": "HighLevel API Documentation - Developer Portal | HighLevel API",
+   "href": "https://marketplace.gohighlevel.com/docs/"
+  },
+  {
+   "title": "GoHighLevel API Documentation 2026: Custom Build & v2 Guide",
+   "href": "https://ghllogic.com/gohighlevel-api-documentation-guide/"
+  },
+  {
+   "title": "Conversation AI Public API : HighLevel Support Portal",
+   "href": "https://help.gohighlevel.com/support/solutions/articles/155000006639-conversation-ai-public-api"
+  },
+  {
+   "title": "GoHighLevel API 2026: Complete Documentation Guide, Endpoints ...",
+   "href": "https://ghldesk.com/gohighlevel-api/"
+  },
+  {
+   "title": "Guide on How to Setup and Use the HighLevel MCP Server",
+   "href": "https://help.gohighlevel.com/support/solutions/articles/155000005741-how-to-setup-and-use-the-highlevel-mcp-server"
+  },
+  {
+   "title": "mcp | HighLevel API",
+   "href": "https://marketplace.gohighlevel.com/docs/other/mcp/index.html"
+  },
+  {
+   "title": "HighLevel just gave AI superpowers: Introducing the MCP Server",
+   "href": "https://www.gohighlevel.com/post/introducing-the-mcp-server"
+  },
+  {
+   "title": "GoHighLevel MCP Server 2026: Setup for Claude and ChatGPT",
+   "href": "https://revenuegeeks.com/guides/gohighlevel-mcp"
+  },
+  {
+   "title": "How to Use the MCP Server within Ask AI - help.gohighlevel.com",
+   "href": "https://help.gohighlevel.com/support/solutions/articles/155000005855-how-to-use-the-mcp-server-within-ask-ai"
+  },
+  {
+   "title": "HighLevel Pricing",
+   "href": "https://www.gohighlevel.com/pricing"
+  },
+  {
+   "title": "HighLevel Developers Community",
+   "href": "https://developers.gohighlevel.com/"
+  },
+  {
+   "title": "HighLevel API Documentation - HighLevel Support Portal",
+   "href": "https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation"
+  },
+  {
+   "title": "GoHighLevel - It's time to take your Agency to the Next Level",
+   "href": "https://www.gohighlevel.com/pricing-info"
+  },
+  {
+   "title": "HighLevel API Documentation - Developer Portal | HighLevel API",
+   "href": "https://marketplace.gohighlevel.com/docs/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:07:51.799862"
+}

@@ -1,0 +1,65 @@
+URL: https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction
+FETCHED: 2026-11-23T16:58:26.513307
+VIA: jina-reader
+
+Title: OpenAPI MCP overview - Lark CLI - Documentation - Lark Developer
+
+URL Source: https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction
+
+Markdown Content:
+Last updated on 2025-07-01
+
+The contents of this article
+
+OpenAPI MCP Tool (hereinafter referred to as "MCP Tool") can help you quickly integrate AI agents with Lark's open capabilities, enabling automated scenarios such as document processing, conversation management, and calendar scheduling based on agents.
+
+## Features
+
+The MCP Tool uses the MCP (Model Context Protocol) protocol to connect with the Lark Open Platform, providing a rich set of OpenAPI tools that cover Lark's core functions (such as messages, groups, calendars, Base apps, etc.). It also supports application access tokens (tenant_access_token) and user access tokens (user_access_token) to ensure secure and controllable API calls. The features of the MCP Tool are as follows:
+
+*   Provides a simple and easy-to-use command line interface for quick configuration and startup.
+*   Supports various configuration methods, adapting to different usage scenarios.
+*   Seamlessly integrates with mainstream AI tools (such as Trae, Cursor, Claude).
+*   After configuring the application information, the application access credentials can be obtained automatically; after logging into the MCP and completing user authentication, the user access credentials can be obtained automatically, with support for automatic refresh.
+
+## Typical use cases
+
+AI will plan based on the actual input prompt and invoke different OpenAPIs, so the permissions that the application needs to open may vary.
+
+| Scenario Example | Pre-Configuration | Trae Running Example |
+| --- | --- | --- |
+| Initialize Project Management Base apps ![Image 1](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/e763ca644ad632e885f20d1d80f60de6_CGxGWcgjAM.png?height=794&lazyload=true&width=2942) | * **Application Capability**: Bot * **Application Permissions**: View, comment, edit and manage Base apps | ![Image 2](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/45cf375d108b0cb4f5b80136eef3976a_l9NBQNq4rC.png) |
+| Create Group Chat, Add Members and Send Lark Card ![Image 3](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/eec39a6faf84b3765eae879ea4a909ae_yTTJpUYttB.png?height=956&lazyload=true&width=2200) | * **Application Capability**: Bot * **Application Permissions**: Retrieve and update group information Send messages as an application * **Others**: Ensure all members in the group are within the application's visibility scope. Refer to [Configure Application Availability](https://open.larksuite.com/document/home/introduction-to-scope-and-authorization/availability). | ![Image 4](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/59c41e3c875be942657e919a695ab97f_bi16LO7rpC.png?height=2733&lazyload=true&width=916) |
+| Summarize Group Messages and Record in Base apps ![Image 5](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/36a7064b38a3c8b6cc4b7776c0544fb6_ITU9vTQq2o.png?height=738&lazyload=true&width=2940) | * **Application Capability**: Bot * **Application Permissions**: Retrieve all messages in the group (sensitive permission) Create Base apps Add new data tables Add new records * **Others**: Bot is in the group chat | ![Image 6](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/052954c82a65def5f1afb542b0aad414_oDH1Yt4Wwe.png) |
+| Grant Base apps Permissions to Group Members ![Image 7](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/a2101550741a329390785af5f816b568_Y13tzod8mE.png?height=704&lazyload=true&maxWidth=240&width=982) | * **Application Capability**: Enable bot capability * **Application Permissions**: View group members View, comment, edit and manage Base apps * **Others**: Bot in group chat; Bot has management permissions for the Base apps | ![Image 8](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/ad21cc6d25ed2f54d034a7133c315b2d_o9lWLB0Qli.png?height=1798&lazyload=true&width=924) |
+
+## Supported openAPI
+
+You can check [tools](https://github.com/larksuite/lark-openapi-mcp/tree/main/docs) to get the list of OpenAPI supported by the MCP Tool on the Lark Open Platform. You can also determine if an API is supported within the MCP Tool through the API documentation. For example, open an API development document, such as [Send Message](https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create). If there is a **"Try it out"** button, it indicates that the API is available within the MCP Tool.
+
+*   APIs in grayscale (i.e., APIs marked as **Limited access** at the beginning of the API documentation) are temporarily not supported in the MCP tool.
+*   APIs related to image or file upload/download are temporarily not supported within the MCP tool.
+
+![Image 9](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/e71f8f228609a8266c1c8892636cdafd_ykpaV02xQq.png?height=432&lazyload=true&maxWidth=600&width=1764)
+
+## MCP tool naming scheme
+
+The MCP Tool follows the naming scheme of `biz.version.resource.method`, consistent with the method naming of the server-side Node SDK. You can obtain the name of an OpenAPI in the MCP Tool in the following way:
+
+In the API documentation, click **Try it out** and check the **Node SDK** sample code. The function after the `client` method is the name of the API in the MCP Tool. For example, as shown in the figure below, the name of the Send Message API is `im.v1.message.create`.
+
+![Image 10](https://sf16-sg.larksuitecdn.com/obj/open-platform-opendoc-sg/d1bd43a610c996b9e3734c9c35be788c_DDOairsgRb.png?height=611&lazyload=true&maxWidth=600&width=1063)
+
+Need help with a problem?
+
+Need help with a problem?
+
+The contents of this article
+
+Feedback
+
+OnCall
+
+Collapse
+
+Expand

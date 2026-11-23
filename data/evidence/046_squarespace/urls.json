@@ -1,0 +1,77 @@
+{
+ "app": "Squarespace",
+ "queries": [
+  "Squarespace API authentication documentation",
+  "Squarespace MCP server",
+  "Squarespace API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+  "https://developers.squarespace.com/commerce-apis/overview",
+  "https://developers.squarespace.com/mcp/overview",
+  "https://developers.squarespace.com/mcp/connect-a-client"
+ ],
+ "search_hits": [
+  {
+   "title": "Squarespace Developer Platform: APIs, Apps, and Docs",
+   "href": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions"
+  },
+  {
+   "title": "Squarespace Developer Platform: APIs, Apps, and Docs",
+   "href": "https://developers.squarespace.com/commerce-apis/overview"
+  },
+  {
+   "title": "Squarespace API keys - Squarespace Help Center",
+   "href": "https://support.squarespace.com/hc/en-us/articles/236297987-Squarespace-API-keys"
+  },
+  {
+   "title": "Access Tokens and Other Credentials - Square Developer",
+   "href": "https://developer.squareup.com/docs/build-basics/access-tokens"
+  },
+  {
+   "title": "Developer Tools APIs at Squarespace - Squarespace Help Center",
+   "href": "https://support.squarespace.com/hc/en-us/articles/41325887099533-Developer-Tools-APIs-at-Squarespace"
+  },
+  {
+   "title": "Square Model Context Protocol Server",
+   "href": "https://developer.squareup.com/docs/mcp"
+  },
+  {
+   "title": "Squarespace Developer Platform: APIs, Apps, and Docs",
+   "href": "https://developers.squarespace.com/mcp/overview"
+  },
+  {
+   "title": "Squarespace MCP Server - GitHub",
+   "href": "https://github.com/bj-beer/squarespace-mcp-2026-complete"
+  },
+  {
+   "title": "Squarespace Developer Platform: APIs, Apps, and Docs",
+   "href": "https://developers.squarespace.com/mcp/connect-a-client"
+  },
+  {
+   "title": "GitHub - The1Studio/squarespace-mcp: MCP server exposing the ...",
+   "href": "https://github.com/The1Studio/squarespace-mcp"
+  },
+  {
+   "title": "Squarespace API \u2014 Docs, Pricing & OpenAPI | APIs.io",
+   "href": "https://apis.io/providers/squarespace/"
+  },
+  {
+   "title": "Squarespace Pricing Plans & Features \u2014 Squarespace",
+   "href": "https://www.squarespace.com/pricing"
+  },
+  {
+   "title": "Squarespace Developer Platform: APIs, Apps, and Docs",
+   "href": "https://developers.squarespace.com/reseller/products-and-pricing"
+  },
+  {
+   "title": "Squarespace Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/squarespace/squarespace-plans-pricing/"
+  },
+  {
+   "title": "Squarespace Developer Platform: APIs, Apps, and Docs",
+   "href": "https://developers.squarespace.com/commerce-apis/overview"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:27:55.448478"
+}

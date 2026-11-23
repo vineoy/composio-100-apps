@@ -1,0 +1,28 @@
+URL: https://docs.helpscout.com/article/1141-docs-api
+FETCHED: 2026-11-23T16:51:46.686526
+VIA: direct
+
+Docs API - Help Scout Support
+Docs API
+The full Help Scout Docs API documentation can be found here:
+https://developer.helpscout.com/docs-api/
+.
+Please check out our developer documentation for complete information, but the Docs API covers:
+Status Codes
+Endpoints
+Objects
+For more information on all custom development options, see
+https://developer.helpscout.com
+.
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Updated on August 24, 2023
+Toggle Search
+Categories
+Get Started With Docs
+Manage Docs
+Customize Your Docs Site
+No results found

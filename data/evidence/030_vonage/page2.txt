@@ -1,0 +1,257 @@
+URL: https://developer.vonage.com/en/verify/concepts/authentication
+FETCHED: 2026-11-23T17:03:09.578713
+VIA: direct
+
+Authentication API Guide | Vonage API Documentation
+Skip to Main Content
+Authentication
+Verify API supports two types of authentication:
+Basic Authentication
+JWT
+When should you use Basic Authentication or JWT?
+Verify supports two authentication methods: Basic authentication and JWT Bearer authentication. Understanding the differences between them is important to ensure a smooth migration and to take full advantage of its capabilities.
+You can use either option, but not both at the same time. In general,
+we recommend using JWT
+authentication when working with the Verify API. While Basic authentication is easier for getting started, it does not support the
+Silent Authentication
+channel.
+Method
+Supported
+Vonage Application Required
+Callbacks/Webhooks
+ACL Support
+Recommended For
+Basic Auth
+Quick testing / POC
+JWT Bearer
+Production
+Basic Authentication
+Basic Authentication sends your API Key and API Secret
+Base64-encoded
+in the
+Authorization
+header. You can find these credentials in your
+API settings
+in the Vonage Dashboard.
+It is the simplest way to get started with Verify, since no Vonage Application setup is required, and your credentials are immediately available from the
+Vonage Dashboard
+.
+How It Works
+Copy
+Authorization: Basic <base64(api_key:api_secret)>
+Warning: API Key/Secret are sensitive! If you expose them publicly (frontend code, GitHub repos, etc.), anyone can abuse your account.
+Create the Request Header
+First, concatenate your API Key and Secret:
+API_KEY:API_SECRET
+.
+Then,
+Base64 encode
+the result. Learn more
+here
+.
+Finally, send it in the request as
+Authorization: Basic BASE64_ENCODED_STRING
+.
+You can do this within your application code - for example, in JavaScript:
+Copy
+const
+credentials
+=
+btoa
+(
+'YOUR_API_KEY:YOUR_API_SECRET'
+);
+const
+response
+=
+await
+fetch
+(
+'https://api-eu.vonage.com/v2/verify'
+, {
+method:
+'POST'
+,
+headers: {
+'Content-Type'
+:
+'application/json'
+,
+'Authorization'
+:
+'Basic '
++
+credentials
+}
+,
+body:
+JSON
+.
+stringify
+({
+...
+})
+});
+Example Request
+Copy
+curl --location --request POST 'https:
+//api.nexmo.com/v2/verify' \
+--header 'Authorization: Basic <base
+64
+(YOUR_API_KEY:YOUR_API_SECRET)>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"brand"
+:
+"Acme Inc."
+,
+"workflow"
+: [
+{
+"channel"
+:
+"sms"
+,
+"to"
+:
+"447700000000"
+}
+]
+}'
+You can generate the Base64-encoded string from
+api_key:api_secret
+using any standard Base64 encoding tool or library.
+Limitations
+Basic Auth gives access to the core Verify request flow (send, check, cancel, trigger next workflow), but there are two important limitations:
+Callbacks/webhooks are not supported.
+Receiving event or summary callbacks requires JWT Bearer authentication, along with a Vonage Application configured with a Status URL.
+ACL (Access Control List) support is not available.
+JWT tokens allow you to scope permissions to specific API endpoints, which is not possible with Basic Auth.
+Given these limitations, Basic Auth is best suited for initial testing and POC integrations. For production deployments, JWT Bearer authentication is strongly recommended.
+JWT
+A
+JWT
+(JSON Web Token) is an open standard (
+RFC 7519
+) for securely transmitting information between parties as a JSON object. The object can optionally be encrypted and signed with a private/public key.
+JWT Bearer Authentication uses a JSON Web Token signed with your Vonage Application's private key. This method unlocks the full capabilities of Verify, including event and summary callbacks, webhook configuration, and ACL-scoped tokens.
+How It Works
+Copy
+Authorization: Bearer <JWT>
+The JWT is generated using your Application ID and Private Key, both obtained when creating a Vonage Application in the Dashboard.
+To generate a JWT, you’ll need your
+application ID
+and
+private key
+, both of which can be found in the
+Application
+settings in your
+Dashboard
+.
+Warning: The generation of all JWTs should be done on the backend. Do not keep tokens’ expiration time longer than required.
+There are several ways to generate a new JWT:
+Using the
+JWT online generator
+.
+Using the
+Vonage CLI tool
+. The private key and an application ID must be provided:
+vonage auth set --app-id your_application_id --private-key /path/to/your/private.key
+vonage jwt create
+Copy
+Please note:
+If you are using one of the Vonage
+Server SDKs
+you do not have to generate a JWT separately, as all SDKs support the generation of JWT tokens.
+If you do not want to generate the JWT using an external tool or library, such as the Vonage SDKs, you can implement your own JWT generation. The
+how to generate a JWT
+blog post includes examples in JavaScript and Python that show how to generate a JWT without external dependencies.
+Once generated, users should be able to use the token to access protected endpoints. This is typically done using the Authorization header using the Bearer schema:
+Copy
+Authorization: Bearer
+<
+JWT
+>
+Setup Steps for Verify
+Create a Vonage Application in the
+Vonage Dashboard
+. On the left panel, go to
+Build > Applications
+.
+Generate a public/private key pair — download and securely store the private key.
+Enable Verify for the application and configure the Status URL (webhook endpoint) to receive callbacks.
+Generate a JWT signed with your Application ID and private key. You can use the
+JWT Generator
+, the
+Vonage CLI
+, or any Vonage SDK.
+Include the JWT in all API requests using the
+Authorization: Bearer
+header.
+Example Request
+Copy
+curl --location --request POST 'https:
+//api.nexmo.com/v2/verify' \
+--header 'Authorization: Bearer YOUR_JWT' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"brand"
+:
+"Acme Inc."
+,
+"workflow"
+: [
+{
+"channel"
+:
+"sms"
+,
+"to"
+:
+"447700000000"
+}
+]
+}'
+JWT tokens have a maximum time-to-live (TTL) of
+24 hours
+. Make sure your integration refreshes tokens before expiry to avoid
+401 Unauthorized
+errors.
+What JWT Unlocks
+Summary callbacks
+— receive a full status report at the end of every verification request.
+Event callbacks
+— receive real-time events during the request (e.g., for Silent Auth and WhatsApp Interactive channels).
+ACL-scoped tokens
+— restrict token permissions to specific endpoints for enhanced security.
+Webhook configuration
+— configure
+verify_event_url
+and
+verify_status_url
+per Vonage Application.
+Migrating Authentication from Verify Legacy
+One of the key changes when migrating from Verify Legacy to Verify is how authentication is handled.
+In Verify Legacy, authentication was handled by passing
+api_key
+and
+api_secret
+as query parameters or in the request body. This method is not supported in Verify.
+Verify Legacy
+Verify
+api_key
++
+api_secret
+in query params / body
+Authorization: Basic <base64(api_key:api_secret)>
+header
+No application required
+Vonage Application required for JWT
+No webhook support
+Full callback support with JWT
+Important
+: Make sure to remove
+api_key
+and
+api_secret
+from the request body or query parameters when migrating to Verify. These fields are not accepted in Verify API calls.

@@ -1,0 +1,196 @@
+URL: https://developers.frontegg.com/ciam/api/overview
+FETCHED: 2026-11-23T16:48:23.937967
+VIA: direct
+
+API introduction
+Skip to content
+API introduction
+Environment authentication
+Users, auth and security module
+Single sign-on module
+SCIM provisioning module
+Entitlements module
+Entitlements agent
+Accounts module
+Applications module
+Audits module
+Last updated
+3 months ago
+API introduction
+Copy
+Welcome to the Frontegg API documentation. This guide is your starting point before making your first API request Please read this carefully to avoid common issues and ensure a smooth development experience.
+API Categories
+Frontegg APIs are grouped into three categories.
+Understanding the difference between them is essential
+.
+Authentication APIs
+Authentication endpoints typically
+do not require authorization
+and are responsible for handling core authentication flows. These include:
+Secure user login
+Multi-factor authentication (MFA)
+Passwordless authentication
+Social login integrations
+Management APIs
+Management endpoints
+require an environment token
+for authorization and are used to configure and manage environment-level resources. These endpoints support administrative operations such as:
+Configuring SSO (SAML, OIDC)
+Managing user roles, permissions, and configurations
+Retrieving all SCIM connections for an environment
+Updating application-level settings
+Managing core environment settings
+Self-service APIs
+Self-service endpoints usually
+require either a user token or an environment token
+, depending on the context. They enable actions available to end-users via Frontegg's
+self-service portal
+, including:
+Creating, updating, or deleting SSO configurations
+Updating account settings
+Inviting and managing users
+Creating user groups
+Creating and managing M2M (machine-to-machine) tokens
+API access
+Management APIs require environment-level authorization, can only be used with your environment token, and are responsible for configuring various environment settings. These requests should be directed to
+api.frontegg.com
+.
+Authentication and Self-Service APIs can be accessed using either the environment token or an authenticated user's token. To call these APIs, you need the Client ID and API Key obtained from your Frontegg portal. These types of requests use the
+api.frontegg.com
+prefix.
+When sending requests in a tenant context, they should be directed to your specific subdomain on
+frontegg.com
+, or to a custom domain if one has been configured. For example,
+**app-xxx.frontegg.com/identity/resources/users/v3**
+.
+The following example is that of a
+GET Users
+request, that can be used with both types of Bearer tokens. Note the nuances:
+Self-service
+Management
+Report
+Self-service (User)
+--location -g --request GET 'https://[your-subdomain].frontegg.com/identity/resources/users/v3/me'
+--header 'Authorization: Bearer {{user-JWT}}'
+--data-raw ''
+When and where to use headers
+Routes that are marked as Self-service can be called in two different ways, depending on the type of token you're using.
+If you're using an
+environment token
+, you must include the
+frontegg-user-id
+and/or
+frontegg-tenant-id
+headers, depending on the specific API requirements. These calls should be directed to:
+https://api.
+{{region}
+}.frontegg.com/xxxx
+Alternatively, Self-service routes can also be called using a
+user
+token, such as one generated via the
+Authenticate user with password
+endpoint. In this case, you should send the request to your Frontegg subdomain or custom domain:
+https://[your-frontegg-or-custom-domain]/xxxxxx
+When using a user token, you do not need to include any headers — the user and tenant information will be automatically extracted from the JWT.
+API Gateway by region
+Region
+Gateway
+EU
+https://api.frontegg.com
+US
+https://api.us.frontegg.com
+AU
+https://api.au.frontegg.com
+CA
+https://api.ca.frontegg.com
+Performing your first API call
+Before calling any of Frontegg's APIs, you'll need to authenticate your environment using Bearer authorization tokens. To obtain it:
+Go to your Frontegg Portal → [Environment] → Keys & domains.
+Copy your Client ID and API Key.
+Make a POST request to the
+environment authentication endpoint
+with these values:
+cURL
+Report
+Environment (Vendor) authentication
+curl
+-X
+POST
+https://api.frontegg.com/auth/vendor
+-H
+'Content-Type: application/json'
+-d
+'{
+"clientId": "YOUR_CLIENT_ID",
+"secret": "YOUR_API_KEY"
+}'
+You'll receive a bearer token in the response. Use this token in the
+Authorization
+header for subsequent Management API or Self-Service API calls.
+Generating and using a TypeScript SDK
+You can generate a fully-typed TypeScript (or JavaScript) SDK from Frontegg's OpenAPI specification using the
+api
+library. This tool simplifies API consumption by generating a client library with built-in TypeScript types and convenient method access.
+Install the SDK
+Shell
+Report
+npx api install https://github.com/frontegg/openapi-public/blob/master/apis-combined.json
+Example usage
+TypeScript
+Report
+import
+frontegg
+from
+'@api/frontegg'
+;
+frontegg.
+permissionsControllerV1_getAllRoles
+()
+.
+then
+(({
+data
+})
+=>
+console.
+log
+(data))
+.
+catch
+(
+err
+=>
+console.
+error
+(err));
+Troubleshooting common errors
+Errors such as
+{ "errors": ["Failed to verify vendor JWT"] }
+are typically caused by misusing API contexts or directing requests to the wrong gateway. These issues often arise when Management APIs are mistakenly called in a Self-Service context, or vice versa, or when the endpoint does not match your account's deployment region.
+To verify your Environment token, use the Environment authentication API. Make sure to include your
+Client ID
+and
+API Key
+, which you can find in the Frontegg Portal under [ENVIRONMENT] → Keys & domains.
+Pay close attention to the URL you're using for API calls. Management APIs must be called through
+api.frontegg.com
+, while Self-Service or tenant-scoped APIs should go through your specific subdomain—typically in the format
+app-<your-tenant-id>.frontegg.com
+— or through your configured custom domain. Using the wrong domain for a given API context will result in authorization failures.
+How useful was this page?
+Next to Environment authentication
+On this page
+API introduction
+API Categories
+Authentication APIs
+Management APIs
+Self-service APIs
+API access
+When and where to use headers
+API Gateway by region
+Performing your first API call
+Generating and using a TypeScript SDK
+Install the SDK
+Example usage
+Troubleshooting common errors
+Ask AI

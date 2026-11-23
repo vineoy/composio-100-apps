@@ -1,0 +1,82 @@
+URL: https://docs.ahrefs.com/en/ahrefs-connect/docs/api-guide
+FETCHED: 2026-11-23T17:33:29.264036
+VIA: direct
+
+API guide | Ahrefs for Developers
+✕
+Products
+For App Developers
+For Ahrefs Users
+Introduction
+For App Developers
+How it works
+How to apply
+OAuth guide
+API guide
+Approval process
+Apps gallery
+Terms of service
+For Ahrefs Users
+How to manage your integrations
+API guide
+We have a full, detailed reference for API v3 here:
+Ahrefs API documentation
+.
+This page is a brief introduction for Ahrefs Connect developers.
+What you can do with API v3
+Ahrefs API v3 lets you pull a wide range of data, including:
+Organic and backlinks data from
+Site Explorer
+(for your site or competitors)
+Keyword metrics and ideas from
+Keywords Explorer
+Google SERP data
+Data from the user’s
+Rank Tracker
+and
+Site Audit
+projects
+And more — we regularly add new endpoints
+API units and request costs
+All requests — except for free test queries and Rank Tracker, Management, Public, and a few other endpoints — consume
+API units
+from the connected user’s account.
+Cost rules:
+Depends on the
+number of rows returned
+and the
+fields requested
+Minimum cost for any paid request:
+50 units
+If an endpoint is free, it’s marked as such in its documentation page
+During development
+As explained in
+How it works
+, when your app is first created, it will be in
+Inactive
+status. In this mode, you can test OAuth flows and send free test requests to API v3 endpoints from your staging setup without consuming units. Once your app is approved and activated, production requests will consume units according to the normal cost rules.
+Read more:
+Free test queries
+and
+API limits consumption
+info
+Best practices to save user API units
+When making requests on behalf of users, be mindful of their monthly allowance.
+Here’s how to minimize unit consumption:
+Use
+select
+to request only needed fields
+: most endpoints let you specify fields.
+Limit the number of rows
+: use
+limit
+or equivalent parameters. Avoid pulling thousands of rows unless necessary.
+Use bulk endpoints where possible
+: for example,
+batch-analysis
+lets you pull metrics for many pages in one request.
+Let users monitor their usage
+: the
+limits-and-usage
+endpoint shows how many units they have left.
+On this page

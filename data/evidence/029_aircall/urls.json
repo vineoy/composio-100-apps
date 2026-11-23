@@ -1,0 +1,77 @@
+{
+ "app": "Aircall",
+ "queries": [
+  "Aircall API authentication documentation",
+  "Aircall MCP server",
+  "Aircall API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.aircall.io/api-references",
+  "https://developer.aircall.io/docs/authentication",
+  "https://developer.aircall.io/docs/oauth",
+  "https://developers.aircall.io/tutorials/basic-authentication"
+ ],
+ "search_hits": [
+  {
+   "title": "API References - Aircall",
+   "href": "https://developers.aircall.io/api-references"
+  },
+  {
+   "title": "Aircall API Authentication",
+   "href": "https://developer.aircall.io/docs/authentication"
+  },
+  {
+   "title": "OAuth implementation guide - Aircall",
+   "href": "https://developer.aircall.io/docs/oauth"
+  },
+  {
+   "title": "Basic Authentication | Aircall",
+   "href": "https://developers.aircall.io/tutorials/basic-authentication"
+  },
+  {
+   "title": "API References | Aircall",
+   "href": "https://developer-frontend-aircall.555773567328.aircall.io/api-references/"
+  },
+  {
+   "title": "Aircall MCP server - GitHub",
+   "href": "https://github.com/RosenAdvertising/aircall-mcp"
+  },
+  {
+   "title": "GitHub - CassiaResearch/aircall-mcp-server: Unofficial MCP ...",
+   "href": "https://github.com/CassiaResearch/aircall-mcp-server"
+  },
+  {
+   "title": "Aircall Help Center | Using Aircall MCP with AI assistants (beta)",
+   "href": "https://support.aircall.io/en-gb/articles/39677926959517"
+  },
+  {
+   "title": "Register a Public MCP - developer.aircall.io",
+   "href": "https://developer.aircall.io/docs/how-to-register"
+  },
+  {
+   "title": "Aircall MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/cotlet-dev-integrations-aircall-api-mcp-server"
+  },
+  {
+   "title": "Aircall Pricing & Plans: AI-Powered Calling, Voice Agents ...",
+   "href": "https://aircall.io/pricing/"
+  },
+  {
+   "title": "Aircall for Developers",
+   "href": "https://developer.aircall.io/"
+  },
+  {
+   "title": "API References | Aircall",
+   "href": "https://developers.aircall.io/api-references"
+  },
+  {
+   "title": "Aircall Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/aircall/aircall-plans-pricing/"
+  },
+  {
+   "title": "Authenticate with API Keys - developer.aircall.io",
+   "href": "https://developer.aircall.io/docs/basic-authentication"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:02:16.683610"
+}

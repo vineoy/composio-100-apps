@@ -1,0 +1,545 @@
+URL: https://dataforseo.com/help-center/getting-started-with-google-search-engine-api-documentation
+FETCHED: 2026-11-23T17:30:15.941120
+VIA: direct
+
+Getting Started with DataForSEO Google Organic SERP API: Parameters, Endpoints, and Response Structure – DataForSEO
+Help Center
+Search the Help Center
+Search
+Can’t find an answer?
+Get AI guidance on your account, billing, or implementation.
+AI Chat
+→
+Add as a preferred source on Google
+Getting Started with DataForSEO Google Organic SERP API: Parameters, Endpoints, and Response Structure
+SERP API
+Updated 18.11.2026
+Table of Contents
+This getting-started guide walks developers through their first API call, from choosing an endpoint and constructing a request to authenticating and interpreting the JSON response. While our Google search engine API documentation provides a complete reference for all parameters and response fields, this guide focuses on what you need to get started.
+For more detailed instructions on specific steps, see our
+authentication guide with API key setup and code examples
+for credential configuration, or follow the
+step-by-step guide to scraping Google search results with Python
+for a Python-based walkthrough of the same workflow.
+If you need Google search results inside your product, whether that’s a
+rank tracker
+,
+a keyword research tool
+, or a competitive monitoring feature, you don’t have to build and maintain your own scraper to get them. That’s exactly what DataForSEO
+Google Organic SERP API
+is built for. It returns structured JSON from Google search, including organic and paid elements and SERP features, and delivers Live results back in about 6 seconds on average. The API documentation provides developers with all the details needed to understand, integrate, and use the Google search engine API effectively.
+Here we stick to the parts you need first, starting with how the endpoints are built.
+Endpoint structure and what the Google search engine API documentation covers
+Every endpoint in our Google Organic SERP API follows the same URL pattern, and it’s worth understanding its structure from the start to make integration easier:
+/v3/serp/google/organic/{mode}/{function}
+.
+These two placeholders correspond to two key values that build a complete endpoint.
+The
+mode
+controls how you get results. The Live mode returns data in real time in a single request (about 6 seconds on average), so it suits cases where you need to immediately display results to end users or perform a few on-demand checks. The Standard mode queues your task: you POST it, then collect it later by polling or through a pingback or postback URL. Standard mode runs at two priorities: normal (around 5 minutes) and high (around 1 minute), and it’s the lower-cost option for bulk search engine data collection.
+The
+function
+controls how much of the SERP data you get back. Regular returns the top organic, paid and featured snippet results without the full set of SERP features. Advanced returns a complete picture of the results page as structured items, including AI Overviews, knowledge panels, PAAs, and everything else. HTML returns the raw SERP page if you’d rather parse it yourself.
+To keep things straightforward, we’d point you to Live Google Organic SERP Advanced as the starting endpoint, because it gives you real-time delivery and the full SERP feature set. For complete field reference, you can turn to the
+Live Advanced endpoint documentation
+, and if you need the mode and function breakdown, you can learn more in the
+Google Organic SERP API overview
+. The
+SERP API Overview
+covers a wider set of search engines if you need more than Google.
+Once you’ve picked the endpoint, the next step is building the request payload for it.
+The request parameters that matter
+A request body is a JSON array of task objects, and most of what you’ll configure lives in three required fields plus a handful of optional ones. Here are the parameters that matter most when you’re getting started:
+Parameter
+Required?
+What it does
+keyword
+Yes
+The search query you want results for.
+location_code
+Yes*
+Location for which you want to collect search engine results (e.g.
+2840
+= United States). You can send
+location_name
+or
+location_coordinate
+instead.
+language_code
+Yes*
+Language for which you want to collect search engine results (e.g.
+en
+).
+language_name
+works too.
+device
+Optional
+desktop
+or
+mobile
+. Defaults to
+desktop
+.
+os
+Optional
+OS for the chosen device:
+windows
+/
+macos
+for
+desktop
+, or
+ios
+/
+android
+for
+mobile
+.
+depth
+Optional
+Number of results to return. Default
+10
+.
+calculate_rectangles
+Optional
+Adds pixel-ranking coordinates for each element on the page.
+load_async_ai_overview
+Optional
+Set to true to obtain
+ai_overview
+items from SERPs even if they are loaded asynchronously. Note: this parameter adds one extra base price to the cost of the request.
+*One of the location field forms and one of the language field forms are required.
+Rankings and results displayed, including local packs, map results, ads, featured snippets, and even the set of organic URLs, can change depending on the searcher’s country, region, city, or ZIP-level location. If you don’t specify
+location_code
+, the API will use a default location, which may not match the market your product tracks or the location your client cares about. The same logic applies to
+language_code
+. It controls the language context of the SERP, including localized titles and descriptions, Google interface language, and in some cases the result set itself. For example, the query “best running shoes” can produce different results for users searching in the United States, Germany, or Spain, and those differences become even more visible when language is also changed. So, set
+location_code
+and
+language_code
+deliberately for every task.
+depth
+deserves a note on cost. Google Organic SERP endpoints are billed per 10 results, so a request with
+depth: 10
+counts as one SERP and
+depth: 100
+counts as ten. You’ll find the exact per-SERP figures on the
+Google Organic SERP pricing page
+.
+With the request shaped, you need API credentials to send it.
+Authentication and your first request
+Our API uses Basic HTTP authentication. You take the API login and password from your dashboard, encode them in Base64 as
+login:password
+, and send the result in the
+Authorization
+header. You can also copy a ready-made Base64-encoded value from the API Access section of the dashboard. The credentials stay visible there for 24 hours after account creation, and you can request them by email anytime later. Our
+Google SERP API authentication guide
+covers the rest, including no-code tools like Make and n8n and the five mistakes that cause most setup problems.
+The snippet below sends a single live request to the Google Organic Live Advanced endpoint and returns the JSON response. It’s the smallest working call and a useful baseline before you wrap it in a loop or a scheduled job. Because it’s plain cURL, you can reproduce it in any language.
+# Replace login:password with your credentials from the dashboard;
+# the pair is base64-encoded inline for the Authorization header.
+curl --location --request POST "https://api.dataforseo.com/v3/serp/google/organic/live/advanced" \
+  --header "Authorization: Basic $(printf 'login:password' | base64)" \
+  --header "Content-Type: application/json" \
+  --data-raw '[
+    {
+      "keyword": "best running shoes",
+      "location_code": 2840,
+      "language_code": "en",
+      "device": "desktop",
+      "load_async_ai_overview": true
+    }
+  ]'
+Endpoint used: Live Google Organic SERP Advanced. See the
+Live Advanced endpoint documentation
+for the full request field list and examples in PHP, Python, cSharp and more. If you work in Python, our
+Python guide to scraping Google search results
+makes the same first call with a ready-to-use script.
+One thing that trips people up early: the Live mode accepts only one task per request, even though Standard endpoints let you batch up to 100. If you need to run many keywords through Live, send them as separate calls within the rate limit (10,000 API calls per minute). For a fuller walkthrough of setting and collecting tasks, our guide on
+collecting SERP data with API
+covers both modes step by step.
+Go from API requests to automated workflows with our free SEO API Basics course.
+Take the course →
+Once the request returns, the next step is reading the response.
+The response structure and fields
+All API responses follow the same basic structure. The top-level object contains a
+tasks
+array. Each task includes a
+status_code
+(look for
+20000
+, meaning Ok), the
+cost
+of that task, and a
+result
+array. Inside each
+result
+is the metadata for the search (
+keyword
+,
+location_code
+,
+language_code
+) and an
+items
+array holding the SERP itself.
+Here’s a response for a single keyword, with some fields collapsed so the structure stays visible:
+{
+  "version": "0.1.20200129",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.3059 sec.",
+  "cost": 0.003,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "11151456-0696-0066-0000-002a5915da37",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0952 sec.",
+      "cost": 0.003,
+      "result_count": 1,
+      "path": [...],
+      "data": {...},
+      "result": [
+        {
+          "keyword": "flight ticket new york san francisco",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2840,
+          "language_code": "en",
+          "check_url": "https://www.google.com/search?q=flight%20ticket%20new%20york%20san%20francisco&num=100&hl=en&gl=US&gws_rd=cr&ie=UTF-8&oe=UTF-8&uule=w+CAIQIFISCQs2MuSEtepUEUK33kOSuTsc",
+          "datetime": "2026-07-09 12:57:46 +00:00",
+          "spell": null,
+          "refinement_chips": {...},
+          "item_types": [
+            "organic",
+            "ai_overview"
+          ],
+          "se_results_count": 85600000,
+          "pages_count": 1,
+          "items_count": 10,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "![BMW M4 Coupe (F82) Specs, Performance & Photos - 2014, 2015 ...](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAADnThe BMW M4 F82 is a high-performance coupe known for its aggressive styling and powerful engine.Key specs include a `3.0-liter twin-turbo inline-six engine producing 425 hp (or 444 hp with the Competition Package), a 6-speed manual or 7-speed M DCT transmission, and rear-wheel drive`.[[1]](https://www.autoevolution.com/cars/bmw-m4-f82-2014.html#:~:text=The%20load%20capacity%20was%20more,4%20GASOLINE%20Engines)[[2]](https://www.pistonheads.com/news/ph-driven/2014-bmw-m3-and-m4-f80-f82--review/29973)[[3]](https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m3-f80-and-bmw-m4-f82.html#:~:text=Towards%20the%20end%20of%20the,strong%20engine%20were%20also%20standard.)[[4]](https://www.newcenturybmw.com/bmw-research/bmw-m4-0-60/#:~:text=2023%20BMW%20M4%20Coupe,60%20time%20of%204.1%20seconds.)",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "The BMW M4 F82 is a high-performance coupe known for its aggressive styling and powerful engine. Key specs include a 3.0-liter twin-turbo inline-six engine producing 425 hp (or 444 hp with the Competition Package), a 6-speed manual or 7-speed M DCT transmission, and rear-wheel drive.",
+                  "markdown": "![BMW M4 Coupe (F82) Specs, Performance & Photos - 2014, 2015 ...](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHEAjQMBIgACEQEDEQH.)",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "according to Bankrate",
+                      "description": null,
+                      "url": "https://www.bankrate.com/home-equity/heloc-rates/",
+                      "domain": "www.bankrate.com"
+                    }
+                  ],
+                  "images": [
+                    {
+                      "type": "images_element",
+                      "alt": "BMW M4 Coupe (F82) Specs, Performance & Photos - 2014, 2015 ...",
+                      "url": null,
+                      "image_url": "https://api.dataforseo.com/cdn/i/06170329-5643-0066-0000-4f9b0f8172ba:1"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "source": "autoevolution",
+                      "domain": "www.autoevolution.com",
+                      "url": "https://www.autoevolution.com/cars/bmw-m4-f82-2014.html#:~:text=The%20load%20capacity%20was%20more,4%20GASOLINE%20Engines",
+                      "title": "BMW M4 Coupe (F82) ( (2014-2020)) Photos, engines & full specs",
+                      "text": "The load capacity was more than enough for two big luggages, as well as the cabin being equipped with lots of storage spaces – not..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "source": "PistonHeads",
+                      "domain": "www.pistonheads.com",
+                      "url": "https://www.pistonheads.com/news/ph-driven/2014-bmw-m3-and-m4-f80-f82--review/29973",
+                      "title": "2014 BMW M3 and M4 (F80/F82) | Review - PistonHeads UK",
+                      "text": "May 12, 2014 —  * SPECIFICATION | 2014 BMW M4 F82. Engine: 2,979cc 6-cyl twin-turbo. * Transmission: 6-speed manual/7-speed dual-clut..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_expanded_element",
+                  "position": "left",
+                  "title": "Step 4",
+                  "text": "Calculate Springfield Division sales for Quarter 2",
+                  "components": [
+                    {
+                      "type": "ai_overview_expanded_component",
+                      "title": null,
+                      "text": "Springfield Division sales in Quarter 1 are $ 1, 500, 000 $ 1 comma 500 comma 000 $ 1, 5 0 0, 0 0 0. Growth rate is 3 % 3 % 3 %. Sales in Quarter 2 are $ 1, 500, 000 × ( 1 + 0.03 ) = $ 1, 545, 000 $ 1 comma 500 comma 000 cross open paren 1 plus 0.03 close paren equals $ 1 comma 545, 000 $ 1, 5 0 0, 0 0 0 × ( 1 + 0. 0 3 ) = $ 1, 5 4 5, 0 0 0.",
+                      "markdown": "- Springfield Division sales in Quarter 1 are $1,500,000.n- Growth rate is 3%.n- Sales in Quarter 2 are $1,500,000×(1+0.03)=$1,545,000.",
+                      "images": null,
+                      "links": null,
+                      "references": null
+                    }
+                  ],
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "source": "autoevolution",
+                  "domain": "www.autoevolution.com",
+                  "url": "https://www.autoevolution.com/cars/bmw-m4-f82-2014.html#:~:text=The%20load%20capacity%20was%20more,4%20GASOLINE%20Engines",
+                  "title": "BMW M4 Coupe (F82) ( (2014-2020)) Photos, engines & full specs",
+                  "text": "The load capacity was more than enough for two big luggages, as well as the cabin being equipped with lots of storage spaces – not..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "source": "PistonHeads",
+                  "domain": "www.pistonheads.com",
+                  "url": "https://www.pistonheads.com/news/ph-driven/2014-bmw-m3-and-m4-f80-f82--review/29973",
+                  "title": "2014 BMW M3 and M4 (F80/F82) | Review - PistonHeads UK",
+                  "text": "May 12, 2014 —  * SPECIFICATION | 2014 BMW M4 F82. Engine: 2,979cc 6-cyl twin-turbo. * Transmission: 6-speed manual/7-speed dual-clut..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[29]",
+              "domain": "www.t-mobile.com",
+              "title": "Apple iPhone 12 Pro 5G | 4 colors in 512GB, 256GB & 128GB",
+              "url": "https://www.t-mobile.com/cell-phone/apple-iphone-12-pro",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.t-mobile.com › Phones › Apple",
+              "website_name": "T-Mobile",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "description": "Get a great deal on the 5G-ready Apple iPhone 12 Pro. See all the features, specs, price and get it on T-Mobile.",
+              "pre_snippet": null,
+              "extended_snippet": "Rating: 4 · ‎231 reviews · ‎US$30.00 to US$899.99 · ‎In stock",
+              "images": null,
+              "amp_version": false,
+              "rating": {
+                "rating_type": "Max5",
+                "value": 4,
+                "votes_count": 231,
+                "rating_max": 5
+              },
+              "price": {
+                "current": 30,
+                "regular": null,
+                "max_value": 899.99,
+                "currency": "USD",
+                "is_price_range": true,
+                "displayed_price": "US$30.00 to US$899.99"
+              },
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": {
+                "type": "about_this_result_element",
+                "url": "https://www.t-mobile.com/cell-phone/apple-iphone-12-pro",
+                "source": "Wikipedia",
+                "source_info": "T-Mobile is the brand name used by the mobile communications subsidiaries of the German telecommunications company Deutsche Telekom AG. The brand is also active in the Czech Republic, the Netherlands, Poland, and the United States.",
+                "source_url": "https://en.wikipedia.org/wiki/T-Mobile",
+                "language": "English",
+                "location": null,
+                "search_terms": [
+                  "apple",
+                  "iphone",
+                  "12"
+                ],
+                "related_terms": null
+              },
+              "related_result": [
+                {
+                  "type": "related_result",
+                  "xpath": "/html[1]/body[1]/div[7]/div[1]/div[9]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[29]/div[1]/div[2]/ul[1]/li[1]",
+                  "domain": "www.t-mobile.com",
+                  "title": "Apple iPhone 12 | 5 colors in 64GB & 128GB | T-Mobile",
+                  "url": "https://www.t-mobile.com/cell-phone/apple-iphone-12",
+                  "cache_url": null,
+                  "related_search_url": null,
+                  "breadcrumb": "https://www.t-mobile.com › Phones › Apple",
+                  "is_image": false,
+                  "is_video": false,
+                  "description": "iPhone 12. 5G to download movies on the fly and stream high-quality video. Beautifully bright 6.1-inch Super Retina XDR display. Ceramic Shield with 4x ...",
+                  "pre_snippet": null,
+                  "extended_snippet": null,
+                  "images": null,
+                  "amp_version": false,
+                  "rating": {
+                    "rating_type": "Max5",
+                    "value": 4.6,
+                    "votes_count": 30,
+                    "rating_max": 5
+                  },
+                  "price": {
+                    "current": 24.34,
+                    "regular": null,
+                    "max_value": 779.99,
+                    "currency": "USD",
+                    "is_price_range": true,
+                    "displayed_price": "US$24.34 to US$779.99"
+                  },
+                  "highlighted": null,
+                  "about_this_result": {
+                    "type": "about_this_result_element",
+                    "url": "https://www.t-mobile.com/cell-phone/apple-iphone-12",
+                    "source": "Wikipedia",
+                    "source_info": "T-Mobile is the brand name used by the mobile communications subsidiaries of the German telecommunications company Deutsche Telekom AG. The brand is also active in the Czech Republic, the Netherlands, Poland, and the United States.",
+                    "source_url": "https://en.wikipedia.org/wiki/T-Mobile",
+                    "language": "English",
+                    "location": null,
+                    "search_terms": [
+                      "apple",
+                      "iphone",
+                      "12"
+                    ],
+                    "related_terms": null
+                  },
+                  "timestamp": null
+                }
+              ],
+              "timestamp": null,
+              "rectangle": {
+                "x": 180,
+                "y": 5814,
+                "width": 652,
+                "height": 363
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+In practice, the
+items
+array is the most important and data-rich part. Each element has a
+type
+, and that’s how you tell SERP features apart from plain results. An
+organic
+item contains fields such as
+domain
+,
+title
+,
+url
+,
+breadcrumb
+, and
+description
+. AI Overviews, featured snippets, people-also-ask blocks, and local packs each have their own structure that you can explore in full from our
+Google Organic Live Advanced endpoint documentation
+.
+Two fields in SERP API responses handle ranking. The
+rank_group
+field is the position within results of the same type, while
+rank_absolute
+is the position across every element on the page. If an AI Overview sits above the first organic result, that organic result can have
+rank_group
+1 and
+rank_absolute
+2. For collecting AI Overview data specifically, check our guide on
+scraping Google AI Overviews
+.
+Once you know the shape of the response, a few habits help keep your integration smooth and stable.
+Implementation tips
+Here’s a quick list of best practices we’d recommend getting familiar with before you move from a first request to production:
+Test using the Sandbox first.
+Our Sandbox mirrors the production response structure and returns sample data, so you can build and validate your parser without spending on real calls. The
+Sandbox documentation
+lists everything you need to use it efficiently.
+Match the mode to your actual volume.
+At scale, the Standard queue costs less per SERP: $0.0006 versus $0.002 per Live depth-10 request. If you’re collecting thousands of keywords on a schedule, Standard with a postback URL is usually the better fit; reserve Live for on-demand lookups.
+Keep depth tight.
+Since billing is per 10 results, request only the depth your feature uses. Pulling 100 results when you display 10 multiplies the cost tenfold for data you discard.
+Plan your request volume.
+Whether you’re sending small, irregular batches or high-volume workloads, our guide to
+best practices for handling high-volume and low-volume SERP API requests
+explains how to structure and pace requests so they run efficiently rather than stacking up.
+Check unexpected results against a known-good request.
+If a call returns something you don’t expect, rebuild it in Postman alongside the narrated video in our blog post
+Making Your First Call to SERP API v3
+, which sends Live and Standard requests step by step. If the Postman version works, look for the problem in your own code.
+For a quick recap before you build, the FAQ below answers the most common getting-started questions.
+Getting started with the SERP API: FAQ
+How do I get started with the Google SERP API?
+Copy your API login and password from the dashboard and send a POST request with a
+keyword
+,
+location_code
+, and
+language_code
+to the Live Google Organic SERP Advanced endpoint. The SERP comes back in the
+items
+array of the JSON response, where you handle each element by its
+type
+.
+Which SERP API endpoint should I start with?
+Start with Live Google Organic SERP Advanced:
+/v3/serp/google/organic/live/advanced
+. It returns results in a single request, in about 6 seconds on average, with the full set of SERP features, including AI Overviews, knowledge panels, and People Also Ask. Once your parser works, you can move scheduled bulk jobs to Standard mode.
+What’s the difference between Live and Standard endpoints?
+Live returns results in real time and takes one task per request, which suits on-demand lookups. Standard queues your task: you POST it, then collect the results by polling or through a pingback or postback URL. Expect around 5 minutes at normal priority and around 1 minute at high priority. Standard is the lower-cost option and takes up to 100 tasks per request, so it’s usually the better fit for bulk collection.
+How much does a Google SERP API request cost?
+Google Organic SERP requests are billed per SERP, meaning per 10 results, so
+depth: 100
+costs ten times as much as
+depth: 10
+. One SERP costs $0.0006 in the Standard queue and $0.002 in Live mode, and optional parameters such as
+load_async_ai_overview
+and
+calculate_rectangles
+add to the base price. The
+Google Organic SERP API pricing page
+lists current rates for each mode.
+Where do I find my API credentials?
+Your API login and password are in the API Access section of your dashboard. Our system generates the API password for you, and it’s different from the password you log in with. Our
+authentication guide
+shows how to encode them and add them to cURL, Make, n8n, or a Custom GPT.
+Wrapping up
+That covers the essentials of getting started. Our Google Organic SERP API gives you a set of clearly documented endpoints, fixed required parameters, straightforward Basic auth, and predictable JSON responses. These are the basics you need to pull structured Google search results into your product, without creating a custom scraping infrastructure or maintaining parsers every time Google changes the page markup. For pricing by mode and the other search engines you can query, see our
+Google SERP API page
+. Check the docs to make sure every parameter is set up correctly, explore the full list of available fields, get ready-to-use examples in PHP, Python, and other languages, and download our client libraries.
+See Docs
+Was this article helpful?
+Helpful
+Unhelpful
+More in SERP API
+How to Use Bing Search Engine API with Python: Free Testing with DataForSEO
+Best Web Search API for Developers: What to Look For and Why DataForSEO SERP API Fits
+How to Check Bing SERP Rankings with DataForSEO SERP API
+Track Local Pack, Local Finder and Google Maps Rankings With API
+Explore Who Ranks for Your Keywords
+Black Friday is here!
+Get 10% bonus
++10% on every top‑up, up to $100 extra.
+Ends in
+12
+days
+00
+hours
+00
+minutes
+Get +10% now

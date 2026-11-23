@@ -1,0 +1,95 @@
+URL: https://developers.google.com/google-ads/api/docs/productionize/access-levels
+FETCHED: 2026-11-23T17:04:05.532914
+VIA: direct
+
+Access levels and RMF  |  Google Ads API  |  Google for Developers
+Skip to main content
+Ads API
+/
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Polski
+Português – Brasil
+Tiếng Việt
+Türkçe
+Русский
+עברית
+العربيّة
+فارسی
+हिंदी
+বাংলা
+ภาษาไทย
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+Home
+Products
+Google Ads API
+Send feedback
+Access levels and RMF
+Stay organized with collections
+Save and categorize content based on your preferences.
+Page Summary
+outlined_flag
+The Google Ads API has access levels tied to the developer token and requires an application review to grant them.
+Start with Basic Access and apply for Standard Access as your application grows, allowing for the potential review time.
+The Required Minimum Functionality (RMF) only applies to developer tokens with Standard Access, so review these requirements beforehand.
+The Google Ads API is free to use, but non-compliance with RMF for Standard Access users may result in fees.
+The Google Ads API has
+access levels
+associated with the Google Cloud
+project, and uses an application review process to grant various access levels.
+It's important to plan and obtain the correct access levels before
+productionizing your application.
+A common scenario is that your application development starts with
+Explorer
+access level
+, but then outgrows its quota limits over time. At
+that point, you should apply for
+Basic access level
+or
+Standard
+access level
+. While Basic access applications are reviewed
+automatically, the Standard access review process can take several business days
+or sometimes weeks to complete, so request your Standard access level upgrade
+well before you need the increased quota limits.
+Google may require that your app provide certain capabilities or features as
+listed in the
+Required Minimum Functionality (RMF)
+. When using the
+Google Ads API, the RMF only applies to Google Cloud projects with Standard access
+level. Make sure you review these requirements in advance to avoid additional
+delays around building the necessary features in your app.
+Pricing
+The Google Ads API is free to use; there are no charges for using the Google Ads API at
+Explorer access, Basic access, or Standard access levels. However, if you are
+subject to
+Required Minimum Functionality (RMF)
+, the API Review Team
+audits your tool for compliance. If the audit results in a finding of
+non-compliance, you may be required to pay
+non-compliance fees
+.
+Previous
+arrow_back
+Secure credentials
+Next
+Logging
+arrow_forward
+Send feedback
+Except as otherwise noted, the content of this page is licensed under the
+Creative Commons Attribution 4.0 License
+, and code samples are licensed under the
+Apache 2.0 License
+. For details, see the
+Google Developers Site Policies
+. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-11-13 UTC.

@@ -1,0 +1,77 @@
+{
+ "app": "Ecwid",
+ "queries": [
+  "Ecwid API authentication documentation",
+  "Ecwid MCP server",
+  "Ecwid API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.ecwid.com/api-reference",
+  "https://docs.ecwid.com/get-started/make-your-first-api-request",
+  "https://www.ecwid.com/pricing",
+  "https://github.com/Ecwid/ecwid-api-docs/blob/master/includes/_authentication.md"
+ ],
+ "search_hits": [
+  {
+   "title": "REST API overview | REST API Reference | Ecwid Documentation",
+   "href": "https://docs.ecwid.com/api-reference"
+  },
+  {
+   "title": "Make your first API request | Ecwid Documentation",
+   "href": "https://docs.ecwid.com/get-started/make-your-first-api-request"
+  },
+  {
+   "title": "ecwid-api-docs/includes/_authentication.md at master - GitHub",
+   "href": "https://github.com/Ecwid/ecwid-api-docs/blob/master/includes/_authentication.md"
+  },
+  {
+   "title": "GitHub - Ecwid/ecwid-api-docs: Ecwid REST API documentation",
+   "href": "https://github.com/Ecwid/ecwid-api-docs"
+  },
+  {
+   "title": "Ecwid API Authentication - Universal API - mindcloud.co",
+   "href": "https://mindcloud.co/docs/universal/rest/ecwid/latest/introduction/authentication"
+  },
+  {
+   "title": "Ecwid MCP \u2014 Setup, Features & Alternatives | MyMCPTools",
+   "href": "https://mymcptools.com/servers/ecwid-mcp"
+  },
+  {
+   "title": "awesome-mcp-servers-6/details/ecwid-mcp-server.md at master ... - GitHub",
+   "href": "https://github.com/pranciskus/awesome-mcp-servers-6/blob/master/details/ecwid-mcp-server.md"
+  },
+  {
+   "title": "Ecwid MCP Server for Ecwid AI Integration and Agents",
+   "href": "https://mushroom.viasocket.com/mcp/ecwid-by-lightspeed"
+  },
+  {
+   "title": "Ecwid MCP server - Memtro",
+   "href": "https://www.memtro.com/mcp/ecwid/"
+  },
+  {
+   "title": "Ecwid MCP MCP Server Pricing 2026 \u2014 Plans & Costs | MyMCPTools",
+   "href": "https://mymcptools.com/pricing/ecwid-mcp"
+  },
+  {
+   "title": "Ecwid Pricing - Choose the right Ecwid plan for your business!",
+   "href": "https://www.ecwid.com/pricing"
+  },
+  {
+   "title": "REST API overview | REST API Reference | Ecwid Documentation",
+   "href": "https://docs.ecwid.com/api-reference"
+  },
+  {
+   "title": "Ecwid by Lightspeed Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/ecwid/ecwid-plans-pricing/"
+  },
+  {
+   "title": "Ecwid Pricing November 2026 - G2Ecwid Pricing (2026): Free vs Paid Plans Explained - SoftwrEcwid by Lightspeed API \u2014 Docs, Pricing & OpenAPI | APIs.ioEcwid Business Plan | Ecwid | E-Commerce Shopping Cart",
+   "href": "https://www.g2.com/products/ecwid/pricing"
+  },
+  {
+   "title": "Ecwid Pricing (2026): Free vs Paid Plans Explained - Softwr",
+   "href": "https://www.softwr.com/pricing/ecwid"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:28:26.635165"
+}

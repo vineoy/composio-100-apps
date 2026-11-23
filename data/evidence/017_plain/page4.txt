@@ -1,0 +1,48 @@
+URL: https://www.plain.com/docs/graphql/authentication
+FETCHED: 2026-11-23T16:51:04.767859
+VIA: direct
+
+Authentication - Plain Docs
+Documentation Index
+Fetch the complete documentation index at:
+/docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+A machine user can have several API keys, so you can rotate them without downtime. Each API key carries its own fine-grained permissions.
+To call the API as a user in your workspace, use an
+OAuth app
+.
+1
+Create a machine user
+Go to
+Settings → Machine users & agents
+and click
+Add machine user
+. Pick
+API User
+and click
+Continue
+. Pick
+Agent
+instead if you’re building an
+agent
+.
+A machine user has two fields:
+Name:
+visible only to you and could indicate the usage e.g. “Autoresponder”
+Public name:
+This is the name visible to customers (if the machine user interacts with customers) e.g. “Mr Robot”
+2
+Create an API Key
+Click “Add API key” and select the permissions you need. When making API calls, if you have insufficient permissions, the error should tell you which permissions you need.
+The relevant documentation will tell you which permissions are required for each feature.
+Once you’ve made an API key you should copy it and put it somewhere safe, as you will not be able to see it again once you navigate away.
+3
+Go build things 🚀
+Now that you have an API key, pass it on any API call as a header:
+Authorization: Bearer plainApiKey_xxx
+Was this page helpful?
+Yes
+No

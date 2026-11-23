@@ -1,0 +1,275 @@
+URL: https://dataforseo.com/help-center/how-to-authenticate-with-dataforseo-google-search-serp-api-api-key-setup-and-code-examples
+FETCHED: 2026-11-23T17:30:15.944114
+VIA: direct
+
+How to Authenticate with DataForSEO Google Search SERP API: API Key Setup and Code Examples – DataForSEO
+Help Center
+Search the Help Center
+Search
+Can’t find an answer?
+Get AI guidance on your account, billing, or implementation.
+AI Chat
+→
+Add as a preferred source on Google
+How to Authenticate with DataForSEO Google Search SERP API: API Key Setup and Code Examples
+SERP API
+Updated 18.11.2026
+Table of Contents
+Your DataForSEO API key is your API login and API password, joined as
+login:password
+and encoded in Base64. You’ll find both in the
+API Access
+tab of your dashboard, and the steps below show how to use them in Make, n8n, Custom GPTs, and cURL.
+The setup is simpler than the words around it suggest, even if API key, token, Basic Auth, and Base64 sound intimidating when you’re not a developer. Authentication is one of the easier parts of working with our APIs. You set up one credential pair, encode it once, and use it in whichever tool you’ve already got open: Make, n8n, Custom GPTs, scripts, AI agents.
+If you’re here for a Google Search API key example, you’re in the right place. This guide walks you through finding your credentials, encoding them, and getting them into that tool.
+Setting up Google Search API authentication: what you need to know
+When you’re searching for “Google Search API,” you’re probably looking for
+DataForSEO Google Organic SERP API
+. It’s a live source of Google search results, including featured snippets, AI Overviews, and other SERP features. We’ll use it as the example throughout this article, though DataForSEO authentication works the same across all our APIs. Set it up once, and you’re done.
+A quick glossary first, so the rest of the post reads cleanly.
+API login.
+A unique string our system generates to identify your account in API requests. On older accounts, the sign-up email may still function as the API login, however the owner can change it and switch to a generated one.
+API password.
+A separate password is automatically generated when you register an account with DataForSEO. It’s not the same as the password you use to log into the dashboard. This one authenticates your API requests.
+Basic Auth.
+Short for Basic Authentication. Instead of a single API key string, you send your API login and password with every request. It’s the simplest authentication pattern on the web, which is why we picked it.
+Base64.
+A format for safely passing characters like
+:
+and
+@
+through HTTP headers. Base64 is encoding, not encryption — anyone with the encoded string can decode it, so treat it like a password.
+Header.
+The part of an HTTP request that carries metadata, including your credentials. Your encoded API login and password go in an
+Authorization
+header of every call.
+That’s the vocabulary out of the way. If you came here with one specific question, check the short answers below before the full setup.
+DataForSEO API key: FAQ
+How do I get my DataForSEO API key?
+Create a free account, log in, and open the
+API Access
+tab in the dashboard sidebar. Our system generates your API login and API password, and the two, encoded in Base64, are your API key. On older accounts, the login may still be your sign-up email.
+Jump to Step 1: get your API credentials
+Where do I find my API password?
+It’s in the
+API Access
+tab of your dashboard. Don’t confuse it with your account password: that one logs you into the dashboard, and only the API password works for API requests.
+Jump to Step 1: get your API credentials
+Why can’t I see my API password in the dashboard?
+The dashboard shows your API password for the first 24 hours after registration, then hides it for security reasons. After that, click
+Send by e-mail
+and we’ll resend it to the address on your account.
+Jump to Step 1: get your API credentials
+Is the DataForSEO API key the same as my login password?
+No. Your login password only gets you into the dashboard. The API key is built from a separate API password that our system generates for you, and mixing the two up is one of the usual reasons a request fails.
+Jump to Common authentication mistakes
+How do I encode my DataForSEO credentials with Base64?
+Join your login and API password with a colon (
+login:password
+) and encode that string with Base64. You can copy a ready-made encoded string from the
+API Access
+tab in the first 24 hours and request it by email after that, or make one yourself with a trusted online encoder or a one-line terminal command. Make and n8n do the encoding for you, so you can skip this step there.
+Jump to Step 2: encode your credentials with Base64
+Here’s the full setup.
+Step 1 — Get your API credentials from the dashboard
+Create a free account on our website. New accounts get a $1 trial credit, and the SERP Google Organic Live Advanced endpoint costs $0.002 per call, so the trial covers around 500 live Google SERPs before you spend a cent. Enough room to set things up and run a few tests.
+Once you’re logged in, open the
+API Access
+tab in the dashboard sidebar. Two things most teams trip on here:
+Your API password is not the same as your account password.
+The account password gets you into the dashboard. The API password authenticates your API requests, and our system generates it automatically when you sign up. You don’t pick it.
+Your API password is visible for the first 24 hours
+after registration, then hidden for security reasons. If you missed the window, click
+Send by e-mail
+, and we’ll resend it to the address on your account. For a full walkthrough, see
+our help article on finding everything in the DataForSEO Dashboard
+.
+Now you have your API login and API password. On an older account, the login may still be the email you signed up with. The next step is to combine them into a format that an HTTP request can carry.
+Step 2 — Encode your Google Search API key (your DataForSEO credentials) with Base64
+The fastest path is the dashboard itself. For the first 24 hours after registration, the
+API Access
+tab displays a ready-made, Base64-encoded string of your
+login:password
+. Copy it once, and you’re done. After 24 hours it’s hidden, for the same security reason as your API password, and you can request it by email instead.
+If you’d rather encode the credentials yourself, any of these three methods is just as quick.
+An online Base64 encoder.
+Paste
+your_api_login:your_api_password
+(with the colon between them) into any reputable encoder. Always use a trusted tool when handling a credential.
+A terminal command.
+On macOS or Linux:
+echo -n "your_api_login:your_api_password" | base64
+. The
+-n
+flag matters; it strips the trailing newline that would otherwise cause the encoding to break.
+One line in your language of choice.
+Most languages have a built-in
+base64
+library. We’ll show this in the cURL section below.
+Most no-code tools handle this step for you behind the scenes. You paste the raw login and password into two fields, and the tool encodes the result before sending the request.
+Worth saying twice: Base64 is encoding, not encryption. The encoded string is reversible by anyone who copies it, so don’t paste it into public chat channels, public repos, or shared docs. Treat it the way you’d treat a password.
+Step 3 — Plug the credentials into your environment
+The Basic Auth pattern works the same way in every environment. The credential doesn’t change. Only the field you paste it into does. Here’s what that looks like across the four most common paths.
+Make.com
+In your Make scenario, add an HTTP module and set the method to POST. Under
+Credentials
+, create a new
+Basic Auth
+connection. Paste your DataForSEO API login into
+Username
+and your API password into
+Password
+. Make handles Base64 encoding for you and adds the right
+Authorization
+header to every request. Save the connection and reuse it across scenarios.
+n8n
+Add an
+HTTP Request
+node to your workflow. Set the method to POST and paste the DataForSEO endpoint URL. Under
+Authentication
+, select
+Generic Credential Type
+, then choose
+Basic Auth
+in the
+Generic Auth Type
+dropdown. Enter your API login as the username and your API password as the password. n8n encodes Base64 for you. For a no-code workflow built on this pattern, see our walkthrough on
+automating keyword research with n8n and DataForSEO
+.
+Custom GPTs (ChatGPT Actions)
+In your Custom GPT’s
+Actions
+configuration, click
+Authentication
+, select
+API Key
+, and set
+Auth Type
+to
+Basic
+. In the
+API Key
+field, paste your Base64-encoded
+login:password
+string from Step 2. For the full walkthrough, including the OpenAPI schema, see our guide on
+connecting DataForSEO to ChatGPT
+.
+Direct API call with cURL
+If you’re sending the HTTP request yourself, from a script, a Google Apps Script in a Sheet, or a Claude Code workflow, the snippet below is the smallest working example. It hits our Google Organic Advanced SERP API endpoint and returns the top ten Google organic results along with any SERP features Google returned for the query.
+# Instead of 'login' and 'password' use your credentials
+# from https://app.dataforseo.com/api-access
+login="your_api_login"
+password="your_api_password"
+cred="$(printf "%s" "${login}:${password}" | base64)"
+
+curl --location --request POST "https://api.dataforseo.com/v3/serp/google/organic/live/advanced" \
+  --header "Authorization: Basic ${cred}" \
+  --header "Content-Type: application/json" \
+  --data-raw '[
+    {
+      "keyword": "best serp api",
+      "location_code": 2840,
+      "language_code": "en"
+    }
+  ]'
+Endpoint used:
+api.dataforseo.com/v3/serp/google/organic/live/advanced
+. See the
+Live SERP API docs
+for the full parameter list.
+A successful call returns JSON structured like this:
+{
+  "version": "0.1.20200214",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "7.7156 sec.",
+  "cost": 0.002,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "02171509-1535-0139-0000-fa36a0ff59c6",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [ ... ],
+      "data": { ... },
+      "result": [
+        {
+          "keyword": "best serp api",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2840,
+          "language_code": "en",
+          "check_url": "https://google.com/search?q=best+serp+api&...",
+          "items_count": 100,
+          "items": [ ... ]
+        }
+      ]
+    }
+  ]
+}
+The top-level
+status_code: 20000
+indicates that the request itself was accepted. The same code in the
+tasks
+array means your specific task succeeded. The
+cost
+field shows what you were charged, which is useful to watch while you’re testing.
+Common authentication mistakes (and how to fix them)
+Five issues cover most “why won’t it work” cases. Each one is fixable in under a minute.
+Using your account password instead of your API password.
+They look similar and live in the same dashboard, but only the API password authenticates API requests. Grab the right one from the API Access tab. Check the login as well: use the API login shown there, which may not be your sign-up email.
+Forgetting to Base64-encode the credentials.
+Sending raw
+login:password
+in the Authorization header returns a 401. The header value has to be
+Basic
+followed by a space and the encoded string.
+Putting credentials in the URL instead of the header.
+Our API rejects credentials passed as URL parameters. It’s a security choice, not a quirk. Send them in the
+Authorization
+header.
+Pasting the Base64 string into a public chat or repo.
+Base64 is encoding, not encryption. If a credential string has been exposed, regenerate your API password from the dashboard before continuing.
+Trial credit ran out before you noticed.
+The $1 trial covers about 500 SERP Live Advanced calls, but a loop with no rate limiting can burn through them in seconds. Top up from the
+Billing
+tab when you’re ready to go beyond testing.
+One last thing before you go live
+Authentication at DataForSEO uses a single credential pair: your API login plus your API password, encoded with Base64 and pasted into the auth field of your environment. The same credentials work across all DataForSEO APIs.
+Authentication is only the first step. Our
+Getting Started with the Google Organic SERP API guide
+picks up from here and walks you through endpoints, parameters, and your first request.
+Building in Python? Our
+guide to scraping Google search results with Python
+walks through the same first request with ready-to-use scripts.
+Before you start driving real traffic to the API, validate everything in our
+sandbox
+at zero cost. Just swap the hostname in your request from
+api.dataforseo.com
+to
+sandbox.dataforseo.com
+.
+Try for free
+Was this article helpful?
+Helpful
+Unhelpful
+More in SERP API
+How to Use Bing Search Engine API with Python: Free Testing with DataForSEO
+Best Web Search API for Developers: What to Look For and Why DataForSEO SERP API Fits
+How to Check Bing SERP Rankings with DataForSEO SERP API
+Track Local Pack, Local Finder and Google Maps Rankings With API
+Explore Who Ranks for Your Keywords
+Black Friday is here!
+Get 10% bonus
++10% on every top‑up, up to $100 extra.
+Ends in
+12
+days
+00
+hours
+00
+minutes
+Get +10% now

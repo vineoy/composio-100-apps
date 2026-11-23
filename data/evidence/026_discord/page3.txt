@@ -1,0 +1,162 @@
+URL: https://github.com/discord/discord-api-docs
+FETCHED: 2026-11-23T16:59:57.606446
+VIA: direct
+
+GitHub - discord/discord-api-docs: Official Discord Developer Docs · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+3,025 Commits
+3,025 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github
+.github
+.husky
+.husky
+developers
+developers
+images
+images
+logo
+logo
+resources/
+discord-social-sdk
+resources/
+discord-social-sdk
+scripts
+scripts
+snippets
+snippets
+styles
+styles
+tools
+tools
+vale/
+config/
+vocabularies
+vale/
+config/
+vocabularies
+.gitattributes
+.gitattributes
+.gitignore
+.gitignore
+.mintignore
+.mintignore
+.vale.ini
+.vale.ini
+CODE_OF_CONDUCT.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CONTRIBUTING.md
+LICENSE
+LICENSE
+LICENSE-CODE
+LICENSE-CODE
+README.md
+README.md
+docs.json
+docs.json
+favicon.png
+favicon.png
+package-lock.json
+package-lock.json
+package.json
+package.json
+View all files
+Repository files navigation
+Discord for Developers Documentation
+This repo contains the official Discord for Developers documentation, which can be viewed online
+HERE
+. Before submitting pull-requests, please remember to
+fully
+read the
+Contributing
+guidelines.
+This repository reflects the Discord Developer Platform as it is meant to be accessed by third-party applications. It omits features and capabilities that are not generally available, or are not fully supported for third-party usage.
+We welcome your contributions!
+Issue tracker:
+Discord API bugs
+Discussions:
+Discord API feature and improvement requests
+Pull Requests: See
+Contributing.md
+for types of changes accepted and specific markdown syntax used in the documentation.
+Local Preview
+Install the
+Mintlify CLI
+to preview the documentation changes locally. To install, use the following command
+npm i -g mintlify
+Run the
+mintlify dev
+in the root directory to see your changes locally.
+mintlify dev
+Your local browser should open automatically to the correct page, but if not, navigate to:
+http://localhost:3000/developers/intro
+Need some help?
+Here are some Discord servers that can help you out with everything Discord API:
+The
+Official Discord Developers server
+has plenty of help channels with knowledgeable people and Discord's developers to get you help with something you need, and get updates straight from the developers. However do keep in mind this is a purely on-topic server. If you are looking for a community, join the server below.
+The
+Unofficial Discord API server
+is a common hangout for library and bot developers alike. It's a great starting point for those looking to dive in and learn bot-creation with the Discord API.
+License
+Except as otherwise noted, the Discord API Documentation and other content in this repository is licensed under the Creative Commons Attribution-ShareAlike 4.0 License (see
+LICENSE
+), and code samples in this repository are licensed under the MIT License (see
+LICENSE-CODE
+). These licenses do not grant you rights to use any of Discord’s trademarks or other brand features. Please see the
+Discord Developer Terms of Service
+for more information about use of Discord’s brand features and APIs.
+About
+Official Discord Developer Docs
+docs.discord.com/developers
+Topics
+discord
+discord-api
+discordapp
+memescale
+Resources
+Readme
+CC-BY-SA-4.0, MIT licenses found
+Code of conduct
+Code of conduct
+Contributing
+Contributing
+Activity
+Custom properties
+Stars
+6.5k
+stars
+Watchers
+382
+watching
+Forks
+1.4k
+forks
+Report repository
+Used by
+Contributors
+Languages
+You can’t perform that action at this time.

@@ -1,0 +1,64 @@
+URL: https://pylon.page/docs/api-reference
+FETCHED: 2026-11-23T16:49:15.201351
+VIA: direct
+
+API Reference - Pylon Docs
+← Back to home
+Documentation
+Everything you need to set up and manage your status page.
+API Reference
+Integrate Pylon into your workflow with the REST API.
+The Pylon API lets you manage component statuses and create incidents programmatically. Use it to integrate status updates into your deployment pipeline, monitoring tools, or custom workflows.
+Authentication
+All API requests require a Bearer token. Generate an API key from your status page settings in the dashboard. Include it in the
+Authorization
+header:
+Authorization: Bearer your-api-key
+Endpoints
+GET /api/components
+List all components for the status page linked to your API key.
+// Response
+{
+  "components": [
+    {
+      "id": "comp_abc123",
+      "name": "API",
+      "status": "operational",
+      "description": "Core API service",
+      "order": 1
+    }
+  ]
+}
+PUT /api/components/:id/status
+Update a component's status. Triggers real-time updates and KV cache refresh.
+// Request body
+{
+  "status": "degraded"
+}
+
+// Valid statuses: operational, degraded,
+// partial_outage, major_outage, maintenance
+POST /api/incidents
+Create a new incident. Optionally link affected components.
+// Request body
+{
+  "name": "Elevated API Error Rates",
+  "status": "investigating",
+  "impact": "major",
+  "message": "We are investigating increased error rates on the API.",
+  "affectedComponents": ["comp_abc123"]
+}
+
+// Valid statuses: investigating, identified,
+// monitoring, resolved
+// Valid impacts: none, minor, major, critical
+Error handling
+All errors return a JSON object with an
+error
+field. Common status codes:
+401
+— Invalid or missing API key
+404
+— Resource not found
+422
+— Validation error (check the error message)

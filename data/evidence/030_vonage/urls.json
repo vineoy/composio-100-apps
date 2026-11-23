@@ -1,0 +1,77 @@
+{
+ "app": "Vonage",
+ "queries": [
+  "Vonage API authentication documentation",
+  "Vonage MCP server",
+  "Vonage API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.vonage.com/en/getting-started/concepts/authentication",
+  "https://developer.vonage.com/en/verify/concepts/authentication",
+  "https://developer.vonage.com/en/mcp-server/overview",
+  "https://developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-vonage-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - API Concepts | Vonage API Documentation",
+   "href": "https://developer.vonage.com/en/getting-started/concepts/authentication"
+  },
+  {
+   "title": "Authentication API Guide | Vonage API Documentation",
+   "href": "https://developer.vonage.com/en/verify/concepts/authentication"
+  },
+  {
+   "title": "Documentation (Authentication API) - Vonage Contact Center ...",
+   "href": "https://docs-vcc.atlassian.net/wiki/spaces/VCCA/pages/3566174900/Documentation+Authentication+API"
+  },
+  {
+   "title": "How to authenticate with a Vonage Contact Center (VCC) API",
+   "href": "https://docs-vcc.atlassian.net/wiki/spaces/VCCA/pages/3567190030/How+to+authenticate+with+a+Vonage+Contact+Center+VCC+API"
+  },
+  {
+   "title": "Vonage API Support",
+   "href": "https://api.support.vonage.com/hc/en-us"
+  },
+  {
+   "title": "Vonage MCP Server Overview | Vonage MCP Server Documenation",
+   "href": "https://developer.vonage.com/en/mcp-server/overview"
+  },
+  {
+   "title": "Introduction to Vonage MCP Servers",
+   "href": "https://developer.vonage.com/en/mcp-server/conceptual-guides/introduction-to-vonage-mcp"
+  },
+  {
+   "title": "GitHub - Vonage-Community/vonage-mcp-server-api-bindings ...",
+   "href": "https://github.com/Vonage-Community/vonage-mcp-server-api-bindings"
+  },
+  {
+   "title": "GitHub - mobilebiz/vonage-mcp-server",
+   "href": "https://github.com/mobilebiz/vonage-mcp-server"
+  },
+  {
+   "title": "Telephony MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/Vonage-Community/telephony-mcp-server"
+  },
+  {
+   "title": "Video API pricing - Vonage",
+   "href": "https://www.vonage.com/communications-apis/video/pricing/"
+  },
+  {
+   "title": "Vonage API Developer",
+   "href": "https://developer.vonage.com/api/pricing.v2"
+  },
+  {
+   "title": "API Pricing: Understanding Vonage Communications API Prices ...",
+   "href": "https://www.vonage.com/communications-apis/pricing/"
+  },
+  {
+   "title": "Vonage API Developer",
+   "href": "https://developer.vonage.com/en/home"
+  },
+  {
+   "title": "Vonage API pricing: plans, free tier and what to watch for",
+   "href": "https://openapipricing.com/blog/sms/vonage"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:03:09.580896"
+}

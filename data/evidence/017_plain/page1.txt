@@ -1,0 +1,71 @@
+URL: https://docs.plainid.io/apidocs/authentication
+FETCHED: 2026-11-23T16:51:04.762422
+VIA: direct
+
+Authentication
+Documentation Index
+Fetch the complete documentation index at:
+https://docs.plainid.io/llms.txt
+Use this file to discover all available pages before exploring further.
+Search
+CTRL+K
+Press CTRL+K to open search
+Powered by
+Authentication
+Updated
+Updated on
+Apr 20, 2025
+Published on Nov 29, 2023
+1 minute(s) read
+Focus
+Print
+Copy page
+Copy as Markdown for LLMs
+View as Markdown
+View the page as plain text
+Open in ChatGPT
+Ask ChatGPT about this page
+Open in Claude
+Ask Claude about this page
+Prev
+Next
+API Client Credentials Introduction
+API Client Credentials are used to authorize Management APIs in the Authorization Platform. To use these APIs, the request must be
+authenticated
+and
+authorized
+with the relevant permissions.
+Tenant Admins have permissions to manage
+all Environments and Workspaces
+within their Tenant.
+Environment Admins or Viewers can manage or view content within a
+specific Environment and the Environment's Workspace
+.
+Important
+Permissions granted using this API differs from Environment Permissions granted for traditional IDP accounts, where Environment Admin and Workspace Admin Permissions are separated. When creating a Client at the Environment level, Environment Admin Permissions will also include Workspace Admin Permissions.
+PlainID exposes an Authorization endpoint which provides an
+Access Token
+that should be sent as an
+Authorization Header Bearer Token
+in a Management API call. This endpoint validates the credentials and generates an Access Token reflecting the internal PlainID roles according to the permissions set for the client.
+Prerequisites
+A
+Client ID
+and
+Client Secret
+from the Authorization Platform Tenant or Environment Settings.
+To create an API Client Credential in the UI, refer to
+API Client Credentials for Tenants
+or API Client Credentials for
+Environment Admins or Viewers
+.
+To get an Access Token, refer to the
+Get Access Token API
+.
+Was this article helpful?
+Yes
+No
+Previous article
+Management APIs
+Next article
+Get Access Token

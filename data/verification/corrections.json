@@ -1,0 +1,20 @@
+[
+ {"id": 29, "name": "Aircall", "field": "access", "old": "free_self_serve", "new": "trial_self_serve",
+  "reason": "Browser deep-check of developer.aircall.io: API error codes reference 'company on trial' limits; Aircall is a paid call-centre product with a trial, not a permanent free tier. Trial accounts can obtain API credentials.",
+  "url": "https://developer.aircall.io/api-references/", "source": "loop_c_browser"},
+ {"id": 49, "name": "Amazon Selling Partner", "field": "access", "old": "free_self_serve", "new": "paid_plan",
+  "reason": "Browser deep-check of Amazon SP-API docs: 'you must have a professional selling account to develop SP-API private seller applications. Individual accounts are not eligible.' → API development requires a paid Professional seller plan.",
+  "url": "https://developer-docs.amazon.com/sp-api/docs/registering-as-a-developer", "source": "loop_c_browser"},
+ {"id": 50, "name": "fanbasis", "field": "existing_mcp.status", "old": "official", "new": "none",
+  "reason": "The cited GitHub repo 'Launch-On-Basis/MCP-TS' is the Basis crypto protocol on BNB Smart Chain — an unrelated project. No fanbasis/Commas MCP server exists.",
+  "url": "https://github.com/Launch-On-Basis/MCP-TS", "source": "loop_c_browser"},
+ {"id": 50, "name": "fanbasis", "field": "access", "old": "free_self_serve", "new": "no_public_api",
+  "reason": "Browser check: fanbasis.com rebranded to Commas; docs.fanbasis.com / developers.fanbasis.com / fanbasis.com/api all redirect to the marketing homepage, /api is 404. No documented public API found.",
+  "url": "https://fanbasis.com/", "source": "loop_c_browser"},
+ {"id": 50, "name": "fanbasis", "field": "buildability.verdict", "old": "ready", "new": "blocked",
+  "reason": "No documented public API; no official MCP (previous hit was an unrelated crypto repo). Cannot build an agent toolkit from public docs today.",
+  "url": "https://fanbasis.com/", "source": "loop_c_browser"},
+ {"id": 50, "name": "fanbasis", "field": "auth_methods", "old": "API key,other: private key", "new": "unknown",
+  "reason": "Auth methods in the first pass came from the unrelated Basis crypto repo. No fanbasis API docs exist to confirm any auth method.",
+  "url": "https://fanbasis.com/", "source": "loop_c_browser"}
+]

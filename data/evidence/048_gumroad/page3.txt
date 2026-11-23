@@ -1,0 +1,228 @@
+URL: https://github.com/Contrite42/gumroad-mcp-server
+FETCHED: 2026-11-23T17:29:13.868496
+VIA: direct
+
+GitHub - Contrite42/gumroad-mcp-server: MCP server for the Gumroad API. Drive your store from Claude Desktop or Cursor. Single-file TypeScript. MIT. · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+1 Commit
+1 Commit
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+build
+build
+node_modules
+node_modules
+src
+src
+.env.example
+.env.example
+LICENSE
+LICENSE
+README.md
+README.md
+package-lock.json
+package-lock.json
+package.json
+package.json
+tsconfig.json
+tsconfig.json
+View all files
+Repository files navigation
+Gumroad MCP Server
+Drive the Gumroad API from Claude Desktop, Cursor, Cline, or any MCP-compatible client. Eight tools cover the daily workflow: list products, read product detail, query sales with date and product filters, get an aggregate sales summary, change pricing, enable or disable products, and list subscribers.
+Built for creators running a Gumroad catalog who want to manage it without leaving their AI client.
+What you get
+8 production-ready MCP tools
+Single-file TypeScript source (
+src/index.ts
+) you can fork, audit, or extend
+Install snippets for Claude Desktop, Cursor, and Cline
+MIT licensed - use commercially, no attribution required
+Tools
+Tool
+Purpose
+list_products
+Every product on your account, with price and sales count
+get_product
+Full detail for one product by ID
+list_sales
+Sales with date, product, email filters; paginated
+sales_summary
+Aggregate: count, gross, net, unique buyers, top 5 products
+update_product_price
+Change price in cents
+enable_product
+Publish a draft
+disable_product
+Take a product offline
+list_subscribers
+Active subscribers of a subscription product
+Install
+1. Build
+npm install
+npm run build
+The built entry point is
+build/index.js
+.
+2. Get a Gumroad access token
+Go to
+https://gumroad.com/settings/advanced
+and create a new access token. Save it.
+3. Wire it into your MCP client
+Claude Desktop
+Edit
+~/Library/Application Support/Claude/claude_desktop_config.json
+(macOS) or
+%APPDATA%\Claude\claude_desktop_config.json
+(Windows):
+{
+"mcpServers"
+: {
+"gumroad"
+: {
+"command"
+:
+"
+node
+"
+,
+"args"
+: [
+"
+/absolute/path/to/gumroad-mcp-server/build/index.js
+"
+],
+"env"
+: {
+"GUMROAD_ACCESS_TOKEN"
+:
+"
+your-token-here
+"
+}
+    }
+  }
+}
+Restart Claude Desktop. The eight tools will appear under "gumroad" in the slash-tool menu.
+Cursor
+Edit
+~/.cursor/mcp.json
+(global) or
+.cursor/mcp.json
+in your project root:
+{
+"mcpServers"
+: {
+"gumroad"
+: {
+"command"
+:
+"
+node
+"
+,
+"args"
+: [
+"
+/absolute/path/to/gumroad-mcp-server/build/index.js
+"
+],
+"env"
+: {
+"GUMROAD_ACCESS_TOKEN"
+:
+"
+your-token-here
+"
+}
+    }
+  }
+}
+Cursor picks up the change without a restart.
+Cline (VS Code)
+Open the Cline extension settings, find "MCP Servers", and paste the same JSON block (Cline reads the standard MCP config shape).
+Usage examples
+In any MCP client connected to this server:
+"What did I sell yesterday?"
+Calls
+sales_summary
+with
+after
+= yesterday.
+"Show me the top 5 products by revenue this month and bump the lowest-converting one's price by 20%."
+Chains
+sales_summary
+->
+list_products
+->
+update_product_price
+.
+"List subscribers for product abc123 whose email contains @gmail.com."
+Calls
+list_subscribers
+with the email filter.
+Why this exists
+Gumroad's web UI is fine for one-off product edits, but tedious for analytics or bulk operations across a catalog. This server gives you an English-language interface to your store, runnable from whichever AI client you already use.
+Security
+The access token stays on your machine, in the
+env
+block of your MCP client config. It is never sent anywhere except Gumroad's API. Treat the config file like an SSH key.
+Notes
+Built against Gumroad API v2 (the public, stable surface)
+All money values are integer cents to avoid float rounding
+Pagination on
+list_sales
+: pass the
+page_key
+from a response into the next call
+License
+MIT. Modify, redistribute, resell as part of a bigger product, no attribution required.
+About
+MCP server for the Gumroad API. Drive your store from Claude Desktop or Cursor. Single-file TypeScript. MIT.
+Topics
+anthropic
+claude-desktop
+cursor
+mcp
+model-context-protocol
+typescript
+Resources
+Readme
+MIT license
+Activity
+Stars
+0
+stars
+Watchers
+0
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

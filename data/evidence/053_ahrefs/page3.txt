@@ -1,0 +1,21 @@
+URL: https://help.ahrefs.com/en/collections/87796-api
+FETCHED: 2026-11-23T17:33:29.268563
+VIA: direct
+
+API | Help Center - Ahrefs
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+      This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+      This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Skip to main content
+API
+Find the most commonly asked questions about Ahrefs' API
+By Constance and 1 other
+2 authors
+2 articles
+About API v3
+Getting started with Ahrefs MCP

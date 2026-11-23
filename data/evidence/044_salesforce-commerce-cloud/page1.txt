@@ -1,0 +1,402 @@
+URL: http://developer.salesforce.com/docs/commerce
+FETCHED: 2026-11-23T17:24:33.419633
+VIA: jina-reader
+
+Title: Commerce Cloud
+
+URL Source: http://developer.salesforce.com/docs/commerce
+
+Final URL: https://developer.salesforce.com/developer-centers/commerce-cloud
+
+Markdown Content:
+The Trailblazer Community in Slack is now in Open Beta–join and connect in real time.
+
+[Join us in Slack](https://sforce.co/trailblazercommunity)
+
+Develop personalized ecommerce experiences with our fast, flexible solutions.
+
+## What's Commerce Cloud?
+
+Salesforce Commerce Cloud offers distinct solutions for B2B/D2C (business-to-business and direct-to-consumer) and B2C (business-to-consumer) commerce. B2B and D2C Commerce solutions focus on complex order and account management, advanced personalization, and enterprise integration. B2C Commerce emphasizes high-volume transactions, customer engagement, seamless mobile-optimized checkout, and real-time inventory management. Not sure which product you have? See [Which Salesforce Commerce Product Do I Have?](https://help.salesforce.com/s/articleView?id=commerce.comm_what_product.htm&type=5)
+
+![Image 1](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/328998e32ac894eef6c18507116859b8_badge-1.webp)
+
+Video
+
+### Commerce Cloud Overview
+
+Get an overview of how to transform your ecommerce journey for more sales and stronger shopper relationships.
+
+[Watch now](https://salesforce.vidyard.com/watch/L9R3BacdPcZZawr3AiBxtB)
+
+![Image 2](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/trailhead-logo-white-outline-1.png)
+
+Trail
+
+### Discover Commerce Cloud
+
+Learn what Commerce Cloud is and understand the key differences between B2B, D2C, and B2C Commerce.
+
+[Learn now](https://trailhead.salesforce.com/content/learn/modules/commerce-cloud-quick-look/discover-commerce-cloud)
+
+## Discover B2C Commerce
+
+Get an introduction to our business-to-consumer (B2C) resources to build secure, scalable, and captivating ecommerce sites that convert shoppers. Not sure which product you have? See [Which Salesforce Commerce Product Do I Have?](https://help.salesforce.com/s/articleView?id=commerce.comm_what_product.htm&type=5)
+
+![Image 3](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/328998e32ac894eef6c18507116859b8_badge-1.webp)
+
+Video
+
+### B2C Commerce Overview
+
+Learn how B2C Commerce can help you connect to shoppers, maximize revenue, and drive efficiency.
+
+[Watch Now](https://play.vidyard.com/LpfKECErPJzbZoSoynX8vD)
+
+![Image 4](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/9f47a6b8a5c5d32ecebecd5073cb5bcf_badge.webp)
+
+Developer Guide
+
+### Storefront Comparison
+
+Understand the key differences between the various B2C options and which APIs and tools you can use with each option.
+
+[Read more](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/which-product.html)
+
+![Image 5](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/4d4adca4ec2f595abf20a7e70f91552f_badge.webp)
+
+Developer Guide
+
+### Quick Start
+
+Try out some basic steps for using storefront options such as Composable Storefront and Storefront Reference Architecture (SFRA).
+
+[Get started](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/quick-start-landing-page.html)
+
+![Image 6](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/690893517d23c749ac22926d9acd0b84_badge.webp)
+
+Developer Guide
+
+### Developer Community
+
+Join a vibrant global community of developers to ask questions, collaborate, and learn more about B2C Commerce.
+
+[Join now](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/community.html)
+
+## Build Your B2C Commerce Site
+
+Implement a B2C Commerce storefront option. Create a headless site, use Storefront Next, or build a hybrid storefront.
+
+![Image 7](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images_5faf6b.jpg)
+
+Developer Guide
+
+### Get Started with B2C Commerce
+
+Understand the recommended developer workflow to efficiently create a performant site on the B2C Commerce platform.
+
+[Read more](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide)
+
+![Image 8](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-1_ef859e.jpg)
+
+Developer Guide
+
+### B2C Commerce Architecture
+
+Get a technical overview of the key concepts, initial setup, and essential tools to build and manage your storefront.
+
+[Read more](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/get-started.html)
+
+![Image 9](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-2_929ffa.jpg)
+
+Salesforce Help
+
+### Merchandise Your Site
+
+Learn how to use Business Manager to set up your B2C Commerce data such as product and marketing information.
+
+[Read more](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5&_ga=2.206555667.186842419.1729875566-313178590.1729874916)
+
+![Image 10](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images_vibes.jpg)
+
+Developer Guide
+
+### Agentforce Commerce Vibes
+
+Agentforce Commerce Vibes is a Visual Studio Code extension that helps you build, administer, and debug B2C storefront projects with AI-assisted chat and agent skills based on the Agentic B2C Developer Toolkit.
+
+[Read more](https://developer.salesforce.com/docs/commerce/commerce-vibes/guide/cv-agentforce-commerce-vibes.html)
+
+![Image 11](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images_Storefront.jpg)
+
+Developer Guide
+
+### Storefront Next
+
+Create Storefront Next with modern web technologies, such as React 19 and Tailwind CSS, and host it on Managed Runtime. Get up and running with automated setup in Business Manager.
+
+[Read more](https://developer.salesforce.com/docs/commerce/sfnext/guide/sfnext-get-started.html)
+
+![Image 12](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-6_ccefd5.jpg)
+
+Developer Guide
+
+### Composable Storefront
+
+Create a headless site with a fast and flexible architecture based on the Progressive Web App Kit and Managed Runtime.
+
+[Read more](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide)
+
+![Image 13](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-7_537a87.jpg)
+
+Developer Guide
+
+### Storefront Reference Architecture (SFRA)
+
+Build state-of-the-art shopping experiences faster with a mobile-optimized user experience and efficient, modern site architecture.
+
+[Read more](https://developer.salesforce.com/docs/commerce/sfra/guide)
+
+![Image 14](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-3_2c478f.jpg)
+
+Developer Guide
+
+### Hybrid Storefront
+
+To gradually migrate your site from SFRA to Composable Storefront, use a hybrid implementation.
+
+[Read more](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/hybrid-implementation.html)
+
+![Image 15](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-4_d58c5d.jpg)
+
+AppExchange
+
+### B2C Commerce on AppExchange
+
+Find apps and certified consulting organizations to extend your B2C Commerce site and accelerate development.
+
+[Read more](https://appexchange.salesforce.com/appxSearchKeywordResults?keywords=commerce&category=commerce)
+
+![Image 16](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-5_f2b512.jpg)
+
+Salesforce Help
+
+### B2C Commerce Release Notes
+
+Learn about new features and updates for B2C Commerce, API, SFRA Storefront, Composable Storefront, and Storefront Next.
+
+[Read more](https://help.salesforce.com/s/articleView?id=release-notes.rn_b2c.htm)
+
+## Customize and Extend Your B2C Commerce Site
+
+Build your own custom B2C site or customize your headless, SFRA, or hybrid site with these APIs. Use these SDKs and our CLI to speed up development.
+
+![Image 17](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images_27e995.jpg)
+
+Developer Guide
+
+### B2C Commerce API (SCAPI)
+
+Use a headless API to build custom apps. B2C Commerce API is also known as Salesforce Commerce API (SCAPI). Applies to: Composable, hybrid, and custom.
+
+[Read more](https://developer.salesforce.com/docs/commerce/commerce-api/guide)
+
+![Image 18](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images-3_2dcd54.jpg)
+
+Developer Guide
+
+### Script API (B2C Commerce Developer Resources)
+
+Customize ecommerce experiences using reference applications, Javascript-based APIs, and more. Applies to: Composable, SFRA, hybrid, and custom.
+
+[Read more](https://salesforcecommercecloud.github.io/b2c-dev-doc)
+
+![Image 19](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images-4_03e049.jpg)
+
+Developer Guide
+
+### Open Commerce API (OCAPI)
+
+Access B2C Commerce data (such as product and shopper data) and functionality (such as baskets and orders) through secure and well-defined API methods. Applies to: Composable, SFRA, hybrid, and custom.
+
+[Read more](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)
+
+![Image 20](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images-5_f462a5.jpg)
+
+SDK
+
+### Commerce SDK
+
+Build Node.js applications that connect with B2C Commerce services using the Commerce SDK. Applies to: Composable, hybrid, and custom.
+
+[Read more](https://github.com/SalesforceCommerceCloud/commerce-sdk)
+
+![Image 21](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images-1_790dd9.jpg)
+
+SDK
+
+### Commerce SDK React
+
+Use this collection of React Query hooks to fetch, cache, and mutate data from B2C Commerce API. Applies to: Composable, hybrid, and custom.
+
+[Read more](https://salesforcecommercecloud.github.io/pwa-kit/)
+
+![Image 22](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images-6_1dae5c.jpg)
+
+SDK
+
+### Isomorphic Commerce SDK
+
+Connects with B2C Commerce services from a Node.js app and web browser. Applies to: Composable, hybrid, and custom.
+
+[Read more](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)
+
+![Image 23](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/09/Developers_Images-7_04f09e.jpg)
+
+CLI
+
+### Commerce Cloud CLI
+
+Manage deployments and continuous integration using a CLI for B2C Commerce. Applies to: Composable, SFRA, hybrid, and custom.
+
+[Read more](https://github.com/SalesforceCommerceCloud/sfcc-ci)
+
+![Image 24](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-3_2c478f.jpg)
+
+Postman Collections
+
+### B2C Postman Collections
+
+Work with B2C Commerce APIs using pre-built collections.
+
+[Read more](https://www.postman.com/salesforce-developers/salesforce-developers/collection/1qkzgik/salesforce-commerce-b2c)
+
+## Personalize Your B2C Commerce Site
+
+Use Commerce Cloud Einstein to power up your B2C Commerce site with artificial intelligence (AI).
+
+![Image 25](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/328998e32ac894eef6c18507116859b8_badge-1.webp)
+
+Video
+
+### Einstein Demo
+
+Learn how Commerce Cloud Einstein can power personalized shopping experiences across shopper touchpoints.
+
+[Watch now](https://play.vidyard.com/xxMS9jvwKnpwrzudvfKyQ2)
+
+![Image 26](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/trailhead-logo-white-outline-1.png)
+
+Trail
+
+### Deploy Einstein
+
+Add AI-powered search, product recommendations, and shopper insights to your B2C Commerce site.
+
+[Start learning](https://trailhead.salesforce.com/content/learn/trails/deploy-commerce-cloud-einstein)
+
+![Image 27](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/360c9a8c1ec8bff2fb3ea62215c09252_badge.webp)
+
+Developer Guide
+
+### Einstein API
+
+Use B2C Commerce Einstein API to get personalized product recommendations.
+
+[Read more](https://developer.salesforce.com/docs/commerce/einstein-api/guide)
+
+![Image 28](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/7b84303296124be4f27309667b64aa75_badge.webp)
+
+Salesforce Help
+
+### Einstein Guides
+
+Learn how to use AI-powered merchandising tools to deliver actionable insights and tailored shopper experiences.
+
+[Read more](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_cloud_einstein.htm&type=5&_ga=2.178384996.1191921420.1729888049-1407092495.1729888049)
+
+## Discover B2B and D2C Commerce
+
+Explore this business-to-business (B2B) and direct-to-consumer (D2C) content to build secure, scalable sites. B2B sites are for shoppers such as retailers, wholesalers, or distributors who often make large purchases. Use our D2C option to sell products to the general public at a smaller scale than with B2C.
+
+![Image 29](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-4-3.jpg)
+
+Help
+
+### Do I Have B2C, B2B, or D2C?
+
+Find out which product you’re using so that you can access the correct documentation and resources.
+
+[Read more](https://help.salesforce.com/s/articleView?id=commerce.comm_what_product.htm&type=5)
+
+![Image 30](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-2-4.jpg)
+
+Developer Guide
+
+### B2B and D2C Commerce
+
+Design a B2B or D2C Commerce solution that uses the power of Lightning Experience to meet your business needs.
+
+[Get started](https://developer.salesforce.com/docs/commerce/salesforce-commerce/guide)
+
+![Image 31](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-3-2-1.jpg)
+
+Developer Guide
+
+### Salesforce Commerce Extensions
+
+Extensions enable fine-grained customization of B2B and D2C storefront functionality to meet your unique business needs and improve the shopper experience.
+
+[Read more](https://developer.salesforce.com/docs/commerce/salesforce-commerce/guide/d2c-comm-extensions-intro.html)
+
+![Image 32](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-4-2.jpg)
+
+Developer Guide
+
+### Salesforce Order Management
+
+Customize and integrate Salesforce Order Management with your ecommerce storefront, inventory, and fulfillment systems.
+
+[Read more](https://developer.salesforce.com/docs/atlas.en-us.order_management_developer_guide_html.meta/order_management_developer_guide_html/order_management_developer_guide_intro.htm)
+
+![Image 33](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-5-3.jpg)
+
+Postman Collections
+
+### B2B and D2C Postman Postman Collections
+
+Work with B2B and D2C APIs using pre-built collections.
+
+[Learn more](https://www.postman.com/salesforce-developers/salesforce-developers/collection/j69uf7u/salesforce-commerce-b2b-d2c)
+
+![Image 34](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-1-4-1.jpg)
+
+Salesforce Help
+
+### B2B and D2C Commerce Release Notes
+
+Learn about new features in B2B and D2C Commerce, Salesforce Order Management, and Salesforce Payments.
+
+[Read more](https://help.salesforce.com/s/articleView?id=release-notes.rn_commerce.htm&release=252&type=5)
+
+## Discover Point of Sale for Developers
+
+Explore content for Point of Sale (POS) implementations. Extend your POS operations with comprehensive APIs, SPIs, and webhooks that enable seamless integration with external systems.
+
+![Image 35](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/08/Developers_Images-2-5.jpg)
+
+Developer Guide
+
+## Point of Sale for Developers
+
+Access developer guides and API reference documentation for Point of Sale.
+
+[Read more](https://developer.salesforce.com/docs/commerce/retail-cloud/overview)
+
+![Image 36: 3D Agent Astro flying with a rounded background landscape behind.](https://wp.sfdcdigital.com/developer/en-us/wp-content/uploads/sites/63/2026/01/astrobot_banner-1.webp?w=960)
+
+Get timely developer updates delivered to your inbox.
+
+Sign up to receive the monthly Salesforce Developer Newsletter so you never miss the latest announcements, blogs, videos, or Agentforce NOW events.
+
+[Sign up now](https://www.salesforce.com/company/newsletter-subscribe/?topics=Developer&d=pb)

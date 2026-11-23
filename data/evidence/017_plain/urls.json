@@ -1,0 +1,77 @@
+{
+ "app": "Plain",
+ "queries": [
+  "Plain API authentication documentation",
+  "Plain MCP server",
+  "Plain API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.plainid.io/apidocs/authentication",
+  "https://docs.plainid.io/apidocs/authentication-mgmt-apis",
+  "https://docs.inplain.app/ai/mcp",
+  "https://www.plain.com/docs/graphql/authentication"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Plain Docs",
+   "href": "https://www.plain.com/docs/graphql/authentication"
+  },
+  {
+   "title": "Authentication - docs.plainid.io",
+   "href": "https://docs.plainid.io/apidocs/authentication"
+  },
+  {
+   "title": "Authentication for Management APIs - docs.plainid.io",
+   "href": "https://docs.plainid.io/apidocs/authentication-mgmt-apis"
+  },
+  {
+   "title": "plain-api/plain/api/README.md \u00b7 Docs",
+   "href": "https://plainframework.com/docs/plain-api/plain/api/"
+  },
+  {
+   "title": "Authentication - Plane Documentation",
+   "href": "https://docs.plane.com/reference/authentication"
+  },
+  {
+   "title": "MCP server - Plain Docs",
+   "href": "https://www.plain.com/docs/integrations/mcp-server"
+  },
+  {
+   "title": "Plain's MCP",
+   "href": "https://www.plain.com/changelog/plain-mcp"
+  },
+  {
+   "title": "GitHub - tellahq/plain-mcp: MCP server for Plain.com support ...",
+   "href": "https://github.com/tellahq/plain-mcp"
+  },
+  {
+   "title": "MCP server - Plain",
+   "href": "https://docs.inplain.app/ai/mcp"
+  },
+  {
+   "title": "Plain MCP Server - gamut.so",
+   "href": "https://www.gamut.so/mcp/communication/plain"
+  },
+  {
+   "title": "X (Twitter) API pricing 2026: costs, free tier, limits",
+   "href": "https://social-sdk.dev/guides/x-api-pricing"
+  },
+  {
+   "title": "X API Free Tier: What Replaced It in 2026 - reachmore.co",
+   "href": "https://reachmore.co/blogs/x-api-free-tier"
+  },
+  {
+   "title": "X API pay-per-usage pricing and credits - X",
+   "href": "https://docs.x.com/x-api/getting-started/pricing"
+  },
+  {
+   "title": "X (Twitter) API Pricing & Tiers Explained (2026) - netrows.com",
+   "href": "https://www.netrows.com/blog/x-twitter-api-pricing-tiers-2026"
+  },
+  {
+   "title": "Is the Twitter/X API Free in 2026? No. Here's What Is Free",
+   "href": "https://api.sorsa.io/blog/is-twitter-api-free"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:51:04.768604"
+}

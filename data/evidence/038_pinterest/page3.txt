@@ -1,0 +1,66 @@
+URL: https://developers.pinterest.com/about-pinterest-mcp/
+FETCHED: 2026-11-23T17:13:32.804291
+VIA: direct
+
+Pinterest Developers
+Skip to content
+New announcement
+Your AI just got a new
+superpower
+Pinterest MCP Server brings the power of Pinterest data directly into the AI assistants, copilots, and agentic workflows you already use. Turn natural-language questions into fast, actionable insights, uncover performance opportunities in moments, and build what's next with more momentum than ever. More Pinterest. More possibilities.
+Be the first to know when it launches.
+Sign up for updates
+; Opens a new tab
+MCP Server
+pinterest/mcp-server
+Meet the Pinterest MCP
+The common language of AI and APIs
+Model Context Protocol (MCP) is an open standard that enables AI assistants to connect directly with external services. The Pinterest MCP Server brings Pinterest data into the AI tools you already use, giving agents native access to rich inspiration and creative signals — without custom code or fragile integrations. It helps teams move from idea to on-brand creative direction with Pinterest intelligence available right where they work.
+Built for Pinterest workflows
+Bring Pinterest Ads capabilities into the AI tools your team already uses. Query, analyze, and act through a consistent interface powered by the existing Pinterest API.
+Open-standard integration
+Built on MCP, with compatibility across tools such as Claude, Cursor, and VS Code.
+Secure, scoped access
+OAuth 2.0 authorization and granular permissions keep credentials protected and access appropriately controlled.
+Less integration work
+Skip custom API wrappers. The MCP server manages authentication, rate limits, and response formatting, so teams can move faster.
+How it works
+Bring Pinterest intelligence into your AI workflow
+Set up the Pinterest MCP Server once in your preferred AI environment. From there, you can search Pins, explore and manage Boards, uncover emerging trends, and access audience insights — all through natural-language prompts without leaving your chat or editor.
+Find the performance stories hidden in your data.
+Turn insights into action — create, update, and optimize with confidence.
+Catch the next big idea before it takes off, using trends.
+Turn audience and keyword signals into your next smart move.
+{
+"pinterest-mcp"
+:
+{
+"type"
+:
+"http"
+,
+"url"
+:
+"https://api.pinterest.com/mcp"
+,
+"headers"
+:
+{
+"Authorization"
+:
+"Bearer <token>"
+}
+}
+}
+Don't miss the big launch!
+Get updates, developer resources, and integration guides delivered straight to your inbox.
+Sign up for updates
+; Opens a new tab
+FAQ
+You might be wondering
+What is Model Context Protocol (MCP)?
+Which AI tools will the Pinterest MCP server support?
+Do I need a Pinterest developer account to use the MCP server?
+What Pinterest data will be accessible through the MCP?
+Is there a cost to use the Pinterest MCP server?
+When will the MCP server be publicly available?

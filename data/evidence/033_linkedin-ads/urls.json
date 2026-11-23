@@ -1,0 +1,77 @@
+{
+ "app": "LinkedIn Ads",
+ "queries": [
+  "LinkedIn Ads API authentication documentation",
+  "LinkedIn Ads MCP server",
+  "LinkedIn Ads API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.linkedin.com/product-catalog/marketing/advertising-api",
+  "https://mcp-ads.com/linkedin-ads-mcp",
+  "https://learn.microsoft.com/en-us/linkedin/shared/authentication/authentication",
+  "https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access"
+ ],
+ "search_hits": [
+  {
+   "title": "Authenticating with OAuth 2.0 Overview - LinkedIn | Microsoft ...",
+   "href": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/authentication"
+  },
+  {
+   "title": "Advertising API - LinkedIn API",
+   "href": "https://developer.linkedin.com/product-catalog/marketing/advertising-api"
+  },
+  {
+   "title": "Getting Access to LinkedIn APIs - LinkedIn | Microsoft Learn",
+   "href": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access"
+  },
+  {
+   "title": "Developers | LinkedIn",
+   "href": "https://www.linkedin.com/developers/tools/oauth"
+  },
+  {
+   "title": "LinkedIn Ads API Guide: Endpoints, Authentication, and ...",
+   "href": "https://aeroleads.com/blog/linkedin-ads-api-endpoints-authentication-examples/"
+  },
+  {
+   "title": "LinkedIn Ads MCP Server - GitHub",
+   "href": "https://github.com/danielpopamd/linkedin-ads-mcp"
+  },
+  {
+   "title": "LinkedIn Ads MCP Server - MCP AI | Zapier",
+   "href": "https://zapier.com/mcp/linkedin-ads"
+  },
+  {
+   "title": "Linkedin Ads MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/linkedin-ads-mcp"
+  },
+  {
+   "title": "LinkedIn Ads MCP Server for Claude & ChatGPT | MCP Ads",
+   "href": "https://mcp-ads.com/linkedin-ads-mcp"
+  },
+  {
+   "title": "Linkedin Ads MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/mcp-linkedinads"
+  },
+  {
+   "title": "Advertising API - LinkedIn",
+   "href": "https://developer.linkedin.com/product-catalog/marketing/advertising-api"
+  },
+  {
+   "title": "LinkedIn API Pricing: Complete Guide for 2026 - Blotato",
+   "href": "https://www.blotato.com/blog/linkedin-api-pricing"
+  },
+  {
+   "title": "LinkedIn API 2026: Pricing, Access and How to Use It",
+   "href": "https://www.getphyllo.com/post/how-much-does-the-linkedin-api-cost-iv"
+  },
+  {
+   "title": "Is the LinkedIn API Free? Features, Pricing & Paid Plans ...",
+   "href": "https://www.getphyllo.com/post/linkedin-api-paid-vs-free-plans-iv"
+  },
+  {
+   "title": "LinkedIn API in 2026: Free Tier, Access, Pricing and Alternatives",
+   "href": "https://derrick-app.com/linkedin/scraper/api"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:06:05.643124"
+}

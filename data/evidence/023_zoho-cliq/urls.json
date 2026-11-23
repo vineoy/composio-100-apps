@@ -1,0 +1,75 @@
+{
+ "app": "Zoho Cliq",
+ "queries": [
+  "Zoho Cliq API authentication documentation",
+  "Zoho Cliq MCP server",
+  "Zoho Cliq API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://www.zoho.com/cliq/help/restapi/v2/",
+  "https://www.zoho.com/cliq/help/restapi/v3/introduction/"
+ ],
+ "search_hits": [
+  {
+   "title": "Rest API documentation | Cliq - Zoho",
+   "href": "https://www.zoho.com/cliq/help/restapi/v2/"
+  },
+  {
+   "title": "Introduction | Zoho Cliq | API Documentation",
+   "href": "https://www.zoho.com/cliq/help/restapi/v3/introduction/"
+  },
+  {
+   "title": "Cliq API Documentation",
+   "href": "https://apidocs.cliq.com/"
+  },
+  {
+   "title": "Zoho Cliq REST APIs v3 - A Complete Guide to What's Changed & Why",
+   "href": "https://help.zoho.com/portal/en/community/topic/re-introducing-zoho-cliq-rest-apis-the-much-needed-glow-up"
+  },
+  {
+   "title": "Zoho Cliq API Documentation - Universal API for 3,400+ Apps",
+   "href": "https://mindcloud.co/docs/universal/rest/zoho-cliq/latest"
+  },
+  {
+   "title": "Guide to Zoho Cliq's MCP Server",
+   "href": "https://www.zoho.com/cliq/help/platform/zoho-cliq-mcp.html"
+  },
+  {
+   "title": "Bring AI into your workflow with Zoho Cliq\u2019s Model Context ...",
+   "href": "https://www.zoho.com/cliq/mcp-server.html"
+  },
+  {
+   "title": "Setting up the Zoho Cliq MCP Server",
+   "href": "https://help.zoho.com/portal/en/kb/zoho-cliq/cliq-7-0/user-guides/articles/setting-up-the-zoho-cliq-mcp-server"
+  },
+  {
+   "title": "Get Started With Zoho MCP",
+   "href": "https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation"
+  },
+  {
+   "title": "Zoho Cliq MCP Server: connect your AI Agents to Zoho Cliq",
+   "href": "https://www.merge.dev/connectors/zohocliq"
+  },
+  {
+   "title": "Cliq - Chat Pricing | Free Chat plans for all Teams size - Zoho",
+   "href": "https://www.zoho.com/cliq/pricing.html"
+  },
+  {
+   "title": "API Usage Limits & Pricing - Zoho",
+   "href": "https://www.zoho.com/analytics/api/v2/api-limits-pricing.html"
+  },
+  {
+   "title": "Cliq (Zoho) Free Plan (2026): Paid From $2/user/mo",
+   "href": "https://costbench.com/software/communication/zoho-cliq/free-plan/"
+  },
+  {
+   "title": "Cliq 5.0 : Pricing Update - Zoho Corporation",
+   "href": "https://help.zoho.com/portal/en/community/topic/cliq-5-0-pricing-update"
+  },
+  {
+   "title": "Cliq (Zoho) Pricing 2026: Plans & Hidden Costs",
+   "href": "https://costbench.com/software/communication/zoho-cliq/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:57:07.578547"
+}

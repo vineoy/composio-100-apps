@@ -1,0 +1,139 @@
+URL: https://developers.intercom.com/docs/build-an-integration/learn-more/authentication
+FETCHED: 2026-11-23T16:46:48.348493
+VIA: direct
+
+Authentication | Intercom and Fin Developer Platform
+Skip to content
+Version
+All versions
+Get Started
+Overview
+Set up a Workspace
+Authentication
+Build an App
+Build a Messenger App
+Build an App using Sheets
+Build an Inbox App
+Developer Guides
+Messenger
+Inbox
+Contacts
+Tickets
+Help Center
+Reporting
+Using the APIs
+Webhooks
+Fin Agent API
+News Center Domains
+Model Context Protocol (MCP)
+References
+Object Model
+REST API Reference
+Canvas Kit Reference
+Webhook Topics
+Public Apps & App Store
+Configure OAuth
+Build and Publish Apps
+App Store Guidelines
+Home
+/
+Authentication
+Authentication
+Copy
+To access the Intercom API, you have two authentication options depending on whether you app is public or private.
+An
+Access Token
+is for if you're using the API to access data in
+your own
+Intercom workspace, in other words, building a private app.
+OAuth
+is for if you're building a public app that accesses
+other people's
+Intercom data.
+Access Tokens
+Access Tokens can be used for the following cases:
+You want to use the API to build a private Intercom app
+You want to run scripts to create or get data from your Intercom workspace
+You want to use the API to programmatically automate certain actions in your Intercom workspace
+In all of these cases, the data you are accessing is your own team's customer data.
+How to get your Access Token
+We provide you with an Access Token as soon as you
+create an app
+on your workspace.
+You can find your Access Token in the
+Configure > Authentication
+section in your app within the
+Developer Hub
+.
+It is also visible on the
+Test & Publish > Your Workspaces
+page. This displays workspaces that have the app installed. More about how this works can be found in the
+Installing & Uninstalling Apps guide
+.
+Access Tokens are issued to a teammate
+An Access Token is issued to the teammate who installed the app on the workspace, or who last regenerated the token. Its access to conversations is limited by that teammate's conversation access, in addition to the app's scopes. See
+Conversation access is limited by the installing teammate
+.
+Never give your Access Token to a third-party
+Your Access Token can give access to your private Intercom data and should be treated like a password. If an app provider asks you for your Access Token, please do not provide it. Instead, let us know - apps are required to use OAuth rather than asking users for Access Tokens.
+OAuth
+You should use OAuth if:
+You are requesting access to other people's Intercom accounts/data (for example, through an integration you've built)
+You currently ask people for their API Keys to request resources on their behalf
+You want to make it easier for your customers to share their customers' data with you
+OAuth Flow
+Getting Started with OAuth
+To set up and test the OAuth installation flow in your development workspace by
+following this tutorial
+.
+Never ask users for their Access Token
+Asking your users for their Access Tokens rather than implementing OAuth is against our terms of service and may result in your API access being revoked.
+How to use the token
+Once you have a token, whether an access token or a token via the OAuth process, simply provide it as an
+Authorization:Bearer
+header in your requests, as shown below. If you want to go deeper on how the
+Authorization:Bearer
+header works please check out the
+full spec here
+.
+$ curl \
+-s
+https://api.intercom.io/users/5321a20f72cdbb4192000013 \
+-H
+'Authorization:Bearer <access_token>'
+\
+-H
+'Accept:application/json'
+Alternatively, helper functions are provided in some of our SDKs to authorize via Access Tokens. This means you don't need to specify the header explicitly - it's all done under the hood.
+intercom =
+Intercom
+::
+Client
+.new(token:
+'<access_token>'
+);
+{
+"token"
+:
+'<access_token>'
+}
+var
+client =
+new
+Intercom
+.
+Client
+({ token:
+'<access_token>'
+});
+Was this page helpful?
+Set up a Workspace
+Previous page
+Build a Messenger App
+Next page
+On this page
+Access Tokens
+How to get your Access Token
+OAuth
+Getting Started with OAuth
+How to use the token

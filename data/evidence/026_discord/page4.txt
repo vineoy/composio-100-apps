@@ -1,0 +1,289 @@
+URL: https://github.com/jonvanausdeln/discord-mcp
+FETCHED: 2026-11-23T16:59:57.607133
+VIA: direct
+
+GitHub - jonvanausdeln/discord-mcp: MCP Server for interacting with Discord · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+2 Commits
+2 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+src
+src
+.env.example
+.env.example
+.gitignore
+.gitignore
+CONTRIBUTING.md
+CONTRIBUTING.md
+LICENSE
+LICENSE
+README.md
+README.md
+SETUP_INSTRUCTIONS.md
+SETUP_INSTRUCTIONS.md
+TECHNICAL_SPEC.md
+TECHNICAL_SPEC.md
+package-lock.json
+package-lock.json
+package.json
+package.json
+tsconfig.json
+tsconfig.json
+View all files
+Repository files navigation
+Discord MCP Server
+There is my Discord MCP Server. There are many like it, but this one is mine
+It enables MCP clients to interact with Discord servers, channels, and messages.
+Features
+•
+Installation
+•
+Configuration
+•
+Usage
+•
+Documentation
+Overview
+This MCP server provides Discord integration for AI assistants like Claude Desktop, enabling natural interaction with Discord servers through a comprehensive set of tools. Built with reliability in mind, it includes robust error handling, automatic rate limiting, and retry mechanisms.
+Features
+15 Tools
+📨 Message Operations
+send_message
+- Send messages with file attachments and control link preview embeds
+get_messages
+- Retrieve message history with user display names
+add_reaction
+- Add emoji reactions (Unicode and custom emojis)
+remove_reaction
+- Remove reactions from messages
+get_message_reactions
+- View reaction data and counts
+💬 Direct Messages
+send_dm
+- Send direct messages to users with file support
+list_dms
+- List all accessible DM channels
+open_dm
+- Create or access DM channels
+🏢 Server & Channel Management
+list_servers
+- List all Discord servers
+list_channels
+- List channels with permissions
+create_channel
+- Create new channels
+create_thread
+- Create discussion threads
+👥 User & Member Management
+get_user_info
+- Get user profiles and display names
+get_guild_member
+- Get member data with roles
+list_guild_members
+- List server members with pagination
+Installation
+Prerequisites
+Node.js 18 or higher
+A Discord Bot Token (
+create one here
+)
+Claude Desktop or another MCP-compatible client
+Quick Start
+Clone and install
+git clone https://github.com/yourusername/discord-mcp.git
+cd
+discord-mcp
+npm install
+Configure environment
+cp .env.example .env
+#
+Edit .env and add your Discord bot token:
+#
+DISCORD_BOT_TOKEN=your_token_here
+Build the project
+npm run build
+Configuration
+Discord Bot Setup
+Create a Discord Application
+Go to
+Discord Developer Portal
+Create a new application
+Navigate to the "Bot" section and create a bot
+Copy the bot token
+Enable Required Intents
+In the Bot settings, enable these Privileged Gateway Intents:
+✅ MESSAGE CONTENT INTENT
+✅ SERVER MEMBERS INTENT
+Invite Bot to Server
+Go to OAuth2 → URL Generator
+Select scopes:
+bot
+Select permissions:
+Read Messages/View Channels
+Send Messages
+Read Message History
+Add Reactions
+Manage Messages
+Create Public Threads
+Manage Channels (for channel creation)
+Claude Desktop Setup
+Add to your Claude Desktop config file (
+~/Library/Application Support/Claude/claude_desktop_config.json
+on macOS,
+%APPDATA%\Claude\claude_desktop_config.json
+on Windows):
+{
+"mcpServers"
+: {
+"discord"
+: {
+"command"
+:
+"
+node
+"
+,
+"args"
+: [
+"
+/absolute/path/to/discord-mcp/dist/server.js
+"
+],
+"env"
+: {
+"DISCORD_BOT_TOKEN"
+:
+"
+your_bot_token_here
+"
+,
+"LOG_LEVEL"
+:
+"
+ERROR
+"
+}
+    }
+  }
+}
+Restart Claude Desktop after configuration.
+Usage
+Once configured, you can interact with Discord through Claude Desktop naturally:
+"List my Discord servers"
+"Send a message to #general saying hello"
+"Get the last 10 messages from the announcements channel"
+"Add a 👍 reaction to message ID 123456789"
+"Send a DM to user ID 987654321 with an image attachment"
+"List all members in the Development server"
+"Send a message with this link but don't show the preview: https://example.com"
+Documentation
+Setup Instructions
+- Detailed setup and troubleshooting guide
+Technical Specification
+- Architecture and implementation details
+Contributing Guidelines
+- How to contribute to the project
+Development
+#
+Start in development mode with auto-reload
+npm run dev
+#
+Build for production
+npm run build
+#
+Type checking
+npm run type-check
+Troubleshooting
+Common Issues
+"Unknown tool" errors in Claude Desktop
+Restart Claude Desktop completely after configuration changes
+Verify the path to
+dist/server.js
+is absolute and correct
+Permission errors
+Ensure your bot has the required permissions in the Discord server
+Check that both privileged intents are enabled in the Developer Portal
+Connection issues
+Verify your
+DISCORD_BOT_TOKEN
+is correct and active
+Check that your bot is invited to at least one Discord server
+For more detailed troubleshooting, see
+SETUP_INSTRUCTIONS.md
+.
+Architecture
+Built with TypeScript and Node.js using:
+discord.js v14
+- Discord API client
+@modelcontextprotocol/sdk
+- MCP protocol implementation
+zod
+- Runtime type validation
+The server uses a modular architecture with:
+Tool-based organization (messages, servers, users, DMs)
+Base class pattern for consistent error handling
+Comprehensive logging and monitoring
+Production-ready retry and rate-limiting logic
+Contributing
+Contributions are welcome! Please see
+CONTRIBUTING.md
+for guidelines.
+License
+This project is licensed under the MIT License - see the
+LICENSE
+file for details.
+Acknowledgments
+Built for the
+Model Context Protocol
+ecosystem by Anthropic.
+Questions?
+Open an
+issue
+or start a
+discussion
+Made with ❤️ for the MCP community
+About
+MCP Server for interacting with Discord
+Resources
+Readme
+MIT license
+Contributing
+Contributing
+Activity
+Stars
+0
+stars
+Watchers
+1
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

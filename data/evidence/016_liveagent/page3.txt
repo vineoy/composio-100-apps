@@ -1,0 +1,22 @@
+URL: https://faq.liveagent.com/640789-Where-Can-I-Find-the-LiveAgent-API-Documentation
+FETCHED: 2026-11-23T16:50:22.738213
+VIA: direct
+
+Where Can I Find the LiveAgent API Documentation?
+How can we help?
+Home
+>
+General
+>
+Where Can I Find the LiveAgent API Documentation?
+Where Can I Find the LiveAgent API Documentation?
+Customer context:
+The customer is looking for information on where to access the API documentation for LiveAgent.
+Customer question:
+Where can I find the LiveAgent API Documentation?
+Solution:
+You can access the complete LiveAgent APIv1 documentation at the following link:
+https://support.liveagent.com/840770-Complete-API-reference
+. For APIv3 documentation, please log in to your LiveAgent panel and navigate to Configuration > System > API > APIv3 documentation, where you can view the latest APIv3 reference directly.
+Updated:
+Jul 07, 2025

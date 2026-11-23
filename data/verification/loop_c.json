@@ -1,0 +1,31 @@
+[
+ {"id": 10, "name": "DealCloud", "checks": [
+   {"field": "existing_mcp.status", "claimed": "official", "browser_verified": true,
+    "url": "https://api.docs.dealcloud.com/mcp",
+    "note": "Live 'DealCloud MCP Server' docs with Getting Started / AI Clients / Authentication / Available Tools — official confirmed."},
+   {"field": "access", "claimed": "paid_plan", "browser_verified": true,
+    "url": "https://api.docs.dealcloud.com/docs",
+    "note": "API is for DealCloud clients (Intapp enterprise CRM); no free public tier. Paid-plan reading stands."}]},
+ {"id": 15, "name": "Pylon", "checks": [
+   {"field": "access", "claimed": "admin_approval", "browser_verified": true,
+    "url": "https://docs.usepylon.com/pylon-docs/developer/api",
+    "note": "Docs state 'Only Admin users can create API tokens' — admin approval confirmed."},
+   {"field": "auth_methods", "claimed": "Bearer token, API key, OAuth2", "browser_verified": true,
+    "url": "https://docs.usepylon.com/pylon-docs/developer/api",
+    "note": "API tokens (Bearer) documented; OAuth2 from authentication page."}]},
+ {"id": 20, "name": "Gladly", "checks": [
+   {"field": "auth_methods", "claimed": "Basic", "browser_verified": true,
+    "url": "https://developer.gladly.com/rest/",
+    "note": "Docs: 'Gladly API uses token-based Basic Authentication' (email + API token via Authorization header)."},
+   {"field": "access", "claimed": "admin_approval", "browser_verified": true,
+    "url": "https://developer.gladly.com/rest/",
+    "note": "Docs: 'Gladly Administrators can set API permissions on an agent-by-agent basis' — admin approval confirmed."}]},
+ {"id": 38, "name": "Pinterest", "checks": [
+   {"field": "access", "claimed": "admin_approval", "browser_verified": true,
+    "url": "https://developers.pinterest.com/docs/getting-started/connect-app/",
+    "note": "Evidence notes Trial access requires review; Standard access requires further review + video demo — review-gated confirmed."}]},
+ {"id": 37, "name": "systeme.io", "checks": [
+   {"field": "auth_methods", "claimed": "API key", "browser_verified": true,
+    "url": "https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api",
+    "note": "Official help article documents API key generation; keys available on any plan incl. free."}]}
+]

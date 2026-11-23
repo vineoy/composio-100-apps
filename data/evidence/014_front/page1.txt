@@ -1,0 +1,76 @@
+URL: https://dev.frontapp.com/docs/authentication
+FETCHED: 2026-11-23T16:48:23.936011
+VIA: direct
+
+Authentication
+For AI agents: the docs index is at https://dev.frontapp.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+The Core API uses Bearer tokens to authenticate its user.
+You MUST send the token for each request in the Authorization header. The token MUST be preceded by
+Bearer
+. See the
+Authorization
+header in the example request below.
+cURL
+curl --request GET \
+  --url https://api2.frontapp.com/conversations/cnv_123/drafts
+  --header 'Authorization: Bearer [REQUEST_TOKEN]'
+OAuth v Front API Tokens
+There are two ways to get a Bearer token — through API tokens in your settings or through an OAuth implementation
+.
+In general, Front recommends implementing OAuth when feasible, which has the additional benefit of building within our
+application framework
+. The app framework makes it easy for customers to install your integration and makes it easy for you to update the integration with new Front features as they are added to the framework.
+However, if you’re just building an integration for your own Front instance or a single Front customer, or just want to test our API endpoints as you brainstorm what to build, you can
+generate an API token
+to get up and running more quickly.
+For Partners looking to launch a public integration to all Front customers, if your integration can support OAuth you’ll want to check out our
+OAuth guide
+. We require that public integrations use OAuth unless there is a reason they cannot. OAuth integrations are part of our application framework and can be easily installed by customers using the Front App Store, without requiring that customers manually configure an API token for your integration.
+📘
+OAuth is required for public integrations available to all Front customers unless you obtain an exception from us. OAuth makes it much easier for customers to install your integration through our App Store.
+Token scopes
+Features
+The following features specify what functionality your token can be used for:
+Access resources
+allows you to manage Core API resources such as conversations, contacts, inboxes, etc.
+Auto-provisioning
+allows you to manage provisioning resources using our SCIM implementation, which you have to contact our team to learn more about (not generally available to the public).
+Application triggers
+allows you to
+process events and payloads
+from external services (not currently available for OAuth tokens).
+MCP server
+allows you to connect Front data exposed via MCP server to clients like Claude, ChatGPT, and others (not available for API tokens).
+Namespaces
+The following namespaces specify the scope of tokens:
+Global resources
+are resources available across the company. These are resources created at the company level such as company-level rules, company-level tags, or resources that only exist at the company level, such as teams or accounts. Global resources exclude resources that belong to to specific workspaces, which are separately configured as shared resources.
+Shared resources
+are resources that belong to specific workspaces, such as shared inboxes or workspace tags. You can select
+All shared workspaces
+to manage resources across all your workspaces.
+Private resources
+are resources that belong to individual teammates, such as personal inboxes or signatures. The teammate will have to enable API access in their settings for the token to manage their resources.
+Permissions
+If you selected to access resources, you can granularly specify what access the token has to each resources (read, write, delete, and send).
+👍
+Tips for using permissions
+Refer to the API endpoint topics in the
+Core API reference documentation
+to learn which permissions are required for each endpoint.
+Front recommends limiting the permissions for each token to prevent misuse or security issues.
+The following permissions exist:
+Read
+for retrieving resource information.
+Write
+for creating and updating resources.
+Delete
+for removing API resources.
+Send
+for creating and sending messages in Front, such as you would do with endpoints like
+Create message
+, which start new conversations or reply to active conversations. This is different from endpoints that
+import historical messages
+, which only require the Write permission.
+Updated
+10 months ago

@@ -1,0 +1,341 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Human audit — 15 apps</title>
+<style>body{font-family:system-ui,sans-serif;max-width:920px;margin:24px auto;padding:0 16px;background:#0f1420;color:#e8ecf4}
+.card{background:#171e2e;border:1px solid #2a3550;border-radius:12px;padding:16px;margin:16px 0}
+h3{margin:0 0 6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.cat{font-size:12px;color:#8fa3c8;font-weight:400}
+.allok{margin-left:auto;background:#12351f;color:#7ee0a3;border:1px solid #2ecc71;border-radius:8px;padding:4px 10px;font-size:12.5px;cursor:pointer}
+.allok.done{background:#2ecc71;color:#06210f}
+.desc{color:#aab8d4;font-size:14px}table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:6px 8px;border-top:1px solid #232d45}.val{color:#7ee0a3;font-weight:600}
+label{margin-right:10px;cursor:pointer}.ev a{color:#7ab8ff;margin-right:6px}
+.corr{width:100%;margin-top:8px;padding:8px;border-radius:8px;border:1px solid #2a3550;background:#0f1420;color:#e8ecf4}
+button.main{background:#3b82f6;color:#fff;border:0;padding:12px 20px;border-radius:10px;font-size:16px;cursor:pointer;margin:12px 8px 12px 0}
+textarea{width:100%;height:160px;background:#0f1420;color:#7ee0a3;border:1px solid #2a3550;border-radius:10px;padding:10px;font-family:monospace}
+.bar{position:sticky;top:0;background:#0f1420ee;backdrop-filter:blur(6px);padding:10px 0;border-bottom:1px solid #2a3550;z-index:5}
+</style></head><body>
+<h1>Human accuracy audit — 15 apps</h1>
+<p>Open the evidence links, compare with our answer, mark <b>right / wrong / unsure</b>. Fast path: click <b>✓ all right</b> on each app unless something looks off. ~10–15 minutes. When done, click <b>Download results JSON</b> and save it to <code>data/verification/audit_results.json</code> — or paste the JSON back in chat.</p>
+<div class="bar"><b id="progress">0 / 15 apps marked</b></div>
+<div class="card" data-id="1"><h3>1. Salesforce <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Salesforce is a CRM and sales management platform providing enterprise cloud solutions.</p><table><tr><td>Auth method(s)</td><td class="val">oauth2, token</td>
+<td><label><input type="radio" name="f1_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f1_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f1_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f1_access" value="right"> right</label>
+<label><input type="radio" name="f1_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f1_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f1_api_type" value="right"> right</label>
+<label><input type="radio" name="f1_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f1_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f1_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f1_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f1_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f1_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f1_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f1_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html" target="_blank" rel="noopener">doc 1</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="1"></div><div class="card" data-id="2"><h3>2. HubSpot <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">HubSpot is an AI-powered customer platform aligning marketing, sales, service, content, and CRM operations.</p><table><tr><td>Auth method(s)</td><td class="val">api key, oauth2, token</td>
+<td><label><input type="radio" name="f2_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f2_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f2_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f2_access" value="right"> right</label>
+<label><input type="radio" name="f2_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f2_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f2_api_type" value="right"> right</label>
+<label><input type="radio" name="f2_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f2_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">official</td>
+<td><label><input type="radio" name="f2_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f2_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f2_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f2_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f2_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f2_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://www.hubspot.com/" target="_blank" rel="noopener">doc 1</a> <a href="https://www.hubspot.com/" target="_blank" rel="noopener">doc 2</a> <a href="https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview" target="_blank" rel="noopener">doc 3</a> <a href="https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="2"></div><div class="card" data-id="3"><h3>3. Pipedrive <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Pipedrive is a sales pipeline CRM designed to help businesses track sales activities, manage leads and deals, and automate sales processes.</p><table><tr><td>Auth method(s)</td><td class="val">api key, oauth2</td>
+<td><label><input type="radio" name="f3_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f3_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f3_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f3_access" value="right"> right</label>
+<label><input type="radio" name="f3_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f3_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f3_api_type" value="right"> right</label>
+<label><input type="radio" name="f3_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f3_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f3_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f3_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f3_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f3_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f3_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f3_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://www.pipedrive.com/" target="_blank" rel="noopener">doc 1</a> <a href="https://www.pipedrive.com/" target="_blank" rel="noopener">doc 2</a> <a href="https://developers.pipedrive.com/docs/api/v1" target="_blank" rel="noopener">doc 3</a> <a href="https://developers.pipedrive.com/docs/api/v1" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="3"></div><div class="card" data-id="4"><h3>4. Attio <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Attio is a customizable CRM platform for managing pipelines, deals, customer relationships, and AI agent workflows.</p><table><tr><td>Auth method(s)</td><td class="val">api key, basic, oauth2, token</td>
+<td><label><input type="radio" name="f4_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f4_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f4_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f4_access" value="right"> right</label>
+<label><input type="radio" name="f4_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f4_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f4_api_type" value="right"> right</label>
+<label><input type="radio" name="f4_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f4_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">official</td>
+<td><label><input type="radio" name="f4_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f4_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f4_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f4_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f4_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f4_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://attio.com/" target="_blank" rel="noopener">doc 1</a> <a href="https://attio.com/" target="_blank" rel="noopener">doc 2</a> <a href="https://docs.attio.com/rest-api/guides/authentication" target="_blank" rel="noopener">doc 3</a> <a href="https://docs.attio.com/rest-api/overview" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="4"></div><div class="card" data-id="5"><h3>5. Twenty <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Twenty is an open-source CRM platform providing extensible data models, REST/GraphQL APIs, and AI integrations for technical teams.</p><table><tr><td>Auth method(s)</td><td class="val">api key, oauth2, token</td>
+<td><label><input type="radio" name="f5_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f5_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f5_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f5_access" value="right"> right</label>
+<label><input type="radio" name="f5_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f5_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">both</td>
+<td><label><input type="radio" name="f5_api_type" value="right"> right</label>
+<label><input type="radio" name="f5_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f5_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">official</td>
+<td><label><input type="radio" name="f5_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f5_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f5_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f5_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f5_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f5_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://twenty.com/" target="_blank" rel="noopener">doc 1</a> <a href="https://docs.twenty.com/developers/extend/api" target="_blank" rel="noopener">doc 2</a> <a href="https://twenty.com/" target="_blank" rel="noopener">doc 3</a> <a href="https://docs.twenty.com/developers/extend/api" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="5"></div><div class="card" data-id="6"><h3>6. Podio <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Podio is a work management and CRM platform featuring flexible workflows, no-code customization, and collaboration tools.</p><table><tr><td>Auth method(s)</td><td class="val">oauth2</td>
+<td><label><input type="radio" name="f6_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f6_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f6_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f6_access" value="right"> right</label>
+<label><input type="radio" name="f6_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f6_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f6_api_type" value="right"> right</label>
+<label><input type="radio" name="f6_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f6_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f6_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f6_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f6_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f6_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f6_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f6_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://podio.com/" target="_blank" rel="noopener">doc 1</a> <a href="https://developers.podio.com/authentication" target="_blank" rel="noopener">doc 2</a> <a href="https://developers.podio.com" target="_blank" rel="noopener">doc 3</a> <a href="https://developers.podio.com/index/faq" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="6"></div><div class="card" data-id="7"><h3>7. Zoho CRM <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Zoho CRM is a sales CRM platform featuring AI assistance, workflow automation, customer engagement, and forecasting tools.</p><table><tr><td>Auth method(s)</td><td class="val">other: unknown</td>
+<td><label><input type="radio" name="f7_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f7_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f7_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f7_access" value="right"> right</label>
+<label><input type="radio" name="f7_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f7_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f7_api_type" value="right"> right</label>
+<label><input type="radio" name="f7_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f7_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f7_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f7_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f7_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f7_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f7_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f7_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://www.zoho.com/en-in/crm/" target="_blank" rel="noopener">doc 1</a> <a href="https://www.zoho.com/en-in/crm/" target="_blank" rel="noopener">doc 2</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="7"></div><div class="card" data-id="8"><h3>8. Close <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Close is a CRM and sales platform for managing leads, contacts, opportunities, activities, and sales pipelines.</p><table><tr><td>Auth method(s)</td><td class="val">api key, basic, oauth2</td>
+<td><label><input type="radio" name="f8_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f8_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f8_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f8_access" value="right"> right</label>
+<label><input type="radio" name="f8_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f8_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f8_api_type" value="right"> right</label>
+<label><input type="radio" name="f8_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f8_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f8_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f8_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f8_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f8_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f8_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f8_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://developer.close.com/api/overview" target="_blank" rel="noopener">doc 1</a> <a href="https://developer.close.com/api/overview" target="_blank" rel="noopener">doc 2</a> <a href="https://developer.close.com/api/overview/oauth-authentication" target="_blank" rel="noopener">doc 3</a> <a href="https://help.close.com/integrations/api-keys-oauth" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="8"></div><div class="card" data-id="9"><h3>9. Copper <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">CRM and sales platform offering developer APIs for custom integrations and data management</p><table><tr><td>Auth method(s)</td><td class="val">api key, oauth2, token</td>
+<td><label><input type="radio" name="f9_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f9_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f9_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f9_access" value="right"> right</label>
+<label><input type="radio" name="f9_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f9_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f9_api_type" value="right"> right</label>
+<label><input type="radio" name="f9_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f9_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f9_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f9_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f9_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f9_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f9_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f9_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://developer.copper.com/introduction/authentication.html" target="_blank" rel="noopener">doc 1</a> <a href="https://developer.copper.com/introduction/oauth/flow.html" target="_blank" rel="noopener">doc 2</a> <a href="https://developer.copper.co/api-reference/authentication" target="_blank" rel="noopener">doc 3</a> <a href="https://developer.copper.co/api-reference/getting-started" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="9"></div><div class="card" data-id="10"><h3>10. DealCloud <span class="cat">CRM and Sales</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">DealCloud is a CRM and deal management platform designed for private capital markets and investment banking teams.</p><table><tr><td>Auth method(s)</td><td class="val">api key, basic, jwt, oauth2</td>
+<td><label><input type="radio" name="f10_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f10_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f10_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">paid_plan</td>
+<td><label><input type="radio" name="f10_access" value="right"> right</label>
+<label><input type="radio" name="f10_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f10_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f10_api_type" value="right"> right</label>
+<label><input type="radio" name="f10_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f10_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">official</td>
+<td><label><input type="radio" name="f10_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f10_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f10_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f10_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f10_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f10_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://api.docs.dealcloud.com/docs" target="_blank" rel="noopener">doc 1</a> <a href="https://api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentication" target="_blank" rel="noopener">doc 2</a> <a href="https://api.docs.dealcloud.com/mcp" target="_blank" rel="noopener">doc 3</a> <a href="https://api.docs.dealcloud.com/mcp/getting-started" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="10"></div><div class="card" data-id="11"><h3>11. Zendesk <span class="cat">Support and Helpdesk</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Zendesk is a customer service and sales CRM platform providing ticketing, messaging, help center, live chat, and voice capabilities.</p><table><tr><td>Auth method(s)</td><td class="val">basic, oauth2, token</td>
+<td><label><input type="radio" name="f11_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f11_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f11_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f11_access" value="right"> right</label>
+<label><input type="radio" name="f11_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f11_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f11_api_type" value="right"> right</label>
+<label><input type="radio" name="f11_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f11_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">unknown</td>
+<td><label><input type="radio" name="f11_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f11_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f11_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f11_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f11_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f11_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://developer.zendesk.com/api-reference/introduction/security-and-auth/" target="_blank" rel="noopener">doc 1</a> <a href="https://developer.zendesk.com/api-reference/" target="_blank" rel="noopener">doc 2</a> <a href="https://developer.zendesk.com/documentation/authentication/" target="_blank" rel="noopener">doc 3</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="11"></div><div class="card" data-id="21"><h3>21. Slack <span class="cat">Communications and Messaging</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">A communications and messaging platform providing APIs for workspace interaction, automation, and AI agent integration.</p><table><tr><td>Auth method(s)</td><td class="val">oauth2</td>
+<td><label><input type="radio" name="f21_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f21_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f21_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f21_access" value="right"> right</label>
+<label><input type="radio" name="f21_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f21_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f21_api_type" value="right"> right</label>
+<label><input type="radio" name="f21_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f21_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">official</td>
+<td><label><input type="radio" name="f21_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f21_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f21_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f21_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f21_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f21_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://docs.slack.dev/authentication/" target="_blank" rel="noopener">doc 1</a> <a href="https://docs.slack.dev/apis/" target="_blank" rel="noopener">doc 2</a> <a href="https://docs.slack.dev/ai/slack-mcp-server/" target="_blank" rel="noopener">doc 3</a> <a href="https://docs.slack.dev/authentication/" target="_blank" rel="noopener">doc 4</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="21"></div><div class="card" data-id="31"><h3>31. Google Ads <span class="cat">Marketing, Ads, Email and Social</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">An API that allows developers to programmatically manage Google Ads accounts, campaigns, and reporting.</p><table><tr><td>Auth method(s)</td><td class="val">oauth2, token</td>
+<td><label><input type="radio" name="f31_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f31_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f31_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">admin_approval</td>
+<td><label><input type="radio" name="f31_access" value="right"> right</label>
+<label><input type="radio" name="f31_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f31_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f31_api_type" value="right"> right</label>
+<label><input type="radio" name="f31_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f31_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">none</td>
+<td><label><input type="radio" name="f31_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f31_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f31_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">feasible</td>
+<td><label><input type="radio" name="f31_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f31_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f31_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://developers.google.com/google-ads/api/docs/oauth/overview" target="_blank" rel="noopener">doc 1</a> <a href="https://developers.google.com/google-ads/api/docs/productionize/access-levels" target="_blank" rel="noopener">doc 2</a> <a href="https://developers.google.com/google-ads/api/rest/auth" target="_blank" rel="noopener">doc 3</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="31"></div><div class="card" data-id="41"><h3>41. Shopify <span class="cat">Ecommerce</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">An ecommerce platform providing APIs for store management, app development, billing, and developer tooling.</p><table><tr><td>Auth method(s)</td><td class="val">oauth2</td>
+<td><label><input type="radio" name="f41_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f41_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f41_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">free_self_serve</td>
+<td><label><input type="radio" name="f41_access" value="right"> right</label>
+<label><input type="radio" name="f41_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f41_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">GraphQL</td>
+<td><label><input type="radio" name="f41_api_type" value="right"> right</label>
+<label><input type="radio" name="f41_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f41_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">official</td>
+<td><label><input type="radio" name="f41_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f41_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f41_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f41_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f41_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f41_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://shopify.dev/changelog/posts/mcp-server-for-the-shopify-dev-assistant" target="_blank" rel="noopener">doc 1</a> <a href="https://shopify.dev/docs/api/ai-toolkit" target="_blank" rel="noopener">doc 2</a> <a href="https://shopify.dev/docs/apps/launch/billing/shopify-app-pricing" target="_blank" rel="noopener">doc 3</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="41"></div><div class="card" data-id="51"><h3>51. DataForSEO <span class="cat">Data, SEO and Scraping</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
+<p class="desc">Provides SEO software, data analysis, and scraping APIs for search engine results, keyword research, and on-page data.</p><table><tr><td>Auth method(s)</td><td class="val">basic</td>
+<td><label><input type="radio" name="f51_auth_methods" value="right"> right</label>
+<label><input type="radio" name="f51_auth_methods" value="wrong"> wrong</label>
+<label><input type="radio" name="f51_auth_methods" value="unsure"> unsure</label></td></tr><tr><td>Self-serve vs gated</td><td class="val">trial_self_serve</td>
+<td><label><input type="radio" name="f51_access" value="right"> right</label>
+<label><input type="radio" name="f51_access" value="wrong"> wrong</label>
+<label><input type="radio" name="f51_access" value="unsure"> unsure</label></td></tr><tr><td>API type</td><td class="val">REST</td>
+<td><label><input type="radio" name="f51_api_type" value="right"> right</label>
+<label><input type="radio" name="f51_api_type" value="wrong"> wrong</label>
+<label><input type="radio" name="f51_api_type" value="unsure"> unsure</label></td></tr><tr><td>Existing MCP</td><td class="val">none</td>
+<td><label><input type="radio" name="f51_existing_mcp_status" value="right"> right</label>
+<label><input type="radio" name="f51_existing_mcp_status" value="wrong"> wrong</label>
+<label><input type="radio" name="f51_existing_mcp_status" value="unsure"> unsure</label></td></tr><tr><td>Buildability</td><td class="val">ready</td>
+<td><label><input type="radio" name="f51_buildability_verdict" value="right"> right</label>
+<label><input type="radio" name="f51_buildability_verdict" value="wrong"> wrong</label>
+<label><input type="radio" name="f51_buildability_verdict" value="unsure"> unsure</label></td></tr></table>
+<p class="ev">Evidence: <a href="https://docs.dataforseo.com/v3/auth/" target="_blank" rel="noopener">doc 1</a> <a href="https://dataforseo.com/help-center/how-to-authenticate-with-dataforseo-google-search-serp-api-api-key-setup-and-code-examples" target="_blank" rel="noopener">doc 2</a> <a href="https://docs.dataforseo.com/v3/" target="_blank" rel="noopener">doc 3</a> </p>
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="51"></div>
+<button class="main" onclick="gen()">Generate results JSON</button>
+<button class="main" onclick="downloadJson()">⬇ Download results JSON</button>
+<textarea id="out" placeholder="results appear here"></textarea>
+<script>
+const FIELDS=["auth_methods", "access", "api_type", "existing_mcp.status", "buildability.verdict"];
+const TOTAL=document.querySelectorAll('.card').length;
+function allRight(btn){
+ const c=btn.closest('.card');
+ c.querySelectorAll('input[type=radio][value=right]').forEach(r=>r.checked=true);
+ btn.classList.add('done'); updateProgress();
+}
+function updateProgress(){
+ let n=0;
+ document.querySelectorAll('.card').forEach(c=>{ if(c.querySelector('input[type=radio][value=right]:checked')||[...c.querySelectorAll('input[type=radio]')].some(r=>r.checked&&r.value!=='right')) n++; });
+ document.getElementById('progress').textContent=n+' / '+TOTAL+' apps marked';
+}
+function collect(){
+ const res=[];
+ document.querySelectorAll('.card').forEach(c=>{
+  const id=+c.dataset.id, fields={};
+  FIELDS.forEach(f=>{
+   const sel=c.querySelector('input[name="f'+id+'_'+f.replace('.','_')+'"]:checked');
+   fields[f]=sel?sel.value:'unmarked';
+  });
+  const corr=c.querySelector('.corr').value.trim();
+  res.push({id, fields, corrections:corr});
+ });
+ return res;
+}
+function gen(){ document.getElementById('out').value=JSON.stringify(collect(),null,1); }
+function downloadJson(){
+ const data=JSON.stringify(collect(),null,1);
+ const b=new Blob([data],{type:'application/json'});
+ const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='audit_results.json'; a.click();
+}
+document.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',updateProgress));
+updateProgress();
+</script></body></html>

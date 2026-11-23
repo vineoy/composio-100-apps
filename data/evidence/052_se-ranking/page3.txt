@@ -1,0 +1,47 @@
+URL: https://help.seranking.com/hc/en-us/articles/21487397355420-API-credit-costs
+FETCHED: 2026-11-23T17:32:46.094464
+VIA: direct
+
+API credit costs – Knowledge Base
+Explore SE Ranking Tool Solutions
+API
+Articles in this section
+API credit costs
+Getting Started with SE Ranking's API
+SE Ranking API Comparison: Project API vs. Data API
+How to build automated SEO workflows with SE Ranking MCP and GA4
+SE Ranking integration with n8n
+How to connect SE Ranking’s Data API to Make
+Set up the SE Ranking Project API on Make
+The API package is available as a standalone product — no active
+          SE Ranking subscription is required. Start with a 14-day trial
+          that includes
+100,000 free API credits
+.
+Paid plans include monthly Data API credits for testing:
+Core
+(25,000/month),
+Growth & Enterprise
+(100,000/month).
+Legacy v7 plans:
+Essential (10,000/month),
+          Pro (25,000/month),
+          Business & Enterprise (100,000/month).
+Legacy v1-v6: Essential and Pro plans do not include API access.
+          To use the API, please purchase the API add-on.
+API Credits Calculator
+Endpoint Costs
+FAQ
+API Credits Calculator
+ℹ️ See how the API pricing calculator works
+Click anywhere outside the video to close it.
+API Pricing Calculator
+Configure Your Usage
+Select Endpoint Types
+Choose an endpoint to add...
+Estimated Monthly Credits Needed
+0
+Endpoint Costs
+Browse per-endpoint credit consumption for request and per-record
+        charges.
+Frequently Asked Questions

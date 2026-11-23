@@ -1,0 +1,106 @@
+URL: https://docs.bigcommerce.com/developer/api-reference/about-our-apis
+FETCHED: 2026-11-23T17:22:37.795385
+VIA: direct
+
+About Our APIs | BigCommerce Docs
+For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
+Skip to navigation
+On this page
+Available APIs
+REST Store Management APIs
+REST Storefront API
+GraphQL Storefront API
+Customer Login API
+Current Customer API
+API authentication and context
+Scroll to top
+This page is for Developer.
+The BigCommerce suite of APIs empowers you to create apps, automate store processes, and build headless ecommerce solutions.
+If you’re new to building BigCommerce apps, we recommend that you start by exploring the
+App Marketplace
+to get a feel for what’s possible.
+When you’re ready to play with our APIs, check out the
+API Request Quick Start
+.
+Available APIs
+BigCommerce has several APIs that let you manage store data, authenticate customers, make client-side queries for product information, and more.
+You can download generated OpenAPI specification files for API references in JSON or YAML. For details, see
+OpenAPI Specifications
+.
+REST Store Management APIs
+BigCommerce’s Store Management and Payment APIs (for example, the
+Catalog API
+) allow you to manage transactions, modify store data, and act as store administrator. Example use cases include the following:
+Add and update products in a store
+Update a customer’s order and change the order status
+Create a coupon
+Manage a customer’s store account details
+REST Storefront API
+The
+REST Storefront API
+lets you manage customer carts, checkouts, and order information client-side. Example use cases include the following:
+Add an item with JavaScript to a shopper’s cart from a Stencil storefront
+Programmatically retrieve and display information to a customer about their recent order
+Update the billing address of a checkout
+Clear a customer’s current cart
+GraphQL Storefront API
+BigCommerce’s
+GraphQL Storefront API
+lets you query and mutate products, customers, and carts, then launch a checkout on a headless storefront as well as from a native storefront’s frontend. Example use cases include the following:
+Add additional product data to a Stencil storefront
+Access customer data on the frontend of a site
+Manage shopper’s carts on a headless storefront
+Fetch category and brand details from a store’s frontend
+Customer Login API
+The
+Customer Login API
+lets you programmatically sign customers in to a BigCommerce storefront. Example use cases include the following:
+Sign customers in to a BigCommerce store from a third-party account or a headless storefront
+Enable login using credentials other than email and password, such as a phone number
+Integrate a BigCommerce store with an SSO provider
+Current Customer API
+BigCommerce’s
+Current Customer API
+lets you determine which customer is logged in to a storefront during a session.
+Confirm a customer’s identity in the browser
+Validate a customer’s identity to display specific information to them from an external app
+API authentication and context
+Make BigCommerce API requests in the context of the
+storefront
+, BigCommerce
+API server
+, or
+app server
+. Each of the following APIs listings links to its section of our
+Authentication and Example Requests
+article, which contains the base URL of the API in question.
+API or Use Case
+Context
+GraphQL Account API
+, including
+Users
+server
+GraphQL Admin API
+server
+GraphQL Storefront API
+storefront
+REST Management API
+server
+REST Storefront API
+storefront
+Customer Login API
+storefront
+Current Customer API
+storefront
+Payments API
+server
+Apps that host REST Provider APIs (provider apps)
+server
+Apps hosted in the store control panel (single-click apps)
+server
+Single-store frontend scripts
+storefront
+Headless storefronts with backend or request proxy
+server
+Serverless headless storefronts
+storefront, GraphQL-only

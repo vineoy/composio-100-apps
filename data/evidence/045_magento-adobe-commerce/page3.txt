@@ -1,0 +1,107 @@
+URL: https://experienceleague.adobe.com/en/docs/commerce-admin/config/services/magento-web-api
+FETCHED: 2026-11-23T17:25:29.234918
+VIA: direct
+
+Services > Magento Web API | Adobe Commerce
+Documentation
+Configuration Reference
+Services > Magento Web API
+Last update: October 8, 2026
+Topics:
+Security
+Configuration
+Integration
+CREATED FOR:
+Intermediate
+Beginner
+User
+Admin
+Developer
+To access the store configuration settings, choose
+Stores
+>
+Settings
+>
+Configuration
+from the
+Admin
+sidebar.
+SOAP Settings
+Field
+Scope
+Description
+Default Response Charset
+Store View
+Determines the default character set. If empty, UTF-8 is used.
+GraphQl Input Limits
+Field
+Scope
+Description
+Enable Input Limits
+Store View
+Determines if input limits are enabled for GraphQL calls. Default Value:
+No
+.
+Maximum Page Size
+Store View
+Sets the maximum number of items allowed in a paginated search result in the GraphQL response. This option is not available when
+Enable Input Limits
+=
+No
+.
+Web Api Input Limits
+Field
+Scope
+Description
+Enable Input Limits
+Store View
+Determines if input limits are enabled for Web API calls. Default Value:
+No
+.
+Input List Limit
+Store View
+Sets the maximum number of items allowed in an entity array property in the Web API request. This option is not available when
+Enable Input Limits
+=
+No
+.
+Maximum Page Size
+Store View
+Sets the maximum number of items allowed in a paginated search result in the Web API response. This option is not available when
+Enable Input Limits
+=
+No
+.
+Default Page Size
+Store View
+Sets the default number of items in a paginated search result in the Web API response.
+Web API Security
+Field
+Scope
+Description
+Allow Anonymous Guest Access
+Global
+Determines is guests can anonymously access CMS, catalog, and store resources from both SOAP and REST APIs. By default, anonymous guest access is not allowed. Options:
+Yes
+/
+No
+JWT Authentication
+Field
+Scope
+Description
+Algorithm to sign/encrypt JWTs used for authentication
+Global
+Specifies the type of JWS or JWE algorithm used for JWT (JSON Web Token) encryption
+Content encryption algorithm for JWEs
+Global
+Specifies the type of content encryption algorithm used for JWT encryption when JWE algorithm is selected. This option is ignored for JWS algorithms.
+Customer JWT Expires In
+Global
+Sets the length of time (in minutes) before a customer JWT bearer token expires. The customer JWT bearer token expires in 30 minutes if this field is empty or has a negative value. Default value:
+60
+Admin User JWT Expires In
+Global
+Sets the length of time (in minutes) before the Admin JWT bearer token expires. The admin JWT bearer token expires in 30 minutes if this field is empty or has a negative value. Default value:
+60
+recommendation-more-help
+commerce-admin-help-configuration-reference

@@ -1,0 +1,30 @@
+URL: https://twilio-api.readme.io/reference/authentication
+FETCHED: 2026-11-23T16:56:35.991178
+VIA: direct
+
+Authentication
+For AI agents: the docs index is at https://twilio-api.readme.io/llms.txt. Append .md to any documentation page URL to get its markdown version.
+How to get your AccountSid and Auth token
+Step 1: Sign in or sign up to create your
+Twilio account.
+Step 2: Navigate to your dashboard and scroll to the 'Account Info' section.
+Step 3: Get your
+AccountSid
+and
+Auth Token
+and keep them in a secured place.
+❗️
+Warning
+Your
+Auth token
+contains sensitive information. Therefore, you must keep it secured.
+Updated
+almost 2 years ago
+Did this page help you?
+Yes
+No
+Updated
+almost 2 years ago
+Did this page help you?
+Yes
+No

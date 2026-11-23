@@ -1,0 +1,77 @@
+{
+ "app": "DataForSEO",
+ "queries": [
+  "DataForSEO API authentication documentation",
+  "DataForSEO MCP server",
+  "DataForSEO API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.dataforseo.com/v3/auth/",
+  "https://docs.dataforseo.com/v3/",
+  "https://dataforseo.com/help-center/getting-started-with-google-search-engine-api-documentation",
+  "https://dataforseo.com/help-center/how-to-authenticate-with-dataforseo-google-search-serp-api-api-key-setup-and-code-examples"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - DataForSEO API v.3",
+   "href": "https://docs.dataforseo.com/v3/auth/"
+  },
+  {
+   "title": "DataForSEO API v.3",
+   "href": "https://docs.dataforseo.com/v3/"
+  },
+  {
+   "title": "Getting Started with DataForSEO Google Organic SERP API: Parameters ...",
+   "href": "https://dataforseo.com/help-center/getting-started-with-google-search-engine-api-documentation"
+  },
+  {
+   "title": "How to Authenticate with DataForSEO Google Search SERP API: API Key ...",
+   "href": "https://dataforseo.com/help-center/how-to-authenticate-with-dataforseo-google-search-serp-api-api-key-setup-and-code-examples"
+  },
+  {
+   "title": "DataForSEO API Authentication - Universal API",
+   "href": "https://mindcloud.co/docs/universal/rest/dataforseo/latest/introduction/authentication"
+  },
+  {
+   "title": "Setting Up the Official DataForSEO MCP Server: Simple Guide",
+   "href": "https://dataforseo.com/help-center/setting-up-the-official-dataforseo-mcp-server-simple-guide"
+  },
+  {
+   "title": "DataForSEO Model Context Protocol - DataForSEO",
+   "href": "https://dataforseo.com/model-context-protocol"
+  },
+  {
+   "title": "dataforseo-mcp-server - npm",
+   "href": "https://www.npmjs.com/package/dataforseo-mcp-server"
+  },
+  {
+   "title": "DataForSEO MCP Server: How v3 Works and How to Set It Up",
+   "href": "https://scientyficworld.org/dataforseo-mcp-server/"
+  },
+  {
+   "title": "DataForSEO MCP Server - MCP Server | MCP Directory",
+   "href": "https://mcpserver.so/servers/Marketing%2FSEO/dataforseo-mcp-server-typescript-dataforseo-mcp-server"
+  },
+  {
+   "title": "DataForSEO API v3 Pricing - Transparent Pay-As-You-Go Pricing Model",
+   "href": "https://dataforseo.com/pricing"
+  },
+  {
+   "title": "DataForSEO Pricing: API Rates, Free Trial and $50 Top-Up (2027)",
+   "href": "https://stackedreview.com/dataforseo-pricing/"
+  },
+  {
+   "title": "Pricing Update in DataForSEO APIs - DataForSEO",
+   "href": "https://dataforseo.com/update/pricing-update-in-dataforseo-apis"
+  },
+  {
+   "title": "DataForSEO API Pricing, Free Tier & Auth",
+   "href": "https://marketingskills.directory/apis/dataforseo-api/"
+  },
+  {
+   "title": "DataForSEO pricing: what the pay-as-you-go API rates cost",
+   "href": "https://marketintelligencetools.com/reports/dataforseo-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:30:15.945368"
+}

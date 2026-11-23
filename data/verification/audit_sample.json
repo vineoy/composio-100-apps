@@ -1,0 +1,62 @@
+[
+ {
+  "id": 1,
+  "name": "Salesforce"
+ },
+ {
+  "id": 2,
+  "name": "HubSpot"
+ },
+ {
+  "id": 3,
+  "name": "Pipedrive"
+ },
+ {
+  "id": 4,
+  "name": "Attio"
+ },
+ {
+  "id": 5,
+  "name": "Twenty"
+ },
+ {
+  "id": 6,
+  "name": "Podio"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM"
+ },
+ {
+  "id": 8,
+  "name": "Close"
+ },
+ {
+  "id": 9,
+  "name": "Copper"
+ },
+ {
+  "id": 10,
+  "name": "DealCloud"
+ },
+ {
+  "id": 11,
+  "name": "Zendesk"
+ },
+ {
+  "id": 21,
+  "name": "Slack"
+ },
+ {
+  "id": 31,
+  "name": "Google Ads"
+ },
+ {
+  "id": 41,
+  "name": "Shopify"
+ },
+ {
+  "id": 51,
+  "name": "DataForSEO"
+ }
+]

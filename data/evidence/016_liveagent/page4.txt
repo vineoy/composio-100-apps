@@ -1,0 +1,402 @@
+URL: https://www.liveagent.com/features/mcp-server/
+FETCHED: 2026-11-23T16:50:22.738912
+VIA: direct
+
+Connect AI tools to LiveAgent with MCP
+Features
+Connect AI tools to LiveAgent with MCP
+Let ChatGPT, Claude and other MCP-compatible AI clients search, tag, and act on your tickets directly — inside the same permissions your agents already have.
+No setup fee
+24/7 Customer service
+No credit card required
+Cancel any time
+30-day free trial
+Model Context Protocol
+A standard way for AI tools to plug into your help desk
+MCP is an open standard for connecting AI applications to outside tools and data. LiveAgent's MCP server exposes tickets,
+ticket messages
+, knowledge base articles, agents, and departments as tools an MCP-compatible AI client can call directly — no custom integration required.
+Search and read tickets, messages, and knowledge base articles
+Tag, assign, transfer, resolve, and reopen tickets
+List agents and departments to route work correctly
+Reply to WhatsApp conversations where enabled
+See LiveAgent's REST API
+MCP Server · Claude Desktop
+Claude Desktop
+Connected
+search_tickets
+Idle
+Called
+get_ticket_messages
+Idle
+Called
+add_tags_to_ticket
+Idle
+Called
+resolve_ticket
+Idle
+Called
+mcp.connect({ client:
+“Claude Desktop”
+, tools:
+“33”
+, scope:
+“tickets kb agents”
+})
+MCP server
+Built for teams already using an AI client
+If your team already relies on Claude Desktop or another MCP-compatible AI client day-to-day, connect it once and let it work with live ticket data instead of a static export.
+What your AI client can help with:
+Triage and tag incoming tickets
+Summarize long ticket threads on request
+Look up knowledge base answers while chatting with you
+Route tickets to the right department
+Access stays inside your existing permissions
+Connecting an AI client isn't an all-access step. It uses an access token you generate in your own profile, or an OAuth 2.1 sign-in with a consent screen, so it always acts as one account you approved.
+What stays under your control:
+Every ticket action is checked against that account's department and role permissions
+Access tokens are scoped to approved actions, not blanket account access
+Individual tools, like WhatsApp replies, can be turned off
+How It works?
+Click Generate token
+Click Generate token.
+Copy it right away
+Copy it right away — LiveAgent only shows it to you once, so if you lose it, you'll need to make a new one.
+Paste it into your AI tool
+Paste it into your AI tool wherever it asks for a token.
+How It works?
+Click Generate token
+Click Generate token.
+Copy it right away
+Copy it right away — LiveAgent only shows it to you once, so if you lose it, you'll need to make a new one.
+Paste it into your AI tool
+Paste it into your AI tool wherever it asks for a token.
+Every tool your AI client can call
+LiveAgent’s MCP server gives a connected AI client 33 tools to work with, covering tickets, custom fields, the knowledge base, and more. Every tool still respects the connecting account’s own department and role permissions, so an AI client never sees or does more than the agent it’s acting as.
+Tickets
+What it does for you
+Tool
+Finds tickets
+matching a keyword, status, or other filter, so your AI client can pull up the right one without you searching manually
+search_tickets
+Reads a ticket’s full conversation, message by message, so it has real context before doing anything
+get_ticket_messages
+Checks a ticket’s details — status, channel, and other metadata
+get_ticket_metadata
+Sees what tags exist on the account
+get_tags
+Adds a tag to a ticket
+add_tags_to_ticket
+Removes a tag from a ticket
+remove_tags_from_ticket
+Assigns a ticket to an agent
+assign_ticket
+Moves a ticket to another department
+transfer_ticket
+Resolves a ticket
+resolve_ticket
+Reopens a resolved ticket
+reopen_ticket
+Flags a ticket as spam
+mark_as_spam
+Clears a spam flag that shouldn’t be there
+mark_as_not_spam
+Adds an internal note that only agents see, not the customer
+add_note
+Reads back a ticket’s existing internal notes
+get_ticket_notes
+Custom ticket fields
+What it does for you
+Tool
+Shows what custom fields your account has set up
+get_ticket_field_definitions
+Reads the values already filled in on a ticket
+get_ticket_field_values
+Fills in or updates a field’s value — creates it if it isn’t set yet
+set_ticket_field_value
+Clears a field’s value
+delete_ticket_field_value
+AI-generated content
+What it does for you
+Tool
+Checks if a ticket already has an AI summary, and reads it if so
+get_ticket_summary
+Generates and saves a new summary for a ticket
+submit_ticket_summary
+Drafts a reply for an agent to review before sending, instead of sending it directly
+submit_answer_suggestion
+Submits polished or AI-edited text for the answer assistant to use
+submit_text_modification
+Knowledge base
+What it does for you
+Tool
+Lists the knowledge bases (customer portals) on your account
+list_knowledge_bases
+Browses categories as a tree, the same structure customers see
+list_kb_categories
+Searches articles by keyword
+search_kb_articles
+Reads one article in full
+get_kb_article
+Writes a new article
+create_kb_article
+Updates an existing article
+update_kb_article
+Creates a category to keep articles organized
+create_kb_category
+Updates an existing category
+update_kb_category
+Team lookups
+What it does for you
+Tool
+Lists your agents, so the AI client can route work to the right person instead of guessing
+list_agents
+Lists your departments, so the AI client can route work to the right team instead of guessing
+list_departments
+Channel-specific
+What it does for you
+Tool
+Replies to a customer on WhatsApp — only while the 24-hour customer-service window is open, and only for the conversation the AI client is already handling, so it can’t jump into a different customer’s chat
+reply_via_whatsapp
+Testimonials
+Join thousands of teams building AI-ready support with LiveAgent
+See all awards
+“LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers.”
+Peter Komornik
+Slido
+“It’s a pleasure to have a great portal that improves our customer service.”
+Roman Bosch
+Partly
+“LiveAgent empowers our agents to provide better, faster, and more accurate support.”
+Christine Preusler
+HostingAdvice
+“LiveAgent helped us to achieve 2 important goals: increase customer satisfaction and sales.”
+Karl Dieterich
+Covomo
+“We have been using LiveAgent since August and we are really satisfied with it.”
+Hendrik Henze
+HEWO Internetmarketing
+“Since we are using LiveAgent our response time improved by 60%.”
+Razvan Sava
+Webmaster Deals
+“Our paid
+customer conversion rate
+went up 325% the first month we’ve set up and actively started using LiveAgent.”
+Taras Baca
+XperienceHR
+“I have to say, I have never experienced such a professional customer approach.”
+A
+Andrej Ftomin
+TAZAR Group
+“We find LiveAgent to be the best live chat solution by far.”
+Matt Janaway
+The Workplace Depot
+“We use LiveAgent on all of our
+ecommerce websites
+. The tool is easy to use and improves our productivity.”
+Viviane Carter
+CSI Products
+“With LiveAgent we’re able to give our customers support wherever they are.”
+Christian Lange
+Lucky-Bike
+“LiveAgent combines excellent live chat, ticketing and automation that allow us to provide exceptional support to our customers.”
+Peter Komornik
+Slido
+“It’s a pleasure to have a great portal that improves our customer service.”
+Roman Bosch
+Partly
+“LiveAgent empowers our agents to provide better, faster, and more accurate support.”
+Christine Preusler
+HostingAdvice
+“LiveAgent helped us to achieve 2 important goals: increase customer satisfaction and sales.”
+Karl Dieterich
+Covomo
+“We have been using LiveAgent since August and we are really satisfied with it.”
+Hendrik Henze
+HEWO Internetmarketing
+“Since we are using LiveAgent our response time improved by 60%.”
+Razvan Sava
+Webmaster Deals
+“Our paid customer conversion rate went up 325% the first month we’ve set up and actively started using LiveAgent.”
+Taras Baca
+XperienceHR
+“I have to say, I have never experienced such a professional customer approach.”
+A
+Andrej Ftomin
+TAZAR Group
+“We find LiveAgent to be the best live chat solution by far.”
+Matt Janaway
+The Workplace Depot
+“We use LiveAgent on all of our ecommerce websites. The tool is easy to use and improves our productivity.”
+Viviane Carter
+CSI Products
+“With LiveAgent we’re able to give our customers support wherever they are.”
+Christian Lange
+Lucky-Bike
+Pricing
+The best value for your money
+We carefully selected features in our
+pricing plans
+so you can pick the most affordable plan with the best value. Every plan is priced per agent, with no extra fee for AI.
+Monthly
+Billed monthly
+Annual
+Billed annually
+Your team
+agents
+Starter
+Per agent · up to 15 agents
+Email and live chat for a small team
+billed monthly
+$15
+$19
+/agent/mo
+5 agents:
+$95/mo
+Request a quote
+Start free trial
+AI agents
+1
+Departments
+10
+Email accounts
+3
+Live chat buttons
+2
+What's included
+Start with the essentials:
+Email, live chat, contact forms, knowledge base
+No social channels, call center or reporting
+AI
+AI answer drafts and AI chatbot
+Single sign-on (SSO)
+Recommended for 5 agents
+Team
+Per agent · up to 30 agents
+Every channel, phone included
+billed monthly
+$29
+$35
+/agent/mo
+5 agents:
+$175/mo
+Request a quote
+Start free trial
+AI agents
+5
+Departments
+20
+Email accounts
+10
+Live chat buttons
+5
+What's included
+Everything in Starter, plus:
+Facebook, Instagram, X, Viber, WhatsApp, Telegram and calls
+Reports: agent, department, channel, SLA compliance, time and tag reports, CSAT surveys
+SLA rules and custom roles
+Business
+Per agent · any team size
+More AI agents, MCP and control
+billed monthly
+$49
+$59
+/agent/mo
+5 agents:
+$295/mo
+Request a quote
+Start free trial
+AI agents
+50
+Departments
+150
+Email accounts
+150
+Live chat buttons
+50
+What's included
+Everything in Team, plus:
+AI
+MCP server for your own AI tools
+LiveAgent branding removal
+Audit log and department roles
+Dedicated account manager from 20 agents
+Enterprise
+80 agents included
+Highest limits, personal manager
+Flat fee ·
+billed monthly
+$3,199
+$3,999
+/mo
+Extra agents
+$49
+each
+Annual: $3,199/mo · extra $39
+Request a quote
+Talk to sales
+AI agents
+Unlimited
+Departments
+Unlimited
+Email accounts
+Unlimited
+Live chat buttons
+Unlimited
+What's included
+Enterprise pays off from about 68 agents
+Everything in Business, plus:
+Unlimited departments, channels, rules and roles
+Dedicated account manager
+Priority support and review calls
+Custom billing and release management
+Explore All Options
+Frequently asked questions
+What is MCP (Model Context Protocol)?
+MCP is an open standard that lets AI applications, such as ChatGPT and Claude, connect securely to outside tools and data sources. Instead of copying and pasting information back and forth, an MCP-compatible AI client can read and act on data directly, inside the permissions you grant it.
+What is LiveAgent's MCP server?
+LiveAgent's MCP server lets you connect an MCP-compatible AI client, like ChatGPT or Claude, directly to your LiveAgent account. Once connected, the AI client can search tickets, read conversations, add tags, and take other actions you've approved, without an agent copying data between apps.
+What can a connected AI tool do in LiveAgent?
+A connected AI tool can search and read tickets,
+view ticket
+messages and knowledge base articles, tag, assign, transfer, resolve, and reopen tickets, list agents and departments, and reply to WhatsApp conversations where that channel is enabled. Every action still respects the permissions of the account it connects as.
+How is access secured?
+There are two ways to connect an AI client: an MCP access token you generate in your LiveAgent profile, or, for clients that support it such as claude.ai, an OAuth 2.1 sign-in with a consent screen where you approve which account the AI client acts as. Access tokens are scoped, and every ticket-level action is checked against that account's own department and role permissions before it runs.
+Which AI clients work with LiveAgent's MCP server?
+ChatGPT, Claude (claude.ai, Claude Desktop and Claude Code), Cursor and any other AI client that supports the Model Context Protocol can connect. The connection is built on the open MCP standard rather than a single vendor's client, so new MCP-compatible tools work too.
+Which plans include the MCP server?
+The Business and Enterprise plans, and the free 30-day trial.
+Learn more
+AI customer service software and AI agents
+AI customer service software and AI agents
+AI customer service software
+for small teams: AI agents answer chats, emails and calls, sort tickets and hand over to a person. No AI fees from LiveAgent.
+Jan 19, 2026
+8 min read
+Help desk software with AI agents
+Help desk software with AI agents
+Web-based
+help desk software
+for small and growing teams: email, chat, phone and social media in one inbox, with AI agents. Free 30-day trial, no card.
+Mar 30, 2019
+8 min read
+Contact Us
+Cookie Consent
+We use cookies to enhance your browsing experience and analyze our traffic. See our
+privacy policy
+.
+Reject all
+Manage preferences
+Accept All
+Cookie Settings
+Close
+Necessary Cookies
+These cookies are required for the website to function and cannot be disabled.
+Analytics Cookies
+These cookies help us understand how visitors interact with our website.
+Marketing Cookies
+These cookies are used to measure the effectiveness of our advertising campaigns and to support relevant advertising on third-party platforms.
+Functional Cookies
+These cookies are used to remember your preferences and improve your experience.
+Cancel
+Save Preferences

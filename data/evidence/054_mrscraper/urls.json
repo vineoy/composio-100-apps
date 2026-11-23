@@ -1,0 +1,77 @@
+{
+ "app": "MrScraper",
+ "queries": [
+  "MrScraper API authentication documentation",
+  "MrScraper MCP server",
+  "MrScraper API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.mrscraper.com/docs/api/authentication",
+  "https://docs.mrscraper.com/docs/api/overview",
+  "https://docs.mrscraper.com/docs/getting-started/scraper-api",
+  "https://docs.mrscraper.com/docs/getting-started/api-token"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/docs/api/authentication"
+  },
+  {
+   "title": "API Overview | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/docs/api/overview"
+  },
+  {
+   "title": "Scraper API | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/docs/getting-started/scraper-api"
+  },
+  {
+   "title": "Token Plan | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/docs/getting-started/api-token"
+  },
+  {
+   "title": "Overview | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/"
+  },
+  {
+   "title": "MCP Server | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/docs/getting-started/mcp-server"
+  },
+  {
+   "title": "GitHub - mrscraper-com/mrscraper-mcp \u00b7 GitHub",
+   "href": "https://github.com/mrscraper-com/mrscraper-mcp"
+  },
+  {
+   "title": "Official MrScraper MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/mrscraper-com/mrscraper-mcp"
+  },
+  {
+   "title": "MrScraper MCP Server and REST API | MCP.ai",
+   "href": "https://mcp.ai/mrscraper"
+  },
+  {
+   "title": "Overview | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/"
+  },
+  {
+   "title": "MrScraper Pricing: Start Free, Pro From $99/Month",
+   "href": "https://mrscraper.com/pricing"
+  },
+  {
+   "title": "MrScraper: Web Scraping API for Structured Data",
+   "href": "https://mrscraper.com/"
+  },
+  {
+   "title": "Billing | MrScraper Documentation",
+   "href": "https://docs.mrscraper.com/docs/getting-started/billing"
+  },
+  {
+   "title": "Mrscraper Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/mrscraper/mrscraper-plans-pricing/"
+  },
+  {
+   "title": "MrScraper pricing and alternatives: free, then from $1.00 per 1,000 ...",
+   "href": "https://datacircle.dev/serp-apis/mrscraper/free"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:33:59.516385"
+}

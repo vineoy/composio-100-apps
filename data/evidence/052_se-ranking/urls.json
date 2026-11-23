@@ -1,0 +1,77 @@
+{
+ "app": "SE Ranking",
+ "queries": [
+  "SE Ranking API authentication documentation",
+  "SE Ranking MCP server",
+  "SE Ranking API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://help.seranking.com/hc/en-us/articles/22447958135068-Getting-Started-with-SE-Ranking-s-API",
+  "https://help.seranking.com/hc/en-us/categories/21700778374300-API",
+  "https://help.seranking.com/hc/en-us/articles/21487397355420-API-credit-costs",
+  "https://help.seranking.com/hc/en-us/articles/21487397355420-API-credit-costs"
+ ],
+ "search_hits": [
+  {
+   "title": "Getting started - SE Ranking Data API Documentation",
+   "href": "https://seranking.com/api/data/getting-started/"
+  },
+  {
+   "title": "Getting API access - SE Ranking API Documentation",
+   "href": "https://seranking.com/api/how-to-get-api/"
+  },
+  {
+   "title": "Getting Started with SE Ranking's API - Knowledge Base",
+   "href": "https://help.seranking.com/hc/en-us/articles/22447958135068-Getting-Started-with-SE-Ranking-s-API"
+  },
+  {
+   "title": "API - Knowledge Base",
+   "href": "https://help.seranking.com/hc/en-us/categories/21700778374300-API"
+  },
+  {
+   "title": "se-ranking/authentication/se-ranking-authentication.yml at main \u00b7 api ...",
+   "href": "https://github.com/api-evangelist/se-ranking/blob/main/authentication/se-ranking-authentication.yml"
+  },
+  {
+   "title": "SE Ranking MCP: Setup & Configuration",
+   "href": "https://seranking.com/api/integrations/mcp/"
+  },
+  {
+   "title": "SEO MCP Server: Live SE Ranking Data in Any AI Assistant",
+   "href": "https://seranking.com/mcp.html"
+  },
+  {
+   "title": "SE Ranking | MCP Servers",
+   "href": "https://claudemarketplaces.com/mcp/com.seranking/mcp"
+  },
+  {
+   "title": "SE Ranking MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/seranking-com-mcp-html"
+  },
+  {
+   "title": "SE Ranking MCP Server - gamut.so",
+   "href": "https://www.gamut.so/mcp/analytics-marketing/se-ranking"
+  },
+  {
+   "title": "API Pricing: Credits, Wallet & Annual Plans | SE Ranking",
+   "href": "https://seranking.com/api-pricing.html"
+  },
+  {
+   "title": "SE Ranking Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/se-ranking/se-ranking-plans-pricing/"
+  },
+  {
+   "title": "API credit costs - Knowledge Base",
+   "href": "https://help.seranking.com/hc/en-us/articles/21487397355420-API-credit-costs"
+  },
+  {
+   "title": "API pricing - Knowledge Base",
+   "href": "https://help.seranking.com/hc/en-us/articles/21487397355420-API-pricing"
+  },
+  {
+   "title": "SEO API by SE Ranking: SEO & AEO Data at Scale",
+   "href": "https://seranking.com/api.html"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:32:46.098415"
+}

@@ -176,7 +176,7 @@ def run(pass_no=1, only=None, resume=True, model=None):
         try:
             docs, ev_dir = gather_docs(app, second_pass=second, reuse_evidence=second)
             prompt = build_prompt(app, docs, second_pass=second)
-            row, used_model = P.llm_json(prompt, model=model or ("gemini-3.6-flash" if second else None))
+            row, used_model = P.llm_json(prompt, model=model or ("gemini-2.5-flash" if second else None))
             row.update({
                 "id": app["id"], "name": app["name"], "category": app["category"],
                 "composio_toolkit": P.composio_match(app["name"]),

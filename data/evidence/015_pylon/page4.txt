@@ -1,0 +1,122 @@
+URL: https://www.usepylon.com/integrations/mcp
+FETCHED: 2026-11-23T16:49:15.201954
+VIA: direct
+
+Pylon MCP server: connect ChatGPT, Claude, and Cursor
+The support metrics that matter in the age of AI
+Register now
+Pylon MCP server
+Connect ChatGPT, Claude, and Cursor to Pylon. Work issues, accounts, contacts, and your knowledge base with the permissions you already have.
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+Trusted by 1,800+ B2B customers globally
+What is Pylon’s MCP server?
+Deploy AI agents that handle questions end-to-end, gather context for your team, and escalate to humans when it matters.
+Can ChatGPT, Claude, and Cursor use Pylon data?
+Yes. Point a supported MCP client at your regional Pylon MCP URL, sign in with OAuth or use an API token, and work issues, accounts, contacts, and your knowledge base from the AI tool you already use. For ChatGPT, you can also install Pylon’s native ChatGPT app from Settings > Plugins (some older views, including very old iOS or Android apps, show Apps instead of Plugins). See how to connect Pylon to ChatGPT with MCP.
+Is access scoped to each user?
+Yes. Every action runs as the authenticated user. The server cannot return data that user cannot see in Pylon, or write changes that user cannot already make in the UI. Connecting needs the MCP Access permission, which the standard Member and Admin roles include.
+Can engineers investigate from their editor?
+Yes. Tools like Claude Code or Cursor can open a Pylon issue, pull message history, and keep working in the same flow your team already uses for debugging. Opening a pull request still depends on that coding tool’s own GitHub or codebase connection, not on a Pylon MCP "create PR" tool.
+Can you turn support evidence into docs and analysis?
+Yes. Feed issue context into an AI tool to draft an internal note, a product brief, or an account summary, and combine Pylon data with other sources those tools can reach (for example Notion or Linear) when those connections are configured.
+How do you set up the Pylon MCP server?
+Step 1
+Enable MCP Access
+Make sure each user or API token identity that connects has the MCP Access permission, which the standard Member and Admin roles include. Access follows the same scoping as the Pylon dashboard.
+Step 2
+Open the MCP Server settings in Pylon
+In Pylon, go to Settings → AI Controls → MCP Server. Copy your workspace’s regional MCP URL from Installation.
+Step 3
+Connect your AI tool
+Add the URL in your AI tool’s MCP settings, or for ChatGPT install the Pylon app from Settings > Plugins. Auth is OAuth 2.0 or an API token. Transport is Streamable HTTP (stateless).
+US server: mcp.usepylon.com
+EU server: mcp.eu.usepylon.com
+See Pylon’s MCP docs for the full tool list.
+See the MCP setup guide for client steps.
+See how to connect Pylon to ChatGPT with MCP.
+See how to connect Pylon to Claude with MCP.
+Frequently asked questions
+What is the Pylon MCP server?
+MCP is an open standard that lets AI tools like ChatGPT, Claude, and Cursor connect to external products. Pylon’s MCP server exposes your Pylon workspace (issues, accounts, contacts, and more) to those tools over OAuth 2.0 or an API token, so your team can query and act on support data from the AI clients they already use.
+Which AI tools can connect to Pylon via MCP?
+Pylon’s MCP server works with MCP clients such as Claude Desktop, Claude Code, ChatGPT, and Cursor. For ChatGPT, the fastest path is Pylon’s native ChatGPT app; you can also add the regional MCP URL as a custom connector. Headless workers, scripts, and clients that support custom authorization headers can connect with an existing Pylon API token instead of OAuth.
+What actions can an AI tool take in Pylon through MCP?
+Connected AI tools can search and update issues, post internal notes, and send customer replies, which AI tools are instructed to show you for approval before sending. They can also manage accounts and contacts, draft and publish knowledge base articles, and work with macros, tags, and triggers. Tools for tasks, projects, account notes, and call recordings require Account Intelligence. Feature requests and some other tools require additional plan features. All actions stay within your Pylon permissions.
+Is the Pylon MCP server secure?
+Connections use OAuth 2.0 or an API token. Actions run as the signed-in user or the token’s identity, with that identity’s current role and permissions. No extra permissions are granted. The identity also needs the MCP Access permission, which the standard Member and Admin roles include.
+How do I set up the Pylon MCP server?
+Open Settings → AI Controls → MCP Server in Pylon, copy your regional URL (https://mcp.usepylon.com or https://mcp.eu.usepylon.com), and add it in your AI tool (or install the ChatGPT app). Sign in with OAuth, or send an existing API token in an Authorization: Bearer header if your client supports it.
+Is the Pylon MCP server on every plan?
+Yes. The pricing Features by tier table lists the Pylon MCP server on Professional, Advanced, and Enterprise. Some individual MCP tools still require add-ons or plan features such as Account Intelligence.
+Other integrations
+Pylon also connects with the other AI tools your team already uses, plus Slack, email, CRMs, and more.
+Telegram
+Receive and respond to customer messages from Telegram
+Slack
+Manage B2B support directly in Slack channels alongside your team.
+Granola
+Connect Pylon to Granola to ingest call recordings
+Outlook Calendar
+Sync Outlook Calendar meetings to customer records in Pylon
+Google Meet
+Automatically capture and log Google Meet call notes to Pylon
+Incident.io
+Automatically link active incidents to affected customer conversations.
+Redshift
+Enrich customer records with usage data from Amazon Redshift.
+Shortcut
+Create Shortcut stories from customer conversations automatically
+PagerDuty
+Trigger PagerDuty incidents from critical customer-reported issues.
+The Agentic
+Support Platform
+AI & Agents
+Assist Agent
+Automations
+Slack Agent
+Support Agent
+Skills
+Platform
+Analytics & Reporting
+Account Intelligence
+Knowledge Base
+Workforce Management
+Surveys (NPS & CSAT)
+Ticketing
+Applied AI
+Nexus
+Trust & Security
+Resources
+Resource Center
+Case Studies
+Events & Webinars
+Interactive Demos
+Videos
+Pricing
+Pylon Facts
+Help Center
+API & Developers
+Privacy Policy
+Terms of Service
+Connect
+About Us
+Careers
+Talk to Us
+Contact Us (for AI agents)
+Compare
+Pylon vs Zendesk
+Pylon vs Intercom
+Pylon vs Plain
+Pylon vs Front
+Pylon vs Salesforce
+Pylon vs Jira
+Integrations
+Chat Widget
+Email
+HubSpot
+Microsoft Teams
+Salesforce
+Slack
+Explore All
+© 2026 Pylon Labs, Inc.

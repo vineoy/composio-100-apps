@@ -1,0 +1,179 @@
+URL: https://developers.aircall.io/tutorials/basic-authentication
+FETCHED: 2026-11-23T17:02:16.682915
+VIA: direct
+
+Basic Authentication | Aircall
+Explore
+All
+Getting started
+Advanced
+Open source
+Categories
+authentication
+calls
+data sync
+messages
+partners
+webhooks
+workflow
+Basic Authentication
+Detailed step-by-step guide to interact with the Aircall Public API using Basic Authentication.
+Aircall customers looking to integrate their system with Aircall Public API will need to authenticate each HTTP request!
+If you are a Technology Partner, building an app for Aircall's Marketplace, please read our
+Get started with Aircall OAuth
+tutorial!
+Steps
+Basic Authentication description
+Get your API ID and API Token credentials
+Create a Base64 encoded string with your API credentials
+Use this encoded string in your HTTP requests
+1 - Basic Authentication description
+Every request to Aircall Public API must be authenticated and authorized. Aircall implemented
+Basic Authentication
+, a simple and secure way to authenticate requests.
+Basic Authentication is a simple authentication standard, implemented in the HTTP protocol. Lots of API communications are using it as it is one of the most easy-to-implement authentication method out there and yet really secure, both for the API provider and the API user.
+We will see in this tutorial how to send your first authenticated request to Aircall Public API.
+2 - Get your API ID and API Token credentials
+Lots of authentication methods require both a username and a password. Basic Authentication follows this standard as well.
+Those username and password credentials are called
+api_id
+and
+api_token
+in the Aircall Dashboard.
+You can create some in your Company's
+Settings
+page. In the
+API Keys section
+, click on
+Add a new API key
+. Aircall will generate two strings, representing the Basic Authentication
+username
+and
+password
+.
+Once generated and before closing the modal, copy and paste those credentials somewhere safe on your comcomputer! The
+api_token
+(= the
+password
+) will be presented to you only on API Key creation!
+Aircall Public API is protected behind SSL certificates. Every request made must start with
+https://
+.
+3 - Create a Base64 encoded string with your API credentials
+HTTP requests will be sent with an
+Authorization
+HTTP header, containing the word
+Basic
+, followed by a
+space
+and the Base64 encoded string
+api_id:api_token
+.
+For example, if the
+api_id
+is
+1234ABCD5678EFGH
+and the
+api_token
+is
+9876LMNO5432PQRS
+, the string string to encode would be
+1234ABCD5678EFGH:9876LMNO5432PQRS
+. Once this string encoded, the HTTP header will look like the following:
+Authorization: Basic MTIzNEFCQ0Q1Njc4RUZHSDo5ODc2TE1OTzU0MzJQUVJT
+Open your favorite code editor, and write the following in a new file:
+javascript
+const apiId = YOUR_API_ID;
+const apiToken = YOUR_API_TOKEN;
+let encodedCredentials = Buffer.from(`${apiId}:${apiToken}`).toString('base64');
+Congrats, you just encoded your Public API credentials in Base64!
+4 - Use this encoded string in your HTTP requests
+Now that we have encoded our credentials, we can use them in our HTTP requests.
+We will use the
+[GET] https://api.aircall.io/v1/ping
+endpoint to test if credentials are valid.
+First, send the request without setting the HTTP header:
+javascript
+const https = require('https');
+
+let options = {
+  host: 'api.aircall.io',
+  path: '/v1/ping',
+  port: 443
+};
+
+// Sending the HTTP request
+https.get(options, (res) => {
+  let body = '';
+
+  res.on('data', (data) => { body += data; });
+
+  res.on('end', () => {
+    console.log(body);
+  });
+
+  res.on('error', (e) => {
+    console.log('Error: ', e.message);
+  });
+});
+When executing the previous block of code, you should see the following eror payload, since we did not specify any authentication method:
+json
+{
+  "error": "Unauthorized",
+  "troubleshoot": "Check your API key"
+}
+Let's now use Basic Authentication:
+javascript
+const https = require('https');
+
+// 1. Encoding credentials:
+const apiId = YOUR_API_ID;
+const apiToken = YOUR_API_TOKEN;
+let encodedCredentials = Buffer.from(apiId + ':' + apiToken).toString('base64');
+
+// 2. Specifying HTTP Headers
+let headers = {
+  'Authorization': 'Basic ' + encodedCredentials
+};
+
+let options = {
+  host: 'api.aircall.io',
+  path: '/v1/ping',
+  port: 443,
+  headers: headers
+};
+
+// 3. Sending the HTTP request
+https.get(
+  options,
+  (res) => {
+    let body = '';
+
+    res.on('data', (data) => { body += data; });
+
+    res.on('end', () => {
+      console.log(body);
+    });
+
+    res.on('error', (e) => {
+      console.log('Error: ', e.message);
+    });
+  }
+);
+Once the credentials specified, you will receive the following response from Aircall's servers:
+json
+{
+  'ping': 'pong'
+}
+And that's it! You just made your first Public API request using Basic Authentication 👏
+You are now ready to build on top of Aircall Public API, check the full list of tutorials available
+here
+!
+Additional links
+Aircall Basic Authentication reference
+Basic Authentication RFC 7617
+Select a language
+We wrote other tutorials to help you out
+building
+awesome integrations
+Discover them now

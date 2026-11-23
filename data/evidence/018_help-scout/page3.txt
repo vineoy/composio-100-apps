@@ -1,0 +1,53 @@
+URL: https://articles.helpscout.com/blog/introducing-help-scout-mcp/
+FETCHED: 2026-11-23T16:51:46.687900
+VIA: direct
+
+Help Scout's MCP server is now available
+Every customer conversation tells a story. Support teams hear about issues before anyone else. They answer buying questions, uncover new customer requests, explain complex workflows, and help customers succeed day after day. Over time, those conversations become one of the richest sources of customer knowledge in your business.
+Today, we're bringing Help Scout's Model Context Protocol (MCP) server out of beta, making it generally available to all Help Scout customers.
+Whether you're preparing for a customer meeting, investigating a bug, writing documentation, or brainstorming a new idea, AI has quickly become a thought partner for getting work done. But the quality of those answers depends on the information it has access to. Now, your AI assistant can retrieve customer context directly from Help Scout instead of relying on manual searches through your inbox.
+With Help Scout's MCP server, AI assistants like Claude, ChatGPT, and Cursor can securely retrieve the customer knowledge already stored in your Help Scout account. Instead of manually searching through conversations, you can simply ask questions like:
+What product issues has this customer reported over the last six months?
+Summarize the feature requests we've received from our top customers over the past quarter.
+Show me every conversation related to this account from the last 90 days.
+Find every conversation mentioning damaged orders from the past 30 days.
+Which issues generated the highest volume in our general inbox this week?
+These are just a few examples, but the bigger shift is how your team can interact with customer knowledge. Instead of searching for information across conversations, your AI can retrieve the context you need and bring it into the flow of your work.
+Available today: Read-only access
+Giving AI access to customer conversations requires the right safeguards. That's why the first generally available version of MCP is intentionally read-only.
+
+Each team member connects using their own Help Scout credentials, ensuring AI assistants can only access the conversations and customer data that person is already authorized to view. MCP respects your existing permissions, giving teams confidence that customer knowledge stays secure while it becomes more accessible.
+From context to action
+Read access is the first capability available through Help Scout's MCP server, and it's only the beginning. As teams become more comfortable bringing customer context into their AI workflows, the next step is helping them act on that context. Over time, we will introduce write capabilities that support common support workflows, allowing AI to help draft replies, organize conversations, add internal notes, and complete other routine tasks inside Help Scout.
+Just as importantly, those capabilities will be introduced thoughtfully. Every write action should be transparent, intentional, and give your team the opportunity to review and stay in control.
+Looking ahead
+Great customer experiences start with understanding your customers. As AI becomes a bigger part of how teams work, that understanding should be available wherever decisions are made, not just inside your support inbox.
+Today's release makes customer knowledge available inside the AI tools your team already uses. Over time, we'll continue expanding MCP so teams can move beyond retrieving context to taking action inside Help Scout.
+Ready to get started?
+Follow our
+setup guide
+to connect Help Scout to your AI assistant.
+We can't wait to see how your team puts customer knowledge to work.
+Like what you see? Share with a friend.
+Help Scout
+Help Scout is the AI support suite 11,000+ teams use to turn conversations into fast resolutions, deep customer insights, and loyalty that drives growth.
+Explore the platform for yourself with a
+free trial
+or
+live demo
+. Not ready for a trial? Follow us on
+LinkedIn
+to see what we’re up to!
+Ready to go?
+Learn the platform in less than an hour and become a power user in less than a day.
+Start for Free
+Get a Demo
+We've got more to share
+The Supportive Weekly
+A newsletter and podcast for customer-centric businesses
+Help Scout Weekly
+A roundup of our freshest content and product updates
+Subscribe
+Your privacy matters! View our
+privacy policy
+for more and know you may unsubscribe anytime.

@@ -1,0 +1,40 @@
+URL: https://www.intercom.com/integrations/connectors/intercom-mcp-server
+FETCHED: 2026-11-23T16:46:48.350826
+VIA: direct
+
+Intercom MCP Server | Intercom
+Browse all connectors
+Intercom MCP Server integration
+Let AI tools securely access your Intercom data via MCP
+Overview
+Intercom's MCP server lets AI tools and CLIs (like Claude Code, Claude Desktop, ChatGPT, Cursor, and VS Code) securely access your Intercom data through the Model Context Protocol. Query conversations, contacts, companies, and Help Center articles, and create or update articles directly from your AI tool. Available for US-hosted Intercom workspaces.
+What you can do
+Connect via the Streamable HTTP endpoint at https://mcp.intercom.com/mcp
+Read conversations, contacts, and companies; read and write Help Center articles
+Works with MCP-compatible clients including Claude Code, Claude Desktop, ChatGPT, Cursor, and VS Code
+Authenticate with OAuth, scoped to your existing Intercom permissions
+Available for US-hosted Intercom workspaces
+How it works
+Add the Intercom MCP server to your AI tool using the Streamable HTTP endpoint https://mcp.intercom.com/mcp. Available for US-hosted Intercom workspaces.
+Authenticate with OAuth to grant access scoped to your existing Intercom permissions. Works with MCP-compatible clients including Claude Code, Claude Desktop, ChatGPT, Cursor, and VS Code.
+Once connected, query conversations, contacts, companies, and Help Center articles, and create or update articles directly from your AI tool.
+Configure
+The Intercom MCP server provides read access to conversations, contacts, and companies, plus read and write access to Help Center articles. Currently available for US-hosted workspaces only.
+Intercom MCP Server
+Category
+APIs and MCP
+Start free trial
+You might be interested in
+Browse all integrations →
+Custom MCP
+Connect any MCP-compliant tool to give Fin real-time data access and actions.
+Zapier
+Connect Fin to the apps you already automate with Zapier, through the Zapier MCP template.
+Salesforce
+Fin pulls Salesforce CRM data to personalize answers for each customer.
+HubSpot CRM
+Fin pulls HubSpot contact and deal data to personalize support answers.
+Shopify
+Fin uses your Shopify store data to answer customer questions automatically.
+Stripe
+Fin pulls billing and subscription details to answer payment questions.

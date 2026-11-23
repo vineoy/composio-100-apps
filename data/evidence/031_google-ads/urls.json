@@ -1,0 +1,61 @@
+{
+ "app": "Google Ads",
+ "queries": [
+  "Google Ads API authentication documentation",
+  "Google Ads MCP server",
+  "Google Ads API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.google.com/google-ads/api/docs/oauth/overview",
+  "https://developers.google.com/google-ads/api/rest/auth",
+  "https://docs.cloud.google.com/docs/authentication/api-keys",
+  "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+ ],
+ "search_hits": [
+  {
+   "title": "Use OAuth 2.0 to access Google Ads API | Google for Developers",
+   "href": "https://developers.google.com/google-ads/api/docs/oauth/overview"
+  },
+  {
+   "title": "Authorization and HTTP Headers | Google Ads API | Google for ...",
+   "href": "https://developers.google.com/google-ads/api/rest/auth"
+  },
+  {
+   "title": "Google Ads API - Google Ads Help",
+   "href": "https://support.google.com/google-ads/answer/15235?hl=en-419"
+  },
+  {
+   "title": "Setting up OAuth 2.0 - API Console Help",
+   "href": "https://support.google.com/googleapi/answer/6158849?hl=en"
+  },
+  {
+   "title": "Manage API keys | Authentication | Google Cloud Documentation",
+   "href": "https://docs.cloud.google.com/docs/authentication/api-keys"
+  },
+  {
+   "title": "Google Ads MCP Server",
+   "href": "https://grokipedia.com/page/Google_Ads_MCP_Server"
+  },
+  {
+   "title": "Access levels and RMF | Google Ads API | Google for Developers",
+   "href": "https://developers.google.com/google-ads/api/docs/productionize/access-levels"
+  },
+  {
+   "title": "Google Ads Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/google-ads/google-ads-plans-pricing/"
+  },
+  {
+   "title": "Access levels and permissible use | Google Ads API | Google ...",
+   "href": "https://developers.google.com/google-ads/api/docs/api-policy/access-levels"
+  },
+  {
+   "title": "Google Ads API: Access Levels, Costs and Setup (2026)",
+   "href": "https://www.activepieces.com/blog/google-ads-api-access-levels-costs-and-setup-2026"
+  },
+  {
+   "title": "Gemini Developer API pricing - Gemini API | Google AI Studio",
+   "href": "https://aistudio.google.com/docs/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:04:05.533716"
+}

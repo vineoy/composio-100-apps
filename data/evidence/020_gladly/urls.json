@@ -1,0 +1,77 @@
+{
+ "app": "Gladly",
+ "queries": [
+  "Gladly API authentication documentation",
+  "Gladly MCP server",
+  "Gladly API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://help.gladly.com/developer-tutorials/docs/setup-and-testing",
+  "https://help.gladly.com/docs/set-up-mcp-connections",
+  "https://help.gladly.com/docs/what-are-mcp-connections",
+  "https://developer.gladly.com/rest/"
+ ],
+ "search_hits": [
+  {
+   "title": "Gladly API",
+   "href": "https://developer.gladly.com/rest/"
+  },
+  {
+   "title": "Setup and Testing - help.gladly.com",
+   "href": "https://help.gladly.com/developer-tutorials/docs/setup-and-testing"
+  },
+  {
+   "title": "Gladly Help and Product Docs",
+   "href": "https://help.gladly.com/"
+  },
+  {
+   "title": "Main Home - Gladly Developer",
+   "href": "https://developer.gladly.com/"
+  },
+  {
+   "title": "Authentication - Gladia",
+   "href": "https://docs.gladia.io/api-reference/authentication"
+  },
+  {
+   "title": "Set up MCP connections - help.gladly.com",
+   "href": "https://help.gladly.com/docs/set-up-mcp-connections"
+  },
+  {
+   "title": "Gladly MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/cotlet-dev-integrations-gladly-api-mcp-server"
+  },
+  {
+   "title": "What are MCP connections? - help.gladly.com",
+   "href": "https://help.gladly.com/docs/what-are-mcp-connections"
+  },
+  {
+   "title": "Gladly MCP server for Claude & ChatGPT | usefulapi",
+   "href": "https://www.usefulapi.io/gladly/"
+  },
+  {
+   "title": "Gladly MCP Server for AI Agents (65 Actions) | StackOne",
+   "href": "https://www.stackone.com/connectors/gladly/mcp/"
+  },
+  {
+   "title": "Gladly API",
+   "href": "https://developer.gladly.com/rest/"
+  },
+  {
+   "title": "Gladly Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/gladly/gladly-plans-pricing/"
+  },
+  {
+   "title": "Main Home - Gladly Developer",
+   "href": "https://developer.gladly.com/"
+  },
+  {
+   "title": "Gladly Pricing in 2026: Plans and Costs | The Geeks Club",
+   "href": "https://www.thegeeksclub.com/platforms/gladly/pricing/"
+  },
+  {
+   "title": "Gladly Pricing November 2026 - G2Gladly API - Docs, SDKs & IntegrationGladly Pricing: Plans, Costs & Best Alternatives (2026)",
+   "href": "https://www.g2.com/products/gladly/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:54:41.574817"
+}

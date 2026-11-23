@@ -1,0 +1,77 @@
+{
+ "app": "Meta Ads",
+ "queries": [
+  "Meta Ads API authentication documentation",
+  "Meta Ads MCP server",
+  "Meta Ads API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://dev.meta.ai/docs/authentication",
+  "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authentication",
+  "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authorization",
+  "https://developers.secure.facebook.com/documentation/ads-commerce/marketing-api/get-started/authentication.md"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication | Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authentication/"
+  },
+  {
+   "title": "Authorization - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authorization/"
+  },
+  {
+   "title": "Authentication - Meta for Developers",
+   "href": "https://developers.secure.facebook.com/documentation/ads-commerce/marketing-api/get-started/authentication.md"
+  },
+  {
+   "title": "Authentication - Meta Model API",
+   "href": "https://dev.meta.ai/docs/authentication"
+  },
+  {
+   "title": "Meta Marketing API: Complete Guide 2026 - adlibrary.com",
+   "href": "https://adlibrary.com/posts/meta-marketing-api-guide-2026"
+  },
+  {
+   "title": "Ads MCP Server - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview/"
+  },
+  {
+   "title": "Meta ads MCP server: connect AI tools | Meta for Business",
+   "href": "https://www.facebook.com/business/tools/ads-mcp-server/"
+  },
+  {
+   "title": "Meta Ads MCP - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/mcp/ads-mcp-server/"
+  },
+  {
+   "title": "Manage ads from an AI agent with Meta ads AI connectors",
+   "href": "https://www.facebook.com/business/help/1456422242197840/"
+  },
+  {
+   "title": "Meta Ads MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/pipeboard-co/meta-ads-mcp"
+  },
+  {
+   "title": "Meta Marketing API - Meta for Developers",
+   "href": "https://developers.facebook.com/v2/products/marketing-api/"
+  },
+  {
+   "title": "Marketing API - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/ads-commerce/marketing-api/"
+  },
+  {
+   "title": "Is Meta Marketing API Free? Tiers, Quotas & Rate Limits",
+   "href": "https://www.get-ryze.ai/blog/meta-marketing-api-free-tier-limitations-and-quotas"
+  },
+  {
+   "title": "Facebook API Pricing: Full Breakdown for 2026 - Blotato",
+   "href": "https://www.blotato.com/blog/facebook-api-pricing"
+  },
+  {
+   "title": "Meta API Pricing & Plans (November 2026) | Compare Costs ...",
+   "href": "https://www.saasworthy.com/product/meta-api-io/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:05:02.849471"
+}

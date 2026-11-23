@@ -1,0 +1,77 @@
+{
+ "app": "Pumble",
+ "queries": [
+  "Pumble API authentication documentation",
+  "Pumble MCP server",
+  "Pumble API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/",
+  "https://api-ga.pumble.com/v3/api-docs/Pumble-api-v1",
+  "https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server/",
+  "https://pumble.com/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Pumble API Overview",
+   "href": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/"
+  },
+  {
+   "title": "Pumble API reference",
+   "href": "https://docs.pumble.com/"
+  },
+  {
+   "title": "Pumble API Addon documentation",
+   "href": "https://pumble-api-keys.addons.marketplace.cake.com/api-docs/"
+  },
+  {
+   "title": "api-ga.pumble.com",
+   "href": "https://api-ga.pumble.com/v3/api-docs/Pumble-api-v1"
+  },
+  {
+   "title": "Pumble API Documentation - Universal API for 3,100+ Apps",
+   "href": "https://mindcloud.co/docs/universal/rest/pumble/latest"
+  },
+  {
+   "title": "How to use the Pumble MCP server - Pumble Help",
+   "href": "https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server/"
+  },
+  {
+   "title": "Connect AI agents with the Pumble MCP",
+   "href": "https://pumble.com/mcp"
+  },
+  {
+   "title": "GitHub - shoutkol/pumble-mcp-server",
+   "href": "https://github.com/shoutkol/pumble-mcp-server"
+  },
+  {
+   "title": "Pumble MCP Server and REST API | MCP.ai",
+   "href": "https://mcp.ai/pumble"
+  },
+  {
+   "title": "GitHub - infralayers/pumble-mcp: MCP server wrapping Pumble's ...",
+   "href": "https://github.com/infralayers/pumble-mcp"
+  },
+  {
+   "title": "Pricing - Pumble\u2122",
+   "href": "https://pumble.com/pricing"
+  },
+  {
+   "title": "Trimble Developer | Pricing for API Plans & Access",
+   "href": "https://developer.trimble.com/en/pricing"
+  },
+  {
+   "title": "Pumble Pricing in 2026: Plans and Costs | The Geeks Club",
+   "href": "https://www.thegeeksclub.com/platforms/pumble/pricing/"
+  },
+  {
+   "title": "Pumble API Overview - Pumble Help",
+   "href": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/"
+  },
+  {
+   "title": "Pumble Pricing 2026: Real Costs, Fees & What Others Paid",
+   "href": "https://pricingnow.com/question/pumble-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:59:06.167526"
+}

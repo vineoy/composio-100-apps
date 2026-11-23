@@ -1,0 +1,51 @@
+URL: https://docs.slack.dev/ai/mcp-overview/
+FETCHED: 2026-11-23T16:55:33.979300
+VIA: direct
+
+MCP overview | Slack Developer Docs
+guide
+Skip to main content
+Copy as markdown
+On this page
+Model Context Protocol (MCP) is an open standard designed to give AI agents a consistent, secure way to discover and use external data, tools, and services. MCP standardizes how applications provide context to LLMs.
+MCP overview
+​
+There are three components to MCP: the host, client, and server.
+The
+MCP host
+is the user-facing application where you interact with the AI. The hosts's job is managing the overall user experience, taking requests, and coordinating the flow of communication.
+The
+MCP client
+is the component that handles the actual communication on the host side. You can think of this as a specialized bridge or adapter built into the host application. The host's job is to take the AI's internal request (i.e. "I need to read a file to answer this question") and translate it into a standard MCP request, maintaining a one-to-one connection with an MCP server.
+The
+MCP server
+is the gateway to a specific external tool or data source that the AI needs access to. It is a separate program that acts as a secure wrapper around a system like a database, file system, or an external API, like Slack. It's job is to tell the client what it can do ("I can
+read_file
+,
+query_database
+, etc."), translate and execute the standardized MCP request from the client, and enforce security by ensuring the AI only accesses what it's allowed to.
+There are a few distinctions to make between MCP and APIs.
+Feature
+APIs
+MCP
+Optimization
+Software-to-software communication; deterministic integrations
+AI model-to-data communication and agent interactions
+Implementation
+Client (developer) must read documentation and write code to invoke specific endpoints and process the output
+Client (agent) can ask the server, "What tools can you offer?" at runtime. The server responds with machine-readable tool descriptions that match the token provided. The same input might result in different output across runs.
+Output
+Machine readable (JSON) and entity IDs
+Human readable (markdown) with hydrated names for entities
+MCP and Slack
+​
+Slack offers two ways to work with MCP:
+The
+Slackbot MCP Client
+connects remote MCP servers to Slack. Once connected, Slackbot discovers your server's tools and invokes them based on user prompts in conversation.
+The
+Slack MCP Server
+lets AI apps search channels, send messages, manage canvases, and perform other Slack actions through any MCP-compatible client. Connect it to clients like Cursor and Claude.
+Copy as markdown
+MCP overview
+MCP and Slack

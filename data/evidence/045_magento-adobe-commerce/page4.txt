@@ -1,0 +1,92 @@
+URL: https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/prerequisites/authentication-keys
+FETCHED: 2026-11-23T17:25:29.237645
+VIA: direct
+
+Get your authentication keys | Adobe Commerce
+Documentation
+Commerce
+Installation Guide
+Get your authentication keys
+Last update: October 8, 2026
+Topics:
+Install
+CREATED FOR:
+Experienced
+Admin
+Developer
+The
+repo.magento.com
+repository is where Adobe Commerce and third-party Composer packages are stored and requires authentication. Use your Commerce Marketplace account to generate a pair of 32-character
+authentication keys
+to access the repository.
+For access entitlement to Adobe Commerce packages, you must use keys associated with a MAGEID that has been granted access to those packages. The MAGEID is typically the Primary Contact on the Adobe Commerce account and may not always be the Project Owner of the Adobe Commerce on cloud infrastructure project.
+TIP
+If you encounter
+errors
+or don’t see the Access Keys section in the Marketplace tab, you may not have authorization to access the package, or the access entitlement has expired due to an outstanding invoice on your account.
+If you are the Primary Contact person on the account, make sure that there is no outstanding invoice listed on the account.
+If the keys provided by the Primary Contact are not working and there are no outstanding invoices on the account, the Primary Contact should contact
+Adobe Commerce Support
+for assistance.
+To create authentication keys:
+NOTE
+As of August 2022, the account owner must have an Adobe ID and ensure that it is linked to their Commerce account. If the account owner does not have an Adobe ID, they must create one and link it to their Commerce account before generating authentication keys:
+Create and access your Commerce account
+Log in to the
+Commerce Marketplace
+. If you don’t have an account, click
+Register
+.
+Click your account name in the top right of the page and select
+My Profile
+.
+Click
+Access Keys
+in the Marketplace tab.
+Click
+Create a New Access Key
+. Enter a specific name for the keys (for example, the name of the developer receiving the keys) and click
+OK
+.
+New public and private keys are now associated with your account that you can click to copy. Save this information or keep the page open when working with your project. Use the
+Public key
+as your username and the
+Private key
+as your password.
+Manage your authentication keys
+You can also disable or delete authentication keys. For example, you can disable or delete keys for security reasons after someone leaves your organization.
+To disable keys: Click
+Disable
+. You can do this if you want to suspend use of your keys.
+To enable a previously disabled key: Click
+Enable
+.
+To delete keys: Click
+Delete
+.
+Manage SSH access token
+To download Adobe Commerce releases using SSH, you must generate a Downloads Access Token. To generate a token:
+Log in to your
+magento.com account
+.
+Click
+My Account
+at the top of the page.
+Click
+Account Settings
+>
+Downloads Access Token
+.
+Click
+Generate new token
+to replace and disable an existing token.
+You must use your MAGEID plus your token to download a release. Your MAGEID is displayed at the top left of your account page.
+For example:
+curl -k https://MAGEID:TOKEN@www.magentocommerce.com/products/downloads/info/help
+Use your authentication keys to:
+Get the metapackage (integrators, packagers)
+Clone the GitHub repository
+(contributing developers only)
+Upgrade and manage modules
+recommendation-more-help
+commerce-operations-help-installation

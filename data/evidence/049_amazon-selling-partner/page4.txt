@@ -1,0 +1,236 @@
+URL: https://developer-docs.amazon/sp-api/docs/connecting-to-the-selling-partner-api
+FETCHED: 2026-11-23T17:29:33.469783
+VIA: direct
+
+Connect to the SP-API
+For AI agents: the docs index is at https://developer-docs.amazon/sp-api/llms.txt. The index for every project on this site is at https://developer-docs.amazon/llms.txt. Append .md to any documentation page URL to get its markdown version.
+These instructions show you the steps to connect to the Selling Partner API (SP-API). For links to additional examples, refer to
+SP-API SDKs
+.
+Prerequisites
+Before your application can connect to SP-API, you must:
+Register the application. For details, refer to
+Registering your application
+.
+Get the application authorized by a
+selling partner
+or, if you're a
+private developer
+, authorize it yourself. For details, refer to
+Authorizing Selling Partner API applications
+.
+Step 1. Request a Login with Amazon access token
+A Login with Amazon (LWA)
+access token
+authorizes your application to take certain actions on behalf of a
+selling partner
+. An LWA access token expires one hour after it is issued.
+📘
+Note
+An LWA access token must be included in calls to all operations
+except
+restricted operation
+s, which return Personally Identifiable Information (PII). When calling restricted operations, instead of including an LWA access token, you include a
+Restricted Data Token
+(RDT). For information about getting RDTs and calling restricted operations, refer to the
+Tokens API Use Case Guide
+.
+To request an LWA access token, make a secure HTTP POST to the LWA authentication server (
+https://api.amazon.com/auth/o2/token
+) with the following parameters:
+Name
+Description
+Required
+grant_type
+The type of access grant requested. Values:
+-
+refresh_token
+. Use this for calling operations that require authorization from a selling partner. All operations that are not
+grantless operations
+require authorization from a selling partner. When specifying this value, include the
+refresh_token
+parameter.
+-
+client_credentials
+. Use this for calling
+grantless operations
+. When specifying this value, include the
+scope
+parameter.
+Yes
+refresh_token
+The LWA refresh token. Get this value when the selling partner authorizes your application. For more information, refer to
+Authorizing Selling Partner API applications
+.
+No. Include
+refresh_token
+for calling operations that require authorization from a selling partner. If you include
+refresh_token
+, do not include scope.
+scope
+The scope of the LWA authorization grant. Values:
+Notifications API
+:
+sellingpartnerapi::notifications
+Application Management API
+:
+sellingpartnerapi::client_credential:rotation
+Tracking API
+:
+sellingpartnerapi::shipments:track
+No. Include scope for calling a
+grantless operation
+. If you include scope, do not include
+refresh_token
+.
+client_id
+Get this value when you register your application. Refer to
+Viewing your developer information
+.
+Yes
+client_secret
+Get this value when you register your application. Refer to
+Viewing your developer information
+.
+Yes
+Example for calling an operation that requires selling partner authorization:
+HTTP
+POST /auth/o2/token HTTP/l.l
+Host: api.amazon.com
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+grant_type=refresh_token
+&refresh_token=Aztr|...
+&client_id=foodev
+&client_secret=Y76SDl2F
+Example for calling a
+grantless operation
+:
+HTTP
+POST /auth/o2/token HTTP/l.l
+Host: api.amazon.com
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+grant_type=client_credentials
+&scope=sellingpartnerapi::notifications
+&client_id=foodev
+&client_secret=Y76SDl2F
+⭐
+Tip
+To avoid getting an untrusted certificate authority (CA) error when calling the LWA authorization server, be sure to update your trust store so that your application trusts the LWA authorization server.
+A successful response includes the following values.
+Name
+Description
+access_token
+The LWA access token. Maximum size: 2048 bytes.
+token_type
+The type of token returned. Must be
+bearer
+.
+expires_in
+The number of seconds before the LWA access token becomes invalid.
+refresh_token
+The LWA refresh token that you submitted in the request. Maximum size: 2048 bytes.
+HTTP
+HTTP/l.l 200 OK
+Content-Type: application/json;charset UTF-8
+Cache-Control: no-store
+Pragma:no-cache
+{
+  "access_token":"Atza|IQEBLjAsAhRmHjNgHpi0U-Dme37rR6CuUpSREXAMPLE",
+  "token_type":"bearer",
+  "expires_in":3600,
+  "refresh_token":"Atzr|IQEBLzAtAhRPpMJxdwVz2Nn6f2y-tpJX2DeXEXAMPLE"
+}
+For more information, visit the
+Authorization Code Grant
+page in the Login with Amazon documentation.
+Step 2. Construct an SP-API URI
+An SP-API URI contains the following components.
+Name
+Description
+Example
+HTTP method
+The HTTP method.
+GET
+Endpoint
+An
+SP-API endpoint
+.
+https://sellingpartnerapi-na.amazon.com
+Path
+Resource location.
+/catalog/2022-04-01/items/{asin}
+Query string
+The query parameters.
+?marketplaceIds=ATVPDKIKX0DER
+Path parameter
+The path parameters.
+EXAMPLEASIN
+For example:
+HTTP
+GET https://sellingpartnerapi-na.amazon.com/catalog/2022-04-01/items/EXAMPLEASIN?marketplaceIds=ATVPDKIKX0DER
+Step 3. Add headers to the URI
+Add headers to the URI that you constructed in
+Step 2. Construct a Selling Partner API URI
+. Here are the HTTP headers to include in requests to the SP-API:
+Name
+Description
+host
+the Amazon store endpoint. Refer to
+SP-API endpoints
+.
+x-amz-access-token
+The LWA access token. Refer to
+Step 1. Request a Login with Amazon access token
+.
+Note about restricted operations.
+If you call a restricted operation, pass in an RDT here instead of an LWA access token. For information about getting RDTs and calling restricted operations, refer to the
+Tokens API Use Case Guide
+in the Tokens API Use Case Guide.
+x-amz-date
+The date and time of your request.
+user-agent
+Your application name, application version number, platform, and programming language. You must include a
+user-agent
+header in every request to the SP-API.
+•
+Maximum length:
+500 characters.
+•
+Minimum required information:
+App name, version, and language.
+•
+Optional:
+You can add additional attributes separated by semicolons.
+How to assemble a
+user-agent header
+Concatenate the following information:
+• Application name
+• Forward slash
+• Application version
+• Space
+• Opening parenthesis
+• Language name/value pair
+• Closing parentheses
+Escape the following characters with a blackslash:
+• Backslash.
+• Forward slash in the application name.
+• Opening parenthesis in the application version.
+• Equal sign in the attribute name.
+• Closing parenthesis and semicolon in attribute values.
+Examples:
+•
+AppId/AppVersionId (Language=LanguageNameAndOptionallyVersion)
+•
+MySellingTool/2.0 (Language=Java/1.8.0.221; Platform=Windows/10)
+•
+MyCompany/build16 (Language=Perl; Host=my.desktop.example.com)
+The following example shows how to call the SP-API with a URI and headers but no signing information:
+HTTP
+GET /catalog/2022-04-01/items/EXAMPLEASIN?marketplaceIds=ATVPDKIKX0DER HTTP/1.1
+host: sellingpartnerapi-na.amazon.com
+user-agent: My Selling Tool/2.0 (Language=Java/1.8.0.221;
+Platform=Windows/10)
+x-amz-access-token=Atza|IQEBLjAsAhRmHjNgHpi0U-Dme37rR6CuUpSREXAMPLE
+x-amz-date: 20190430T123600Z
+Updated
+2 months ago

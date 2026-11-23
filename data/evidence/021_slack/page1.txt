@@ -1,154 +1,41 @@
-URL: https://slack.com/intl/en-in/
-FETCHED: 2026-11-23T16:25:05.541530
+URL: https://docs.slack.dev/authentication/
+FETCHED: 2026-11-23T16:55:33.977092
+VIA: direct
 
-Slack | AI work platform and productivity tools
+Authentication overview | Slack Developer Docs
+guide
 Skip to main content
-All your people and AI agents working together
-Slack connects your team. Slackbot multiplies what they can do.
-Get started
-Find your subscription
-Trusted by top teams
-Pause animation
-Play animation
-Ask Slackbot
-Close deals
-Plan launches
-Chat with clients
-Automate tasks
-Ask Slackbot
-Close deals
-Plan launches
-Chat with clients
-Automate tasks
-Reimagine what’s possible with AI and agents
-AI in Slack delivers action, not just answers. It’s tapped into the full context of your business, making every connected app and agent smarter in the process.
-Turn data into action with Slackforce Surfaces
-New
-Automate tasks using Slackbot skills
-New
-Build together in channels with Slack Code
-New
-Track and update sales pipelines with Slack CRM
-Get fast answers with Claude
-Pause animation
-Play animation
-Knowledge
-People
-Process
-Platform
-Knowledge
-Give everyone instant context
-Get access to every file, decision and conversation, so you can build on past work instead of recreating it.
-Meet Slackbot: AI for the whole team
-Slackbot knows your whole business and coordinates work across every connected app and agent. Now it works in channels too, so one person’s answer becomes the whole team’s.
-Learn more about Slackbot
-One search to rule them all.
-AI-powered search puts your company’s entire memory at your fingertips.
-Learn about AI-powered search
-Slack CRM: the new conversational CRM
-Introducing Slack CRM, powered by Slackbot, your AI teammate. Capture contacts and move deals forward, right from your conversations.
-Learn about Slack CRM
-5 hours
-Average time saved weekly with Slackbot
-1
-People
-Let your people connect like people
-Slack’s conversational UI makes collaborating more approachable, whether you’re working with a colleague or an agent.
-It all starts with a channel.
-Channels are flexible, transparent spaces for working with your team, AI assistants and agents.
-Learn about channels
-When talking is easier than typing…
-…hop on a huddle, our built-in video tool. With AI in Slack, your meeting notes write themselves.
-Learn about huddles
-Bring conversations out of the inbox.
-Slack Connect lets you chat with clients and vendors in real time, directly from Slack. Email can’t compare.
-Learn about Slack connect
-‘Slack has been essential to our growth, our speed and our ability to stay aligned as we scale.’
-Kate Jenson,
-Head of Americas, Anthropic
-Process
-Manage all your work from one place
-Automate daily stand-up meetings, project updates and approvals so your team can focus on growth instead of guesswork.
-Anyone can automate in Slack.
-By click or by code, Slack makes it easy for anyone to build time-saving automations of their own.
-Learn about workflows
-Manage projects and tasks.
-Track. Approve. Mark as complete. All without leaving the conversation.
-Learn about lists
-A simpler way to get started.
-Project manager’s block? Beginning a brief? There’s a template for that.
-See all templates
-35%
-increase in time saved due to automations for Slack users
-2
-Platform
-Secure. Scaleable. Silo-free.
-Our flexible, open platform is purpose-built for bringing the best agents and AI to every business, and can be tailored to fit however your teams work best.
-From Atlassian to Zoom.
-Google Drive. ChatGPT. Vercel. Box. Asana. Workday. You name it, it works in Slack.
-See all integrations
-Customise Slack to fit your needs.
-Slack is flexible so you can build solutions specific to your business.
-Learn about dev tools
-Work without worry.
-If it’s shared in Slack, it’s safe. Our security programme protects your data at every layer.
-Learn about security
-‘Work starts in conversation. That’s why we see Slack as the natural place to build our agents.’
-Guillermo Rauch,
-CEO, Vercel
-The most innovative companies run their business in Slack
-See all customer stories
-Slack reimagines work for Anthropic at the speed of AI
-Slack helps Box bring agents to every employee
-Notion builds ‘Smilers’ in Slack
-Slack helps Rivian to do business in the fast lane
-Slack reimagines work for Anthropic at the speed of AI
-Slack helps Box bring agents to every employee
-Notion builds ‘Smilers’ in Slack
-Slack helps Rivian to do business in the fast lane
-Get started
-Find your subscription
-We’re in the business of growing businesses
-94
-%
-of users seeing positive ROI
-1
-312
-%
-ROI over three years
-3
-US$51M
-in collaboration gains
-3
-Millions of people love working in Slack
-1B+
-messages sent daily
-4
-4M
-Slack Connect users working directly with external teams each week
-5
-3M
-daily workflows
-5
-1.7M
-apps actively used each week
-5
-Don’t just take our word for it.
-Slack is a leader in over 290 G2 market reports.
-6
-1
-Salesforce Internal
-2
-FY24 Customer Success Metrics. Base: Total n = 247–1,696, Slack internal data.
-3
-2026 Forrester Total Economic Impact Study
-4
-FY26 earnings remarks
-5
-FY25 Slack internal data, product usage analysis.
-6
-G2 autumn 2026 market reports for work management, workflow management, project collaboration software, enterprise search, knowledge base, employee Q&A, audio conferencing, business instant messaging, unified workspaces and more.
-See all you can accomplish in Slack
-Get started
-Request a demo
-Esc
+Copy as markdown
+On this page
+Authentication is a critical part of the development process, but it doesn’t have to be daunting. With the right tools and best practices, you’ll have a secure, smooth authentication flow. Whether you’re handling
+OAuth 2.0
+,
+verifying requests
+, or setting up
+Sign in with Slack
+, we’ve got you covered.
+Authentication basics
+​
+Before your app can access Slack data or interact with Slack workspaces, it must go through an authentication process. This involves obtaining the necessary tokens and permissions for your app to function properly. Slack apps use OAuth
+scopes
+to govern what they can access. These are added in the app settings when building an app. You will attach these scopes to your tokens. Check out
+tokens
+to learn more. You can rotate those tokens too! Find out how on the
+Using token rotation
+page.
+Key concepts
+​
+OAuth 2.0
+: Learn how to use OAuth 2.0 to securely authenticate users and request access tokens.
+Tokens
+: Understand the different types of tokens your app can use (user tokens, bot tokens, and app tokens) and how to manage them, as well as employ token rotation and expiry to keep things fresh.
+Security best practices
+: Learn about security practices for managing authentication, such as validating tokens, handling sensitive data, and protecting your app from unauthorized access.
+Reference
+​
+Scopes and Permissions
+: Find the right permissions for your app to ensure access is limited to only the necessary data.
+Copy as markdown
+Authentication basics
+Key concepts
+Reference

@@ -1,0 +1,77 @@
+{
+ "app": "Firecrawl",
+ "queries": [
+  "Firecrawl API authentication documentation",
+  "Firecrawl MCP server",
+  "Firecrawl API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.firecrawl.dev/api-reference/introduction",
+  "https://docs.firecrawl.dev/api-reference/v2-introduction",
+  "https://docs.firecrawl.dev/mcp-server",
+  "https://docs.firecrawl.dev/mcp-server/local"
+ ],
+ "search_hits": [
+  {
+   "title": "Introduction - Firecrawl Docs",
+   "href": "https://docs.firecrawl.dev/api-reference/introduction"
+  },
+  {
+   "title": "Introduction - Firecrawl Docs",
+   "href": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+  },
+  {
+   "title": "Firecrawl | Web Data API for AI Agents",
+   "href": "https://www.firecrawl.dev/"
+  },
+  {
+   "title": "Firecrawl | Web Data API for AI Agents",
+   "href": "https://www.firecrawl.dev/cli-auth"
+  },
+  {
+   "title": "GitHub - firecrawl/firecrawl-docs: Documentation for Firecrawl.",
+   "href": "https://github.com/firecrawl/firecrawl-docs"
+  },
+  {
+   "title": "Firecrawl MCP: Get Started",
+   "href": "https://docs.firecrawl.dev/mcp-server"
+  },
+  {
+   "title": "Run Firecrawl MCP locally - Firecrawl Docs",
+   "href": "https://docs.firecrawl.dev/mcp-server/local"
+  },
+  {
+   "title": "Firecrawl | Knowledge Infrastructure for AI Agents",
+   "href": "https://www.firecrawl.dev/"
+  },
+  {
+   "title": "FireCrawl MCP Server - GitHub",
+   "href": "https://github.com/mz0in/mcp-server-firecrawl"
+  },
+  {
+   "title": "Firecrawl MCP Server - GitHub",
+   "href": "https://github.com/danieldunderfelt/documentation-mcp-server"
+  },
+  {
+   "title": "Pricing | Firecrawl",
+   "href": "https://www.firecrawl.dev/pricing"
+  },
+  {
+   "title": "Firecrawl Pricing (2026): API Cost and Usage Credits",
+   "href": "https://droidcrunch.com/firecrawl-pricing/"
+  },
+  {
+   "title": "Firecrawl API Limits and Credits for Developers",
+   "href": "https://www.activepieces.com/blog/firecrawl-api-limits-and-credits-for-developers"
+  },
+  {
+   "title": "Firecrawl Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/firecrawl/firecrawl-plans-pricing/"
+  },
+  {
+   "title": "Firecrawl Pricing | UsagePricing",
+   "href": "https://www.usagepricing.com/blueprint/firecrawl"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:34:50.626547"
+}

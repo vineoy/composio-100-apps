@@ -1,0 +1,14 @@
+{
+ "1": [
+  "access_soft:free_not_in_docs"
+ ],
+ "3": [
+  "auth_ungrounded:api key"
+ ],
+ "4": [
+  "auth_ungrounded:basic"
+ ],
+ "7": [
+  "auth_ungrounded:other: unknown"
+ ]
+}

@@ -1,0 +1,24 @@
+URL: https://developers.klaviyo.com/en/docs/klaviyo_mcp_server
+FETCHED: 2026-11-23T17:10:41.428632
+VIA: direct
+
+Klaviyo MCP server | Klaviyo Developers
+Skip to content
+This page is available as Markdown at https://developers.klaviyo.com/en/docs/klaviyo_mcp_server.md. An index of every page is at https://developers.klaviyo.com/llms.txt.
+You will learn
+The Klaviyo Model Context Protocol (MCP) server seamlessly integrates with Klaviyo’s APIs, enabling AI clients to interact with your Klaviyo data. This page introduces the MCP server and what you can do with it. When you’re ready to get started, use the pages in this section to connect the server to your MCP client and explore the available tools.
+What is MCP?
+MCP
+(Model Context Protocol) is an open protocol that helps AI models securely interface with different data sources and tools. You’ll connect Klaviyo’s MCP server to an MCP client, i.e., an AI agent like Claude or Cursor, to get assistance with your Klaviyo data. Your MCP client can help with a
+variety of tasks
+from campaign creation to flow performance reports. Here’s some examples of prompts you can give:
+“Show me the performance of my email campaigns from the last 30 days.”
+“Which flows are performing the best in terms of conversions?”
+“Create an email campaign promoting our Memorial Day sale.”
+Here’s an example of an MCP client working on a Klaviyo-related task using Klaviyo’s MCP tools:
+In this section
+Connect to the MCP server
+— configure your MCP client for the remote-hosted server (recommended) or the local server, and control server behavior with query parameters and environment variables.
+Available tools
+— browse the tools the server exposes, grouped by category, along with which ones are read-only, handle user-generated content, or are available on the remote server.
+Guides

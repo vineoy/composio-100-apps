@@ -1,0 +1,361 @@
+URL: https://help.gohighlevel.com/support/solutions/articles/155000005741-how-to-setup-and-use-the-highlevel-mcp-server
+FETCHED: 2026-11-23T17:07:51.797720
+VIA: direct
+
+Guide on How to Setup and Use the HighLevel MCP Server : HighLevel Support Portal
+All
+Articles
+Recent Searches
+Clear all
+No recent searches
+Popular Articles
+Articles
+View all
+Topics
+View all
+Tickets
+View all
+Sorry! nothing found for
+How to Setup and Use the HighLevel MCP Server
+Modified on: Sun, 15 Nov, 2026 at  2:10 AM
+Connect your AI assistant to HighLevel so it can find CRM records and perform supported actions from your instructions. The HighLevel MCP Server, also called the LeadConnector MCP Server, connects through OAuth: sign in, choose the sub-account or sub-accounts to include, and approve the requested permissions.
+This guide covers setup for Claude, ChatGPT, Codex, Cursor, Muse, and Grok Bot, along with how to work across authorized sub-accounts and discover available operations.
+TABLE OF CONTENTS
+What is the HighLevel MCP Server?
+Key benefits of the HighLevel MCP Server
+Before You Connect
+How to connect your AI client
+Claude.ai
+Claude Code
+Claude Cowork
+ChatGPT
+Codex
+Cursor
+Muse
+Grok Bot
+Confirm your connection
+Working with One or Multiple Sub-accounts
+How the Four MCP Tools Work
+What you can do
+Example: complete a task from one prompt
+Permissions and security
+Frequently asked questions
+Technical Reference
+What is the HighLevel MCP Server?
+MCP stands for Model Context Protocol. It gives AI assistants a standard way to discover and use tools from connected applications. With the HighLevel MCP Server, your assistant can work with supported CRM data and actions without you needing to know the underlying API.
+The active catalog includes
+more than 600 read, create, update, and delete operations across 38 domains
+. The operations available to your connection depend on the OAuth scopes and permissions you approve.
+Before You Connect
+You need access to the HighLevel sub-account or sub-accounts you want to connect and a supported AI client. ChatGPT users can find the official HighLevel plugin in Plugins. Muse and Grok Bot also offer officially listed apps. For custom MCP connections, use the corresponding URL below.
+AI client
+Connection method
+Claude.ai, Claude Code, and Claude Cowork
+https://services.leadconnectorhq.com/mcp/anthropic/v2
+ChatGPT, Codex, and other compatible OpenAI clients
+https://services.leadconnectorhq.com/mcp/openai/v2/
+Cursor
+https://services.leadconnectorhq.com/mcp/cursor/v2
+Muse
+Connect the official app in Muse; its OAuth endpoint is
+https://services.leadconnectorhq.com/mcp/muse/v2/
+Grok Bot
+Add HighLevel from
+Connect apps
+ChatGPT
+Open ChatGPT → Plugins, search for HighLevel, and connect through OAuth. No manual MCP server URL is required.
+These connections use OAuth. During authorization, sign in to LeadConnector, select the available sub-account(s), and approve the requested scopes. All connection options use the current active LeadConnector MCP operation catalog.
+How to connect your AI client
+Claude.ai
+Watch the Claude setup walkthrough
+Open
+Claude.ai → Settings → Connectors → Add custom connector
+.
+Enter this server URL:
+https://services.leadconnectorhq.com/mcp/anthropic/v2
+Click
+Connect
+and complete the LeadConnector sign-in and consent flow.
+Choose the sub-account(s) to connect and approve access.
+Start a new chat to use the LeadConnector tools.
+Claude Code
+Run this command in your terminal:
+claude mcp add --transport http leadconnector https://services.leadconnectorhq.com/mcp/anthropic/v2
+Alternatively, add this configuration to
+.mcp.json
+at your project root:
+{
+  "mcpServers": {
+    "leadconnector": {
+      "type": "http",
+      "url": "https://services.leadconnectorhq.com/mcp/anthropic/v2"
+    }
+  }
+}
+On first use, Claude Code opens a browser for LeadConnector authorization. Sign in, select the sub-account(s), and approve access. Verify the connection with:
+claude mcp list
+Claude Cowork
+Open the
+connectors / integrations
+settings in Claude Cowork.
+Choose
+Add custom connector
+.
+Enter
+https://services.leadconnectorhq.com/mcp/anthropic/v2
+.
+Complete the LeadConnector OAuth flow: sign in, choose the sub-account(s), and approve access.
+Your Cowork agents can then use the LeadConnector tools.
+ChatGPT
+Custom MCP Connection
+Watch the ChatGPT setup walkthrough
+Open
+ChatGPT Plugins
+, select the
+plus
+button, and create a new plugin.
+Search for
+HighLevel
+and select the official plugin.
+Follow the connection prompts to complete OAuth authentication.
+Select the available CRM sub-account(s) you want to connect.
+Review and approve the requested permissions to complete the connection.
+Codex
+Add the server and start OAuth authorization:
+codex mcp add leadconnector --url https://services.leadconnectorhq.com/mcp/openai/v2/
+codex mcp login leadconnector
+In the
+Codex IDE extension
+, open the
+gear menu → MCP servers → Add server
+, choose
+Streamable HTTP
+, and enter the same URL. Select
+Authenticate
+when prompted to complete OAuth.
+Other compatible OpenAI clients can use this URL as a remote Streamable HTTP MCP server and complete the LeadConnector OAuth flow when prompted.
+Cursor
+Add this configuration to
+.cursor/mcp.json
+in your project, or to
+~/.cursor/mcp.json
+to make the connection available across projects:
+{
+  "mcpServers": {
+    "leadconnector": {
+      "url": "https://services.leadconnectorhq.com/mcp/cursor/v2"
+    }
+  }
+}
+If you already have other servers configured, add the
+leadconnector
+entry to the existing
+mcpServers
+object.
+Complete the LeadConnector OAuth flow when Cursor prompts you: sign in, choose the sub-account(s), and approve access.
+Muse
+Watch the Muse setup walkthrough
+.
+LeadConnector is available as an official app in Muse. Connect the app and complete the LeadConnector OAuth flow:
+sign in, choose the sub-account(s), and approve access.
+Muse uses
+https://services.leadconnectorhq.com/mcp/muse/v2/
+for its OAuth connection.
+Grok Bot
+Watch the Grok Bot setup walkthrough
+.
+Open
+Grok Bot → Connect apps
+.
+Search for
+HighLevel
+and choose
+Add
+.
+Complete the LeadConnector OAuth flow: sign in, choose the sub-account(s), and approve access.
+To attach the app to a specific task, you can type
+@
+in chat and select
+HighLevel
+.
+Confirm Your Connection
+Start with a simple request:
+Find the last 5 contacts I added in HighLevel.
+Your assistant can discover the available contact operations and retrieve records within the permissions you granted.
+For an agency connection, name the sub-account you want to use.
+Working with One or Multiple Sub-accounts
+Single sub-account
+A single-sub-account connection is bound to the sub-account you choose during OAuth authorization for the lifetime of that connection.
+Agency connection
+Where agency-wide access is available, you can connect once and work across the sub-accounts selected during installation.
+Choose the sub-accounts during installation.
+Select one, several, or all of the sub-accounts offered by the agency installation.
+Name the sub-account in your request.
+If the intended sub-account is unclear, the assistant uses
+list_locations
+and asks you to choose.
+Switch within the same chat.
+Ask about another authorized sub-account without reconnecting.
+For example:
+List the contacts tagged “vip-2026” in Downtown Clinic, then compare the count with Uptown Med Spa.
+The assistant resolves the sub-account names, queries each sub-account separately, and compares the results.
+Every request targets one sub-account
+and is authorized against your installation. The connection cannot access sub-accounts you did not include.
+Availability:
+Single-sub-account connections are available today. Agency-wide connections are rolling out through the multi-sub-account, or bulk, installation option. If installation offers only one sub-account, the multi-sub-account option is not enabled for your app yet.
+Watch the multiple-sub-account walkthrough
+.
+How the Four MCP Tools Work
+The server exposes four unified tools. Your assistant uses these tools to find and run the operations available to your connection.
+Tool
+Purpose
+list_locations
+Find the sub-accounts available to the connection, or return its single bound sub-account.
+search_operations
+Discover active operations for the task, including record searches and read, create, update, and delete actions.
+describe_operation
+Check an operation's inputs, example payload, required scopes, and safety information.
+execute_operation
+Run an operation within OAuth scopes, permissions, sub-account boundaries, and built-in safety checks.
+You can ask your assistant to use
+search_operations
+to check what is available to your connection at any time.
+What You Can Do
+The active catalog covers the following areas. Availability depends on your OAuth scopes and permissions.
+Area
+Examples of supported operations
+Contacts
+Search and manage contacts, duplicate lookup, tags, notes, tasks, followers, campaigns, appointments, business assignment, and workflow enrollment.
+Conversations & Messages
+Manage conversations; read and send messages; work with attachments, scheduled messages, status updates, recordings, transcriptions, exports, and typing indicators.
+Opportunities & Pipelines
+Work with pipelines, lost reasons, opportunity searches, create/update/delete/upsert actions, followers, and status changes.
+Calendars & Appointments
+Work with calendars, groups, appointments, events, notes, notifications, free and blocked slots, resources, availability schedules, services, service locations, and bookings.
+Payments
+Manage coupons, payment provider configuration, integrations, orders, fulfillment, recorded payments, subscriptions, and transactions.
+Products & Store
+Work with products, prices, collections, inventory, reviews, store placement, shipping carriers, zones and rates, and store settings.
+Invoices, Estimates & Documents
+Work with invoices, estimates, templates, schedules, manual payments, send and void actions, invoice creation from estimates, proposals, and document links.
+Social Planner
+Work with social accounts, posts, comments, categories, tags, CSV imports, category queues, calendar views, edit sessions, and statistics.
+Blogs​
+Work with blog sites, authors, categories, posts, and slug checks.
+Emails
+Work with templates, folders, imports, campaigns, scheduling, campaign statistics, bulk-action campaigns, workflow campaigns, and email verification.
+Forms & Surveys
+Retrieve forms, surveys, and submissions.
+Funnels
+Work with funnels, funnel pages, page counts, and redirects.
+Workflows
+List and search workflows; browse step types; read, create, validate, update, publish, and delete workflow definitions; and read execution logs and step statistics. Contact enrollment and removal use contact operations.
+Voice AI
+Work with agents, agent actions, and call logs.
+Phone System
+Work with number pools, active and available numbers, and phone-number purchasing.
+Knowledge Base
+Work with knowledge bases, website crawling and training, crawl status, FAQs, and files.
+Media Library & Files
+Work with files and folders, create folders, and perform bulk media updates and deletion.
+Brand Boards
+Work with design kits, brand voices, and default brand settings.
+Custom Objects, Fields & Associations
+Work with object schemas, records, record searches, custom fields and folders, association definitions, and record relationships.
+Locations & CRM Settings
+Search and retrieve sub-accounts; work with conversation channels, custom values, recurring tasks, tags, templates, time zones, and task searches.
+Businesses & Users
+Search, create, update, and delete businesses and users.
+Marketplace & Wallet
+Retrieve installer details, work with wallet charges and fund checks, and retrieve location wallet transactions.
+Ads & Affiliates
+Use supported Facebook, Google, and LinkedIn advertising operations, audiences, lead forms, reporting, affiliates, commissions, and payouts.
+Additional CRM areas
+Work with supported operations for chat widgets, links, snapshots, campaigns, and courses.
+Example: complete a task from one prompt
+After connecting, you can give your assistant a request such as:
+Find the contact with email
+jane@example.com
+, add the tag “vip-2026”, and create an opportunity for them in “Sales Pipeline” worth $5,000.
+The assistant uses
+search_operations
+to discover the contact lookup, tagging, and opportunity operations. It checks their inputs, scopes, and safety information with
+describe_operation
+, then uses
+execute_operation
+to find the contact and perform the supported actions. It reports the results back in natural language.
+Permissions and Security
+You select the sub-accounts.
+Each request is authorized against the installation and can access only a sub-account included in that connection.
+OAuth scopes limit actions.
+The assistant can perform only the operations allowed by your grant.
+Sensitive actions have additional checks.
+Sensitive and irreversible operations are subject to confirmation and safety checks before execution.
+You control ongoing access.
+Review or revoke the connection's access from your LeadConnector account.
+Frequently Asked Questions
+Q: Do I need a Private Integration Token?
+The client connections in this guide use OAuth. Complete the LeadConnector sign-in and consent flow to authorize access; you do not need to manually create or rotate a token for these connections.
+Q: Which server URL should I use?
+The HighLevel plugin in ChatGPT does not require manually entering an MCP server URL. For custom MCP connections, use the URL listed for your client in the connection table above. Claude clients use the Anthropic endpoint, ChatGPT and Codex use the OpenAI endpoint, and Cursor uses its own endpoint. Muse and Grok Bot also offer officially listed apps.
+Q: Why do I see four tools instead of hundreds?
+The four tools let the assistant discover and run the active operation catalog. Individual CRM operations are found through
+search_operations
+, inspected through
+describe_operation
+, and run through
+execute_operation
+.
+Q: How many operations are available?
+The active catalog includes more than 600 operations across 38 domains. Your connection can use only the operations allowed by its OAuth scopes and permissions. Ask your assistant to search for the operation you need.
+Q: Can my assistant create, update, or delete records?
+Yes, where the operation is supported and your OAuth grant permits it. Sensitive and irreversible actions also have confirmation and safety checks.
+Q: Can I use one connection for several sub-accounts?
+Agencies can use a multi-sub-account installation where it is enabled. Each operation still runs against one authorized sub-account. If installation only offers a single sub-account, the multi-sub-account option is not yet enabled for your app.
+Q: Can the assistant access a sub-account I did not select?
+No. Requests outside the sub-accounts included in the installation are refused.
+Q: How do I remove access?
+Review or revoke the integration's access from your LeadConnector account.
+Technical Reference
+For the source documentation, see
+LeadConnector MCP Server in the HighLevel Marketplace documentation
+.
+Was this article helpful?
+No
+Yes
+That’s Great!
+Thank you for your feedback
+Sorry! We couldn't be helpful
+Thank you for your feedback
+Your e-mail address
+*
+Let us know how can we improve this article!
+*
+Need more information
+Difficult to understand
+Inaccurate/irrelevant content
+Missing/broken link
+Select at least one of the reasons
+Please give your comments
+CAPTCHA verification is required.
+Cancel
+Send
+Feedback sent
+We appreciate your effort and will try to fix the article
+Print
+Articles in this Folder
+How to Setup and Use the HighLevel MCP Server
+Automate Workflows with GHL MCP and N8N
+MCP Connectors for Managed Agents
+HighLevel MCP Multi-Account Support for Claude
+HighLevel MCP for Anthropic — Increased Scopes
+Connect ChatGPT and Codex to LeadConnector MCP
+Related Articles
+Automate Workflows with GHL MCP and N8N
+Model Context Protocol (MCP) Integration for Voice AI Agents
+How to Connect AI Clients to Project Management with MCP
+Connect HighLevel MCP to Muse
+HighLevel MCP Multi-Account Support for Claude
+Connect ChatGPT and Codex to LeadConnector MCP
+X
+0 of 0

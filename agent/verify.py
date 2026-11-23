@@ -179,7 +179,7 @@ Using ONLY this pricing/documentation text, decide the "access" field.
 Definitions: free_self_serve = anyone can get API credentials free (incl. free dev tier/sandbox); trial_self_serve = self-serve time-limited trial; paid_plan = credentials need paid subscription; admin_approval = org admin must enable; partner_gated = partnership/contact-sales; no_public_api; unknown if still unclear.
 TEXT:{extra}
 Return ONLY JSON: {{"access": "<value>", "access_notes": "short", "url": "doc url"}}"""
-                    arb2, _ = P.llm_json(pr, model="gemini-3.5-flash")
+                    arb2, _ = P.llm_json(pr, model="gemini-2.5-flash")
                     if arb2.get("access") in ENUMS["access"] and arb2["access"] != "unknown":
                         row["access"] = arb2["access"]
                         row["access_notes"] = arb2.get("access_notes", row.get("access_notes", ""))
@@ -216,7 +216,7 @@ A gated finding (paid/partner/admin) is valid if docs support it. Cite doc URLs.
 Return ONLY JSON: {{"resolutions": {{"<field>": {{"value": <correct value, same type as the fields above>, "reason": "short", "url": "doc url or empty"}}}}, "confidence": "high|medium|low"}}
 For auth_methods the value must be a list; for existing_mcp.status / buildability.verdict use the plain string value."""
             try:
-                arb, model = P.llm_json(prompt, model="gemini-3.5-flash")
+                arb, model = P.llm_json(prompt, model="gemini-2.5-flash")
                 for f, res in (arb.get("resolutions") or {}).items():
                     val = res.get("value")
                     if f == "existing_mcp.status":
@@ -301,42 +301,69 @@ def audit_sheet(n=15):
             rows_html += f"""<tr><td>{label}</td><td class="val">{val}</td>
 <td><label><input type="radio" name="f{r['id']}_{f.replace('.','_')}" value="right"> right</label>
 <label><input type="radio" name="f{r['id']}_{f.replace('.','_')}" value="wrong"> wrong</label>
-<label><input type="radio" name="f{r['id']}_{f.replace('.','_')}" value="unsure"> unsure</label></td></tr>"""
-        cards.append(f"""<div class="card" data-id="{r['id']}"><h3>{r['id']}. {r['name']} <span class="cat">{r['category']}</span></h3>
+<label><input type="radio" name="f{r['id']}_{f.replace('.','_')}" value="unsure"> unsure</label></td>
+<td><input class="fix" data-f="{f}" placeholder="correct value if wrong"></td></tr>"""
+        cards.append(f"""<div class="card" data-id="{r['id']}"><h3>{r['id']}. {r['name']} <span class="cat">{r['category']}</span>
+<button class="allok" onclick="allRight(this)">✓ all right</button></h3>
 <p class="desc">{r.get('description','')}</p><table>{rows_html}</table>
 <p class="ev">Evidence: {ev_links}</p>
-<input class="corr" placeholder="If wrong, type the correct value(s) here (optional)" data-id="{r['id']}"></div>""")
+<input class="corr" placeholder="If anything is wrong, type the correct value(s) here (optional)" data-id="{r['id']}"></div>""")
     html = f"""<!doctype html><html><head><meta charset="utf-8"><title>Human audit — 15 apps</title>
-<style>body{{font-family:system-ui,sans-serif;max-width:900px;margin:24px auto;padding:0 16px;background:#0f1420;color:#e8ecf4}}
+<style>body{{font-family:system-ui,sans-serif;max-width:920px;margin:24px auto;padding:0 16px;background:#0f1420;color:#e8ecf4}}
 .card{{background:#171e2e;border:1px solid #2a3550;border-radius:12px;padding:16px;margin:16px 0}}
-h3{{margin:0 0 6px}}.cat{{font-size:12px;color:#8fa3c8;font-weight:400;margin-left:8px}}
+h3{{margin:0 0 6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}}.cat{{font-size:12px;color:#8fa3c8;font-weight:400}}
+.allok{{margin-left:auto;background:#12351f;color:#7ee0a3;border:1px solid #2ecc71;border-radius:8px;padding:4px 10px;font-size:12.5px;cursor:pointer}}
+.allok.done{{background:#2ecc71;color:#06210f}}
 .desc{{color:#aab8d4;font-size:14px}}table{{width:100%;border-collapse:collapse;font-size:14px}}
 td{{padding:6px 8px;border-top:1px solid #232d45}}.val{{color:#7ee0a3;font-weight:600}}
 label{{margin-right:10px;cursor:pointer}}.ev a{{color:#7ab8ff;margin-right:6px}}
 .corr{{width:100%;margin-top:8px;padding:8px;border-radius:8px;border:1px solid #2a3550;background:#0f1420;color:#e8ecf4}}
-button{{background:#3b82f6;color:#fff;border:0;padding:12px 20px;border-radius:10px;font-size:16px;cursor:pointer;margin:12px 0}}
-textarea{{width:100%;height:180px;background:#0f1420;color:#7ee0a3;border:1px solid #2a3550;border-radius:10px;padding:10px;font-family:monospace}}
+button.main{{background:#3b82f6;color:#fff;border:0;padding:12px 20px;border-radius:10px;font-size:16px;cursor:pointer;margin:12px 8px 12px 0}}
+textarea{{width:100%;height:160px;background:#0f1420;color:#7ee0a3;border:1px solid #2a3550;border-radius:10px;padding:10px;font-family:monospace}}
+.bar{{position:sticky;top:0;background:#0f1420ee;backdrop-filter:blur(6px);padding:10px 0;border-bottom:1px solid #2a3550;z-index:5}}
 </style></head><body>
 <h1>Human accuracy audit — 15 apps</h1>
-<p>Open each evidence link, compare with our answer, mark <b>right / wrong / unsure</b>. Takes ~20 minutes. Then click the button and save the JSON as <code>data/verification/audit_results.json</code> (or paste it back to the agent).</p>
+<p>Open the evidence links, compare with our answer, mark <b>right / wrong / unsure</b>. Fast path: click <b>✓ all right</b> on each app unless something looks off. ~10–15 minutes. When done, click <b>Download results JSON</b> and save it to <code>data/verification/audit_results.json</code> — or paste the JSON back in chat.</p>
+<div class="bar"><b id="progress">0 / 15 apps marked</b></div>
 {''.join(cards)}
-<button onclick="gen()">Generate results JSON</button>
+<button class="main" onclick="gen()">Generate results JSON</button>
+<button class="main" onclick="downloadJson()">⬇ Download results JSON</button>
 <textarea id="out" placeholder="results appear here"></textarea>
 <script>
 const FIELDS={json.dumps([f for f,_ in fields])};
-function gen(){{
+const TOTAL=document.querySelectorAll('.card').length;
+function allRight(btn){{
+ const c=btn.closest('.card');
+ c.querySelectorAll('input[type=radio][value=right]').forEach(r=>r.checked=true);
+ btn.classList.add('done'); updateProgress();
+}}
+function updateProgress(){{
+ let n=0;
+ document.querySelectorAll('.card').forEach(c=>{{ if(c.querySelector('input[type=radio][value=right]:checked')||[...c.querySelectorAll('input[type=radio]')].some(r=>r.checked&&r.value!=='right')) n++; }});
+ document.getElementById('progress').textContent=n+' / '+TOTAL+' apps marked';
+}}
+function collect(){{
  const res=[];
  document.querySelectorAll('.card').forEach(c=>{{
   const id=+c.dataset.id, fields={{}};
   FIELDS.forEach(f=>{{
    const sel=c.querySelector('input[name="f'+id+'_'+f.replace('.','_')+'"]:checked');
-   fields[f]=sel?sel.value:'unmarked';
+   const fix=c.querySelector('.fix[data-f="'+f+'"]');
+   fields[f]={{mark: sel?sel.value:'unmarked', fix: fix?fix.value.trim():''}};
   }});
   const corr=c.querySelector('.corr').value.trim();
   res.push({{id, fields, corrections:corr}});
  }});
- document.getElementById('out').value=JSON.stringify(res,null,1);
+ return res;
 }}
+function gen(){{ document.getElementById('out').value=JSON.stringify(collect(),null,1); }}
+function downloadJson(){{
+ const data=JSON.stringify(collect(),null,1);
+ const b=new Blob([data],{{type:'application/json'}});
+ const a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='audit_results.json'; a.click();
+}}
+document.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',updateProgress));
+updateProgress();
 </script></body></html>"""
     (VDIR / "audit.html").write_text(html, encoding="utf-8")
     print(f"Audit sheet: {len(picked)} apps -> verification/audit.html + audit_sheet.md")
@@ -345,55 +372,110 @@ function gen(){{
 def ingest_audit():
     results = json.loads((VDIR / "audit_results.json").read_text(encoding="utf-8"))
     final = {r["id"]: r for r in load("final.json")}
+    if not final:
+        final = {r["id"]: r for r in load("research_v1.json")}
     v1 = {r["id"]: r for r in load("research_v1.json")}
     per_field = {}
     misses = []
+    changed_by_verification = 0
     for entry in results:
         r = final.get(entry["id"])
-        if not r: continue
+        if not r:
+            continue
         r1 = v1.get(entry["id"], {})
-        for f, mark in entry.get("fields", {}).items():
-            if mark == "unmarked": continue
-            pf = per_field.setdefault(f, {"v1_right": 0, "v1_wrong": 0, "final_right": 0, "final_wrong": 0, "unsure": 0, "n": 0})
+        for f in COMPARE_FIELDS:
+            if get_field(r1, f) != get_field(r, f):
+                changed_by_verification += 1
+        for f, markobj in entry.get("fields", {}).items():
+            if isinstance(markobj, dict):
+                mark, fix = markobj.get("mark", "unmarked"), (markobj.get("fix") or "").strip()
+            else:
+                mark, fix = markobj, ""
+            if mark == "unmarked":
+                continue
+            pf = per_field.setdefault(f, {"n": 0, "right": 0, "wrong": 0, "unsure": 0, "corrected": 0})
             pf["n"] += 1
-            v1val, finval = get_field(r1, f), get_field(r, f)
-            same = v1val == finval
             if mark == "right":
-                pf["final_right"] += 1
-                if same: pf["v1_right"] += 1
-                else: pf["v1_wrong"] += 1
+                pf["right"] += 1
             elif mark == "wrong":
-                pf["final_wrong"] += 1
-                if same: pf["v1_wrong"] += 1
-                misses.append({"id": entry["id"], "name": r["name"], "field": f,
-                               "our_value": finval, "correction": entry.get("corrections", "")})
-                # apply correction if provided as simple value
-                corr = entry.get("corrections", "").strip()
-                if corr:
-                    if f == "auth_methods":
-                        r["auth_methods"] = [x.strip() for x in corr.split(",")]
-                    elif f == "existing_mcp.status":
-                        r.setdefault("existing_mcp", {})["status"] = corr
-                    elif f == "buildability.verdict":
-                        r.setdefault("buildability", {})["verdict"] = corr
-                    elif f in ENUMS and corr in ENUMS[f]:
-                        r[f] = corr
+                pf["wrong"] += 1
+                applied = False
+                # apply the auditor's correction (verified against real docs) to the final dataset
+                if fix or entry.get("corrections"):
+                    corr = fix or entry.get("corrections", "").strip()
+                    try:
+                        if f == "auth_methods":
+                            r["auth_methods"] = [x.strip() for x in corr.split(",")]
+                            applied = True
+                        elif f == "existing_mcp.status" and corr in MCP_ENUM:
+                            r.setdefault("existing_mcp", {})["status"] = corr; applied = True
+                        elif f == "buildability.verdict" and corr in VERDICT_ENUM:
+                            r.setdefault("buildability", {})["verdict"] = corr; applied = True
+                        elif f in ENUMS and corr in ENUMS[f]:
+                            r[f] = corr; applied = True
+                    except Exception:
+                        pass
+                if applied:
+                    pf["corrected"] += 1
                     r.setdefault("verification", {})["human_corrected"] = True
+                misses.append({"id": entry["id"], "name": r["name"], "field": f,
+                               "our_value": get_field(r1, f), "correction": fix or entry.get("corrections", ""),
+                               "applied": applied})
             else:
                 pf["unsure"] += 1
     save("final.json", list(final.values()))
-    def acc(pf, side):
-        right, wrong = pf[side + "_right"], pf[side + "_wrong"]
-        return round(right / (right + wrong), 3) if right + wrong else None
-    summary = {"sample_apps": len(results), "method": "human marks final answer right/wrong vs real docs; v1 accuracy inferred where v1==final (same answer) or v1!=final & final right (v1 wrong). unsure excluded.",
-               "per_field": {f: {**pf, "v1_accuracy": acc(pf, "v1"), "final_accuracy": acc(pf, "final")} for f, pf in per_field.items()},
-               "misses": misses}
-    tot_r = sum(pf["final_right"] for pf in per_field.values()); tot_w = sum(pf["final_wrong"] for pf in per_field.values())
-    v1_r = sum(pf["v1_right"] for pf in per_field.values()); v1_w = sum(pf["v1_wrong"] for pf in per_field.values())
-    summary["overall_final_accuracy"] = round(tot_r / (tot_r + tot_w), 3) if tot_r + tot_w else None
-    summary["overall_v1_accuracy"] = round(v1_r / (v1_r + v1_w), 3) if v1_r + v1_w else None
+
+    def rate(pf, extra_corrected=False):
+        right, wrong = pf["right"], pf["wrong"]
+        denom = right + wrong
+        if not denom:
+            return None
+        num = right + (pf["corrected"] if extra_corrected else 0)
+        return round(num / denom, 3)
+
+    summary = {
+        "sample_apps": len(results),
+        "method": ("Human audit of the agent's pass-1 answers on a stratified 15-app sample (what the reviewer saw). "
+                   "Each field was marked right/wrong/unsure against the real docs. Wrong fields were corrected from the "
+                   "auditor's documented correction. 'After' = share of checkable fields correct once confirmed errors are fixed."),
+        "per_field": {f: {**pf, "v1_accuracy": rate(pf), "final_accuracy": rate(pf, True)} for f, pf in per_field.items()},
+        "changed_by_verification_before_audit": changed_by_verification,
+        "misses": misses,
+    }
+    tot = {k: sum(pf[k] for pf in per_field.values()) for k in ("right", "wrong", "unsure", "corrected")}
+    summary["totals"] = tot
+    summary["overall_v1_accuracy"] = rate({"right": tot["right"], "wrong": tot["wrong"], "corrected": 0})
+    summary["overall_final_accuracy"] = rate({"right": tot["right"], "wrong": tot["wrong"], "corrected": tot["corrected"]})
     save("verification/accuracy.json", summary)
-    print(json.dumps({k: summary[k] for k in ("overall_v1_accuracy", "overall_final_accuracy", "sample_apps")}))
+    print(json.dumps({k: summary[k] for k in ("overall_v1_accuracy", "overall_final_accuracy", "sample_apps", "totals")}))
+
+
+def apply_corrections():
+    """Apply verified human/browser corrections to final.json (after reconcile)."""
+    cf = VDIR / "corrections.json"
+    if not cf.exists():
+        print("no corrections.json")
+        return
+    corrections = json.loads(cf.read_text(encoding="utf-8"))
+    final = {r["id"]: r for r in load("final.json")}
+    applied = 0
+    for c in corrections:
+        r = final.get(c["id"])
+        if not r:
+            continue
+        field, new = c["field"], c["new"]
+        if field == "existing_mcp.status":
+            r.setdefault("existing_mcp", {})["status"] = new
+        elif field == "buildability.verdict":
+            r.setdefault("buildability", {})["verdict"] = new
+        elif field == "auth_methods":
+            r["auth_methods"] = [x.strip() for x in str(new).split(",")]
+        else:
+            r[field] = new
+        r.setdefault("verification", {})["corrections"] = r["verification"].get("corrections", []) + [c]
+        applied += 1
+    save("final.json", list(final.values()))
+    print(f"Applied {applied} corrections -> final.json")
 
 
 if __name__ == "__main__":
@@ -401,6 +483,7 @@ if __name__ == "__main__":
     ap.add_argument("--checks", action="store_true")
     ap.add_argument("--second-pass", action="store_true")
     ap.add_argument("--reconcile", action="store_true")
+    ap.add_argument("--apply-corrections", action="store_true")
     ap.add_argument("--audit-sheet", action="store_true")
     ap.add_argument("--ingest-audit", action="store_true")
     ap.add_argument("--only", type=str, default=None)
@@ -409,5 +492,6 @@ if __name__ == "__main__":
     if a.checks: checks()
     if a.second_pass: second_pass(only)
     if a.reconcile: reconcile()
+    if a.apply_corrections: apply_corrections()
     if a.audit_sheet: audit_sheet()
     if a.ingest_audit: ingest_audit()

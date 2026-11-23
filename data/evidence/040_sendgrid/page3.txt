@@ -1,0 +1,340 @@
+URL: https://github.com/recepyavuz0/sendgrid-mcp-server
+FETCHED: 2026-11-23T17:16:19.245062
+VIA: direct
+
+GitHub - recepyavuz0/sendgrid-mcp-server: Sendrid API Integration For LLM · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+master
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+13 Commits
+13 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+src
+src
+.gitignore
+.gitignore
+LICENSE
+LICENSE
+LLM.txt
+LLM.txt
+README-TR.md
+README-TR.md
+README.md
+README.md
+package-lock.json
+package-lock.json
+package.json
+package.json
+tsconfig.json
+tsconfig.json
+View all files
+Repository files navigation
+SendGrid MCP Server
+🚀
+Model Context Protocol (MCP) server with SendGrid API integration
+This project is an MCP server that enables AI assistants (Claude, ChatGPT, etc.) to send emails, manage templates, and track statistics using the SendGrid's API v3.
+🌟 Features
+📧 Email Operations
+Single Email Sending
+: Send emails in plain text or HTML format
+Batch Email Sending
+: Send emails to multiple recipients simultaneously
+Template-based Emails
+: Send dynamic emails using pre-built templates
+Scheduled Emails
+: Schedule emails to be sent at a future date and time
+📋 Template Management
+Template Listing
+: View existing email templates
+Template Creation
+: Create new dynamic email templates
+📊 Statistics and Reporting
+Email Statistics
+: View email statistics for specific date ranges
+Detailed Reports
+: Get daily, weekly, or monthly reports
+🛠️ Installation
+1. Clone the Repository
+git clone https://github.com/recepyavuz0/sendgrid-mcp-server.git
+cd
+sendgrid-mcp-server
+2. Install Dependencies
+npm install
+3. Set Environment Variables
+Create a
+.env
+file in the project root directory:
+SENDGRID_API_KEY
+=
+your_sendgrid_api_key_here
+FROM_EMAIL
+=
+your_verified_sender_email@domain.com
+Important Notes:
+SENDGRID_API_KEY
+: API key obtained from your SendGrid account
+FROM_EMAIL
+: Verified sender email address in SendGrid
+4. Build the Project
+npm run build
+🔧 Usage
+Standalone Execution
+npm start
+Usage with MCP Client
+The MCP server works over stdin/stdout. You can use it with various clients:
+🎯 Client Integrations
+🖱️ Usage with Cursor IDE
+To use the MCP server in Cursor:
+Go to
+Cursor Settings
+>
+Extensions
+>
+MCP
+section
+Add a new MCP server:
+{
+"mcpServers"
+: {
+"sendgrid-api-mcp-server"
+: {
+"command"
+:
+"
+npx
+"
+,
+"args"
+: [
+"
+-y
+"
+,
+"
+sendgrid-api-mcp-server
+"
+],
+"env"
+: {
+"SENDGRID_API_KEY"
+:
+"
+your_api_key
+"
+,
+"FROM_EMAIL"
+:
+"
+your_email@domain.com
+"
+}
+    }
+  }
+}
+Restart Cursor
+Now you can send emails in Chat:
+Example Usage:
+"Send a project meeting reminder to john@example.com"
+"Send an HTML welcome message to user@test.com"
+🤖 Usage with Claude Desktop
+For usage in Claude Desktop application:
+Edit your Claude configuration file (
+~/.claude_desktop_config.json
+):
+{
+"mcpServers"
+: {
+"sendgrid-api-mcp-server"
+: {
+"command"
+:
+"
+npx
+"
+,
+"args"
+: [
+"
+-y
+"
+,
+"
+sendgrid-api-mcp-server
+"
+],
+"env"
+: {
+"SENDGRID_API_KEY"
+:
+"
+your_api_key
+"
+,
+"FROM_EMAIL"
+:
+"
+your_email@domain.com
+"
+}
+    }
+  }
+}
+Restart Claude Desktop
+Give email commands directly in chat
+🔗 Other MCP Clients
+This MCP server is compatible with the following clients since it uses the standard MCP protocol:
+Zed Editor
+VS Code MCP Extension
+Continue.dev
+Custom MCP clients
+Similar configuration structure is used for each client.
+📚 Available Tools
+1.
+sendEmail
+- Send Email
+Basic email sending functionality.
+Parameters:
+to
+: Recipient email address
+subject
+: Email subject
+text
+: Email text
+html
+: HTML format (optional)
+Example Usage:
+"Send a meeting reminder to ali@example.com: 'We'll meet tomorrow at 2:00 PM.'"
+2.
+sendEmailWithTemplate
+- Template-based Email
+Send dynamic emails using pre-built templates.
+Parameters:
+to
+: Recipient email address
+subject
+: Email subject
+templateId
+: SendGrid template ID
+dynamicData
+: Template variables
+Example Usage:
+"Send email to user@test.com using template d-123456789 with data: {name: 'John', company: 'ABC Corp'}"
+3.
+sendBatchEmails
+- Batch Email
+Send emails to multiple recipients simultaneously.
+Parameters:
+toList
+: List of recipient email addresses
+subject
+: Email subject
+text
+: Email text
+html
+: HTML format (optional)
+Example Usage:
+"Send new feature announcement to john@test.com, jane@test.com, bob@test.com"
+4.
+listTemplates
+- List Templates
+View existing email templates.
+Example Usage:
+"List existing email templates"
+5.
+getStats
+- Email Statistics
+Get email statistics for a specific date range.
+Parameters:
+start_date
+: Start date (YYYY-MM-DD)
+end_date
+: End date (YYYY-MM-DD)
+aggregated_by
+: Grouping (day/week/month)
+Example Usage:
+"Show email statistics for January 2024"
+6.
+scheduleEmail
+- Scheduled Email
+Schedule an email to be sent at a future date.
+Parameters:
+to
+: Recipient email address
+subject
+: Email subject
+text
+: Email text
+send_at
+: Unix timestamp (seconds)
+html
+: HTML format (optional)
+Example Usage:
+"Schedule a meeting reminder to user@test.com for tomorrow at 10:00 AM"
+7.
+createTemplate
+- Create Template
+Create a new dynamic email template.
+Parameters:
+name
+: Template name
+subject
+: Email subject template
+html_body
+: HTML content (with {{variable}} format)
+plain_body
+: Plain text content
+Example Usage:
+"Create a welcome-email template with {{name}} and {{company}} variables"
+💡 Usage Examples
+Simple Email Sending
+AI: "Send an invoice reminder to customer@company.com"
+Dynamic Email with Template
+AI: "Send monthly newsletter to all customers using template d-123456789"
+Batch Email Campaign
+AI: "Send new policy announcement to team@company.com, sales@company.com, support@company.com"
+Statistics Tracking
+AI: "Generate this month's email performance report"
+Scheduled Campaign
+AI: "Schedule weekly meeting reminder to entire team for Monday 9:00 AM"
+About
+Sendrid API Integration For LLM
+www.npmjs.com/package/sendgrid-api-mcp-server
+Resources
+Readme
+MIT license
+Activity
+Stars
+1
+star
+Watchers
+0
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

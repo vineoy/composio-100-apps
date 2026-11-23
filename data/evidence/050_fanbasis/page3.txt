@@ -1,0 +1,329 @@
+URL: https://github.com/basis-protocol/basis-mcp
+FETCHED: 2026-11-23T17:29:50.024749
+VIA: direct
+
+GitHub - basis-protocol/basis-mcp · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+master
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+39 Commits
+39 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.mcp
+.mcp
+artifacts
+artifacts
+attached_assets
+attached_assets
+lib
+lib
+packages
+packages
+scripts
+scripts
+.gitignore
+.gitignore
+.mcpregistry_registry_token
+.mcpregistry_registry_token
+.npmrc
+.npmrc
+.replit
+.replit
+.replitignore
+.replitignore
+LICENSE
+LICENSE
+README.md
+README.md
+blockers.md
+blockers.md
+mcp-publisher
+mcp-publisher
+mcp_registry_entries.md
+mcp_registry_entries.md
+mcp_split_plan.md
+mcp_split_plan.md
+package.json
+package.json
+pnpm-lock.yaml
+pnpm-lock.yaml
+pnpm-workspace.yaml
+pnpm-workspace.yaml
+replit.md
+replit.md
+server.json
+server.json
+session_summary_2026-04-19-mcp-tools.md
+session_summary_2026-04-19-mcp-tools.md
+session_summary_2026-04-19.md
+session_summary_2026-04-19.md
+shapes_discovered.md
+shapes_discovered.md
+tsconfig.base.json
+tsconfig.base.json
+tsconfig.json
+tsconfig.json
+View all files
+Repository files navigation
+Basis Protocol MCP — split servers
+2026-04-19:
+The monolithic
+@basis-protocol/mcp-server
+(registry name
+io.github.basis-protocol/basis-mcp
+) is
+deprecated
+but still published and functional. New integrations should install the
+four scoped servers below. All 8 legacy tools now ship in
+@basis/oracle-mcp
+; the other three reserve their namespaces and
+publish as scaffolds while their feature sets ship.
+Package
+Scope
+Source
+@basis/oracle-mcp
+Score reads — SII, PSI, RPI, accruing indices
+packages/oracle-mcp
+@basis/cqi-mcp
+Composition — CQI pairs, stress, Basel SCO60 / MiCA / GENIUS reports, RQS, contagion
+packages/cqi-mcp
+@basis/witness-mcp
+Evidence — attestations, TLSNotary proofs, CDA snapshots
+packages/witness-mcp
+@basis/divergence-mcp
+Live signals — pulse, divergence, oracle stress, coherence drops, discovery
+packages/divergence-mcp
+Shared HTTP client, types, helpers, and server runner live in
+@basis/mcp-shared
+. Legacy monolith lives at
+artifacts/basis-mcp
+. See
+mcp_split_plan.md
+,
+mcp_registry_entries.md
+, and
+blockers.md
+for the full split record.
+MCP Registry
+The MCP registry provides MCP clients with a list of MCP servers, like an app store for MCP servers.
+📤 Publish my MCP server
+|
+⚡️ Live API docs
+|
+👀 Ecosystem vision
+| 📖
+Full documentation
+Development Status
+2025-10-24 update
+: The Registry API has entered an
+API freeze (v0.1)
+🎉. For the next month or more, the API will remain stable with no breaking changes, allowing integrators to confidently implement support. This freeze applies to v0.1 while development continues on v0. We'll use this period to validate the API in real-world integrations and gather feedback to shape v1 for general availability. Thank you to everyone for your contributions and patience—your involvement has been key to getting us here!
+2025-09-08 update
+: The registry has launched in preview 🎉 (
+announcement blog post
+). While the system is now more stable, this is still a preview release and breaking changes or data resets may occur. A general availability (GA) release will follow later. We'd love your feedback in
+GitHub discussions
+or in the
+#registry-dev Discord
+(
+joining details here
+).
+Current key maintainers:
+Adam Jones
+(Anthropic)
+@domdomegg
+Tadas Antanavicius
+(PulseMCP)
+@tadasant
+Toby Padilla
+(GitHub)
+@toby
+Radoslav (Rado) Dimitrov
+(Stacklok)
+@rdimitrov
+Contributing
+We use multiple channels for collaboration - see
+modelcontextprotocol.io/community/communication
+.
+Often (but not always) ideas flow through this pipeline:
+Discord
+- Real-time community discussions
+Discussions
+- Propose and discuss product/technical requirements
+Issues
+- Track well-scoped technical work
+Pull Requests
+- Contribute work towards issues
+Quick start:
+Pre-requisites
+Docker
+Go 1.24.x
+ko
+- Container image builder for Go (
+installation instructions
+)
+golangci-lint v2.4.0
+Running the server
+#
+Start full development environment
+make dev-compose
+This starts the registry at
+localhost:8080
+with PostgreSQL. The database uses ephemeral storage and is reset each time you restart the containers, ensuring a clean state for development and testing.
+Note:
+The registry uses
+ko
+to build container images. The
+make dev-compose
+command automatically builds the registry image with ko and loads it into your local Docker daemon before starting the services.
+By default, the registry seeds from the production API with a filtered subset of servers (to keep startup fast). This ensures your local environment mirrors production behavior and all seed data passes validation. For offline development you can seed from a file without validation with
+MCP_REGISTRY_SEED_FROM=data/seed.json MCP_REGISTRY_ENABLE_REGISTRY_VALIDATION=false make dev-compose
+.
+The setup can be configured with environment variables in
+docker-compose.yml
+- see
+.env.example
+for a reference.
+Alternative: Running a pre-built Docker image
+Pre-built Docker images are automatically published to GitHub Container Registry:
+#
+Run latest stable release
+docker run -p 8080:8080 ghcr.io/modelcontextprotocol/registry:latest
+#
+Run latest from main branch (continuous deployment)
+docker run -p 8080:8080 ghcr.io/modelcontextprotocol/registry:main
+#
+Run specific release version
+docker run -p 8080:8080 ghcr.io/modelcontextprotocol/registry:v1.0.0
+#
+Run development build from main branch
+docker run -p 8080:8080 ghcr.io/modelcontextprotocol/registry:main-20250906-abc123d
+Available tags:
+Releases
+:
+latest
+,
+v1.0.0
+,
+v1.1.0
+, etc.
+Continuous
+:
+main
+(latest main branch build)
+Development
+:
+main-<date>-<sha>
+(specific commit builds)
+Publishing a server
+To publish a server, we've built a simple CLI. You can use it with:
+#
+Build the latest CLI
+make publisher
+#
+Use it!
+./bin/mcp-publisher --help
+See
+the publisher guide
+for more details.
+Other commands
+#
+Run lint, unit tests and integration tests
+make check
+There are also a few more helpful commands for development. Run
+make help
+to learn more, or look in
+Makefile
+.
+Architecture
+Project Structure
+├── cmd/                     # Application entry points
+│   └── publisher/           # Server publishing tool
+├── data/                    # Seed data
+├── deploy/                  # Deployment configuration (Pulumi)
+├── docs/                    # Documentation
+├── internal/                # Private application code
+│   ├── api/                 # HTTP handlers and routing
+│   ├── auth/                # Authentication (GitHub OAuth, JWT, namespace blocking)
+│   ├── config/              # Configuration management
+│   ├── database/            # Data persistence (PostgreSQL)
+│   ├── service/             # Business logic
+│   ├── telemetry/           # Metrics and monitoring
+│   └── validators/          # Input validation
+├── pkg/                     # Public packages
+│   ├── api/                 # API types and structures
+│   │   └── v0/              # Version 0 API types
+│   └── model/               # Data models for server.json
+├── scripts/                 # Development and testing scripts
+├── tests/                   # Integration tests
+└── tools/                   # CLI tools and utilities
+    └── validate-*.sh        # Schema validation tools
+Authentication
+Publishing supports multiple authentication methods:
+GitHub OAuth
+- For publishing by logging into GitHub
+GitHub OIDC
+- For publishing from GitHub Actions
+DNS verification
+- For proving ownership of a domain and its subdomains
+HTTP verification
+- For proving ownership of a domain
+The registry validates namespace ownership when publishing. E.g. to publish...:
+io.github.domdomegg/my-cool-mcp
+you must login to GitHub as
+domdomegg
+, or be in a GitHub Action on domdomegg's repos
+me.adamjones/my-cool-mcp
+you must prove ownership of
+adamjones.me
+via DNS or HTTP challenge
+Community Projects
+Check out
+community projects
+to explore notable registry-related work created by the community.
+More documentation
+See the
+documentation
+for more details if your question has not been answered here!
+About
+No description, website, or topics provided.
+Resources
+Readme
+License
+Activity
+Custom properties
+Stars
+0
+stars
+Watchers
+0
+watching
+Forks
+0
+forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

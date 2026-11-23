@@ -1,0 +1,1926 @@
+URL: https://woocommerce.com/document/w7s-mcp/
+FETCHED: 2026-11-23T17:21:03.567925
+VIA: direct
+
+MCP for WooCommerce Documentation - WooCommerce
+Skip to navigation
+Skip to content
+Documentation
+Documentation
+WooCommerce
+Expand
+Products
+Expand
+Extensions
+Expand
+Pre-Sales Support
+Stripe
+WooCommerce Square
+PayPal Braintree
+AutomateWoo
+Expand
+Product CSV Import Suite
+Order/Customer CSV Export
+Facebook for WooCommerce
+WooCommerce Subscriptions
+Expand
+WooCommerce Memberships
+Expand
+WooCommerce Bookings
+Expand
+Product Bundles
+Expand
+Product Recommendations
+Expand
+Composite Products
+Expand
+Smart Coupons
+Cashier for WooCommerce
+Affiliate For WooCommerce
+Mix and Match Products
+Google Product Feed
+Groups WooCommerce
+Gift Cards
+Expand
+API Manager
+Table Rate Shipping
+Advanced Shipping Packages
+Name Your Price
+Order Delivery
+Product Vendors
+PDF Invoice
+Pre-orders
+Force Sells
+Google for WooCommerce
+Expand
+Import Export Suite for WooCommerce
+Bulk Updater for WooCommerce Subscriptions
+Expand
+Enhancer for WooCommerce Subscriptions
+Expand
+Product Add-ons
+Expand
+Xero
+Expand
+Zapier Integration
+Expand
+Anti-Fraud
+Klarna
+Expand
+Kustom Checkout
+Buy One Get One Free
+WooCommerce Shipping & Tax
+Conditional Shipping and Payments
+Email Customizer Pro
+Back In Stock Notifications
+EU VAT Number
+Sensei
+Expand
+Chained Products
+Shipment Tracking
+Expand
+Saved Addresses For WooCommerce
+Volume Discount Coupons
+Smart Product Designer
+Sales Analysis
+Smart Refunder
+WooCommerce Product Search
+Expand
+Photography
+Expand
+Easy Subscriptions
+All-in-one PDF Invoice and Packing Slips Suite
+Expand
+SensAI
+Delivery and Pickup Scheduler
+Flexi Booking and Appointment
+Flexi Product Delivery Date
+Product Prices by User Role
+Call for Price Pro
+Currency per product
+Order Delivery Date
+Abandoned Cart Pro
+Payment Gateway Based Fees and Discounts
+Product Input Fields
+Flexi Custom Order Status
+Flexi BOGO
+Smart Stock & Inventory Manager
+Advanced Bulk Edit
+Opayo
+Flexi Custom Order Numbers
+WooCommerce AI
+Product Feed Manager
+Themes
+Expand
+WooPayments
+WooPay
+WooCommerce Shipping
+WooCommerce Tax
+Retired Products
+Expand
+Woo Marketplace
+Code Snippets
+Expand
+MCP for WooCommerce
+MCP for WooCommerce
+by
+w7s
+connects
+Claude
+,
+ChatGPT
+, and other AI assistants to your WooCommerce store so they can work with your orders, products, customers, and more in plain language. It runs its own Model Context Protocol (MCP) server on the free MCP Adapter plugin, gives you a settings screen to manage the connection and your API keys, and lets you choose exactly which groups of tools the AI client is allowed to use. This guide covers what you need, how to set it up, what every setting does, and how developers can extend it.
+MCP for WooCommerce gives your store its own MCP server. MCP is the standard that lets an AI assistant call tools on your site. The plugin’s server lives at
+/wp-json/w7s-mcp/v1/mcp
+and runs on the MCP Adapter, a free plugin from WordPress.org that handles the MCP protocol for WordPress.
+It does three main things:
+It provides a settings area under
+WooCommerce > Settings > MCP
+for connecting an assistant, creating API keys, and reviewing activity;
+It registers a large set of MCP abilities so an assistant can list and manage orders, products, customers, coupons, refunds, tax, shipping, webhooks, reports, and more; and
+It lets you switch whole groups of tools (called tool packs) on or off, so an assistant only ever sees the capabilities you have chosen to expose.
+On top of the server, the plugin adds the connection and key management screens, a large library of abilities, tool pack gating that is enforced when a tool runs, optional activity logging and change history, and API key permission enforcement on every call. It does not depend on WooCommerce’s own MCP feature, which WooCommerce removes in version 11.3.
+MCP for WooCommerce needs the following to run:
+WordPress 6.9 or higher, which provides the Abilities API.
+WooCommerce 10.4 or higher. WooCommerce is a hard dependency. The plugin declares
+Requires Plugins: woocommerce
+and will prompt you if WooCommerce is missing.
+The free
+MCP Adapter
+plugin, on WooCommerce 11.3 and later, or on any store where no other plugin brings a copy of the adapter. See
+The MCP Adapter
+below.
+PHP 7.4 or higher.
+MySQL 5.6 or higher, or the MariaDB equivalent.
+An AI assistant that understands MCP, such as Claude, ChatGPT, Cursor, or VS Code with GitHub Copilot, or any other MCP or OpenAPI 3.1 client (Cline, n8n, Ollama, and more).
+For Claude.ai in the browser or ChatGPT, an account or plan on the assistant’s side that allows custom connectors, custom GPTs, or MCP servers.
+For the one-click Claude Desktop setup: Claude Desktop 0.13.37 or newer, and Node.js 18 or newer on that computer.
+Remote connectors use Streamable HTTP. A client can optionally open an SSE stream for server messages; each open stream can occupy a PHP worker for up to an hour before reconnecting. The session itself is stored between requests and does not require a continuously occupied worker. Its idle lifetime is separate and defaults to 24 hours.
+WooCommerce 11.2 and earlier bring their own copy of the MCP Adapter, and so do some other plugins, such as Elementor. MCP for WooCommerce works on those copies. WooCommerce stops bringing its copy in WooCommerce 11.3, so installing the MCP Adapter plugin keeps your connections working through that update.
+To start using a product from WooCommerce.com, you can use the “Add to store” functionality on the order confirmation page or the
+My subscriptions
+section in your account.
+Navigate to
+My subscriptions
+.
+Find the
+Add to store
+button next to the product you’re planning to install.
+Follow the instructions on the screen, and the product will be automatically added to your store.
+Alternative options and more information at:
+Managing WooCommerce.com subscriptions
+.
+Once MCP for WooCommerce is active, install the MCP Adapter if the plugin asks for it. A notice at the top of your WP Admin dashboard (WordPress Admin dashboard) tells you whether you need it, and offers a button that installs and activates it for you in one click.
+The MCP Adapter is a free plugin from WordPress.org. It handles the MCP protocol for WordPress, and MCP for WooCommerce runs its server on it. Without an adapter on the site, no AI assistant can connect to your store.
+WordPress and WooCommerce now connect AI assistants through the MCP Adapter plugin. Up to WooCommerce 11.2, WooCommerce brought its own copy of the adapter and its own MCP endpoint, and earlier versions of MCP for WooCommerce connected through them. From WooCommerce 11.3, WooCommerce removes both, and AI connections run through the MCP Adapter plugin instead. MCP for WooCommerce 2.0.0 adapts to that change: it runs its own MCP server on whichever adapter is loaded, so your keys, connector URLs, and configurations keep working.
+You need to install the plugin when:
+your store runs WooCommerce 11.3 or later, which no longer brings its own copy; or
+no other plugin on your site brings a copy of the adapter.
+On WooCommerce 11.2 and earlier, MCP for WooCommerce works without the plugin, using the copy that comes with WooCommerce. It still recommends installing the plugin now, so your connections keep working when WooCommerce 11.3 removes that copy.
+The MCP Adapter is recommended rather than required, so WordPress never blocks MCP for WooCommerce from activating or updating because the adapter is missing. Instead, the plugin tells you when you need it.
+Users who can manage WooCommerce see a notice on WP Admin screens when the adapter needs attention. The MCP settings screen is the exception: there, the Connection tab shows the same status in place of the notice, so it doesn’t appear twice. Each notice has a
+Why this changed
+link to WooCommerce’s announcement of the change,
+WooCommerce 11.3 MCP Adaptor updates
+.
+AI connections need the free MCP Adapter plugin.
+A red error notice. No adapter is loaded, so MCP for WooCommerce can’t connect Claude, ChatGPT, or other assistants. Install the MCP Adapter plugin with the button in the notice. Every connection you already had works again as soon as it is active, with no change in the assistant. If you dismiss this notice, it returns the next day for as long as the adapter is missing.
+AI connections need a newer MCP Adapter.
+A red error notice. A copy of the adapter is loaded, but it is too old for MCP for WooCommerce. Install the MCP Adapter plugin.
+WooCommerce is changing how AI assistants connect to your store.
+A yellow warning notice, shown on WooCommerce 11.2 and earlier while your connections run through the copy of the adapter built into WooCommerce. In an upcoming release, WooCommerce 11.3, that copy goes away. Your connections work today. Install the MCP Adapter plugin now so they keep working after that update. You can dismiss this warning, and it stays hidden until the situation changes.
+When the adapter comes with Elementor or another plugin, there is no notice across WP Admin, because connections work through that copy and nothing has announced its removal. The Connection tab and site readiness show a calm line instead: AI connections run through that copy, and the free MCP Adapter plugin is recommended, so a plugin update can’t remove it.
+When the MCP Adapter plugin is active, there is no notice.
+The button in the notice depends on what you are allowed to do on the site:
+Install and activate MCP Adapter
+installs the plugin from WordPress.org and activates it, in one click, without leaving the page. The notice shows each step (“Installing…”, “Activating…”), then “MCP Adapter is active. AI connections are on.” and goes away. Nothing is installed until you click. It needs permission to install and activate plugins (on a multisite network, a network administrator).
+Activate MCP Adapter
+appears when the plugin is installed but not active, and activates it in one click.
+Install MCP Adapter
+appears when WordPress needs your server’s file access details (FTP or SSH) to install plugins. It opens the Plugins screen’s installer, where WordPress asks for them.
+Get MCP Adapter from WordPress.org
+appears when your account cannot install and activate plugins, or the site does not allow plugin changes from WP Admin. Pass the link to whoever manages plugins on the site. On managed hosting and on multisite networks, that may be your host or the network administrator.
+If installing or activating fails, the notice says why and offers a link to finish by hand: the plugin’s WordPress.org page, or the Plugins screen.
+The same status, with the same button, sits at the top of the Connection tab, above the connector switch. When the adapter works and there is nothing to do, the tab shows nothing about it; the
+MCP Adapter
+check in site readiness on the Advanced tab names it and its version, for example
+MCP Adapter 0.7.1 is active.
+While no usable adapter is loaded, the Connection tab hides the connection steps until the adapter is active, and shows them as soon as the button has done its work.
+Version 2.0.0 moves MCP for WooCommerce from WooCommerce’s MCP endpoint to its own MCP server, because WooCommerce 11.3 and later remove that endpoint. This section explains what changes for a store that was connected before 2.0.0.
+Nothing, apart from installing the MCP Adapter if the plugin asks for it. You do not need to create a new API key, add a connector again, or edit a configuration file:
+Claude.ai connectors and ChatGPT apps keep their connector URLs and tokens.
+Claude Desktop bundles and configuration files, Cursor, VS Code, n8n, and other clients keep the address and API key they already have.
+The nine core product and order tools keep their names, so saved prompts and workflows still find them.
+Your Tool Packs choices, API keys, logs, and change history stay as they are.
+If your store runs WooCommerce 11.3 or later and no adapter is loaded, assistants cannot connect until you install the MCP Adapter. Once it is active, they work again from their saved settings. On WooCommerce 11.2 and earlier, 2.0.0 shows a warning instead, so you can install it before WooCommerce 11.3 arrives.
+New setups use the plugin’s own endpoint,
+/wp-json/w7s-mcp/v1/mcp
+. The Connection tab, the Claude Desktop bundle, and the copied configurations all point there.
+The old address,
+/wp-json/woocommerce/mcp
+, keeps working for configurations made before 2.0.0. When a request to it carries an API key in the
+X-MCP-API-Key
+header, MCP for WooCommerce answers it, on every supported WooCommerce version, including 11.3. A future release will retire the old address once stores no longer use it.
+WooCommerce > Status
+counts the requests that still arrive there, so you can see whether anything still relies on it.
+On WooCommerce 11.3 and later, WooCommerce shows its own notice saying its MCP endpoint was removed, and advises moving to the MCP Adapter’s default server with a WordPress Application Password. That advice is for stores that used WooCommerce’s endpoint directly. It does not apply to MCP for WooCommerce, and you do not need to follow it.
+Once the MCP Adapter is active and MCP for WooCommerce’s server answers, WooCommerce’s notice is retired. On WooCommerce 11.3 and later, the Connection tab keeps a short note in its place: “WooCommerce 11.3 moved AI connections to the MCP Adapter plugin. MCP for WooCommerce connects through it, so your existing AI connections keep working.” That happens when site readiness runs and passes. As an administrator, go to
+WooCommerce > Settings > MCP > Advanced
+and select
+Verify site readiness
+(or
+Check again
+).
+MCP for WooCommerce keeps using WooCommerce REST API keys, as it always has:
+They can be read-only.
+A read key cannot change anything in your store. An Application Password carries every permission of the user it belongs to, and has no read-only option.
+Each person can have their own.
+Every key can be revoked on its own, and the action log records who used which one.
+Your existing connections already use them.
+Moving to Application Passwords would make every store reconnect every assistant.
+The plugin’s MCP endpoints do not accept Application Passwords or a browser login.
+The nine core product and order tools keep their names.
+They are
+woocommerce-products-list
+,
+woocommerce-products-get
+,
+woocommerce-products-create
+,
+woocommerce-products-update
+,
+woocommerce-products-delete
+,
+woocommerce-orders-list
+,
+woocommerce-orders-get
+,
+woocommerce-orders-create
+, and
+woocommerce-orders-update
+. They now belong to MCP for WooCommerce, so they work on every supported WooCommerce version, including 11.3, which removes WooCommerce’s versions of them. They are always on.
+WooCommerce’s built-in abilities are an optional pack.
+WooCommerce 10.9 and later register product and order abilities of their own. They overlap with the core tools, so they are off by default. You can turn them on in the
+WooCommerce built-in abilities
+pack.
+All settings live under
+WooCommerce > Settings > MCP
+, on a page headed
+MCP Settings
+, organized into tabs:
+Connection
+,
+Tool Packs
+,
+Add tools
+,
+Store Control
+,
+Advanced
+, and
+Activity
+. Tool Packs, Store Control, and Advanced have their own Save controls, so the standard WooCommerce
+Save changes
+button is hidden here. The Connection tab has no Save button: its connector switch saves immediately, and API keys are created when you select
+Create API Key
+. When the MCP connector is disabled, only the Connection and Advanced tabs are shown, and the Activity tab appears only while action logging or change history is on. The sections below follow the tabs in the order you will use them.
+The screenshots of the Connection tab in this guide were taken on a local test site, so their steps start with
+Select your environment
+and count to four. On a public site that step is skipped, and the steps that follow move up by one.
+The Connection tab is where you link an assistant to your store. It opens with the MCP Adapter status and the connector switch, followed by numbered steps:
+MCP Adapter status.
+Shown only when the adapter needs attention: what is wrong and the button to fix it. See
+The MCP Adapter
+.
+WooCommerce 11.3 note.
+On WooCommerce 11.3 and later, while an adapter is loaded, a line under the status reads: “WooCommerce 11.3 moved AI connections to the MCP Adapter plugin. MCP for WooCommerce connects through it, so your existing AI connections keep working.”, with a
+Why this changed
+link.
+Enable MCP for WooCommerce connector.
+The master switch for the whole integration. When it is off, no tools and no keys are exposed to any assistant, and the Tool Packs, Add tools, Store Control, and Activity tabs are hidden. Changes to this switch are saved immediately.
+With the connector on, the steps are:
+Select your environment
+(local sites only) — choose between a public website (accessible on the internet) and a local website (on your computer). On a public site this step is skipped.
+Select your AI assistant
+— choose
+Claude (Recommended)
+,
+ChatGPT / Codex
+,
+Cursor
+,
+VS Code / GitHub Copilot
+, or
+Other AI service
+.
+Create an API key
+— give the key a description, pick its permission (Read, Write, or Read/Write), and select
+Create API Key
+. The consumer key and secret are shown once, so save them straight away. The first time you create a key that can write, the plugin asks you to confirm that you understand what an assistant can do with it.
+Connect
+— follow the instructions for the assistant you chose. They appear once you have created a key, grouped by method in tabs:
+One click
+,
+Prompt
+,
+MCPB bundle
+(Claude only), and
+Manual
+. Only the methods that work for your assistant and environment are shown. The exact steps are covered in
+Connecting an assistant
+below.
+Under the connect step, the plugin watches for the new key’s first authenticated use. It shows
+Waiting for Claude to connect
+(or your app’s name) while you follow the steps, then
+Connected
+when the key has been used. If nothing arrives for a while, it suggests checking that the app finished its setup, with a
+Check again
+button. This confirms authentication, not that the assistant has completed setup or can execute a tool. Finish by asking the assistant to list a product or coupon.
+The Advanced tab holds the settings you rarely need while connecting for the first time: logging, how long Claude connector sessions are kept, site readiness, and the API key list. It is always shown, even with the connector off, so you can check your site before you switch it on.
+Logging.
+These settings are shown while the connector is on:
+Log AI assistant actions
+records MCP tool calls. It is on by default.
+Keep logs for (days)
+sets how long entries are kept, from 1 to 365. The default is 7 days, after which entries are deleted automatically.
+Redact customer personal data in logs
+masks emails, addresses, phone numbers, and similar fields before they are stored. It is on by default.
+Record what AI assistants change
+keeps the before and after values of everything an assistant changes, encrypted, so you can review and undo it. It is on by default.
+Keep change history for (days)
+sets how long changes are kept, from 1 to 365. The default is 30 days.
+Save these with the
+Save Changes
+button at the bottom of the tab. See
+Activity
+for what gets recorded.
+Claude connector.
+Shown while the connector is on.
+Keep Claude connector sessions for
+sets how long a session on the remote connector URL can remain idle: 1 hour, 8 hours, or 24 hours. The default is 24 hours. Every message starts the wait again, so this is the longest break a session can take, not its maximum total lifetime. This setting applies to clients using the connector URL; the Claude Desktop MCPB bridge uses a separate adapter session.
+After a longer break, Claude starts a new session by itself, but a chat that was already open may not show the store’s tools again. Start a new chat to get them back. A shorter window ends idle sessions sooner. A session only works for the API key or connector URL that started it, and the stored session holds no key, so a longer window does not leave a usable credential in your database. Save it with
+Save Changes
+.
+Site readiness.
+Site readiness checks what your store can do and reports it for each AI service separately, so a store that is fine for ChatGPT and blocked for Claude reads as exactly that. The tab shows the last report, with when it ran. Select
+Verify site readiness
+to run it for the first time, or
+Check again
+for a fresh one.
+The report opens with the overall result and groups the checks beneath it:
+Your site
+holds the prerequisites every service shares: the
+MCP Adapter
+, the
+MCP for WooCommerce server
+(registered with the tools it should have, and answering at its address), the
+MCP for WooCommerce connector
+switch,
+Encryption for connector URLs
+,
+This plugin’s REST endpoints
+, and
+Reachable from the internet
+.
+One group per service holds the checks only that service can fail:
+Claude
+(its endpoint, streaming replies, the connector URL, and an OAuth conflict with another plugin),
+ChatGPT
+(its schema endpoint and import URL),
+Cursor
+,
+VS Code / GitHub Copilot
+, and
+Other AI services
+(the MCP endpoint, and whether the app will trust your HTTPS certificate).
+Hosting and security
+looks for settings that block AI apps: PHP errors printed into responses, a stripped
+X-MCP-API-Key
+header or
+?token=
+query string, cached REST replies, a CDN or firewall in front of the site, security plugins, and other MCP plugins. The
+Other MCP plugins
+row names the MCP Adapter separately, as required: the plugin’s server runs on it, and the adapter’s own default server is a separate address that does not list this plugin’s tools.
+Each row carries a Pass, Warning, Fail, or Not checked result, and anything that is not a pass explains itself in place. Each group is collapsed until you open it.
+One caveat matters when you read a passing report. Every check runs from your site to itself, so none of them can see a firewall, a staging password, or an AI bot rule sitting between an assistant’s servers and your store. A pass means nothing on your side is in the way. Only a real connection proves an assistant can reach you.
+Site readiness also runs as a test under
+Tools > Site Health
+. Opening that screen runs a fresh check, which also updates the report on the Advanced tab, and the MCP details are on the Site Health
+Info
+tab. WordPress’s weekly background Site Health check leaves this test out, so it only runs when someone opens the Site Health screen.
+Manage API Keys.
+The WooCommerce REST API keys an assistant uses, with each key’s description, masked key, permission, and user. A client sends its key in the
+X-MCP-API-Key
+header. The key’s own permission controls what the assistant can do: a read key can only run read operations like search, list, and get, while write or read/write keys can also create, update, and delete. The user attached to the key must also have the
+manage_woocommerce
+capability. Create the most limited key that still does the job. Revoking a key from this list immediately cuts off any assistant that was using it — this is also how you disconnect an assistant.
+Actions menu.
+Every key in the list has an
+Actions
+menu, opened from the button at the end of its row. It holds everything that key can do:
+Copy MCP connector URL (Claude, ChatGPT app)
+and
+Copy schema URL (Custom GPT)
+— the key’s connector URL, in the form the client expects. One key works with every assistant, so both are always offered: the same token authenticates both addresses, and only the endpoint they point at differs. Claude and the ChatGPT app both take the MCP connector URL; only a Custom GPT wants the schema URL. The URL is available whenever you come back, so losing it is not a reason to create anything new.
+Regenerate URL
+— issue a fresh URL for that key. The previous one stops working immediately, so anyone using it is disconnected until you give them the new one. Every other key, and anyone using it, is unaffected. The confirmation that follows includes copy buttons so you can hand the new URL straight to the assistant.
+Disconnect URL
+— switch off that key’s URL while the key itself keeps working for clients that send it as a header, such as the Claude Desktop app.
+Revoke key
+— delete the API key outright. This cannot be undone, and it removes the connector URL with it.
+A key that has no connector URL simply shows fewer entries: only
+Revoke key
+. The Connection tab creates the URL while the newly issued full credential is available. The key list cannot recover that credential later to create a missing URL. To give someone their own URL through this screen, create a new API key in the connection steps.
+Developer note: The remote connector for Claude and ChatGPT has to replay an API key to the site on every request, so that credential is stored in your database — one entry per key that has a connector URL. Each entry is encrypted at rest using a key derived from your site’s WordPress salts, which live in
+wp-config.php
+rather than the database, so a database backup alone does not expose a usable key. Treat each one as a live credential. To revoke a connector, either use
+Disconnect URL
+in that key’s
+Actions
+menu, which removes only that URL, or
+Revoke key
+in the same menu, which removes both. Deactivating the plugin clears every stored connector credential.
+Stores that connected before connector URLs became per-key have one older, shared URL that is not tied to a single API key. It keeps working exactly as before, and nothing needs to be changed or re-pasted. It is shown under the API keys list as
+Shared connector URL
+, where you can copy it or turn it off once everyone using it has their own URL.
+This section walks you from a fresh install to a working connection. Which steps you follow depends on two things: the assistant you are connecting, and where your store runs (a public website on the internet, or a local site on your own computer). Read the prerequisites first, then jump to the section that matches your setup:
+Connect the Claude Desktop app to a public site
+Connect the Claude Desktop app to a local site
+Connect Claude.ai in the browser to a public site
+Giving each person their own connection
+Connect the ChatGPT app to a public site
+Connect a Custom GPT to a public site
+Connect a Custom GPT to a local site
+Connect Cursor or VS Code
+Connect another AI service
+All of these start the same way. Go to
+WooCommerce > Settings > MCP > Connection
+, make sure the MCP Adapter status shows no error, pick your environment (on a local site) and assistant, and create an API key. The key is shown once and is the credential the assistant uses. Create the most limited key that does the job: a read key for reporting, a write or read/write key only when the assistant needs to make changes.
+Every assistant has a
+Prompt
+tab in the connect step. It holds a setup prompt with your store’s address, your new API key, and the setup steps for that app. Copy it into the app you are connecting. An app that can change its own configuration, such as Claude Code, can apply it for you; otherwise, the prompt gives you the manual steps to follow.
+For Claude, one prompt covers Claude Code, the Claude Desktop app, and Claude.ai in the browser, and the app you paste it into uses the method it supports. The prompt asks the app to check that it reached the right store before it reads any products.
+The prompt includes your API key, so treat it like the key itself. It is only available right after you create a key: on a later visit, create a new key to get a prompt.
+A few things need to be true before a connection will work. Most failed setups trace back to one of these.
+For a public website (your live store on the internet):
+The MCP Adapter is active, or the Connection tab shows no error about it.
+The site must be reachable over HTTPS with a valid, trusted SSL certificate. A self-signed or expired certificate will fail.
+Your host, firewall, or CDN must pass the connector’s POST requests and session headers. If the client opens an optional SSE stream for server messages, streaming responses must also be allowed. A stream can stay open for up to an hour before reconnecting; that is separate from the session’s 24-hour default idle lifetime.
+Your host, firewall, or CDN must also let the assistant’s own requests through to
+/wp-json/w7s-mcp/
+, and to
+/wp-json/woocommerce/mcp
+if you have configurations from before 2.0.0. Cloudflare and several hosting panels now ship a one-click setting that blocks AI bots, and it blocks the assistant you connected on purpose along with the crawlers you wanted to keep out. See
+Requests blocked by Cloudflare or your host
+.
+Your assistant account or workspace must allow the connection method you choose. Plan availability, administrative permissions, and menu names can change; check the assistant’s current setup requirements.
+For a local website (running on your own computer, for example in a tool like Local, MAMP, or Docker):
+Connecting locally is more involved and is aimed at developers comfortable with a terminal, with editing configuration files, and with a tunneling tool such as ngrok.
+On a local site, the Connection tab starts with an environment picker. Choose
+Local website (on your computer)
+in Step 1 and the instructions adapt to the local setup, including the extra certificate settings.
+Claude Desktop can talk to a local site directly through a bridge, with one extra setting for the local SSL certificates. See
+Connect the Claude Desktop app to a local site
+below.
+Hosted remote connectors, including Claude.ai and hosted ChatGPT connections, cannot reach a private
+localhost
+address. Expose the site or bridge through a tunnel for those routes. A desktop or CLI MCP client running locally can use your local network instead. See the local Custom GPT steps below for the route the Connection tab offers.
+Developer note: The plugin’s manual Claude Desktop instructions use Node.js 22 or newer and recommend its full
+npx
+path. A Node version or PATH problem is one possible startup failure; check the client’s error rather than assuming it is the cause whenever tools are missing. See the manual setup steps below.
+It helps to know what the pieces are before you wire them together.
+The MCP endpoint is the address an assistant connects to. MCP for WooCommerce serves it at
+/wp-json/w7s-mcp/v1/mcp
+. This is the value a bridge needs as its
+WP_API_URL
+. Pass the full endpoint, not just your site root. Passing only the root returns a
+404 rest_no_route
+error. Configurations made before 2.0.0 use
+/wp-json/woocommerce/mcp
+, which keeps working.
+The API key authenticates each request. It is a WooCommerce REST API key in the form
+consumer_key:consumer_secret
+, sent in the
+X-MCP-API-Key
+header. The key’s permission scope is enforced on every call, so a read key cannot write no matter how a request is phrased. The user attached to the key also needs the
+manage_woocommerce
+capability.
+From there, clients connect in one of three shapes:
+A local bridge.
+Claude Desktop runs a small helper on your machine that speaks to your store and presents the tools to the app. With the one-click bundle, the bridge ships inside the bundle; with the manual setup, it is the
+@automattic/mcp-wordpress-remote
+package. The bridge reads the key from its local configuration and sends it as a header. Creating a connector URL also stores an encrypted replayable copy on the site, even if you ultimately use the Desktop bridge; see
+Manage API Keys
+.
+A remote connector.
+Hosted clients connect to the Claude-compatible route using Streamable HTTP, with JSON replies to POST requests and an optional SSE stream for server messages. The generated connector URL carries a revocable token instead of the raw API key. Each URL belongs to one API key, whose credential is stored on the site encrypted at rest so the proxy can authenticate its internal requests. A read-only key stays read-only through the connector.
+A direct MCP or OpenAPI client.
+Tools such as Cursor, VS Code, Cline, n8n, or your own integration talk to the MCP endpoint directly with the
+X-MCP-API-Key
+header, or import the OpenAPI 3.1 schema. See
+Connect another AI service
+.
+This is the most common setup, and in most cases it is one click. On a public site, the Claude connect step opens on
+One click
+(for Claude.ai in the browser); use the
+MCPB bundle
+tab for the Desktop download, or
+Manual
+, then
+Desktop app
+in the
+Manual connection
+dropdown, for a configuration file.
+One-click setup (recommended):
+In
+WooCommerce > Settings > MCP > Connection
+, choose Claude and create an API key.
+On the
+MCPB bundle
+tab, select
+Download Claude Desktop bundle (.mcpb)
+. The bundle is built with this store’s endpoint and your new key already filled in.
+Double-click the downloaded
+.mcpb
+file. Claude Desktop opens and registers the store automatically — there is no configuration file to edit. This needs Claude Desktop 0.13.37 or newer, and Node.js 18 or newer on the same computer.
+Back on the Connection tab, wait for the connect step to show
+Connected
+.
+The bundle contains your API key, so treat the file like a credential. If the file is ever shared, revoke that key in the
+Manage API Keys
+list on the Advanced tab and download a fresh bundle with a new key.
+Manual setup:
+If you prefer to configure Claude Desktop by hand, or the bundle tab is not shown on your server, select
+Manual
+, then
+Desktop app
+. The manual setup runs a bridge on your computer using the
+@automattic/mcp-wordpress-remote
+package.
+Select
+Copy Claude Desktop Config
+. This builds a ready-to-paste block with your endpoint and key already filled in.
+Open the Claude Desktop configuration file,
+claude_desktop_config.json
+, and merge the block into its
+mcpServers
+section. See
+Find the Claude Desktop configuration file
+below if you are not sure where it is. The block looks similar to this:
+{
+  "mcpServers": {
+    "woocommerce-mcp": {
+      "command": "/path/to/node22/bin/npx",
+      "args": ["-y", "@automattic/mcp-wordpress-remote"],
+      "env": {
+        "WP_API_URL": "https://yourstore.com/wp-json/w7s-mcp/v1/mcp",
+        "CUSTOM_HEADERS": "{\"X-MCP-API-Key\": \"ck_yourkey:cs_yoursecret\"}"
+      }
+    }
+  }
+}
+Replace
+/path/to/node22/bin/npx
+with the real path on your computer. These instructions use Node.js 22 or newer, matching the plugin’s manual setup guidance. Claude Desktop may have a different PATH from your terminal, so use the full path. If you use nvm, run
+nvm use 22
+, then
+which npx
+, and paste what it prints — for example
+/Users/you/.nvm/versions/node/v22.22.0/bin/npx
+. The upstream package currently declares Node.js 18 as its minimum; check its
+package requirements
+when troubleshooting a different installed version.
+Save the file, then fully quit and reopen Claude Desktop. A restart is required for it to pick up the change.
+In Claude Desktop, go to
+Settings > Developer > woocommerce-mcp
+and check that the status shows
+Running
+. The connect step on the Connection tab shows
+Connected
+once the first request arrives.
+If the server shows as failed or no tools appear, inspect its error in Claude Desktop. Check the Node version and executable path, then verify the endpoint, key and site readiness. Fully quit and reopen the app after changing its configuration.
+A configuration made before 2.0.0, with
+WP_API_URL
+ending in
+/wp-json/woocommerce/mcp
+, keeps working. You do not need to change it.
+The manual setup above asks you to edit
+claude_desktop_config.json
+. The easiest way to open it is from inside Claude Desktop, which also creates the file the first time if it does not exist yet.
+Open Claude Desktop.
+Go to Settings, then the Developer section.
+Select
+Edit Config
+. This opens
+claude_desktop_config.json
+in your default text editor.
+If the file is new, it may be empty or contain only
+{}
+. Add the
+mcpServers
+block inside the top-level braces. If
+mcpServers
+already exists with other servers in it, add
+woocommerce-mcp
+alongside them rather than replacing the whole section.
+If you would rather open the file directly, it lives here:
+macOS:
+~/Library/Application Support/Claude/claude_desktop_config.json
+. The
+Library
+folder is hidden in Finder. Use Go, then Go to Folder (Shift+Cmd+G), and paste the path.
+Windows:
+%APPDATA%\Claude\claude_desktop_config.json
+. Paste that into the File Explorer address bar or the Run dialog (Win+R).
+Linux:
+~/.config/Claude/claude_desktop_config.json
+.
+After saving, fully quit and reopen Claude Desktop. It only reads the configuration at startup, so a running app will not pick up your changes. A missing comma or bracket will silently disable every server in the file, so check the JSON is valid if nothing loads.
+Pick
+Local website (on your computer)
+in Step 1 of the Connection tab, and the Claude instructions adapt to the local environment: they open on the
+MCPB bundle
+tab, and the browser connector is not offered. The bundle accepts local self-signed HTTPS certificates. If your local site uses plain HTTP instead, allow that transport on the WordPress side, for example with the
+Code Snippets
+plugin:
+add_filter( 'w7s_mcp_allow_insecure_transport', '__return_true' );
+A local site that already uses WooCommerce’s older
+woocommerce_mcp_allow_insecure_transport
+filter keeps working, because MCP for WooCommerce reads it as its starting value.
+From there, the one-click setup works as it does on a public site: download the bundle from the
+MCPB bundle
+tab and double-click it. On a local site, the bundle is built to accept the local certificate for you.
+If you set up manually instead, follow the manual steps from the public-site section above and add
+NODE_TLS_REJECT_UNAUTHORIZED
+to the
+env
+block so the bridge accepts the local certificate. The
+claude_desktop_config.json
+file should contain the following:
+{
+  "mcpServers": {
+    "woocommerce-mcp": {
+      "command": "/path/to/node22/bin/npx",
+      "args": ["-y", "@automattic/mcp-wordpress-remote"],
+      "env": {
+        "WP_API_URL": "https://yourstore.local/wp-json/w7s-mcp/v1/mcp",
+        "CUSTOM_HEADERS": "{\"X-MCP-API-Key\": \"ck_yourkey:cs_yoursecret\"}",
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+      }
+    }
+  }
+}
+Save, restart Claude Desktop, and check the connection. The Connection tab generates this local variant for you when you pick the local environment, including the Node 22 reminder.
+Developer note: These are two different local-development settings.
+w7s_mcp_allow_insecure_transport
+permits plain HTTP at the server;
+NODE_TLS_REJECT_UNAUTHORIZED=0
+disables HTTPS certificate verification in that bridge process. Use them only for a local development setup, not a public store.
+Claude.ai connects through a remote custom connector using Streamable HTTP. It needs a publicly reachable HTTPS address and an account or workspace that permits custom connectors. Remote connectors originate from Anthropic’s servers, including when you use a remote connector in Claude Desktop. The MCPB bundle and local Desktop configuration use a different, local connection path.
+The generated URL uses a revocable token and needs no OAuth sign-in. Current Claude versions also offer fixed request headers; an alternative is the bare connector endpoint with an
+X-MCP-API-Key
+header containing your
+consumer_key:consumer_secret
+. See
+Claude’s current connector instructions
+.
+One click:
+In
+WooCommerce > Settings > MCP > Connection
+, choose Claude and create an API key. The connect step opens on the
+One click
+tab.
+Select
+Open Claude’s connector form
+. Claude.ai opens in a new tab with the connector’s name and URL filled in.
+Copy connector URL
+is next to it if you need the URL on its own.
+Review the filled-in name and URL. If asked how to authenticate, choose
+No sign in
+for the token URL and leave OAuth client fields blank. Finish adding the connector and enable it in a chat.
+Manual:
+Open
+Manual
+, then choose
+Claude.ai website
+in the
+Manual connection
+dropdown. It shows the connector name, which looks like
+woocommerce-yourstore-com
+, and a generated connector URL, each with a copy button. The URL ends in
+/wp-json/w7s-mcp/v1/claude/mcp
+with a token attached.
+In Claude, go to
+Customize > Connectors
+(or
+Settings > Connectors
+in older versions) and add a custom connector.
+Paste the name and full token URL. Continue through the setup screens, choose
+No sign in
+when offered, and leave OAuth client fields blank.
+Save the connector, enable it in a new chat, and ask it to list a product or coupon. Seeing tools in connector settings alone does not verify a chat tool call.
+If you navigate away before saving the URL, you do not have to create a new key to get it back. Find the key in the
+Manage API Keys
+list on the Advanced tab and use
+Copy MCP connector URL (Claude, ChatGPT app)
+in its
+Actions
+menu.
+The token in the URL is revocable and separate from your raw API key. To revoke access later — or if the token is ever exposed — open the
+Manage API Keys
+list on the Advanced tab and use that key’s
+Actions
+menu:
+Disconnect URL
+switches it off,
+Regenerate URL
+replaces it with a new one, and
+Revoke key
+removes the key entirely. All three affect only that one key, so other people’s connectors keep working.
+Because each URL belongs to a single API key, several people can each connect their own Claude.ai account to the same store. See
+Giving each person their own connection
+.
+If more than one person uses an AI assistant with your store, give each of them their own API key rather than sharing one connection. Every key carries its own connector URL, so the people on your team connect independently.
+To set someone up, create an API key for them in the connection steps, choose the permission their job needs, and hand them the connector URL that appears with it. Repeat for the next person. Every key keeps its URL in the
+Manage API Keys
+list on the Advanced tab, in that key’s
+Actions
+menu, where you can copy, regenerate, or disconnect it later.
+Doing it this way rather than sharing one URL gives you three things:
+Separate permissions.
+A support agent can have a read/write key while a bookkeeper has a read-only one. The permission travels with the URL, so a read-only key cannot make changes no matter how a request is phrased.
+A usable audit trail.
+The action log uses the key’s description as its user label, falling back to the WordPress user name. Give each key a recognizable description. Keys created in this screen belong to the WordPress user creating them; handing a key to a teammate does not create a separate WordPress account.
+Individual revocation.
+When someone leaves, revoke their key. Their connection stops and nobody else is interrupted. Regenerating one person’s URL is equally contained.
+Anyone can paste the same URL into more than one place if they want to, and a URL is not tied to a particular Claude.ai account — treat it as a credential belonging to the key it came from.
+This is the route to use if you want ChatGPT to create and update things in your store. ChatGPT speaks MCP to your site directly, so it receives every tool you have switched on. There is no schema to import and no 30-tool cap.
+On the Connection tab, select the public environment, choose
+ChatGPT / Codex
+, and create a Read/Write API key. A read key cannot create or update anything.
+In the connect step, open
+Manual
+and choose
+ChatGPT app
+in the
+Manual connection
+dropdown. It shows the endpoint and copy buttons for everything below.
+In the ChatGPT desktop app, open
+Settings > MCP servers > Add server
+. Older versions may label this
+Settings > Plugins > MCPs > Add > Add MCP Server
+, as shown in the plugin’s instructions.
+Set the server type to
+Streamable HTTP
+.
+Paste the endpoint into
+URL
+. It ends in
+/wp-json/w7s-mcp/v1/claude/mcp
+. The word
+claude
+in the path is historical: the endpoint is not Claude specific and ChatGPT uses it as it is.
+Under
+Headers
+, add a header named
+X-MCP-API-Key
+and set its value to your
+consumer_key:consumer_secret
+. Leave
+Bearer token env var
+and
+Headers from environment variables
+empty.
+Save the server, restart the app or connection when prompted, and check that the server is enabled. These steps configure an app MCP server; hosted ChatGPT web uses plugins. Follow the
+official MCP setup guide
+for the surface and workspace you use.
+The API key is shown once, when it is created. If you no longer have it, create a new one on the Connection tab.
+To revoke access, revoke the key in
+Manage API Keys
+on the Advanced tab. That turns off its connector URL at the same time.
+One thing this route cannot do is take a photo you attached in a ChatGPT conversation and put it in your Media Library — ChatGPT would have to transcribe the whole file as text and gives up early. Host the images somewhere with a web address and use
+Upload image from URL
+instead.
+A Custom GPT connects through an OpenAPI schema that it imports from a URL. The plugin caps this schema at 30 operations by default for compatibility with Custom GPT imports. When more tools are enabled, it keeps the first 30 in tool order, with the nine core tools first. Open the Tool Packs tab after choosing the Custom GPT route, pick the tools you want within that limit, and press
+Save Changes
+.
+ChatGPT also allows only one action per domain in a single GPT. If the import fails with “Cannot have multiple custom actions for the same domain”, delete the existing action for your site from that GPT before adding the new one.
+On the Connection tab, select the public environment, choose
+ChatGPT / Codex
+, create an API key, then open
+Manual
+and choose
+Custom GPT
+in the
+Manual connection
+dropdown. It shows the setup steps and an import URL.
+In ChatGPT, create a GPT, open its
+Configure
+tab, and under
+Actions
+select
+Create new action
+.
+For authentication, choose
+API Key
+with a custom header, set the header name to
+X-MCP-API-Key
+, and paste your
+consumer_key:consumer_secret
+as the key value. The Connection tab has copy buttons for both. Do not leave the key field empty.
+Select
+Import from URL
+and paste the import URL. It ends in
+/wp-json/w7s-mcp/v1/chatgpt/openapi.json
+and carries a revocable token in the query string. ChatGPT does not send the custom header when it fetches the schema, which is why the token is in the URL.
+Save the GPT, then ask it something like “List my recent orders” to test.
+Because the import URL carries a token rather than your key, the key itself never appears in a URL. To copy it again later, use
+Copy schema URL (Custom GPT)
+in that key’s
+Actions
+menu in
+Manage API Keys
+on the Advanced tab. You never need a new key to retrieve it.
+Each API key has its own token, which covers both that key’s Custom GPT import URL and its MCP connector URL, so those two change together if you regenerate. Both are offered in the key’s
+Actions
+menu, whichever assistant you created it for. Other keys are never affected: creating a key, or regenerating one key’s URL, leaves everyone else’s connection working.
+If the schema imports but an approved action produces no result, inspect the client error and compare the action log with the server’s request logs. A schema import does not verify that tool-call authentication or execution works. If requests are blocked before WordPress, see
+Requests blocked by Cloudflare or your host
+.
+A hosted Custom GPT cannot reach a private
+localhost
+address, so this route runs the plugin’s bridge locally and exposes it through a tunnel. This bridge is a small Node server bundled with the plugin, separate from the Claude Desktop bridge. The Connection tab shows these steps for Mac, Windows, and Linux, chosen in the
+Operating system
+dropdown. For plain-HTTP local WordPress sites, also enable the local transport filter described in
+the local Claude steps
+.
+Open a terminal and change into the plugin folder, for example
+wp-content/plugins/w7s-mcp/
+.
+Check that Node.js 18 or newer is installed with
+node --version
+. The bridge comes with the plugin, so there is nothing else to install.
+Set your endpoint and key, then start the bridge. It listens on port 3333. Leave this window open.
+On macOS or Linux:
+export W7S_MCP_URL="https://yourstore.local/wp-json/w7s-mcp/v1/mcp"
+export W7S_MCP_API_KEY="ck_yourkey:cs_yoursecret"
+node bridge/dist/chatgpt-server.mjs
+On Windows (PowerShell):
+$env:W7S_MCP_URL="https://yourstore.local/wp-json/w7s-mcp/v1/mcp"; $env:W7S_MCP_API_KEY="ck_yourkey:cs_yoursecret"; node bridge/dist/chatgpt-server.mjs
+In a second terminal, expose port 3333 with a tunnel. With
+ngrok
+installed and authenticated, run
+ngrok http 3333
+and copy the HTTPS URL it shows, for example
+https://abc123.ngrok-free.app
+.
+Stop the bridge in the first terminal with Ctrl+C, then start it again with
+BASE_URL
+set to your tunnel URL so the schema points at the public address:
+export W7S_MCP_URL="https://yourstore.local/wp-json/w7s-mcp/v1/mcp"
+export W7S_MCP_API_KEY="ck_yourkey:cs_yoursecret"
+export BASE_URL="https://abc123.ngrok-free.app"
+node bridge/dist/chatgpt-server.mjs
+In ChatGPT, create a GPT, add an action, and import the schema from
+https://your-tunnel-url/openapi.json
+.
+The tunnel URL changes each time you restart ngrok on the free plan, so you will re-import the schema when it changes. A bridge started before 2.0.0 with
+W7S_MCP_URL
+ending in
+/wp-json/woocommerce/mcp
+keeps working.
+Cursor and VS Code with GitHub Copilot talk to the MCP endpoint directly and send your key as a header. Choose
+Cursor
+or
+VS Code / GitHub Copilot
+in the assistant step and create an API key.
+One click.
+Add to Cursor
+or
+Install in VS Code
+opens the app and adds your store, with the endpoint and key filled in. The link contains your API key, so only open it on your own computer. If nothing happens, the app is not installed; use
+Prompt
+or
+Manual
+instead.
+Manual.
+Copy the configuration into the app’s MCP file. For Cursor, that is
+~/.cursor/mcp.json
+for every project, or
+.cursor/mcp.json
+inside one project; then open
+Cursor Settings > MCP
+and check that the server is switched on. For VS Code, that is
+.vscode/mcp.json
+in your workspace, or your user configuration through the
+MCP: Open User Configuration
+command; then start the server from the
+Start
+link VS Code shows above it, and check that the store’s tools appear in Copilot Chat’s Agent mode.
+You are not limited to the assistants above. Choose
+Other AI service
+in the assistant step, and the connect step’s
+Manual
+tab shows three ready-to-copy endpoints that work with any MCP or OpenAPI 3.1 client — Gemini, Grok, Ollama, Cline, Continue, Zed, n8n, Zapier, Make, or your own custom integration:
+MCP endpoint (Streamable HTTP / JSON-RPC).
+The plugin’s MCP endpoint at
+/wp-json/w7s-mcp/v1/mcp
+, for MCP-aware clients such as Cline, Continue, Zed, and agent frameworks that support remote MCP servers. Send your key in the
+X-MCP-API-Key
+header.
+Claude-compatible connector.
+The endpoint at
+/wp-json/w7s-mcp/v1/claude/mcp
+(connector URLs issued before 2.0.0 end in
+/claude/sse
+, which still works). Once you create an API key, the tab shows a connector URL with a revocable token, ready to paste into a Streamable HTTP client that supports token URLs. The UI may label this field
+MCP over SSE (Claude-compatible)
+; use Streamable HTTP for the current connector endpoint. The token belongs to that key, so you can issue a separate URL per client or per person and revoke one without disturbing the rest.
+OpenAPI 3.1 schema.
+The schema at
+/wp-json/w7s-mcp/v1/chatgpt/openapi.json
+, with a revocable token in the URL for the import step — ready to import into Grok, ChatGPT GPTs, n8n, Zapier, Make, Postman, or Open WebUI. The same per-key token works here.
+For authentication, send your WooCommerce API key as the header
+X-MCP-API-Key: ck_xxx:cs_xxx
+. The schema and connector URLs carry a revocable token instead of the raw key. Paste them only into trusted clients and treat the token URL as a credential. On the connector and schema addresses, passing
+?api_key=ck_xxx:cs_xxx
+as a query parameter still works but exposes your key in the URL, so prefer the header. The MCP endpoint accepts the header only.
+The same rules apply as everywhere else. Only enabled tool packs are exposed, and the key’s read or write scope is enforced on every call.
+The connect step shows
+Connected
+after the new key authenticates. Verify the complete connection by making a real read-only tool call in the assistant. The
+Site readiness
+report on the Advanced tab reports what your store can do, per AI service. Start there if something is not working: the group for the assistant you are connecting names what it found. For a support ticket, copy the
+MCP for WooCommerce
+section of your WooCommerce system status report (see
+Send your setup to support
+).
+Common issues:
+The connection steps are missing, and the Connection tab says “The connection steps appear here once the MCP Adapter plugin is active.” Install or activate the MCP Adapter. See
+The MCP Adapter
+.
+No tools appear, or the server shows as failed in Claude Desktop after a manual setup. Check the client error, Node version and executable path, endpoint, and key. The manual examples use the full path to Node 22’s
+npx
+. The MCPB bundle avoids configuring that command by hand.
+A
+404 rest_no_route
+error. The
+WP_API_URL
+is set to your site root instead of the full endpoint. It must end in
+/wp-json/w7s-mcp/v1/mcp
+(or
+/wp-json/woocommerce/mcp
+for a configuration made before 2.0.0).
+A local connection is refused. Check the client error for an unreachable address, a rejected self-signed certificate, or a plain-HTTP refusal. For plain HTTP use the local transport filter; for a self-signed certificate configure certificate handling in the bridge, as in the local Claude steps. These solve different problems and should stay limited to local development.
+A client’s SSE events arrive late or a stream hangs. Check the
+Streaming replies to Claude
+readiness row. If it warns about buffering or compression, ask your host to disable buffering and response compression for the connector’s SSE responses. Normal JSON replies to POST requests do not require an open SSE stream.
+An optional SSE stream can hold a connection and a PHP worker for up to an hour before reconnecting. A stored connector session is separate: its default idle lifetime is 24 hours and it does not reserve a worker between requests.
+A token or bundle was exposed. Open the
+Manage API Keys
+list on the Advanced tab and act on that key alone from its
+Actions
+menu:
+Regenerate URL
+replaces it,
+Disconnect URL
+switches the URL off while the key still works as a header, and
+Revoke key
+removes both. Everyone else’s connection keeps working. Deactivating the plugin clears every stored connector credential.
+Opening a connector URL in a browser shows an explanation rather than connecting. A browser GET without a session is not an MCP connection test. The reply is deliberately identical whether the token is valid, expired, or missing, so it does not establish that authentication or tool execution works.
+The connector URL was lost. You do not need a new key. Find the key in the
+Manage API Keys
+list on the Advanced tab and copy its URL from the
+Actions
+menu.
+The assistant asks for approval but no tool result or action-log entry appears. The connection may have failed before tools/call, even if initialize or tools/list reached WordPress. Check the connector debug log and the client error before attributing it to a firewall. See
+Claude lists tools but says the server is not connected
+and
+Requests blocked by Cloudflare or your host
+.
+A Claude.ai chat lost the store’s tools after a break. The chat was idle for longer than the Claude connector session window. See
+A Claude chat lost the store’s tools after a break
+.
+Claude.ai refuses to add the connector with an authorization or token error, while ChatGPT and the Claude Desktop app work. Another plugin on the site is publishing an OAuth server that Claude finds first. See
+Another plugin publishes an OAuth server for your site
+.
+A host, CDN or security plugin can block an assistant’s requests before WordPress sees them. Compare the assistant’s failure time with your edge security events and connector debug log. An empty Tool calls log alone does not prove a firewall block: a client that fails during initialization never sends a tool call.
+To test access from your own machine, run this using your domain and key:
+curl -i -X POST \
+  -H "Content-Type: application/json" \
+  -H "X-MCP-API-Key: ck_yourkey:cs_yoursecret" \
+  -H "User-Agent: ChatGPT-User/1.0; +https://openai.com/bot" \
+  -d '{}' \
+  https://yourstore.com/wp-json/w7s-mcp/v1/chatgpt/tools/woocommerce-orders-list
+A plugin JSON response shows that this test reached WordPress; it does not prove that requests from the assistant’s network will pass. An HTML challenge or block page suggests an edge rule. A JSON authorization error may instead come from WordPress. Repeat the request without the
+User-Agent
+header to check whether that header affects the result, then confirm the matching rule in your host’s logs. Changing the agent string does not reproduce the assistant’s source IP or runtime.
+For Cloudflare, open
+Security > Settings
+, filter by
+Bot traffic
+, and review
+AI Crawler and Agent access policies
+. Agent requests made on a person’s behalf and Training crawlers have separate policies. Review the policy for the assistant you use rather than disabling every AI-related protection. See
+Cloudflare’s policy instructions
+.
+If a WAF rule is responsible, scope an exception to the required
+/wp-json/w7s-mcp/
+paths and the identified blocking feature. Include
+/wp-json/woocommerce/mcp
+only if an older configuration still uses it. Skip only the feature or rule that is causing the false positive.
+Cloudflare’s Skip options
+depend on the feature and plan:
+Bot Fight Mode cannot be bypassed with a WAF Skip rule
+, while Super Bot Fight Mode supports exceptions. See
+Bot Fight Mode limitations
+.
+If someone else manages the firewall, provide the failed URL, timestamp, client error and matching security event. The plugin still authenticates each allowed request with its key or connector token.
+MCP for WooCommerce’s connector URL uses a revocable token, not OAuth. Other plugins may publish OAuth metadata at
+/.well-known/oauth-authorization-server
+or
+/.well-known/oauth-protected-resource
+. If a client chooses that unrelated authorization server, connection setup can fail before a tool call.
+Site readiness reports an
+OAuth conflict with another plugin
+warning when it finds such metadata. A warning identifies something to investigate; it does not prove that OAuth caused a failed connection. Inspect the actual client error and the endpoint named by the metadata.
+For the generated token URL, choose
+No sign in
+in Claude’s connector setup and leave OAuth client fields blank. Current Claude versions also support fixed request headers, so the bare connector endpoint with
+X-MCP-API-Key
+is another option when that setup is available. Follow
+Claude’s authentication controls
+.
+If the client still attempts an unrelated OAuth flow, ask the other plugin’s developer to check its resource metadata and how the client discovers it. Do not assume that two MCP endpoints cannot coexist on one domain. The Claude Desktop MCPB bridge is an alternative: it sends your key directly from your computer and does not use remote-connector OAuth discovery.
+A tool pack is a group of related abilities, such as everything to do with orders or everything to do with products. The Tool Packs tab lists every tool with a toggle, its plugin, and its status, with search, plugin and status filters, and a control in the header that switches every tool matching the current filters on or off. Changes take effect once you press
+Save Changes
+.
+Only enabled packs are exposed to AI clients.
+This is the main control for deciding what an assistant can and cannot touch.
+A disabled pack is invisible to the assistant, and the restriction is enforced when a tool runs, not just hidden from the tool list, so a disabled pack cannot be called even if an assistant knows its name.
+One group is not gated this way: the nine core product and order tools. They list, get, create, update, and delete products, and list, get, create, and update orders, which includes changing an order’s status. They are listed under
+WooCommerce Core
+with the status
+Always on
+, have no toggle, and are available whenever the connector is on. The API key’s permission is what limits them, so use a read key when an assistant should not be able to change a product or an order. Their names, such as
+woocommerce-products-list
+, are the same as before 2.0.0.
+WooCommerce built-in abilities
+is an optional pack, off by default. It offers WooCommerce’s own product and order abilities, which WooCommerce 10.9 and later register: product and order queries, product create, update and delete, order status changes, order notes, and (from WooCommerce 11.3) reading order notes. They do the same jobs as the core tools, so most stores leave the pack off. Turn it on if a workflow of yours expects WooCommerce’s abilities by name. It is listed under
+WooCommerce Core
+, beside the core tools. The pack only appears when your WooCommerce version registers them.
+Tools you have added from other plugins through the
+Add tools
+tab also appear here, listed with the plugin they come from, so everything an assistant can reach is visible in one place.
+If you are building a
+Custom GPT
+, keep an eye on the exposed count in the notice at the top of the tab: the plugin applies a 30-operation cap by default. That count includes the always-on core tools and any tools added on the Add tools tab, because those take up the 30 slots too. When more than 30 are enabled, the tab trims the selection back to the limit — the tools already enabled come first, then the rest in category and name order — so check the survivors are the ones you want and
+press Save Changes
+. Until you save, the trim exists only on screen and the schema the GPT imports is unchanged. The cap and the trimming apply only to the Custom GPT route; the ChatGPT app connector and Claude get every tool you enable.
+Other plugins can offer extra tools for your assistant — for example, a subscriptions plugin offering subscription tools. The
+Add tools
+tab is your library of those tools. Adding one puts it in Tool Packs, where you choose which tools the assistant can actually use. Adding and removing take effect immediately. The tab is shown only while the MCP connector is enabled.
+The tab lists every tool your active plugins offer, with search, plugin and status filters (
+Added
+,
+Not added
+, and
+Unavailable
+). Select
+Add
+to put a tool in your library, or
+Remove
+to take it out. A removed tool stays in the list as
+Not added
+, so you can add it again at any time. If you activate a plugin and its tools are not listed, select
+Rescan
+.
+If a plugin that provided tools is deactivated or removed, its tools are flagged as
+Unavailable
+and are no longer sent to the assistant. Reactivate the plugin to use them again, or clear them all at once with
+Remove them
+in the notice at the top of the tab.
+Store Control is a chat panel built into WP Admin, so you can run MCP tools without leaving your store. Open it with the floating button in the corner of any admin page, or by typing
+//
+in an admin input field. It is handy for testing that your tools work and for quick day-to-day tasks. Store Control does not need the MCP Adapter, because it runs the tools inside your site.
+The Store Control tab holds its settings:
+Enable Store Control.
+Turns the in-admin chat on or off. The first time you enable it, the plugin asks you to confirm that you understand what an AI can do in your store.
+Show the floating Store Control button.
+Choose whether the corner button appears on admin pages. When the button is hidden, the
+//
+shortcut still opens Store Control.
+AI provider.
+Store Control calls out to an AI provider on your behalf, so it needs its own provider key — separate from the API keys that connect Claude Desktop or ChatGPT to your store. Choose
+Claude (Anthropic)
+or
+ChatGPT (OpenAI)
+, then supply a key directly or, on WordPress 7.0 or higher, use a key stored site-wide in WordPress Connectors.
+Model.
+Pick the model Store Control uses. For Claude: Claude Sonnet 5 (recommended), Claude Opus 5 (most capable), or Claude Haiku 4.5 (fastest). For ChatGPT: GPT-5.6 Sol (recommended), GPT-6 Astra (most capable), or GPT-5.6 Luna (fastest).
+Tool permissions.
+Choose how much you want to approve before the AI runs an action: ask before every action; auto-approve everyday actions but ask before major changes such as deletes, refunds, and bulk edits; or auto-approve everything. Full auto-approve asks you to type a confirmation before it can be enabled.
+Save your choices with the
+Save changes
+button. The Tool Packs rules still apply, so Store Control sees exactly the same tools you have enabled everywhere else.
+The
+Activity
+tab shows what AI assistants did in your store, on one page:
+Changes
+, what those calls changed, followed by
+Tool calls
+, the log of every call. Each section appears when its feature is on (logging, and change history, both on the Advanced tab), and the tab appears when either is.
+When action logging is enabled on the Advanced tab, the Tool calls section shows a record of MCP tool calls: the date, the tool, the result, the client and user behind each one, and its risk. Search across tools, users, clients, and arguments, filter by result and by client, and sort by date, tool, result, client, or user.
+Export
+saves the log to a file and
+Clear all logs
+empties it. On small screens, its rows collapse into stacked cards so they stay readable.
+Every call is recorded, not only the ones that worked. An entry is marked
+success
+when the tool returned a result,
+error
+when the call ran and failed (including a tool that reported its own failure, such as an order that does not exist), and
+denied
+when the credentials were rejected before the tool ran. Rejected requests are recorded at most once a minute per assistant, since those endpoints can be reached without a valid key and an entry per attempt would fill the log.
+Action details
+View
+in the Details column opens the full record of one call: when it ran, the client and user behind it, the result, the tool that was called, how long it took, and whether that tool counts as a major change.
+View changes
+scrolls to Changes on the same page, filtered to that call. Below the summary sit the two payloads — the
+arguments
+the assistant sent, and the
+response
+your store sent back — each with its own Copy button.
+The response is what tells you whether a call did what the assistant said it did. A tool that fails on its own terms still answers, so “the assistant reported success” and “the tool succeeded” are two different claims, and only the response settles which one you have.
+A long response is cut so a single call cannot bloat the log table. When that happens the entry says so and gives the real length, so a trimmed response is never mistaken for the whole answer. Entries recorded before your store updated have no response stored and show nothing in that section; run the call again to get one.
+Exporting the log
+Export
+opens a dialog for saving the log as a file — for handing a period to an accountant or an auditor, or for opening a busy stretch in a spreadsheet. Start by choosing what to export:
+Everything in the log
+, however the table is filtered on screen.
+What the Tool calls section is showing now
+, offered when a search or a filter is active, so you can narrow the table first and export exactly what you are looking at.
+Choose a subset
+, which opens filters of its own: a
+period
+(any time, today, the last 7, 30, or 90 days, or a custom date range), which
+results
+to include, a single
+client
+, and a
+risk
+level — all actions, major changes only, or everyday actions only.
+Then pick the format.
+CSV
+opens in any spreadsheet.
+JSON
+suits scripts and further processing.
+Include the response each tool returned
+is off by default, because responses run far longer than arguments and turn a small file into a large one.
+Arguments and responses are written to the file exactly as they were stored, so customer data is already masked when redaction is on. One export stops at 50,000 rows and says so in the file itself, so narrow the period if your log is larger than that.
+What is stored, and for how long
+Logged arguments and responses can both contain customer data, so the plugin redacts personally identifiable information (PII) by default. Fields such as emails, addresses, and phone numbers are masked before anything is written, in the response as well as in the arguments.
+While action logging is enabled, a daily job removes entries older than
+Keep logs for (days)
+on the Advanced tab, which defaults to 7 days and accepts 1 to 365. Turning logging off stops new entries and pauses automatic pruning of the action log; use
+Clear all logs
+before switching it off if you want existing entries removed. Change-history expiry continues independently. WordPress scheduled tasks normally run on a visit rather than at a fixed hour, so cleanup on a quiet store can lag until someone loads a page.
+You can adjust redaction and retention, or turn logging off entirely, from the Advanced tab. The Tool calls section only appears when logging is enabled. Links to the old Logs tab open it.
+The Changes section is a table with Date, Item, Action, Tool / client, Undo and Actions columns, showing 10 records per page by default. Changes and Tool calls each have a Records per page selector with 10, 25, 50 and 100 options; changing it returns that table to page one. Search by tool name, client or item ID, and combine the search with item-type and action filters. Filters and sorting apply across the full history, before pagination. Click Date, Action, Tool / client or Undo to sort, and click again to reverse the order. Tool / client sorts by tool then client; Undo groups Available, Unavailable and Undone using your current permissions. The
+Actions
+menu offers
+Details
+to compare Before / After values and
+Undo
+where available. Changes shows captured item changes only. Call summaries and recording warnings are accessible from Tool calls → View. Item details retain recording warnings regardless of filtering or pagination. Undo availability is shown in the table; an information icon beside Unavailable explains why in a tooltip.
+View changes
+from a tool call filters the table to that call. It is filled in whether or not logging is on.
+What is recorded
+While an assistant’s tool call runs, the plugin notes every change it makes through WooCommerce or WordPress, and nothing outside a call:
+WooCommerce data
+: products and variations, orders, coupons, customers, and, when those extensions are active, subscriptions and bookings.
+WordPress data
+: posts and pages of any type, categories, tags and other terms, comments and reviews, users, settings (options), and the extra fields (meta) attached to any of these.
+Only the fields that changed are kept, with their value before the call and after it. A field set and then changed again in the same call shows its first and last value. A call that only reads, or that fails without changing anything, leaves nothing here. Routine housekeeping such as caches, scheduled tasks and locks is never recorded.
+Complete recordings have no badge. Warnings appear only when recording is incomplete or unverified:
+Partly recorded
+: a tool with known effects the history cannot hold, such as an email sent, a payment refunded, or WooCommerce’s own tables for tax rates and shipping zones. Open Details to see which effects are not recorded.
+Not verified
+: any other tool, including those from other plugins. What it changed through WooCommerce or WordPress is listed, but it may have done more.
+Undoing a change
+Undo
+puts the fields the call changed back to their values before it. It asks first. If someone has changed one of those fields since, Undo stops and shows the value it would restore beside the current one, and only
+Overwrite
+replaces it, after asking again. Undoing a new item moves it to the trash, and undoing a move to the trash restores the item.
+An undo is a change in its own right: it is listed with “Undo of change #N”, the original change is marked
+Undone
+, and an undo can itself be undone. Undo runs with your permissions at the time: you need to be able to edit that item yourself, as well as manage WooCommerce. While it restores values, the store sends no emails, takes no payments, moves no stock, and schedules nothing.
+If an undo fails, it changes nothing and can be tried again. Rarely, another plugin saves its own work part-way through an undo, so part of it is kept even though the undo failed. Undo then says the item may be partly restored, and that change shows as unavailable to undo: check the item and correct it by hand.
+What cannot be undone, and why
+Undo is offered only where putting values back is safe. The Undo column states whether undo is available; hover over or focus the information icon beside Unavailable to see the reason:
+Permanent deletes.
+The item no longer exists to restore; only a move to the trash can be undone.
+Refunds, order status changes and payment details.
+Changing them back would not reverse the money moved or the emails sent.
+Passwords, user roles and security settings
+(such as the site address, the admin email, who may register, and payment gateway settings). These are never written back by undo.
+Changes that could not be stored whole
+: a record cut short because it was very large, or saved without encryption because your server lacks it.
+Changes from a call that was not fully recorded
+, unless putting that one item back is safe on its own.
+The badge rows themselves
+, and changes already undone.
+Personal data
+Change history is stored encrypted in your database, and passwords, API keys and other credentials are never stored at all. Values in the Changes section are hidden as ••••, except a few that are not personal, such as prices, stock and statuses.
+Show values
+reveals the item name and the full stored values in that change’s details modal, and only to someone who may also view that item. When only the item name is hidden, the control is labeled
+Show name
+; the Before / After values are already visible. Assistants never see hidden values.
+What assistants can see
+With the
+Change history
+tool pack on (it is on by default), an assistant can answer questions such as “what did you change on this product last week?” by reading the same history, masked exactly as the Changes section shows it before you select
+Show values
+. Nothing it passes can reveal hidden values. It can read but not undo: undoing stays with you, here on the Activity tab. When recording is off, the assistant can still read the history that is already kept until it expires. Reading the history is not itself recorded.
+If your server cannot encrypt (it lacks PHP’s sodium extension), only those non-personal fields are kept and the rest is left out.
+History is kept for 30 days by default and deleted by the same daily job as the log. Change it with
+Keep change history for (days)
+on the Advanced tab, from 1 to 365, or turn recording off with
+Record what AI assistants change
+. Deleting the plugin deletes its change history.
+Once connected, and depending on which packs you enable and which WooCommerce extensions you run, an assistant can work with:
+Orders
+– list, search, create, and update orders, change an order’s status, run order actions, and manage order notes. There is no delete-order tool.
+Products
+– list, search, create, update, and delete products, plus variations, attributes, categories, tags, shipping classes, custom fields, and reviews.
+Customers
+– list, create, update, and delete customers, and retrieve customer downloads.
+Coupons
+– list, create, update, and delete, when WooCommerce coupons are enabled.
+Refunds
+– create, list, get, and delete order refunds.
+Tax
+– manage tax rates and tax classes.
+Shipping
+– manage shipping zones, their locations, and their methods.
+Payments
+– view and adjust payment gateway settings.
+Webhooks
+– list, create, update, and delete webhooks. AI changes to webhook settings appear in Changes with Before / After values, including batch operations. Secrets and delivery URLs containing credentials or query strings are excluded. Delivery counters and timestamps are ignored. Webhooks cannot be undone because deletion is permanent and sent requests cannot be recalled.
+Reports and Analytics
+– read WooCommerce reports and Analytics report types.
+Emails
+– list WooCommerce emails and enable or disable individual ones.
+System status
+– read store environment and system status, and run system status tools.
+Change history
+– read what AI tool calls changed, with personal data masked. Read only; you undo changes yourself on the
+Activity
+tab.
+WordPress site and content
+– posts, pages, comments, media, categories, tags, taxonomies and terms, menus, users, post meta, user meta, revisions, post types, options, settings, site health, and installed plugins and themes. These packs reach beyond the store, so they are off until you enable them, and writes through them are held to allowlists — see
+Write allowlists and upload guardrails
+.
+Products and orders come from the nine always-on core tools plus the packs for variations, notes, and the rest. Extension packs require
+WooCommerce Subscriptions
+,
+WooCommerce Bookings
+, or
+WooCommerce Memberships
+to be active.
+Product Brands
+and
+Cost of Goods Sold
+depend on their WooCommerce feature or taxonomy being available, rather than always requiring a separate extension. Other plugins can also offer tools of their own, which you add from the
+Add tools
+tab.
+These are real situations a store runs into, and the setup in MCP for WooCommerce that handles each one. Every scenario uses abilities the plugin actually ships. Read them as practical recipes. Pick the few that match how you work and start there.
+A note on safety before the scenarios. Two controls do the heavy lifting in almost every setup below. The first is the permission scope on your API key. A read key cannot write, and that is enforced when a tool runs, not just hidden from the assistant’s tool list. The second is Tool Packs. Only the packs you enable are exposed, and a disabled pack will not run even if the assistant tries to call it. You can expand any pack to see its individual abilities and switch off the ones you do not want, so you can keep list, get, and update on while turning delete off. The core product and order tools are the exception: they have no toggle and are always available, so the key’s permission is the only thing limiting them. Most of the safety in these scenarios comes from those two settings.
+You start the morning wanting numbers. How many orders shipped yesterday. What sold best this week. Which products are about to run out of stock. You do not want to click through five admin screens, and you definitely do not want a tired 7am mistake changing live data.
+Set up a read-only assistant. Create an API key with read permission, then enable the Reports and Analytics Reports packs and leave everything else off — the core order and product tools are always available, and the read key keeps them read-only. Now you can ask in plain English and get an answer pulled straight from the store. The Analytics Reports pack returns summaries, not just rows, so “what was net revenue last month” or “show me my top ten products by sales” comes back as a total, not a spreadsheet you have to add up yourself.
+The read key is the point. Even if you phrase something as a command, the assistant cannot change an order, edit a product, or refund a payment. The key is blocked from every write operation the moment a tool runs. You get the answers and none of the risk.
+Month-end means revenue, tax collected, refunds, and margin. The usual routine is exporting reports, opening them in a spreadsheet, and reconciling by hand. It takes an afternoon and it is easy to fumble a number.
+A read key with the Reports and Analytics Reports packs covers most of this. Ask for the revenue summary for the period, the tax summary, and the refund totals, and you get the aggregates back directly. If you run WooCommerce Cost of Goods Sold, the COGS abilities let you ask for margin on a product or an order, so “what was my gross margin on orders last month” is a question you can answer in chat instead of a formula you have to build.
+Keep this assistant read-only. Nothing here needs to write, and a read key means your accountant or bookkeeper can use it without any chance of changing the books while they look at them.
+You run an agency. A client wants a seasonal price change across a category, new tags on a product line, and a batch of variations updated before a launch. Doing it by hand in WP Admin is slow and error-prone, and when the client asks what changed, you want a clear answer.
+Create a read/write key and enable the catalog packs: Product Variations, Product Attributes, Product Categories, Product Tags, Product Shipping Classes, and Product Reviews. The core product tools are already there. The plugin ships batch abilities for variations, attribute terms, categories, tags, and more, so bulk work that would take an hour of clicking becomes a few instructions. Add Tax Rates or Shipping Zones only if the job touches them, and leave the Customers pack off to avoid exposing separate customer-management tools. The always-on order tools can still read and change orders and their customer details, so this does not restrict a write-capable key to the catalog alone.
+Keep action logging and change history on for this one. Changes captured through WordPress and WooCommerce are recorded with the time, the key that made them, and the values before and after; review any incomplete-recording warnings. When the client asks what you did, you have the record, and a change made by mistake can often be undone from the Activity tab. Customer fields in the log are masked by default, so the audit trail does not become a second copy of their data.
+Your support lead wants the assistant to pull up an order, read its history, add a note, and handle a refund when one is due. What they do not want is a junior agent, or the assistant itself, deleting an order during a busy shift.
+Use a write-capable key and enable the Order Notes pack, plus Refunds if your team handles refunds. Expand each pack and switch off the abilities you do not want:
+Delete an order note
+and
+Delete a refund
+can come off while list, get and create remain available. The WooCommerce tool set has no delete-order tool. This limits those note and refund operations, but it does not make the key non-destructive: the always-on core product tools still include product deletion. Review those capabilities before handing out a write-capable key.
+Action logging gives you the rest of the comfort. You can see which tools ran and when, so a refund issued at the wrong time is a question you can answer rather than a mystery.
+You are launching a promotion next week. That means a coupon, maybe a new shipping zone for a region you are expanding into, the right tax rate for it, and a couple of order emails turned on or off for the campaign. Each of those lives on a different settings screen.
+MCP for WooCommerce exposes the configuration side of WooCommerce, not just the data. With a read/write key and the relevant tool packs enabled, you can create a coupon with its restrictions and expiry, add a shipping zone and a method, create a tax rate for a new region, and enable or disable specific transactional emails by ID. You describe what the sale needs and the assistant sets it up across those screens in one go.
+Because Tool Packs gate these, you decide how far this reaches. Enable Coupons, Shipping Zones, Tax Rates, and Emails for the launch and leave unrelated packs off. That avoids exposing the separate customer-management tools, but it does not remove the customer details available through the always-on order tools. The core product and order tools stay available regardless, so use a key whose permission matches how much change you want to allow.
+You run recurring billing with WooCommerce Subscriptions. The questions that matter are different from a one-off store. Which subscriptions are on hold. Whose renewal just failed. What a particular customer is paying and when their next payment lands.
+When WooCommerce Subscriptions is active, its pack appears automatically and the assistant can list and filter subscriptions, read a single one, add a subscription note, and look up the orders tied to a renewal. So “show me subscriptions that failed to renew this week” or “add a note to this subscription that the customer asked to pause” become plain questions. The same extension-aware behavior applies to Bookings and Memberships. The packs only show up when the extension is installed, so you never see tools for features your store does not run.
+Match the key to the work. A read key is enough for monitoring renewals. Use a write key only if you want the assistant to add notes or make changes.
+Not everyone wants to install and configure a desktop client. Sometimes you just want to ask a question while you are already in the dashboard.
+The plugin includes Store Control, an in-admin chat. Type
+//
+on any admin page, or use the floating button, and a chat opens right inside WP Admin. It runs the same MCP tools locally using your own Claude or OpenAI key, so the person at the keyboard can ask about orders or update a product without leaving the page they are on and without a separate app to set up. It is the fastest way to get a non-technical team member using the assistant, because there is nothing to connect. If the floating button gets in the way, hide it from the Store Control tab — the
+//
+shortcut keeps working.
+The Tool Packs rules still apply, so Store Control sees exactly the same tools you have enabled everywhere else, and its permission modes let you decide whether it asks before running actions or only before major changes.
+This section covers problems that show up once the plugin is installed and an assistant is connected. If you are still trying to connect, or the assistant cannot reach your store at all, see
+Verify and troubleshoot
+in the Connection section first, since those are connection-specific.
+No usable MCP Adapter is loaded, so no assistant can connect. This is most likely on WooCommerce 11.3 or later, which no longer brings its own copy, or after another plugin that carried a copy was updated or removed.
+Select
+Install and activate MCP Adapter
+(or
+Activate MCP Adapter
+) in the notice, or in the status at the top of the Connection tab. One click does it. Once the plugin is active, every existing connection works again, with nothing to change in the assistant. If the button reads
+Install MCP Adapter
+, WordPress needs your server’s file access details, and the Plugins screen asks for them. If the notice offers only
+Get MCP Adapter from WordPress.org
+, your account cannot install plugins: pass the link to whoever manages plugins on the site.
+If the notice says AI connections need a newer MCP Adapter, install or update the MCP Adapter plugin. While the adapter is missing, assistants that try to connect are told the same thing: that MCP for WooCommerce needs the free MCP Adapter plugin, and that the saved connection works again as soon as it is active.
+Your connections work, through the copy of the adapter built into WooCommerce 11.2 and earlier. In an upcoming release, WooCommerce 11.3, that copy goes away. Select
+Install and activate MCP Adapter
+in the notice now, so your connections keep working after that update. They keep working while you do. See
+Why this changed
+.
+If the Connection tab says your connections run through a copy that comes with Elementor or another plugin, nothing is wrong. Installing the MCP Adapter plugin is still recommended, so a plugin update can’t remove it.
+From version 11.3, WooCommerce answers requests to
+/wp-json/woocommerce/mcp
+with HTTP 410 and a message saying its MCP endpoint was removed, and it shows a notice in WP Admin with the same news. What to do depends on where you see it:
+The notice in WP Admin.
+It advises moving to the MCP Adapter’s default server with an Application Password. That does not apply to MCP for WooCommerce, so you do not need to follow it. Make sure the MCP Adapter is active, then run
+Verify site readiness
+on the Advanced tab. Once the plugin’s server passes, WooCommerce’s notice is retired.
+An assistant reports the 410, and your store runs a version of MCP for WooCommerce before 2.0.0.
+Update MCP for WooCommerce to 2.0.0 or later, then install the MCP Adapter from the plugin’s notice. Your assistants work again with no change on their side. Ignore both WooCommerce’s advice and the older version’s request to switch on WooCommerce MCP: neither applies once you have updated.
+An assistant reports the 410, and your store runs 2.0.0 or later.
+MCP for WooCommerce only answers the old address for requests that send an API key in the
+X-MCP-API-Key
+header. A client that sends its key some other way, such as
+?api_key=
+in the URL, reaches WooCommerce instead. Set up that client again from the Connection tab, so it uses
+/wp-json/w7s-mcp/v1/mcp
+with the header. The same happens if a developer has switched the old address off with the
+w7s_mcp_legacy_endpoint_enabled
+filter.
+Every address MCP for WooCommerce serves sits under
+/wp-json/w7s-mcp/
+. If your host, firewall, CDN, or a security plugin restricts the REST API, allow that path for the assistants you use, and
+/wp-json/woocommerce/mcp
+as well if you have configurations from before 2.0.0. The
+Hosting and security
+group of the readiness report names several common plugins and services and the setting to check in each. For Cloudflare’s AI bot blocking, see
+Requests blocked by Cloudflare or your host
+.
+The MCP Adapter plugin runs a default MCP server of its own, at
+/wp-json/mcp/mcp-adapter-default-server
+. Other plugins may expose abilities there by marking them public; access also depends on the adapter’s authentication and each ability’s permission checks. MCP for WooCommerce does not configure those other plugins’ permissions.
+MCP for WooCommerce keeps its own tools off the default server and off the WordPress Abilities REST API. Its tools are only reachable through its own endpoints, with an API key, Tool Packs, and key scope applied. Check each source plugin’s settings and ability permissions to control what it exposes through that separate server.
+The most common reason is that the pack is switched off. Only enabled packs are exposed, so open Tool Packs and confirm the pack you expect is on. If it is on and you only want some of its abilities, check that the specific ability’s toggle is still on.
+If you are set up as a Custom GPT, the tab may have switched something off for you. It keeps the enabled count within the plugin’s default 30-tool cap for this route, so enabling a new pack can drop another one out of the selection. Check the count notice at the top of the tab. This does not happen on the ChatGPT app route, which has no cap — if you are on it, make sure
+ChatGPT app
+is the route chosen under
+Manual
+in the connect step.
+If a whole feature never appears in the list, the plugin is hiding it on purpose because the feature it depends on is not active. Packs only register when their requirement is met:
+Coupons appear only when Enable coupons is turned on in
+WooCommerce > Settings > General
+.
+Product Brands appear only when a brand taxonomy exists, which usually means the Brands feature or a brands plugin is active.
+Cost of Goods Sold abilities appear only when the Cost of Goods Sold feature is enabled.
+Analytics reports appear only when the Analytics feature is enabled.
+Product custom field tools require WooCommerce’s product custom-fields REST controller; the pack is hidden if that controller is unavailable.
+Subscriptions, Bookings, and Memberships tools require the matching WooCommerce extension installed and active.
+The WooCommerce built-in abilities pack appears only on WooCommerce versions that register those abilities (10.9 and later).
+Turn on the underlying feature or extension, then reload the Tool Packs tab and the pack will be there.
+Note that the nine core product and order tools never disappear this way — they have no toggle and are always present while the connector is on.
+Tools you added from another plugin stop working when that plugin is deactivated or removed. On the Add tools tab they are flagged as
+Unavailable
+and are no longer sent to the assistant. Reactivate the source plugin to bring them back, or select
+Remove them
+to clear them all at once.
+If a request to create, update, or delete comes back refused, the API key is almost certainly a read key. A read key can run searches, lists, and lookups, but it is blocked from every write the moment a tool runs. Create a new key with write or read/write permission on the Connection tab and connect the assistant with that one.
+If a write still fails with a write-capable API key, check the user the key belongs to. That user must have the
+manage_woocommerce
+capability. A key tied to a user without it cannot use the tools at all.
+Two things turn the whole integration off.
+First, the connector itself. On the Connection tab, confirm
+Enable MCP for WooCommerce connector
+is on. When it is off, no tools and no keys are exposed to any assistant, and the Tool Packs, Add tools, Store Control, and Activity tabs are hidden until it is switched back on.
+Second, the MCP Adapter. If no adapter is loaded, the plugin shows an error notice and the Connection tab hides the connection steps. Install or activate the MCP Adapter from that notice. See
+The MCP Adapter notice says AI connections are off
+.
+A tool list in connector settings and a working tool call in a chat are separate checks. Claude can use different clients for setup, discovery and chat execution, so one can succeed while another fails.
+Update MCP for WooCommerce to the current corrected build. The connector now keeps initialize small and returns the catalogue through tools/list. Older builds embedded the complete catalogue in initialize, which could leave Claude.ai’s chat client reporting
+MCP server is not connected
+even though setup had listed the tools. The successful fix does not establish a particular response-size limit.
+Enable the connector in a new chat and ask for a read-only result, such as the newest coupon. If it still fails, open
+WooCommerce > Status > Logs
+, select the
+w7s-mcp-claude
+source, and match the attempt by time:
+A
+server/discover
+HTTP 400 followed by a successful initialize is the client’s fallback to the session-based protocol. That 400 alone is not a failed connection.
+Initialize HTTP 200 followed by
+notifications/initialized
+HTTP 202 shows that the client progressed through the handshake. The notification has no JSON-RPC response body.
+A tools/list response shows discovery; a successful tools/call and its result verify execution.
+If the client stops after initialize, capture its actual error and the surrounding server log. Do not infer the cause from the chat model’s explanation or from an empty action log.
+The
+Connected
+indicator only confirms that the key authenticated. It does not replace the read-only chat test. A temporary diagnostic probe used during troubleshooting is not required by the permanent fix.
+A Claude connector session ends when nobody sends a message for longer than the window set under
+Keep Claude connector sessions for
+on the Advanced tab. The default is 24 hours. Before 2.0.0 it was one hour.
+When a request uses an expired session, the connector returns HTTP 404 so the client can initialize again. How quickly the client retries, and whether an existing chat refreshes its tools, depends on the client. If the old chat still lacks the store’s tools, start a new chat and test a read-only call.
+If your chats often sit idle for a long time, keep the window at 24 hours. A developer can set a different window with the
+w7s_mcp_session_ttl
+filter. See
+Claude connector hooks
+.
+Use
+Revoke key
+in that key’s
+Actions
+menu, in the
+Manage API Keys
+list on the Advanced tab. The key stops working immediately: a Claude.ai connector or ChatGPT import that relied on it loses access, and its stored connector credential and token are cleared. Only that key is affected, so anyone connected with a different key carries on.
+If you want to stop the browser connector but keep the key working for a client that sends it as a header, use
+Disconnect URL
+in that key’s
+Actions
+menu instead of revoking the key.
+For Claude Desktop, also remove the connector from Claude’s settings, since the app-side entry does not remove itself.
+The Activity tab only appears when action logging or change history is enabled. Turn either on under the Advanced tab and the Activity tab returns.
+Store Control needs its own AI provider key, separate from the API keys that connect Claude Desktop or ChatGPT. Those keys let an outside assistant reach your store. Store Control is the reverse: it calls out to Claude or OpenAI on your behalf, so it needs a provider key to do that.
+Open the Store Control tab, choose a provider, and supply a key, either from WordPress Connectors or entered directly. Until a provider key is in place, the chat window can open but cannot reply.
+Also check that Store Control is enabled on its tab. And if the floating button is missing, it may simply be hidden — the
+Show the floating Store Control button
+setting controls it, and the
+//
+shortcut opens Store Control either way.
+Also expected. The MCP tabs that have settings to save have their own Save control, so the shared WooCommerce Save changes button is hidden under
+WooCommerce > Settings > MCP
+. Use the Save button inside the tab you are editing. If a change did not stick, check that you saved within that specific tab. The connector switch on the Connection tab, and adding or removing tools on the Add tools tab, save immediately.
+Remote clients receive every enabled tool and the full result of each call, so a broad question against a large catalog is genuinely doing a lot of work. Ask for a narrower result — a date range, a status filter, or a smaller page size — rather than everything at once, and trim the enabled set on the Tool Packs tab so the tool list a client loads at startup is smaller.
+Store Control is the exception: it caps each tool result at about 12,000 characters, cuts at item boundaries rather than mid-record, and notes the real total when it does, so a partial list is never mistaken for a complete one. Developers can change that cap with the
+w7s_mcp_chat_tool_result_char_budget
+filter.
+Only clients that open the optional SSE stream keep a connection and PHP worker occupied between tool calls. Each stream can run for up to an hour before reconnecting; the stored session can remain valid for longer. On shared hosting, size workers for the number of open streams and concurrent requests, not simply the number of configured connectors.
+WooCommerce > Status
+carries an
+MCP for WooCommerce
+section, so a support ticket can arrive with your setup already in it instead of a round trip asking for it. Select
+Get system report
+at the top of that page and copy the result: the MCP section travels with it. The same rows appear in
+Tools > Site Health > Info
+.
+It reports the plugin version, whether the connector is on, the MCP endpoint and the old MCP address, the Claude and ChatGPT addresses, the MCP Adapter in use (its state, where it comes from, and its version), whether the plugin’s server registered with all its tools at the last readiness run, the server’s last error, how many requests still use the old address (by key ID), whether this server can encrypt a connector credential, how many API keys and connector URLs exist, which tools are switched on, your logging and change history settings, whether the log is recording tool responses, and what the last site readiness run found. The readiness rows are the stored result of the last run rather than a fresh one, because a status page must not make outbound requests, so run
+Verify site readiness
+on the Advanced tab first if the last run was a while ago.
+Nothing in the section is a secret. It carries counts and settings, never an API key, a token, or a connector URL.
+The fastest way to see what an assistant actually did is the action log. Enable action logging on the Advanced tab, repeat the action that failed, then open Activity → Tool calls. Each entry shows the tool that ran, the key or user behind it, the time, and whether it succeeded, and
+View
+opens the arguments it was called with alongside the response it returned — which is usually where the reason lives when a call ran but did not do what was asked. Customer fields in the log are masked by default, so turning logging on to debug does not expose personal data.
+A tool that ran and failed is logged as
+error
+. Rejected authentication on the Claude and ChatGPT proxy routes is logged as
+denied
+, subject to the denial-log throttle. Initialization and tool discovery are not ordinary tool calls, so an empty Tool calls log does not prove the assistant never reached WordPress. For a connection failure, also inspect
+WooCommerce > Status > Logs
+for the
+w7s-mcp-claude
+source and compare initialize, notifications, tools/list and tools/call with the client’s error. See
+Claude lists tools but says the server is not connected
+.
+Yes.
+On WooCommerce 11.3 or later, yes. On earlier versions, MCP for WooCommerce can run on the copy of the adapter that WooCommerce or another plugin brings along, but installing the plugin keeps your connections working when that copy goes away. The plugin tells you with a notice when you need it, and offers a button that installs and activates it in one click. See
+The MCP Adapter
+.
+Nothing, apart from installing the MCP Adapter if the plugin asks for it. API keys, connector URLs, Claude Desktop bundles and configuration files, and tool names all stay the same. See
+Upgrading to 2.0.0
+.
+No. From 2.0.0, MCP for WooCommerce runs its own MCP server and does not need WooCommerce’s MCP feature. It no longer switches that feature on, and leaves an existing setting unchanged.
+No. That advice is for stores that used WooCommerce’s own MCP endpoint. MCP for WooCommerce keeps using WooCommerce REST API keys, which can be read-only and can be revoked one person at a time. See
+Why API keys and not Application Passwords
+.
+They are standard WooCommerce REST API keys (a consumer key and secret). The plugin uses the key’s existing permission, so a read key cannot make changes. Create keys from the Connection tab, and manage them on the Advanced tab.
+Use
+Revoke key
+in that key’s
+Actions
+menu, in the
+Manage API Keys
+list on the Advanced tab. The key stops working immediately, and its connector URL, token, and stored credential are cleared with it. Other keys and their connections are unaffected.
+To switch off only the browser or ChatGPT connection while leaving the key usable by a client that sends it as a header, use
+Disconnect URL
+in that key’s
+Actions
+menu.
+Yes. Give each person their own API key, and each key gets its own connector URL. See
+Giving each person their own connection
+.
+Yes. Cursor and VS Code with GitHub Copilot have their own setup steps. For anything else, choose
+Other AI service
+on the Connection tab to get the MCP endpoint, a Streamable HTTP connector URL, and an OpenAPI 3.1 schema URL that work with clients such as Cline, Continue, Zed, n8n, Zapier, Make, Ollama, Gemini, and Grok.
+Nothing runs. Disabled tool packs are enforced when a tool is called, not merely hidden, so a tool from a disabled pack cannot execute even if the assistant requests it by name. The exception is the nine core product and order tools, which have no toggle and are always available — the API key’s read or write permission is what limits those.
+They are flagged as Unavailable on the Add tools tab and are no longer sent to the assistant. Reactivate the plugin to restore them, or remove them all with one click.
+Not by default. PII redaction is on out of the box, so emails, addresses, phone numbers, and similar fields are masked before the log is written — in the response a tool returned as well as in the arguments it was called with. You can change this on the Advanced tab.
+An optional SSE stream occupies a connection and PHP worker for up to an hour before reconnecting. A client using JSON POST replies does not need that stream. The session record itself persists between requests and defaults to expiring after 24 idle hours. A stream ending and a session expiring are different events.
+This section is for developers extending or customizing MCP for WooCommerce. Hooks are listed by their exact name; read the referenced source for arguments and timing.
+/wp-json/w7s-mcp/v1/mcp
+is the plugin’s MCP server (server ID
+w7s-mcp
+), registered with whichever MCP Adapter is loaded. Tested adapter versions are 0.3 (bundled with WooCommerce up to 11.2), 0.6.1 (bundled with Elementor), and 0.7. Authentication is a WooCommerce REST API key in
+X-MCP-API-Key
+only; the key’s scope is enforced on the parsed JSON-RPC message, batches included, and the key’s user needs
+manage_woocommerce
+. Application Passwords and cookie sessions are not accepted. Plain HTTP is refused unless
+w7s_mcp_allow_insecure_transport
+allows it.
+/wp-json/woocommerce/mcp
+is kept for configurations made before 2.0.0. A request carrying
+X-MCP-API-Key
+is handed to the plugin’s server; any other request goes to WooCommerce’s own handler (HTTP 410 from WooCommerce 11.3). The route is added when WooCommerce does not register it. Requests are counted per API key ID for
+WooCommerce > Status
+, kept for 30 days. Source:
+includes/class-w7s-mcp-legacy-endpoint.php
+.
+/wp-json/w7s-mcp/v1/claude/mcp
+is the Streamable HTTP connector proxy;
+/wp-json/w7s-mcp/v1/claude/sse
+is an alias for existing URLs. It accepts a connector token (
+?token=
+),
+X-MCP-API-Key
+, or the legacy
+?api_key=
+parameter, and forwards requests to the plugin’s MCP server. The ChatGPT schema at
+/wp-json/w7s-mcp/v1/chatgpt/openapi.json
+accepts the same credential forms for import. Custom GPT tool calls use
+/wp-json/w7s-mcp/v1/chatgpt/tools/<tool>
+with the configured API key header.
+/wp-json/w7s-mcp/v1/connection/health
+runs site readiness. It needs the
+manage_options
+capability, like the API key routes.
+/wp-json/w7s-mcp/v1/site-health
+runs the same checks for the
+Tools > Site Health
+test, and needs
+view_site_health_checks
+. The test sets
+skip_cron
+, so WordPress’s weekly Site Health cron, which runs tests in-process without a REST route, leaves it out. Source:
+includes/class-w7s-mcp-site-health.php
+.
+The plugin’s abilities register only on its MCP routes, its two readiness routes, and inside Store Control. They default to
+meta.mcp.public = false
+and
+show_in_rest = false
+, keeping them off the MCP Adapter’s default server and the Abilities REST API. Without an adapter, the direct MCP routes answer HTTP 503 with a JSON-RPC error (code
+-32000
+) asking for the MCP Adapter; the Claude and ChatGPT proxies also report the missing adapter. Store Control can still run tools inside the site without an adapter.
+w7s_mcp_include_ability
+(filter) decides whether an ability is on the plugin’s server. It receives
+bool $include
+and
+string $ability_id
+, and runs after Tool Packs. It replaces WooCommerce’s
+woocommerce_mcp_include_ability
+, which WooCommerce 11.3 drops. Source:
+includes/class-w7s-mcp-tool-list.php
+.
+w7s_mcp_server_tools
+(filter) receives the final list of ability IDs the server is created with, after Tool Packs and
+w7s_mcp_include_ability
+. Every ID is revalidated afterwards: unregistered, REST-derived, and duplicate entries are dropped, and the nine core tools always keep their names. Source:
+includes/class-w7s-mcp-tool-list.php
+.
+w7s_mcp_allow_insecure_transport
+(filter) decides whether an MCP request may arrive over plain HTTP. It receives
+bool $allow
+and the
+WP_REST_Request
+. Its default is the value of WooCommerce’s
+woocommerce_mcp_allow_insecure_transport
+filter, so existing local setups keep working. Use it on local development sites only. Source:
+includes/class-w7s-mcp-authorizer.php
+.
+w7s_mcp_legacy_endpoint_enabled
+(filter) decides whether the plugin serves the
+woocommerce/mcp
+compatibility address. Default
+true
+. When
+false
+, the route is left exactly as WooCommerce registers it, and clients configured with the old address stop reaching the plugin’s server. Source:
+includes/class-w7s-mcp-legacy-endpoint.php
+.
+woocommerce_mcp_include_ability
+is deprecated. MCP for WooCommerce still applies it to its own server for one release, through
+apply_filters_deprecated()
+with a notice pointing at
+w7s_mcp_include_ability
+. Move your callbacks to
+w7s_mcp_include_ability
+.
+The current connector speaks the session-based MCP revisions
+2025-11-25
+,
+2025-06-18
+,
+2025-03-26
+and
+2024-11-05
+. It echoes a supported proposal and otherwise offers
+2025-11-25
+. The protocol the proxy negotiates with its upstream adapter is stored separately from the client-facing version.
+Initialize:
+opens a new connector and upstream session. The HTTP 200 JSON-RPC result contains only
+protocolVersion
+,
+capabilities
+and
+serverInfo
+; it does not embed
+tools
+or
+toolsNextCursor
+or fetch the catalogue eagerly. The response supplies
+MCP-Session-Id
+.
+Initialized notification:
+a POST without an ID is accepted with HTTP 202 and no JSON-RPC response body. It is not forwarded as an upstream request.
+Discovery and execution:
+the client requests tools/list and tools/call separately. Tool schemas and annotations are normalized on tools/list.
+Optional GET stream:
+a client can listen for server messages using
+Mcp-Session-Id
+, or the legacy
+session_id
+query parameter. The stream closes after at most 3,600 seconds; closing it does not delete the session. An ordinary browser GET without a session receives HTTP 400 with an explanation.
+Session termination:
+DELETE with a valid session header returns HTTP 204. An expired or unknown session returns HTTP 404 so the client can initialize again.
+Modern discovery probes:
+the connector does not implement the stateless
+2026-07-28
+protocol. A session-less modern request such as server/discover receives HTTP 400 with JSON-RPC
+-32600
+, allowing a client that supports both eras to fall back to initialize. This is not an advertisement of modern protocol support.
+Source:
+includes/class-w7s-mcp-claude-sse.php
+and
+includes/class-w7s-mcp-protocol-version.php
+.
+w7s_mcp_session_ttl
+(filter) sets how long a Claude connector session survives without a message, in seconds. It receives the window chosen on the Advanced tab, 86400 (24 hours) by default. The result is kept between 300 seconds and 30 days. Every message starts the wait again. A session past the MCP Adapter’s own 24-hour inactivity timeout keeps working, because the plugin starts a new adapter session when the adapter rejects the old one. Source:
+includes/class-w7s-mcp-claude-sse.php
+.
+A Claude connector session is stored as a transient named
+w7s_mcp_sse_<session id>
+. New records hold a keyed hash of the API key, the upstream adapter session, a tool-list revision, and timestamps; they do not retain the credential or queued tool responses. A session opened through a connector URL also records a hash of its token. A later request may authenticate with only the session ID while that connector URL remains valid; replacing or removing the URL ends that access. Header-authenticated sessions require the key on every request. Another key receives HTTP 404, as for an expired session. When a legacy record still contains its credential, the loader tries to associate it with a live connector URL before dropping the credential. Session-only access continues if that association succeeds; otherwise the client must supply its credential or start a new session.
+w7s_mcp_chatgpt_max_operations
+(filter) controls how many operations the Custom GPT schema includes; the default is 30. Values below 1 disable server-side trimming for inspection or another compatible OpenAPI client, but do not change the importing client’s limits or the Tool Packs UI’s Custom GPT selection limit. Source:
+includes/class-w7s-mcp-chatgpt-openapi.php
+.
+w7s_mcp_connector_enabled
+(filter) is the master switch returned by
+W7S_MCP::is_connector_enabled()
+. When it resolves to
+false
+, assistant access to MCP and ChatGPT tools is disabled and the assistant-facing tabs are hidden. Administrative settings and readiness remain available. It defaults to the stored connector option. Source:
+includes/class-w7s-mcp.php
+.
+w7s_mcp_register_tool_packs
+(action) fires when tool packs are collected. It passes a
+$register
+callable, so another plugin can add a pack that admins then switch on or off in Tool Packs:
+add_action( 'w7s_mcp_register_tool_packs', function ( $register ) {
+    $register(
+        'my_plugin_slug',
+        __( 'My Plugin', 'my-plugin' ),
+        __( 'Description.', 'my-plugin' ),
+        'my_plugin/ability_prefix'
+    );
+} );
+Abilities whose ID starts with that prefix are included on the plugin’s MCP server only while the pack is enabled. They need no
+mcp
+meta of their own. The callable also accepts optional per-ability descriptors (for per-ability toggles), a plugin label, and a category label. Source:
+includes/class-w7s-mcp-tool-packs.php
+.
+Individual abilities are registered with the WordPress Abilities API, not with a plugin-specific hook. Register them with
+wp_register_ability
+, then either register a pack for their prefix, which gives store owners a switch, or let the store owner add them from the
+Add tools
+tab. To include an ability without a pack, use
+w7s_mcp_include_ability
+.
+Read-only key enforcement relies on two classifiers, both filterable, in
+includes/class-w7s-mcp-ability-helper.php
+:
+w7s_mcp_is_write_operation
+decides whether a given ability or tool name counts as a write. The plugin classifies by name (write verbs such as
+create
+,
+update
+,
+delete
+,
+batch
+; read verbs such as
+get
+,
+list
+,
+search
+). Anything unrecognized defaults to write, so an unknown tool cannot be run by a read-only key. Use this filter to correct the classification for a custom tool.
+w7s_mcp_is_destructive_ability
+overrides whether an ability is treated as destructive. The plugin first trusts an explicit destructive declaration from the Abilities API, then falls back to name heuristics.
+Scope is also checked where each of the plugin’s own abilities runs, in front of its permission callback, so it does not rest on request parsing alone.
+w7s_mcp_readiness_services
+(filter) receives the list of services site readiness reports on, so another plugin can add its own assistant beside the built-in ones. Each entry implements
+W7S_MCP_Readiness_Service
+(
+includes/readiness/interface-w7s-mcp-readiness-service.php
+), which is three methods:
+get_id()
+returns a stable slug used as the key in the REST response and as the prefix for the service’s check ids,
+get_label()
+its merchant-facing name, and
+run( $context )
+returns its check results.
+The runner establishes the shared prerequisites once and passes them in as
+$context
+, so a service never re-probes what the runner has already settled. Anything a service cannot test because a prerequisite failed should come back as a skipped check rather than a passing one. Build results with the
+W7S_MCP_Readiness_Check
+factories (
+ok()
+,
+warning()
+,
+fail()
+,
+skipped()
+), each taking a stable untranslated id, a translated label, an explanation, and an optional untranslated support detail such as
+HTTP 401
+. A service that throws is reported as failed rather than taking the readiness response down with it. Source:
+includes/readiness/class-w7s-mcp-readiness.php
+.
+Writes through the WordPress tools are restricted to allowlists, all filterable, in
+includes/class-w7s-mcp-wordpress-tools.php
+:
+w7s_mcp_writable_option_keys
+controls which options may be written.
+w7s_mcp_writable_post_fields
+controls which post fields may be written.
+w7s_mcp_allowed_protected_post_meta
+allows specific protected meta keys (defaults to
+_thumbnail_id
+).
+w7s_mcp_max_upload_bytes
+caps the maximum upload size in bytes.
+The action log records MCP tool calls, along with the response each one returned, and masks PII before storage.
+w7s_mcp_log_pii_arg_keys
+(filter) adjusts which keys are redacted, so you can add custom checkout meta or remove a default. The same key list governs the response: MCP returns its payload as a JSON string inside a text part, so the log decodes that string before redacting, and a customer field buried in a tool’s output is masked the same way as one in its arguments. Source:
+includes/class-w7s-mcp-action-log.php
+. The log is viewable under Activity → Tool calls. Logging is on by default and retention defaults to 7 days, clamped to between 1 and 365; both are configurable on the Advanced tab, and a daily cron (
+w7s_mcp_clean_old_logs
+) applies the retention.
+Three filters shape what the in-admin chat sends to the AI provider, all in
+includes/client/class-w7s-mcp-chat-client.php
+:
+w7s_mcp_chat_tool_result_char_budget
+sets the character budget for a single tool result before it is cut at item boundaries (default 12,000, floored at 500). Larger results carry a
+truncated
+note stating the real total.
+w7s_mcp_chat_scrub_tool_args
+filters the arguments the model supplied before a tool runs. It receives the scrubbed arguments, the tool name, and the original arguments.
+w7s_mcp_chat_tool_description
+filters the description a tool is advertised with, so you can steer how the model chooses between them.
+Use
+Activity → Tool calls
+for executed tools and
+WooCommerce > Status > Logs
+, source
+w7s-mcp-claude
+, for the connector handshake. The latter records request methods, negotiated versions, session-header presence, tool counts and outcomes without logging the token or API key. Several Anthropic client identities may initialize separately. WordPress can also invoke a permission callback repeatedly while building the Allow header, so repeated authentication lines are not separate connections. Errors registering the plugin’s MCP server appear as
+MCP server last error
+in
+WooCommerce > Status
+. An SDK test that passes from your machine does not establish that a hosted assistant’s runtime connected; verify an actual tool result in that assistant.
+For a source checkout with dependencies installed, the read-only diagnostic at
+tests/integration/claude-connector-check.mjs
+checks the real HTTP initialize response, SDK connection, tool list and a coupon-list call. Set
+W7S_CLAUDE_CONNECTOR_URL
+in the gitignored
+tests/.env.integration
+file, then run:
+node tests/integration/claude-connector-check.mjs
+It prints response metadata and validation failures without the token or coupon data. The coupon-list tool must be enabled. This developer script lives in the source repository and is not included in the installed plugin ZIP.
+Related Products
+WooCommerce Subscriptions is a WooCommerce extension that lets customers subscribe to your products or...
+Offer add-ons like gift wrapping, special messages or other special options for your products.
+On this page
+Overview
+Requirements
+Installation
+The MCP Adapter
+Why this changed
+The MCP Adapter notice
+Upgrading to 2.0.0
+What happens to existing connections
+The new MCP endpoint, and the old address
+WooCommerce's notice about its MCP endpoint
+Why API keys and not Application Passwords
+Changes to Tool Packs
+Setup and configuration
+Connection settings
+Advanced settings
+Connecting an assistant
+Using the setup prompt
+Before you start
+How the connection works
+Connect the Claude Desktop app to a public site
+Find the Claude Desktop configuration file
+Connect the Claude Desktop app to a local site
+Connect Claude.ai in the browser to a public site
+Giving each person their own connection
+Connect the ChatGPT app to a public site
+Connect a Custom GPT to a public site
+Connect a Custom GPT to a local site
+Connect Cursor or VS Code
+Connect another AI service
+Verify and troubleshoot
+Requests blocked by Cloudflare or your host
+Another plugin publishes an OAuth server for your site
+Tool Packs settings
+Add tools
+Store Control
+Activity
+Tool calls
+Changes
+What the assistant can do
+Use cases
+Answer the daily questions without touching anything
+Close the month without exporting a single CSV
+Make a hundred catalog changes for a client and keep the receipts
+Give support the tools to fix things, but not to break them
+Set up a sale, or a whole new store section, by talking it through
+Stay on top of a subscriptions business
+Run the assistant inside WP Admin with no desktop app
+Troubleshooting
+The MCP Adapter notice says AI connections need the MCP Adapter
+The MCP Adapter notice says WooCommerce is changing how AI assistants connect
+WooCommerce says its MCP endpoint was removed (HTTP 410)
+A firewall or security plugin blocks the plugin's addresses
+Other plugins' tools show up on the MCP Adapter's default server
+A tool or a whole pack is missing from the assistant
+An added tool shows as Unavailable
+The assistant changed nothing, or reports a read-only key
+Nothing works, and no tools show up anywhere
+Claude lists tools but says the server is not connected
+A Claude chat lost the store's tools after a break
+How do I disconnect an assistant?
+The Activity tab is missing
+Store Control will not open or answer
+The standard WooCommerce Save button is gone on these screens
+On a large store, tools are slow or time out
+Send your setup to support
+When you are stuck, turn on logging and reproduce
+FAQ
+Does this work with WooCommerce High Performance Order Storage (HPOS)?
+Do I need the MCP Adapter plugin?
+What happens to my existing connections when I update to 2.0.0?
+Do I have to keep WooCommerce MCP turned on?
+WooCommerce's notice says to use an Application Password. Should I?
+Where do API keys come from?
+How do I disconnect an assistant or revoke access?
+Can several people each connect their own Claude.ai account?
+Can I connect something other than Claude or ChatGPT?
+An assistant is trying to use a tool I did not enable. What happens?
+What happens to added tools if I deactivate the plugin that provides them?
+Will logging store my customers' personal details?
+My Claude connection seems to hold resources for a while. Is that expected?
+Developer documentation
+Endpoints
+MCP server hooks
+Claude connector protocol
+Claude connector hooks
+OpenAPI schema limit
+Master switch
+Registering tool packs
+API key permission scope
+Registering a readiness service
+Write allowlists and upload guardrails
+Action log and PII redaction
+Store Control
+Logging for troubleshooting
+30-day
+money-back guarantee
+Support
+teams across the world
+Safe and secure
+online payments

@@ -1,0 +1,327 @@
+URL: https://docs.mrscraper.com/docs/getting-started/scraper-api
+FETCHED: 2026-11-23T17:33:59.511390
+VIA: direct
+
+Scraper API | MrScraper Documentation
+Documentation
+Core Features
+Dashboard
+Getting Started
+Overview
+Quickstart
+Web Search
+Scraper API
+Scrape HTML
+Scrape Markdown
+Get Screenshot
+Scrape Brand
+Scrape JSON
+Token Plan
+CLI
+MCP Server
+Billing
+Features
+Workflow
+Workflow API Access
+Bulk Scraping
+Proxy
+Marketplace
+Schedule
+S3 Storage
+Scraping Tips
+Cookie
+Team
+Guides
+Common Use Case
+Optimizing Cost
+Create and Run a Scraper Programmatically
+Bulk Scraping With Custom Scraper
+Integrations
+Email
+SQL/Database
+Webhook
+Zapier
+ClawHub
+x402
+n8n
+Dify
+Scalekit
+SDKs
+Scraper API
+Build, test, and validate scraping requests in MrScraper's Scraper API, preview results, and generate production-ready API code without coding.
+The
+Scraper API
+lets you build, test, and validate scraping requests without writing any code. It provides an interactive interface for configuring requests, previewing results, and generating production-ready API code.
+What You Can Do
+Test Requests
+Send API requests and view results instantly.
+Adjust Parameters
+Experiment with extraction settings and options.
+Generate Code
+Generate ready-to-use code snippets in multiple languages.
+Preview Responses
+Inspect the returned data before building your integration.
+Scraper API Overview
+The Scraper API has these main panels:
+Target URL
+: Configure and run the request.
+Example Code
+: Copy generated request code.
+Extracted Data
+: View the response.
+Settings
+: Adjust optional loading, rendering, and extraction options (Basic Settings, Use Cache, and Advanced Settings, plus Data Extraction in Scrape JSON).
+Alert Settings
+: Get notified when a scrape returns errors or incomplete data.
+Target URL
+In the
+Target URL
+panel, you configure and run the request:
+Enter the target URL.
+Select
+Run
+to send the request, or
+Reset
+to clear the current configuration.
+Select a country to load the page from. (Default to
+United States
+)
+Example Code
+The
+Example Code
+panel builds an API request from your current configuration and updates it automatically as you make changes. Copy the code and use it directly in your application.
+Supported languages:
+cURL
+Python
+JavaScript
+PHP
+Go
+Java
+Ruby
+C#
+Agent Integration
+You can view the ready-made prompt for your AI coding agent to integrate MrScraper.
+Extracted Data
+The
+Extracted Data
+panel displays the response MrScraper returns after a request completes :
+HTTP status code
+Total runtime
+Token used
+Depending on the use case, the response may include:
+Raw HTML
+Markdown
+JSON
+Use this panel to confirm the extracted content matches your requirements before you integrate the request into your application.
+Info
+This panel can also show history of your previous requests and analytic of your requests.
+Default Parameters
+Parameter
+Description
+geoCode
+Country to load the page from, as a two-letter code. (Default to
+us
+, United States)
+timeout=300
+Maximum seconds to wait before the request times out. Set it in
+Advanced Settings
+.
+Authenticate with the
+x-api-token
+header. The generated code does not repeat the token as a query parameter.
+Settings
+The settings panels contain optional features that control how MrScraper loads, renders, and extracts content. Most websites work with the default settings. Enable these options only when a website needs extra handling, such as JavaScript rendering, geographic targeting, or user interactions.
+Note
+These settings are optional. In most cases, the default configuration is enough. The available settings vary depending on the selected use case.
+Basic Settings
+Setting
+Description
+Common Use Case
+Default
+Retry
+Enable retry-related settings for the request.
+Unreliable pages or requests that fail intermittently.
+Off
+Max retries
+Maximum number of retries for the request. Leave empty for no limit.
+Limiting how many times a scrape retries.
+3
+Token cap
+Maximum total tokens the scrape and its retries can use.
+Controlling token usage during testing. See
+Token Cap
+.
+No Limit
+Screenshot
+Also captures a screenshot of the rendered page. Turning it on sends
+screenshot=true
+with
+browserRendering=true
+. Available in Scrape HTML and Scrape JSON.
+Confirm the page loaded correctly.
+Off
+Screenshot area
+Top
+or
+Full
+. Top captures the visible viewport at the top of the page. Full captures the entire scroll height. Available in Get Screenshot.
+Get the website view
+Full
+Token Cap
+The Token Cap limits how many tokens a single scrape and its retries can use in the Scraper API. It is available under
+Retry
+in every use case, and in Workflow.
+Use the token cap to keep your costs predictable. Automatic retries are bounded by the cap, so the total tokens for a single run stay at or below the value you set. This makes it easier to estimate and budget token usage while testing.
+For how the cap works with retries and how tokens are counted, see
+Scraper API Token Cap
+in Token Plan.
+Advanced Settings
+Advanced Settings vary by
+use case
+; check each use case page for the full list. These settings are shared by several use cases:
+Setting
+Description
+Parameter
+Default
+Render JavaScript
+None
+leaves it to the API: the page loads without a browser first and switches to a browser automatically if the request is blocked.
+True
+always renders the page in a real browser, which JavaScript-heavy sites and SPAs need.
+False
+never uses a browser.
+browserRendering
+(left out for
+None
+)
+None
+Wait for selector or text
+Waits until a specific CSS selector or text appears on the page before returning it. Useful for content that loads asynchronously after the initial page load.
+waitForSelector
+None
+Warm Start
+Opens the site's home page first to warm the session before loading the target URL.
+warmStart
+Off
+Block resources
+Blocks images, fonts, and stylesheets from loading. Speeds up scraping and reduces bandwidth usage.
+blockResources
+Off
+Timeout (s)
+Maximum seconds to wait for the page to fully load before the request times out. Increase for slow or complex pages. Available in every use case.
+timeout
+300
+Alert Settings
+The
+Alert Settings
+panel notifies you when a scrape returns errors or incomplete data. Configure where alerts go, what triggers them, and how often they're sent.
+Channel
+Choose where MrScraper sends alerts. Set one or both.
+Field
+Description
+Email
+Sends alerts to this email address.
+Slack Webhook URL
+Sends alerts to a Slack channel using an incoming webhook URL.
+Flag
+Set the conditions that trigger an alert. Type a value and press
+Enter
+to add it.
+Field
+Description
+Examples
+Error Flags
+Triggers an alert when the response contains one of these errors.
+captcha
+,
+security
+,
+404
+,
+500
+Data Incomplete Flags
+Triggers an alert when the extracted data is missing one of these fields.
+title
+,
+price
+,
+url
+Notification Rate
+The
+Identifier
+sets the key MrScraper uses to group alerts, so the same alert isn't sent repeatedly.
+Rate Limit
+and
+TTL
+apply separately to each group.
+Field
+Description
+Identifier
+The key used to group alerts:
+Domain
+or
+URL
+. Each group is rate-limited on its own.
+Rate Limit
+Maximum number of alerts sent per group within the TTL period.
+TTL (seconds)
+Time to Live — the length of the rate-limit period, in seconds (for example,
+3600
+= 1 hour).
+Example
+With a rate limit of 3 and errors on
+example.com
+and
+shopee.com
+:
+Domain
+: Grouped by domain. Once
+example.com
+hits the limit, its alerts pause for the TTL period, while
+shopee.com
+keeps its own separate count.
+URL
+: Grouped by full URL.
+example.com/path1
+and
+example.com/path2
+are tracked separately, so each can send its own alert.
+Use Cases
+Scrape HTML
+Fetch complete DOM markup with automatic proxy rotation and geo-targeting.
+Scrape Markdown
+Convert web pages into clean, LLM-friendly Markdown by stripping HTML noise and boilerplate.
+Get Screenshot
+Capture full-page or viewport screenshots of dynamic, JavaScript-rendered web pages.
+Scrape Brand
+Extract a website's colors, typography, logos, and metadata as brand JSON, with optional page bundles.
+Scrape JSON
+Extract structured, strongly-typed JSON data from single pages using natural language prompts or JSON schemas.
+Troubleshooting
+If a scrape returns unexpected results, start by enabling
+Screenshot
+in the Target URL panel and inspecting the returned image. You can also copy the raw HTML and open it in an HTML viewer to see what MrScraper received. The accordion items below walk through the most common issues in the order you should check them.
+The page returns blank or unstyled HTML
+The request fails or returns an error page
+Web Search
+Run a search query with MrScraper Web Search and get ranked results with titles, URLs, descriptions, and sources, without scraping the results page yourself.
+Scrape HTML
+Fetch complete, unparsed DOM markup in the Scraper API with automatic proxy rotation, and geo-targeting, ready for your own parser.
+On this page
+What You Can Do
+Scraper API Overview
+Target URL
+Example Code
+Extracted Data
+Default Parameters
+Settings
+Basic Settings
+Token Cap
+Advanced Settings
+Alert Settings
+Channel
+Flag
+Notification Rate
+Example
+Use Cases
+Troubleshooting

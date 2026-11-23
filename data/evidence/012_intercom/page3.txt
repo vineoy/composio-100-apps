@@ -1,0 +1,277 @@
+URL: https://www.intercom.com/help/en/articles/6615543-setting-up-data-connectors-authentication
+FETCHED: 2026-11-23T16:46:48.350138
+VIA: direct
+
+Setting up Data connectors authentication | Intercom Help
+Skip to main content
+Overview
+Getting Started
+Operator
+Fin AI Agent
+Channels
+Inbox
+Workflows
+Knowledge
+Reports
+Outbound
+Contacts
+Workforce Management
+Apps & Integrations
+Mobile SDKs
+Community
+Academy
+Security & Privacy
+To set up new authentication methods for Data connectors, go to
+Settings > Integrations > Authentication
+and click
+Add token
+.
+You have two main approaches to setting up a token: connecting a
+pre-configured provider
+or creating a
+custom token
+:
+Text
+HTTP Request
+OAuth Request
+User
+Connecting a pre-configured provider (OAuth)
+We offer pre-configured, 3-legged OAuth flows for supported providers (such as Salesforce, HubSpot, and Attio) to make authentication quick and seamless.
+To connect one of these providers:
+Go to
+Settings > Integrations > Authentication
+and click
+Add token
+.
+Select the desired provider from the dropdown.
+You will be redirected to the provider's authorization page. Review the requested permissions and click
+Confirm
+(or Allow) to authorize the connection.
+Once the OAuth flow is complete, your new access token will automatically appear in your token list.
+Clicking into your newly created token will display its configuration. Because this is a pre-configured integration, only the
+Name
+and
+Description
+fields are editable. You will also see:
+API URL:
+The base URL to use when making API calls to this provider in your Data connectors. You can quickly copy this using the
+Copy to clipboard
+icon.
+Scope:
+A read-only list of permissions the token has been granted.
+Reauthenticating a token
+If a token becomes deactivated or broken on the provider's side, you do not need to delete it and start over. Simply open the token details and click the
+Reauthenticate
+button in the top right corner. This will run you through the OAuth flow again and automatically update your existing token, ensuring your connected Data connectors continue to work without manual updates.
+Creating a custom token
+If you need to connect to a service that isn't included in the pre-configured list:
+Go to
+Settings > Integrations > Authentication
+and click
+Add token
+.
+Select
+Custom.
+Then select the token
+Type
+you want to create from the dropdown.
+Text tokens
+Text tokens are static tokens. You can set the token's name, description, value, token prefix, and the key for the request header containing the token, which will be inserted into the Data connector request.
+HTTP Request tokens
+HTTP Request tokens are dynamic. You configure an HTTP request to your Authentication Endpoint that will refresh the token when needed. These tokens must be tested from the Authentication Token UI before saving them. You can set the token's name, description, and then the fields that affect the request itself. These are the HTTP request method, URL, HTTP headers, and any key-value pairs.
+You should test the token by clicking
+Test request
+and then specify the token's location in the response, the token prefix and the key for the request header.
+If an HTTP Request token is assigned to a Data Connector, the connector will use the most recently fetched token for its requests. If a request returns a 400, 401 or 403 response, the token will be refreshed by sending an HTTP Request to the specified Authentication Endpoint URL. The original Data Connector request will then be retried using the newly fetched token.
+HTTP Request tokens are refreshed automatically by Intercom to keep Data connectors working. These updates happen in the background without any human action and may appear as being updated by “System” or “Fin” to indicate an automated refresh.
+Note:
+If your server is returning a 200 for an access denied response, we won't refresh the token. You'll need to update your servers to return a 400, 401 or 403 in this case.
+If there is a problem refreshing a token, the issue will be logged in the Data connector "Logs" tab.
+OAuth Request tokens
+OAuth request allow you to request and refresh token by making a POST request with
+OAuth client credentials grant
+format.
+Please provide the
+url
+,
+client_id
+,
+client_secret
+and the optional field
+scope
+. Select the request format of JSON or Form Encoded based on your token server setup.
+A preview of request header and body will be showing.
+Click
+Test request
+after you've filled in all required fields.
+Intercom will look for the token in the response at the path
+access_token
+.
+Save the token once the test has passed.
+Similar to the HTTP request token, the system will perform a token refresh if a data connector request receives a
+400
+,
+401
+, or
+403
+response.
+OAuth Request tokens are refreshed automatically by the system when required. These updates are not triggered by a human admin and may appear as being updated by “System” or “Fin” to indicate an automated refresh.
+User tokens
+User tokens allow authenticating Data connectors using a user-defined token. These tokens are created and updated by 3rd party systems. One of the most popular example of such token is
+JSON Web Tokens
+(JWT).
+JWT is a secure way to verify user identity. You can now use this new type of authentication token to secure your Data connectors. This allows for more flexible and secure communication between your systems and Intercom.
+Use the token in a Data connector
+Once your token type is created:
+Go to
+Settings > Integrations > Data connectors
+and open the connector you want to configure.
+Select the
+API
+tab.
+In the
+Authentication tokens
+section, select your token from the dropdown.
+Creating and updating user tokens
+All user token management is handled by 3rd party systems.
+Intercom('boot', {
+app_id: 'abc12345',
+email: 'john.doe@example.com',
+created_at: 1234567890,
+name: 'John Doe',
+user_id: '9876',
+auth_tokens: {
+security_token: 'abc...' // JWT
+}
+});
+These 3rd party systems are also responsible for updating the security token and periodically refreshing it.
+Intercom('update', {
+app_id: 'abc12345',
+auth_tokens: {
+security_token: 'bcd...' // JWT
+}
+});
+Intercom('setAuthTokens', {
+security_token: 'abc...' // JWT
+});
+# Swift
+Intercom.setAuthTokens({
+security_token: 'abc...' // JWT
+});
+# Kotlin
+Intercom.client().setAuthTokens({
+security_token: 'abc...' // JWT
+});
+Multi-token support
+You can attach multiple tokens to a single Data connector. Every token attached must be configured with a
+unique header key
+(e.g.,
+Authorization
+,
+X-API-Key
+). All attached tokens will be sent with the request.
+This setup allows you to trigger Data connectors using that token - either through Workflows or Fin. The Data connector will continue to work even if the token value is updated, as it will be refreshed in real time to ensure uninterrupted authentication.
+To use a per‑user JWT with a Data connector, create a ‘User’ authentication token and provide its current value via auth_tokens (e.g., Intercom('setAuthTokens')), rather than relying on the Messenger intercom_user_jwt.
+Email verification with a One-Time Passcode (OTP)
+Email verification for Data connectors with OTP
+provides an additional verification step before an Data connector is used by requiring customers to verify their identity through a unique, time-sensitive code sent via email.
+This method adds an extra layer of security on top of user authentication tokens (e.g., JWTs). When enabled, customers must complete the email-based verification process before a Data connector can proceed. This helps ensure that only authorized users can perform sensitive operations and prevents misuse of automated workflows.
+Customer authentication for data connectors
+Customer authentication lets you verify a customer's identity before a data connector runs. Unlike API token authentication (which secures server-to-server communication), customer authentication confirms the identity of the end user — ensuring only authorized customers can trigger sensitive connectors.
+Authentication rules are configured at
+Settings > Workspace > Security > Customer authentication
+and apply across all data connectors that have authentication enabled. Rules can be set per channel and per audience.
+A
+fallback rule
+covers all channels and audiences not otherwise specified, so every authenticated connector is always protected.
+New workspace
+When a new workspace is created, the fallback authentication rule is automatically set to Email OTP. This covers all channels and audiences not otherwise specified by a more specific rule.
+Adding a rule
+When you create a new channel or audience rule, a default authentication method is applied based on the channel type:
+Channel
+Default verification method
+Messenger (web, iOS, Android)
+Messenger security (JWT)
+All other channels
+No verification (fallback rule applies)
+Verification methods
+Two verification methods are available:
+Email OTP
+— sends a one-time passcode to the customer's email address. The customer must enter this code before the connector runs. See
+Secure data connectors with One-Time Passcode
+for setup details.
+Messenger security (JWT)
+— uses your existing Messenger identity verification (User token). Requires Messenger security with JWTs to be set up. See
+User tokens
+above.
+Tip:
+Messenger security (JWT) provides the strongest identity guarantee and is the recommended method for Messenger-based conversations. It verifies identity without adding friction for your customers.
+Enable authentication on a connector
+Authentication must be turned on individually for each data connector where you want it enforced:
+Go to
+Settings > Integrations > Data connectors
+and open the connector.
+Select the
+Security
+tab.
+Toggle on
+Customer authentication
+.
+Complete any security checks, then save and set the connector live.
+Once enabled, the connector enforces whichever workspace authentication rules apply to the channel and audience of the incoming conversation.
+Note:
+If you want a data connector to run without requiring Identity Verification, you can disable Customer Authentication entirely. Open the connector, select the
+Security
+tab, and toggle off
+Customer authentication
+.
+Security checks
+When you save a data connector, Intercom automatically surfaces potential security risks in your configuration. These appear as warnings on the
+Security
+tab and should be reviewed before setting the connector live. Each warning describes the risk and provides a recommendation on how to address it.
+Warning
+What it means
+How to address it
+Customer data attributes are not verified
+Customer data attributes can be updated by Fin without the customer first verifying their identity.
+Enable customer authentication for this connector so that attribute updates are tied to a verified identity.
+Data collected by Fin for this connector needs review
+Fin is collecting information from the customer before calling your API. If this input isn't validated, your backend may process unverified or manipulated data.
+Validate all inputs received from Fin in your backend before processing or storing them. Don't rely on customer-supplied values without server-side checks.
+Workflows using this data connector need review
+One or more workflows using this connector may expose sensitive customer data without sufficient backend validation.
+Review the flagged workflows and add backend validation to prevent sensitive data from being exposed or misused.
+A request header for this data connector needs review
+Customer details (such as email address) are being sent as a request header — for example,
+X-Intercom-Verified-Email
+. If your backend doesn't verify this value, it could be spoofed or misused.
+Ensure your backend API validates the header value it receives rather than trusting it as-is.
+Note:
+The "Insecure" badge shown on an individual connector attribute (e.g. for a Fin-collected value that isn't verified) is different from the Security tab's resolvable warnings above. It's a permanent, by-design indicator for any unverified/insecure value Fin collects — any dismiss action in the connector edit view does not clear it, and it will reappear even after you've reviewed the attribute and confirmed it's safe to use. It is not an actionable alert you can resolve or permanently dismiss; it simply flags that the value wasn't verified through customer authentication. If you want this class of attribute to stop being flagged, the only way is to enable customer authentication for the connector (see above) so the value is tied to a verified identity instead.
+Credentials
+The Credentials page (Settings > Integrations > Credentials) gives you a centralized view of all authentication credentials used across your data connectors. The table shows name, type, who created it, and who last updated it — making it easy to audit access to external systems.
+Logic
+Text-based tokens are straightforward — the Data connector uses the assigned token value whenever it tests or sends a live Data connector request.
+HTTP Request tokens follow a more involved flow. For both testing and live Data connectors, the Data connector will first use the most recently retrieved token. If the request fails, it will send a refresh request and then retry the Data connector using the new token. This retry occurs only once to avoid an infinite loop.
+If the data connector continues to fail due to refresh requests failing, it will trigger the circuit breaker, just like any Data connector that encounters repeated failures.
+Known limitations
+Currently neither the Text or HTTP Request authentication token types support different authentication request details per customer. Usually this is requested as a full OAuth flow.
+Once when the Authentication token is created, it's not possible to delete it.
+Data connectors utilizing the autogenerated Stripe app token do not support multi-token functionality because the headers are locked to a read-only state. To make changes, you must first remove or replace the Stripe token.
+Once a Stripe token is selected, you cannot add new key-value pairs to the HTTP Headers section.
+💡
+Tip
+Need more help?
+Get support from our
+Community Forum
+Find answers and get help from Intercom Support and Community Experts
+Did this answer your question?
+Disappointed Reaction
+Neutral Reaction
+Smiley Reaction
+Related Articles
+How to set up Data connectors
+Data connectors FAQs
+Designing and using your APIs with Data connectors
+Data connectors quick start guide
+How to connect Fin to Pendo with Data connector templates

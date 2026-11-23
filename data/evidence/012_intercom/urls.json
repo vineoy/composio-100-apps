@@ -1,0 +1,77 @@
+{
+ "app": "Intercom",
+ "queries": [
+  "Intercom API authentication documentation",
+  "Intercom MCP server",
+  "Intercom API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+  "https://developers.intercom.com/docs/guides/mcp",
+  "https://www.intercom.com/help/en/articles/6615543-setting-up-data-connectors-authentication",
+  "https://www.intercom.com/integrations/connectors/intercom-mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication | Intercom and Fin Developer Platform",
+   "href": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"
+  },
+  {
+   "title": "Setting up Data connectors authentication - Intercom Help",
+   "href": "https://www.intercom.com/help/en/articles/6615543-setting-up-data-connectors-authentication"
+  },
+  {
+   "title": "API integration | Intercom Help",
+   "href": "https://www.intercom.com/help/en/collections/3510275-api-integration"
+  },
+  {
+   "title": "Intercom API \u2014 Documentation, OpenAPI | APIs.io APIs",
+   "href": "https://apis.io/apis/intercom/intercom-api/"
+  },
+  {
+   "title": "Intercom API Guide (2026): Auth, Rate Limits, Pagination",
+   "href": "https://www.getmacha.com/blog/intercom-api-guide"
+  },
+  {
+   "title": "Model Context Protocol (MCP) | Intercom and Fin Developer ...",
+   "href": "https://developers.intercom.com/docs/guides/mcp"
+  },
+  {
+   "title": "Intercom MCP Server integration",
+   "href": "https://www.intercom.com/integrations/connectors/intercom-mcp-server"
+  },
+  {
+   "title": "GitHub - intercom/intercom-mcp-server: Intercom MCP Server ...",
+   "href": "https://github.com/intercom/intercom-mcp-server"
+  },
+  {
+   "title": "Fin Agent API: MCP Server | Intercom Help",
+   "href": "https://www.intercom.com/help/en/articles/15481203-fin-agent-api-mcp-server"
+  },
+  {
+   "title": "GitHub - raoulbia-ai/mcp-server-for-intercom",
+   "href": "https://github.com/raoulbia-ai/mcp-server-for-intercom"
+  },
+  {
+   "title": "Intercom Pricing | Plans for every team size",
+   "href": "https://www.intercom.com/pricing"
+  },
+  {
+   "title": "Plans & pricing - Intercom Help",
+   "href": "https://www.intercom.com/help/en/collections/3866057-plans-pricing"
+  },
+  {
+   "title": "Intercom Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/intercom/intercom-plans-pricing/"
+  },
+  {
+   "title": "Intercom Pricing (2026): Free vs Paid Plans - Softwr",
+   "href": "https://www.softwr.com/pricing/intercom"
+  },
+  {
+   "title": "Intercom API Pricing 2026: Plans from $0.99 Plans Compared",
+   "href": "https://costbench.com/software/ai-customer-support-apis/intercom-api/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:46:48.351823"
+}

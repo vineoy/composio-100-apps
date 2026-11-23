@@ -1,0 +1,66 @@
+URL: https://developer.linkedin.com/product-catalog/marketing/advertising-api
+FETCHED: 2026-11-23T17:06:05.637503
+VIA: direct
+
+LinkedIn API | Advertising API
+Skip to main content
+Close jump menu
+← Go to Marketing Overview
+Advertising API
+Scale and optimize advertising on LinkedIn to promote a business
+View Docs
+What solutions can you build?
+Enable ads management at scale
+Build functionality for scalable ads management with
+Ad Campaigns
+and
+Creatives APIs
+Build holistic view of marketing performance
+Leverage the
+Ad Analytics API
+to pull campaign performance data and identify which campaigns are delivering results
+Supercharge targeting in the privacy-first era
+Easily create high-intent, AI-powered audience segments using first-party or third-party data with
+Matched Audiences
+and
+Predictive Audiences
+APIs
+Amplify event reach and boost attendance
+Utilize the
+Event Ads API
+to promote events to targeted audiences before, during, and after they occur, maximizing attendance and engagement
+*These APIs are private and require additional approval once you’ve been approved for the Advertising API. To apply for access to private APIs, first submit an application for the Advertising API with an ads management or reporting use case. Once you’ve been approved for the Advertising API, submit a request through the form
+here
+.
+Explore more Advertising solutions
+Meet the qualifications:
+Do you have an established business?
+Do you have an established use case?
+Does your use case align with our supported solutions and is
+not restricted
+?
+Do you agree to comply with
+LinkedIn Marketing API Terms
+?
+Apply for Development tier access:
+1.
+Create an app
+, add Advertising API, and complete the access form under My Apps > select your app > Products.
+2. LinkedIn will review your application
+3. Check the Developer Portal for the status of your application
+4. If your application is approved,
+get started
+. If your Advertising API application is rejected, review
+common rejection reasons
+, create a new app, and submit a new application
+Resources to get you started
+•
+Upgrading to Standard tier
+•
+Restricted uses for LinkedIn Marketing APIs
+•
+Getting started with the Advertising API
+•
+API and permission tiers
+dismiss
+Cancel

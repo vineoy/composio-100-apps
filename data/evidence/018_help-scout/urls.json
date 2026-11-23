@@ -1,0 +1,77 @@
+{
+ "app": "Help Scout",
+ "queries": [
+  "Help Scout API authentication documentation",
+  "Help Scout MCP server",
+  "Help Scout API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+  "https://docs.helpscout.com/article/1141-docs-api",
+  "https://articles.helpscout.com/blog/introducing-help-scout-mcp/",
+  "https://www.helpscout.com/pricing/"
+ ],
+ "search_hits": [
+  {
+   "title": "Help Scout Developers - API Documentation | Help Scout Developers",
+   "href": "https://developer.helpscout.com/"
+  },
+  {
+   "title": "Authentication | Help Scout DevelopersDocs API - Help Scout SupportHelp Scout Docs API \u2014 REST - integrations.shHelp Scout SupportDocs API - Help Scout SupportHelp Scout User Management API Guide | Stitchflow",
+   "href": "https://developer.helpscout.com/mailbox-api/overview/authentication/"
+  },
+  {
+   "title": "Docs API - Help Scout Support",
+   "href": "https://docs.helpscout.com/article/1141-docs-api"
+  },
+  {
+   "title": "Help Scout Docs API \u2014 REST - integrations.sh",
+   "href": "https://integrations.sh/helpscout.com/help-scout-docs-api/"
+  },
+  {
+   "title": "Help Scout Support",
+   "href": "https://docs.helpscout.com/"
+  },
+  {
+   "title": "Help Scout MCP Server - GitHub",
+   "href": "https://github.com/GravityKit/help-scout-mcp"
+  },
+  {
+   "title": "Help Scout MCP Server",
+   "href": "https://mcp-beta.helpscout.net/"
+  },
+  {
+   "title": "Help Scout's MCP server is now available",
+   "href": "https://articles.helpscout.com/blog/introducing-help-scout-mcp/"
+  },
+  {
+   "title": "Help Scout MCP Server - GitHub",
+   "href": "https://github.com/mariscaloots-pm/helpscout-mcp-server"
+  },
+  {
+   "title": "Help Scout MCP Server",
+   "href": "https://mcpservers.org/servers/cotlet-dev-integrations-help-scout-api-mcp-server"
+  },
+  {
+   "title": "Help Scout Developers - API Documentation | Help Scout Developers",
+   "href": "https://developer.helpscout.com/"
+  },
+  {
+   "title": "Help Scout Pricing: Affordable Customer Support Software",
+   "href": "https://www.helpscout.com/pricing/"
+  },
+  {
+   "title": "What's Included in Help Scout's Free Plan?",
+   "href": "https://www.helpscout.com/blog/help-scout-free-plan/"
+  },
+  {
+   "title": "Is Help Scout Free? Free Plan Limits & Upgrade Triggers (2026)",
+   "href": "https://costbench.com/software/help-desk/helpscout/free-plan/"
+  },
+  {
+   "title": "Helpscout Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/helpscout/helpscout-plans-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:51:46.690001"
+}

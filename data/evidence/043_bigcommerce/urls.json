@@ -1,0 +1,77 @@
+{
+ "app": "BigCommerce",
+ "queries": [
+  "BigCommerce API authentication documentation",
+  "BigCommerce MCP server",
+  "BigCommerce API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts",
+  "https://docs.bigcommerce.com/developer/api-reference/about-our-apis",
+  "https://docs.bigcommerce.com/developer/api-reference/mcp/overview",
+  "https://docs.bigcommerce.com/developer/docs/ai-agent-setup"
+ ],
+ "search_hits": [
+  {
+   "title": "API Accounts - BigCommerce Docs",
+   "href": "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts"
+  },
+  {
+   "title": "About Our APIs - BigCommerce Docs",
+   "href": "https://docs.bigcommerce.com/developer/api-reference/about-our-apis"
+  },
+  {
+   "title": "API Documentation - BigCommerce",
+   "href": "https://support.bigcommerce.com/s/topic/0TO1300000059cCGAQ/api-documentation"
+  },
+  {
+   "title": "Managing API Accounts and Webhooks - BigCommerce",
+   "href": "https://support.bigcommerce.com/s/article/Store-API-Accounts"
+  },
+  {
+   "title": "Authentication and Tokens | bigcommerce/docs | DeepWiki",
+   "href": "https://deepwiki.com/bigcommerce/docs/5.2-authentication-and-tokens"
+  },
+  {
+   "title": "MCP Overview - BigCommerce Docs",
+   "href": "https://docs.bigcommerce.com/developer/api-reference/mcp/overview"
+  },
+  {
+   "title": "Docs MCP Server - BigCommerce Docs",
+   "href": "https://docs.bigcommerce.com/developer/docs/ai-agent-setup"
+  },
+  {
+   "title": "MCP Server for Tools and AI Agents - support.bigcommerce.com",
+   "href": "https://support.bigcommerce.com/s/article/MCP-Server-for-Tools-and-AI-Agents"
+  },
+  {
+   "title": "Build AI Shopping Agents with BigCommerce Storefront MCP",
+   "href": "https://www.bigcommerce.com/blog/storefront-mcp/"
+  },
+  {
+   "title": "BigCommerce MCP Server | Composio",
+   "href": "https://composio.dev/toolkits/bigcommerce"
+  },
+  {
+   "title": "BigCommerce Developers | BigCommerce Docs",
+   "href": "https://docs.bigcommerce.com/"
+  },
+  {
+   "title": "BigCommerce Pricing and Plan Information | BigCommerce",
+   "href": "https://www.bigcommerce.com/pricing/"
+  },
+  {
+   "title": "BigCommerce 2026 Pricing Update (Fees Explained)",
+   "href": "https://www.bigcommerce.com/dm/plan-pricing-updates-2026/"
+  },
+  {
+   "title": "BigCommerce API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/bigcommerce.com/"
+  },
+  {
+   "title": "Managing API Accounts and Webhooks - BigCommerce",
+   "href": "https://support.bigcommerce.com/s/article/Store-API-Accounts"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:22:37.798647"
+}

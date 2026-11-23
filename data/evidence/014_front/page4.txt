@@ -1,0 +1,887 @@
+URL: https://dev.frontapp.com/docs/mcp-server
+FETCHED: 2026-11-23T16:48:23.939131
+VIA: direct
+
+MCP Server
+For AI agents: the docs index is at https://dev.frontapp.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+Connect AI assistants to Front via the MCP server
+Front's MCP server (
+mcp.frontapp.com/mcp
+) lets AI agents act on Front conversation data using a single OAuth-authenticated endpoint. Agents authenticate as a specific Front user, with permissions matching that user's role (user-scoped authorization). The MCP server is separate from the
+Admin MCP server
+, which manages Front configurations such as rules, setting up teammates, managing AI features, etc.
+This article covers how to connect the MCP server to any MCP-compatible client to Front using an OAuth app you create yourself in the Front developer settings. For the user-facing overview, official directory listings (Claude, and others coming), and use case inspirations for Front teammates, see the general
+Help Center article on the MCP server
+.
+Looking for examples before you build?
+The
+MCP space in the Front Community
+has workflow walkthroughs, sample prompts, and more. You can also start up discussions about the MCP server with fellow users and our team.
+Overview
+Endpoint
+https://mcp.frontapp.com/mcp
+Transport
+Streamable HTTP
+MCP spec version
+2025-11-25
+Auth
+OAuth 2.1 + PKCE compatibility
+Note:
+Front does not support Dynamic Client Registration. Your AI assistant must support a
+confidential connection that sends an OAuth client ID and secret
+. Some popular AI assistants are currently
+not compatible
+.
+Identity model
+Per-user tokens. Every tool call attributes to a specific Front teammate
+Who can connect
+Any teammate
+Scopes
+read
+,
+write
+,
+send
+The identity model is the part most worth internalizing: the agent's effective permissions are exactly the authorizing teammate's permissions. If the teammate can't see an inbox, the agent can't either.
+Incompatibility list
+Some AI assistants do not support confidential connections. These clients cannot connect to the Front MCP server:
+Any client that requires Dynamic Client Registration (DCR)
+Use cases
+A few patterns this surface unlocks:
+Custom agent harnesses.
+Wire Front into Claude Code, Cursor, or an in-house orchestrator alongside your other tools (GitHub, Notion, Jira, Slack, Linear, your CRM) for cross-system workflows: customer reports a bug, agent reproduces it, identifies the suspect PR, and posts an internal comment with the diagnosis.
+Multi-tenant partner integrations.
+Publish an OAuth app that any Front admin can install. Each end user authorizes individually.
+Triage and routing agents.
+Scheduled or event-driven agents that search the inbox, classify by topic, assign to the right teammate, and draft a first-pass reply for human review.
+Conversation insights and enrichment.
+Pull conversation data into your own pipelines for analysis, KB extraction, or feedback ingestion. The conversation timeline includes messages, comments, tags, assignment history, and more in a single stream.
+Set up the MCP server connection
+📘
+Connect Claude and ChatGPT/Codex from the official directory
+If you're using Claude or ChatGPT, we recommend you connect the Front MCP server from the official directories:
+Claude official directory
+ChatGPT official directory
+If you install Claude or ChatGPT from the official directories, you do not need to complete either step in this section (
+Set up the Front developer app with the Front MCP feature
+or
+Connect your AI assistant)
+. If you are not using Claude or ChatGPT, follow the steps in this section to set up the MCP server as a custom connector.
+To connect via an official directory:
+A Front admin (or any user authorized to install integrations from the Front App Store) must connect via the directory links above.
+Then, any user in your company can use the directory links to connect their own accounts.
+Connecting an AI assistant to Front's MCP server has two general steps: create a Front developer app with the Front MCP feature, and then connect your AI client using the app's credentials.
+👍
+After you complete these two steps, your teammates will be able to find the Front MCP server in your AI assistant and connect to it without having to create a developer app or configure the connection details on the AI client side.
+1. Set up the Front developer app with the Front MCP feature
+👍
+These instructions are completed in your Front settings (Settings > Company > Developer)
+👍
+If you want to authorize the MCP server on behalf of an AI agent, skip setting up a Front developer app and instead use the
+OAuth credentials associated with the AI agent
+.
+Create a developer app
+and give it an appropriate name (e.g. "Claude MCP Connector").
+Click
+Add feature
+in the
+Features
+tab and select
+Front MCP
+.
+Note the
+Client ID
+and
+Client secret
+.
+Add a
+redirect URL
+that corresponds to the AI assistant you're sending data to. For example, as of this writing, the Claude documentation instructs you to use
+https://claude.ai/api/mcp/auth_callback
+for most versions of Claude. If you're using Claude Code or similar CLI, you should enter
+http://localhost/callback
+. This URL will allow you to connect to a randomly generated local port.
+Under
+Resource permissions
+, select the resources available to the MCP server.
+👍
+Request the narrowest set that covers your use case. A read-only research agent only needs
+read
+. A drafting copilot needs
+read
++
+write
+but not
+send
+. Only request
+send
+if your agent will actually send messages.
+📘
+Remember that despite the permissions selected in the OAuth client, agents connecting to the MCP server will be further limited by the subset of data and permissions that the user who connects the agent has access to.
+📘
+If you change the resource permissions after the initial setup, you must disconnect and re-authorize your connection with your AI assistant ("Connect your AI Assistant" steps) before the new permissions take effect.
+Save the app.
+2. Connect your AI assistant
+👍
+These instructions are completed in your AI assistant, not Front
+Once the app is configured, connect from your MCP client so that you and your team can view the Front MCP server. Once it is set up for your company, individual teammates can find the MCP server in the list of connectors and authorize it for their individual accounts, but they will not need to configure the technical details involving the server URL and credentials, as explained in this section.
+The exact configuration syntax for initial configuration varies by AI client, but every client will need:
+The MCP server URL:
+https://mcp.frontapp.com/mcp
+Your app's
+client_id
+and
+client_secret
+The OAuth scopes the app should request. Either leave this blank or supply
+feature:mcp
+if you need to input a value
+If your AI assistant requests information about our OAuth URLs, use the following values:
+URL
+Value
+Authorization
+https://app.frontapp.com/oauth/authorize
+Token & refresh URL
+https://app.frontapp.com/oauth/token
+📘
+Use the UI or command line to connect the MCP server
+We recommend using your AI assistant's UI menus to connect the Front MCP server, or terminal commands for CLI assistants. Configuring JSON files is not recommended for most users because varying local paths and environment settings can cause issues. We've provided two recommended examples for Claude below, plus a general JSON shape if you have to modify your AI assistant's configuration file directly.
+If you have issues connecting the MCP server, please reach out to your AI assistant's support team and share this documentation with them so they can recommend the correct steps.
+Example for Claude (Web and Desktop)
+Open
+Settings
+and navigate to the
+Connectors
+tab (or the
+Customize
+page).
+Click
++
+and then
+Add custom connector
+.
+Enter the server URL:
+https://mcp.frontapp.com/mcp
+Click
+Advanced
+settings and enter your OAuth Client ID and Client Secret.
+Click
+Add
+and complete the OAuth authentication flow.
+📘
+You may have to close out Claude and re-open it before it sees the new MCP server and has you authorize permissions.
+Example for Claude Code
+In Front, make sure your developer app contains the
+http://localhost/callback
+redirect URL.
+In your terminal, run the following command and enter your client secret when prompted:
+📘
+Including
+MCP_CLIENT_SECRET
+is optional. If you don't include it, Claude should prompt you for it after. If it fails to do so, then include it inline.
+👍
+You can name the MCP server something other than
+front
+. If you connect to more than one Front company, give each connection a unique name, such as
+front-<company name>
+.
+Terminal
+MCP_CLIENT_SECRET=<your-client-secret> claude mcp add --transport http --client-id <your-client-id> --client-secret front https://mcp.frontapp.com/mcp
+Exit Claude and re-open it in your terminal so that it pulls the latest list of servers.
+Run
+/mcp
+to see a list of MCP servers.
+Select the server you added and choose to
+Authenticate
+it.
+Authorize in your browser.
+Example for generic MCP server config (confirm with your client's docs on exactly how you structure and pass these properties) - Not recommended for most users
+JSON
+{
+  "mcpServers": {
+    "front": {
+      "url": "https://mcp.frontapp.com/mcp",
+      "transport": "streamable-http",
+      "oauth": {
+        "client_id": "<your-client-id>",
+        "client_secret": "<your-client-secret>",
+        "scopes": ["read", "write", "send"]
+      }
+    }
+  }
+}
+Tips for authorization
+📘
+Match your client's requested scopes to your OAuth app.
+By default, many AI assistants (including Claude) will request every scope the MCP server supports. If those scopes exceed what you enabled on the Front developer app, the authorization flow may return an error.
+If you encounter this error, configure your client to only request the scopes your app is set up for. In Claude, for example, this is set in the client's JSON config. See Claude's
+docs on restricting OAuth scopes
+for the exact syntax. Other clients have similar settings; check their documentation if you hit an authorization error.
+When the client first connects, each user will be redirected to Front to log in and consent to the requested scopes. The resulting token is bound to that specific Front user and they can only act on data their Front role allows.
+📘
+A note on enterprise deployment:
+If your AI assistant is centrally managed (e.g. Claude Enterprise, ChatGPT Enterprise), your IT team may need to allow the connection or distribute the app credentials. Each end user still completes the OAuth consent flow individually. This is how Front guarantees that every tool call has a real, attributable user behind it.
+Getting access to new tools
+When Front adds a tool that needs a permission your connection doesn't have yet, the tool appears in your AI assistant, but calling it returns a
+missing required scopes
+error. That's because a connection keeps the permissions that were approved when it was first authorized; it doesn't pick up new ones on its own.
+What you need to do depends on how you connected.
+📘
+Connected from the Claude or ChatGPT directory
+Front keeps the directory apps up to date, so there's nothing to change in Front. Each user disconnects Front in their AI assistant, connects it again, and approves the new permission on the consent screen.
+📘
+Connected with your own developer app
+A Front admin opens your developer app (
+Settings > Company > Developer
+), opens its
+Front MCP
+feature, and enables the new permission under
+Resource permissions
+. The error message names the permission the tool needs.
+Each user disconnects Front in their AI assistant and connects it again.
+Until both steps are done, the new tool keeps returning the error. Other tools keep working.
+Rate limits
+The Front MCP server meters usage in tool calls per minute. Every tool costs the same, regardless of which one it is or how much data it returns. MCP server limits are independent of Core API limits. Tool calls never draw down your API rate limit, and API requests never draw down your MCP limit.
+Limits by plan
+📘
+The limits are minimums rather than absolute ceilings
+Capacity refills continuously instead of resetting on a fixed schedule, so unused capacity accumulates. If your agent has been idle or running below its limit, it can briefly exceed the numbers in the table before settling back.
+Plan
+Tools call per minute
+Starter
+100
+Professional
+200
+Enterprise
+300
+Limits are keyed on the teammate connecting to the MCP server. Connecting additional MCP clients under the same teammate authorization neither increases nor divides the limit.
+Capacity refills continuously rather than resetting on a fixed schedule, so short bursts above the stated rate are expected as long as your sustained usage stays below it.
+Limits by developer apps
+Unpublished apps in your company share a single pool, so adding more apps divides the available capacity rather than multiplying it. An app published in our App Store gets its own pool per install.
+How to handle a limit
+When you hit an MCP server rate limit, the server returns the rejection as a tool result rather than an HTTP error. The message tells your AI assistant how long to wait and, where one exists, points to a cheaper alternative tool.
+The message also tells your assistant which limit it hit.
+If it ran out of budget, your assistant needs to wait for capacity to refill.
+If it hit a safety cap, your assistant needs to slow its request rate.
+Every response carries your limit, remaining capacity, reset timing, and what the request cost. Wait the stated time before retrying. Earlier retries will simply be rejected again.
+📘
+If you need a rate limit increase, you can change your plan or purchase an add-on. For more details on plans and add-ons, visit our
+Pricing
+page.
+AI agents
+AI agents have their own separate limits. See
+AI agents [Beta]
+for details.
+Tool reference
+📘
+The MCP server currently exposes the following tools. To get the most updated list, ask your AI agent to refresh the tool list, or reconnect.
+All write tools that mutate state in user-visible ways carry
+destructiveHint: true
+, which prompts MCP clients to request per-call user confirmation.
+Conversations
+Tool
+Type
+Description
+Flags
+search_conversations
+Read
+Full-text and filter search across conversations
+query
+— full-text search string (optional if at least one filter is provided)
+scope
+—
+my_conversations
+(default),
+my_workspace
+, or
+all_inboxes
+;
+must set to
+all_inboxes
+for unassigned conversations to appear
+filters.inboxId
+— restrict to inbox
+inb_xxx
+filters.teammateId
+— restrict to assigned teammate
+tea_xxx
+filters.teamId
+— restrict to team
+tim_xxx
+filters.tags
+— array of tag IDs
+tag_xxx
+(matches all)
+filters.status
+— one of
+open
+,
+archived
+,
+trashed
+,
+spam
+filters.after
+/
+filters.before
+— date range
+YYYY-MM-DD
+cursor
+— pagination cursor from previous call
+read_conversation
+Read
+Full timeline of a conversation, its contents, and its header information: subject, message content, internal comments, tag/assignment changes, status transitions, rule actions, and other metadata
+conversationId
+(required)
+— public conversation ID
+cnv_xxx
+limit
+— max timeline entries to return (default 50, max 200)
+cursor
+— pagination cursor for timeline entries
+create_draft
+Write
+Creates a draft reply on an existing conversation, or a new outbound conversation. Does not send.
+body
+(required)
+— draft body text
+conversationId
+— public conversation ID
+cnv_xxx
+for a reply draft; omit to create a new outbound draft (requires
+channelId
+)
+channelId
+— channel ID
+cha_xxx
+; required for new outbound drafts, optional override for reply drafts
+bodyFormat
+—
+html
+(default),
+markdown
+, or
+plain
+inReplyToMessageId
+— pin to specific message; defaults to latest
+replyAll
+— reply to all original recipients (default
+true
+)
+shared
+— share with teammates (default
+false
+)
+to
+— recipients for new outbound drafts (channel handles)
+subject
+— subject line for new outbound email drafts
+cc
+/
+bcc
+— CC/BCC recipients for new outbound email drafts
+update_draft
+Write
+Updates the body, subject, or recipients of an existing draft. Uses version token for conflict detection.
+draftId
+(required)
+— public draft message ID
+msg_xxx
+from
+list_drafts
+or
+read_message
+version
+(required)
+— opaque version token from
+read_message.draft_version
+; fails if draft changed since read
+body
+— new draft body; omit to leave unchanged
+bodyFormat
+—
+html
+(default),
+markdown
+, or
+plain
+subject
+— new subject for email drafts; omit to leave unchanged
+to
+/
+cc
+/
+bcc
+— replace recipient lists; pass
+[]
+to clear
+channelId
+— override the sending channel
+cha_xxx
+takeOver
+— if
+true
+, claim authorship from another teammate before editing
+delete_draft
+Write
+Discards an unsent draft owned by the authenticated teammate. Owner-only.
+draftId
+(required)
+— public draft message ID
+msg_xxx
+from
+list_drafts
+or
+read_message
+version
+(required)
+— opaque version token from
+read_message.draft_version
+; fails if draft changed since read
+send_message
+Send
+(destructive)
+Sends a draft message created via
+create_draft
+. The draft must be in compose state, owned by the authenticated teammate, and have at least one recipient.
+draftId
+(required)
+— draft ID
+msg_xxx
+as returned by
+create_draft
+update_conversation_status
+Write (destructive)
+Archives or reopens a conversation. Can also set a ticket status. If the requester is the assignee, the change is global; otherwise only their view is affected.
+conversationId
+(required)
+— public conversation ID
+cnv_xxx
+status
+—
+open
+or
+archived
+(provide either this or
+statusId
+, not both)
+statusId
+— ticket-status tag
+sts_xxx
+from
+list_statuses
+; sets ticket status and updates open/archived state to match
+assign_conversation
+Write
+Assigns a conversation to a teammate, or unassigns it
+conversationId
+(required)
+— public conversation ID
+cnv_xxx
+assigneeId
+(required)
+— teammate ID
+tea_xxx
+to assign, or
+null
+to unassign
+move_conversation
+Write
+Moves a conversation to another inbox. Replaces the conversation's current inbox association — this is not additive.
+conversationId
+(required)
+— public conversation ID
+cnv_xxx
+to move
+inboxId
+(required)
+— destination inbox ID
+inb_xxx
+, from
+list_inboxes
+Messages
+Tool
+Type
+Description
+Flags
+read_message
+Read
+Fetches a single message by ID with full content. Returns body (quoted replies stripped), recipients, attachments, author, draft status, and delivery error if applicable. Use this to get the full message body when
+read_conversation
+truncates content.
+messageId
+(required)
+— message ID
+msg_xxx
+get_attachment
+Read
+Gets a single attachment on a message or comment. Returns metadata (filename, content type, size) plus a short-lived download URL. Attachment IDs come from
+read_message
+.
+attachmentId
+(required)
+— public attachment link ID
+fil_xxx
+, as returned by
+read_message
+Message templates
+Tool
+Type
+Description
+Flags
+search_message_templates
+Read
+Searches the message templates (saved replies) the authenticated user can access: their personal templates plus those of every workspace they belong to. Results show each template's name and body opening, not the full body. Pass
+message_template_ids
+to read templates in full, including the HTML body.
+query
+— keywords; a template matches when its name, subject, or body opening contains every word. Only applied when the user has more than 50 templates; otherwise every template is returned, sorted by name
+message_template_ids
+— array of message template IDs
+rsp_xxx
+to read in full, including the HTML subject and body; ignores
+query
+limit
+— max results (default 50, max 50)
+offset
+— pagination offset (default 0)
+Comments
+Tool
+Type
+Description
+Flags
+add_comment
+Write
+Posts an internal comment on a conversation. Not visible to customers. Supports
+@mentions
+auto-resolved to teammate names.
+conversationId
+(required)
+— public conversation ID
+cnv_xxx
+body
+(required)
+— comment body text;
+@mentions
+resolved automatically
+Tasks
+Task IDs are conversation IDs.
+read_conversation
+reads task content,
+search_conversations
+finds tasks (using
+filters.type: "task"
+), and only
+update_task
+— not
+update_conversation_status
+— manages task state.
+Tool
+Type
+Description
+Flags
+create_task
+Write
+Creates a task. Returns the created task, whose ID is a conversation ID — the conversation tools read it, and the task tools manage it.
+subject
+(required)
+— task title
+assigneeId
+— teammate the task is assigned to (
+tea_xxx
+); omit to create unassigned
+comment
+— internal comment to post on the task as the first entry
+description
+— task details; supports
+@mentions
+by alias or email
+dueAt
+— ISO-8601 timestamp the task is due; must be in the future
+inboxId
+— inbox to create the task in (
+inb_xxx
+)
+sourceConversationId
+— conversation the task is created from (
+cnv_xxx
+); links the task to that conversation
+tagIds
+— array of tag IDs (
+tag_xxx
+) to apply
+teammateIds
+— teammates whose task lists the task also appears in (
+tea_xxx
+)
+customFields
+— object of custom field values keyed by field name
+update_task
+Write
+Updates a task. Every task state change goes through this tool rather than
+update_conversation_status
+. A task ID is a conversation ID.
+taskId
+(required)
+— task ID (
+cnv_xxx
+), as returned by
+create_task
+or
+search_conversations
+subject
+— new task title
+description
+— new task details, or
+null
+to clear; supports
+@mentions
+dueAt
+— ISO-8601 timestamp, or
+null
+to clear
+status
+—
+resolved
+archives the task;
+open
+reopens it and untrashes a trashed one
+statusId
+— ticket status to set (
+sts_xxx
+); requires ticketing enabled
+snoozeUntil
+— ISO-8601 timestamp to archive now and reopen then
+accountIds
+— accounts to associate (
+acc_xxx
+); empty array clears them
+customFields
+— object of custom field values to set
+Tags
+Tool
+Type
+Description
+Flags
+list_tags
+Read
+Lists all tags in the workspace, including hierarchy
+name_query
+— filter by tag name keywords
+inbox_ids
+— filter to tags that apply to specific inboxes
+inb_xxx
+all_inboxes
+— filter to tags that apply to all inboxes (
+true
+/
+false
+)
+is_visible_in_conversation_lists
+— filter by list visibility
+parent_tag_id
+— filter by parent tag
+tag_xxx
+for hierarchical tags
+limit
+— max results (default 50, max 100)
+offset
+— pagination offset
+tag_conversation
+Write
+Adds or removes tags on a conversation. Idempotent — safe to call multiple times.
+conversationId
+(required)
+— public conversation ID
+cnv_xxx
+addTags
+— array of tag IDs
+tag_xxx
+to add
+removeTags
+— array of tag IDs
+tag_xxx
+to remove
+Contacts & Accounts
+Tool
+Type
+Description
+Flags
+search_contacts
+Read
+Searches contacts by name, email, or handle
+query
+(required)
+— search string (name, email, or handle)
+cursor
+— pagination cursor from previous call
+read_contact
+Read
+Returns a full contact record including handles and linked accounts
+contactId
+(required)
+— public contact card ID
+crd_xxx
+search_accounts
+Read
+Searches accounts (companies) by name
+name_query
+— filter by account name keywords
+limit
+— max results (default 10, max 25)
+offset
+— pagination offset
+read_account
+Read
+Returns the full account (company) record
+account_id
+(required)
+— numeric account ID or public account ID
+acc_xxx
+Organization
+Tool
+Type
+Description
+Flags
+get_my_identity
+Read
+Returns the calling agent's own identity: public ID, name, alias, and whether the caller is human. Takes no arguments.
+(no parameters)
+list_inboxes
+Read
+Lists inboxes accessible to the authenticated user
+name_query
+— filter by inbox name keywords
+access_mode
+—
+everyone
+or
+restricted
+ai_enabled
+— filter to AI-enabled inboxes (
+true
+/
+false
+)
+ticketing_enabled
+— filter to ticketing-enabled inboxes (
+true
+/
+false
+)
+business_hours_enabled
+— filter by business hours status
+global_rules_enabled
+— filter by company rules status
+teammate_ids
+— filter to inboxes accessible by specific teammates
+circle_ids
+— filter to inboxes accessible by specific teammate groups
+limit
+— max results (default 25, max 50)
+offset
+— pagination offset
+list_channels
+Read
+Lists channels accessible to the authenticated user. Use to discover channel IDs before calling tools that require one.
+name_query
+— filter by channel display name or address keywords
+inbox_ids
+— filter to channels belonging to specific inboxes
+inb_xxx
+types
+— filter by channel type (e.g.
+email
+,
+chat
+,
+sms
+,
+gmail
+,
+twilio
+, etc.)
+account_statuses
+— filter by channel account status (
+ok
+,
+quarantined
+,
+degraded
+,
+offline
+,
+deleted
+)
+limit
+— max results (default 25, max 50)
+offset
+— pagination offset
+list_teammates
+Read
+Lists all teammates and their roles in the workspace
+name_query
+— search by name or email keywords
+statuses
+— filter by account status:
+active
+,
+pending
+,
+pending_email
+,
+blocked
+(defaults to active statuses)
+limit
+— max results (default 10, max 25)
+offset
+— pagination offset
+list_teams
+Read
+Lists all teams in the workspace
+name_query
+— filter by team name or alias keywords
+limit
+— max results (default 10, max 25)
+offset
+— pagination offset
+list_statuses
+Read
+Lists the company's ticket statuses. Returns empty when ticketing is not enabled.
+name_query
+— filter by status name keywords
+limit
+— max results (default 50, max 100)
+offset
+— pagination offset
+list_drafts
+Read
+Lists in-flight draft messages authored by the authenticated teammate
+limit
+— max drafts to return (default 50, max 200)
+Troubleshooting
+401 Unauthorized
+on every request
+The token is invalid, expired, or has been revoked. Common causes:
+The user revoked the app's access in Front's connected apps settings.
+A company admin uninstalled the OAuth app entirely.
+The access token expired and the refresh flow didn't fire. Re-authenticate to mint a new token.
+missing required scopes
+on a tool
+Your connection doesn't have a permission this tool needs. This usually happens after Front adds a tool. See
+Getting access to new tools
+.
+A tool stops working after a user's Front access changes
+A tool can also fail if the authenticated Front user lost access to the relevant inbox, team, or resource between authorization and the tool call. Permissions are enforced at call time against the user's current Front role.
+429 Too Many Requests
+If you're seeing rate-limit errors during normal operation, the most common cause is a polling loop that's tighter than it needs to be. Approval-by-polling loops should generally poll on the order of seconds-to-minutes, not sub-second. For more details, please see the
+rate limits
+section.
+Feedback & community discussions
+To share feedback about tools you'd like to see in the MCP server, please
+add an idea
+in our community or vote on an existing one.
+To discuss MCP server use cases and workflows, please create a post in or subscribe to our
+discussion space
+.
+Updated
+11 days ago

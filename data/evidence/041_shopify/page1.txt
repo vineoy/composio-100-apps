@@ -1,0 +1,24 @@
+URL: https://shopify.dev/changelog/posts/mcp-server-for-the-shopify-dev-assistant
+FETCHED: 2026-11-23T17:18:37.772904
+VIA: direct
+
+Shopify.dev MCP Server - Shopify developer changelog
+Skip to main content
+Collapse sidebar
+Subscribe
+All posts
+Blog & announcements
+Release notes
+Date
+March 31, 2025
+Flags
+New
+Tags
+Tools
+We're excited to announce the release of the new Shopify.dev MCP Server! The MCP server gives your AI assistant access to Shopify's development resources, enabling it to search our docs, introspect API schemas, and get up-to-date answers about Shopify APIs. Now you can harness the full potential of the dev assistant directly within Cursor or Claude desktop.
+Configure your
+Shopify dev MCP
+server and take it for a spin!
+Was this page helpful?
+Yes
+No

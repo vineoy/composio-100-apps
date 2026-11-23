@@ -1,0 +1,180 @@
+URL: https://docs.usepylon.com/pylon-docs/developer/api/api-reference
+FETCHED: 2026-11-23T16:49:15.200744
+VIA: direct
+
+API reference | Pylon
+For the complete documentation index, see
+llms.txt
+. Markdown versions of documentation pages are available by appending
+.md
+to page URLs.
+Skip to content
+Getting Started
+Introduction
+Quick Start
+Setup
+Channel Configuration
+User Guide
+Pylonboarding
+Agents
+Assist Agent
+Automations
+Slack Agent
+Skills
+Connectors
+User Memories
+Support Agent
+Support Workflows
+Omnichannel Support
+Issues
+SLAs and Timers
+Support Hours
+CSAT
+Ticket Forms
+Assignment Rules
+Email
+Phone Support
+User QA
+Platform
+Custom Fields
+Tags
+Taxonomy
+Teams
+Triggers
+Macros
+Command Search
+Roles & User Management
+Resources
+AI Reports
+Surveys
+Audit Logs
+Languages & Localization
+Custom Objects
+Knowledge Base
+Overview
+Articles & Collections
+Translations
+Missing Content
+Analytics
+Styling & Customization
+Custom Authentication
+Search
+Redirects
+SEO & AI Crawlers
+Customer Portal
+Overview
+Styling & Customization
+Portal Experience
+Access Control
+Custom Authentication
+Chat Widget
+Overview
+Styling
+Functionality
+Chat Experience
+Chat Setup
+Custom Domain
+Identity Verification
+JavaScript API
+Mobile SDKs
+Account Intelligence
+Customer Overview
+Accounts
+Opportunities
+Notebooks
+Tasks & Projects
+Activities
+Fields
+Product Intelligence
+Feature Requests
+Closing the Loop
+Reporting & Analytics
+Analytics
+Default Dashboards
+Custom Dashboards
+Broadcasts
+Overview
+Create a Broadcast
+Analytics
+Integrations
+CRM
+Ticketing
+Alerting
+Chat
+Incident Management
+Call Recording
+Calendar
+Data Warehouse
+Codebase
+Pylon MCP
+Security
+Security Overview
+IP Addresses
+Developer
+API
+Authentication
+API conventions
+Errors
+Rate limits
+API reference
+Accounts
+Attachments
+Audit Logs
+Call Recordings
+Contacts
+Custom Fields
+Custom Objects
+Email
+Issues
+Feature Requests
+Knowledge Base
+Macros
+Me
+Messages
+Surveys
+Tags
+Tasks & Projects
+Teams
+Ticket Forms
+Training Data
+User roles
+Users
+External IDs
+SDKs
+CLI
+Custom Apps
+Embedded Iframes
+Webhooks
+Powered by GitBook
+On this page
+Accounts
+Activities
+Attachments
+Audit Logs
+Call Recordings
+Contacts
+Custom Fields
+Custom Objects
+Email
+Feature Requests
+Issues
+Knowledge Base
+Macros
+Me
+Messages
+Surveys
+Tags
+Tasks & Projects
+Teams
+Ticket Forms
+Training Data
+User roles
+Users
+Previous
+Rate limits
+Next
+Accounts
+Last updated
+26 days ago
+Was this helpful?
+Was this helpful?

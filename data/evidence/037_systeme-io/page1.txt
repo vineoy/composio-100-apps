@@ -1,0 +1,222 @@
+URL: https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api
+FETCHED: 2026-11-23T17:12:13.810635
+VIA: direct
+
+Loading
+How to use the systeme.io public API (Application Programming Interface) | systeme.io Help Center
+Categories
+Affiliation
+Blog
+Booking calendar
+Contact management
+Courses
+Customer support
+Deliverability
+Editor
+Emails
+General
+›
+Migrating to systeme.io
+Model Context Protocol (MCP)
+Payments
+Sales funnels
+Categories
+·
+General
+Affiliation
+Blog
+Booking calendar
+Contact management
+Courses
+Customer support
+Deliverability
+Editor
+Emails
+General
+Migrating to systeme.io
+Model Context Protocol (MCP)
+Payments
+Sales funnels
+General
+English
+العربية
+Čeština
+Dansk
+Deutsch
+Ελληνικά
+Español
+Français
+हिन्दी
+Magyar
+Bahasa Indonesia
+日本語
+Nederlands
+Norsk
+Polski
+Português
+Русский
+Slovenčina
+Slovenščina
+Shqip
+Српски
+Svenska
+ไทย
+Türkçe
+Українська
+中文
+How to use the systeme.io public API (Application Programming Interface)
+In this article, you will learn how to configure and use the
+systeme.io
+public API, including how to generate API keys and what actions you can perform.
+1. What is an API?
+The acronym API stands for "Application Programming Interface", a series of instructions by which a platform offers services to other platforms. It's a strategic gateway for external developers, enabling them to access specific functionality or data from a platform in a structured, secure way. It's like a set of ready-to-use tools that make it easy to build new applications, services, or combinations.
+In short,
+systeme.io
+opens up to other platforms to offer its services where it has added value.
+2. How does our public API work?
+Our API exposes a carefully selected set of features, enabling developers to interact with our platform transparently and efficiently. If you'd like to know more about how it works, you can read our official API documentation.
+3. How to generate your API keys
+API keys are unique identifiers that authenticate requests to our public API. They enable you to programmatically access and manage various resources on our platform.
+To connect an external integration, you first need to generate a secure API key. Click on your profile picture and select
+Settings
+(1). In the left menu, click
+MCP & API keys
+(2).
+Scroll down to the Public API keys section and click
+Create
+(3).
+Give your key a name, set an expiration date, and click
+Save
+(4).
+Note:
+To keep your API key active indefinitely, leave the 'Expiration' field empty.
+Your key is now ready.
+4. What can you do with our API?
+Our API opens up some interesting possibilities. Below you will find the main actions you can perform using our public API:
+a. Contacts, tags, and custom field management:
+Contacts:
+Create new contacts, update existing ones, list your audience with advanced filters, or delete contacts.
+Tags:
+Create, assign, list, and remove tags from contacts.
+Custom fields:
+Retrieve available contact custom fields and their identifiers (slugs) to correctly fill in contact information.
+b. Newsletters and campaigns management:
+Newsletters:
+Create new drafts, update existing ones, target audiences (using include/exclude tags), configure sender details, schedule or remove scheduling, send test emails, send newsletters directly, delete drafts, and fetch specific newsletters.
+Campaigns:
+Create, retrieve, update, and delete entire email campaigns, as well as individual campaign steps.
+Email statistics:
+Retrieve performance statistics for your newsletters, campaign emails, and automation emails. You can fetch totals for a specific period (up to 31 days) with a daily breakdown, results for each email sent during that period, or all-time results for a specific email. Statistics include sends, opens, clicks, bounces, and spam reports.
+c. Funnels and Page editor management:
+Create funnels, opt-in steps, and webinar funnels:
+Easily create new funnels, add opt-in steps to your funnels, and create webinar funnels with all the necessary webinar steps, including registration, thank you, and webinar broadcast pages.
+List and retrieve funnels:
+Browse through your existing funnels, opt-in steps, and webinar pages, or search for specific ones.
+Regenerate page content (webinar pages):
+Regenerate the full content of a webinar page.
+Page editor:
+Save generated page content directly to your funnel steps or website pages (full replace), retrieve JSON schemas for specific page types, and regenerate webinar page content.
+Notes:
+Currently, modifying (editing) funnels and funnel steps via MCP is not supported.
+Deleting funnels, funnel steps, and webinar pages through MCP is also not supported at this time
+AI can regenerate the content of a webinar page by replacing the full content, but small targeted edits are not currently supported.
+d. Price plans and coupon management:
+Create, edit, and delete:
+Generate new price plans and coupons, or partially update and delete existing ones.
+List and search
+: Browse through all your existing price plans and coupons, or fetch specific items by their ID.
+j. Course management:
+Courses:
+Create, edit settings, delete, list, retrieve, activate, and deactivate courses. List course page templates and choose a theme for your course.
+Modules:
+Create, edit, delete, list, and retrieve modules to structure your courses.
+Lectures:
+Create, edit, delete, add delays, enable comments, list, retrieve, activate, and deactivate lectures.
+Note on courses:
+Support for course bundles will be added in future updates.
+f. Community management:
+Communities
+: Retrieve a list of your existing communities and access a list of the current members within a specific community.
+Invite members:
+Programmatically invite new users to join your communities by providing their contact ID.
+g. Automation rules management:
+Create automation rules:
+Easily connect common events and actions without configuring them manually in your dashboard. Currently, you can create rules using
+the following triggers:
+Tags (
+Tag added, Tag removed
+), Courses (
+Enrolled in course, Course completed, Lecture completed, Module completed
+), Sales (
+Subscription payment failed, New sale, Sale canceled
+),
+Funnel form subscribed, Campaign completed, Booking created,
+and
+Page visited
+. And
+the following actions:
+Tags (
+Add a tag, Remove a tag
+), Courses (
+Enroll in course, Revoke access to course
+),
+Unsubscribe from campaign, Send webhook,
+and
+Send SMS
+.
+List and retrieve automation rules:
+Browse your automation rules or fetch a specific rule by its ID.
+h. Subscriptions management:
+Subscriptions:
+Retrieve a list of all resources in a subscription from third-party platforms, and cancel a subscription either immediately or at the end of the billing cycle.
+i. Webhook management:
+Programmatically create new webhooks to receive real-time notifications, retrieve lists of your existing webhooks, and remove webhooks that are no longer needed.
+j. Digital product management:
+Create, view, update, and delete:
+Fully manage your digital products.
+List and search:
+Browse your existing digital products or search for specific ones.
+Link price plans:
+Programmatically create or link price plans directly to your digital products.
+Connect to selling flows:
+Programmatically connect digital products to your selling flows (order forms, upsells, downsells).
+k. Physical product management:
+Create, view, update, retrieve, and delete:
+Fully manage your physical products.
+Connect to selling flows:
+Programmatically connect physical products to your selling flows (order forms, upsells, downsells).
+l. Offers and sales settings management:
+Create and configure offers:
+Set up offers for your selling flows, such as order forms, upsells, and downsells.
+Manage sales settings:
+Configure detailed settings for your offers, including coupons, order bumps, currency, payment methods, tax settings, affiliate commissions, payout delays, and sales limits. You can also easily attach your digital and physical products directly to these offers.
+m. Calendar bookings management:
+Create, update, and delete events:
+Generate new booking calendar events, or easily modify and delete existing ones.
+List and search events:
+Retrieve a list of your booking calendar events or search for specific ones by name.
+Retrieve event details:
+Fetch full details for a specific event, including its locations, availability, time zone, date range, and reminders.
+List and filter bookings:
+Retrieve a list of your calendar bookings and filter them by event, status, and date range.
+Note on calendar events:
+Updating an existing calendar event's type is not currently supported through MCP.
+n. SMS template management:
+Create, edit, and delete:
+Generate new SMS templates, or modify and remove existing ones you no longer need.
+List and search:
+Retrieve a list of your existing SMS templates or search for specific ones.
+Notes:
+To easily identify and manage your tokens, each must have a unique name.
+A token can only be copied immediately after creating it. If you forgot to copy your token, delete it and create a new one.
+As a security measure, we will send you an email notification whenever a new public API key is created in your
+systeme.io
+account.
+You can create up to
+3 API keys
+per account.
+Learn more:
+API documentation
+.
+Did this answer your question?
+Last updated on October 12, 2026

@@ -1,0 +1,77 @@
+{
+ "app": "Pinterest",
+ "queries": [
+  "Pinterest API authentication documentation",
+  "Pinterest MCP server",
+  "Pinterest API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.pinterest.com/docs/getting-started/connect-app/",
+  "https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization/",
+  "https://developers.pinterest.com/about-pinterest-mcp/",
+  "https://developers.pinterest.com/docs/key-concepts/access-tiers/"
+ ],
+ "search_hits": [
+  {
+   "title": "Pinterest Developers",
+   "href": "https://developers.pinterest.com/docs/getting-started/authentication/"
+  },
+  {
+   "title": "Pinterest DevelopersPinterest API - Documentation, Review & Integration GuidePinterest REST API 5.5.0 Documentation - PostmanAuthentication & OAuth 2.0 | pinterest/api-quickstart | DeepWikiPinterest API 2026: Complete Developer Documentationapi-quickstart/README.md at main \u00b7 pinterest/api-quickstart",
+   "href": "https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization/"
+  },
+  {
+   "title": "Pinterest API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/1160/pinterest"
+  },
+  {
+   "title": "Pinterest REST API 5.5.0 Documentation - Postman",
+   "href": "https://www.postman.com/pinterest/pinterest-collections/documentation/ysgkxld/pinterest-rest-api-5-5-0"
+  },
+  {
+   "title": "Authentication & OAuth 2.0 | pinterest/api-quickstart | DeepWiki",
+   "href": "https://deepwiki.com/pinterest/api-quickstart/2-authentication-and-oauth-2.0"
+  },
+  {
+   "title": "Pinterest Developers",
+   "href": "https://developers.pinterest.com/about-pinterest-mcp/"
+  },
+  {
+   "title": "Pinterest MCP Server - GitHub",
+   "href": "https://github.com/postoncehq/pinterest-mcp"
+  },
+  {
+   "title": "GitHub - terryso/mcp-pinterest",
+   "href": "https://github.com/terryso/mcp-pinterest"
+  },
+  {
+   "title": "Pinterest MCP Server - MCP AI | Zapier",
+   "href": "https://zapier.com/mcp/pinterest"
+  },
+  {
+   "title": "Pinterest MCP server | Activepieces",
+   "href": "https://www.activepieces.com/mcp/pinterest"
+  },
+  {
+   "title": "Pinterest Developers",
+   "href": "https://developers.pinterest.com/docs/getting-started/access-tiers/"
+  },
+  {
+   "title": "Pinterest Developers",
+   "href": "https://developers.pinterest.com/"
+  },
+  {
+   "title": "Pinterest API Pricing: Complete Guide for 2026 - Blotato",
+   "href": "https://www.blotato.com/blog/pinterest-api-pricing"
+  },
+  {
+   "title": "Pinterest Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/pinterest/pinterest-plans-pricing/"
+  },
+  {
+   "title": "Pinterest API pricing in 2026 (what you pay) \u2014 Social Fetch",
+   "href": "https://www.socialfetch.dev/blog/pinterest-api-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:13:32.804911"
+}

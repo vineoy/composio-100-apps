@@ -1,0 +1,165 @@
+URL: https://www.twilio.com/docs
+FETCHED: 2026-11-23T16:56:35.990180
+VIA: direct
+
+Docs: API Reference, Tutorials, and Integration | Twilio
+Skip to content
+Skip to navigation
+Skip to topbar
+Twilio Docs
+Search
+Search
+Twilio Docs
+Build better and engage your customers across all channels with our API reference documentation, quickstarts, SDKs and multi-language code samples.
+Discover our featured
+content
+Get started with Twilio
+essentials
+Start building with AI and our developer
+toolkit
+Conversations
+Communications
+Authentication
+Customer data
+Builder tools
+Support and Services
+Conversations
+Turn fragmented interactions into continuous conversations with persistent memory, intelligent orchestration, and real-time context for humans and AI agents.
+Conversation Memory
+Give agents (human or AI) persistent memory across channels and sessions by extracting intelligence from conversations.
+Conversation Orchestrator
+Connect channels into one continuous conversation that persists, even as an interaction moves across channels or teams.
+Conversation Intelligence
+Turn voice and messaging interactions into valuable context with AI-powered language transcription and analysis.
+Conversation Relay
+Integrate voice AI into your communications stack to power smooth, human-like customer conversation at scale.
+Communications
+Twilio APIs give you flexibility, global reach, and reliable deliverability to connect with customers anywhere.
+Messaging APIs
+Send and receive text messages at scale with multichannel APIs for SMS, RCS, WhatsApp, MMS, and more.
+Twilio SendGrid Email API
+Create, send, and manage emails at scale with built-in cloud connections and authentication to maximize inbox placement.
+Voice API
+Add intelligent, customizable voice calling to your systems for smarter, more impactful customer conversations.
+Phone Numbers
+Get access to toll-free, A2P 10DLC, short codes, and Alphanumeric Sender IDs in over 100 countries.
+Elastic SIP Trunking
+Connect your communications platform with flexible, secure SIP trunking for reliable, scalable global voice.
+Twilio Flex
+Connect your customers to the right virtual or live agent by orchestrating inbound and outbound interactions.
+Video
+Enable global, high quality video calls in your application to maintain a unique, human touch with customers.
+Marketing Campaigns
+Design and send captivating emails at scale with dynamic templates, real-time validation, deliverability insights, and advanced analytics.
+Trust Hub
+Centralized onboarding for SHAKEN/STIR, CNAM, and phone number verification.
+Event Streams (legacy)
+Get a unified, real-time feed of all Twilio events sent to Webhook, Segment, or Kinesis using our legacy event delivery pipeline.
+Interconnect
+Protect your communications with end-to-end, network-level security.
+TaskRouter
+Skills-based routing system that provides the heart of a contact center that you can control from your code.
+Sync
+Sync real-time, two-way data across devices and the cloud with no custom infrastructure or heavy lifting required.
+Twilio Email
+Build and scale email workflows alongside other channels like SMS, WhatsApp, and more.
+Data Destinations
+Seamlessly deliver real-time Twilio event data to cloud storage, analytics, data warehouses, and more destinations using our next-generation streaming infrastructure.
+Authentication
+Fight fraud and keep customer accounts secure without adding friction to your user experience.
+Verify
+Verify users with a fully managed authentication API optimized for speed, reliability, and fraud prevention.
+Lookup
+Verify phone numbers, reduce fraud, and improve deliverability with real-time carrier, line type, and identity intelligence.
+Customer Data
+Unlock insights from your customer interactions to learn exactly how, when, and where they want to hear from you.
+Twilio Segment Connections
+Connect all your first-party data in a single platform to power personalized customer experiences.
+Twilio Protocols
+Take control of data quality at scale with intuitive data controls, a shared data dictionary, and real-time validation.
+Twilio Unify
+Unify customer data across channels, track real-time interactions, and personalize at scale.
+Twilio Engage
+Personalized omnichannel campaigns with cross-channel orchestration on a data-first platform.
+Twilio Privacy Portal
+Automate and scale data privacy to keep your customer data secure and streamline regulatory compliance.
+Builder Tools
+Build, deploy, and operate apps at scale with Twilio developer tools.
+Serverless
+A serverless environment to build communication apps with no servers to spin up or infrastructure to maintain.
+Studio
+Quickly connect channels and orechstrate interactions with a visual workflow builder on Twilio's serverless architecture.
+Functions
+A serverless environment to quickly create production-grade, event-driven Twilio applications.
+Support and Services
+Accelerate time to value with Twilio experts for solution design, deployment, and 24/7 support across your customer engagement stack.
+Support Plans
+Basic to personalized support plans to get the help you need for your Twilio account.
+Partners
+Our network of trusted, reliable partners who can help you build your Twilio use case.
+Professional Services
+A team of Twilio experts to help you get your use case to production sooner or scale faster.
+Featured content
+Dive into our handpicked selection of developer-focused content.
+One-time password (OTP)
+Create your first verification
+Quickly verify users via SMS, Passkeys, Silent Network Auth, Voice, WhatsApp, TOTP, Push, Silent Device Approval, and Email.
+Fraud prevention
+Format and validate phone numbers
+Format and validate phone numbers to increase deliverability. Add on data packages to get even more in-depth carrier and caller information.
+Twilio essentials
+General usage
+Learn how to interact with the REST API for account management, development testing, and fraud protection.
+IAM
+Manage your projects, securely authenticate REST API requests, and learn best practices for accessing Twilio's resources.
+Global infrastructure
+Control where your application's Twilio-related data is routed, processed, and stored.
+Helper libraries
+Familiarize yourself with Twilio's server-side, front-end, and mobile SDKs, OpenAPI specifications and Postman collections.
+Phone Numbers
+Purchase Toll-free, 10-digit long code (10DLC), short codes, and Alphanumeric Sender IDs to deliver your communications.
+Regulatory and compliance
+Compiled resources to help ensure you're communicating effectively and compliantly around the world.
+Developer Toolkit
+Explore essential tools, resources, and community links, all designed to help elevate your project and keep you informed.
+Tools
+Building with AI
+Accelerate development with AI coding agents that understand Twilio's APIs.
+Code Exchange
+Get started and build faster with usable code samples for common Twilio use cases.
+Functions
+A serverless environment to quickly create production-grade, event-driven Twilio applications.
+Marketplace
+Seamlessly integrate third-party's partner technology into your Twilio applications.
+OpenAPI
+Integrate our API with community tools for mocking, testing, generating libraries, Postman integrations, and more.
+Serverless
+Quickly build and deploy communication apps with no servers to spin up or infrastructure to maintain.
+Studio
+A drag-and-drop builder to create communication workflows.
+TwiML Bins
+Provide Twilio-hosted instructions to your Twilio applications.
+Twilio CLI
+Manage your Twilio resources from your terminal or command prompt.
+Resources
+API status
+Check real time monitoring of APIs and all services.
+Changelog
+See updates and additions to Twilio products.
+Developer Hub
+Videos, tutorials, events, and code samples.
+Error codes
+Full list of all possible Twilio REST API error codes.
+Glossary
+Understand our key terms and concepts.
+Community
+Blog
+Read tutorials, community projects and product updates.
+Champions
+Become a Twilio community champion.
+Developer events
+Join upcoming group events.
+Stack Overflow
+Ask the Twilio community for help.
+Twilio Segment Community
+Ask the Twilio Segment community for help.

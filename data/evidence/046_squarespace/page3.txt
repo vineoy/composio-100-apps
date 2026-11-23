@@ -1,0 +1,61 @@
+URL: https://developers.squarespace.com/mcp/overview
+FETCHED: 2026-11-23T17:27:55.446403
+VIA: direct
+
+Squarespace Developer Platform: APIs, Apps, and Docs
+Menu
+Overview of the Squarespace MCP Server
+The Squarespace MCP server connects AI assistants to Squarespace. It's built on the
+Model Context Protocol
+, an open standard for connecting AI applications to outside tools, so assistants like Gemini, Claude, and ChatGPT can look things up and make changes on Squarespace in the middle of a conversation.
+With it, someone can describe a new business and leave the chat with a domain ready to buy, or ask "which orders still need shipping?" about their own store and get a live answer.
+Connect a Client →
+Add Squarespace to Gemini, Claude, ChatGPT, or another MCP client.
+Notice: If you are a Squarespace user who is accessing the Squarespace MCP server through an AI assistant, for example to search for a domain or manage your own website, your use is governed by our
+Terms of Service
+. If you're a developer building an experience for your users and connecting your own app or agent directly to the Squarespace MCP server, for example to add domain search to your product, your use is governed by our
+Developer Terms of Use
+.
+What you can do
+The server's tools are organized into groups. Each group has its own page describing what its tools do, what to ask for, and what to watch out for.
+Group
+What it's for
+Sign-in
+Domains
+Brainstorm business names, check domain availability and pricing, and get a link to buy a domain on Squarespace.
+Not required
+Commerce
+Find, create, and update contacts and products, and look up orders, on one of your websites. Currently only available in Claude and ChatGPT.
+Required
+How it works
+The Squarespace MCP server is a remote server. There's nothing to install. Your MCP client connects directly to:
+Code
+https://mcp.squarespace.com/mcp
+You don't call the tools yourself. You ask the assistant for something in plain language, and it decides which tools to call and in what order. The tool descriptions the assistant needs are sent by the server when it connects, so they don't need to be copied into your prompts.
+Signing in
+The Domains tools work for anyone, with no Squarespace account required.
+The Commerce tools read and change a website, so they need you to sign in with your Squarespace account. They only appear in your client once you've signed in, and they act with your own permissions: an assistant can only see and change what you could see and change yourself in that website's Commerce panel. See
+Connect a Client
+.
+Working with a website
+Every signed-in tool works on one website at a time. If it isn't clear which site you mean, the assistant will ask, then keep using that site for the rest of the conversation until you ask to switch.
+What the tools can and can't change
+Domains tools never buy anything.
+They return a checkout link. A domain is only registered when someone opens that link and completes checkout on squarespace.com.
+Commerce tools don't move money.
+They can create and update contacts and products, but they can't take payments, issue refunds, or fulfill orders. Orders are read-only.
+Changes are real.
+A product or contact the assistant creates or edits is saved to your live website. New products are hidden from shoppers until you (or the assistant, if you ask) publish them.
+Most MCP clients ask you to approve a tool before it makes a change. Keep that approval step turned on for tools that write to your website.
+Supported clients
+Squarespace is built into Gemini as a connected app, and the Domains tools also work in Claude, ChatGPT, and any client that supports remote MCP servers. The Commerce tools are currently only available in Claude and ChatGPT. See
+Connect a Client
+for setup steps.
+Connect a Client
+On this page
+What you can do
+How it works
+Signing in
+Working with a website
+What the tools can and can't change
+Supported clients

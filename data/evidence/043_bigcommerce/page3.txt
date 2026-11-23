@@ -1,0 +1,119 @@
+URL: https://docs.bigcommerce.com/developer/api-reference/mcp/overview
+FETCHED: 2026-11-23T17:22:37.796429
+VIA: direct
+
+MCP Overview | BigCommerce Docs
+For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
+Skip to navigation
+On this page
+Use cases
+Storefront MCP
+WebMCP
+Store Management MCP
+Enablement and permissions
+Storefront MCP
+WebMCP
+Store Management MCP
+Scroll to top
+This page is for Developer.
+The Model Context Protocol (MCP) is an open standard that lets AI agents, such as Claude, Cursor, and ChatGPT, discover and call tools. An MCP server publishes a list of tools, each with a name, a description, and an input schema. The agent picks the right tool for a request and calls it, instead of scraping pages or calling raw APIs.
+BigCommerce supports MCP in three ways. Each one serves a different kind of agent and acts with a different level of access.
+Capability
+Who it’s for
+Acts as
+Availability
+Storefront MCP
+Shopping agents and chat widgets that connect to your storefront
+A shopper: a guest, a logged-in customer, or a B2B buyer
+Generally available
+WebMCP
+AI agents running inside a shopper’s browser
+The shopper, in their own browser session
+On by default for eligible storefronts
+Store Management MCP
+Store administrators who use an agent to run their store
+A control panel user, limited to the scopes granted to them
+Early access
+The
+Docs MCP server
+is separate from these capabilities. It lets your AI tool search the BigCommerce developer documentation, and it can’t read or change store data.
+Use cases
+Storefront MCP
+Use Storefront MCP to let an agent shop your catalog for someone: a conversational shopping assistant, a chat widget on your storefront, or a third-party AI shopping app. The agent can search products, compare options, build a cart, and hand the shopper a checkout link.
+Every store gets the storefront tools.
+Catalog, cart, and checkout tools work for guests, logged-in customers, and B2B buyers.
+B2B Edition stores get extra tools.
+Authenticated buyers can also manage shopping lists and request and work with quotes.
+Shopper context carries over.
+On Stencil storefronts, session sync links the agent to the shopper’s existing browser session, so the agent sees their login, cart, and pricing.
+For tools and setup, see
+Storefront MCP
+.
+WebMCP
+Use WebMCP to make your storefront work well with AI assistants that shoppers already use in their browser. Instead of guessing their way around your pages, those agents call your store’s shopping tools directly, and the shopper completes checkout on your site. You don’t need to change your theme or write code.
+For how it works and how to verify it, see
+WebMCP
+.
+Store Management MCP
+Use Store Management MCP to let an administrator work on the store through an agent: look up and update products and prices, set inventory levels, create promotions, look up and refund orders, and read store details.
+For tools, client setup, and limitations, see
+Store Management MCP
+.
+Enablement and permissions
+You manage all three capabilities in the control panel under
+Settings → API and MCP → MCP
+. Each one has its own card on that page.
+Storefront MCP
+Who can enable it:
+The store owner turns on
+Storefront MCP
+and accepts the terms of service.
+Connection:
+Each storefront gets its own MCP server URL. Agents connect to that URL directly. No API account or admin credentials are involved.
+What agents can access:
+Only what a shopper can access on that storefront. Guests get the storefront tools. Logged-in customers and B2B buyers connect through
+session sync
+, and each B2B tool is available only to buyers who hold the matching Buyer Portal permission.
+For steps, see
+Enable Storefront MCP
+.
+WebMCP
+Who can enable it:
+Nobody has to. WebMCP is on by default for Stencil storefronts and for Catalyst storefronts hosted on Cloudflare. Custom headless storefronts on Cloudflare can request it from
+BigCommerce Support
+.
+Which tools it exposes:
+Two image scanning tools by default. When Storefront MCP is on, its shopping tools are synced to WebMCP automatically, so you manage one set of tools.
+What agents can access:
+The same prices, cart, and session the shopper sees in their browser. Tool calls go from the shopper’s browser to your storefront’s own domain.
+Opting out:
+Turn off the
+WebMCP
+toggle. See
+Opt out of WebMCP
+.
+Store Management MCP
+Access:
+Store Management MCP is in early access and available to all stores.
+Who can enable it:
+Only the store owner can turn on
+Management MCP
+and accept the terms of service.
+Connection:
+Agents connect to
+https://api.bigcommerce.com/mcp
+, sign in through the standard BigCommerce login (OAuth 2.1 with PKCE), and then the user chooses which store to connect. To connect to one specific store, agents can use
+https://api.bigcommerce.com/stores/{store_hash}/mcp
+instead. The agent never receives a password or API token.
+What agents can access:
+Every user starts with no access. An administrator grants scopes per user, one area at a time (for example, Products, Inventory, Orders, or Promotions), at None, read-only, or modify. An agent only sees the tools within the connecting user’s scopes.
+Delegating:
+The store owner can let other users view or assign scopes with the
+View AI MCP Scopes Grants
+and
+Create AI MCP Scopes Grants
+permissions.
+Store Management MCP scopes apply to the user, not to a specific agent, and each scope covers its whole area. Grant modify only where the user should be able to change data. For example, Orders modify lets an agent refund orders.
+For steps, see
+Store Management MCP
+.

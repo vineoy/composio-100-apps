@@ -1,0 +1,77 @@
+{
+ "app": "Threads (Meta)",
+ "queries": [
+  "Threads (Meta) API authentication documentation",
+  "Threads (Meta) MCP server",
+  "Threads (Meta) API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://dev.meta.ai/docs/authentication",
+  "https://developers.facebook.com/documentation/threads",
+  "https://developers.facebook.com/documentation/threads/get-started",
+  "https://github.com/MetaThreads/meta-threads-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Threads API | Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/threads/"
+  },
+  {
+   "title": "Get started with the Threads API | Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/threads/get-started/"
+  },
+  {
+   "title": "Authentication - Meta Model API",
+   "href": "https://dev.meta.ai/docs/authentication"
+  },
+  {
+   "title": "Threads API Documentation 2026: Complete Developer Guide",
+   "href": "https://zernio.com/blog/threads-api"
+  },
+  {
+   "title": "Threads API - Documentation, Pricing, SDKs & Webhooks Guide",
+   "href": "https://agentsapis.com/threads-api/"
+  },
+  {
+   "title": "GitHub - MetaThreads/meta-threads-mcp: Unofficial MCP server ...",
+   "href": "https://github.com/MetaThreads/meta-threads-mcp/"
+  },
+  {
+   "title": "GitHub - bintangtimurlangit/threads-mcp: MCP server for Meta ...",
+   "href": "https://github.com/bintangtimurlangit/threads-mcp"
+  },
+  {
+   "title": "Threads MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/threads-mcp"
+  },
+  {
+   "title": "Threads MCP Server for AI Agents (Posts, Chains, Replies ...",
+   "href": "https://castance.com/integrations/threads-mcp"
+  },
+  {
+   "title": "Threads MCP Server - Complete Solution for Meta Threads API ...",
+   "href": "https://www.mcpworld.com/en/detail/e9108160cd86176cf667c716f300ab7e"
+  },
+  {
+   "title": "Threads API Pricing 2026: Free, but Rate-Limited - Blotato",
+   "href": "https://www.blotato.com/blog/threads-api-pricing"
+  },
+  {
+   "title": "Threads API - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/threads/"
+  },
+  {
+   "title": "Threads API Pricing: No Published Price, No Meter | Superdirector",
+   "href": "https://superdirector.app/how-to/threads-api-pricing"
+  },
+  {
+   "title": "Threads API - Documentation, Pricing, SDKs & Webhooks Guide",
+   "href": "https://agentsapis.com/threads-api/"
+  },
+  {
+   "title": "Threads API overview - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/threads/overview/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:15:23.852723"
+}

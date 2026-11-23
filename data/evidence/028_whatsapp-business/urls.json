@@ -1,0 +1,77 @@
+{
+ "app": "WhatsApp Business",
+ "queries": [
+  "WhatsApp Business API authentication documentation",
+  "WhatsApp Business MCP server",
+  "WhatsApp Business API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://whatsappbusiness.com/developers/developer-hub/",
+  "https://whatsappbusiness.com/products/platform-pricing/",
+  "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started",
+  "https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/authentication-templates/authentication-templates"
+ ],
+ "search_hits": [
+  {
+   "title": "WhatsApp Cloud API Get Started | Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started/"
+  },
+  {
+   "title": "Authentication templates | Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/authentication-templates/authentication-templates/"
+  },
+  {
+   "title": "Developer Hub | WhatsApp for Business",
+   "href": "https://whatsappbusiness.com/developers/developer-hub/"
+  },
+  {
+   "title": "Complete Guide to WhatsApp Business API Documentation",
+   "href": "https://www.interakt.shop/whatsapp-business-api/documentation/complete-guide/"
+  },
+  {
+   "title": "WhatsApp Business API Documentation: A Developer's Guide ...",
+   "href": "https://hyperleap.ai/whatsapp-business-api/documentation"
+  },
+  {
+   "title": "WhatsApp Business Tools MCP | Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp/"
+  },
+  {
+   "title": "WhatsApp Business MCP Server - GitHub",
+   "href": "https://github.com/tkhattar14/whatsapp-business-mcp"
+  },
+  {
+   "title": "Whatsapp-Business Universal MCP Server - GitHub",
+   "href": "https://github.com/universal-mcp/whatsapp-business"
+  },
+  {
+   "title": "WhatsApp Business Tools MCP - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp.md/"
+  },
+  {
+   "title": "WhatsApp Business MCP server | Activepieces",
+   "href": "https://www.activepieces.com/mcp/whatsapp"
+  },
+  {
+   "title": "WhatsApp Business Platform Pricing | WhatsApp API Pricing",
+   "href": "https://whatsappbusiness.com/products/platform-pricing/"
+  },
+  {
+   "title": "Pricing on the WhatsApp Business Platform - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/"
+  },
+  {
+   "title": "Groups API Pricing - Meta for Developers",
+   "href": "https://developers.facebook.com/documentation/business-messaging/whatsapp/groups/pricing/"
+  },
+  {
+   "title": "Is the WhatsApp API Free? Pricing, Access, and What to Expect ...",
+   "href": "https://www.wati.io/en/blog/whatsapp-api-for-free/"
+  },
+  {
+   "title": "WhatsApp Business API Cost 2026: Pricing, Free Tier and Options",
+   "href": "https://sellinger.ai/blog/whatsapp-business-api-cost"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:01:35.945244"
+}

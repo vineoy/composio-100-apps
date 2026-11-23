@@ -1,0 +1,162 @@
+URL: https://docs.usepylon.com/pylon-docs/developer/api
+FETCHED: 2026-11-23T16:49:15.199936
+VIA: direct
+
+API | Pylon
+For the complete documentation index, see
+llms.txt
+. Markdown versions of documentation pages are available by appending
+.md
+to page URLs.
+Skip to content
+Getting Started
+Introduction
+Quick Start
+Setup
+Channel Configuration
+User Guide
+Pylonboarding
+Agents
+Assist Agent
+Automations
+Slack Agent
+Skills
+Connectors
+User Memories
+Support Agent
+Support Workflows
+Omnichannel Support
+Issues
+SLAs and Timers
+Support Hours
+CSAT
+Ticket Forms
+Assignment Rules
+Email
+Phone Support
+User QA
+Platform
+Custom Fields
+Tags
+Taxonomy
+Teams
+Triggers
+Macros
+Command Search
+Roles & User Management
+Resources
+AI Reports
+Surveys
+Audit Logs
+Languages & Localization
+Custom Objects
+Knowledge Base
+Overview
+Articles & Collections
+Translations
+Missing Content
+Analytics
+Styling & Customization
+Custom Authentication
+Search
+Redirects
+SEO & AI Crawlers
+Customer Portal
+Overview
+Styling & Customization
+Portal Experience
+Access Control
+Custom Authentication
+Chat Widget
+Overview
+Styling
+Functionality
+Chat Experience
+Chat Setup
+Custom Domain
+Identity Verification
+JavaScript API
+Mobile SDKs
+Account Intelligence
+Customer Overview
+Accounts
+Opportunities
+Notebooks
+Tasks & Projects
+Activities
+Fields
+Product Intelligence
+Feature Requests
+Closing the Loop
+Reporting & Analytics
+Analytics
+Default Dashboards
+Custom Dashboards
+Broadcasts
+Overview
+Create a Broadcast
+Analytics
+Integrations
+CRM
+Ticketing
+Alerting
+Chat
+Incident Management
+Call Recording
+Calendar
+Data Warehouse
+Codebase
+Pylon MCP
+Security
+Security Overview
+IP Addresses
+Developer
+API
+Authentication
+API conventions
+Errors
+Rate limits
+API reference
+External IDs
+SDKs
+CLI
+Custom Apps
+Embedded Iframes
+Webhooks
+Powered by GitBook
+On this page
+Pylon’s API can be used to programmatically access and take action on data within Pylon.
+Only Admin users can create API tokens. To learn more about Admins, see
+Roles & User Management
+.
+Some common use cases for our API include:
+Fetching information about customers
+Fetching information about issues
+Creating issues programmatically
+Check out our
+API Reference
+for specifications on all endpoints. To call the API from TypeScript, Python, or Go, use our
+SDKs
+, with pinned installation commands and upgrade guidance for each language.
+Prefer the terminal? Try our experimental
+Pylon CLI
+. It’s an early release and may change.
+Before you build an integration, read:
+Authentication
+for creating tokens, roles, and regions
+API conventions
+for IDs, timestamps, pagination, search filters, update behavior, files, and slugs
+Rate limits
+for request limits and how to handle
+429
+responses
+Errors
+for error codes and response format
+Previous
+IP Addresses
+Next
+Authentication
+Last updated
+26 days ago
+Was this helpful?
+Was this helpful?

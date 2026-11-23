@@ -1,0 +1,79 @@
+URL: https://docs.plainid.io/apidocs/authentication-mgmt-apis
+FETCHED: 2026-11-23T16:51:04.763374
+VIA: direct
+
+Authentication for Management APIs
+Documentation Index
+Fetch the complete documentation index at:
+https://docs.plainid.io/llms.txt
+Use this file to discover all available pages before exploring further.
+Search
+CTRL+K
+Press CTRL+K to open search
+Powered by
+Authentication for Management APIs
+Updated
+Updated on
+Nov 2, 2025
+Published on Jul 12, 2023
+2 minute(s) read
+Focus
+Print
+Copy page
+Copy as Markdown for LLMs
+View as Markdown
+View the page as plain text
+Open in ChatGPT
+Ask ChatGPT about this page
+Open in Claude
+Ask Claude about this page
+Prev
+Next
+Management APIs are used for a variety of tasks in the
+Platform
+. To use these APIs, a user must be authenticated and authorized with the relevant permissions. For example, Tenant Admins have permission to work in all Environments. Other users might only be able to work within a specific Environment or even a specific Workspace.
+To support this flow, PlainID exposes an authorization endpoint which provides a token that should be sent with the API call.
+Important
+PlainID now supports an OAuth Client Credential flow, replacing the flow described here which requires a traditional IDP account. To use the new standard flow, you need to create a Client at the Tenant or Environment level, and use it to get an Access Token with the respective permissions. Please refer to the
+Management API Authentication
+article for more details. We highly recommend using the new simplified and standard Authentication flow.
+Prerequisites
+In PlainID  -
+Tenant IDP Setup
+including authorization claim setup
+IDP Side  - Create a user  in the IDP for Management API's access (could be a dedicated user)
+Initial Setup
+An initial setup is needed to start using the API Authentication and Authorization.
+Please follow the below steps:
+Make sure your IDP injects PlainID's claim while creating the ID token during user authentication.
+The injected claim is the claim that was configured under Tenant IDP settings in the
+Platform
+UI.
+Please refer to your IDP Administrator and your IDP documentation for further information on that.
+For Auth0 you can find a high level explanation below on how to add a rule to inject the claim.
+Set up permissions for this user in PlainID Tenant. Check out the
+IDP Token Enrichment Service
+for more information).
+Management API Secured Access
+PlainID uses Token Exchange flow to support secure access to Management APIs.
+The token exchange flow steps:
+Use your IDP to authenticate your user and get an ID/Access Token.
+Call PlainID authorization endpoint -
+https://auth.<Base_PlainID_URL>/auth/realms/<PlainID_Tenant_subdomain>/protocol/openid-connect/token
+- with the IDP ID/Access Token as the subject token value.
+PlainID validates the IDP token and generates an authorization token with the internal PlainID roles according to permission set for the user.
+Use the token received from PlainID authorization call as a
+Bearer
+Authorization Token for your Administration API call.
+The PlainID authorization response includes also a refresh token that can be used for refresh token flow.
+©
+2026 PlainID Ltd.  All rights reserved.
+All intellectual property rights in, related to, or derived from this material will remain with PlainID Ltd.
+Reproduction, modification, recompilation, or transfer in whole or in part without written permission is prohibited. This material is made available as-is, without any implied warranties, all of which are hereby disclaimed, and PlainID Ltd. shall have no liability in relation hereto.
+Was this article helpful?
+Yes
+No
+Previous article
+Export Identity Template
+Next article
+About Token Exchange

@@ -1,0 +1,672 @@
+URL: https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server
+FETCHED: 2026-11-23T17:10:41.429381
+VIA: direct
+
+Connect to the MCP server | Klaviyo Developers
+Skip to content
+This page is available as Markdown at https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server.md. An index of every page is at https://developers.klaviyo.com/llms.txt.
+You will learn
+To communicate with the Klaviyo MCP server, each MCP client needs specific configuration. This page walks you through configuring various MCP clients for both the remote-hosted MCP server (recommended) and the local MCP server, and how to control server behavior with query parameters and environment variables.
+Configure your MCP client for the remote-hosted server (recommended)
+This feature is only available to Klaviyo users with an Owner, Admin, or Manager role. Learn more about
+Klaviyo user roles
+.
+To communicate with the Klaviyo MCP server, each MCP client needs specific configuration. Follow the steps below to get started:
+Log in to the Klaviyo account you'd like to use.
+Follow the steps below for the MCP client you’d like to configure.
+Claude
+Listed Connector (recommended for connecting to a single Klaviyo account)
+The listed Klaviyo connector is the simplest way to access Klaviyo within Claude.
+In Claude, navigate to
+Settings > Connectors
+.
+Click
+Browse Connectors
+.
+Search for
+Klaviyo
+and connect.
+Review the Claude access and click
+Approve
+.
+Review the permissions for your Klaviyo account and click
+Allow
+.
+You're now ready to ask Claude about your Klaviyo data.
+Custom Connector (recommended for connecting to several Klaviyo accounts)
+This feature is only available to Claude and Claude Desktop for users on Pro, Max, Team, and Enterprise plans.
+For each Klaviyo account you would like to add,
+In Claude, navigate to
+Settings > Connectors
+.
+Click
+Add custom connector
+.
+Enter the following details in the connector modal:
+a. Name: Klaviyo
+If adding multiple accounts, include the name of the account you are connecting to distinguish it from others (e.g. "Klaviyo - Example Company")
+b. Remote MCP server URL:
+https://mcp.klaviyo.com/mcp
+If adding multiple accounts, include the name of the account as a query parameter (e.g. "
+https://mcp.klaviyo.com/mcp?company=example-company
+")
+c. Click
+Add
+.
+Next to the connector, click
+Connect
+.
+Review the Claude access and click
+Approve
+.
+Review the permissions for your Klaviyo account and click
+Allow
+.
+For each new chat, click
++ > Connectors
+and ensure that only the relevant connector is enabled.
+ChatGPT
+ChatGPT App (recommended for connecting to a single Klaviyo account)
+The
+Klaviyo ChatGPT App
+is the simplest way to interact with your account data within ChatGPT. For detailed instructions, refer to
+how to use the Klaviyo app for ChatGPT
+.
+ChatGPT Custom MCP Server (recommended for connecting to several Klaviyo accounts)
+First,
+In ChatGPT, navigate to
+Settings > Apps
+.
+In
+Advanced settings
+, toggle
+Developer mode
+on.
+For each Klaviyo account you would like to add,
+Click
+Create app
+.
+Enter the following details in the connector modal:
+a. Name: Klaviyo
+If adding multiple accounts, include the name of the account you are connecting to distinguish it from others (e.g. "Klaviyo - Example Company")
+b. MCP Server URL:
+https://mcp.klaviyo.com/mcp
+c. Authentication: Select
+OAuth
+d. Select
+I understand and want to continue
+e. Click
+Create
+.
+Review the ChatGPT access and click
+Approve
+.
+If adding multiple accounts, choose the account you want to connect.
+Review the permissions for your Klaviyo account and click
+Allow
+.
+For each new chat, click
++ > More
+and select the correct server.
+Cursor
+Do this with an AI agent
+Connect Cursor to Klaviyo's MCP server
+Copy prompt
+Show the prompt
+Add Klaviyo's remote MCP server to Cursor.
+
+First read https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server.md.
+
+The server is at https://mcp.klaviyo.com/mcp. It signs in with OAuth, so no API key goes in the configuration.
+
+1. Ask me whether to add it for every project (`~/.cursor/mcp.json`) or only this one (`.cursor/mcp.json`).
+2. In that file, add `"klaviyo": { "url": "https://mcp.klaviyo.com/mcp" }` under `mcpServers`, keeping any servers already there. Create the file if it doesn't exist.
+3. If I want to connect more than one Klaviyo account, ask me for a name for each and add one entry per account, as the guide describes.
+4. Don't sign in for me. Tell me to open Settings > Cursor Settings > Tools & Integrations, click Needs login next to klaviyo and sign in, then ask a question such as "What's in my Klaviyo account?" to check it works.
+Download
+Cursor
+.
+Open Cursor. Within
+Settings > Cursor Settings > MCP > New MCP Server
+, add the following:
+json
+Copy
+{
+"mcpServers"
+:
+{
+"klaviyo"
+:
+{
+"url"
+:
+"https://mcp.klaviyo.com/mcp"
+}
+  }
+}
+See
+Query parameters
+to choose any query parameters you'd like to add to control server behavior.
+Save your changes and navigate to
+Settings > Cursor Settings > Tools & Integrations
+. Click
+Needs login
+. You will be prompted to authenticate the server.
+If you encounter authentication errors, first Logout of the MCP Server and reauthenticate. If that fails, sign out of your Cursor account and then sign back in.
+Verify the connection by looking for visual indicators and asking a question to test the connection.
+VS Code
+Do this with an AI agent
+Connect VS Code to Klaviyo's MCP server
+Copy prompt
+Show the prompt
+Add Klaviyo's remote MCP server to VS Code.
+
+First read https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server.md.
+
+The server is at https://mcp.klaviyo.com/mcp. It signs in with OAuth, so no API key goes in the configuration.
+
+1. Ask me whether to add it for every workspace (VS Code's MCP user configuration, which the MCP: Open User Configuration command opens) or only this one (`.vscode/mcp.json`).
+2. In that configuration, add `"klaviyo": { "url": "https://mcp.klaviyo.com/mcp" }` under `servers`, keeping any servers already there. Create `.vscode/mcp.json` if it doesn't exist.
+3. If I want to connect more than one Klaviyo account, ask me for a name for each and add one entry per account, as the guide describes.
+4. Don't sign in for me. Tell me to run MCP: List Servers from the command palette, choose klaviyo > Start Server and sign in, then ask a question such as "What's in my Klaviyo account?" to check it works. The guide notes the remote server can take a restart or two to register.
+Download
+VS Code
+.
+Open VS Code. Within MCP User Configuration (
+Ctrl + Shift + P
+>
+MCP: Open User Configuration
+), add the following:
+json
+Copy
+{
+"servers"
+:
+{
+"klaviyo"
+:
+{
+"url"
+:
+"https://mcp.klaviyo.com/mcp"
+}
+	}
+}
+If you already have a
+servers
+entry, append the Klaviyo configuration to it.
+See
+Query parameters
+to choose any query parameters you'd like to add to control server behavior.
+Save your changes. From the command palette (
+Ctrl+Shift+P
+on Windows or
+Cmd+Shift+P
+on Mac), search for
+MCP: List Servers
+, then select
+klaviyo > Start Server
+. You will be prompted to authenticate the server.
+The remote MCP server connection can sometimes take time to fully initialize and load all available tools. If the server fails to start or your initial test query does not work, you may need to restart VS Code a few times for the connection to fully register.
+Verify the connection by looking for visual indicators and asking a question to test the connection.
+To enable only the tools that do not modify any Klaviyo data, add the query parameter
+read-only=true
+to the URL in your MCP client’s configuration file.
+Other Clients
+Our server is compatible with any MCP client that supports remote servers. You may need the following info when connecting:
+URL:
+https://mcp.klaviyo.com/mcp
+Authentication method:
+OAuth (with dynamic client registration)
+Transport:
+Streamable HTTP
+Query parameters
+You can control server behavior with query parameters.
+Query parameters can't be controlled with the listed Claude connector or the listed ChatGPT app. To use them, set up a custom connector instead (see
+Custom Connector
+under Claude and
+ChatGPT Custom MCP Server
+under ChatGPT above).
+Parameter
+Options
+Default value
+Description
+read-only
+true
+,
+false
+false
+Setting this value to
+true
+disables any tools which can perform write actions on your Klaviyo account.
+disable-tools-with-user-generated-content
+true
+,
+false
+false
+Disables specific tools that read user-generated content in your Klaviyo account that could be interpreted by your LLM (see
+Available tools
+). Be sure to carefully review each tool call to ensure your client is not acting on malicious instructions.
+core-tools-only
+true
+,
+false
+false
+Setting this value to
+true
+limits the server to the ~30 core tools. This reduces the number of tools loaded into your client, which can help clients with smaller context windows and improve tool-selection accuracy.
+include-output-schemas
+true
+,
+false
+true
+(
+false
+for ChatGPT)
+Controls whether output schemas are included in the tools list. Defaults to
+false
+for ChatGPT clients.
+beta
+true
+,
+false
+false
+Setting this value to
+true
+enables access to new, potentially unstable tools.
+toolsets
+Comma-separated list of API scopes
+All tools
+Limits the server to tools whose required API scopes all fall within the list you provide. Provide the scopes in
+resource:access
+form (e.g.
+toolsets=profiles:read,campaigns:read
+); see the
+Available scopes for each API
+section of the authentication guide for the full list. Only tools whose required scopes are fully covered by your list are exposed.
+paginate-lists
+true
+,
+false
+false
+Setting this value to
+true
+paginates
+tools/list
+(and the other
+*/list
+methods) using MCP cursors instead of returning every item in a single response. Only enable this if your client follows
+nextCursor
+; a client that ignores it will only ever see the first page.
+list-page-size
+Positive integer
+20
+Sets the number of items returned per page when
+paginate-lists
+is
+true
+. Ignored when
+paginate-lists
+is not set, or when the value is not a positive integer.
+Here's an example of what your URL may look like:
+Copy
+https://mcp.klaviyo.com/mcp?read-only=true&disable-tools-with-user-generated-content=true&toolsets=profiles:read,campaigns:read
+Configure your MCP client for the local server
+To use the local MCP server, you’ll need:
+uv
+A compatible MCP client (e.g., Cursor). For web-based clients such as ChatGPT, use our remote-hosted server.
+To communicate with the Klaviyo MCP server, each MCP client needs specific configuration. Follow the steps below to get started:
+To utilize all
+available tools
+, create a Klaviyo private API key with the following permissions:
+Scope
+Access
+Accounts
+Read
+Campaigns
+Full
+Catalogs
+Read
+Events
+Full
+Flows
+Read
+Images
+Full
+List
+Read
+Metrics
+Read
+Profiles
+Full
+Segments
+Full
+Subscriptions
+Full
+Tags
+Read
+Templates
+Full
+Translations
+Full
+Follow the steps below for the MCP client you’d like to configure.
+You can
+add multiple Klaviyo accounts to your MCP client's configuration file
+to switch between accounts without editing the file each time. Just be sure to reference the desired account in each prompt.
+Claude Desktop
+Download
+Claude Desktop
+.
+Open Claude Desktop. Within
+Settings > Developer > Edit Config
+, add the following, substituting your API key:
+json
+Copy
+{
+"mcpServers"
+:
+{
+"klaviyo"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"klaviyo-mcp-server@latest"
+]
+,
+"env"
+:
+{
+"PRIVATE_API_KEY"
+:
+"YOUR_API_KEY"
+,
+"READ_ONLY"
+:
+"false"
+,
+"ALLOW_USER_GENERATED_CONTENT"
+:
+"false"
+}
+   }
+ }
+}
+Once you have saved all configuration changes, terminate all Claude processes and relaunch Claude to apply the new settings.
+Verify the connection by looking for visual indicators and asking a question to test the connection.
+If you get errors upon starting Claude, you may need to provide the full path to the
+uvx
+executable for the
+command
+key. On macOS, find this by running
+which uvx
+.
+(Recommended for security) To avoid storing your API key in plaintext, save your API key in your password manager. Then, use the following command to launch Claude, pasting in your API key when prompted:
+bash
+Copy
+uvx
+--from
+klaviyo-mcp-server@latest
+run-claude
+Note that as of now, this only supports MacOS and Windows.
+Note for free users
+The free version of Claude Desktop has a very limited context window, and you may run into issues with all the tools enabled. Here are a few possible workarounds:
+Only enable the tools you need. To do this, click the
+Search and tools
+button near the prompt. Then, click
+klaviyo
+to toggle certain tools on or off.
+Use read-only mode, i.e., set
+READ_ONLY
+to true.
+Use a different client.
+Cursor
+Download
+Cursor
+.
+Open Cursor. Within
+Settings > Cursor Settings > Tools & Integrations > Add Custom MCP
+, add the following, substituting your API key:
+json
+Copy
+{
+"mcpServers"
+:
+{
+"klaviyo"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"klaviyo-mcp-server@latest"
+]
+,
+"env"
+:
+{
+"PRIVATE_API_KEY"
+:
+"YOUR_API_KEY"
+,
+"READ_ONLY"
+:
+"false"
+,
+"ALLOW_USER_GENERATED_CONTENT"
+:
+"false"
+}
+    }
+  }
+}
+Once you have saved all configuration changes, terminate all Cursor processes and relaunch Cursor to apply the new settings.
+Verify the connection by looking for visual indicators and asking a question to test the connection.
+(Recommended for security) To avoid storing your API key in plaintext, save your API key in your password manager. Then, use the following command to launch Cursor, pasting in your API key when prompted:
+bash
+Copy
+uvx
+--from
+klaviyo-mcp-server@latest
+run-cursor
+Note that as of now, this only supports MacOS and Windows.
+VS Code
+Download
+VS Code
+.
+Open VS Code. Within settings (
+Ctrl + Shift + P
+>
+Preferences: Open Settings (JSON)
+), add the following:
+json
+Copy
+{
+"mcp"
+:
+{
+"servers"
+:
+{
+"klaviyo"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"klaviyo-mcp-server@latest"
+]
+,
+"env"
+:
+{
+"PRIVATE_API_KEY"
+:
+"${input:klaviyo_api_key}"
+,
+"READ_ONLY"
+:
+"false"
+,
+"ALLOW_USER_GENERATED_CONTENT"
+:
+"false"
+}
+      }
+    }
+,
+"inputs"
+:
+[
+      {
+"type"
+:
+"promptString"
+,
+"id"
+:
+"klaviyo_api_key"
+,
+"description"
+:
+"Klaviyo API Key"
+,
+"password"
+:
+true
+}
+    ]
+  }
+}
+Once you have saved all configuration changes, terminate all VS Code processes and relaunch VS Code to apply the new settings.
+Verify the connection by looking for visual indicators and asking a question to test the connection.
+To enable only the tools that do not modify any Klaviyo data, set the
+READ_ONLY
+environment variable to true in your MCP client’s configuration file.
+Environment configuration
+The Klaviyo MCP server provides some configuration options which can be controlled with environment variables.
+env
+Options
+Default value
+Description
+READ_ONLY
+true
+,
+false
+false
+Setting this value to
+true
+disables any tools which can perform write actions on your Klaviyo account.
+ALLOW_USER_GENERATED_CONTENT
+true
+,
+false
+true
+Setting this value to
+false
+disables specific tools from reading and interpreting user-generated content in your Klaviyo account using your LLM (see
+Available tools
+). If left as
+true
+, be sure to carefully review each tool call to ensure your client is not acting on malicious instructions.
+Add multiple accounts to your configuration file
+To avoid editing your MCP client's configuration file each time you switch Klaviyo accounts, you can add multiple accounts to the file.
+To do this:
+Copy and paste the same configuration shown above for each account you want to add.
+Update the name, i.e.,
+klaviyo
+, to something more descriptive for each account, and replace the API keys accordingly.
+Your config file should look like this:
+json
+Copy
+{
+"mcpServers"
+:
+{
+"klaviyo_company1"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"klaviyo-mcp-server@latest"
+]
+,
+"env"
+:
+{
+"PRIVATE_API_KEY"
+:
+"YOUR_API_KEY_1"
+,
+"READ_ONLY"
+:
+"false"
+,
+"ALLOW_USER_GENERATED_CONTENT"
+:
+"false"
+} 
+    }
+,
+"klaviyo_company2"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"klaviyo-mcp-server@latest"
+]
+,
+"env"
+:
+{
+"PRIVATE_API_KEY"
+:
+"YOUR_API_KEY_2"
+,
+"READ_ONLY"
+:
+"false"
+,
+"ALLOW_USER_GENERATED_CONTENT"
+:
+"false"
+} 
+    }
+  } 
+}
+Troubleshooting
+If you are having trouble connecting to the remote server:
+Ensure the URL is correct and there is no trailing slash:
+https://mcp.klaviyo.com/mcp
+.
+Ensure you have the Owner, Admin, or Manager role on the Klaviyo account.
+If your MCP client can’t find enabled MCP tools for Klaviyo:
+Review the steps above and ensure the MCP server is configured correctly.
+Terminate all processes and relaunch the app to refresh your client.
+If you’re getting inaccurate or inconsistent responses:
+Start a new chat to reset the conversation context.
+Be specific in your queries by providing necessary, relevant keywords.
+Guides

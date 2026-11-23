@@ -1,0 +1,116 @@
+URL: https://developers.squarespace.com/mcp/connect-a-client
+FETCHED: 2026-11-23T17:27:55.447426
+VIA: direct
+
+Squarespace Developer Platform: APIs, Apps, and Docs
+Menu
+Connect a Client
+The Squarespace MCP server is a remote server: your client connects to it over HTTPS, and there's nothing to install. In Gemini, Squarespace is already built in. For Claude, ChatGPT, and other clients, you add it with the server URL.
+Gemini
+Squarespace is built into Gemini as one of its
+connected apps
+, so there's no server URL to enter.
+On
+gemini.google.com
+, open
+Customize
+in the sidebar, then
+Connectors
+.
+Find
+Squarespace
+and click
+Add
+.
+In a chat, type
+@Squarespace
+or just ask for a domain.
+Gemini offers Squarespace to personal Google accounts in the US, in English, on the web, mobile, and Windows apps. Only the
+Domains
+tools are available in Gemini.
+Server URL
+Code
+https://mcp.squarespace.com/mcp
+Use this URL in Claude, ChatGPT, and any other MCP client. Menu names in each client change between releases, so the steps below may not match your version exactly.
+Claude
+Open
+Settings → Connectors
+and choose to add a custom connector.
+Enter
+https://mcp.squarespace.com/mcp
+as the server URL.
+To use the Commerce tools, connect and
+sign in to Squarespace
+when prompted.
+Start a new chat with the connector turned on.
+Claude Code
+Add the server from your terminal:
+Code
+claude
+mcp
+add
+--transport
+http
+squarespace
+https://mcp.squarespace.com/mcp
+Then run
+/mcp
+in Claude Code and choose the Squarespace server to sign in.
+ChatGPT
+Open
+Settings → Apps & Connectors
+(or
+Connectors
+, depending on your plan and version).
+Add a custom connector with the URL
+https://mcp.squarespace.com/mcp
+.
+Sign in to Squarespace when prompted if you want to use the Commerce tools.
+Turn the connector on for a new chat.
+Any other MCP client
+Configure a remote MCP server with:
+URL:
+https://mcp.squarespace.com/mcp
+Transport:
+Streamable HTTP
+Only the
+Domains
+tools are available in other clients. The Commerce tools are currently only available in Claude and ChatGPT.
+Sign in to Squarespace
+The
+Domains
+tools work without an account. The
+Commerce
+tools need you to sign in with the Squarespace account you use to manage your websites, and are currently only available in Claude and ChatGPT.
+When your client offers to connect or sign in, you're taken to the standard Squarespace login page. After you sign in, your client receives access to the signed-in tools and they appear in its tool list. Until then, only the Domains tools are listed.
+Signing in doesn't give the assistant more access than you have. Every tool acts as you, with the permissions you have on the website it's working on. To disconnect, remove or sign out of the connector in your client's settings.
+For client developers: sign-in uses OAuth 2.1. The authorization server is advertised in the server's protected resource metadata at
+https://mcp.squarespace.com/.well-known/oauth-protected-resource/mcp
+.
+Verify your connection
+After connecting, try:
+"Is
+example-test-domain.com
+available on Squarespace?"
+The assistant should check the domain and reply with availability and pricing.
+If you've signed in, also try:
+"Show me my five most recent orders."
+The assistant should reply with orders from your store. If it says it has no Squarespace tools for this, check that you completed sign-in and that the connector is turned on for the chat.
+Next steps
+See what each group of tools can do:
+Domains
+and
+Commerce
+.
+Overview
+Domains
+On this page
+Gemini
+Server URL
+Claude
+Claude Code
+ChatGPT
+Any other MCP client
+Sign in to Squarespace
+Verify your connection
+Next steps

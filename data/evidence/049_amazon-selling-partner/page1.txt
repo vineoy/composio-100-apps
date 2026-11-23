@@ -1,0 +1,30 @@
+URL: https://developer.amazonservices.com/cancellation-of-sp-api-fees
+FETCHED: 2026-11-23T17:29:33.465249
+VIA: direct
+
+Amazon Cancels Third-Party SP-API Developer Fees - Amazon Selling Partner API
+Submit
+Search
+Close Search
+English
+Select your preferred language
+Deutsch
+English
+(current language)
+Español
+Français
+Italiano
+Português
+Türkçe
+हिंदी
+中文
+日本語
+Login
+Important Update
+Cancellation of Third-Party Developer Selling Partner API (SP-API) Fees
+Our developer community is incredibly important to us. We previously announced changes to developer fees related to SP-API usage, and we value your feedback on those planned changes. After careful consideration, we have decided that we will not move forward with the SP-API usage and annual fees at this time. Supporting your ability to innovate, build and grow is a top priority and we appreciate partnering together to provide high quality solutions for Amazon sellers.
+In the coming weeks, we will be making updates to the Solution Provider Portal (SPP) to reflect this decision, such as removing the fee preview dashboard. If you previously provided a credit card, you can delete it now through
+this link in SPP
+.
+We are committed to supporting you as you build the next generation of solutions for selling partners.
+Thank you for being an important part of the Amazon Selling Partner developer community.

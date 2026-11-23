@@ -1,0 +1,77 @@
+{
+ "app": "fanbasis",
+ "queries": [
+  "fanbasis API authentication documentation",
+  "fanbasis MCP server",
+  "fanbasis API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://supabase.com/docs/guides/ai-tools/mcp",
+  "https://mcpservers.org/learn/what-is-an-mcp-server",
+  "https://github.com/basis-protocol/basis-mcp",
+  "https://github.com/Launch-On-Basis/MCP-TS"
+ ],
+ "search_hits": [
+  {
+   "title": "GitHub - FanBasis/fbnewapi",
+   "href": "https://github.com/FanBasis/fbnewapi"
+  },
+  {
+   "title": "Login - FanBasis API Docsv3",
+   "href": "https://dev-docs.fanbasis.com/"
+  },
+  {
+   "title": "Commas API Reference",
+   "href": "https://apidocs.fan/"
+  },
+  {
+   "title": "Vite + React + TS - demo.embedded.fanbasis.io",
+   "href": "https://demo.embedded.fanbasis.io/docs/getting-started"
+  },
+  {
+   "title": "Fanbase API Documentation",
+   "href": "https://fanbaseapi.openstage.live/index.html"
+  },
+  {
+   "title": "Supabase MCP Server | Supabase Docs",
+   "href": "https://supabase.com/docs/guides/ai-tools/mcp"
+  },
+  {
+   "title": "Awesome MCP Servers",
+   "href": "https://mcpservers.org/"
+  },
+  {
+   "title": "What Is an MCP Server? How It Works, Examples & Setup",
+   "href": "https://mcpservers.org/learn/what-is-an-mcp-server"
+  },
+  {
+   "title": "Basis Protocol MCP - GitHub",
+   "href": "https://github.com/basis-protocol/basis-mcp"
+  },
+  {
+   "title": "Basis MCP Server - GitHub",
+   "href": "https://github.com/Launch-On-Basis/MCP-TS"
+  },
+  {
+   "title": "GitHub - FanBasis/fbnewapi",
+   "href": "https://github.com/FanBasis/fbnewapi"
+  },
+  {
+   "title": "Login - FanBasis API Docsv3",
+   "href": "https://dev-docs.fanbasis.com/"
+  },
+  {
+   "title": "Free API Tiers Database | APICostCalc",
+   "href": "https://apicostcalc.com/free-api-tiers.html"
+  },
+  {
+   "title": "Commas (FanBasis) Payment Processor Review 2026: Is It Legit?",
+   "href": "https://processingscoop.com/blog/fanbasis-review"
+  },
+  {
+   "title": "Commas (formerly FanBasis) Review 2026: Fees & Verdict",
+   "href": "https://creatoreconomytools.com/tool/commas"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:29:50.029317"
+}

@@ -1,0 +1,110 @@
+URL: https://docs.ecwid.com/get-started/make-your-first-api-request
+FETCHED: 2026-11-23T17:28:26.626429
+VIA: direct
+
+Make your first API request | Ecwid Documentation
+For the complete documentation index, see
+llms.txt
+. Markdown versions of documentation pages are available by appending
+.md
+to page URLs.
+Skip to content
+AI Assistant
+I'm here to help you with the docs.
+What is this page about?
+What should I read next?
+Can you give an example?
+⌘
+Ctrl
+i
+AI
+Based on your context
+Send
+Build with Ecwid apps
+Ecwid API features
+Get started
+Set up your dev environment in Ecwid
+Make your first API request
+Add more features to your custom app
+API glossary
+Develop apps
+What is an Ecwid app
+Private and public Ecwid apps
+App settings
+Community libraries
+Launch apps
+Public apps overview
+FAQ about public applications
+Monetize public apps
+Steps to go live with a public app
+Native and external apps
+Contact Ecwid API support team
+On this page
+All requests to Ecwid REST API require an
+access token
+. Ecwid uses OAuth 2.0 to provide secure access to the store data for public apps. If you customize your own store, however, you can skip OAuth and easily get an access token for your store.
+This guide provides a walkthrough of a basic Ecwid API interaction, specifically, retrieving store profile information. To gain a deeper understanding of Ecwid API objects and their connections, refer to the API reference.
+Before you begin
+There is
+no test mode
+in Ecwid API, so we recommend setting up a separate test store. This way you can safely experiment and develop without impacting your live store and its data. By isolating your testing activities, you can maintain a smooth experience for both development and production environments.
+Step 1. Get your secret app token
+API access to the store data is locked behind app authentication and request authorization based on the OAuth 2.0 standard. However, access to your store data is much simpler.
+After signing up with Ecwid and getting a custom app, you already have two tokens:
+Public token
+allows only public data to be received and is safe to use in public code.
+Secret token
+grants full access to REST API (provided the app has all required permissions) and therefore must be kept safe.
+Learn more about tokens, permissions, and other application settings in the
+App settings
+guide.
+From the
+app dashboard
+, open the
+Details
+page of the custom app, then copy one of the access tokens:
+If the custom app is uninstalled from the store, you can reinstall it from the
+Details
+page. Click the
+Install
+button, then copy access tokens.
+Step 2. Make your first REST API request
+Now you have everything to start making REST API requests. Let's start with a simple GET request. Such requests require only two variables:
+store ID
+and
+access token
+.
+You already have a custom app with access tokens. Get your store ID from any Ecwid admin page from URL or the footer.
+Now make a simple “Get products” request and execute it using, for example, the
+Postman app
+.
+Add
+store ID
+to the
+request path
+, your
+secret access token
+as a
+Bearer Token on the Authorization tab
+, and click
+Send
+:
+That’s it. You should receive a JSON-formatted response with details about products in your store.
+Next steps
+Congratulations on completing the quickstart guide!
+Now you can make REST API requests, so it’s time to move further:
+Learn Ecwid API features
+Learn more about app settings: access tokens, scopes, etc.
+Add more features to your custom app
+Previous
+Set up your dev environment in Ecwid
+Next
+Add more features to your custom app
+Last updated
+1 year ago
+Was this helpful?
+Before you begin
+Step 1. Get your secret app token
+Step 2. Make your first REST API request
+Next steps
+Was this helpful?

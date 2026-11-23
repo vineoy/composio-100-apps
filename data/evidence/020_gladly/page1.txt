@@ -1,0 +1,130 @@
+URL: https://help.gladly.com/developer-tutorials/docs/setup-and-testing
+FETCHED: 2026-11-23T16:54:41.572431
+VIA: direct
+
+Setup and Testing
+Documentation Index
+Fetch the complete documentation index at:
+https://help.gladly.com/llms.txt
+Use this file to discover all available pages before exploring further.
+Setup and Testing
+Updated on
+Feb 1, 2025
+Published on Jan 30, 2025
+2 minute(s) read
+Focus
+Listen
+Print
+Copy page
+Copy as Markdown for LLMs
+View as Markdown
+View the page as plain text
+Open in ChatGPT
+Ask ChatGPT about this page
+Open in Claude
+Ask Claude about this page
+View doc summary
+Prev
+Next
+Congratulations on building your Gladly integration. Now
+, you can test the myriad possibilities of the
+Gladly API
+in a safe, secure space. This guide will help you understand
+the testing and iteration process.
+Sandbox environment
+If you do not have a sandbox environment and are interested in purchasing one, please contact your Gladly CSM or
+Gladly Support
+team. Sandbox environments are a great way to test your code without impacting your production environment.
+Your sandbox environment will be accessible via the URL below where
+organization
+is your company name.
+https://{organization}.gladly.qa
+Set up API Users
+Gladly Administrators can set API permissions on an Agent-by-Agent basis. We'll discuss how this maps to API access in the
+Authentication
+section below. Of course, the API User will also have access to Gladly overall.
+To allow a user to create API tokens and access the API:
+Log in to your
+Gladly instance
+.
+Open the
+menu
+on the top left-hand corner of the page.
+Navigate to
+Settings > Users
+.
+Search and click the
+user profile
+that should have access.
+You'll see a permission called
+API User
+. Select it, while keeping the user's Agent role intact.
+Click
+Save
+to give access.
+We recommend creating a dedicated user to make API calls whose account won't be used for Agent and organization management. This will help with future audits of API and agent activity.
+API tokens
+You must create an API token to access Gladly API resources (see above).
+Create
+If your profile already has access to the
+API User
+permission, you'll see a menu item titled
+Settings
+.
+Click
+Settings
+.
+Click
+API tokens
+then
+Add Token
+button on the upper right-hand corner of the page.
+A token will be generated and named
+New Token
+by default.
+If you have
+existing tokens
+, it might be named New Token 2, New Token 3, etc.
+Click the name to
+rename
+.
+You will only see a new token once before you navigate away from the page. This token will be associated with your Agent profile.
+Replace and Rotate
+If you lose this token or it is time to rotate your application keys:
+Generate
+a new token.
+Store
+the new token in a secure location.
+Delete
+the old token.
+Update
+your applications and scripts with the new token.
+Authentication
+Gladly API uses token-based Basic Authentication. API tokens are associated with designated Gladly users. Your user must have the API user permission to create and use an API token. An API token can be used to perform any API request without restriction.
+The credentials must be passed via an Authorization HTTP header. All requests must be made over HTTPS.
+Users assigned the
+Team Manager
+or
+Administrator
+roles can contact
+Gladly Support
+. Log into Gladly as one of these roles, click
+on the top-left corner, then click
+Contact Gladly Support
+. Gladly Support's primary operating hours are Monday through Friday, 6 AM to 6 PM Pacific Time, but you can submit a request anytime.
+Please select the correct business impact (P1 to P4).
+Most requests should be sent as a P4.
+Was this doc helpful?
+Yes
+No
+Previous doc
+Technical Planning
+Next doc
+Useful Resources
+Related docs
+Technical Planning
+App Platform > Planning Your App
+Understand Your Use Cases
+App Platform > Planning Your App
+Test the REST API With Postman
+Other Resources

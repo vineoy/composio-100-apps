@@ -1,0 +1,77 @@
+{
+ "app": "Front",
+ "queries": [
+  "Front API authentication documentation",
+  "Front MCP server",
+  "Front API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://dev.frontapp.com/docs/authentication",
+  "https://dev.frontapp.com/docs/core-api-getting-started",
+  "https://developers.frontegg.com/ciam/api/overview",
+  "https://dev.frontapp.com/docs/mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Front Platform",
+   "href": "https://dev.frontapp.com/docs/authentication"
+  },
+  {
+   "title": "Getting Started with the Core API - Front Platform",
+   "href": "https://dev.frontapp.com/docs/core-api-getting-started"
+  },
+  {
+   "title": "API introduction - developers.frontegg.com",
+   "href": "https://developers.frontegg.com/ciam/api/overview"
+  },
+  {
+   "title": "How to create and revoke API tokens - help.front.com",
+   "href": "https://help.front.com/en/articles/2331"
+  },
+  {
+   "title": "Overview of Front's API and use cases",
+   "href": "https://help.front.com/en/articles/2482"
+  },
+  {
+   "title": "MCP Server - dev.frontapp.com",
+   "href": "https://dev.frontapp.com/docs/mcp-server"
+  },
+  {
+   "title": "Get started with Front's MCP server",
+   "href": "https://help.front.com/en/articles/4883136"
+  },
+  {
+   "title": "The Front MCP Server is here (beta) | Community",
+   "href": "https://community.front.com/api-news-updates-40/the-front-mcp-server-is-here-beta-3712"
+  },
+  {
+   "title": "MCP server | AI + Workflows | Community - community.front.com",
+   "href": "https://community.front.com/mcp-server-88"
+  },
+  {
+   "title": "MCP Connectors - help.front.com",
+   "href": "https://help.front.com/en/articles/4971328"
+  },
+  {
+   "title": "Front Pricing and Plans | Front",
+   "href": "https://front.com/pricing"
+  },
+  {
+   "title": "X API pay-per-usage pricing and credits - X",
+   "href": "https://docs.x.com/x-api/getting-started/pricing"
+  },
+  {
+   "title": "How to Get X API Key: Complete 2026 Guide to Pricing, Setup ...",
+   "href": "https://elfsight.com/blog/how-to-get-x-twitter-api-key-in-2026/"
+  },
+  {
+   "title": "Free Cloud Computing Services - AWS Free Tier",
+   "href": "https://aws.amazon.com/free/"
+  },
+  {
+   "title": "Free API Tiers Database | APICostCalc",
+   "href": "https://apicostcalc.com/free-api-tiers.html"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:48:23.940743"
+}

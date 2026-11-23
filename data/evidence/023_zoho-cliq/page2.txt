@@ -1,0 +1,504 @@
+URL: https://www.zoho.com/cliq/help/restapi/v3/introduction/
+FETCHED: 2026-11-23T16:57:07.577552
+VIA: direct
+
+Introduction | Zoho Cliq | API Documentation
+API Docs
+/
+No Results Found
+V3 (Latest)
+V2
+V3 (Latest)
+Resources
+Help Docs
+FAQ
+Developer Platform
+Extensions
+Developer Community
+Plans & Pricing
+Access Zoho Cliq
+Sign In
+API Docs
+Versions
+V2
+V3 (Latest)
+Resources
+Help Docs
+FAQ
+Developer Platform
+Extensions
+Developer Community
+Plans & Pricing
+Access Zoho Cliq
+Sign In
+Introduction
+Introduction
+Overview
+What's new in v3
+Authentication
+Networks
+Multiple Data Centers
+Authentication
+Introduction to OAuth 2.0
+Overview
+Terminologies
+Scopes
+Register your application
+Overview
+API Reference
+HTTP Methods
+Overview
+Pagination
+Overview
+next_token
+sync_token
+Combining Tokens
+Best Practices
+Errors
+Overview
+Glossary
+Overview
+CHAT_ID
+MESSAGE_ID
+THREAD_CHAT_ID
+SCHEDULED_MESSAGE_ID
+FILE_ID
+CHANNEL_ID
+CHANNEL_UNIQUE_NAME
+REMINDER_ID
+EVENT_ID
+BOT_UNIQUE_NAME
+BOT_ID
+SLASH_COMMAND_ID
+MESSAGE_ACTION_ID
+EXTENSION_ID
+EXTENSION_KEY
+EXTENSION_PROPERTY_KEY_NAME
+FUNCTION_ID
+WIDGET_ID
+MAP_ID
+DATASTORE_ID
+DATABASE_UNIQUE_NAME
+RECORD_ID
+USER_ID
+EMAIL_ID
+STATUS_ID
+USER_FIELD_ID
+DEPARTMENT_ID
+DESIGNATION_ID
+TEAM_ID
+ROLE_ID
+OpenAPI Specification (OAS)
+OpenAPI Specification (OAS)
+Overview
+Why use the OAS?
+Swagger API Hub
+Download OAS
+Postman Collection
+Postman Collection
+Overview
+What's in the collection?
+Why use the collection?
+Prerequisites
+Using the collection
+Keeping your fork up to date
+Data center configuration
+Communication & Collaboration
+Chats
+Overview
+Create chat
+Mark Multiple Chats as Read or Clear Unread Count
+Retrieve all direct chats
+Search chats
+Update chat title or history status
+Retrieve chat details
+Update Chat Read or Unread Status
+Clear Local Chat History
+Close a chat
+Add members to a chat
+Retrieve members of a chat
+Remove members from a chat
+Fork a chat
+Send Typing Indicator
+Leave a chat
+Mute a chat
+Unmute a chat
+Messages
+Overview
+Post message in chat
+Delete multiple messages
+Post message in a channel with CHANNEL_UNIQUE_NAME
+Post message in a channel with CHANNEL_ID
+Forward Messages
+Search Messages
+Report messages in a chat or channel
+Edit a message in a chat
+Threads
+Overview
+Create and send a thread message with CHANNEL_ID
+Create and send a thread message with CHAT_ID
+Create and send a thread message with CHANNEL_UNIQUE_NAME
+Send a message to an existing thread
+Update the state of a thread
+Retrieve thread details
+Get main message of a thread
+Add followers to a thread
+Get thread followers
+Remove followers from a thread
+Get non-followers of a thread
+Join (follow) a thread
+Leave (unfollow) a thread
+Retrieve members of a thread
+Leave a thread
+Mute a thread
+Unmute a thread
+List threads in a chat
+Scheduled Messages
+Overview
+List all scheduled messages
+Send scheduled messages now
+Bulk reschedule scheduled messages
+List scheduled messages in a chat
+Delete all scheduled messages in a chat
+Edit a scheduled message
+Delete a scheduled message
+Channels
+Overview
+Create a channel
+List channels
+Update channel meta
+Change channel status
+Get a specific channel
+Delete a channel
+Update channel configurations
+Get channel configurations
+Update channel permissions
+Get channel permissions
+Add Members
+Bulk update member roles
+List channel members
+Bulk remove members
+Update a single member's role
+Remove a single member
+Mute/unmute or pin/unpin a channel
+Get my membership
+Reminders
+Overview
+Get reminders in a chat
+Update reminder status
+Trigger reminder notification to assignees
+Batch edit reminders
+Pin Messages
+Overview
+Add a pinned message
+Reorder pinned messages
+Get pinned messages
+Delete pinned messages
+Get primary pinned message
+My Pins and Chat Folders
+Overview
+Create a chat folder
+Retrieve chat folders
+Remove pinned chats across chat folders
+Modify a chat folder
+Delete a chat folder
+Reorder a chat within a chat folder
+Reorder a chat folder
+Replace chats in a chat folder
+Pin a chat to a chat folder
+Unpin a chat
+Stars
+Overview
+Star a Message or Update Star Type
+List starred messages
+Unstar a Message
+Attachments
+Overview
+Upload and share attachments
+List attachments
+Edit an attachment
+Get an attachment
+Download an attachment file
+Hashtags
+Overview
+List hashtags
+Get a hashtag
+Follow a hashtag
+Unfollow a hashtag
+Message Components
+Message Content
+Overview
+Plain text
+Table
+List
+Label
+Image
+Charts
+Graphs
+Mentions
+Overview
+Retrieve Mentions and Replies
+Mentioning a User
+Silent mentions
+Mentioning a Channel
+Mentioning all users in a channel
+Mentioning available users in a Channel
+Mentioning a Team
+Buttons
+Overview
+Message card buttons
+Confirmation popup
+Instant buttons
+Message Cards
+Overview
+Post a message card to a channel
+Post a message card to a chat
+Developer Platform
+Bots
+Overview
+Create a bot
+List all bots
+Update an existing bot
+Retrieve details of a specific bot
+Delete a specific bot
+Send a bot message
+Send an incoming webhook message to a bot
+Trigger Bot Calls
+Create a handler for a specific bot
+Update a handler for a specific bot
+Get details of a specific bot handler
+Delete a handler from a specific bot
+Associate bot to a channel
+List all subscribers of a specific bot
+List execution records of a specific bot handler
+Icons
+Overview
+Slash Commands
+Overview
+Create a slash command
+List all commands
+Update a slash command
+Get a command
+Delete a slash command
+Create a handler for a specific command
+Update a handler for a specific command
+Get details of a specific command handler
+Delete a handler from a specific command
+List execution records of a specific slash command handler
+Message Actions
+Overview
+Create a new message action
+List all message actions
+Update an existing message action
+Get details of a specific message action
+Delete a specific message action
+Update a handler for a specific message action
+Get details of a specific message action handler
+List execution records of a specific message action handler
+Functions
+Overview
+Create a new function
+List all functions
+Update an existing function
+Get details of a specific function
+Delete a specific function
+Create a handler for a specific function
+Update a handler for a specific function
+Get details of a specific function handler
+Delete a handler from a specific function
+List execution records of a specific function handler
+Datastores
+Overview
+Create a datastore
+List all datastores
+Edit a datastore
+Get a datastore
+Delete a datastore
+Add fields to a datastore
+Edit datastore fields
+Delete fields of a datastore
+Add records to a datastore
+Bulk update records in a datastore
+List records from a datastore
+Delete records from a datastore
+Update a record in a datastore
+Get a record from a datastore
+Delete a record from a datastore
+Export datastore records
+Schedulers
+Overview
+Create a scheduler
+List all schedulers
+Edit a scheduler
+Get a specific scheduler
+Delete a scheduler
+Enable a scheduler
+Disable a scheduler
+Update a handler for a specific scheduler
+Get details of a specific scheduler handler
+List execution records of a specific scheduler handler
+Extensions
+Overview
+Install an extension
+Upgrade an extension
+Add or update extension properties
+Get extension properties
+Get a specific extension property
+Delete a specific extension property
+Create a handler for a specific extension
+Update a handler for a specific extension
+Get details of a specific extension handler
+Delete a handler from a specific extension
+List execution records of a specific extension handler
+Settings & Preferences
+DND Settings
+Overview
+Update DND preferences
+Get DND preferences
+Mobile Settings
+Overview
+Update mobile settings
+Get mobile settings
+User Preferences
+Overview
+Update user preferences
+Get user preferences
+Keyboard Shortcuts
+Overview
+Update keyboard shortcuts
+Fetch all keyboard shortcuts
+Delete keyboard shortcuts customization
+Auto Responder Settings
+Overview
+Update auto responder settings
+Get auto responder settings
+Custom Domain
+Overview
+Add custom domain
+Activate or deactivate custom domain
+Retrieve custom domain
+Delete custom domain
+Custom Email
+Overview
+Add custom email configuration
+Update custom email configuration
+Retrieve custom email configuration
+Delete custom email configuration
+Zoho Cliq REST API Documentation
+AI Tools
+Open in ChatGPT
+Open in ChatGPT to ask questions about this page
+Open in Claude
+Open in Claude to ask questions about this page
+Copy as Markdown
+Copy this page as markdown to use with AI assistants
+View as Markdown
+Open this page as markdown in a new tab
+Zoho Cliq's REST API is designed based on RESTful architecture principles, enabling seamless communication between your applications and Zoho Cliq. The latest version, v3, is the recommended choice for all new workflows, automations, and integrations.
+Every v3 endpoint follows a consistent model with resource-oriented URLs, JSON request/response bodies, standard HTTP verbs, and uniform error structures. v3 also standardizes pagination, handler schemas, and naming conventions across modules.
+v2 remains fully supported alongside v3. Both versions share the same base domain and use the same OAuth tokens. You can adopt v3 incrementally, one module at a time, without needing to modify any existing v2 code.
+Download Zoho Cliq OpenAPI Document
+Download
+API Root Endpoint
+Click to copy
+https://cliq.zoho.com/api/v3
+What's new in v3?
+Rich chats and message operations
+v3 completes the chat and message capabilities that were left unfinished in v2.
+Create direct/group chats, perform advanced searches, fork chats from messages, bulk-update read states, create chat folders, and manage pinned/starred messages.
+Uniform pagination across all modules
+v2 used six different pagination tokens:
+next_token
+,
+sync_token
+,
+next_set_token
+,
+start_token
+,
+next_search_token
+, and
+page_number
+.
+v3 standardizes this with only
+next_token
+for paging and
+sync_token
+for incremental synchronization across all modules.
+Platform component development via APIs
+v3 introduces CRUD API endpoints for bots, slash commands, message actions, widgets, schedulers, and more, which were not available in v2.
+You get full programmatic control over CRUD operations and handler lifecycle management, enabling scripted and version-controlled developer workflows.
+Customizations
+v3 consolidates customization-related endpoints under
+/api/v3/settings
+with a consistent input type pattern.
+Use APIs for keyboard shortcuts, Do Not Disturb (DND) preferences, mobile settings, and user preferences.
+Authentication
+Zoho Cliq API uses the OAuth 2.0 protocol for authentication.
+OAuth 2.0
+is an industry-standard protocol specification that enables third-party applications (also known as clients) to gain delegated access to protected resources in Zoho Cliq via an API.
+What is OAuth 2.0?
+OAuth 2.0 is an industry-standard protocol that allows you to grant a third-party website or application (i.e., a client) delegated access to Zoho Cliq's protected resources via Zoho Cliq APIs. It is a way to authenticate and authorise API requests made to Zoho Cliq.
+Advantages of OAuth 2.0
+Clients are not required to support password authentication or store user credentials, as authentication and authorisation are handled by exchanging OAuth tokens.
+Clients gain delegated access, i.e., access only to resources authorised by the user.
+Users can revoke a third-party application's delegated access at any time.
+OAuth access tokens expire after a set time. If the client faces a security breach, user data will be compromised only as long as the access token remains valid.
+Networks
+Cliq network is a dedicated space for collaborating with external business stakeholders such as partners, vendors, agencies, consultants, volunteers, and more. It equips you with an extensive set of configurable permissions to facilitate controlled, secure, and full-fledged external collaboration.
+In the case of networks, the API Root endpoint differs. All the network endpoints should have the prefix as
+/network/{NETWORK_UNIQUE_NAME}
+or
+/network/{NETWORK_ID}
+For example, the API Root endpoints to call information from a Cliq network named 'Zylker Clients' would be:
+https://cliq.zoho.com/network/zylkerclients
+zylkerclients
+is the unique name of the network.
+API Root Endpoint for Networks
+Click to copy
+https://cliq.zoho.com/network/
+{
+NETWORK_UNIQUE_NAME
+}
+https://cliq.zoho.com/network/
+{
+NETWORK_ID
+}
+Multiple Data Centers
+Zoho Cliq is hosted at multiple data centers, and therefore available on different domains.
+There are 9 different domains for Zoho Cliq's APIs, so you can use the one that is applicable to you.
+Data Center
+Domain
+Base API URI
+United States
+.com
+https://cliq.zoho.com/
+Europe
+.eu
+https://cliq.zoho.eu/
+India
+.in
+https://cliq.zoho.in/
+Australia
+.au
+https://cliq.zoho.com.au/
+China
+.cn
+https://cliq.zoho.com.cn/
+Japan
+.jp
+https://cliq.zoho.jp/
+Saudi Arabia
+.sa
+https://cliq.zoho.sa/
+United Kingdom
+.uk
+https://cliq.zoho.uk/
+Canada
+.zohocloud.ca
+https://cliq.zohocloud.ca/
+The APIs on this page are for organizations hosted on the
+.com
+domain. If your organization is on a different domain, replace ".com" with the appropriate domain for the API endpoints on this page before using them.
+Note:
+You can find out which domain you're accessing Zoho Cliq by checking the URL while accessing Zoho Cliq.

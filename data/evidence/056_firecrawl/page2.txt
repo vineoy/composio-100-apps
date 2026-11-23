@@ -1,0 +1,151 @@
+URL: https://docs.firecrawl.dev/api-reference/v2-introduction
+FETCHED: 2026-11-23T17:34:50.619279
+VIA: direct
+
+Introduction - Firecrawl Docs
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+For AI agents:
+Use
+llms.txt
+for a full index of all documentation.
+The Firecrawl API gives you programmatic access to web data. All endpoints share a common base URL, authentication scheme, and response format described on this page.
+Features
+Search
+Search the web and get full page content in any format.
+Scrape
+Extract content from any webpage in markdown or json format.
+Interact
+Create an Interact session to click, fill forms, and navigate pages.
+Parse
+Upload files and parse them into markdown or other formats.
+Monitor
+Schedule recurring checks and get notified when content changes.
+Crawl
+Crawl entire websites and get content from all pages.
+Map
+Get a complete list of URLs from any website quickly and reliably.
+Agent
+Autonomous web data gathering powered by AI.
+Alexandria
+Find and run structured data tools from third-party providers.
+Base URL
+All requests use the following base URL:
+https://api.firecrawl.dev
+Authentication
+Requests need an
+Authorization
+header with your API key, except on the keyless endpoints described below:
+Authorization:
+Bearer
+fc-YOUR-API-KEY
+You can find your API key in the
+Firecrawl dashboard
+.
+A few endpoints, including
+/v2/scrape
+,
+/v2/search
+and
+/v2/parse
+, also work without a key, with limits. To call them keyless, leave the
+Authorization
+header out entirely, because a header with an empty token returns
+401
+. See
+No API key (keyless)
+for the full list.
+To let users connect their own Firecrawl account to your app instead, use
+OAuth for apps
+.
+Authentication
+compares every option.
+If you are an agent without an API key, start with
+Get credentials
+. If your platform supports WorkOS ID-JAG, use
+auth.md
+for registration instructions.
+cURL
+Python
+Node
+curl
+-X
+POST
+"https://api.firecrawl.dev/v2/scrape"
+\
+-H
+"Authorization: Bearer fc-YOUR-API-KEY"
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{"url": "https://example.com"}'
+from
+firecrawl
+import
+Firecrawl
+firecrawl
+=
+Firecrawl(
+api_key
+=
+"fc-YOUR-API-KEY"
+)
+result
+=
+firecrawl.scrape(
+"https://example.com"
+)
+import
+{
+Firecrawl
+}
+from
+'firecrawl'
+;
+const
+firecrawl
+=
+new
+Firecrawl
+({
+apiKey:
+"fc-YOUR-API-KEY"
+});
+const
+result
+=
+await
+firecrawl
+.
+scrape
+(
+'https://example.com'
+);
+Response codes
+Firecrawl uses conventional HTTP status codes to indicate the outcome of your requests. Codes in the
+2xx
+range indicate success,
+4xx
+codes indicate client errors, and
+5xx
+codes indicate server errors.
+See
+Errors
+for the full reference, including the
+error
+string returned for each failure mode, retry guidance, and a copy-pasteable backoff snippet.
+429 responses
+When you exceed your plan’s rate or concurrency limits, the API returns a
+429
+status code. See
+Rate Limits
+for per-plan limits and
+Errors
+for retry guidance.
+Suggest edits
+Raise issue

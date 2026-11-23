@@ -1,0 +1,12 @@
+URL: https://docs.gorgias.com/en-US/articles/developer-resources-18370
+FETCHED: 2026-11-23T16:53:58.278057
+VIA: direct
+
+Developer resources
+Search
+All articles
+Developer resources
+Access your Gorgias REST API credentials
+Gorgias has an open REST API - go to Settings → You → REST API to access your unique credentials. You can also take a look at our developer documentation for more information.
+Build a custom app
+Before you start creating your Gorgias app you need to choose between two types:. These apps should be used if you only plan to access your own Gorgias account data. These apps are published in our in-product and public App Stores and are available t

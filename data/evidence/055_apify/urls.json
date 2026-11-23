@@ -1,0 +1,77 @@
+{
+ "app": "Apify",
+ "queries": [
+  "Apify API authentication documentation",
+  "Apify MCP server",
+  "Apify API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.apify.com/integrations/api",
+  "https://docs.apify.com/api/v2",
+  "https://docs.apify.com/api",
+  "https://docs.apify.com/api/v2/getting-started"
+ ],
+ "search_hits": [
+  {
+   "title": "API integration | Platform | Apify Documentation",
+   "href": "https://docs.apify.com/integrations/api"
+  },
+  {
+   "title": "Apify API | Apify Documentation",
+   "href": "https://docs.apify.com/api/v2"
+  },
+  {
+   "title": "Apify API documentation",
+   "href": "https://docs.apify.com/api"
+  },
+  {
+   "title": "Apify Documentation",
+   "href": "https://docs.apify.com/"
+  },
+  {
+   "title": "Get started with Apify API | Apify Documentation",
+   "href": "https://docs.apify.com/api/v2/getting-started"
+  },
+  {
+   "title": "MCP servers at - Apify",
+   "href": "https://apify.com/mcp"
+  },
+  {
+   "title": "Apify MCP server",
+   "href": "https://mcp.apify.com/"
+  },
+  {
+   "title": "MCP servers \u00b7 Apify",
+   "href": "https://apify.com/store/categories/mcp-servers"
+  },
+  {
+   "title": "Apify MCP server | Platform | Apify Documentation",
+   "href": "https://docs.apify.com/mcp"
+  },
+  {
+   "title": "Web Scraper MCP server \u00b7 Apify",
+   "href": "https://apify.com/apify/web-scraper/api/mcp"
+  },
+  {
+   "title": "Apify pricing - flexible plan + pay as you go \u00b7 Apify",
+   "href": "https://apify.com/pricing"
+  },
+  {
+   "title": "The Creator plan for Actor developers \u00b7 Apify",
+   "href": "https://apify.com/pricing/creator-plan"
+  },
+  {
+   "title": "How much does Apify cost? - ApifyForge Help",
+   "href": "https://apifyforge.com/help/how-much-does-apify-cost"
+  },
+  {
+   "title": "Is Apify Free? Free Plan Limits & Upgrade Triggers (2026)",
+   "href": "https://costbench.com/software/web-scraping/apify/free-plan/"
+  },
+  {
+   "title": "Apify Pricing 2026 Explained: Free Tier to Scale \u2014 What You Pay",
+   "href": "https://aifordigitalmarketing.com/blog/apify-pricing-2026"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:34:27.976156"
+}

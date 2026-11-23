@@ -1,0 +1,126 @@
+URL: https://mcp-ads.com/linkedin-ads-mcp
+FETCHED: 2026-11-23T17:06:05.638697
+VIA: direct
+
+LinkedIn Ads MCP Server for Claude & ChatGPT | MCP Ads
+26
+tools on this platform
+3,363
+tools in total
+Browser
+sign-in, no API keys
+LinkedIn is the most expensive click most B2B marketers buy, and its reporting is spread across campaign groups, campaigns and creatives in Campaign Manager. A LinkedIn Ads MCP server lets Claude, ChatGPT, Cursor or any MCP client read and change that account directly through the LinkedIn Marketing API: rank campaigns by cost per lead, look up job titles and industries in LinkedIn’s own targeting taxonomy, size an audience before you commit budget, and create campaign groups, campaigns and creatives. MCP Ads has 26 LinkedIn Ads tools, plus 7 LinkedIn tools for organic posting to a personal profile or a company page. It connects through its own LinkedIn apps rather than a broker, which also means LinkedIn’s own approval rules apply to each part — this page is specific about those, and about the things LinkedIn’s API simply does not expose.
+What a call looks like
+These are real tool names from the live server, with the shape of what they return.
+You
+Rank last month’s campaigns by cost per lead.
+Tool
+linkedin_ads_campaign_report
+{
+  "elements": [
+    { "pivotValue": "urn:li:sponsoredCampaign:612345678", "costInLocalCurrency": "4210.55",
+      "impressions": 182340, "clicks": 1204, "oneClickLeads": 61 },
+    { "pivotValue": "urn:li:sponsoredCampaign:612345690", "costInLocalCurrency": "3890.10",
+      "impressions": 95112, "clicks": 588, "oneClickLeads": 12 }
+  ]
+}
+You
+Find the LinkedIn targeting entity for "Head of Procurement".
+Tool
+linkedin_ads_find_targeting_entities
+{
+  "elements": [
+    { "urn": "urn:li:title:24178", "name": "Head of Procurement", "facetUrn": "urn:li:adTargetingFacet:titles" },
+    { "urn": "urn:li:title:9821",  "name": "Procurement Director", "facetUrn": "urn:li:adTargetingFacet:titles" }
+  ]
+}
+You
+How big is that audience in Germany and the Netherlands, 500+ employees?
+Tool
+linkedin_ads_audience_counts
+{
+  "elements": [ { "active": 41000, "total": 68000 } ]
+}
+You
+Post the webinar announcement to the company page with the banner image.
+Tool
+linkedin_organic_create_post
+{
+  "id": "urn:li:share:7245123456789012480",
+  "post_urn": "urn:li:share:7245123456789012480"
+}
+What the LinkedIn Ads tools cover
+LinkedIn structures an ad account as campaign group, then campaign, then creative, and the 26 tools report and act at each level. Names below are the real ones; see the
+LinkedIn Ads tool reference
+.
+Accounts — linkedin_ads_list_accounts, linkedin_ads_get_account
+Structure — linkedin_ads_list_campaign_groups, linkedin_ads_get_campaign_group, linkedin_ads_create_campaign_group, linkedin_ads_update_campaign_group, linkedin_ads_list_campaigns, linkedin_ads_get_campaign, linkedin_ads_create_campaign, linkedin_ads_update_campaign
+Creatives — linkedin_ads_list_creatives, linkedin_ads_get_creative, linkedin_ads_create_creative, linkedin_ads_update_creative
+Reporting — linkedin_ads_campaign_report (impressions, clicks, spend, website conversions, one-click leads, likes, shares and comments by day or in total), linkedin_ads_campaign_group_report, linkedin_ads_creative_report
+Targeting — linkedin_ads_list_targeting_facets, linkedin_ads_find_targeting_entities (titles, skills, industries, companies, locations), linkedin_ads_audience_counts
+Conversions — linkedin_ads_list_conversions, linkedin_ads_create_conversion, linkedin_ads_update_conversion
+Anything else — linkedin_ads_get_resource reads any Marketing API path without a named tool; linkedin_ads_raw_request can write and is editor-only
+Manage all your ad platforms in one place with MCP Ads
+Google Ads
+Meta Ads
+GA4
+Search Console
+Tag Manager
+Merchant Center
+TikTok Ads
+LinkedIn Ads
+Microsoft Ads
+Snapchat Ads
+X Ads
+ChatGPT Ads
+WordPress
+Instagram
+Threads
+Bing Webmaster
++ more
+Get started
+→
+Why audience sizing and targeting lookups matter on LinkedIn
+LinkedIn targeting is a taxonomy, not free text. “VP of Sales at mid-size SaaS companies in DACH” has to become specific title, seniority, industry, company-size and location URNs, and LinkedIn will not run a campaign whose audience falls below its minimum. The practical workflow is to have the assistant translate your description into entities with linkedin_ads_find_targeting_entities, show you the closest matches (it lists alternatives when your wording does not match LinkedIn’s), then size the combination with linkedin_ads_audience_counts before anything is created. Counts come back as LinkedIn reports them, and a too-small audience is the signal to widen the targeting rather than a bug.
+Company pages and personal profiles
+Organic LinkedIn is separate from ads — separate LinkedIn products, and separate connections in MCP Ads. linkedin_organic_create_post publishes a post as you or as a company page you administer, with text, an article link, up to 20 images, or a video. linkedin_organic_list_organizations lists the pages you administer, and for company pages linkedin_organic_list_posts, linkedin_organic_get_post and linkedin_organic_post_stats read back posts and their impressions, clicks, likes, comments and shares. One limit is LinkedIn’s, not ours: LinkedIn does not let any app read a member’s own profile posts back, so for a personal profile the tools can publish but cannot list or measure what was published.
+Connecting, and LinkedIn’s approval rules
+LinkedIn grants its APIs per product, and MCP Ads connects each one separately so an unapproved product cannot break the others — LinkedIn refuses a whole sign-in that asks for anything the app is not approved for. There are three connections: LinkedIn Ads (the Advertising API), LinkedIn company page (the Community Management API) and LinkedIn profile (Share on LinkedIn, which is self-serve). Profile posting works for everyone. The ads and company-page connections depend on LinkedIn’s approval of those products for our app; if a surface is not available for your account, the sign-in page tells you so rather than failing silently. For ads, the LinkedIn member you sign in with needs a role on the ad account under Account settings, Manage access in Campaign Manager. Page admin rights alone authorise successfully and show no ad accounts; a Viewer role can report but not edit. The
+LinkedIn Ads guide
+has the troubleshooting.
+Safety defaults
+LinkedIn requires a status on every new campaign. Say “draft” and the assistant creates it as DRAFT, which cannot serve until you activate it; linkedin_ads_update_campaign changes status later with a partial update, for example to PAUSED. The create tools send the campaign body you agreed with the assistant rather than filling in a budget or bid of their own, every write is refused for viewer-role users in your workspace, and a write on an account where your LinkedIn role is Viewer comes back as LinkedIn’s permission error, not a partial change. There are no delete tools for campaigns or creatives.
+What LinkedIn’s API does not give any MCP server
+The tool count is smaller than Google’s or Meta’s because the LinkedIn Marketing API is narrower, and it is better to know where the edges are before you buy anything. Personal profile posts cannot be read back. Lead Gen Form responses are not covered by a named tool here; conversions, one-click lead counts and campaign management are. Demographic reporting (by job function, seniority or company) is subject to LinkedIn’s privacy thresholds, so small segments come back empty. And LinkedIn versions its API monthly and retires each version after about a year, which every LinkedIn integration — including the open-source ones — has to keep up with.
+Other LinkedIn Ads MCP options
+We are not aware of an official LinkedIn MCP server at the time of writing; LinkedIn publishes the Marketing API and leaves the MCP layer to others. Open-source servers such as danielpopamd/linkedin-ads-mcp run on your own machine against a LinkedIn developer app you register and get approved yourself, and several hosted services offer LinkedIn Ads as one of their connectors. Pick a self-hosted server if you already have Advertising API access on your own app and LinkedIn is your only channel. Pick MCP Ads if LinkedIn is one line in a B2B mix — the same conversation can compare LinkedIn cost per lead with Google Ads and check GA4 for what those leads did on the site — or if you want profile and company-page posting alongside the ads. It has a 7-day free trial, then $49/month flat (
+pricing
+).
+Questions
+Do I need a LinkedIn developer app?
+No. You sign in with LinkedIn in the browser and MCP Ads holds the grant. You never handle a client id, secret or access token. See the
+quickstart
+for adding the server to your AI client.
+Why can I see no ad accounts after connecting?
+The LinkedIn member you signed in with has no role on the ad account. Page admin rights are not enough. Ask the account admin to add you under Account settings, Manage access in Campaign Manager, then reconnect.
+Can it post to a company page?
+Yes, through the separate LinkedIn company page connection, with text, links, images or a video, and it can read the page’s posts and their stats back. It can also post to your personal profile, which it cannot read back — a LinkedIn rule.
+Can it size an audience before launch?
+Yes. linkedin_ads_audience_counts estimates the audience for a targeting definition, and linkedin_ads_find_targeting_entities turns job titles, industries and companies into the entities LinkedIn expects.
+Does it download Lead Gen Form leads?
+Not through a named tool. Lead counts appear in the reports as one-click leads, and conversion rules are fully managed. Check the tool reference for the current surface.
+Works with the rest of your marketing
+One connection, every platform in the same conversation.
+Meta Muse
+Muse can already use your apps. MCP Ads gives it every ad account you run - and a reason to check on them before you ask.
+Grok
+One MCP server that gives Grok live access to every ad account you run - and gives Grok Bot something worth scheduling.
+Competitor Ads
+Ask what a competitor is running and get their live ads back - from Google's Ads Transparency Center and Meta's Ad Library, in the same chat you plan campaigns in.
+OpenAI Dots
+A dot works in the background on your goals. MCP Ads gives it every ad account you run - and a reason to check on them before you ask.
+Connect an account and try it
+Add MCP Ads to Claude or ChatGPT with one URL, authorise an ad account in the browser, and ask it something.
+Get started
+Read the guides
+7-day free trial, cancel any time

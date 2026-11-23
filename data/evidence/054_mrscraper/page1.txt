@@ -1,0 +1,125 @@
+URL: https://docs.mrscraper.com/docs/api/authentication
+FETCHED: 2026-11-23T17:33:59.507394
+VIA: direct
+
+Authentication | MrScraper Documentation
+API Reference
+API Reference
+Dashboard
+Introduction
+API Overview
+Authentication
+Pagination
+Response Headers
+Error Handling
+Web Search
+Web Search
+GET
+Scraper API
+Scrape HTML
+GET
+Scrape Markdown
+GET
+Get Screenshot
+GET
+Scrape Brand
+Scrape JSON
+GET
+Platform
+Authentication
+Workflow
+Cancel Bulk Scraping
+Result
+Analytic
+Authentication
+Learn how to authenticate requests to the MrScraper API using API tokens and request headers.
+The MrScraper API uses API token authentication to secure all endpoints. Every request must include a valid API token in the HTTP request headers.
+Getting Your API Token
+API tokens are managed directly from your MrScraper dashboard.
+Sign in to your
+MrScraper Dashboard
+.
+Click your
+profile icon
+in the top-right corner and select
+API Tokens
+(or go to
+app.mrscraper.com/api-tokens
+).
+Click
+New Token
+.
+Enter a descriptive
+token name
+and choose an
+expiration date
+.
+Click
+Create
+, then copy and securely store the generated token.
+Keep Your Token Secure
+Your API token grants access to your account and plan resources. Never expose your token in client-side code (like browsers or mobile apps), and store it securely in an environment variable or server configuration.
+Authenticating Requests
+Include your API token in the
+x-api-token
+HTTP header on every request:
+x-api-token
+:
+<MRSCRAPER_API_TOKEN>
+Marketplace Endpoints
+For
+Marketplace endpoints
+, authenticate using the standard RFC 6750
+Authorization
+header with a Bearer token:
+Authorization
+:
+Bearer <MRSCRAPER_API_TOKEN>
+Verify Token
+To test your authentication and confirm that your token is valid, make a request to the
+/subscription-accounts
+endpoint:
+curl
+-X
+GET
+"https://api.app.mrscraper.com/api/v1/subscription-accounts"
+\
+-H
+"accept: application/json"
+\
+-H
+"x-api-token: <MRSCRAPER_API_TOKEN>"
+Analytics Authentication
+Analytics endpoints
+authenticate using the same
+x-api-token
+header as all other API endpoints.
+When querying analytics, you can also pass the
+apiTokenName
+query parameter to filter status data for a specific token by the name you assigned when creating it:
+curl
+-X
+GET
+"https://api.app.mrscraper.com/api/v1/analytic/statuses?domain=example.com&startDate=2026-04-12%2000:00:00&endDate=2026-04-13%2023:59:59&apiTokenName=YOUR_TOKEN_NAME"
+\
+-H
+"accept: application/json"
+\
+-H
+"x-api-token: <MRSCRAPER_API_TOKEN>"
+Note
+The
+apiTokenName
+query parameter filters metrics by the token's name (e.g.,
+production-worker
+).
+API Overview
+Comprehensive documentation for MrScraper's API endpoints, including authentication, pagination, error handling, and scraper management.
+Pagination
+Understand how pagination works in the MrScraper API, including parameters for controlling page size and navigating through large datasets.
+On this page
+Getting Your API Token
+Authenticating Requests
+Marketplace Endpoints
+Verify Token
+Analytics Authentication

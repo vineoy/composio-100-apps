@@ -1,0 +1,77 @@
+{
+ "app": "Klaviyo",
+ "queries": [
+  "Klaviyo API authentication documentation",
+  "Klaviyo MCP server",
+  "Klaviyo API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.klaviyo.com/en/docs/authenticate_",
+  "https://developers.klaviyo.com/en/docs/klaviyo_mcp_server",
+  "https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server",
+  "https://developers.klaviyo.com/en/reference"
+ ],
+ "search_hits": [
+  {
+   "title": "API Reference & Technical Guides | Klaviyo Developers",
+   "href": "https://developers.klaviyo.com/"
+  },
+  {
+   "title": "Authenticate API requests - KlaviyoGetting started with Klaviyo APIs - Klaviyo Help CenterCustomer Agent APIs (Beta) | Klaviyo Help CenterDocumentation | Klaviyo Developers | Postman API NetworkNavigate the developer portal - Interpret API documentation ...Dissect API documentation - Interpret API documentation ...",
+   "href": "https://developers.klaviyo.com/en/docs/authenticate_"
+  },
+  {
+   "title": "Getting started with Klaviyo APIs - Klaviyo Help Center",
+   "href": "https://help.klaviyo.com/hc/en-us/articles/360045726811"
+  },
+  {
+   "title": "Customer Agent APIs (Beta) | Klaviyo Help Center",
+   "href": "https://help.klaviyo.com/hc/en-us/articles/50972372091163"
+  },
+  {
+   "title": "Documentation | Klaviyo Developers | Postman API Network",
+   "href": "https://www.postman.com/klaviyo/klaviyo-developers/documentation/52drp4v/klaviyo-api-latest-stable-v2025-04-15"
+  },
+  {
+   "title": "Klaviyo MCP server",
+   "href": "https://developers.klaviyo.com/en/docs/klaviyo_mcp_server"
+  },
+  {
+   "title": "Klaviyo MCP Server: Analyze Performance & Build Campaigns ...",
+   "href": "https://www.klaviyo.com/solutions/ai/klaviyo-mcp-server"
+  },
+  {
+   "title": "Connect to the MCP server - developers.klaviyo.com",
+   "href": "https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server"
+  },
+  {
+   "title": "Klaviyo MCP Server Helps Marketers Move Faster with AI",
+   "href": "https://www.klaviyo.com/newsroom/mcp-server"
+  },
+  {
+   "title": "Klaviyo MCP Server Guide For Agencies | Klaviyo Help Center",
+   "href": "https://help.klaviyo.com/hc/en-us/articles/52833598880923"
+  },
+  {
+   "title": "API Reference & Technical Guides | Klaviyo Developers",
+   "href": "https://developers.klaviyo.com/"
+  },
+  {
+   "title": "Klaviyo API Pricing, Free Tier & Auth",
+   "href": "https://marketingskills.directory/apis/klaviyo-api/"
+  },
+  {
+   "title": "API overview - KlaviyoKlaviyo API: pricing, auth, rate limits | API TermsKlaviyo Pricing - Klaviyo UKUnderstanding how free and paid plans differ | Klaviyo Help ...Klaviyo: AI Email Marketing & SMS | B2C CRM",
+   "href": "https://developers.klaviyo.com/en/reference/api_overview"
+  },
+  {
+   "title": "Klaviyo API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/klaviyo.com/"
+  },
+  {
+   "title": "Klaviyo Pricing - Klaviyo UK",
+   "href": "https://www.klaviyo.com/uk/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:10:41.431121"
+}

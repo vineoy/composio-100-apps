@@ -17,13 +17,25 @@ from google import genai
 from google.genai import types
 
 _client = None
+_client_beta = None
+
 def gemini_client():
     global _client
     if _client is None:
         _client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     return _client
 
-MODEL_CHAIN = ["gemini-3.5-flash", "gemini-3.6-flash", "gemini-3.1-flash-lite"]
+def gemini_beta_client():
+    global _client_beta
+    if _client_beta is None:
+        _client_beta = genai.Client(api_key=os.environ["GEMINI_API_KEY"],
+                                    http_options={"api_version": "v1beta"})
+    return _client_beta
+
+def _client_for(model):
+    return gemini_beta_client() if (model or "").startswith("gemini-2.5") else gemini_client()
+
+MODEL_CHAIN = ["gemini-2.5-flash", "gemini-3.5-flash", "gemini-3.6-flash", "gemini-3.1-flash-lite"]
 _last_call = 0.0
 MIN_GAP = 6.5  # ~9 requests/min, under the free-tier 10 RPM ceiling
 usage = {"calls": 0, "by_model": {}}
@@ -40,7 +52,7 @@ def llm_json(prompt, model=None, max_retries=3):
                 time.sleep(wait)
             _last_call = time.time()
             try:
-                r = gemini_client().models.generate_content(
+                r = _client_for(m).models.generate_content(
                     model=m, contents=prompt,
                     config=types.GenerateContentConfig(
                         response_mime_type="application/json", temperature=0.1))
@@ -72,38 +84,66 @@ def llm_json(prompt, model=None, max_retries=3):
 
 # ---------------- DuckDuckGo search ----------------
 from ddgs import DDGS
+from urllib.parse import urlparse, parse_qs
+import base64
 _last_search = 0.0
+
+def _ddg_lite(query, max_results):
+    """Fast HTML endpoint (no JS). Reliable when the ddgs package gets rate-limited."""
+    try:
+        r = httpx.post("https://lite.duckduckgo.com/lite/", data={"q": query},
+                       headers=UA, timeout=12, follow_redirects=True)
+        soup = BeautifulSoup(r.text, "html.parser")
+        out = []
+        for a in soup.select("a.result-link"):
+            href = a.get("href", "")
+            if href.startswith("http"):
+                out.append({"title": a.get_text(" ", strip=True), "href": href})
+            if len(out) >= max_results:
+                break
+        return out
+    except Exception:
+        return []
+
+def _decode_bing(u):
+    if "bing.com/ck/a" not in u:
+        return u
+    try:
+        v = (parse_qs(urlparse(u).query).get("u") or [""])[0]
+        if v.startswith("a1"):
+            b = v[2:] + "=" * (-len(v[2:]) % 4)
+            return base64.urlsafe_b64decode(b).decode("utf-8", "ignore")
+    except Exception:
+        pass
+    return u
 
 def search(query, max_results=5):
     global _last_search
-    for attempt in range(4):
-        gap = 1.2 - (time.time() - _last_search)
-        if gap > 0:
-            time.sleep(gap)
-        _last_search = time.time()
+    r = _ddg_lite(query, max_results)
+    if r:
+        return r[:max_results]
+    # fallback 1: ddgs package (client rotates backends internally)
+    for attempt in range(2):
         try:
             r = DDGS().text(query, max_results=max_results) or []
             if r:
                 return r
-        except Exception as e:
-            s = str(e).lower()
-            if "ratelimit" in s or "rate limit" in s or "202" in s:
-                time.sleep(15 * (attempt + 1))
-            else:
-                time.sleep(3)
-    return _bing(query, max_results)  # free fallback when ddgs is exhausted
+        except Exception:
+            time.sleep(4)
+    # fallback 2: bing html with redirect decode
+    return _bing(query, max_results)
 
 
 def _bing(query, max_results):
     try:
         r = httpx.get("https://www.bing.com/search", params={"q": query, "count": max_results},
-                      headers=UA, timeout=15, follow_redirects=True)
+                      headers=UA, timeout=12, follow_redirects=True)
         soup = BeautifulSoup(r.text, "html.parser")
         out = []
         for li in soup.select("li.b_algo")[:max_results]:
             a = li.find("a", href=True)
             if a and a["href"].startswith("http"):
-                out.append({"title": a.get_text(" ", strip=True), "href": a["href"]})
+                out.append({"title": a.get_text(" ", strip=True), "href": _decode_bing(a["href"])})
         return out
     except Exception:
         return []

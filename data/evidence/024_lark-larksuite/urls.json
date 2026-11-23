@@ -1,0 +1,76 @@
+{
+ "app": "Lark (Larksuite)",
+ "queries": [
+  "Lark (Larksuite) API authentication documentation",
+  "Lark (Larksuite) MCP server",
+  "Lark (Larksuite) API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://open.larksuite.com/document/common-capabilities/sso/api/obtain-oauth-code",
+  "https://open.larksuite.com/document/server-docs/getting-started/authen-v1/api/request-authentication",
+  "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction"
+ ],
+ "search_hits": [
+  {
+   "title": "Get authorization code - Server API - Documentation - Lark",
+   "href": "https://open.larksuite.com/document/common-capabilities/sso/api/obtain-oauth-code"
+  },
+  {
+   "title": "Obtain code - Server API - Documentation - Lark Developer",
+   "href": "https://open.larksuite.com/document/server-docs/getting-started/authen-v1/api/request-authentication"
+  },
+  {
+   "title": "Get user_access_token - Server API - Documentation - Lark ...",
+   "href": "https://open-sg.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token"
+  },
+  {
+   "title": "Authorization credential - Developer Guides - Documentation ...",
+   "href": "https://open-sg.larksuite.com/document/faq/authorization-credential"
+  },
+  {
+   "title": "Authentication and API | larksuite/lark-project-template ...",
+   "href": "https://deepwiki.com/larksuite/lark-project-template/4.3-authentication-and-api"
+  },
+  {
+   "title": "OpenAPI MCP overview - Lark CLI - Documentation - Lark Developer",
+   "href": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/mcp_introduction"
+  },
+  {
+   "title": "Advanced configuration - Lark CLI - Documentation - Lark ...",
+   "href": "https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/mcp_integration/advanced-configuration"
+  },
+  {
+   "title": "GitHub - larksuite/lark-openapi-mcp: \u98de\u4e66/Lark\u5b98\u65b9 OpenAPI MCP",
+   "href": "https://github.com/larksuite/lark-openapi-mcp"
+  },
+  {
+   "title": "GitHub - haudnn/lark-mcp: Lark Open Platform MCP Server ...",
+   "href": "https://github.com/haudnn/lark-mcp"
+  },
+  {
+   "title": "mcp-server-larksuite-doc \u00b7 PyPI",
+   "href": "https://pypi.org/project/mcp-server-larksuite-doc/"
+  },
+  {
+   "title": "Lark | Pricing Plans - Best Priced All-in-one Solution",
+   "href": "https://www.larksuite.com/en_us/plans"
+  },
+  {
+   "title": "Overview of Lark plans",
+   "href": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans"
+  },
+  {
+   "title": "Lark Base: Pricing & Plans \u2013 Free, Pro & Enterprise",
+   "href": "https://base.larksuite.com/pricing"
+  },
+  {
+   "title": "Server API list - Server API - Documentation - Lark Developer",
+   "href": "https://open.larksuite.com/document/server-docs/getting-started/server-api-list?from=home"
+  },
+  {
+   "title": "Lark Developer",
+   "href": "https://open.larksuite.com/?lang=en-US"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:58:26.514059"
+}

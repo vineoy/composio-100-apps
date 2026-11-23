@@ -1,0 +1,15125 @@
+URL: https://support.liveagent.com/840770-Complete-API-reference
+FETCHED: 2026-11-23T16:50:22.735684
+VIA: direct
+
+Complete API reference
+Complete API reference
+Home
+>
+Technical Support
+>
+LiveAgent API
+>
+REST API
+>
+API v1
+>
+Documentation
+>
+Complete API reference
+Data fields formats
+Return messages formats
+Error messages formats
+Api v.1
+Agents
+Retrieves agent info and auth token
+Application
+Return application installation date and latest version
+Companies
+Retrieve list of companies
+Retrieve company info
+Conversations
+Delete conversation
+Retrieves all conversations
+Retrieves conversation info
+Retrieves all conversation messages
+Create new message in conversation
+Change status of the conversation
+Unassign a tag from a conversation
+Retrieve a list of tags assigned to a conversation
+Assign tag to a conversation
+Customers
+Delete custom field value in user contact
+Add custom field value to customer
+Retrieve customer groups
+Customers groups
+Delete customers group
+Retrieve customers group info
+Retrieve all groups of all customers
+Add customers group
+Change customers group
+Files
+Retrieve file
+Add file
+Knowledgebase
+Retrieve a list of all knowledgebase articles (deprecated)
+Add knowledgebase category, suggestion category or forum
+Remove knowledgebase entry
+Retrieve a list of all knowledgebase entries
+Retrieve a list of all knowledgebases
+Knowledgebase search
+Online status
+Agents
+Reports
+Agents report
+Channels report
+Departments report
+Performance report
+Tags report
+Tickets Agent availability report
+Tickets Load report
+Tickets SLA Compliance report
+Tickets SLA Log report
+Suggestion categories
+Retrieves all suggestion categories
+Tags
+Remove tag
+Retrieve a list of all available tags
+Retrieve tag info
+Add tag
+Change tag
+Datafield formats
+Type
+Description
+datetime
+valid format: YYYY-MM-DD HH:MM:SS.
+Note: values are in time zone defined in '/accounts/settings.php' or in "GMT" timezone by default.
+text
+could be any string or empty
+constlist
+could be only one instance of finite set. Possible values are named in specifice field description.
+int
+integer value greater or equal to zero.
+array
+list of entities. All entities have the same column definition
+list
+list of entities. Every entity has its specific column definition.
+opdatetime
+datetime with operator. This field has the same format as 'datetime' except you can use various operators with it.
+Possible operators:
+eq:
+equals, example 'eq:2009-11-12 05:02:01' or just '2009-11-12 05:02:01'
+gt:
+greater than, example 'gt:2009-11-12 05:02:01'
+lt:
+less than, example 'lt:2009-11-12 05:02:01'
+gte:
+greater than or equals, example 'gte:2009-11-12 05:02:01'
+lte:
+less than or equals, example 'lte:2009-11-12 05:02:01'
+btw:
+between, example 'btw:2009-11-12 05:02:01,2010-10-11 04:01:59'
+note: if you do not enter any operator,  'eq' will be used as default.
+Return messages formats
+Return messages are in JSON format by default. But you can change this to XML by adding
+.xml
+at the end of call URL.This will give response in JSON:
+GET
+http://example.com/api/agents/john@agent.com
+We add
+.xml
+to call URL and we have response in XML format
+GET
+http://example.com/api/agents/john@agent.com
+.xml
+Note: if y ou have
+PHP YAML
+extension enabled in your PHP, you could also use
+.yaml
+to get response in YAML format.
+Error messages formats
+400 - Bad request error
+You can get this in case your athentification with API key failed because of problem with API key in application.
+401 - Forbidden
+You can get this in case of failed authentification with wrong key
+404 - Not found error
+You can get this in case "agnet with email agent@email.com not found"
+500 - Common porcessing error
+This is the most common error type. You can get this in case "parameter message is missing" or "unable to load conversation"
+503 - Service Unavailable
+You can get this in case application is unavaliable to process requests - in case of updating and/or installing.
+Error response example
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+ERROR
+</
+status
+>
+<
+statuscode
+>
+500
+</
+statuscode
+>
+<
+errormessage
+>
+Example error message
+</
+errormessage
+>
+<
+debugmessage
+>
+debug info
+</
+debugmessage
+>
+</
+response
+>
+{
+  "response":{
+    "status":"ERROR",
+    "statuscode":500,
+    "errormessage":"Example error message",
+    "debugmessage":"debug info"
+  }
+}
+API version 1
+Agents
+Retrieves agent info and auth token
+Avaliable from application version: 2.8.2.1
+Avaliable examples:
+WordPress plugin example
+Example call
+General
+PHP
+GET
+http://example.com/api/agents/
+[agentidentifier]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+agents
+/[
+agentidentifier
+]?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[agentidentifier]
+text
+Agent identifier. Can be email or userid.
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+contactid
+text
+Id of agent contact.
+userid
+text
+Id of agent, also known as userid.
+email
+text
+Agent email.
+firstname
+text
+Agent first name.
+lastname
+text
+Agent last name.
+systemname
+text
+Agent system name.
+authtoken
+text
+Agent auth token.
+browsercookiename
+text
+Agent browser cookie name.
+gender
+constlist
+Agent gender. (Possible values:
+M
+- Male,
+F
+- Female,
+O
+- Other)
+role
+constlist
+Agent role. (Possible values:
+D
+- Administrator,
+A
+- Agent,
+O
+- Owner)
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+contactid
+>
+d44t87a5
+</
+contactid
+>
+<
+userid
+>
+uid1234
+</
+userid
+>
+<
+email
+>
+example@agent.com
+</
+email
+>
+<
+firstname
+>
+John
+</
+firstname
+>
+<
+lastname
+>
+Williams
+</
+lastname
+>
+<
+systemname
+>
+system001
+</
+systemname
+>
+<
+authtoken
+>
+5ceef21647f1db39a18cafc0bc2de015
+</
+authtoken
+>
+<
+browsercookiename
+>
+A_auth
+</
+browsercookiename
+>
+<
+gender
+>
+F
+</
+gender
+>
+<
+role
+>
+D
+</
+role
+>
+</
+response
+>
+{
+  "response":{
+    "contactid":"d44t87a5",
+    "userid":"uid1234",
+    "email":"example@agent.com",
+    "firstname":"John",
+    "lastname":"Williams",
+    "systemname":"system001",
+    "authtoken":"5ceef21647f1db39a18cafc0bc2de015",
+    "browsercookiename":"A_auth",
+    "gender":"F",
+    "role":"D"
+  }
+}
+Application
+Return application installation date and latest version
+Avaliable from application version: 2.8.12.1
+Example call
+General
+PHP
+GET
+http://example.com/api/application/status
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+application
+/
+status
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+liveagentversion
+text
+Latest application version
+current_server_time
+datetime
+Current server time
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+liveagentversion
+>
+2.8.5.4
+</
+liveagentversion
+>
+<
+current_server_time
+>
+2014-08-09 10:14:00
+</
+current_server_time
+>
+</
+response
+>
+{
+  "response":{
+    "liveagentversion":"2.8.5.4",
+    "current_server_time":"2014-08-09 10:14:00"
+  }
+}
+Companies
+Retrieve list of companies
+Avaliable from application version: 4.23.0.0
+Example call
+General
+PHP
+GET
+http://example.com/api/companies
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+companies
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+companies
+list
+list of all companies
+Field
+companies
+has 5 columns:
+id
+text
+unique identifier of company
+name
+text
+name of the company
+emails
+text
+email addresses associated with the company
+datecreated
+datetime
+date, when company was created
+ip
+text
+IP address of company
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+companies
+>
+<
+companie
+>
+<
+id
+>
+d8f6ba6d
+</
+id
+>
+<
+name
+>
+Company Co.
+</
+name
+>
+<
+emails
+>
+ceo@companyco.com
+</
+emails
+>
+<
+datecreated
+>
+2015-05-28 06:25:07
+</
+datecreated
+>
+<
+ip
+>
+10.10.1.1
+</
+ip
+>
+</
+companie
+>
+</
+companies
+>
+</
+response
+>
+{
+  "response":{
+    "companies":[
+      {
+        "id":"d8f6ba6d",
+        "name":"Company Co.",
+        "emails":"ceo@companyco.com",
+        "datecreated":"2015-05-28 06:25:07",
+        "ip":"10.10.1.1"
+      }
+    ]
+  }
+}
+Retrieve company info
+Avaliable from application version: 4.23.0.0
+Example call
+General
+PHP
+GET
+http://example.com/api/companies/
+[companyid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+companies
+/[
+companyid
+]?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[companyid]
+text
+Company ID
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+id
+text
+Id of the company
+name
+text
+Company name
+datecreated
+text
+Date, when company was created
+language
+text
+Language associated with company
+ip
+text
+IP address of company
+emails
+array
+List of company emails
+phones
+array
+List of company phones
+groups
+list
+List of groups, which company is part of
+Field
+groups
+has 2 columns:
+groupid
+text
+Id of group
+groupname
+text
+Name of group
+custom_fields
+list
+Custom field values
+Field
+custom_fields
+has 2 columns:
+code
+text
+Custom field code
+value
+text
+Custom field value
+unique_fields
+list
+Unique company identifiers
+Field
+unique_fields
+has 2 columns:
+code
+text
+Unique field code.
+value
+text
+Unique field value.
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+id
+>
+d8f6ba6d
+</
+id
+>
+<
+name
+>
+Company Co.
+</
+name
+>
+<
+datecreated
+>
+2015-05-28 06:25:07
+</
+datecreated
+>
+<
+language
+>
+en
+</
+language
+>
+<
+ip
+>
+15.1.1.10
+</
+ip
+>
+<
+emails
+>
+<
+email
+>
+support@companyco.com
+</
+email
+>
+<
+email
+>
+boss@companyco.com
+</
+email
+>
+</
+emails
+>
+<
+phones
+>
+<
+phone
+>
++214101254896
+</
+phone
+>
+<
+phone
+>
+0909 111 111
+</
+phone
+>
+</
+phones
+>
+<
+groups
+>
+<
+group
+>
+<
+groupid
+>
+456rs
+</
+groupid
+>
+<
+groupname
+>
+Super group
+</
+groupname
+>
+</
+group
+>
+<
+group
+>
+<
+groupid
+>
+orj5s
+</
+groupid
+>
+<
+groupname
+>
+Rito pls
+</
+groupname
+>
+</
+group
+>
+</
+groups
+>
+<
+custom_fields
+>
+<
+custom_field
+>
+<
+code
+>
+n. of people
+</
+code
+>
+<
+value
+>
+42
+</
+value
+>
+</
+custom_field
+>
+<
+custom_field
+>
+<
+code
+>
+favourite drink
+</
+code
+>
+<
+value
+>
+coffee
+</
+value
+>
+</
+custom_field
+>
+</
+custom_fields
+>
+<
+unique_fields
+>
+<
+unique_field
+>
+<
+code
+>
+email
+</
+code
+>
+<
+value
+>
+support@companyco.com
+</
+value
+>
+</
+unique_field
+>
+<
+unique_field
+>
+<
+code
+>
+email
+</
+code
+>
+<
+value
+>
+boss@companyco.com
+</
+value
+>
+</
+unique_field
+>
+<
+unique_field
+>
+<
+code
+>
+phone
+</
+code
+>
+<
+value
+>
++19837987987
+</
+value
+>
+</
+unique_field
+>
+</
+unique_fields
+>
+</
+response
+>
+{
+  "response":{
+    "id":"d8f6ba6d",
+    "name":"Company Co.",
+    "datecreated":"2015-05-28 06:25:07",
+    "language":"en",
+    "ip":"15.1.1.10",
+    "emails":[
+      "support@companyco.com",
+      "boss@companyco.com"
+    ],
+    "phones":[
+      "+214101254896",
+      "0909 111 111"
+    ],
+    "groups":[
+      {
+        "groupid":"456rs",
+        "groupname":"Super group"
+      },
+      {
+        "groupid":"orj5s",
+        "groupname":"Rito pls"
+      }
+    ],
+    "custom_fields":[
+      {
+        "code":"n. of people",
+        "value":"42"
+      },
+      {
+        "code":"favourite drink",
+        "value":"coffee"
+      }
+    ],
+    "unique_fields":[
+      {
+        "code":"email",
+        "value":"support@companyco.com"
+      },
+      {
+        "code":"email",
+        "value":"boss@companyco.com"
+      },
+      {
+        "code":"phone",
+        "value":"+19837987987"
+      }
+    ]
+  }
+}
+Conversations
+Delete conversation
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+DELETE
+http://example.com/api/conversations/
+[conversationid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]
+"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+DELETE
+"
+)
+;
+$curl_delete_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;note&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;useridentifier&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_delete_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+note
+text
+Delete note
+useridentifier
+text
+Agent identifier. Could be mail or userid. If not set, user "System" will be used.
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Retrieves all conversations
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+GET
+http://example.com/api/conversations
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+owneridentifier
+text
+Conversations owner identifier. Could be mail.
+department
+text
+Department identifier
+agent
+text
+Agent identifier. Could be userid or mail.
+status
+text
+Load only conversations with given status. It can contain one specific status, or multiple statuses separated by comma. Example: status=R,T,C.
+This parameter is avaliable from version 2.8.12.1
+datefrom
+datetime
+Load only conversations older than this date (valid format: YYYY-MM-DD HH:MM:SS).
+dateto
+datetime
+Load only conversations younger than this date (valid format: YYYY-MM-DD HH:MM:SS).
+datechanged
+opdatetime
+Date of last conversation change
+subject
+text
+Load only conversations with specific subject -
+avail. from version 3.0.1.2
+limit
+int
+Limit number of returned rows. Default value: 100, Max value: 1000
+channel_type
+text
+Load only conversations with given channel type. It can contain one specific channel type, or multiple channel types separated by comma. Example: channel_type=E,F,T.
+This parameter is available from version 4.25.5.1
+cursor
+text
+Cursor for pagination.
+Call response description
+Return fields
+Name
+Type
+Description
+conversations
+list
+Conversations list
+Field
+conversations
+has 18 columns:
+conversationid
+text
+Id of conversation
+code
+text
+Conversation code
+datecreated
+datetime
+Date created
+datechanged
+datetime
+Date of last change
+datedue
+datetime
+Due date (if sla is set)
+departmentname
+text
+Department name
+departmentid
+text
+Department id
+status
+constlist
+Conversation status (Possible values:
+A
+- Answered,
+P
+- Calling,
+T
+- Chatting,
+X
+- Deleted,
+B
+- Spam,
+I
+- Init,
+C
+- Open,
+R
+- Resolved,
+N
+- New,
+W
+- Postponed,
+L
+- Closed)
+ownername
+text
+Name of conversation owner
+owneremail
+text
+Email of conversation owner
+subject
+text
+Conversation subject
+preview
+text
+Conversation preview
+publicurlcode
+text
+Public URL code
+tags
+text
+Tags assigned to ticket.
+channel_type
+constlist
+Conversation channel (Possible values:
+E
+- Email,
+B
+- Contact button,
+M
+- Contact form,
+I
+- Invitation,
+C
+- Call,
+W
+- Call button,
+F
+- Facebook,
+A
+- Facebook message,
+T
+- Twitter,
+Q
+- Forum,
+S
+- Suggestion,
+G
+- Instagram,
+V
+- Viber,
+R
+- Instagram mention,
+1
+- Whatsapp)
+messagegroupsin
+text
+Incoming messages.
+messagegroupsout
+text
+Outgoing messages.
+cursor
+text
+Cursor.
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+conversations
+>
+<
+conversation
+>
+<
+conversationid
+>
+s4y7t5s7
+</
+conversationid
+>
+<
+code
+>
+AX4-B4T-FD8
+</
+code
+>
+<
+datecreated
+>
+2012-03-02 11:21:04
+</
+datecreated
+>
+<
+datechanged
+>
+2012-03-02 11:21:05
+</
+datechanged
+>
+<
+departmentname
+>
+Department 1
+</
+departmentname
+>
+<
+departmentid
+>
+a5j9t4d8
+</
+departmentid
+>
+<
+status
+>
+A
+</
+status
+>
+<
+ownername
+>
+John Owner
+</
+ownername
+>
+<
+owneremail
+>
+john@owner.com
+</
+owneremail
+>
+<
+subject
+>
+Test ticket
+</
+subject
+>
+<
+preview
+>
+this is test ticket
+</
+preview
+>
+<
+publicurlcode
+>
+bI5fR3oN40708G65
+</
+publicurlcode
+>
+<
+tags
+>
+tagid1,tagid2
+</
+tags
+>
+<
+channel_type
+>
+E
+</
+channel_type
+>
+<
+messagegroupsin
+>
+2
+</
+messagegroupsin
+>
+<
+messagegroupsout
+>
+5
+</
+messagegroupsout
+>
+</
+conversation
+>
+<
+conversation
+>
+<
+conversationid
+>
+5h7t58d9
+</
+conversationid
+>
+<
+code
+>
+D5S-55S-A9A
+</
+code
+>
+<
+datecreated
+>
+2012-03-02 12:21:04
+</
+datecreated
+>
+<
+datechanged
+>
+2012-03-02 12:21:05
+</
+datechanged
+>
+<
+departmentname
+>
+Department 1
+</
+departmentname
+>
+<
+departmentid
+>
+a5j9t4d8
+</
+departmentid
+>
+<
+status
+>
+A
+</
+status
+>
+<
+ownername
+>
+John Silver
+</
+ownername
+>
+<
+owneremail
+>
+john@silver.com
+</
+owneremail
+>
+<
+subject
+>
+My ticet
+</
+subject
+>
+<
+preview
+>
+this my ticket
+</
+preview
+>
+<
+publicurlcode
+>
+xU6fR3zN40708G65
+</
+publicurlcode
+>
+<
+tags
+>
+tagid1,tagid2
+</
+tags
+>
+<
+channel_type
+>
+F
+</
+channel_type
+>
+<
+messagegroupsin
+>
+1
+</
+messagegroupsin
+>
+<
+messagegroupsout
+>
+2
+</
+messagegroupsout
+>
+</
+conversation
+>
+</
+conversations
+>
+</
+response
+>
+{
+  "response":{
+    "conversations":[
+      {
+        "conversationid":"s4y7t5s7",
+        "code":"AX4-B4T-FD8",
+        "datecreated":"2012-03-02 11:21:04",
+        "datechanged":"2012-03-02 11:21:05",
+        "departmentname":"Department 1",
+        "departmentid":"a5j9t4d8",
+        "status":"A",
+        "ownername":"John Owner",
+        "owneremail":"john@owner.com",
+        "subject":"Test ticket",
+        "preview":"this is test ticket",
+        "publicurlcode":"bI5fR3oN40708G65",
+        "tags":"tagid1,
+        tagid2",
+        "channel_type":"E",
+        "messagegroupsin":"2",
+        "messagegroupsout":"5"
+      },
+      {
+        "conversationid":"5h7t58d9",
+        "code":"D5S-55S-A9A",
+        "datecreated":"2012-03-02 12:21:04",
+        "datechanged":"2012-03-02 12:21:05",
+        "departmentname":"Department 1",
+        "departmentid":"a5j9t4d8",
+        "status":"A",
+        "ownername":"John Silver",
+        "owneremail":"john@silver.com",
+        "subject":"My ticet",
+        "preview":"this my ticket",
+        "publicurlcode":"xU6fR3zN40708G65",
+        "tags":"tagid1,
+        tagid2",
+        "channel_type":"F",
+        "messagegroupsin":"1",
+        "messagegroupsout":"2"
+      }
+    ]
+  }
+}
+Retrieves conversation info
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+GET
+http://example.com/api/conversations/
+[conversationid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+conversationid
+text
+Id of conversation
+code
+text
+Conversation code
+datecreated
+datetime
+Date created
+datechanged
+datetime
+Date of last change
+datedue
+datetime
+Due date (if sla is set)
+departmentname
+text
+Department name
+departmentid
+text
+Department id
+status
+constlist
+Conversation status (Possible values:
+A
+- Answered,
+P
+- Calling,
+T
+- Chatting,
+X
+- Deleted,
+B
+- Spam,
+I
+- Init,
+C
+- Open,
+R
+- Resolved,
+N
+- New,
+W
+- Postponed,
+L
+- Closed)
+ownername
+text
+Name of conversation owner
+owneremail
+text
+Email of conversation owner
+subject
+text
+Conversation subject
+ownernote
+text
+Conversation owner note -
+avail. from version 2.8.12.X+
+preview
+text
+Conversation preview
+publicurlcode
+text
+Public URL code
+assignedto
+text
+Identifier of agent which is this conversation assigned to
+tags
+text
+Tags assigned to ticket
+channel_type
+constlist
+Conversation channel (Possible values:
+E
+- Email,
+B
+- Contact button,
+M
+- Contact form,
+I
+- Invitation,
+C
+- Call,
+W
+- Call button,
+F
+- Facebook,
+A
+- Facebook message,
+T
+- Twitter,
+Q
+- Forum,
+S
+- Suggestion,
+G
+- Instagram,
+V
+- Viber,
+R
+- Instagram mention,
+1
+- Whatsapp)
+messagegroupsin
+text
+Incoming messages.
+messagegroupsout
+text
+Outgoing messages.
+cursor
+text
+Cursor.
+customfields
+list
+Custom field values
+Field
+customfields
+has 2 columns:
+code
+text
+Custom field code.
+value
+text
+Custom field value.
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+conversationid
+>
+a1b2c3d4
+</
+conversationid
+>
+<
+code
+>
+ABC-DEFGH-123
+</
+code
+>
+<
+datecreated
+>
+2012-04-01 00:15:11
+</
+datecreated
+>
+<
+datechanged
+>
+2012-04-01 00:15:21
+</
+datechanged
+>
+<
+datedue
+/>
+<
+departmentname
+>
+Department 1
+</
+departmentname
+>
+<
+departmentid
+>
+dep1s5a4
+</
+departmentid
+>
+<
+status
+>
+R
+</
+status
+>
+<
+ownername
+>
+John Doe
+</
+ownername
+>
+<
+owneremail
+>
+owner@example.com
+</
+owneremail
+>
+<
+subject
+>
+My first ticket
+</
+subject
+>
+<
+ownernote
+/>
+<
+preview
+>
+Hello, this is my first ticket...
+</
+preview
+>
+<
+publicurlcode
+>
+bI5fR3oN40708G65
+</
+publicurlcode
+>
+<
+assignedto
+/>
+<
+tags
+>
+tagid1
+</
+tags
+>
+<
+channel_type
+>
+F
+</
+channel_type
+>
+<
+messagegroupsin
+>
+1
+</
+messagegroupsin
+>
+<
+messagegroupsout
+>
+3
+</
+messagegroupsout
+>
+<
+cursor
+/>
+<
+customfields
+>
+<
+customfield
+>
+<
+code
+>
+varsymbol
+</
+code
+>
+<
+value
+>
+423874698
+</
+value
+>
+</
+customfield
+>
+<
+customfield
+>
+<
+code
+>
+other_var
+</
+code
+>
+<
+value
+>
+Example value of custom field
+</
+value
+>
+</
+customfield
+>
+</
+customfields
+>
+</
+response
+>
+{
+  "response":{
+    "conversationid":"a1b2c3d4",
+    "code":"ABC-DEFGH-123",
+    "datecreated":"2012-04-01 00:15:11",
+    "datechanged":"2012-04-01 00:15:21",
+    "datedue":null,
+    "departmentname":"Department 1",
+    "departmentid":"dep1s5a4",
+    "status":"R",
+    "ownername":"John Doe",
+    "owneremail":"owner@example.com",
+    "subject":"My first ticket",
+    "ownernote":null,
+    "preview":"Hello,
+     this is my first ticket...",
+    "publicurlcode":"bI5fR3oN40708G65",
+    "assignedto":null,
+    "tags":"tagid1",
+    "channel_type":"F",
+    "messagegroupsin":"1",
+    "messagegroupsout":"3",
+    "cursor":null,
+    "customfields":[
+      {
+        "code":"varsymbol",
+        "value":"423874698"
+      },
+      {
+        "code":"other_var",
+        "value":"Example value of custom field"
+      }
+    ]
+  }
+}
+Retrieves all conversation messages
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+GET
+http://example.com/api/conversations/
+[conversationid]
+/messages
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]/
+messages
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+datefrom
+datetime
+Load messages only older than this date (valid format: YYYY-MM-DD HH:MM:SS).
+dateto
+datetime
+Load messages only newer than this date (valid format: YYYY-MM-DD HH:MM:SS).
+Call response description
+Return fields
+Name
+Type
+Description
+groups
+list
+Message groups list.
+Field
+groups
+has 7 columns:
+messagegroupid
+text
+Id of the group.
+userid
+text
+Id of the user who created the group.
+rtype
+constlist
+Type of the group. (Possible values:
+P
+- Type call,
+V
+- Type outgoing call,
+1
+- Type internal call,
+C
+- Type chat,
+X
+- Type delete,
+F
+- Type facebook,
+I
+- Type internal,
+Z
+- Type internal (collapsed by default),
+K
+- Type knowledgebase,
+A
+- Type knowledgebase start,
+5
+- Type offline,
+M
+- Type offline legacy,
+U
+- Type internal offline,
+R
+- Type resolve,
+Y
+- Type retweet,
+S
+- Type startinfo,
+G
+- Type tag,
+T
+- Type transfer,
+W
+- Type twitter,
+O
+- Type forwarded,
+Q
+- Type reply to forward,
+J
+- Type postpone,
+B
+- Type spam,
+L
+- Type split,
+2
+- Type merged,
+3
+- Type incoming email,
+4
+- Type outgoing email,
+7
+- Type received email,
+6
+- Type whatsapp)
+rstatus
+constlist
+Status of the group (Possible values:
+D
+- Status deleted,
+P
+- Status promoted,
+V
+- Status visible,
+S
+- Status splitted,
+M
+- Status merged,
+I
+- Status initializing,
+C
+- Status calling,
+R
+- Status connecting)
+datecreated
+datetime
+Date of creation
+datefinished
+datetime
+Date ofter latest message
+messages
+list
+List of messages
+Field
+messages
+has 5 columns:
+messageid
+text
+Id of the message
+userid
+text
+Id of the message user
+rtype
+constlist
+Type of the message (Possible values:
+D
+- Type disconnected,
+E
+- Type end,
+F
+- Type file,
+Z
+- Type formfield,
+H
+- Type header,
+I
+- Type internal,
+M
+- Type message,
+B
+- Type split,
+X
+- Type mixed message,
+N
+- Type note,
+L
+- Type note file,
+Q
+- Type quoted text,
+C
+- Type rating comment,
+P
+- Type positive rating,
+W
+- Type negative rating,
+J
+- Type status,
+S
+- Type system,
+G
+- Type tag,
+O
+- Type footer,
+A
+- Type header,
+T
+- Type title,
+R
+- Type transfer,
+U
+- Type useragent,
+V
+- Type voice,
+1
+- Type voice internal,
+2
+- Type merged,
+0
+- Type error footer,
+Y
+- Type message legacy,
+K
+- Type system public,
+3
+- Type invitation reroute,
+5
+- Type linked)
+datecreated
+datetime
+Date of message creation
+message
+text
+Message body
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+groups
+>
+<
+group
+>
+<
+userid
+>
+uid12345
+</
+userid
+>
+<
+rtype
+>
+M
+</
+rtype
+>
+<
+rstatus
+>
+V
+</
+rstatus
+>
+<
+datecreated
+>
+2012-04-03 12:21:21
+</
+datecreated
+>
+<
+datefinished
+>
+2012-04-03 12:31:21
+</
+datefinished
+>
+<
+messages
+>
+<
+message
+>
+<
+messageid
+>
+mid00003
+</
+messageid
+>
+<
+userid
+>
+uid00001
+</
+userid
+>
+<
+rtype
+>
+M
+</
+rtype
+>
+<
+datecreated
+>
+2012-04-03 12:25:21
+</
+datecreated
+>
+<
+message
+>
+hello, this is example message
+</
+message
+>
+</
+message
+>
+</
+messages
+>
+</
+group
+>
+<
+group
+>
+<
+userid
+>
+uid12346
+</
+userid
+>
+<
+rtype
+>
+M
+</
+rtype
+>
+<
+rstatus
+>
+V
+</
+rstatus
+>
+<
+datecreated
+>
+2012-04-03 12:41:21
+</
+datecreated
+>
+<
+datefinished
+>
+2012-04-03 13:21:21
+</
+datefinished
+>
+<
+messages
+>
+<
+message
+>
+<
+messageid
+>
+mid00004
+</
+messageid
+>
+<
+userid
+>
+uid00001
+</
+userid
+>
+<
+rtype
+>
+M
+</
+rtype
+>
+<
+datecreated
+>
+2012-04-03 18:21:21
+</
+datecreated
+>
+<
+message
+>
+hello, this is example message
+</
+message
+>
+</
+message
+>
+<
+message
+>
+<
+messageid
+>
+mid00005
+</
+messageid
+>
+<
+userid
+>
+uid00001
+</
+userid
+>
+<
+rtype
+>
+M
+</
+rtype
+>
+<
+datecreated
+>
+2012-04-03 19:21:21
+</
+datecreated
+>
+<
+message
+>
+hello, this is example message
+</
+message
+>
+</
+message
+>
+</
+messages
+>
+</
+group
+>
+</
+groups
+>
+</
+response
+>
+{
+  "response":{
+    "groups":[
+      {
+        "userid":"uid12345",
+        "rtype":"M",
+        "rstatus":"V",
+        "datecreated":"2012-04-03 12:21:21",
+        "datefinished":"2012-04-03 12:31:21",
+        "messages":[
+          {
+            "messageid":"mid00003",
+            "userid":"uid00001",
+            "rtype":"M",
+            "datecreated":"2012-04-03 12:25:21",
+            "message":"hello,
+             this is example message"
+          }
+        ]
+      },
+      {
+        "userid":"uid12346",
+        "rtype":"M",
+        "rstatus":"V",
+        "datecreated":"2012-04-03 12:41:21",
+        "datefinished":"2012-04-03 13:21:21",
+        "messages":[
+          {
+            "messageid":"mid00004",
+            "userid":"uid00001",
+            "rtype":"M",
+            "datecreated":"2012-04-03 18:21:21",
+            "message":"hello,
+             this is example message"
+          },
+          {
+            "messageid":"mid00005",
+            "userid":"uid00001",
+            "rtype":"M",
+            "datecreated":"2012-04-03 19:21:21",
+            "message":"hello,
+             this is example message"
+          }
+        ]
+      }
+    ]
+  }
+}
+Create new message in conversation
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+POST
+http://example.com/api/conversations/
+[conversationid]
+/messages
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;message&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;useridentifier&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;type&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;mail_messsage_id&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;do_not_send_mail&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;is_html_message&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;use_template&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;attachments&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]/
+messages"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+message
+text
+Message body (must be UTF-8)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+useridentifier
+text
+Agent identifier. Could be mail or userid. If not set, user "System" will be used.
+type
+constlist
+Message type. (Possible values:
+M
+- Message,
+N
+- Note)
+mail_messsage_id
+text
+Mail message id. If specified, all reply emails which will have given mail message id in in-reply-to header will be assigned to this conversation.
+do_not_send_mail
+constlist
+Disables sending mail to customer. Can be used when mail was already sent by an external system (Possible values:
+Y
+- Yes,
+N
+- No)
+is_html_message
+constlist
+Set this to Y is the message text is formatted in html (Possible values:
+Y
+- Yes,
+N
+- No)
+use_template
+constlist
+Use department mail template and add message into mail template text. (Default Yes) (Possible values:
+Y
+- Yes,
+N
+- No)
+attachments
+text
+Message attachments. Comma separated file identifiers of files uploaded using files API. Example value: "3a1d0a821ea3a63594ba826efad0a379, 001908318230609832c2c07b7bac3658". Available from version 4.29
+Note: When useridentifier is empty only notes are created - even when type="M"
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Change status of the conversation
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+PUT
+http://example.com/api/conversations/
+[conversationid]
+/status
+Note: You must
+send parameters
+for this call as PUT fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]/
+status"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+PUT
+"
+)
+;
+$curl_put_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;status&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;useridentifier&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;note&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_put_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+status
+constlist
+Conversation status. (Possible values:
+A
+- Answered,
+R
+- Resolved,
+C
+- Open)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+useridentifier
+text
+Agent identifier. Could be mail or userid. If not set, user "System" will be used.
+note
+text
+Note
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Unassign a tag from a conversation
+Avaliable from application version: 4.0.36.0
+Example call
+General
+PHP
+DELETE
+http://example.com/api/conversations/
+[conversationid]
+/tags
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]/
+tags"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+DELETE
+"
+)
+;
+$curl_delete_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;id&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_delete_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+id
+text
+Identifier of the tag. Either id or name must be specified.
+name
+text
+Name of the tag. Either id or name must be specified.
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Retrieve a list of tags assigned to a conversation
+Avaliable from application version: 4.0.30.6
+Example call
+General
+PHP
+GET
+http://example.com/api/conversations/
+[conversationid]
+/tags
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]/
+tags
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+tags
+list
+The list of tags assigned.
+Field
+tags
+has 2 columns:
+id
+text
+The identifier of the tag.
+name
+text
+Name of the tag.
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+tags
+>
+<
+tag
+>
+<
+id
+>
+sh3j
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+</
+tag
+>
+<
+tag
+>
+<
+id
+>
+8sd5
+</
+id
+>
+<
+name
+>
+Support
+</
+name
+>
+</
+tag
+>
+</
+tags
+>
+</
+response
+>
+{
+  "response":{
+    "tags":[
+      {
+        "id":"sh3j",
+        "name":"VIP"
+      },
+      {
+        "id":"8sd5",
+        "name":"Support"
+      }
+    ]
+  }
+}
+Assign tag to a conversation
+Avaliable from application version: 4.0.30.6
+Example call
+General
+PHP
+POST
+http://example.com/api/conversations/
+[conversationid]
+/tags
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;id&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+conversations
+/[
+conversationid
+]/
+tags"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[conversationid]
+text
+Conversation ID (eg. 12ab34cd) or code (eg. ABC-DEFGH-123) or public url code (eg. m6uoFJd2e4I8Z18q)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+id
+text
+Identifier of the tag.
+name
+text
+Name of the tag.
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Customers
+Delete custom field value in user contact
+Avaliable from application version: 4.16.4.1
+Example call
+General
+PHP
+DELETE
+http://example.com/api/customers/
+[customeridentifier]
+/fields
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customers
+/[
+customeridentifier
+]/
+fields"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+DELETE
+"
+)
+;
+$curl_delete_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;code&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_delete_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[customeridentifier]
+text
+Customer identifier (email or contactid)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+code
+text
+Custom field name to be deleted from contact. If not specified, all custom fields will be deleted from contact.
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Add custom field value to customer
+Avaliable from application version: 4.16.4.1
+Example call
+General
+PHP
+POST
+http://example.com/api/customers/
+[customeridentifier]
+/fields
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;customfields&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customers
+/[
+customeridentifier
+]/
+fields"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[customeridentifier]
+text
+Customer identifier (email or contactid)
+customfields
+json
+Add custom field values (Same field can be added multiple times, if you need to update existing field value, delete it first). Json encoded array of custom fields. Example value: [{"code":"varsymbol","value":"43894209"},{"code":"another_field","value":"test value"}]
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Retrieve customer groups
+Avaliable from application version: 2.9.5.0
+Example call
+General
+PHP
+GET
+http://example.com/api/customers/
+[customeridentifier]
+/groups
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customers
+/[
+customeridentifier
+]/
+groups
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[customeridentifier]
+text
+Customer identifier (email or contactid)
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+groups
+list
+List of all customer groups
+Field
+groups
+has 2 columns:
+groupid
+text
+Group id
+groupname
+text
+Group name
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+groups
+>
+<
+group
+>
+<
+groupid
+>
+ag0h
+</
+groupid
+>
+<
+groupname
+>
+VIP
+</
+groupname
+>
+</
+group
+>
+<
+group
+>
+<
+groupid
+>
+2kt8
+</
+groupid
+>
+<
+groupname
+>
+Premium
+</
+groupname
+>
+</
+group
+>
+</
+groups
+>
+</
+response
+>
+{
+  "response":{
+    "groups":[
+      {
+        "groupid":"ag0h",
+        "groupname":"VIP"
+      },
+      {
+        "groupid":"2kt8",
+        "groupname":"Premium"
+      }
+    ]
+  }
+}
+Customers groups
+Delete customers group
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+DELETE
+http://example.com/api/customersgroups/
+[groupid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customersgroups
+/[
+groupid
+]
+"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+DELETE
+"
+)
+;
+$curl_delete_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_delete_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[groupid]
+text
+Customers group ID
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Retrieve customers group info
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+GET
+http://example.com/api/customersgroups/
+[groupid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customersgroups
+/[
+groupid
+]?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[groupid]
+text
+Customers group ID
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+id
+text
+Id of customers group
+name
+text
+Name of the customers group
+color
+text
+Color for title
+bg_color
+text
+Color for background
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+id
+>
+sh3j
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+<
+color
+>
+FFFFFF
+</
+color
+>
+<
+bg_color
+>
+0000FF
+</
+bg_color
+>
+</
+response
+>
+{
+  "response":{
+    "id":"sh3j",
+    "name":"VIP",
+    "color":"FFFFFF",
+    "bg_color":"0000FF"
+  }
+}
+Retrieve all groups of all customers
+Avaliable from application version: 4.0.19.1
+Example call
+General
+PHP
+GET
+http://example.com/api/customersgroups
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customersgroups
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+groups
+list
+List all groups of all customers
+Field
+groups
+has 2 columns:
+id
+text
+Group id
+name
+text
+Group name
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+groups
+>
+<
+group
+>
+<
+id
+>
+ag0h
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+</
+group
+>
+<
+group
+>
+<
+id
+>
+2kt8
+</
+id
+>
+<
+name
+>
+Premium
+</
+name
+>
+</
+group
+>
+</
+groups
+>
+</
+response
+>
+{
+  "response":{
+    "groups":[
+      {
+        "id":"ag0h",
+        "name":"VIP"
+      },
+      {
+        "id":"2kt8",
+        "name":"Premium"
+      }
+    ]
+  }
+}
+Add customers group
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+POST
+http://example.com/api/customersgroups
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;bg_color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customersgroups"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+name
+text
+Name of the customers group
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+color
+text
+Color for name
+bg_color
+text
+Color for background
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+id
+text
+Id of tag
+name
+text
+Name of tag
+color
+text
+Color for name
+bg_color
+text
+Color for background
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+<
+id
+>
+sh3j
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+<
+color
+>
+FFFFFF
+</
+color
+>
+<
+bg_color
+>
+0000FF
+</
+bg_color
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":"0",
+    "id":"sh3j",
+    "name":"VIP",
+    "color":"FFFFFF",
+    "bg_color":"0000FF"
+  }
+}
+Change customers group
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+PUT
+http://example.com/api/customersgroups/
+[groupid]
+Note: You must
+send parameters
+for this call as PUT fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+customersgroups
+/[
+groupid
+]
+"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+PUT
+"
+)
+;
+$curl_put_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;bg_color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_put_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[groupid]
+text
+Customers group ID
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+name
+text
+Name of the customers group
+color
+text
+Color for name
+bg_color
+text
+Color for background
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Files
+Retrieve file
+Avaliable from application version: 4.25.2.4
+Example call
+General
+PHP
+GET
+http://example.com/api/files/
+[fileid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+files
+/[
+fileid
+]?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[fileid]
+text
+apikey
+text
+API key
+Note: From version 5.25 the returned 'downloadUrl' may be incorrect. Ticket attachments use different endpoint for download. Use 'download_url' returned from 'api/v3/ticket/{ticket_id}/messages'
+Call response description
+Return fields
+Name
+Type
+Description
+fileid
+text
+File identifier
+created
+datetime
+File creation date
+filename
+text
+File name
+filesize
+int
+File size (in bytes)
+filetype
+text
+File MIME type (e.g. "image/jpeg" or "application/pdf")
+downloads
+int
+Count of file downloads
+downloadUrl
+text
+Url to download the file. Note: From version 4.47 to download the file, you have to add 'apikey' either as GET or POST parameter. From version 5.25 ticket attachments use different endpoint for download. Use the URL returned from 'api/v3/ticket/{ticket_id}/messages'
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+fileid
+>
+1234567890abcdef1234567890abcdef
+</
+fileid
+>
+<
+created
+>
+2025-12-19 08:00:55
+</
+created
+>
+<
+filename
+>
+image1.jpg
+</
+filename
+>
+<
+filesize
+>
+12456
+</
+filesize
+>
+<
+filetype
+>
+image/jpg
+</
+filetype
+>
+<
+downloads
+>
+5
+</
+downloads
+>
+<
+downloadUrl
+>
+//yourdomain.com/scripts/file.php?view=Y&amp;file=1234567890abcdef1234567890abcdef
+</
+downloadUrl
+>
+</
+response
+>
+{
+  "response":{
+    "fileid":"1234567890abcdef1234567890abcdef",
+    "created":"2025-12-19 08:00:55",
+    "filename":"image1.jpg",
+    "filesize":"12456",
+    "filetype":"image\/jpg",
+    "downloads":"5",
+    "downloadUrl":"\/\/yourdomain.com\/scripts\/file.php?view=Y&file=1234567890abcdef1234567890abcdef"
+  }
+}
+Add file
+Avaliable from application version: 4.25.2.4
+Example call
+General
+PHP
+POST
+http://example.com/api/files
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;type&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;data&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;downloadUrl&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+files"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+name
+text
+File name
+type
+text
+File type
+data
+text
+File data, base64 encoded. If data is set, name and type must also be set, and downloadUrl is ignored.
+downloadUrl
+text
+File download URL, from where the API will download the file content. This parameter is used only if data is not set. Name and type are optional.
+Note: Be aware that if file is not used (e.g. as a message attachment or in a contact widget, etc.), the file will be automatically deleted after 2 weeks.
+Call response description
+Return fields
+Name
+Type
+Description
+fileid
+text
+File identifier
+created
+datetime
+File creation date
+filename
+text
+File name
+filesize
+int
+File size (in bytes)
+filetype
+text
+File MIME type (e.g. "image/jpeg" or "application/pdf")
+downloads
+int
+Count of file downloads
+downloadUrl
+text
+Url to download the file. Note: From version 4.47 to download the file, you have to add 'apikey' either as GET or POST parameter. From version 5.25 ticket attachments use different endpoint for download. Use the URL returned from 'api/v3/ticket/{ticket_id}/messages'
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+fileid
+>
+1234567890abcdef1234567890abcdef
+</
+fileid
+>
+<
+created
+>
+2025-12-19 08:00:55
+</
+created
+>
+<
+filename
+>
+image1.jpg
+</
+filename
+>
+<
+filesize
+>
+12456
+</
+filesize
+>
+<
+filetype
+>
+image/jpg
+</
+filetype
+>
+<
+downloads
+>
+5
+</
+downloads
+>
+<
+downloadUrl
+>
+//yourdomain.com/scripts/file.php?view=Y&amp;file=1234567890abcdef1234567890abcdef
+</
+downloadUrl
+>
+</
+response
+>
+{
+  "response":{
+    "fileid":"1234567890abcdef1234567890abcdef",
+    "created":"2025-12-19 08:00:55",
+    "filename":"image1.jpg",
+    "filesize":"12456",
+    "filetype":"image\/jpg",
+    "downloads":"5",
+    "downloadUrl":"\/\/yourdomain.com\/scripts\/file.php?view=Y&file=1234567890abcdef1234567890abcdef"
+  }
+}
+Knowledgebase
+Retrieve a list of all knowledgebase articles (deprecated)
+Avaliable from application version: 4.16.3.2
+Example call
+General
+PHP
+GET
+http://example.com/api/knowledgebase/articles
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+knowledgebase
+/
+articles
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+kb_id
+text
+Knowledgebase ID.
+limit
+int
+Limit number of returned rows. Default value: 10, Max value: 500
+offset
+int
+Return articles from defined row number. Default value 0.
+tree_path
+text
+Return just articles with tree path starting with selected value (e.g. if you need to return all sub-articles of specific category). Example value: 0|23|
+parent_id
+text
+Return just articles with specific parent ID (e.g. if you need to return just first level of sub-articles of specific category). Example value: 288
+article_id
+text
+Return just specific article with given ID. Example value: 288
+Note: This API is deprecated. Please use GET Knowledgebase/Entries
+Call response description
+Return fields
+Name
+Type
+Description
+articles
+list
+The list of all knowledgebase articles.
+Field
+articles
+has 22 columns:
+kb_id
+text
+Knowledge base ID.
+kb_entry_id
+text
+Article ID.
+parent_entry_id
+text
+Parent article ID.
+rtype
+constlist
+Article type. (Possible values:
+H
+- Home,
+C
+- Category,
+A
+- Article,
+Q
+- Forum,
+R
+- Topic,
+G
+- Suggestion category,
+S
+- Suggestion)
+rstatus
+constlist
+Status. (Possible values:
+N
+- New,
+C
+- Completed,
+P
+- Published,
+D
+- Draft,
+I
+- Init,
+U
+- Review,
+L
+- Planned,
+S
+- Started,
+X
+- Declined)
+access
+constlist
+Article access level. (Possible values:
+I
+- Internal,
+P
+- Public)
+access_inherited
+constlist
+Inherited access level. (Possible values:
+I
+- Internal,
+P
+- Public)
+urlcode
+text
+URL Code.
+treepath
+text
+Tree path.
+rorder
+int
+Order.
+title
+text
+Article Title.
+metadescription
+text
+HTML Meta description.
+keywords
+text
+HTML Meta Keywords.
+content
+html
+Article Content.
+conversationid
+text
+Conversation ID.
+departmentid
+text
+Department ID.
+views
+int
+Number of views.
+votes
+int
+Number of votes.
+datecreated
+datetime
+Date when was article created.
+datechanged
+datetime
+Date of last change.
+deleted
+constlist
+Is article deleted? (Possible values:
+Y
+- Yes,
+N
+- No)
+description
+text
+Description.
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+articles
+>
+<
+article
+>
+<
+kb_entry_id
+>
+15
+</
+kb_entry_id
+>
+<
+parent_entry_id
+/>
+<
+rtype
+>
+C
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+urlcode
+>
+376829
+</
+urlcode
+>
+<
+treepath
+>
+0
+</
+treepath
+>
+<
+rorder
+>
+9
+</
+rorder
+>
+<
+title
+>
+General Questions
+</
+title
+>
+<
+metadescription
+>
+General Questions not related to Quality Unit products
+</
+metadescription
+>
+<
+keywords
+>
+faq, questions
+</
+keywords
+>
+<
+content
+>
+<
+!
+[CDATA[Article content]]
+>
+</
+content
+>
+<
+conversationid
+/>
+<
+departmentid
+/>
+<
+views
+>
+1244
+</
+views
+>
+<
+votes
+>
+0
+</
+votes
+>
+<
+datecreated
+>
+2007-08-02 12:24:51
+</
+datecreated
+>
+<
+datechanged
+>
+2011-12-22 16:33:40
+</
+datechanged
+>
+<
+deleted
+>
+N
+</
+deleted
+>
+<
+description
+/>
+</
+article
+>
+<
+article
+>
+<
+kb_entry_id
+>
+132
+</
+kb_entry_id
+>
+<
+parent_entry_id
+/>
+<
+rtype
+>
+C
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+urlcode
+>
+376118
+</
+urlcode
+>
+<
+treepath
+>
+0
+</
+treepath
+>
+<
+rorder
+>
+10
+</
+rorder
+>
+<
+title
+>
+Another article
+</
+title
+>
+<
+metadescription
+/>
+<
+keywords
+>
+test article
+</
+keywords
+>
+<
+content
+>
+<
+!
+[CDATA[This is test content that can contain html and because of that it is in construct]]
+>
+</
+content
+>
+<
+conversationid
+/>
+<
+departmentid
+/>
+<
+views
+>
+66
+</
+views
+>
+<
+votes
+>
+0
+</
+votes
+>
+<
+datecreated
+>
+2004-02-02 12:24:11
+</
+datecreated
+>
+<
+datechanged
+>
+2014-11-22 16:33:40
+</
+datechanged
+>
+<
+deleted
+>
+N
+</
+deleted
+>
+<
+description
+/>
+</
+article
+>
+</
+articles
+>
+</
+response
+>
+{
+  "response":{
+    "articles":[
+      {
+        "kb_entry_id":"15",
+        "parent_entry_id":"",
+        "rtype":"C",
+        "rstatus":"P",
+        "access":"P",
+        "access_inherited":"P",
+        "urlcode":"376829",
+        "treepath":"0",
+        "rorder":"9",
+        "title":"General Questions",
+        "metadescription":"General Questions not related to Quality Unit products",
+        "keywords":"faq,
+         questions",
+        "content":"Article content",
+        "conversationid":"",
+        "departmentid":"",
+        "views":"1244",
+        "votes":"0",
+        "datecreated":"2007-08-02 12:24:51",
+        "datechanged":"2011-12-22 16:33:40",
+        "deleted":"N",
+        "description":""
+      },
+      {
+        "kb_entry_id":"132",
+        "parent_entry_id":"",
+        "rtype":"C",
+        "rstatus":"P",
+        "access":"P",
+        "access_inherited":"P",
+        "urlcode":"376118",
+        "treepath":"0",
+        "rorder":"10",
+        "title":"Another article",
+        "metadescription":"",
+        "keywords":"test article",
+        "content":"This is test content that can contain html and because of that it is in construct",
+        "conversationid":"",
+        "departmentid":"",
+        "views":"66",
+        "votes":"0",
+        "datecreated":"2004-02-02 12:24:11",
+        "datechanged":"2014-11-22 16:33:40",
+        "deleted":"N",
+        "description":""
+      }
+    ]
+  }
+}
+Add knowledgebase category, suggestion category or forum
+Avaliable from application version: 4.26.0.1
+Example call
+General
+PHP
+POST
+http://example.com/api/knowledgebase/categories
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;title&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;kb_id&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;parent_entry_id&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;rtype&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;access&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;rorder&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;keywords&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;departmentid&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;description&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+knowledgebase
+/
+categories"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+title
+text
+Title
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+kb_id
+text
+Knowledgebase identifier, default value: kb_defa
+parent_entry_id
+text
+Parent category identifier, default value: 0 (root category)
+rtype
+constlist
+Category type, default value: Category (Possible values:
+C
+- Category,
+Q
+- Forum,
+G
+- Suggestion category)
+access
+constlist
+Access, default value: Public (Possible values:
+I
+- Internal,
+P
+- Public)
+rorder
+text
+Order within category, new items are added at the top by default
+keywords
+text
+Keywords (used only for category)
+departmentid
+text
+Department identifier (used for forum and suggestion category, defines which department handles tickets from this category)
+description
+text
+Description (used for forum and suggestion category)
+Call response description
+Return fields
+Name
+Type
+Description
+kb_id
+text
+Knowledgebase identifier
+kb_entry_id
+text
+Knowledgebase entry identifier
+parent_entry_id
+text
+Parent category identifier
+urlcode
+text
+URL Code
+title
+text
+Title
+treepath
+text
+Tree path
+rtype
+text
+Type of category
+rstatus
+constlist
+Status (Possible values:
+N
+- New,
+C
+- Completed,
+P
+- Published,
+D
+- Draft,
+I
+- Init,
+U
+- Review,
+L
+- Planned,
+S
+- Started,
+X
+- Declined)
+access
+constlist
+Access level (Possible values:
+I
+- Internal,
+P
+- Public)
+access_inherited
+constlist
+Inherited access level (Possible values:
+I
+- Internal,
+P
+- Public)
+rorder
+int
+Order within parent category
+keywords
+text
+HTML Meta Keywords
+datecreated
+datetime
+Date when article was created
+datechanged
+datetime
+Date of last change
+departmentid
+text
+Department identifier
+views
+int
+Number of views
+description
+text
+Description
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+kb_id
+>
+kb_defa
+</
+kb_id
+>
+<
+kb_entry_id
+>
+16
+</
+kb_entry_id
+>
+<
+parent_entry_id
+>
+7
+</
+parent_entry_id
+>
+<
+urlcode
+>
+365432
+</
+urlcode
+>
+<
+title
+>
+General Questions
+</
+title
+>
+<
+treepath
+>
+0|7
+</
+treepath
+>
+<
+rtype
+>
+C
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+rorder
+>
+0
+</
+rorder
+>
+<
+keywords
+>
+faq, questions
+</
+keywords
+>
+<
+datecreated
+>
+2007-08-02 12:24:51
+</
+datecreated
+>
+<
+datechanged
+>
+2011-12-22 16:33:40
+</
+datechanged
+>
+<
+departmentid
+>
+default
+</
+departmentid
+>
+<
+views
+>
+1244
+</
+views
+>
+<
+description
+>
+Category description
+</
+description
+>
+</
+response
+>
+{
+  "response":{
+    "kb_id":"kb_defa",
+    "kb_entry_id":"16",
+    "parent_entry_id":"7",
+    "urlcode":"365432",
+    "title":"General Questions",
+    "treepath":"0|7",
+    "rtype":"C",
+    "rstatus":"P",
+    "access":"P",
+    "access_inherited":"P",
+    "rorder":"0",
+    "keywords":"faq,
+     questions",
+    "datecreated":"2007-08-02 12:24:51",
+    "datechanged":"2011-12-22 16:33:40",
+    "departmentid":"default",
+    "views":"1244",
+    "description":"Category description"
+  }
+}
+Remove knowledgebase entry
+Avaliable from application version: 4.26.0.1
+Example call
+General
+PHP
+DELETE
+http://example.com/api/knowledgebase/entries/
+[entry_id]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+knowledgebase
+/
+entries
+/[
+entry_id
+]
+"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+DELETE
+"
+)
+;
+$curl_delete_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_delete_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[entry_id]
+text
+Knowledgebase entry ID
+apikey
+text
+API key
+Note: Be aware that if the knowledgebase entry being deleted is a category, forum or suggestion category, this API call will delete the entry and all child entries under it (the entire subtree). This action can not be undone.
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Retrieve a list of all knowledgebase entries
+Avaliable from application version: 4.26.0.1
+Example call
+General
+PHP
+GET
+http://example.com/api/knowledgebase/entries
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+knowledgebase
+/
+entries
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+limit
+int
+Limit number of returned rows. Default value: 50, Max value: 500
+offset
+int
+Return articles from defined row number. Default value 0
+kb_id
+text
+Knowledgebase identifier
+tree_path
+text
+Return just entries with tree path starting with selected value (e.g. if you need to return all sub-entries of specific category). Example value: 0|23|
+parent_entry_id
+text
+Return just entries with specific parent ID (e.g. if you need to return just first level of sub-entries of specific category). Example value: 288
+entry_id
+text
+Return just specific entry with given ID. Example value: 288
+date_changed
+datetime
+Return just entries with date change after specific date. Example value: 2014-11-24
+Call response description
+Return fields
+Name
+Type
+Description
+entries
+list
+The list of all knowledgebase entries
+Field
+entries
+has 22 columns:
+kb_id
+text
+Knowledgebase identifier
+kb_entry_id
+text
+Knowledgebase entry identifier
+parent_entry_id
+text
+Parent category identifier
+rtype
+constlist
+Knowledgebase entry type (Possible values:
+H
+- Home,
+C
+- Category,
+A
+- Article,
+Q
+- Forum,
+R
+- Topic,
+G
+- Suggestion category,
+S
+- Suggestion)
+rstatus
+constlist
+Status (Possible values:
+N
+- New,
+C
+- Completed,
+P
+- Published,
+D
+- Draft,
+I
+- Init,
+U
+- Review,
+L
+- Planned,
+S
+- Started,
+X
+- Declined)
+access
+constlist
+Knowledgebase entry access level (Possible values:
+I
+- Internal,
+P
+- Public)
+access_inherited
+constlist
+Inherited access level (Possible values:
+I
+- Internal,
+P
+- Public)
+urlcode
+text
+URL Code
+treepath
+text
+Tree path
+rorder
+int
+Order within parent category
+title
+text
+Knowledgebase entry title
+metadescription
+text
+HTML Meta description
+keywords
+text
+HTML Meta Keywords
+content
+text
+Article content
+conversationid
+text
+Related ticket identifier
+departmentid
+text
+Department identifier
+views
+int
+Number of views
+votes
+int
+Number of votes
+datecreated
+datetime
+Date when entry was created
+datechanged
+datetime
+Date of last change
+deleted
+constlist
+Was the entry deleted? (suggestion and topic only) (Possible values:
+Y
+- Yes,
+N
+- No)
+description
+text
+Description
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+entries
+>
+<
+entrie
+>
+<
+kb_id
+>
+kb_defa
+</
+kb_id
+>
+<
+kb_entry_id
+>
+16
+</
+kb_entry_id
+>
+<
+parent_entry_id
+>
+7
+</
+parent_entry_id
+>
+<
+rtype
+>
+C
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+urlcode
+>
+365432
+</
+urlcode
+>
+<
+treepath
+>
+0|7
+</
+treepath
+>
+<
+rorder
+>
+0
+</
+rorder
+>
+<
+title
+>
+General Questions Category
+</
+title
+>
+<
+metadescription
+>
+General Questions about life, universe and everything
+</
+metadescription
+>
+<
+keywords
+>
+faq, questions
+</
+keywords
+>
+<
+content
+/>
+<
+conversationid
+/>
+<
+departmentid
+/>
+<
+views
+>
+1244
+</
+views
+>
+<
+votes
+>
+0
+</
+votes
+>
+<
+datecreated
+>
+2007-08-02 12:24:51
+</
+datecreated
+>
+<
+datechanged
+>
+2011-12-22 16:33:40
+</
+datechanged
+>
+<
+deleted
+>
+N
+</
+deleted
+>
+<
+description
+>
+Description of category
+</
+description
+>
+</
+entrie
+>
+<
+entrie
+>
+<
+kb_id
+>
+kb_defa
+</
+kb_id
+>
+<
+kb_entry_id
+>
+38
+</
+kb_entry_id
+>
+<
+parent_entry_id
+>
+16
+</
+parent_entry_id
+>
+<
+rtype
+>
+A
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+urlcode
+>
+376829
+</
+urlcode
+>
+<
+treepath
+>
+0|7|16
+</
+treepath
+>
+<
+rorder
+>
+0
+</
+rorder
+>
+<
+title
+>
+Article 42
+</
+title
+>
+<
+metadescription
+/>
+<
+keywords
+>
+test article
+</
+keywords
+>
+<
+content
+>
+This is test content that can contain &lt;b&gt;html&lt;/b&gt; and images &lt;img
+src
+=
+"pix.gif"
+&gt;
+</
+content
+>
+<
+conversationid
+/>
+<
+departmentid
+/>
+<
+views
+>
+66
+</
+views
+>
+<
+votes
+>
+0
+</
+votes
+>
+<
+datecreated
+>
+2004-02-02 12:24:11
+</
+datecreated
+>
+<
+datechanged
+>
+2014-11-22 16:33:40
+</
+datechanged
+>
+<
+deleted
+>
+N
+</
+deleted
+>
+<
+description
+/>
+</
+entrie
+>
+</
+entries
+>
+</
+response
+>
+{
+  "response":{
+    "entries":[
+      {
+        "kb_id":"kb_defa",
+        "kb_entry_id":"16",
+        "parent_entry_id":"7",
+        "rtype":"C",
+        "rstatus":"P",
+        "access":"P",
+        "access_inherited":"P",
+        "urlcode":"365432",
+        "treepath":"0|7",
+        "rorder":"0",
+        "title":"General Questions Category",
+        "metadescription":"General Questions about life,
+         universe and everything",
+        "keywords":"faq,
+         questions",
+        "content":"",
+        "conversationid":"",
+        "departmentid":"",
+        "views":"1244",
+        "votes":"0",
+        "datecreated":"2007-08-02 12:24:51",
+        "datechanged":"2011-12-22 16:33:40",
+        "deleted":"N",
+        "description":"Description of category"
+      },
+      {
+        "kb_id":"kb_defa",
+        "kb_entry_id":"38",
+        "parent_entry_id":"16",
+        "rtype":"A",
+        "rstatus":"P",
+        "access":"P",
+        "access_inherited":"P",
+        "urlcode":"376829",
+        "treepath":"0|7|16",
+        "rorder":"0",
+        "title":"Article 42",
+        "metadescription":"",
+        "keywords":"test article",
+        "content":"This is test content that can contain <b>html<\/b> and images <img src=\"pix.gif\">",
+        "conversationid":"",
+        "departmentid":"",
+        "views":"66",
+        "votes":"0",
+        "datecreated":"2004-02-02 12:24:11",
+        "datechanged":"2014-11-22 16:33:40",
+        "deleted":"N",
+        "description":""
+      }
+    ]
+  }
+}
+Retrieve a list of all knowledgebases
+Avaliable from application version: 4.26.0.1
+Example call
+General
+PHP
+GET
+http://example.com/api/knowledgebase/knowledgebases
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+knowledgebase
+/
+knowledgebases
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+limit
+int
+Limit number of returned rows. Default value: 10, Max value: 500
+offset
+int
+Return rows from defined row number. Default value 0.
+Call response description
+Return fields
+Name
+Type
+Description
+knowledgebases
+list
+Knowledgebases list.
+Field
+knowledgebases
+has 2 columns:
+kb_id
+text
+Knowledgebase identifier
+name
+text
+Knowledgebase name
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+knowledgebases
+>
+<
+knowledgebase
+>
+<
+kb_id
+>
+kb_defa
+</
+kb_id
+>
+<
+name
+>
+Knowledgebase 1
+</
+name
+>
+</
+knowledgebase
+>
+<
+knowledgebase
+>
+<
+kb_id
+>
+ec4d78df
+</
+kb_id
+>
+<
+name
+>
+Knowledgebase 2
+</
+name
+>
+</
+knowledgebase
+>
+</
+knowledgebases
+>
+</
+response
+>
+{
+  "response":{
+    "knowledgebases":[
+      {
+        "kb_id":"kb_defa",
+        "name":"Knowledgebase 1"
+      },
+      {
+        "kb_id":"ec4d78df",
+        "name":"Knowledgebase 2"
+      }
+    ]
+  }
+}
+Knowledgebase search
+Avaliable from application version: 4.7.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/knowledgebase/search?
+query=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+knowledgebase
+/
+search
+?
+&query
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+query
+text
+Query string
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+kb_id
+text
+Knowledgebase ID
+top_article_id
+text
+Top article ID. Search will start from given ID and if it is a category, all subcategories will be searched. Leave empty if all articles should be searched.
+limit
+int
+Limit number of returned rows. Default value: 10, Max value: 500
+Call response description
+Return fields
+Name
+Type
+Description
+entries
+list
+The search list of all knowledgebase entries.
+Field
+entries
+has 16 columns:
+kb_id
+text
+Knowledgebase ID
+kb_entry_id
+text
+Entry ID
+rtype
+constlist
+Entry type (Possible values:
+H
+- Home,
+C
+- Category,
+A
+- Article,
+Q
+- Forum,
+R
+- Topic,
+G
+- Suggestion category,
+S
+- Suggestion)
+rstatus
+constlist
+Status (Possible values:
+N
+- New,
+C
+- Completed,
+P
+- Published,
+D
+- Draft,
+I
+- Init,
+U
+- Review,
+L
+- Planned,
+S
+- Started,
+X
+- Declined)
+access
+constlist
+Entry access level (Possible values:
+I
+- Internal,
+P
+- Public)
+access_inherited
+constlist
+Inherited access level (Possible values:
+I
+- Internal,
+P
+- Public)
+urlcode
+text
+URL Code
+treepath
+text
+Tree path
+title
+text
+Title
+title_clear
+text
+Title clear
+content_text
+text
+Entry content (text)
+content_simple_html
+html
+Entry content (html)
+conversationid
+text
+Conversation ID
+votesCount
+int
+Number of votes
+datechanged
+datetime
+Date of last change
+url
+text
+Entry Url
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+entries
+>
+<
+entrie
+>
+<
+kb_id
+>
+kb_defa
+</
+kb_id
+>
+<
+kb_entry_id
+>
+1
+</
+kb_entry_id
+>
+<
+rtype
+>
+A
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+urlcode
+>
+376829
+</
+urlcode
+>
+<
+treepath
+>
+0
+</
+treepath
+>
+<
+title
+>
+Article 1
+</
+title
+>
+<
+title_clear
+>
+Article 1
+</
+title_clear
+>
+<
+content_text
+>
+Article content
+</
+content_text
+>
+<
+content_simple_html
+>
+<
+!
+[CDATA[Article content]]
+>
+</
+content_simple_html
+>
+<
+conversationid
+/>
+<
+votesCount
+>
+0
+</
+votesCount
+>
+<
+datechanged
+>
+2011-12-22 16:33:40
+</
+datechanged
+>
+<
+url
+>
+//support.example.com/376829-Article-1
+</
+url
+>
+</
+entrie
+>
+<
+entrie
+>
+<
+kb_id
+>
+kb_defa
+</
+kb_id
+>
+<
+kb_entry_id
+>
+2
+</
+kb_entry_id
+>
+<
+rtype
+>
+A
+</
+rtype
+>
+<
+rstatus
+>
+P
+</
+rstatus
+>
+<
+access
+>
+P
+</
+access
+>
+<
+access_inherited
+>
+P
+</
+access_inherited
+>
+<
+urlcode
+>
+376832
+</
+urlcode
+>
+<
+treepath
+>
+0
+</
+treepath
+>
+<
+title
+>
+Article 2
+</
+title
+>
+<
+title_clear
+>
+Article 2
+</
+title_clear
+>
+<
+content_text
+>
+Article content
+</
+content_text
+>
+<
+content_simple_html
+>
+<
+!
+[CDATA[Article content]]
+>
+</
+content_simple_html
+>
+<
+conversationid
+/>
+<
+votesCount
+>
+0
+</
+votesCount
+>
+<
+datechanged
+>
+2011-12-05 16:33:40
+</
+datechanged
+>
+<
+url
+>
+//support.example.com/376832-Article-2
+</
+url
+>
+</
+entrie
+>
+</
+entries
+>
+</
+response
+>
+{
+  "response":{
+    "entries":[
+      {
+        "kb_id":"kb_defa",
+        "kb_entry_id":"1",
+        "rtype":"A",
+        "rstatus":"P",
+        "access":"P",
+        "access_inherited":"P",
+        "urlcode":"376829",
+        "treepath":"0",
+        "title":"Article 1",
+        "title_clear":"Article 1",
+        "content_text":"Article content",
+        "content_simple_html":"Article content",
+        "conversationid":"",
+        "votesCount":"0",
+        "datechanged":"2011-12-22 16:33:40",
+        "url":"\/\/support.example.com\/376829-Article-1"
+      },
+      {
+        "kb_id":"kb_defa",
+        "kb_entry_id":"2",
+        "rtype":"A",
+        "rstatus":"P",
+        "access":"P",
+        "access_inherited":"P",
+        "urlcode":"376832",
+        "treepath":"0",
+        "title":"Article 2",
+        "title_clear":"Article 2",
+        "content_text":"Article content",
+        "content_simple_html":"Article content",
+        "conversationid":"",
+        "votesCount":"0",
+        "datechanged":"2011-12-05 16:33:40",
+        "url":"\/\/support.example.com\/376832-Article-2"
+      }
+    ]
+  }
+}
+Online status
+Agents
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+GET
+http://example.com/api/onlinestatus/agents
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+onlinestatus
+/
+agents
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+agentsOnlineStates
+list
+Online state of agents
+Field
+agentsOnlineStates
+has 8 columns:
+id
+text
+User id of agent
+contactid
+text
+Contact id of agent
+username
+text
+Agent's username (email)
+firstname
+int
+Agent's first name
+lastname
+int
+Agent's last name
+avatar_url
+int
+Agent's avatar url
+presetStatus
+int
+Agent's preset online status (string consisting of: M-messages, P-phone, T-chat, R-read or F-offline)
+onlineStatus
+int
+Agent's current online status (string consisting of: M-messages, P-phone, T-chat, R-read or F-offline)
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+agentsOnlineStates
+>
+<
+agentsOnlineState
+>
+<
+id
+>
+56df98rt
+</
+id
+>
+<
+contactid
+>
+46c8f67a
+</
+contactid
+>
+<
+username
+>
+john.doe@example.com
+</
+username
+>
+<
+firstname
+>
+John
+</
+firstname
+>
+<
+lastname
+>
+Doe
+</
+lastname
+>
+<
+avatar_url
+>
+themes/agent/_common_templates/img/user05.png
+</
+avatar_url
+>
+<
+presetStatus
+>
+MPRT
+</
+presetStatus
+>
+<
+onlineStatus
+>
+MPRT
+</
+onlineStatus
+>
+</
+agentsOnlineState
+>
+</
+agentsOnlineStates
+>
+</
+response
+>
+{
+  "response":{
+    "agentsOnlineStates":[
+      {
+        "id":"56df98rt",
+        "contactid":"46c8f67a",
+        "username":"john.doe@example.com",
+        "firstname":"John",
+        "lastname":"Doe",
+        "avatar_url":"themes\/agent\/_common_templates\/img\/user05.png",
+        "presetStatus":"MPRT",
+        "onlineStatus":"MPRT"
+      }
+    ]
+  }
+}
+Reports
+Agents report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/agents?
+date_from=
+[value]
+&
+date_to=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+agents
+?
+&date_from
+=
+value&date_to
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+Call response description
+Return fields
+Name
+Type
+Description
+agents
+list
+Agents list
+Field
+agents
+has 53 columns:
+id
+text
+User identifier
+contactid
+text
+User contact identifier
+firstname
+text
+First name
+lastname
+text
+Last name
+worktime
+int
+Worktime in minutes
+answers
+int
+Number of answers
+answers_ph
+text
+Number of answers per hour
+newAnswerAvgTime
+int
+New answer average time (in seconds)
+newAnswerAvgTimeSla
+int
+New answer average time (in seconds) within SLA business hours
+nextAnswerAvgTime
+int
+Open answer average time (in seconds)
+nextAnswerAvgTimeSla
+int
+Open answer average time (in seconds) within SLA business hours
+calls
+int
+Number of answered calls
+calls_ph
+text
+Number of answered calls per hour
+missed_calls
+int
+Number of missed calls
+missed_calls_ph
+text
+Number of missed calls per hour
+call_seconds
+int
+Call time total (in seconds)
+call_seconds_ph
+text
+Call time total (in seconds) per hour
+chats
+int
+Number of responded chats
+chats_ph
+text
+Number of responded chats per hour
+chat_answers
+int
+Number of chat messages
+chat_answers_ph
+text
+Number of chat messages per hour
+missed_chats
+int
+Number of missed chats
+missed_chats_ph
+text
+Number of missed chats per hour
+chat_pickup
+int
+Number of picked up chats
+chatPickupAvgTime
+int
+Chat pickup average time (in seconds)
+chatAvgTime
+int
+Average time spent in chat (in seconds)
+not_ranked
+int
+Number of not rated
+not_ranked_p
+text
+Not rated [%]
+not_ranked_ph
+text
+Number of not rated per hour
+rewards
+int
+Number of positive ratings
+rewards_p
+text
+Positive ratings [%]
+rewards_ph
+text
+Positive ratings per hour
+punishments
+int
+Number of negative ratings
+punishments_p
+text
+Negative ratings [%]
+punishments_ph
+text
+Negative ratings per hour
+created_tickets
+int
+Number of tickets
+resolved_tickets
+int
+Number of resolved tickets
+u_chats
+int
+Number of unanswered chats
+u_calls
+int
+Number of unanswered calls
+notes
+int
+Number of notes
+firstAssignAvgTime
+int
+First assign average time
+firstAssignAvgTimeSla
+int
+First assign average time (in seconds) within SLA business hours
+firstResolveAvgTime
+int
+First resolve average time
+firstResolveAvgTimeSla
+int
+First resolve average time (in seconds) within SLA business hours
+calls_outgoing
+int
+Number of outgoing calls
+call_outgoing_seconds
+int
+Outgoing calls time (in seconds)
+call_outgoing_avg_time
+int
+Outgoing calls average time (in seconds)
+call_pickup_avg_time
+int
+Call pickup average time (in seconds)
+call_avg_time
+int
+Call average time (in seconds)
+calls_internal
+int
+Number of internal calls
+call_internal_avg_time
+int
+Internal calls average time (in seconds)
+call_internal_seconds
+int
+Internal calls time (in seconds)
+o_calls
+int
+Number of offline calls
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+agents
+>
+<
+agent
+>
+<
+id
+>
+hji78r9u
+</
+id
+>
+<
+contactid
+>
+456edf8y
+</
+contactid
+>
+<
+firstname
+>
+Firstname
+</
+firstname
+>
+<
+lastname
+>
+Lastname
+</
+lastname
+>
+<
+worktime
+>
+60
+</
+worktime
+>
+<
+answers
+>
+0
+</
+answers
+>
+<
+answers_ph
+>
+0.00
+</
+answers_ph
+>
+<
+newAnswerAvgTime
+>
+0
+</
+newAnswerAvgTime
+>
+<
+newAnswerAvgTimeSla
+>
+0
+</
+newAnswerAvgTimeSla
+>
+<
+nextAnswerAvgTime
+>
+0
+</
+nextAnswerAvgTime
+>
+<
+nextAnswerAvgTimeSla
+>
+0
+</
+nextAnswerAvgTimeSla
+>
+<
+calls
+>
+0
+</
+calls
+>
+<
+calls_ph
+>
+0.00
+</
+calls_ph
+>
+<
+missed_calls
+>
+0
+</
+missed_calls
+>
+<
+missed_calls_ph
+>
+0.00
+</
+missed_calls_ph
+>
+<
+call_seconds
+>
+0
+</
+call_seconds
+>
+<
+call_seconds_ph
+>
+0.00
+</
+call_seconds_ph
+>
+<
+chats
+>
+0
+</
+chats
+>
+<
+chats_ph
+>
+0.00
+</
+chats_ph
+>
+<
+chat_answers
+>
+0
+</
+chat_answers
+>
+<
+chat_answers_ph
+>
+0.00
+</
+chat_answers_ph
+>
+<
+missed_chats
+>
+0
+</
+missed_chats
+>
+<
+missed_chats_ph
+>
+0.00
+</
+missed_chats_ph
+>
+<
+chat_pickup
+>
+0
+</
+chat_pickup
+>
+<
+chatPickupAvgTime
+>
+0
+</
+chatPickupAvgTime
+>
+<
+chatAvgTime
+>
+0
+</
+chatAvgTime
+>
+<
+not_ranked
+>
+0
+</
+not_ranked
+>
+<
+not_ranked_p
+>
+0.00
+</
+not_ranked_p
+>
+<
+not_ranked_ph
+>
+0.00
+</
+not_ranked_ph
+>
+<
+rewards
+>
+0
+</
+rewards
+>
+<
+rewards_p
+>
+0.00
+</
+rewards_p
+>
+<
+rewards_ph
+>
+0.00
+</
+rewards_ph
+>
+<
+punishments
+>
+0
+</
+punishments
+>
+<
+punishments_p
+>
+0.00
+</
+punishments_p
+>
+<
+punishments_ph
+>
+0.00
+</
+punishments_ph
+>
+</
+agent
+>
+</
+agents
+>
+</
+response
+>
+{
+  "response":{
+    "agents":[
+      {
+        "id":"hji78r9u",
+        "contactid":"456edf8y",
+        "firstname":"Firstname",
+        "lastname":"Lastname",
+        "worktime":"60",
+        "answers":"0",
+        "answers_ph":"0.00",
+        "newAnswerAvgTime":"0",
+        "newAnswerAvgTimeSla":"0",
+        "nextAnswerAvgTime":"0",
+        "nextAnswerAvgTimeSla":"0",
+        "calls":"0",
+        "calls_ph":"0.00",
+        "missed_calls":"0",
+        "missed_calls_ph":"0.00",
+        "call_seconds":"0",
+        "call_seconds_ph":"0.00",
+        "chats":"0",
+        "chats_ph":"0.00",
+        "chat_answers":"0",
+        "chat_answers_ph":"0.00",
+        "missed_chats":"0",
+        "missed_chats_ph":"0.00",
+        "chat_pickup":"0",
+        "chatPickupAvgTime":"0",
+        "chatAvgTime":"0",
+        "not_ranked":"0",
+        "not_ranked_p":"0.00",
+        "not_ranked_ph":"0.00",
+        "rewards":"0",
+        "rewards_p":"0.00",
+        "rewards_ph":"0.00",
+        "punishments":"0",
+        "punishments_p":"0.00",
+        "punishments_ph":"0.00"
+      }
+    ]
+  }
+}
+Channels report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/channels?
+date_from=
+[value]
+&
+date_to=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+channels
+?
+&date_from
+=
+value&date_to
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+Call response description
+Return fields
+Name
+Type
+Description
+channels
+list
+Channels list
+Field
+channels
+has 45 columns:
+id
+text
+Channel identifier
+channelName
+text
+Channel name
+answers
+int
+Number of answers
+newAnswerAvgTime
+int
+New answer average time (in seconds)
+newAnswerAvgTimeSla
+int
+New answer average time (in seconds) within SLA business hours
+nextAnswerAvgTime
+int
+Open answer average time (in seconds)
+nextAnswerAvgTimeSla
+int
+Open answer average time (in seconds) within SLA business hours
+chat_answers
+int
+Number of chat messages
+chats
+int
+Number of responded chats
+missed_chats
+int
+Number of missed chats
+chat_pickup
+int
+Number of picked up chats
+chatPickupAvgTime
+int
+Chat pickup average time (in seconds)
+chatAvgTime
+int
+Average time spent in chat (in seconds)
+calls
+int
+Number of answered calls
+missed_calls
+int
+Number of missed calls
+call_seconds
+int
+Call time total (in seconds)
+not_ranked
+int
+Number of not rated
+not_ranked_p
+text
+Not rated [%]
+rewards
+int
+Number of positive ratings
+rewards_p
+text
+Positive ratings [%]
+punishments
+int
+Number of negative ratings
+punishments_p
+text
+Negative ratings [%]
+i_messages
+int
+Number of incoming messages
+i_chats
+int
+Number of incoming chats (including not responded)
+i_calls
+int
+Number of incoming calls (including not answered)
+f_chats
+int
+Number of finished chats
+f_calls
+int
+Number of finished calls
+created_tickets
+int
+Number of tickets
+resolved_tickets
+int
+Number of resolved tickets
+u_chats
+int
+Number of unanswered chats
+u_calls
+int
+Number of unanswered calls
+notes
+int
+Number of notes
+firstAssignAvgTime
+int
+First assign average time
+firstAssignAvgTimeSla
+int
+First assign average time (in seconds) within SLA business hours
+firstResolveAvgTime
+int
+First resolve average time
+firstResolveAvgTimeSla
+int
+First resolve average time (in seconds) within SLA business hours
+calls_outgoing
+int
+Number of outgoing calls
+call_outgoing_seconds
+int
+Outgoing calls time (in seconds)
+call_outgoing_avg_time
+int
+Outgoing calls average time (in seconds)
+call_pickup_avg_time
+int
+Call pickup average time (in seconds)
+call_avg_time
+int
+Call average time (in seconds)
+calls_internal
+int
+Number of internal calls
+call_internal_avg_time
+int
+Internal calls average time (in seconds)
+call_internal_seconds
+int
+Internal calls time (in seconds)
+o_calls
+int
+Number of offline calls
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+channels
+>
+<
+channel
+>
+<
+id
+>
+2
+</
+id
+>
+<
+channelName
+>
+Facebook
+</
+channelName
+>
+<
+answers
+>
+0
+</
+answers
+>
+<
+newAnswerAvgTime
+>
+0
+</
+newAnswerAvgTime
+>
+<
+newAnswerAvgTimeSla
+>
+0
+</
+newAnswerAvgTimeSla
+>
+<
+nextAnswerAvgTime
+>
+0
+</
+nextAnswerAvgTime
+>
+<
+nextAnswerAvgTimeSla
+>
+0
+</
+nextAnswerAvgTimeSla
+>
+<
+chat_answers
+>
+0
+</
+chat_answers
+>
+<
+chats
+>
+0
+</
+chats
+>
+<
+missed_chats
+>
+0
+</
+missed_chats
+>
+<
+chat_pickup
+>
+0
+</
+chat_pickup
+>
+<
+chatPickupAvgTime
+>
+0
+</
+chatPickupAvgTime
+>
+<
+chatAvgTime
+>
+0
+</
+chatAvgTime
+>
+<
+calls
+>
+0
+</
+calls
+>
+<
+missed_calls
+>
+0
+</
+missed_calls
+>
+<
+call_seconds
+>
+0
+</
+call_seconds
+>
+<
+not_ranked
+>
+0
+</
+not_ranked
+>
+<
+not_ranked_p
+>
+0.00
+</
+not_ranked_p
+>
+<
+rewards
+>
+0
+</
+rewards
+>
+<
+rewards_p
+>
+0.00
+</
+rewards_p
+>
+<
+punishments
+>
+0
+</
+punishments
+>
+<
+punishments_p
+>
+0.00
+</
+punishments_p
+>
+<
+i_messages
+>
+0
+</
+i_messages
+>
+<
+i_chats
+>
+0
+</
+i_chats
+>
+<
+i_calls
+>
+0
+</
+i_calls
+>
+</
+channel
+>
+</
+channels
+>
+</
+response
+>
+{
+  "response":{
+    "channels":[
+      {
+        "id":"2",
+        "channelName":"Facebook",
+        "answers":"0",
+        "newAnswerAvgTime":"0",
+        "newAnswerAvgTimeSla":"0",
+        "nextAnswerAvgTime":"0",
+        "nextAnswerAvgTimeSla":"0",
+        "chat_answers":"0",
+        "chats":"0",
+        "missed_chats":"0",
+        "chat_pickup":"0",
+        "chatPickupAvgTime":"0",
+        "chatAvgTime":"0",
+        "calls":"0",
+        "missed_calls":"0",
+        "call_seconds":"0",
+        "not_ranked":"0",
+        "not_ranked_p":"0.00",
+        "rewards":"0",
+        "rewards_p":"0.00",
+        "punishments":"0",
+        "punishments_p":"0.00",
+        "i_messages":"0",
+        "i_chats":"0",
+        "i_calls":"0"
+      }
+    ]
+  }
+}
+Departments report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/departments?
+date_from=
+[value]
+&
+date_to=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+departments
+?
+&date_from
+=
+value&date_to
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+Call response description
+Return fields
+Name
+Type
+Description
+departments
+list
+Departments list
+Field
+departments
+has 45 columns:
+id
+text
+Department identifier
+departmentName
+text
+Department name
+answers
+int
+Number of answers
+newAnswerAvgTime
+int
+New answer average time (in seconds)
+newAnswerAvgTimeSla
+int
+New answer average time (in seconds) within SLA business hours
+nextAnswerAvgTime
+int
+Open answer average time (in seconds)
+nextAnswerAvgTimeSla
+int
+Open answer average time (in seconds) within SLA business hours
+chat_answers
+int
+Number of chat messages
+chats
+int
+Number of responded chats
+missed_chats
+int
+Number of missed chats
+chat_pickup
+int
+Number of picked up chats
+chatPickupAvgTime
+int
+Chat pickup average time (in seconds)
+chatAvgTime
+int
+Average time spent in chat (in seconds)
+calls
+int
+Number of answered calls
+missed_calls
+int
+Number of missed calls
+call_seconds
+int
+Call time total (in seconds)
+not_ranked
+int
+Number of not rated
+not_ranked_p
+text
+Not rated [%]
+rewards
+int
+Number of positive ratings
+rewards_p
+text
+Positive ratings [%]
+punishments
+int
+Number of negative ratings
+punishments_p
+text
+Negative ratings [%]
+i_messages
+int
+Number of incoming messages
+i_chats
+int
+Number of incoming chats (including not responded)
+i_calls
+int
+Number of incoming calls (including not answered)
+f_chats
+int
+Number of finished chats
+f_calls
+int
+Number of finished calls
+created_tickets
+int
+Number of tickets
+resolved_tickets
+int
+Number of resolved tickets
+u_chats
+int
+Number of unanswered chats
+u_calls
+int
+Number of unanswered calls
+notes
+int
+Number of notes
+firstAssignAvgTime
+int
+First assign average time
+firstAssignAvgTimeSla
+int
+First assign average time (in seconds) within SLA business hours
+firstResolveAvgTime
+int
+First resolve average time
+firstResolveAvgTimeSla
+int
+First resolve average time (in seconds) within SLA business hours
+calls_outgoing
+int
+Number of outgoing calls
+call_outgoing_seconds
+int
+Outgoing calls time (in seconds)
+call_outgoing_avg_time
+int
+Outgoing calls average time (in seconds)
+call_pickup_avg_time
+int
+Call pickup average time (in seconds)
+call_avg_time
+int
+Call average time (in seconds)
+calls_internal
+int
+Number of internal calls
+call_internal_avg_time
+int
+Internal calls average time (in seconds)
+call_internal_seconds
+int
+Internal calls time (in seconds)
+o_calls
+int
+Number of offline calls
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+departments
+>
+<
+department
+>
+<
+id
+>
+1234asdf
+</
+id
+>
+<
+departmentName
+>
+General
+</
+departmentName
+>
+<
+answers
+>
+0
+</
+answers
+>
+<
+newAnswerAvgTime
+>
+0
+</
+newAnswerAvgTime
+>
+<
+newAnswerAvgTimeSla
+>
+0
+</
+newAnswerAvgTimeSla
+>
+<
+nextAnswerAvgTime
+>
+0
+</
+nextAnswerAvgTime
+>
+<
+nextAnswerAvgTimeSla
+>
+0
+</
+nextAnswerAvgTimeSla
+>
+<
+chat_answers
+>
+0
+</
+chat_answers
+>
+<
+chats
+>
+0
+</
+chats
+>
+<
+missed_chats
+>
+0
+</
+missed_chats
+>
+<
+chat_pickup
+>
+0
+</
+chat_pickup
+>
+<
+chatPickupAvgTime
+>
+0
+</
+chatPickupAvgTime
+>
+<
+chatAvgTime
+>
+0
+</
+chatAvgTime
+>
+<
+calls
+>
+0
+</
+calls
+>
+<
+missed_calls
+>
+0
+</
+missed_calls
+>
+<
+call_seconds
+>
+0
+</
+call_seconds
+>
+<
+not_ranked
+>
+0
+</
+not_ranked
+>
+<
+not_ranked_p
+>
+0.00
+</
+not_ranked_p
+>
+<
+rewards
+>
+0
+</
+rewards
+>
+<
+rewards_p
+>
+0.00
+</
+rewards_p
+>
+<
+punishments
+>
+0
+</
+punishments
+>
+<
+punishments_p
+>
+0.00
+</
+punishments_p
+>
+<
+i_messages
+>
+0
+</
+i_messages
+>
+<
+i_chats
+>
+0
+</
+i_chats
+>
+<
+i_calls
+>
+0
+</
+i_calls
+>
+</
+department
+>
+</
+departments
+>
+</
+response
+>
+{
+  "response":{
+    "departments":[
+      {
+        "id":"1234asdf",
+        "departmentName":"General",
+        "answers":"0",
+        "newAnswerAvgTime":"0",
+        "newAnswerAvgTimeSla":"0",
+        "nextAnswerAvgTime":"0",
+        "nextAnswerAvgTimeSla":"0",
+        "chat_answers":"0",
+        "chats":"0",
+        "missed_chats":"0",
+        "chat_pickup":"0",
+        "chatPickupAvgTime":"0",
+        "chatAvgTime":"0",
+        "calls":"0",
+        "missed_calls":"0",
+        "call_seconds":"0",
+        "not_ranked":"0",
+        "not_ranked_p":"0.00",
+        "rewards":"0",
+        "rewards_p":"0.00",
+        "punishments":"0",
+        "punishments_p":"0.00",
+        "i_messages":"0",
+        "i_chats":"0",
+        "i_calls":"0"
+      }
+    ]
+  }
+}
+Performance report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/performance?
+date_from=
+[value]
+&
+date_to=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+performance
+?
+&date_from
+=
+value&date_to
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+group_by
+text
+Group by time interval (allowed values: hour, day, week, month)
+Call response description
+Return fields
+Name
+Type
+Description
+performance
+list
+Performance list
+Field
+performance
+has 45 columns:
+datetime
+datetime
+Date from
+dateto
+datetime
+Date to
+answers
+int
+Number of answers
+newAnswerAvgTime
+int
+New answer average time (in seconds)
+newAnswerAvgTimeSla
+int
+New answer average time (in seconds) within SLA business hours
+nextAnswerAvgTime
+int
+Open answer average time (in seconds)
+nextAnswerAvgTimeSla
+int
+Open answer average time (in seconds) within SLA business hours
+chat_answers
+int
+Number of chat messages
+chats
+int
+Number of responded chats
+missed_chats
+int
+Number of missed chats
+chat_pickup
+int
+Number of picked up chats
+chatPickupAvgTime
+int
+Chat pickup average time (in seconds)
+chatAvgTime
+int
+Average time spent in chat (in seconds)
+calls
+int
+Number of answered calls
+missed_calls
+int
+Number of missed calls
+call_seconds
+int
+Call time total (in seconds)
+not_ranked
+int
+Number of not rated
+not_ranked_p
+text
+Not rated [%]
+rewards
+int
+Number of positive ratings
+rewards_p
+text
+Positive ratings [%]
+punishments
+int
+Number of negative ratings
+punishments_p
+text
+Negative ratings [%]
+i_messages
+int
+Number of incoming messages
+i_chats
+int
+Number of incoming chats (including not responded)
+i_calls
+int
+Number of incoming calls (including not answered)
+f_chats
+int
+Number of finished chats
+f_calls
+int
+Number of finished calls
+created_tickets
+int
+Number of tickets
+resolved_tickets
+int
+Number of resolved tickets
+u_chats
+int
+Number of unanswered chats
+u_calls
+int
+Number of unanswered calls
+notes
+int
+Number of notes
+firstAssignAvgTime
+int
+First assign average time
+firstAssignAvgTimeSla
+int
+First assign average time (in seconds) within SLA business hours
+firstResolveAvgTime
+int
+First resolve average time
+firstResolveAvgTimeSla
+int
+First resolve average time (in seconds) within SLA business hours
+calls_outgoing
+int
+Number of outgoing calls
+call_outgoing_seconds
+int
+Outgoing calls time (in seconds)
+call_outgoing_avg_time
+int
+Outgoing calls average time (in seconds)
+call_pickup_avg_time
+int
+Call pickup average time (in seconds)
+call_avg_time
+int
+Call average time (in seconds)
+calls_internal
+int
+Number of internal calls
+call_internal_avg_time
+int
+Internal calls average time (in seconds)
+call_internal_seconds
+int
+Internal calls time (in seconds)
+o_calls
+int
+Number of offline calls
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+performance
+>
+<
+item
+>
+<
+datetime
+>
+2014-01-25
+</
+datetime
+>
+<
+dateto
+>
+2014-01-27 23:59:59
+</
+dateto
+>
+<
+answers
+>
+0
+</
+answers
+>
+<
+newAnswerAvgTime
+>
+0
+</
+newAnswerAvgTime
+>
+<
+newAnswerAvgTimeSla
+>
+0
+</
+newAnswerAvgTimeSla
+>
+<
+nextAnswerAvgTime
+>
+0
+</
+nextAnswerAvgTime
+>
+<
+nextAnswerAvgTimeSla
+>
+0
+</
+nextAnswerAvgTimeSla
+>
+<
+chat_answers
+>
+0
+</
+chat_answers
+>
+<
+chats
+>
+0
+</
+chats
+>
+<
+missed_chats
+>
+0
+</
+missed_chats
+>
+<
+chat_pickup
+>
+0
+</
+chat_pickup
+>
+<
+chatPickupAvgTime
+>
+0
+</
+chatPickupAvgTime
+>
+<
+chatAvgTime
+>
+0
+</
+chatAvgTime
+>
+<
+calls
+>
+0
+</
+calls
+>
+<
+missed_calls
+>
+0
+</
+missed_calls
+>
+<
+call_seconds
+>
+0
+</
+call_seconds
+>
+<
+not_ranked
+>
+0
+</
+not_ranked
+>
+<
+not_ranked_p
+>
+0.00
+</
+not_ranked_p
+>
+<
+rewards
+>
+0
+</
+rewards
+>
+<
+rewards_p
+>
+0.00
+</
+rewards_p
+>
+<
+punishments
+>
+0
+</
+punishments
+>
+<
+punishments_p
+>
+0.00
+</
+punishments_p
+>
+<
+i_messages
+>
+0
+</
+i_messages
+>
+<
+i_chats
+>
+0
+</
+i_chats
+>
+<
+i_calls
+>
+0
+</
+i_calls
+>
+<
+created_tickets
+>
+0
+</
+created_tickets
+>
+<
+resolved_tickets
+>
+0
+</
+resolved_tickets
+>
+<
+u_chats
+>
+0
+</
+u_chats
+>
+</
+item
+>
+</
+performance
+>
+</
+response
+>
+{
+  "response":{
+    "performance":[
+      {
+        "datetime":"2014-01-25",
+        "dateto":"2014-01-27 23:59:59",
+        "answers":"0",
+        "newAnswerAvgTime":"0",
+        "newAnswerAvgTimeSla":"0",
+        "nextAnswerAvgTime":"0",
+        "nextAnswerAvgTimeSla":"0",
+        "chat_answers":"0",
+        "chats":"0",
+        "missed_chats":"0",
+        "chat_pickup":"0",
+        "chatPickupAvgTime":"0",
+        "chatAvgTime":"0",
+        "calls":"0",
+        "missed_calls":"0",
+        "call_seconds":"0",
+        "not_ranked":"0",
+        "not_ranked_p":"0.00",
+        "rewards":"0",
+        "rewards_p":"0.00",
+        "punishments":"0",
+        "punishments_p":"0.00",
+        "i_messages":"0",
+        "i_chats":"0",
+        "i_calls":"0",
+        "created_tickets":"0",
+        "resolved_tickets":"0",
+        "u_chats":"0"
+      }
+    ]
+  }
+}
+Tags report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/tags?
+date_from=
+[value]
+&
+date_to=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+tags
+?
+&date_from
+=
+value&date_to
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+Call response description
+Return fields
+Name
+Type
+Description
+tags
+list
+Tags list
+Field
+tags
+has 45 columns:
+id
+text
+Tag identifier
+tagName
+text
+Tag name
+answers
+int
+Number of answers
+newAnswerAvgTime
+int
+New answer average time (in seconds)
+newAnswerAvgTimeSla
+int
+New answer average time (in seconds) within SLA business hours
+nextAnswerAvgTime
+int
+Open answer average time (in seconds)
+nextAnswerAvgTimeSla
+int
+Open answer average time (in seconds) within SLA business hours
+chat_answers
+int
+Number of chat messages
+chats
+int
+Number of responded chats
+missed_chats
+int
+Number of missed chats
+chat_pickup
+int
+Number of picked up chats
+chatPickupAvgTime
+int
+Chat pickup average time (in seconds)
+chatAvgTime
+int
+Average time spent in chat (in seconds)
+calls
+int
+Number of answered calls
+missed_calls
+int
+Number of missed calls
+call_seconds
+int
+Call time total (in seconds)
+not_ranked
+int
+Number of not rated
+not_ranked_p
+text
+Not rated [%]
+rewards
+int
+Number of positive ratings
+rewards_p
+text
+Positive ratings [%]
+punishments
+int
+Number of negative ratings
+punishments_p
+text
+Negative ratings [%]
+i_messages
+int
+Number of incoming messages
+i_chats
+int
+Number of incoming chats (including not responded)
+i_calls
+int
+Number of incoming calls (including not answered)
+f_chats
+int
+Number of finished chats
+f_calls
+int
+Number of finished calls
+created_tickets
+int
+Number of tickets
+resolved_tickets
+int
+Number of resolved tickets
+u_chats
+int
+Number of unanswered chats
+u_calls
+int
+Number of unanswered calls
+notes
+int
+Number of notes
+firstAssignAvgTime
+int
+First assign average time
+firstAssignAvgTimeSla
+int
+First assign average time (in seconds) within SLA business hours
+firstResolveAvgTime
+int
+First resolve average time
+firstResolveAvgTimeSla
+int
+First resolve average time (in seconds) within SLA business hours
+calls_outgoing
+int
+Number of outgoing calls
+call_outgoing_seconds
+int
+Outgoing calls time (in seconds)
+call_outgoing_avg_time
+int
+Outgoing calls average time (in seconds)
+call_pickup_avg_time
+int
+Call pickup average time (in seconds)
+call_avg_time
+int
+Call average time (in seconds)
+calls_internal
+int
+Number of internal calls
+call_internal_avg_time
+int
+Internal calls average time (in seconds)
+call_internal_seconds
+int
+Internal calls time (in seconds)
+o_calls
+int
+Number of offline calls
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+tags
+>
+<
+tag
+>
+<
+id
+>
+4gh5
+</
+id
+>
+<
+tagName
+>
+Urgent
+</
+tagName
+>
+<
+answers
+>
+0
+</
+answers
+>
+<
+newAnswerAvgTime
+>
+0
+</
+newAnswerAvgTime
+>
+<
+newAnswerAvgTimeSla
+>
+0
+</
+newAnswerAvgTimeSla
+>
+<
+nextAnswerAvgTime
+>
+0
+</
+nextAnswerAvgTime
+>
+<
+nextAnswerAvgTimeSla
+>
+0
+</
+nextAnswerAvgTimeSla
+>
+<
+chat_answers
+>
+0
+</
+chat_answers
+>
+<
+chats
+>
+0
+</
+chats
+>
+<
+missed_chats
+>
+0
+</
+missed_chats
+>
+<
+chat_pickup
+>
+0
+</
+chat_pickup
+>
+<
+chatPickupAvgTime
+>
+0
+</
+chatPickupAvgTime
+>
+<
+chatAvgTime
+>
+0
+</
+chatAvgTime
+>
+<
+calls
+>
+0
+</
+calls
+>
+<
+missed_calls
+>
+0
+</
+missed_calls
+>
+<
+call_seconds
+>
+0
+</
+call_seconds
+>
+<
+not_ranked
+>
+0
+</
+not_ranked
+>
+<
+not_ranked_p
+>
+0.00
+</
+not_ranked_p
+>
+<
+rewards
+>
+0
+</
+rewards
+>
+<
+rewards_p
+>
+0.00
+</
+rewards_p
+>
+<
+punishments
+>
+0
+</
+punishments
+>
+<
+punishments_p
+>
+0.00
+</
+punishments_p
+>
+<
+i_messages
+>
+0
+</
+i_messages
+>
+<
+i_chats
+>
+0
+</
+i_chats
+>
+<
+i_calls
+>
+0
+</
+i_calls
+>
+</
+tag
+>
+</
+tags
+>
+</
+response
+>
+{
+  "response":{
+    "tags":[
+      {
+        "id":"4gh5",
+        "tagName":"Urgent",
+        "answers":"0",
+        "newAnswerAvgTime":"0",
+        "newAnswerAvgTimeSla":"0",
+        "nextAnswerAvgTime":"0",
+        "nextAnswerAvgTimeSla":"0",
+        "chat_answers":"0",
+        "chats":"0",
+        "missed_chats":"0",
+        "chat_pickup":"0",
+        "chatPickupAvgTime":"0",
+        "chatAvgTime":"0",
+        "calls":"0",
+        "missed_calls":"0",
+        "call_seconds":"0",
+        "not_ranked":"0",
+        "not_ranked_p":"0.00",
+        "rewards":"0",
+        "rewards_p":"0.00",
+        "punishments":"0",
+        "punishments_p":"0.00",
+        "i_messages":"0",
+        "i_chats":"0",
+        "i_calls":"0"
+      }
+    ]
+  }
+}
+Tickets Agent availability report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/tickets/agentsavailability
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+tickets
+/
+agentsavailability
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+departmentid
+text
+Narrow the report to specific department identifier
+agentid
+text
+Narrow the report to specific agent id
+Call response description
+Return fields
+Name
+Type
+Description
+agentsavailability
+list
+Agents availability list
+Field
+agentsavailability
+has 10 columns:
+id
+int
+Availability identifier
+userid
+text
+User identifier
+firstname
+text
+User first name
+lastname
+text
+User last name
+contactid
+text
+Contact identifier
+departmentid
+text
+Department identifier
+department_name
+text
+Department name
+hours_online
+text
+Number of hours online
+from_date
+datetime
+Date from
+to_date
+datetime
+Date to
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+agentsavailability
+>
+<
+item
+>
+<
+id
+>
+363662
+</
+id
+>
+<
+userid
+>
+1245asdf
+</
+userid
+>
+<
+firstname
+>
+Firstname
+</
+firstname
+>
+<
+lastname
+>
+Lastname
+</
+lastname
+>
+<
+contactid
+>
+hjkl78io
+</
+contactid
+>
+<
+departmentid
+>
+drty894g
+</
+departmentid
+>
+<
+department_name
+>
+Test
+</
+department_name
+>
+<
+hours_online
+>
+00:08:31
+</
+hours_online
+>
+<
+from_date
+>
+2014-07-24 16:25:06
+</
+from_date
+>
+<
+to_date
+>
+now
+</
+to_date
+>
+</
+item
+>
+</
+agentsavailability
+>
+</
+response
+>
+{
+  "response":{
+    "agentsavailability":[
+      {
+        "id":"363662",
+        "userid":"1245asdf",
+        "firstname":"Firstname",
+        "lastname":"Lastname",
+        "contactid":"hjkl78io",
+        "departmentid":"drty894g",
+        "department_name":"Test",
+        "hours_online":"00:08:31",
+        "from_date":"2014-07-24 16:25:06",
+        "to_date":"now"
+      }
+    ]
+  }
+}
+Tickets Load report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/tickets/load
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+tickets
+/
+load
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+departmentid
+text
+Narrow the report to specific department identifier
+agentid
+text
+Narrow the report to specific agent id
+Call response description
+Return fields
+Name
+Type
+Description
+loads
+list
+Tickets load list
+Field
+loads
+has 10 columns:
+date
+datetime
+Date
+avgQueue
+text
+Average tickets in queue
+maxQueue
+int
+Maximum tickets in queue
+minQueue
+int
+Minimum tickets in queue
+avgSlots
+text
+Average agents
+maxSlots
+int
+Maximum agents
+minSlots
+int
+Minimum agents
+avgService
+text
+Average work in progress tickets
+maxService
+int
+Maximum work in progress tickets
+minService
+int
+Minimum work in progress tickets
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+loads
+>
+<
+load
+>
+<
+date
+>
+2014-07-26 15:00:00
+</
+date
+>
+<
+avgQueue
+>
+0.00
+</
+avgQueue
+>
+<
+maxQueue
+>
+0
+</
+maxQueue
+>
+<
+minQueue
+>
+0
+</
+minQueue
+>
+<
+avgSlots
+>
+0.00
+</
+avgSlots
+>
+<
+maxSlots
+>
+0
+</
+maxSlots
+>
+<
+minSlots
+>
+0
+</
+minSlots
+>
+<
+avgService
+>
+0.00
+</
+avgService
+>
+<
+maxService
+>
+0
+</
+maxService
+>
+<
+minService
+>
+0
+</
+minService
+>
+</
+load
+>
+</
+loads
+>
+</
+response
+>
+{
+  "response":{
+    "loads":[
+      {
+        "date":"2014-07-26 15:00:00",
+        "avgQueue":"0.00",
+        "maxQueue":"0",
+        "minQueue":"0",
+        "avgSlots":"0.00",
+        "maxSlots":"0",
+        "minSlots":"0",
+        "avgService":"0.00",
+        "maxService":"0",
+        "minService":"0"
+      }
+    ]
+  }
+}
+Tickets SLA Compliance report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/tickets/slacompliance
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+tickets
+/
+slacompliance
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+datetime
+text
+Date constraint (L30D = last 30 days (default), TM = this month, LM = last month, 2014-06 = whole june of 2014)
+departmentid
+text
+Narrow the report to specific department identifier
+userid
+text
+Assigned to user identifier
+slalevelid
+text
+SLA level identifier
+Call response description
+Return fields
+Name
+Type
+Description
+slacompliances
+list
+SLA Compliances list
+Field
+slacompliances
+has 9 columns:
+date
+datetime
+Date
+fulfilled
+int
+Fulfilled
+avgFulfilledTime
+int
+Average fulfilled time
+maxFulfilledTime
+int
+Maximum fulfilled time
+minFulfilledTime
+int
+Minimum fulfilled time
+unfulfilled
+int
+Unfulfilled
+avgUnfulfilledTime
+int
+Average unfulfilled time
+maxUnfulfilledTime
+int
+Maximum unfulfilled time
+minUnfulfilledTime
+int
+Minimum unfulfilled time
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+slacompliances
+>
+<
+slacompliance
+>
+<
+date
+>
+2014-07-26 15:00:00
+</
+date
+>
+<
+fulfilled
+>
+0
+</
+fulfilled
+>
+<
+avgFulfilledTime
+>
+0
+</
+avgFulfilledTime
+>
+<
+maxFulfilledTime
+>
+0
+</
+maxFulfilledTime
+>
+<
+minFulfilledTime
+>
+0
+</
+minFulfilledTime
+>
+<
+unfulfilled
+>
+0
+</
+unfulfilled
+>
+<
+avgUnfulfilledTime
+>
+0
+</
+avgUnfulfilledTime
+>
+<
+maxUnfulfilledTime
+>
+0
+</
+maxUnfulfilledTime
+>
+<
+minUnfulfilledTime
+>
+0
+</
+minUnfulfilledTime
+>
+</
+slacompliance
+>
+</
+slacompliances
+>
+</
+response
+>
+{
+  "response":{
+    "slacompliances":[
+      {
+        "date":"2014-07-26 15:00:00",
+        "fulfilled":"0",
+        "avgFulfilledTime":"0",
+        "maxFulfilledTime":"0",
+        "minFulfilledTime":"0",
+        "unfulfilled":"0",
+        "avgUnfulfilledTime":"0",
+        "maxUnfulfilledTime":"0",
+        "minUnfulfilledTime":"0"
+      }
+    ]
+  }
+}
+Tickets SLA Log report
+Avaliable from application version: 4.11.3.0
+Example call
+General
+PHP
+GET
+http://example.com/api/reports/tickets/slalog?
+date_from=
+[value]
+&
+date_to=
+[value]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+reports
+/
+tickets
+/
+slalog
+?
+&date_from
+=
+value&date_to
+=
+value&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+date_from
+datetime
+Date from (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 00:00:00)
+date_to
+datetime
+Date to (format: YYYY-MM-DD, eg: 2014-01-24 or YYYY-MM-DD HH:MM:SS, e.g. 2014-01-24 23:59:59)
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+columns
+text
+Columns (comma delimeted) to be returned (see return fields)
+limitcount
+int
+Max count of returned rows (Max allowed value is 1000, Default value is 100)
+limitfrom
+int
+Start from specified row number
+departmentid
+text
+Narrows the report to specific department identifier
+agentid
+text
+Agent identifier
+requesterid
+text
+Requester contact identifier
+slalevelid
+text
+SLA level identifier
+Call response description
+Return fields
+Name
+Type
+Description
+slalogs
+list
+SLA Compliances list
+Field
+slalogs
+has 20 columns:
+id
+text
+SLA Log identifier
+conversationid
+text
+Conversation identifier
+code
+text
+Conversation code
+departmentid
+text
+Department identifier
+department_name
+text
+Department name
+levelid
+text
+Level identifier
+sla_level_name
+text
+SLA level name
+sla
+text
+SLA offset
+date_created
+datetime
+Minimum unfulfilled time
+date_closed
+datetime
+Minimum unfulfilled time
+server_date_closed
+datetime
+Minimum unfulfilled time
+date_due
+datetime
+Minimum unfulfilled time
+server_date_due
+datetime
+Minimum unfulfilled time
+sla_level_id
+text
+SLA level identifier
+agentid
+text
+Agent identifier
+agent_firstname
+text
+Agent first name
+agent_lastname
+text
+Agent last name
+req_contactid
+text
+Requester contact identifier
+req_firstname
+text
+Requester first name
+req_lastname
+text
+Requester last name
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+slalogs
+>
+<
+slalog
+>
+<
+id
+>
+41355
+</
+id
+>
+<
+conversationid
+>
+bf7b09ae
+</
+conversationid
+>
+<
+code
+>
+code
+</
+code
+>
+<
+departmentid
+>
+XXX-XXXXX-XXX
+</
+departmentid
+>
+<
+department_name
+>
+General
+</
+department_name
+>
+<
+levelid
+>
+3bd9cf58
+</
+levelid
+>
+<
+sla_level_name
+>
+Urgent
+</
+sla_level_name
+>
+<
+sla
+>
+-01:56:53
+</
+sla
+>
+<
+date_created
+>
+2014-08-26 09:38:29
+</
+date_created
+>
+<
+date_closed
+>
+2014-08-26 09:42:36
+</
+date_closed
+>
+<
+server_date_closed
+>
+2014-08-26 07:42:36
+</
+server_date_closed
+>
+<
+date_due
+>
+2014-08-26 09:39:29
+</
+date_due
+>
+<
+server_date_due
+>
+2014-08-26 09:39:29
+</
+server_date_due
+>
+<
+sla_level_id
+>
+gtrt7895
+</
+sla_level_id
+>
+<
+agentid
+/>
+<
+agent_firstname
+/>
+<
+agent_lastname
+/>
+<
+req_contactid
+>
+2fe9e7c7
+</
+req_contactid
+>
+<
+req_firstname
+>
+Customer firstname
+</
+req_firstname
+>
+<
+req_lastname
+>
+Customer lastname
+</
+req_lastname
+>
+</
+slalog
+>
+</
+slalogs
+>
+</
+response
+>
+{
+  "response":{
+    "slalogs":[
+      {
+        "id":"41355",
+        "conversationid":"bf7b09ae",
+        "code":"code",
+        "departmentid":"XXX-XXXXX-XXX",
+        "department_name":"General",
+        "levelid":"3bd9cf58",
+        "sla_level_name":"Urgent",
+        "sla":"-01:56:53",
+        "date_created":"2014-08-26 09:38:29",
+        "date_closed":"2014-08-26 09:42:36",
+        "server_date_closed":"2014-08-26 07:42:36",
+        "date_due":"2014-08-26 09:39:29",
+        "server_date_due":"2014-08-26 09:39:29",
+        "sla_level_id":"gtrt7895",
+        "agentid":"",
+        "agent_firstname":"",
+        "agent_lastname":"",
+        "req_contactid":"2fe9e7c7",
+        "req_firstname":"Customer firstname",
+        "req_lastname":"Customer lastname"
+      }
+    ]
+  }
+}
+Suggestion categories
+Retrieves all suggestion categories
+Avaliable from application version: 2.8.2.1
+Example call
+General
+PHP
+GET
+http://example.com/api/suggestioncategories
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+suggestioncategories
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+suggestioncategories
+list
+List of categories
+Field
+suggestioncategories
+has 3 columns:
+id
+text
+Id of the category
+title
+text
+Title of the category
+path
+text
+Path of the category
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+suggestioncategories
+>
+<
+suggestioncategorie
+>
+<
+id
+>
+15
+</
+id
+>
+<
+title
+>
+Suggestions
+</
+title
+>
+<
+path
+>
+Product1 / Suggestion
+</
+path
+>
+</
+suggestioncategorie
+>
+<
+suggestioncategorie
+>
+<
+id
+>
+16
+</
+id
+>
+<
+title
+>
+Ideas
+</
+title
+>
+<
+path
+>
+Product2 / Ideas
+</
+path
+>
+</
+suggestioncategorie
+>
+</
+suggestioncategories
+>
+</
+response
+>
+{
+  "response":{
+    "suggestioncategories":[
+      {
+        "id":"15",
+        "title":"Suggestions",
+        "path":"Product1 \/ Suggestion"
+      },
+      {
+        "id":"16",
+        "title":"Ideas",
+        "path":"Product2 \/ Ideas"
+      }
+    ]
+  }
+}
+Tags
+Remove tag
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+DELETE
+http://example.com/api/tags/
+[tagid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+tags
+/[
+tagid
+]
+"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+DELETE
+"
+)
+;
+$curl_delete_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_delete_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[tagid]
+text
+Tag ID
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Retrieve a list of all available tags
+Avaliable from application version: 4.0.30.6
+Example call
+General
+PHP
+GET
+http://example.com/api/tags
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+tags
+?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+tags
+list
+The list of tags.
+Field
+tags
+has 2 columns:
+id
+text
+An identifier of the tag.
+name
+text
+A name of the tag.
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+tags
+>
+<
+tag
+>
+<
+id
+>
+sh3j
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+</
+tag
+>
+<
+tag
+>
+<
+id
+>
+8sd5
+</
+id
+>
+<
+name
+>
+Support
+</
+name
+>
+</
+tag
+>
+</
+tags
+>
+</
+response
+>
+{
+  "response":{
+    "tags":[
+      {
+        "id":"sh3j",
+        "name":"VIP"
+      },
+      {
+        "id":"8sd5",
+        "name":"Support"
+      }
+    ]
+  }
+}
+Retrieve tag info
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+GET
+http://example.com/api/tags/
+[tagid]
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+tags
+/[
+tagid
+]?
+&apikey
+=
+value"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[tagid]
+text
+Tag ID
+apikey
+text
+API key
+Call response description
+Return fields
+Name
+Type
+Description
+id
+text
+Id of tag
+name
+text
+Name of the tag
+is_archived
+text
+Archival status of tag
+color
+text
+Color for title
+bg_color
+text
+Color for background
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+id
+>
+sh3j
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+<
+is_archived
+/>
+<
+color
+>
+FFFFFF
+</
+color
+>
+<
+bg_color
+>
+0000FF
+</
+bg_color
+>
+</
+response
+>
+{
+  "response":{
+    "id":"sh3j",
+    "name":"VIP",
+    "is_archived":null,
+    "color":"FFFFFF",
+    "bg_color":"0000FF"
+  }
+}
+Add tag
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+POST
+http://example.com/api/tags
+Note: You must
+send parameters
+for this call as POST fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+$curl_post_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;bg_color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+tags"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POST
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+$curl_post_data
+)
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+name
+text
+Name of the tag
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+color
+text
+Color for name
+bg_color
+text
+Color for background
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+id
+text
+Id of tag
+name
+text
+Name of tag
+color
+text
+Color for name
+bg_color
+text
+Color for background
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+<
+id
+>
+sh3j
+</
+id
+>
+<
+name
+>
+VIP
+</
+name
+>
+<
+color
+>
+FFFFFF
+</
+color
+>
+<
+bg_color
+>
+0000FF
+</
+bg_color
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":"0",
+    "id":"sh3j",
+    "name":"VIP",
+    "color":"FFFFFF",
+    "bg_color":"0000FF"
+  }
+}
+Change tag
+Avaliable from application version: 4.17.1.3
+Example call
+General
+PHP
+PUT
+http://example.com/api/tags/
+[tagid]
+Note: You must
+send parameters
+for this call as PUT fields.
+<
+?
+php
+$ch
+=
+curl_init
+()
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_URL
+,
+"http
+://
+example
+.
+com
+/
+api
+/
+tags
+/[
+tagid
+]
+"
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_CUSTOMREQUEST
+,
+"
+PUT
+"
+)
+;
+$curl_put_data
+=
+array
+(
+/*
+These are mandatory params
+*/
+&
+#039
+;apikey&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+/*
+...
+and these are optional
+*/
+&
+#039
+;name&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+&
+#039
+;bg_color&
+#039
+;
+=
+> &
+#039
+;
+...
+&
+#039
+;
+,
+)
+;
+curl_setopt
+(
+$ch
+,
+CURLOPT_POSTFIELDS
+,
+http_build_query
+(
+$curl_put_data
+))
+;
+$curl_response
+=
+curl_exec
+(
+$ch
+)
+;
+if
+(
+$curl_response
+===
+false
+)
+{
+$info
+=
+curl_error
+(
+$ch
+)
+;
+    curl_close
+(
+$ch
+)
+;
+die
+(
+"error occurred during curl exec
+.
+Additional info
+:
+"
+.
+var_export
+(
+$info
+,
+true
+))
+;
+}
+curl_close
+(
+$ch
+)
+;
+/*
+process
+$curl_response
+here
+*/
+print_r
+(
+json_decode
+(
+$curl_response
+))
+;
+Mandatory parameters
+Name
+Type
+Description
+[tagid]
+text
+Tag ID
+apikey
+text
+API key
+Optional parameters
+Name
+Type
+Description
+name
+text
+Name of the tag
+color
+text
+Color for name
+bg_color
+text
+Color for background
+Call response description
+Return fields
+Name
+Type
+Description
+status
+text
+OK
+statuscode
+int
+Status code of executed request
+Example responses
+XML
+JSON
+<?xml version='1.0' encoding='utf-8'?>
+<
+response
+>
+<
+status
+>
+OK
+</
+status
+>
+<
+statuscode
+>
+0
+</
+statuscode
+>
+</
+response
+>
+{
+  "response":{
+    "status":"OK",
+    "statuscode":0
+  }
+}
+Updated:
+Dec 19 (11 months ago)
+Other Articles
+How to make REST calls in PHP
+Using REST API without mod_rewrite

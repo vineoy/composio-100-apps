@@ -1,0 +1,130 @@
+URL: https://developers.facebook.com/documentation/threads/get-started
+FETCHED: 2026-11-23T17:15:23.851982
+VIA: direct
+
+Get started with the Threads API | Meta for Developers
+Threads
+Get started with the Threads API
+Updated
+:
+Jun 30, 2026
+Copy for LLM
+View as Markdown
+To access the Threads API, create an app and pick the
+Threads use case
+.
+This guide provides information on what you need to get started using the Threads API.
+Before you start
+You need the following:
+Meta app
+A
+Meta app
+created with the
+Threads use case
+.
+Note:
+When you create your app, it has 2 app IDs and app secrets. For Threads API implementation purposes, use the Threads app ID and its corresponding app secret.
+Public server
+Threads will download media used in publishing attempts, so the media must be hosted on a publicly accessible server at the time of the attempt.
+Authorization
+Data access authorization is controlled by your app users through the use of the permissions listed below. Users must grant your app these permissions through the
+Authorization Window
+before your app can access their data. For more details, see the
+Permissions guide
+.
+threads_basic
+— Required for all Threads endpoints.
+threads_content_publish
+— Required for Threads publishing endpoints only.
+threads_manage_replies
+— Required for making
+POST
+calls to reply endpoints.
+threads_read_replies
+— Required for making
+GET
+calls to reply endpoints.
+threads_manage_insights
+— Required for making
+GET
+calls to insights endpoints.
+Threads testers
+can grant your app these permissions at any time. For app users without a role on your app to grant your app these permissions, each permission must first be approved through the
+App Review
+process, and your app must be published.
+Permission grants made by app users with public profiles are valid for 90 days.
+Refreshing
+an app user’s long-lived access token extends the permission grant for another 90 days if the app user who granted the token has a public profile. If the app user’s profile is
+private
+⁠
+, however, the permission grant cannot be extended and the app user must grant the expired permission to your app again.
+Threads user access tokens
+API authentication is handled by Threads user access tokens that conform to the OAuth 2.0 protocol. Access tokens are app-scoped (unique to the app and user pair) and can be short-lived or long-lived. API requests that query Threads users or publish Threads media must include a Threads user access token. Use the
+Access Token Debugger
+to debug your Threads user access token.
+Short-lived access tokens
+Short-lived access tokens are valid for 1 hour, but can be exchanged for
+long-lived tokens
+. To get a short-lived access token, implement the
+Authorization Window
+into your app. After the app user authenticates their identity through the window, Threads will redirect the user back to your app and include an
+authorization code
+, which you can then
+exchange for a short-lived access token
+.
+Long-lived access tokens
+Short-lived tokens that have not expired can be
+exchanged for long-lived access tokens
+, which are valid for 60 days. Long-lived tokens can be
+refreshed
+before they expire by querying the
+GET /refresh_access_token
+endpoint.
+Authorization Window
+The Authorization Window allows your app to get
+authorization codes
+and
+permissions
+from app users. Authorization codes can be exchanged for
+Threads user access tokens
+, which must be included when fetching an app user’s profile, retrieving Threads media, publishing posts, reading replies, managing replies, or viewing insights.
+To implement the Authorization Window, refer to the
+Get access tokens
+guide.
+Authorization codes
+Authorization codes can be exchanged for short-lived
+Threads user access tokens
+. To get an authorization code, implement the
+Authorization Window
+into your app. After an app user authenticates their identity through the window and grants your app any permissions it needs, Threads will redirect the user to your app and include an authorization code. You can then use the API to exchange the code for the app user’s short-lived Threads user access token.
+Note:
+Authorization codes are short-lived and are only valid for 1 hour.
+Threads testers
+To test your app with a Threads user, you must first send an invitation to the Threads user’s profile and accept the invitation. Invitations can be sent by clicking on the
+Add People
+button and selecting
+Threads Tester
+in the
+App Dashboard
+>
+App roles
+>
+Roles
+tab.
+Invitations can be accepted by the Threads user in the
+Website permissions
+section under
+Account Settings
+⁠
+of the Threads website or mobile app after signing into their account.
+Sample app
+The open-source
+Threads API sample app
+⁠
+serves as a practical guide, enabling you to better understand the API and troubleshoot any issues by referencing a working implementation. This can simplify the integration process, accelerate development time, and ensure a smoother implementation experience.
+Next steps
+Make
+single thread posts
+Make
+carousel posts
+Retrieve Threads media

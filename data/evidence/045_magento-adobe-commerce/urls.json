@@ -1,0 +1,77 @@
+{
+ "app": "Magento (Adobe Commerce)",
+ "queries": [
+  "Magento (Adobe Commerce) API authentication documentation",
+  "Magento (Adobe Commerce) MCP server",
+  "Magento (Adobe Commerce) API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.adobe.com/commerce/webapi/rest/",
+  "https://developer.adobe.com/commerce/",
+  "https://experienceleague.adobe.com/en/docs/commerce-admin/config/services/magento-web-api",
+  "https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/prerequisites/authentication-keys"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Adobe Inc.",
+   "href": "https://developer.adobe.com/commerce/webapi/get-started/authentication/"
+  },
+  {
+   "title": "REST API reference - developer.adobe.com",
+   "href": "https://developer.adobe.com/commerce/webapi/rest/reference/"
+  },
+  {
+   "title": "Services > Magento Web API | Adobe Commerce - Experience...",
+   "href": "https://experienceleague.adobe.com/en/docs/commerce-admin/config/services/magento-web-api"
+  },
+  {
+   "title": "Get your authentication keys | Adobe Commerce",
+   "href": "https://experienceleague.adobe.com/en/docs/commerce-operations/installation-guide/prerequisites/authentication-keys"
+  },
+  {
+   "title": "commerce-webapi/src/pages/get-started/authentication/gs ...",
+   "href": "https://github.com/AdobeDocs/commerce-webapi/blob/main/src/pages/get-started/authentication/gs-authentication-oauth.md"
+  },
+  {
+   "title": "MCP Server - commercemarketplace.adobe.com",
+   "href": "https://commercemarketplace.adobe.com/freento-module-mcp.html"
+  },
+  {
+   "title": "Magento/Adobe Commerce AI Agent API Connector | MCP Server",
+   "href": "https://mcpmarket.com/server/magento-adobe-commerce"
+  },
+  {
+   "title": "GitHub - Codexpect/adobe-commerce-mcp",
+   "href": "https://github.com/Codexpect/adobe-commerce-mcp"
+  },
+  {
+   "title": "GitHub - thomastx05/magento-mcp: MCP (Model Context Protocol ...",
+   "href": "https://github.com/thomastx05/magento-mcp"
+  },
+  {
+   "title": "MCP Server - commercemarketplace.adobe.com",
+   "href": "https://commercemarketplace.adobe.com/miniorange-inc-miniorange-mcpserver.html"
+  },
+  {
+   "title": "REST API Overview - Adobe Inc.",
+   "href": "https://developer.adobe.com/commerce/webapi/rest/"
+  },
+  {
+   "title": "REST API reference - developer.adobe.com",
+   "href": "https://developer.adobe.com/commerce/webapi/rest/reference/"
+  },
+  {
+   "title": "Tier pricing | Adobe Commerce - Experience League",
+   "href": "https://experienceleague.adobe.com/en/docs/commerce-admin/catalog/products/pricing/product-price-tier"
+  },
+  {
+   "title": "Adobe Commerce Product Pricing",
+   "href": "https://business.adobe.com/products/commerce/pricing.html"
+  },
+  {
+   "title": "Adobe Commerce (formerly Magento Commerce) Pricing ... - G2",
+   "href": "https://www.g2.com/products/adobe-commerce-formerly-magento-commerce/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:25:29.240066"
+}

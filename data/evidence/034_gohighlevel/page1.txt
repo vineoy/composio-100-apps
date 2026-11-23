@@ -1,0 +1,192 @@
+URL: https://help.gohighlevel.com/support/solutions/articles/48001060529-highlevel-api-documentation
+FETCHED: 2026-11-23T17:07:51.795124
+VIA: direct
+
+HighLevel API Documentation : HighLevel Support Portal
+All
+Articles
+Recent Searches
+Clear all
+No recent searches
+Popular Articles
+Articles
+View all
+Topics
+View all
+Tickets
+View all
+Sorry! nothing found for
+HighLevel API Documentation
+Modified on: Mon, 16 Nov, 2026 at  5:49 AM
+HighLevel provides APIs that allow developers to build custom integrations, automate processes, and connect external applications with the HighLevel platform.
+The APIs support contacts, conversations, calendars, workflows, payments, webhooks, and more.
+API access is available across HighLevel subscription plans. However, certain endpoints and capabilities may require a higher-tier plan.
+Important:
+API V1 reached end-of-support on December 31, 2025. Existing integrations may continue working, but API V1 no longer receives updates or technical support. Developers are encouraged to use supported API versions.
+For complete endpoint references, visit the
+Official HighLevel API Documentation
+.
+HighLevel API Documentation
+The official API documentation provides information about available endpoints, authentication, request parameters, response formats, and supported API versions. Developers can use this documentation to:
+Explore available API endpoints.
+Review authentication requirements.
+Check supported API versions.
+Build and maintain custom integrations.
+Understand endpoint-specific restrictions.
+Note:
+New legacy API key generation is being phased out. Private Integration Tokens and OAuth 2.0 are the recommended authentication methods.
+How to Use Versioned API Documentation
+Versioned API documentation allows developers to reference the correct API version when building or maintaining integrations.
+Open the
+HighLevel API Documentation
+.
+Select the required API version using the version switcher.
+Review the available endpoints, parameters, and response formats.
+Use the appropriate version when developing or updating integrations.
+API V3 is available for supported endpoints. Availability varies by endpoint.
+[Screenshot: API documentation version switcher]
+API Access Across HighLevel Plans
+HighLevel offers API access across its subscription plans, including Starter, Unlimited, and Founder.
+Both OAuth 2.0 and Private Integration Tokens (PIT) are available across plans. However, access to specific API endpoints depends on subscription eligibility, permissions, and scopes.
+API Availability by Plan
+API Capability
+Starter ($97/month)
+Unlimited ($297/month)
+Founder ($497/month)
+OAuth 2.0
+Available
+Available
+Available
+Private Integration Tokens
+Available
+Available
+Available
+Standard API Endpoints
+Available*
+Available
+Available
+Higher-Tier Restricted Endpoints
+Restricted
+Restricted
+Subject to endpoint eligibility
+*Standard endpoint access is subject to applicable permissions and endpoint-specific restrictions.
+For current subscription details, visit
+HighLevel Pricing
+.
+Plan-Restricted API Endpoints
+While standard API access is available across plans, certain operations require higher-tier subscriptions. The following endpoints are currently documented as requiring Founders plan access:
+Endpoint
+Purpose
+Create Sub-Account
+Create sub-accounts programmatically.
+Enable SaaS for Sub-Account
+Enable SaaS functionality for a sub-account.
+Refer to the
+Official API Reference
+for endpoint-specific requirements.
+API Authentication Methods
+HighLevel supports two primary authentication methods for modern API integrations.
+Private Integration Tokens (PIT)
+Private Integration Tokens allow developers to securely connect internal applications to HighLevel. They are suitable for account-specific integrations and allow permissions to be managed through assigned scopes.
+OAuth 2.0
+OAuth 2.0 allows applications to request authorized access to HighLevel accounts. It is commonly used for public integrations, Marketplace applications, and applications requiring user authorization.
+Note:
+The availability of an authentication method does not guarantee access to every API endpoint.
+For setup instructions, see
+Private Integrations: Everything You Need to Know
+.
+What Are the API Rate Limits?
+HighLevel applies rate limits to public API V2 requests using OAuth to maintain performance and stability.
+Limit Type
+Limit
+Burst Limit
+100 requests per 10 seconds
+Daily Limit
+200,000 requests per day
+These limits apply per Marketplace application and resource (Location or Company).
+Rate Limit Response Headers
+API responses include headers that help developers monitor usage:
+X-RateLimit-Limit-Daily
+X-RateLimit-Daily-Remaining
+X-RateLimit-Interval-Milliseconds
+X-RateLimit-Max
+X-RateLimit-Remaining
+Note:
+These are the documented OAuth API V2 limits. Other APIs or Enterprise arrangements may have different limits.
+How to Get Help or Support for HighLevel APIs
+HighLevel Support does not provide custom API development, code auditing, or integration setup services. However, developers can use the following resources:
+API Bugs:
+Developer Support
+Developer Community:
+Join Developer Slack
+Developer Resources:
+HighLevel Developers
+Developer Events:
+HighLevel Events
+How to Request a New API Endpoint
+If an endpoint is not available in the official API documentation, developers can submit a feature request through the
+HighLevel API Documentation GitHub repository
+.
+Review the existing documentation before submitting a request.
+Frequently Asked Questions
+Q: Is API access available on all HighLevel plans?
+Yes. HighLevel provides API access across Starter ($97/month), Unlimited ($297/month), and Founder ($497/month) plans. OAuth 2.0 and Private Integration Tokens (PIT) are available across all plans. However, access to specific API endpoints depends on subscription eligibility, required scopes, and permissions. The Founder Plan, formerly Agency Pro, includes higher-tier API capabilities and access to eligible restricted endpoints.
+For current subscription details, refer to
+HighLevel Pricing
+.
+Q: Are OAuth 2.0 and Private Integration Tokens available on the Starter plan?
+Yes. Both authentication methods are available across plans. Access to specific endpoints depends on permissions, scopes, and plan eligibility.
+Q: What is the difference between Basic and Advanced API Access?
+These terms describe API capabilities associated with subscription tiers. The specific endpoints available depend on the plan and endpoint-level restrictions.
+Q: Does the Founder plan provide access to all API endpoints?
+Not necessarily. Endpoint availability depends on the applicable subscription entitlements, scopes, and API-specific requirements.
+Q: Is API V1 still supported?
+No. API V1 reached end-of-support on December 31, 2025. Existing integrations may continue functioning, but updates and technical support are no longer provided.
+Q: What authentication methods are supported?
+HighLevel supports Private Integration Tokens and OAuth 2.0 for modern API integrations.
+Q: Is API V3 available?
+Yes. API V3 is available for supported endpoints. Developers should review the API documentation for version-specific availability.
+Related Articles
+Private Integrations: Everything You Need to Know
+HighLevel API Documentation
+HighLevel Pricing
+HighLevel Developer Resources
+Was this article helpful?
+No
+Yes
+That’s Great!
+Thank you for your feedback
+Sorry! We couldn't be helpful
+Thank you for your feedback
+Your e-mail address
+*
+Let us know how can we improve this article!
+*
+Need more information
+Difficult to understand
+Inaccurate/irrelevant content
+Missing/broken link
+Select at least one of the reasons
+Please give your comments
+CAPTCHA verification is required.
+Cancel
+Send
+Feedback sent
+We appreciate your effort and will try to fix the article
+Print
+Articles in this Folder
+HighLevel API Documentation
+How to Use Webhook.site to Troubleshoot your API Requests
+How to Get Started with the Developer's Marketplace
+Set Up Your MarketplacApp Pricing
+Configure Marketplace App Listing Type
+Marketplace App Distribution Type
+Related Articles
+Design Kits API – Brand Boards API v3
+TypeScript/JavaScript SDK for OAuth 2.0 Automation
+Affiliate Manager Public API: Overview, Endpoints, and Scopes
+API Center of Excellence | Python and PHP SDKs
+Private Integrations: Everything you need to know
+How to Get Started with the Developer's Marketplace
+X
+0 of 0

@@ -1,0 +1,99 @@
+URL: https://mailchimp.com/developer/marketing/api-concepts/authentication
+FETCHED: 2026-11-23T17:09:02.300206
+VIA: direct
+
+Authentication | Mailchimp | Developer
+For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
+Skip to navigation
+On this page
+Choose a credential
+Authenticate with an API key or OAuth 2 token
+User access and revocation
+Scroll to top
+This page is for Mailchimp Marketing API.
+Every request to the Marketing API carries a credential. There are two kinds,
+and which one you need depends on whose account data you’re reaching for.
+Choose a credential
+An
+API key
+authenticates
+against the account that created it. Use one when your code couples
+your
+application’s data to
+your own
+Mailchimp account. It requires no server to
+handle a redirect, so it’s the fastest way to make a first request.
+OAuth 2
+authenticates
+against an account belonging to someone else. Any integration a third party
+installs needs it.
+You can start development against your own account with a key and move to
+OAuth 2 later; the request-signing mechanics below are identical for both.
+Note
+: We strongly discourage asking your users to paste their API key into
+your application. It gives you full control of their account, it can’t be
+revoked for your application alone, and it makes you responsible for storing
+someone else’s credential.
+If you’re using one of the
+official client libraries
+,
+the library handles the signing details for you.
+Authenticate with an API key or OAuth 2 token
+API keys and OAuth 2 access tokens are sent the same way. We’ll refer to both
+as tokens.
+You can use either HTTP Basic Authentication or Bearer Authentication.
+HTTP Basic Authentication passes the token as the password, with any string as
+the username:
+curl
+--request
+GET
+\
+--url
+'
+https://api.mailchimp.com/3.0/
+'
+\
+--user
+'
+anystring:TOKEN
+'
+Bearer Authentication passes it in the
+Authorization
+header:
+curl
+--request
+GET
+\
+--url
+'
+https://api.mailchimp.com/3.0/
+'
+\
+--header
+'
+Authorization: Bearer TOKEN
+'
+User access and revocation
+Authentication is tied to the user who created the API key or authorized the
+OAuth 2 app, not to the account. If that user is removed from the account, the
+token is revoked.
+Access is also bounded by the
+user level (role)
+of that user, and a role can change over time. An API action the role doesn’t
+permit returns a
+403
+. You can
+check the role attached to a token with the
+API Root endpoint
+,
+and compare what each role allows in
+this chart
+.
+When creating a key or authorizing an app, use an admin user where you can. If
+you’re building an integration, consider telling the user when their role is
+too limited for your application to work.
+Note
+: You are responsible for the security of your tokens; store them in a
+secure location on your server. Because of the risks of exposing a token,
+Mailchimp does not support client-side calls to the Marketing API using CORS
+requests.

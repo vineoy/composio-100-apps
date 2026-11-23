@@ -1,0 +1,187 @@
+URL: https://help.ahrefs.com/en/articles/6559232-about-api-v3
+FETCHED: 2026-11-23T17:33:29.266179
+VIA: direct
+
+About API v3 | Help Center - Ahrefs
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+      This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Copyright (c) 2023, Intercom, Inc. (
+[email protected]
+) with Reserved Font Name "Inter".
+      This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Skip to main content
+About API v3
+Learn about our API v3 and the endpoints that we provide for the tools in our platform
+Written by
+Dania
+September 23, 2026
+Table of contents
+Ahrefs provides data via API via 3 methods:
+Direct API access
+MCP Server
+Ahrefs Connect
+Using
+API v3
+from any of the above methods is possible for
+Lite
+and higher subscription plans, and consume from the same API & Integrations limit.
+What subscription plans can use the Ahrefs API endpoints?
+Each plan includes a certain number of
+API units
+and
+Max rows per request
+:
+Limit
+Lite
+Standard
+Advanced
+Enterprise
+Max rows per request
+(For Direct API and MCP Server)
+100
+250
+500
+Unlimited
+API Integration units / month
+200,000
+800,000
+2,000,000
+Custom
+Custom endpoints
+-
+-
+-
+✓
+Ahrefs API v3 Endpoints
+💡 Full details and documentation about our API v3 here:
+https://docs.ahrefs.com/docs/api/reference/introduction
+Site Explorer
+Overview
+Domain Rating
+Backlinks stats
+Outlinks stats
+Metrics
+Referring Domains History
+Domain Rating history
+URL Rating history
+Pages History
+Metrics History
+Keywords History
+Metrics by Country
+Pages by Traffic
+Total Search Volume History
+Backlinks Profile
+Backlinks
+Broken Backlinks
+Referring Domains
+Anchors
+Organic search
+Organic Keywords
+Organic Competitors
+Top Pages
+Paid search
+Paid Pages
+Pages
+Best by External Links
+Best by Internal Links
+Crawled pages
+Outgoing links
+Linked Domains
+Outgoing External Anchors
+Outgoing Internal Anchors
+Keywords Explorer
+Overview
+Overview: Metrics for a single keyword or a list of keywords
+Volume history
+Volume by country
+Keyword ideas
+Matching terms
+Related terms
+Search suggestions
+Site Audit
+Projects
+Page content
+Page explorer
+Rank Tracker
+Overview
+Competitors Overview
+SERP Overview
+SERP Overview
+Batch Analysis
+Batch Analysis
+Brand Radar
+AI Responses
+Overview
+Overview history
+Subscription Information
+Projects
+Keywords
+Competitors
+Locations and languages
+Keyword lists
+Brand Radar prompts
+Brand Radar reports
+Brand Radar
+AI Visibility
+Overview
+Overview history
+Web Analytics
+Overview
+Traffic Sources
+Pages
+Geography
+User Agents
+GSC Insights
+Overview
+Keywords
+Pages
+Anonymous queries
+Social Media Management
+Channels
+Posts
+Public
+Crawler IP addresses
+Crawler IP ranges
+Custom endpoints are available for users on the
+Enterprise plan
+.
+How Ahrefs API usage is calculated
+All requests and endpoints consume
+API units
+. The cost depends on the number of rows in the response and the fields requested. The minimum cost for any request is
+50 units
+.
+Some API endpoints are free (cost 0 API units), and will be noted accordingly in the documentation:
+Related guide:
+Limits consumption
+Frequently Asked Questions
+Can I still use API v2 directly or through Integrations?
+API v2 has been fully deprecated and can no longer be used, either directly or through Integrations. The new Integrations system is built entirely on API v3. More details can be found
+here
+.
+I'm building an application and would like to integrate the Ahrefs API. Do I have to purchase the Ahrefs API?
+Yes, all new applications require a Lite or higher
+subscription
+for activation. Usage of our API is subjected to our
+Terms of Service
+.
+Can I request for a new API endpoint to be developed?
+We welcome any feature requests for API v3 to our
+Canny board
+. You can also upvote any feature requests made by others that you would also like to see developed.
+Related Articles
+How to monitor daily changes in organic keywords, pages and referring domains in Site Explorer
+What's the difference between all Ahrefs subscription plans?
+Efficient Ways to Handle Repetitive Tasks in Ahrefs
+What can I use for free in Ahrefs?
+Getting started with Ahrefs MCP
+Did this answer your question?
+Disappointed Reaction
+😞
+Neutral Reaction
+😐
+Smiley Reaction
+😃
+Table of contents

@@ -1,0 +1,117 @@
+URL: https://developers.squarespace.com/commerce-apis/authentication-and-permissions
+FETCHED: 2026-11-23T17:27:55.443813
+VIA: direct
+
+Squarespace Developer Platform: APIs, Apps, and Docs
+Menu
+Authentication and permissions
+To keep Squarespace merchant site data private and secure,
+every request to Commerce APIs must be authenticated and have
+minimum
+permissions.
+However, authenticated requests automatically have access to public site data,
+such as site name, identifier, language, currency, time zone, and location.
+Read the permission levels for each Commerce API below.
+Then, depending on your development needs,
+authenticate requests by using an API key or OAuth access token.
+Remember: Requests only have access to data for
+the website that owns the API key or OAuth access token.
+API permission levels
+Forms API
+Read Only
+: View form submission data; for Zapier integration only
+Inventory API
+Read Only
+: View inventory stock levels
+Read and Write
+: Manage inventory stock levels
+Orders API
+Read Only
+: View order, fulfillment, and customer information (name, email, address, and more)
+Read and Write
+: View customer information (name, email, address, and more); manage order and fulfillment information
+Products API
+Read Only
+: View product information, including information for any images and variants; view Store Page information
+Read and Write
+: Manage product information, including information for any images and variants; view Store Page information
+Contacts API
+Read Only
+: View contact records, address books, and marketing preferences
+Read and Write
+: Manage contact records, address books, and marketing preferences
+Discounts API
+Read Only
+: View discount records
+Read and Write
+: Manage discount records
+Webhook Subscriptions API
+(OAuth only)
+Read and Write
+: Create, update, delete, and test webhook subscriptions
+Profiles API
+(maintenance mode — new integrations should use the
+Contacts API
+)
+Read Only
+: View the name, address, email, marketing preferences, and other profile information of customers, subscribers, and other website users
+Transactions API
+Read Only
+: View transactional order, donation data, and customer information (email)
+Authenticating requests
+Depending on your development needs,
+you can use a generated API key or start the OAuth process with Squarespace
+to become a registered OAuth client. A Squarespace merchant site can use both
+API keys and OAuth for data access, but Squarespace Extensions are required to use OAuth.
+Custom applications
+With
+Squarespace's Commerce Advanced
+plan,
+you can develop a custom application for a Squarespace merchant site.
+Follow the steps below to generate an API key for a custom application.
+Log in to a Squarespace site.
+In the left nav, click
+Settings
+; scroll down and click
+Advanced
+.
+Click
+Developer API Keys
+.
+Click the
+GENERATE KEY
+button.
+In the dialog, add a key name under "KEY NAME",
+and select one or more Commerce APIs under "PERMISSIONS" and permission level.
+Record the generated key in a safe and secure place.
+For security reasons, this is the only time the API key is visible.
+API keys will never expire as long as the merchant site remains active.
+Commercial development
+Squarespace Extensions allow customers on any plan
+to optimize and expand their site in a few clicks.
+If you'd like to develop a new Extension,
+start the OAuth client process
+here
+.
+Once you've obtained OAuth credentials, you can use our
+OAuth 2.0 Guide
+to learn how to authorize your application to integrate with Squarespace and use Squarespace APIs.
+Registering an OAuth client, and having it reviewed and approved, only allows OAuth connections with Squarespace.
+It doesn't list your application in
+Squarespace Extensions
+, which is a separate process.
+Next steps
+Make requests to Commerce APIs
+Read the
+FAQ
+for answers to common questions
+Read our
+brand guidelines
+Overview
+OAuth
+On this page
+API permission levels
+Authenticating requests
+Custom applications
+Commercial development
+Next steps

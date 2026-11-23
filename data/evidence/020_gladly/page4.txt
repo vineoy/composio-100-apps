@@ -1,0 +1,10259 @@
+URL: https://developer.gladly.com/rest/
+FETCHED: 2026-11-23T16:54:41.574067
+VIA: direct
+
+Gladly API
+Introducing the Gladly API
+Overview
+REST API
+Lookup API
+Testing
+Getting Started
+Permissions
+Creating API Tokens
+Replacing/Rotating API Tokens
+Authentication
+REST API
+Agents
+get
+List Agents
+get
+Get Agent
+get
+Get Agent Availability
+get
+Get Agent CallRecorder
+patch
+Update Agent CallRecorder
+Public Answer
+get
+Search public answers
+get
+List public answers
+get
+List Help Center Answer Titles
+get
+Get public answer
+Answer Management
+get
+Get answers
+post
+Add answer
+get
+Get Answer
+patch
+Update Answer
+del
+Delete Answer
+get
+Get Answer Content
+put
+Add or Update Answer Content
+del
+Delete Answer Content
+Audiences
+get
+List Audiences
+Business Hours
+get
+List business hours
+post
+Create business hours
+get
+Get business hours
+put
+Update business hours
+del
+Delete business hours
+Communications
+post
+Send SMS
+post
+Send email
+Conversations
+Conversation
+Conversation Items
+get
+Get conversations for customer
+get
+Get conversation
+patch
+Update conversation
+post
+Create item
+get
+Get item
+del
+Delete item
+get
+Get media
+get
+Get voice transcript
+get
+Get attachment
+post
+Create item for customer
+del
+Delete item for customer
+get
+List items in conversation
+post
+Add Topics to Conversation
+del
+Delete Topic from Conversation
+post
+Add or Remove Freeform topic
+post
+Add note
+get
+Get note
+post
+Reply to message
+post
+Redact conversation item
+Customers
+post
+Create customer
+get
+Find customers
+get
+Get customer
+patch
+Update customer
+del
+Delete customer
+Endpoints
+get
+List Endpoints
+get
+Get Endpoint
+Events
+get
+List events
+Export
+get
+List schedules
+get
+List jobs
+get
+Get job
+del
+Delete job
+get
+Get file
+Freeform Topics
+get
+Get custom attribute
+Inboxes
+get
+List inboxes
+get
+Get inbox
+post
+Add or remove inbox agents
+Organization
+get
+Get organization
+Proactive Conversations
+post
+Create recipient collection for an existing proactive campaign
+Reports
+post
+Generate a report
+post
+Generate a work session report
+Tasks
+post
+Create task
+post
+Create task for customer
+get
+List tasks
+patch
+Update task
+get
+Get task
+post
+Add or remove task topics
+post
+Add or remove task freeform topics
+post
+Add task comment
+get
+Get task comments
+get
+Get task comment
+Teams
+get
+List teams
+get
+Get team
+User Identity
+post
+Create a User Identity JWT
+Topics
+get
+List Topics
+post
+Add Topic
+get
+Get Topic
+patch
+Update Topic
+Webhooks
+post
+Create webhook
+get
+List webhooks
+patch
+Update webhook
+del
+Delete webhook
+get
+Get webhook
+Webhooks
+Summary
+Securing Webhooks
+Ping Event
+Retry Policy
+Logs
+Payloads
+Available Events
+Payloads
+post
+Events
+Lookup API
+Customer Lookup
+Resources
+Versioning
+URL Path Versioning
+Backwards Compatible Changes
+Non-Backwards Compatible Changes
+Error Handling
+Common Status Codes
+Programmatic Remediation
+Rate Limit
+Default Rate Limit
+Reporting API Rate Limit
+Handling Rate Limit
+Rich Content
+Launching Soon
+New Integrations
+New APIs
+Documentation Powered by ReDoc
+Gladly API
+(
+1.0
+)
+Download OpenAPI specification:
+Download
+Introducing the Gladly API
+At Gladly, we believe that customer service is best when it's a conversation.
+That means more than just helping customers with one-off questions or issues: it's about making them feel known, valued, and respected for the individuals they are.
+The Gladly API was built to help facilitate those relationships, providing agents with the rich customer context
+they need to deliver seamless experiences that make customers feel like they're more than just a number in a sea of others.
+Overview
+You can integrate easily with Gladly by calling Gladly's
+REST API
+and implementing the
+Lookup API
+to provide data from your own services.
+Some examples of what you do through Gladly APIs include managing customer profile data, interacting with a customer's timeline,
+providing the latest information about a customer's orders, and more.
+REST API
+Clients can access the
+REST API
+via HTTPS at your organization's Gladly domain (e.g.
+https://{organization}.gladly.com
+).
+Resources follow REST semantics and utilize industry-standard HTTP verbs, response codes, and authentication schemes.
+In addition, all responses and payloads are in JSON with consistent error codes and formats.
+Lookup API
+The Gladly
+Lookup API
+allows your organization to provide data services to power the agent's experience with a complete view of your customers'
+information, transactions, and activity. You can provide a web service that implements the Lookup API and Gladly will call it when that data is needed.
+Like the REST API, the Lookup API is specified using REST semantics, and exchanges JSON requests and responses authenticated and signed with secure keys.
+Gladly will perform lookups when certain activities occur within Gladly, such as when a customer's profile is loaded.
+A detailed overview of Lookup Adaptor architecture, requests, resposnes and more can be found
+here
+.
+Testing
+Test the myriad possibilities of the Gladly API in a safe, secure space. We'll enable the Gladly API in a separate sandbox environment, so you can experiment freely without impacting your production environment (or vice versa).
+Your sandbox environment is accessible at
+https://{organization}.gladly.qa
+, where
+organization
+is your company name. For specific API endpoints, see documentation below.
+Getting Started
+Think of this section as getting the keys to unlocking your access to the Gladly APIs.
+First, you'll need to set up an account with the necessary API
+permissions
+.
+With these permissions, you can then go on to create the
+API Token(s)
+you need to access Gladly's API
+resources
+.
+Permissions
+Gladly Administrators can set API permissions on an agent-by-agent basis.
+We'll discuss how this maps to API access in the section on
+authentication
+below.
+To allow a user to create API tokens and access the API:
+Log in to your Gladly instance.
+Open the menu on the top left-hand corner of the page.
+Navigate to
+Settings
+>
+*Users
+Search and click the user profile you wish to give access to.
+You'll see a permission called
+API User
+. Select it, while making sure to keep the user's
+Agent
+role intact.
+Hit
+Save
+to give access.
+We recommend creating a dedicated user to make API calls, whose account won't be used for agent and organization management.
+This will help you with any future audits of API activity vs. agent activity.
+Creating API Tokens
+You must create an API token to access Gladly API resources (see above
+Permissions
+).
+If your profile already has access to the
+API User
+permission, you'll see a menu item titled
+More settings
+. Click
+More settings
+:
+Click
+API Tokens
+, then the
+Create Token
+button on the upper right-hand corner of the page:
+A token will be generated and named, by default,
+New Token
+(though depending on whether you have existing tokens, it may be named New Token 2, or New Token 3, etc.).
+You can rename the token to something more easily referenceable by clicking the name to edit.
+This token will be associated with your agent profile, which we refer to as the API User in this document.
+For security purposes, you'll only see a new token once before you navigate away from the page.
+Replacing/Rotating API Tokens
+Should you lose this token, or wish to rotate your application keys, you can do the following:
+Generate a new token.
+Store the new token in a secure location.
+Delete the old token.
+Update your applications/scripts with the new token.
+Authentication
+BasicAuth
+Gladly API uses token-based
+Basic Authentication
+. API tokens are associated with designated Gladly users.
+To create and use an API token, your user must have the API User permission. An API token can be used to perform any API request without restriction.
+user name
+password
+agent email
+API token
+The credentials must be passed via an
+Authorization
+HTTP header. All requests must be made over HTTPS.
+curl
+-u user@organization.com:
+$GLADLY_API_TOKEN
+\
+https://organization.gladly.com/api/v1/organization
+Security Scheme Type
+HTTP
+HTTP Authorization Scheme
+basic
+Agents
+An
+Agent
+represents the user profile of a person who helps customers in Gladly.
+The API allows you to lookup Agents who participated in conversations with customers.
+List Agents
+Returns a list of agents.
+Responses
+200
+Agents
+get
+/api/v1/agents
+https://organization.gladly.com
+/api/v1/agents
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"name"
+:
+"Amy Agent"
+,
+"emailAddress"
+:
+"amy.agent@company.com"
+}
+]
+Get Agent
+Get an agent profile by their unique id.
+path
+Parameters
+agentId
+required
+string
+Example:
+WmeA3Y51Q5ayCAaZ1AotIA
+id of the agent
+Responses
+200
+Agent
+get
+/api/v1/agents/{agentId}
+https://organization.gladly.com
+/api/v1/agents/{agentId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"name"
+:
+"Amy Agent"
+,
+"emailAddress"
+:
+"amy.agent@company.com"
+}
+Get Agent Availability
+Get an agent's availability. An agent who has never logged in is
+OFFLINE
+.
+path
+Parameters
+agentId
+required
+string
+Example:
+WmeA3Y51Q5ayCAaZ1AotIA
+id of the agent
+Responses
+200
+AgentAvailability
+404
+Agent not found
+get
+/api/v1/agents/{agentId}/availability
+https://organization.gladly.com
+/api/v1/agents/{agentId}/availability
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"agentId"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"status"
+:
+"AWAY"
+,
+"reason"
+:
+{
+"id"
+:
+"eRaHXjD4li-moMR8LbULXc"
+,
+"name"
+:
+"Lunch"
+}
+,
+"channels"
+:
+[
+"MAIL"
+,
+"MESSAGING"
+]
+,
+"updatedAt"
+:
+"2026-06-22T09:00:00.000Z"
+}
+Get Agent CallRecorder
+Get an agent call recording status.
+path
+Parameters
+agentId
+required
+string
+Example:
+WmeA3Y51Q5ayCAaZ1AotIA OR agent@customer.com
+Gladly ID or Gladly email address of the agent
+Responses
+200
+CallRecorder
+404
+Agent not found
+get
+/api/v1/agents/{agentId}/call-recorder
+https://organization.gladly.com
+/api/v1/agents/{agentId}/call-recorder
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"agentId"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"customerId"
+:
+"ZcyobierQhucTS5GV1R2Fw"
+,
+"conversationItemId"
+:
+"g6UatsvAQC69AcDpOKF-yQ"
+,
+"recording"
+:
+true
+}
+Update Agent CallRecorder
+Update an agent's active call recording status. This API allows changing the
+recording
+property.
+path
+Parameters
+agentId
+required
+string
+Example:
+WmeA3Y51Q5ayCAaZ1AotIA OR agent@customer.com
+Gladly ID or Gladly email address of the agent
+Request Body schema:
+application/json
+JSON patch of CallRecorder
+agentId
+string
+Id of the agent
+customerId
+string
+Id of the customer on the call, if the agent is on a call. If the agent is not on a call this is omitted
+conversationItemId
+string
+Id of the conversation item of the call, if the agent is on a call. If the agent is not on a call this is omitted
+recording
+boolean
+If the call is currently being recorded or not
+Responses
+204
+Call recording updated. If an agent is not on a call the update will do nothing.
+404
+Agent not found
+patch
+/api/v1/agents/{agentId}/call-recorder
+https://organization.gladly.com
+/api/v1/agents/{agentId}/call-recorder
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"recording"
+:
+false
+}
+Response samples
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+{
+"code"
+:
+"not_exist"
+,
+"detail"
+:
+"agent WmeA3Y51Q5ayCAaZ1AotIA does not exist"
+}
+}
+Public Answer
+A
+Public Answer
+in Gladly represents a consumer-facing Answer.
+The Public Answers API allows you to search and retrieve Public Answers (created
+directly in the Gladly UI), which you can display in the Chat
+web widget, use to build your website's help center/FAQ page, or publish
+on any page on your website.
+This API can be used without an API token because it only provides access to
+public content. You may also work with Gladly Support to
+enable
+CORS
+access so the API can be used directly from client-side javascript.
+How a user creates a public answer in Gladly
+How that answer is searched and displayed on the Chat Web widget
+Search public answers
+Returns a list of answers that match the provided query string.
+path
+Parameters
+orgId
+required
+string
+Example:
+ihKsWxiZCDVtXg1iwVmT9Q
+id of your organization
+You can look up the ID using the
+Get organization
+API.
+query
+Parameters
+q
+string
+Example:
+q=reset%20password
+search term
+lng
+string
+Example:
+lng=en-us
+language code
+audienceId
+string
+Example:
+audienceId=en-us
+Audience ID. The Audience ID can be retrieved by going to Settings > Audiences in Gladly, then clicking on the Edit button next to the Audience in question. The ID will be in the page URL.
+Responses
+200
+found answers
+get
+/api/v1/orgs/{orgId}/answers-search?q=search+terms
+https://organization.gladly.com
+/api/v1/orgs/{orgId}/answers-search?q=search+terms
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+}
+]
+List public answers
+Returns the first 1000 public answers sorted alphabetically by name.
+path
+Parameters
+orgId
+required
+string
+Example:
+ihKsWxiZCDVtXg1iwVmT9Q
+id of your organization
+You can look up the ID using the
+Get organization
+API.
+query
+Parameters
+lng
+string
+Example:
+lng=es-419
+Language of the answers returned
+Defaults to
+en-us
+audienceId
+string
+Example:
+audienceId=ihKsWxiZCDVtXg1iwVmT9Q
+Audience ID for answers returned - optional. The Audience ID can be retrieved by going to Settings > Audiences in Gladly, then clicking on the Edit button next to the Audience in question. The ID will be in the page URL.
+Responses
+200
+answers
+get
+/api/v1/orgs/{orgId}/answers?lng={lng}&audienceId={audienceId}
+https://organization.gladly.com
+/api/v1/orgs/{orgId}/answers?lng={lng}&audienceId={audienceId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+,
+"bodyHtml"
+:
+"<div><a href=\"/reset-password\">Click here</a> to reset your password</div>"
+,
+"language"
+:
+"en-us"
+,
+"updatedAt"
+:
+"2023-05-22T10:00:00.000Z"
+}
+]
+List Help Center Answer Titles
+Returns an array of answers configured in Help Center sections with their ID and name
+path
+Parameters
+orgId
+required
+string
+Example:
+ihKsWxiZCDVtXg1iwVmT9Q
+id of your organization
+You can look up the ID using the
+Get organization
+API.
+helpCenterId
+required
+string
+Example:
+ihKsWxiZCDVtXg1iwVmT9Q
+Help Center ID
+You can look up the ID by going to Settings > Help Center in Gladly, then clicking on the 3 dots next to the Help Center and selecting Configure. Help Center ID will be in the URL
+query
+Parameters
+lng
+string
+Example:
+lng=es-419
+Language of the answers returned
+Defaults to
+en-us
+audienceId
+string
+Example:
+audienceId=ihKsWxiZCDVtXg1iwVmT9Q
+Audience ID for answers returned - optional. The Audience ID can be retrieved by going to Settings > Audiences in Gladly, then clicking on the Edit button next to the Audience in question. The ID will be in the page URL.
+Responses
+200
+answers
+get
+/api/v1/orgs/{orgId}/help-center/{helpCenterId}/answer-titles?lng={lng}&audienceId={audienceId}
+https://organization.gladly.com
+/api/v1/orgs/{orgId}/help-center/{helpCenterId}/answer-titles?lng={lng}&audienceId={audienceId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+}
+]
+Get public answer
+Returns the answer with the provided id.
+path
+Parameters
+orgId
+required
+string
+Example:
+ihKsWxiZCDVtXg1iwVmT9Q
+id of your organization
+You can look up the ID using the
+Get organization
+API.
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+query
+Parameters
+lng
+string
+Example:
+lng=en-us
+language code
+Responses
+200
+answer
+get
+/api/v1/orgs/{orgId}/answers/{answerId}
+https://organization.gladly.com
+/api/v1/orgs/{orgId}/answers/{answerId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+,
+"bodyHtml"
+:
+"<div><a href=\"/reset-password\">Click here</a> to reset your password</div>"
+,
+"language"
+:
+"en-us"
+,
+"updatedAt"
+:
+"2023-05-22T10:00:00.000Z"
+}
+Answer Management
+The
+Answer Management API
+allows you to create, update, and delete Answers in Gladly. To create an Answer with content, two calls would be needed. 
+One call to create an Answer and subsequent call(s) to add content(s)
+Get answers
+Returns every answer in the org, including the
+availableContents
+discovery map on each. Intended as the entry point for syncing answers to an external system. Unlike
+List public answers
+(which lists help-center public answers in a single language), this endpoint returns all answers regardless of content type or language.
+Responses
+200
+answers
+get
+/api/v1/answers
+https://organization.gladly.com
+/api/v1/answers
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+,
+"description"
+:
+"This is my first answer"
+,
+"audienceIds"
+:
+[
+"audience-1"
+,
+"audience-2"
+]
+,
+"availableContents"
+:
+{
+"en-us"
+:
+[
+"REFERENCE"
+]
+}
+,
+"updatedAt"
+:
+"2024-06-13T15:16:29.894Z"
+,
+"createdAt"
+:
+"2024-06-13T15:16:29.894Z"
+}
+]
+Add answer
+Adds an answer to the list of answers.
+Request Body schema:
+application/json
+id
+string
+unique answer id - optional (a new id will be generated if not provided)
+name
+string
+Customer facing answer name
+description
+string
+Answer description gives more information about the answer to the Agent and appears in Answers Search when an Agent searches for an email or messaging answer. Only available for email and messaging content types
+audienceIds
+Array of
+strings
+List of Audience IDs to be associated with the answer
+Responses
+200
+Added answer
+400
+Bad Request
+409
+Specified id is in use
+post
+/api/v1/answers
+https://organization.gladly.com
+/api/v1/answers
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"How to reset your password"
+,
+"description"
+:
+"This is my first answer"
+,
+"audienceIds"
+:
+[
+"audience-1"
+,
+"audience-2"
+]
+}
+Response samples
+200
+400
+409
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+,
+"description"
+:
+"This is my first answer"
+,
+"audienceIds"
+:
+[
+"audience-1"
+,
+"audience-2"
+]
+,
+"createdAt"
+:
+"2024-06-13T15:16:29.894Z"
+}
+Get Answer
+Returns the answer requested.
+path
+Parameters
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+Responses
+200
+answer
+404
+Answer does not exist
+get
+/api/v1/answers/{answerId}
+https://organization.gladly.com
+/api/v1/answers/{answerId}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"name"
+:
+"How to reset your password"
+,
+"description"
+:
+"This is my first answer"
+,
+"audienceIds"
+:
+[
+"audience-1"
+,
+"audience-2"
+]
+,
+"availableContents"
+:
+{
+"en-us"
+:
+[
+"REFERENCE"
+]
+}
+,
+"updatedAt"
+:
+"2024-06-13T15:16:29.894Z"
+,
+"createdAt"
+:
+"2024-06-13T15:16:29.894Z"
+}
+Update Answer
+Updates the answer with the provided id.
+path
+Parameters
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+Request Body schema:
+application/json
+name
+string
+Customer facing answer name
+description
+string
+Answer description gives more information about the answer to the Agent and appears in Answers Search when an Agent searches for an email or messaging answer. Only available for email and messaging content types
+audienceIds
+Array of
+strings
+List of Audience IDs to be associated with the answer. Updating this will replace the existing set of audience IDs. The Audience API can be used to retrieve the audience IDs created for the org.
+Responses
+204
+Answer updated
+400
+Bad Request
+404
+Answer does not exist
+patch
+/api/v1/answers/{answerId}
+https://organization.gladly.com
+/api/v1/answers/{answerId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"How to reset your password"
+,
+"description"
+:
+"This is my first answer"
+,
+"audienceIds"
+:
+[
+"audience-1"
+,
+"audience-2"
+]
+}
+Response samples
+400
+404
+Content type
+application/json
+Example
+name already taken
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"name"
+,
+"code"
+:
+"taken"
+,
+"detail"
+:
+"duplicate answer name"
+}
+]
+}
+Delete Answer
+Deletes the answer with the provided id.
+path
+Parameters
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+Responses
+204
+Answer deleted
+400
+Bad Request
+404
+Answer does not exist
+delete
+/api/v1/answers/{answerId}
+https://organization.gladly.com
+/api/v1/answers/{answerId}
+Response samples
+400
+404
+Content type
+application/json
+Example
+answer associated with rules
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"answer"
+,
+"code"
+:
+"in_use"
+,
+"detail"
+:
+"answer is associated with rules"
+}
+]
+}
+Get Answer Content
+Returns the answer content requested by language and type.
+Note:
+For
+email
+type answers, if the subject line is empty, the API will return
+204 No Content
+instead of a response body.
+path
+Parameters
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+language
+required
+string
+Example:
+en-us
+Language code according to ISO 639 format. The specified language must also be configured for the org.
+type
+required
+string
+Example:
+public
+Type of answer. Must be one of
+public
+,
+email
+,
+messaging
+, or
+reference
+.
+Responses
+200
+answerContent
+204
+No content. Returned for email type answers when the subject line is empty.
+400
+Bad Request
+404
+Answer content does not exist
+get
+/api/v1/answers/{answerId}/languages/{language}/type/{type}
+https://organization.gladly.com
+/api/v1/answers/{answerId}/languages/{language}/type/{type}
+Response samples
+200
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"answerId"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"language"
+:
+"en-us"
+,
+"type"
+:
+"public"
+,
+"bodyHtml"
+:
+"<div>Public content</div>"
+,
+"title"
+:
+"Reset Password"
+,
+"subject"
+:
+"Re: Your inquiry"
+,
+"internal"
+:
+false
+}
+Add or Update Answer Content
+Adds or Updates the answer content for the specified answer by language and type.
+path
+Parameters
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+language
+required
+string
+Example:
+en-us
+Language code according to ISO 639 format. The specified language must also be configured for the org.
+type
+required
+string
+Enum
+:
+"public"
+"email"
+"messaging"
+"reference"
+Example:
+public
+Type of answer. Must be one of
+public
+,
+email
+,
+messaging
+, or
+reference
+.
+Request Body schema:
+application/json
+The request body fields depend on the content type:
+public
+:
+bodyHtml
+(required),
+title
+(required)
+email
+:
+bodyHtml
+(required),
+subject
+(required)
+messaging
+:
+bodyHtml
+(required)
+reference
+:
+bodyHtml
+(required),
+internal
+(optional, defaults to false)
+bodyHtml
+string
+The body of the answer content. Required for all content types.
+title
+string
+Title of the answer content. Required for
+public
+type.
+subject
+string
+Subject line of the answer content. Required for
+email
+type.
+internal
+boolean
+Whether the content is internal-only. Applicable to
+reference
+type.
+Responses
+200
+Added/Updated answer content
+400
+Bad Request
+404
+Answer does not exist
+put
+/api/v1/answers/{answerId}/languages/{language}/type/{type}
+https://organization.gladly.com
+/api/v1/answers/{answerId}/languages/{language}/type/{type}
+Request samples
+Payload
+Content type
+application/json
+Example
+Example of public answer content
+Copy
+Expand all
+Collapse all
+{
+"bodyHtml"
+:
+"<div>Navigate to Settings and click Reset Password.</div>"
+,
+"title"
+:
+"How to reset your password"
+}
+Response samples
+200
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"answerId"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"language"
+:
+"en-us"
+,
+"type"
+:
+"public"
+,
+"bodyHtml"
+:
+"<div>Public content</div>"
+,
+"title"
+:
+"Reset Password"
+,
+"subject"
+:
+"Re: Your inquiry"
+,
+"internal"
+:
+false
+}
+Delete Answer Content
+Deletes the answer content for the specified answer by language and type.
+path
+Parameters
+answerId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the answer
+language
+required
+string
+Example:
+en-us
+Language code according to ISO 639 format. The specified language must also be configured for the org.
+type
+required
+string
+Example:
+public
+Type of answer. Must be one of
+public
+,
+email
+,
+messaging
+, or
+reference
+.
+Responses
+204
+Answer content deleted
+400
+Bad Request
+404
+Does not exist
+delete
+/api/v1/answers/{answerId}/languages/{language}/type/{type}
+https://organization.gladly.com
+/api/v1/answers/{answerId}/languages/{language}/type/{type}
+Response samples
+400
+404
+Content type
+application/json
+Example
+invalid language
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"language"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"invalid language"
+}
+]
+}
+Audiences
+An
+Audience
+represents a brand (or segment) specially for a multi-brand company. They are used to categorize Answers, Help Centers and Chats for the specific brands.
+The API allows you to lookup the audiences that have been created for the organization.
+List Audiences
+Returns a list of audiences.
+Responses
+200
+Audiences
+get
+/api/v1/audiences
+https://organization.gladly.com
+/api/v1/audiences
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"3cIEsaYcQTSFfECpBhGL6Q"
+,
+"name"
+:
+"Retale - USA"
+}
+]
+Business Hours
+Business Hours
+define the operating schedule for your organization. They determine when your organization is available to handle customer communications and can be used to control routing, auto-responses, and other time-sensitive workflows.
+Business hours configurations include:
+Schedule blocks
+for each day of the week specifying start and end times
+Timezone
+in IANA format (e.g., America/Los_Angeles)
+Exceptions
+for holidays or special dates
+One business hours configuration is marked as
+primary
+and serves as the default schedule for your organization. The primary business hours cannot be deleted.
+List business hours
+Returns a list of all business hours configurations for your organization.
+Responses
+200
+Business hours
+get
+/api/v1/business-hours
+https://organization.gladly.com
+/api/v1/business-hours
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"bh_WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"version"
+:
+1
+,
+"createdAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"updatedAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"name"
+:
+"Default Hours"
+,
+"primary"
+:
+true
+,
+"officeHours"
+:
+{
+"timezone"
+:
+"America/Los_Angeles"
+,
+"monday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"tuesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"wednesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"thursday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"friday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+}
+}
+]
+Create business hours
+Creates a new business hours configuration for your organization.
+Request Body schema:
+application/json
+Business hours configuration to create
+name
+required
+string
+Name of the business hours configuration (max 200 characters)
+primary
+boolean
+Default:
+false
+Whether this should be the primary business hours configuration
+officeHours
+required
+object
+(
+OfficeHours
+)
+Responses
+201
+Business hours created
+400
+Validation error
+post
+/api/v1/business-hours
+https://organization.gladly.com
+/api/v1/business-hours
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"Weekend Support"
+,
+"primary"
+:
+false
+,
+"officeHours"
+:
+{
+"timezone"
+:
+"America/Los_Angeles"
+,
+"saturday"
+:
+[
+{
+"start"
+:
+"10:00"
+,
+"stop"
+:
+"16:00"
+}
+]
+,
+"sunday"
+:
+[
+{
+"start"
+:
+"10:00"
+,
+"stop"
+:
+"16:00"
+}
+]
+}
+}
+Response samples
+201
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"bh_WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"version"
+:
+1
+,
+"createdAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"updatedAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"name"
+:
+"Default Hours"
+,
+"primary"
+:
+true
+,
+"officeHours"
+:
+{
+"timezone"
+:
+"America/Los_Angeles"
+,
+"monday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"tuesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"wednesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"thursday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"friday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"saturday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"sunday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"exceptions"
+:
+[
+{
+"name"
+:
+"New Year's Day"
+,
+"start"
+:
+"2024-01-01T00:00:00Z"
+,
+"stop"
+:
+"2024-01-02T00:00:00Z"
+,
+"scheduleBlocks"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+}
+]
+}
+}
+Get business hours
+Returns a single business hours configuration by its unique ID.
+path
+Parameters
+businessHoursId
+required
+string
+Example:
+bh_WmeA3Y51Q5ayCAaZ1AotIA
+ID of the business hours configuration
+Responses
+200
+Business hours
+404
+Business hours not found
+get
+/api/v1/business-hours/{businessHoursId}
+https://organization.gladly.com
+/api/v1/business-hours/{businessHoursId}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"bh_WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"version"
+:
+1
+,
+"createdAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"updatedAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"name"
+:
+"Default Hours"
+,
+"primary"
+:
+true
+,
+"officeHours"
+:
+{
+"timezone"
+:
+"America/Los_Angeles"
+,
+"monday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"tuesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"wednesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"thursday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"friday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"saturday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"sunday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"exceptions"
+:
+[
+{
+"name"
+:
+"New Year's Day"
+,
+"start"
+:
+"2024-01-01T00:00:00Z"
+,
+"stop"
+:
+"2024-01-02T00:00:00Z"
+,
+"scheduleBlocks"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+}
+]
+}
+}
+Update business hours
+Updates an existing business hours configuration. The
+version
+field must match the current version of the business hours to prevent conflicting updates.
+path
+Parameters
+businessHoursId
+required
+string
+Example:
+bh_WmeA3Y51Q5ayCAaZ1AotIA
+ID of the business hours configuration
+Request Body schema:
+application/json
+Updated business hours configuration
+version
+required
+integer
+Current version of the business hours (for optimistic concurrency)
+name
+required
+string
+Name of the business hours configuration (max 200 characters)
+primary
+boolean
+Whether this should be the primary business hours configuration
+officeHours
+required
+object
+(
+OfficeHours
+)
+Responses
+200
+Business hours updated
+400
+Validation error
+404
+Business hours not found
+409
+Version conflict
+put
+/api/v1/business-hours/{businessHoursId}
+https://organization.gladly.com
+/api/v1/business-hours/{businessHoursId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"version"
+:
+1
+,
+"name"
+:
+"Updated Business Hours"
+,
+"primary"
+:
+false
+,
+"officeHours"
+:
+{
+"timezone"
+:
+"America/New_York"
+,
+"monday"
+:
+[
+{
+"start"
+:
+"08:00"
+,
+"stop"
+:
+"18:00"
+}
+]
+,
+"tuesday"
+:
+[
+{
+"start"
+:
+"08:00"
+,
+"stop"
+:
+"18:00"
+}
+]
+,
+"wednesday"
+:
+[
+{
+"start"
+:
+"08:00"
+,
+"stop"
+:
+"18:00"
+}
+]
+,
+"thursday"
+:
+[
+{
+"start"
+:
+"08:00"
+,
+"stop"
+:
+"18:00"
+}
+]
+,
+"friday"
+:
+[
+{
+"start"
+:
+"08:00"
+,
+"stop"
+:
+"18:00"
+}
+]
+}
+}
+Response samples
+200
+400
+404
+409
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"bh_WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"version"
+:
+1
+,
+"createdAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"updatedAt"
+:
+"2024-01-15T09:00:00Z"
+,
+"name"
+:
+"Default Hours"
+,
+"primary"
+:
+true
+,
+"officeHours"
+:
+{
+"timezone"
+:
+"America/Los_Angeles"
+,
+"monday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"tuesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"wednesday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"thursday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"friday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"saturday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"sunday"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+,
+"exceptions"
+:
+[
+{
+"name"
+:
+"New Year's Day"
+,
+"start"
+:
+"2024-01-01T00:00:00Z"
+,
+"stop"
+:
+"2024-01-02T00:00:00Z"
+,
+"scheduleBlocks"
+:
+[
+{
+"start"
+:
+"09:00"
+,
+"stop"
+:
+"17:00"
+}
+]
+}
+]
+}
+}
+Delete business hours
+Deletes a business hours configuration. The primary business hours configuration cannot be deleted.
+path
+Parameters
+businessHoursId
+required
+string
+Example:
+bh_WmeA3Y51Q5ayCAaZ1AotIA
+ID of the business hours configuration
+Responses
+204
+Business hours deleted
+400
+Cannot delete primary business hours
+404
+Business hours not found
+delete
+/api/v1/business-hours/{businessHoursId}
+https://organization.gladly.com
+/api/v1/business-hours/{businessHoursId}
+Response samples
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"cannot delete primary business hours"
+}
+]
+}
+Communications
+Communications API enables you to programmatically send messages to your customers. These messages are non-routable and non-searchable.
+Agent View
+Consumer View
+Send SMS
+To send an SMS message to a customer specified by a mobile phone number.
+Gladly can send outbound SMS messages globally. By default, your organization is set up to only allow access to your home country.  To send SMS messages to other countries, please contact
+Gladly Support
+with a P4 designation.
+Please be aware that:
+Any automated outbound text messages
+must
+comply with carrier
+acceptable use policies
+(e.g.: if sending automated messages about order status, make sure customers can explicitly opt-in to text messages), including registering your SMS use cases carriers.
+Text messages send in
+segments
+and you pay per segment. We highly recommend using the
+segment calculator
+when crafting automated outbound text messages.
+Each type of phone number has a
+Message Segments per Second limit
+.
+Request Body schema:
+application/json
+SMS to send
+customer
+required
+object
+(
+customer with mobile number
+)
+from
+required
+string
+(
+mobile number
+)
+body
+required
+string
+(
+SMS message
+)
+Responses
+200
+the customer and conversation item ID
+400
+Invalid field(s) in request body
+post
+/api/v1/communications/sms
+https://organization.gladly.com
+/api/v1/communications/sms
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"customer"
+:
+{
+"mobileNumber"
+:
+"+14152223000"
+}
+,
+"from"
+:
+"+14152223316"
+,
+"body"
+:
+"hello, this is a sample SMS message!"
+}
+Response samples
+200
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"conversationItemId"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+}
+Send email
+Used to send an email messages to a customer specified by an email address.
+Any items created using this API will not be considered part of a conversation, and are
+non-routable
+and
+non-searchable
+aside from the email address specified as part of the payload.
+Request Body schema:
+application/json
+Email to send
+to
+required
+Array of
+objects
+Email addresses to send the email to. Currently, only one email address is supported. The email address and name will be used to find or create the customer.
+from
+required
+string
+Email address to send the email from. This must be a configured email address in your organization.
+subject
+required
+string
+Subject of the email. Must be less than 1000 characters.
+body
+required
+object
+Content of the email.
+Responses
+200
+the customer and conversation item ID
+400
+Invalid field(s) in request body
+post
+/api/v1/communications/email
+https://organization.gladly.com
+/api/v1/communications/email
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"to"
+:
+[
+{
+"email"
+:
+"jane.doe@example.com"
+,
+"name"
+:
+"Jane Doe"
+}
+]
+,
+"from"
+:
+"no-reply@gladly.com"
+,
+"subject"
+:
+"This is a sample email message!"
+,
+"body"
+:
+{
+"html"
+:
+"<div><p>This is a sample email message!</p><p>Best regards,<br>The Support Team</p></div>"
+,
+"text"
+:
+"This is a sample email message!\\n\\nBest regards,\\nThe Support Team"
+}
+}
+Response samples
+200
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"conversationItemId"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+}
+Conversations
+Conversation
+A
+Conversation
+in Gladly contains the timeline of activity for a customer including communications to and from your organization along with other internal and external activity.
+Conversations API enables you to interact with the customer conversation timeline.
+Error Handling
+Conversations can be merged into one another when their customers are merged. An endpoint
+that resolves a conversation or customer id which was merged away does not return
+404
+;
+it reports the surviving id in
+meta.new
+of a
+moved
+error.
+GET /api/v1/conversations/{conversationId}
+returns
+301
+with a
+Location
+header, so
+clients that follow redirects transparently receive the surviving conversation. The other
+endpoints that resolve a merged id return
+410 Gone
+with no
+Location
+header; reissue
+the request against the id in
+meta.new
+. Each operation lists
+410
+among its responses
+where this applies.
+Endpoints addressed by a conversation item id, and those that list conversations for a
+customer, do not resolve the merged id and are unaffected.
+Conversation Items
+A number of different types of items may appear in a customer's timeline. Each is described below.
+Item Type
+Item Definition
+Create
+Read
+Update
+Delete
+Media
+Chat Message
+A message sent/received via the
+Chat
+channel
+Yes
+Yes
+No
+No
+No
+Conversation Status Change
+Conversation status changed (e.g.: from OPEN to WAITING, or OPEN to CLOSED)
+Yes
+Yes
+Yes
+No
+No
+Custom Channel Message
+A message sent/received via a custom channel
+No
+Yes
+No
+No
+No
+Customer Activity
+Non-routable customer activity added to customer timeline via API
+Yes
+Yes
+No
+Yes
+No
+Email
+A message sent/received via the
+Email
+channel
+Yes
+Yes
+No
+No
+No
+Facebook Comment
+A comment exchanged on a Facebook post
+No
+Yes
+No
+No
+No
+Facebook Messenger Message
+A message sent/received via the
+Facebook Messenger
+channel
+Yes
+Yes
+No
+No
+No
+Instagram Comment
+A comment exchanged on an Instagram post
+No
+Yes
+No
+No
+No
+Instagram Direct
+A message sent/received via the
+Instagram
+channel
+No
+Yes
+No
+No
+No
+Message Automation Summary
+Summary of a Gladly AI session on a messaging channel
+No
+Yes
+No
+No
+No
+Note
+An internal
+Note
+on the Customer conversation
+Yes
+Yes
+No
+No
+No
+Phone Call
+A
+Phone Call
+placed/received on Gladly
+No
+Yes
+No
+No
+Yes
+SMS Message
+A message sent/received via the
+SMS
+channel
+Yes
+Yes
+No
+No
+No
+Task
+A
+Task
+on a Customer's profile
+Yes
+Yes
+Yes
+No
+No
+Topic Change
+A
+Topic
+added or removed on a Conversation
+Yes
+Yes
+No
+Yes
+No
+Twitter (decommissioned as of 04/20/23)
+A message sent/received via the
+Twitter
+channel
+No
+Yes
+No
+Yes
+No
+Voice AI Message
+A spoken message exchanged with Gladly's voice AI during a voice AI session
+No
+Yes
+No
+No
+No
+Voicemail
+A Voicemail received
+No
+Yes
+No
+No
+Yes
+WhatsApp
+A message sent/received via the WhatsApp channel
+No
+Yes
+No
+No
+No
+Chat Message
+Content of messages sent between Gladly and customers through Gladly Chat.
+Conversation Status Change
+Record of a change in the status of a conversation.
+Custom Channel Message
+Content of messages sent between Gladly and customers over a custom channel.
+Customer Activity
+Information about activities customers participated in, for example, emails they received, issues in another system, or customer satisfaction surveys they answered.
+These can be created through the API to bring in information from other systems.
+Adding an activity to the customer timeline is not customer facing.
+For example, posting an email activity to the timeline does not send an email to the customer.
+Email
+Content of emails sent between Gladly and customers.
+Facebook Comment
+Content of comments exchanged between Gladly and customers on Facebook posts.
+Facebook Messenger Message
+Content of messages sent between Gladly and customers on Facebook Messenger.
+Instagram Comment
+Content of comments exchanged between Gladly and customers on Instagram posts.
+Instagram Direct
+Content of messages sent between Gladly and customers on Instagram Direct.
+Message Automation Summary
+Summary written to the timeline when a Gladly AI session on a messaging channel ends.
+Note
+Content of the note recorded in Gladly.
+Phone Call
+Information about phone calls that took place between Gladly and customers.
+SMS Message
+Content of SMS text messages sent between Gladly and customers.
+To send SMS messages to customers through the API, see
+Send SMS
+.
+Task
+Interacting with tasks through the conversations API is deprecated. Use
+Tasks API
+instead.
+Topic Change
+Record of an agent adding or removing a topic from a conversation in Gladly.
+Twitter (decommissioned as of 04/20/23)
+Content of messages sent between Gladly and customers on Twitter.
+Voice AI Message
+A spoken message exchanged between a customer and Gladly's voice AI during a voice AI session.
+Voicemail
+Information about voicemail left by customers in Gladly.
+WhatsApp
+Content of messages sent between Gladly and customers on WhatsApp.
+Get conversations for customer
+Get the list of conversations for a customer.
+The list is not paginated and will return at most 100 conversations.
+The conversations are returned in ascending order by timestamp.
+The
+Gladly-Limited-Data
+header flag in the response will indicate if the customer has more conversations than returned.
+path
+Parameters
+customerId
+required
+string
+Example:
+gHufx-U3QqOmhvFuViceTw
+Id of the customer to get all conversations for
+Responses
+200
+The conversations for the customer
+get
+/api/v1/customers/{customerId}/conversations
+https://organization.gladly.com
+/api/v1/customers/{customerId}/conversations
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"HXRqKC5GSV-jAlq0-sxYTA"
+,
+"topicIds"
+:
+[
+"_DZTz4I0Qsq9YXxeXwufMg"
+,
+"tYVmwhIVQe-2tflRIszQ3g"
+]
+,
+"customAttributes"
+:
+[
+{
+"id"
+:
+"UCeBpdBVSNyaP54jhd8CZw"
+,
+"value"
+:
+"1234556777"
+}
+,
+{
+"id"
+:
+"UCeBpdBVSNyaP54jhd8CZw"
+,
+"value"
+:
+"883399334403"
+}
+,
+{
+"id"
+:
+"cEBkE90eQHObfcsnrm60Tg"
+,
+"value"
+:
+"UPS"
+}
+]
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"createdAt"
+:
+"2016-01-02T00:10:00Z"
+,
+"agentId"
+:
+"sHuXx-U3QqOmhvFusJGeBw"
+,
+"inboxId"
+:
+"E1nArq1uQAees_DogHB0MA"
+,
+"status"
+:
+"OPEN"
+}
+,
+{
+"id"
+:
+"UMTZxwzJRyejwOj4NDfjeg"
+,
+"topicIds"
+:
+[
+"tYVmwhIVQe-2tflRIszQ3g"
+]
+,
+"customAttributes"
+:
+[
+{
+"id"
+:
+"UCeBpdBVSNyaP54jhd8CZw"
+,
+"value"
+:
+"1234556777"
+}
+,
+{
+"id"
+:
+"UCeBpdBVSNyaP54jhd8CZw"
+,
+"value"
+:
+"883399334403"
+}
+,
+{
+"id"
+:
+"cEBkE90eQHObfcsnrm60Tg"
+,
+"value"
+:
+"UPS"
+}
+]
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"createdAt"
+:
+"2016-01-02T00:10:00Z"
+,
+"closedAt"
+:
+"2016-01-03T08:10:00Z"
+,
+"agentId"
+:
+"sHuXx-U3QqOmhvFusJGeBw"
+,
+"inboxId"
+:
+"E1nArq1uQAees_DogHB0MA"
+,
+"status"
+:
+"CLOSED"
+}
+]
+Get conversation
+Get conversation metadata such as it's assignee, topics, inbox, etc.
+If the conversation has been merged into another conversation,
+301 Moved Permanently
+is returned instead. The
+Location
+header points at the surviving conversation, so clients that follow redirects receive it transparently — note that its
+id
+differs from the one requested. Clients that do not follow redirects can read the surviving id from
+meta.new
+in the response body.
+path
+Parameters
+conversationId
+required
+string
+Example:
+9BcE2O0DQ2ynGHRmk9FeoA
+Id of the conversation to get
+Responses
+200
+Conversation metadata
+301
+The conversation id no longer exists because the conversation was merged into another conversation
+404
+A conversation with the given id does not exist
+get
+/api/v1/conversations/{conversationId}
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}
+Response samples
+200
+301
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"HXRqKC5GSV-jAlq0-sxYTA"
+,
+"topicIds"
+:
+[
+"_DZTz4I0Qsq9YXxeXwufMg"
+,
+"tYVmwhIVQe-2tflRIszQ3g"
+]
+,
+"customAttributes"
+:
+[
+{
+"id"
+:
+"UCeBpdBVSNyaP54jhd8CZw"
+,
+"value"
+:
+"1234556777"
+}
+,
+{
+"id"
+:
+"UCeBpdBVSNyaP54jhd8CZw"
+,
+"value"
+:
+"883399334403"
+}
+,
+{
+"id"
+:
+"cEBkE90eQHObfcsnrm60Tg"
+,
+"value"
+:
+"UPS"
+}
+]
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"createdAt"
+:
+"2016-01-02T00:10:00Z"
+,
+"closedAt"
+:
+"2016-01-03T08:10:00Z"
+,
+"agentId"
+:
+"sHuXx-U3QqOmhvFusJGeBw"
+,
+"inboxId"
+:
+"E1nArq1uQAees_DogHB0MA"
+,
+"status"
+:
+"CLOSED"
+}
+Update conversation
+Update conversation assignee, status or both.
+If the conversation has been merged into another conversation,
+410 Gone
+is returned and the response body carries the id of the surviving conversation. Reissue the update against that id.
+path
+Parameters
+conversationId
+required
+string
+Example:
+9BcE2O0DQ2ynGHRmk9FeoA
+Id of the conversation
+Request Body schema:
+application/json
+JSON representation of conversation updates
+assignee
+object
+(
+Assignee Update
+)
+status
+object
+(
+Conversation Status
+)
+Responses
+204
+updated conversation
+400
+Invalid request
+404
+A conversation with the given id does not exist
+410
+The conversation id no longer exists because the conversation was merged into another conversation
+patch
+/api/v1/conversations/{conversationId}
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"assignee"
+:
+{
+"inboxId"
+:
+"E1nArq1uQAees_DogHB0MA"
+,
+"agentId"
+:
+"sHuXx-U3QqOmhvFusJGeBw"
+}
+,
+"status"
+:
+{
+"value"
+:
+"CLOSED"
+,
+"force"
+:
+true
+}
+}
+Response samples
+400
+404
+410
+Content type
+application/json
+Example
+some required fields are blank
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"assignee.inboxId"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"'inboxId' cannot be blank when updating assignee"
+}
+,
+{
+"attr"
+:
+"status.value"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"'value' cannot be blank when updating status"
+}
+]
+}
+Create item
+To add items to the timeline for a customer specified by identifying information. If the customer doesn't exist, a new customer profile is created.
+Any items created using this API will not be considered part of a conversation, and are
+non-routable
+and
+non-searchable
+aside from the mobile phone number or email address specified as part of the payload.
+Request Body schema:
+application/json
+Conversation Item to create
+id
+string
+<= 50 characters
+Unique conversation item id. Must be URL safe and under 50 characters. An id will be automatically generated if one is not included.
+customer
+required
+object
+(
+Customer Specification
+)
+Specifies the customer this belongs to. You must provide exactly one of the values.
+content
+required
+Customer Activity (object) or Task (deprecated) (object)
+(
+Conversation Item Content To Create
+)
+Responses
+200
+The created item
+400
+Invalid field(s) in request body
+409
+Specified id is in use
+post
+/api/v1/conversation-items
+https://organization.gladly.com
+/api/v1/conversation-items
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customer"
+:
+{
+"emailAddress"
+:
+"michelle.smith@example.org"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CUSTOMER_ACTIVITY"
+,
+"title"
+:
+"Welcome to Gladly!"
+,
+"body"
+:
+"At Gladly we set out to reinvent customer service. Why? Because 21st century consumers are different. They are from 18 to 80 years old, expect the brands they love to recognize them, and to be able to communicate with your agents over all channels – all the time."
+,
+"activityType"
+:
+"EMAIL"
+,
+"sourceName"
+:
+"HubSpot"
+,
+"link"
+:
+{
+"url"
+:
+"
+https://www.gladly.com/product/
+"
+,
+"text"
+:
+"View Details"
+}
+}
+}
+Response samples
+200
+400
+409
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"responder"
+:
+{
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CUSTOMER_ACTIVITY"
+,
+"title"
+:
+"Welcome to Gladly!"
+,
+"body"
+:
+"At Gladly we set out to reinvent customer service. Why? Because 21st century consumers are different. They are from 18 to 80 years old, expect the brands they love to recognize them, and to be able to communicate with your agents over all channels – all the time."
+,
+"activityType"
+:
+"EMAIL"
+,
+"sourceName"
+:
+"HubSpot"
+,
+"link"
+:
+{
+"url"
+:
+"
+https://www.gladly.com/product/
+"
+,
+"text"
+:
+"View Details"
+}
+,
+"expandByDefault"
+:
+true
+,
+"occurredAt"
+:
+"2016-04-11T14:09:23.000Z"
+,
+"receivedAt"
+:
+"2019-01-11T20:49:55.000Z"
+}
+}
+Get item
+Returns the conversation item with the provided id.
+path
+Parameters
+itemId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+id of the conversation item
+Responses
+200
+conversation item
+400
+An item exists but is not supported by the API
+404
+An item with the given id could not be found
+get
+/api/v1/conversation-items/{itemId}
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}
+Response samples
+200
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"conversationId"
+:
+"PmDVUfWfRjKuwb4VgA2zEA"
+,
+"sessionId"
+:
+"8K2mX9nRTyWv4bQzLpH5jA"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"responder"
+:
+{
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"TEXT"
+,
+"sessionId"
+:
+"5k04bYuTRGqyT6uoSQfWVA"
+,
+"companyAddress"
+:
+"www.brand.com"
+,
+"content"
+:
+"HI! Can you help me with my order?"
+,
+"attachments"
+:
+[
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"contentType"
+:
+"image/png"
+,
+"filename"
+:
+"attachment-1.png"
+,
+"fileSize"
+:
+1024
+}
+]
+}
+}
+Delete item
+To delete an item.
+Please note only items of type
+CUSTOMER_ACTIVITY
+may be deleted by this API.
+path
+Parameters
+itemId
+required
+string
+Id of the item to be deleted.
+Responses
+204
+The item was deleted
+404
+An item with the given id could not be found
+delete
+/api/v1/conversation-items/{itemId}
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}
+Get media
+Returns the media file associated with the conversation item
+path
+Parameters
+itemId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+id of the conversation item
+Responses
+200
+The media file associated with the conversation item
+404
+An item with the given id could not be found
+get
+/api/v1/conversation-items/{itemId}/media/recording
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}/media/recording
+Get voice transcript
+Returns a transcript of a phone call or a voicemail
+path
+Parameters
+itemId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+id of the conversation item
+Responses
+200
+The voice transcript of a phone call or a voicemail
+404
+A transcript with the given id could not be found
+get
+/api/v1/conversation-items/{itemId}/voice-transcript
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}/voice-transcript
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"paragraphs"
+:
+[
+{
+"transcript"
+:
+"Hello! How are you doing today?"
+,
+"speaker"
+:
+0
+,
+"startTime"
+:
+2.48
+,
+"endTime"
+:
+6.1
+}
+]
+,
+"customerId"
+:
+"AloLvEkzQlqc7c4kyYQY1A"
+,
+"numberOfSpeakers"
+:
+1
+,
+"language"
+:
+"string"
+,
+"createdAt"
+:
+"2024-05-15T14:09:23.000Z"
+,
+"updatedAt"
+:
+"2024-05-15T14:19:23.000Z"
+}
+Get attachment
+Returns a redirect to the URL of the specified attachment on a conversation item.
+The response is a
+303 See Other
+redirect. Follow the redirect to download the attachment content.
+Attachments are available on conversation items with content types that support them, such as emails, chat messages, SMS messages, and custom channel messages.
+path
+Parameters
+itemId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+Id of the conversation item that contains the attachment.
+attachmentId
+required
+string
+Example:
+dGhpcyBpcyBhbiBhdHRhY2htZW50
+Id of the attachment to retrieve.
+Responses
+303
+Redirect to the attachment URL
+400
+The conversation item content does not contain attachments
+404
+The conversation item or attachment could not be found
+get
+/api/v1/conversation-items/{itemId}/attachments/{attachmentId}
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}/attachments/{attachmentId}
+Response samples
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"conversation item content does not contain attachments"
+}
+]
+}
+Create item for customer
+To add items to a customer's timeline.
+Any items created using this API will not be considered part of a conversation, and are
+non-routable
+and
+non-searchable
+aside from the mobile phone number or email address specified as part of the payload.
+path
+Parameters
+customerId
+required
+string
+Id of the customer associated with this item.
+You can look up the id using the
+Find customers
+API.
+Request Body schema:
+application/json
+Conversation Item to create
+id
+string
+<= 50 characters
+Unique conversation item id. Must be URL safe and under 50 characters. An id will be automatically generated if one is not included.
+content
+required
+Customer Activity (object) or Task (deprecated) (object)
+(
+Conversation Item Content To Create
+)
+Responses
+200
+The created item
+400
+Invalid field(s) in request body
+404
+Customer with customerId does not exist
+409
+Specified id is in use
+410
+The customer id no longer exists because the customer was merged into another customer
+post
+/api/v1/customers/{customerId}/conversation-items
+https://organization.gladly.com
+/api/v1/customers/{customerId}/conversation-items
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"content"
+:
+{
+"type"
+:
+"CUSTOMER_ACTIVITY"
+,
+"title"
+:
+"Welcome to Gladly!"
+,
+"body"
+:
+"At Gladly we set out to reinvent customer service. Why? Because 21st century consumers are different. They are from 18 to 80 years old, expect the brands they love to recognize them, and to be able to communicate with your agents over all channels – all the time."
+,
+"activityType"
+:
+"EMAIL"
+,
+"sourceName"
+:
+"HubSpot"
+,
+"link"
+:
+{
+"url"
+:
+"
+https://www.gladly.com/product/
+"
+,
+"text"
+:
+"View Details"
+}
+}
+}
+Response samples
+200
+400
+409
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"responder"
+:
+{
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CUSTOMER_ACTIVITY"
+,
+"title"
+:
+"Welcome to Gladly!"
+,
+"body"
+:
+"At Gladly we set out to reinvent customer service. Why? Because 21st century consumers are different. They are from 18 to 80 years old, expect the brands they love to recognize them, and to be able to communicate with your agents over all channels – all the time."
+,
+"activityType"
+:
+"EMAIL"
+,
+"sourceName"
+:
+"HubSpot"
+,
+"link"
+:
+{
+"url"
+:
+"
+https://www.gladly.com/product/
+"
+,
+"text"
+:
+"View Details"
+}
+,
+"expandByDefault"
+:
+true
+,
+"occurredAt"
+:
+"2016-04-11T14:09:23.000Z"
+,
+"receivedAt"
+:
+"2019-01-11T20:49:55.000Z"
+}
+}
+Delete item for customer
+To delete an item.
+Please note only items of type
+CUSTOMER_ACTIVITY
+may be deleted by this API.
+path
+Parameters
+customerId
+required
+string
+Id of the customer associated with this item.
+You can look up the id using the
+Find customers
+API.
+itemId
+required
+string
+Id of the item to be deleted.
+Responses
+204
+The item was deleted
+404
+An item with the given id, for the given customer id, could not be found
+delete
+/api/v1/customers/{customerId}/conversation-items/{itemId}
+https://organization.gladly.com
+/api/v1/customers/{customerId}/conversation-items/{itemId}
+List items in conversation
+Get the list of items in the timeline of a conversation.
+The conversation represents a period of related interactions between a customer and your organization.
+The list is not paginated and will return at most 1000 items. The items are returned in ascending order by timestamp.
+The
+Gladly-Limited-Data
+header flag in the response will indicate if the conversation has more items than returned.
+The response can be filtered by session using the optional
+sessionId
+query parameter.
+path
+Parameters
+conversationId
+required
+string
+Example:
+9BcE2O0DQ2ynGHRmk9FeoA
+Id of the conversation to get the timeline for
+query
+Parameters
+sessionId
+string
+Example:
+sessionId=5k04bYuTRGqyT6uoSQfWVA
+Return only items whose
+sessionId
+matches the given value.
+Responses
+200
+The items on the conversation timeline
+404
+A conversation with the given id does not exist
+410
+The conversation id no longer exists because the conversation was merged into another conversation
+get
+/api/v1/conversations/{conversationId}/items
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}/items
+Response samples
+200
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"ybP4szYCSy6LdV4DNwEd6g"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-01T11:46:45.01Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"TEXT"
+,
+"sessionId"
+:
+"5k04bYuTRGqyT6uoSQfWVA"
+,
+"companyAddress"
+:
+"www.brand.com"
+,
+"content"
+:
+"Hi! I know it's after hours but can someone help upgrade my account?"
+}
+}
+,
+{
+"id"
+:
+"Rk7dLm2xTXqNwZp8vB3YeA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-01T11:46:50.01Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"SIDEKICK_V2"
+,
+"type"
+:
+"SYSTEM"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"TEXT"
+,
+"sessionId"
+:
+"5k04bYuTRGqyT6uoSQfWVA"
+,
+"companyAddress"
+:
+"www.brand.com"
+,
+"content"
+:
+"Hello! I can help you with upgrading your account. What plan are you interested in?"
+}
+}
+,
+{
+"id"
+:
+"Xq2mN8vLTkeRz4pWbY7cDA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-01T11:47:10.01Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"BUTTON_PROMPT_SELECTED"
+,
+"sessionId"
+:
+"5k04bYuTRGqyT6uoSQfWVA"
+,
+"companyAddress"
+:
+"www.brand.com"
+,
+"content"
+:
+"Which jacket do you recommend for hiking?"
+,
+"attachments"
+:
+[ ]
+}
+}
+,
+{
+"id"
+:
+"Hs7kP3wQTj2Lm9RfVc5XeA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-01T11:47:14.01Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"SIDEKICK_V2"
+,
+"type"
+:
+"SYSTEM"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"COMPOSITE_MESSAGE"
+,
+"sessionId"
+:
+"5k04bYuTRGqyT6uoSQfWVA"
+,
+"companyAddress"
+:
+"www.brand.com"
+,
+"content"
+:
+"composite message"
+,
+"attachments"
+:
+[ ]
+,
+"messageData"
+:
+{
+"messages"
+:
+[
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"HTML"
+,
+"sessionId"
+:
+""
+,
+"companyAddress"
+:
+""
+,
+"content"
+:
+"<p>For hiking I'd recommend the <strong>Anorak Jacket</strong>: it is waterproof and packs down small.</p>"
+,
+"attachments"
+:
+[ ]
+}
+,
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"messageType"
+:
+"DATA_DISPLAY"
+,
+"sessionId"
+:
+""
+,
+"companyAddress"
+:
+""
+,
+"content"
+:
+"data display"
+,
+"attachments"
+:
+[ ]
+,
+"messageData"
+:
+{
+"type"
+:
+"PRODUCT_LIST"
+,
+"displayContent"
+:
+{
+"products"
+:
+[
+{
+"name"
+:
+"Anorak Jacket"
+,
+"description"
+:
+"Lightweight waterproof shell"
+,
+"pageUrl"
+:
+"
+https://www.brand.com/products/anorak
+"
+,
+"primaryImageUrl"
+:
+"
+https://cdn.brand.com/anorak-front.jpg
+"
+}
+]
+}
+}
+}
+]
+}
+}
+}
+,
+{
+"id"
+:
+"9lQDrx-HTz-JMoP2T4CtZA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-02T06:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"EMAIL"
+,
+"from"
+:
+"amy.agent@company.com"
+,
+"to"
+:
+[
+"martha.williams@gmail.com"
+]
+,
+"subject"
+:
+"Account upgrade"
+,
+"content"
+:
+"I would be happy to help you! We need a few details, so please give us a call this morning."
+}
+}
+,
+{
+"id"
+:
+"S6pMkJ78QMmkVf9qPP_SeQ"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-02T08:05:00.10Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"responder"
+:
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"PHONE_CALL"
+,
+"from"
+:
+"+14153335555"
+,
+"to"
+:
+"+12149897676"
+,
+"startedAt"
+:
+"2019-07-02T08:05:00.10Z"
+,
+"answeredAt"
+:
+"2019-07-02T08:05:09.41Z"
+,
+"completedAt"
+:
+"2019-07-02T08:11:15.03Z"
+,
+"recordingStatus"
+:
+"AVAILABLE"
+,
+"recordingUrl"
+:
+"/api/v1/conversation-items/S6pMkJ78QMmkVf9qPP_SeQ/media/recording"
+,
+"recordingDuration"
+:
+100
+}
+}
+,
+{
+"id"
+:
+"K0UGL3n6S4uPpvtMvItqHA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-02T08:12:55.870Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"TOPIC_CHANGE"
+,
+"addedTopicIds"
+:
+[
+"uu4t00vITaKQ3bVjU2UrGQ"
+]
+}
+}
+,
+{
+"id"
+:
+"zwo9AtljSfaGjWb4Aq-aDQ"
+,
+"conversationId"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"timestamp"
+:
+"2019-07-02T08:12:55.870Z"
+,
+"initiator"
+:
+{
+"id""
+:
+"zGaHXjD4SR-moMR9LbULDA"
+,
+"type""
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CONVERSATION_STATUS_CHANGE"
+,
+"status"
+:
+"CLOSED"
+}
+}
+,
+{
+"id"
+:
+"azwo9AtljSfaGjWb4Aq-aDQ"
+,
+"conversationId"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"timestamp"
+:
+"2019-07-02T08:12:55.870Z"
+,
+"initiator"
+:
+{
+"id""
+:
+"zGaHXjD4SR-moMR9LbULDA"
+,
+"type""
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"VOICEMAIL"
+,
+"startedAt"
+:
+"2019-07-04T08:12:55.870Z"
+,
+"recordingUrl"
+:
+"/api/v1/conversation-items/azwo9AtljSfaGjWb4Aq-aDQ/media/recording"
+,
+"recordingStatus"
+:
+"AVAILABLE"
+,
+"recordingDuration"
+:
+200
+}
+}
+,
+{
+"id"
+:
+"VnL3kQ8zSPmW9rXpA2fYbA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"sessionId"
+:
+"8K2mX9nRTyWv4bQzLpH5jA"
+,
+"timestamp"
+:
+"2019-07-02T08:13:02.450Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"SIDEKICK_V2"
+,
+"type"
+:
+"SYSTEM"
+}
+,
+"content"
+:
+{
+"type"
+:
+"VOICE_AI_MESSAGE"
+,
+"customerNumber"
+:
+"+14153335555"
+,
+"companyNumber"
+:
+"+12149897676"
+,
+"body"
+:
+"Thanks for calling. How can I help you today?"
+,
+"status"
+:
+"PLAYED"
+}
+}
+,
+{
+"id"
+:
+"DnaU23pZSIqOixATlII1vA"
+,
+"conversationId"
+:
+"HXRqKC5GSV-jAlq0-sxYTA"
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"timestamp"
+:
+"2019-07-04T23:42:57.780Z"
+,
+"initiator"
+:
+{
+"type"
+:
+"AGENT"
+,
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDA"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CONVERSATION_NOTE"
+,
+"body"
+:
+"Customer has requested more information about our loyalty program."
+}
+}
+]
+Add Topics to Conversation
+Adds a list of topics to the conversation. If a topic being added already exists on the conversation, that topic is ignored.
+path
+Parameters
+conversationId
+required
+string
+Id of the conversation.
+Request Body schema:
+application/json
+topicIds
+Array of
+strings
+Topic Ids to be added to the conversation.
+Responses
+204
+The topic was added successfully
+400
+Invalid field(s) in request body
+404
+A conversation with the given Id could not be found
+410
+The conversation id no longer exists because the conversation was merged into another conversation
+post
+/api/v1/conversations/{conversationId}/topics
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}/topics
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"topicIds"
+:
+[
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"pOVVdzweSumI4bFxjlT8LB"
+]
+}
+Response samples
+400
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Delete Topic from Conversation
+Delete a topic from a conversation.
+path
+Parameters
+conversationId
+required
+string
+Id of the conversation.
+topicId
+required
+string
+Id of topic to be deleted from conversation.
+Responses
+204
+The topic was deleted from the conversation successfully
+404
+A conversation with the given id could not be found
+410
+The conversation id no longer exists because the conversation was merged into another conversation
+delete
+/api/v1/conversations/{conversationId}/topics/{topicId}
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}/topics/{topicId}
+Response samples
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"conversationId"
+,
+"code"
+:
+"moved"
+,
+"detail"
+:
+"conversation id has changed"
+,
+"meta"
+:
+{
+"old"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"new"
+:
+"rVamfZHvQuORFnsk-3mNuw"
+}
+}
+]
+}
+Add or Remove Freeform topic
+Adds or removes a list of freeform topics to the conversation. If the freeform topic being added already exists on the conversation, that topic is ignored.
+path
+Parameters
+customerId
+required
+string
+Id of the customer.
+conversationId
+required
+string
+Id of the conversation.
+Request Body schema:
+application/json
+body
+string
+Freeform topics that need to be added or removed from a conversation
+Responses
+204
+The freeform topic was added successfully
+400
+Invalid field(s) in request body
+404
+A conversation with the given Id could not be found
+410
+The conversation id no longer exists because the conversation was merged into another conversation
+post
+/api/v1/customer-history/{customerId}/conversations/{conversationId}/custom-attributes
+https://organization.gladly.com
+/api/v1/customer-history/{customerId}/conversations/{conversationId}/custom-attributes
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"add"
+:
+[
+{
+"key"
+:
+"ORDER_ID"
+,
+"value"
+:
+"ORD_3"
+}
+,
+{
+"key"
+:
+"ORDER_ID"
+,
+"value"
+:
+"ORD_4"
+}
+]
+,
+"remove"
+:
+[
+{
+"key"
+:
+"ORDER_ID"
+,
+"value"
+:
+"ORD_1"
+}
+,
+{
+"key"
+:
+"ORDER_ID"
+,
+"value"
+:
+"ORD_2"
+}
+]
+}
+Response samples
+400
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"code"
+:
+"not_exist"
+,
+"detail"
+:
+"entity does not exist"
+}
+]
+}
+Add note
+Adds note to an existing conversation.
+path
+Parameters
+conversationId
+required
+string
+Id of the conversation.
+Request Body schema:
+application/json
+body
+string
+Plain text or
+rich content
+of the note.
+Responses
+201
+The note was added successfully
+400
+Invalid field(s) in request body
+404
+A conversation with the given Id could not be found
+410
+The conversation id no longer exists because the conversation was merged into another conversation
+post
+/api/v1/conversations/{conversationId}/notes
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}/notes
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"content"
+:
+{
+"body"
+:
+"Customer has requested more information about our loyalty program."
+}
+}
+Response samples
+400
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Get note
+Returns the note with the provided conversation and note id.
+path
+Parameters
+conversationId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+id of the conversation
+noteId
+required
+string
+Example:
+aOVVdzweSumI4bFxjlT8LA
+id of the note
+Responses
+200
+Conversation note
+404
+An item with the given id could not be found
+get
+/api/v1/conversations/{conversationId}/notes/{noteId}
+https://organization.gladly.com
+/api/v1/conversations/{conversationId}/notes/{noteId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"conversationId"
+:
+"PmDVUfWfRjKuwb4VgA2zEA"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"responder"
+:
+{
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CONVERSATION_NOTE"
+,
+"body"
+:
+"Customer has requested more information about our loyalty program."
+,
+"attachments"
+:
+[
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"contentType"
+:
+"image/png"
+,
+"filename"
+:
+"attachment-1.png"
+,
+"fileSize"
+:
+1024
+}
+]
+}
+}
+Reply to message
+Sends a response to a conversation item. If no agent is assigned to the conversation, the conversation is assigned to the API User who made this call.
+path
+Parameters
+itemId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+id of the conversation item
+Request Body schema:
+application/json
+content
+required
+Email Message Content (object) or (Chat Message Content (Message Content (object) or QuickReply Request Content (object))) or Facebook Message Content (object) or Instagram Direct Message Content (object) or SMS Message Content (object) or Twitter Direct Message Content (decommissioned as of 04/20/2023) (object) or WhatsApp Message Content (object)
+(
+Message content
+)
+Responses
+201
+The reply was created successfully. Note that creation doesn't guarantee delivery
+400
+Invalid field(s) in request body
+404
+A conversation item with the given id could not be found
+post
+/api/v1/conversation-items/{itemId}/reply
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}/reply
+Request samples
+Payload
+Content type
+application/json
+Example
+Example of an email reply message
+Copy
+Expand all
+Collapse all
+{
+"content"
+:
+{
+"type"
+:
+"EMAIL"
+,
+"body"
+:
+"<h>Hi!</h><br>Of course we can help with your issue!"
+,
+"bodyPlain"
+:
+"Hi!\n We can definitely help you with that!"
+}
+}
+Response samples
+400
+Content type
+application/json
+Example
+Error trying to act on closed conversation
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"you cannot reply to items in closed conversations"
+}
+]
+}
+Redact conversation item
+For supported items, the item's content will be removed but the item will
+remain in the conversation timeline. Supported types are Chat Message,
+SMS Message, Email, Twitter (decommissioned as of 04/20/23, but can still be redacted), WhatsApp, Voicemail, Phone Call.
+path
+Parameters
+itemId
+required
+string
+Example:
+pOVVdzweSumI4bFxjlT8LA
+id of the conversation item
+Request Body schema:
+application/json
+any
+The request body should be empty
+Responses
+201
+The redaction was successful.
+404
+A conversation item with the given id could not be found
+post
+/api/v1/conversation-items/{itemId}/redact
+https://organization.gladly.com
+/api/v1/conversation-items/{itemId}/redact
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+null
+Customers
+A
+Customer
+in Gladly represents information about a customer of your organization including their profile, contact information,
+notes, and transactions.
+Customers API allows you to add, update, and get customer profile data.
+Error Handling
+Id, mobile phone number, and email address must be unique across customer records. 409 errors returned will
+include details on any conflicts, such as a field being taken.
+Additionally, errors may be returned due to customer profiles being merged. If a customer has been merged into
+another, requests to get a customer by id will return 301 errors specifying the new id of the customer, and
+requests to update or delete a customer by id will return 410 errors specifying the same. A customer id that
+never existed still returns 404.
+Create customer
+Create a new customer with the supplied profile data.
+Request Body schema:
+application/json
+Customer record to add.
+name
+string
+Customer's name
+image
+string
+URL for an image that will appear as the customer's avatar
+address
+string
+Customer's street address
+emails
+Array of
+objects
+(
+email addresses
+)
+Customer's email addresses
+phones
+Array of
+objects
+(
+phone numbers
+)
+Customer's phone numbers
+externalCustomerId
+string
+Customer ID in your system of record for Customer Profiles linked to a Lookup Adaptor installed prior to 05/12/21. If Customer Profile is linked to a Lookup Adaptor installed on or after 05/12/21, this field will not exist and cannot be set.
+customAttributes
+object
+Organization-specific attributes from Customer system of record.
+The shape of customAttributes is defined by the Customer Profile Definition. These are specific to a customer and different from the Custom Attribute entity.
+id
+string
+Unique customer id. Must be URL safe and under 50 characters. An id will be automatically generated if one is not included
+Responses
+201
+customer created
+400
+error creating customer
+409
+Specified id is in use or a uniqueness constraint failed
+post
+/api/v1/customer-profiles
+https://organization.gladly.com
+/api/v1/customer-profiles
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"name"
+:
+"Francis Avallone"
+,
+"address"
+:
+"4303 Spring Forest Ln, Westlake Village, CA 91362-5605"
+,
+"emails"
+:
+[
+{
+"original"
+:
+"existing@francisavallone.com"
+}
+]
+,
+"phones"
+:
+[
+{
+"original"
+:
+"+17192662837"
+,
+"type"
+:
+"HOME"
+}
+]
+,
+"externalCustomerId"
+:
+"a21c1636-c622-48b7-bf6a-d9032645aa55"
+,
+"customAttributes"
+:
+{
+"albums"
+:
+"6"
+,
+"singles"
+:
+"40"
+}
+}
+Response samples
+400
+409
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Find customers
+Find customers by searching by choosing
+one
+of the following identifiers as query parameters:
+/
+api
+/
+v1
+/
+customer
+-
+profiles
+?
+phoneNumber
+=
+%
+2
+B14151234567
+Max limit of 50 profiles returned, sorted by most recently updatedAt date descending.
+query
+Parameters
+email
+string
+Example:
+email=customer@email.net
+customer email address to search on.
+externalCustomerId
+string
+Example:
+externalCustomerId=a21c1636-c622-48b7-bf6a-d9032645aa55
+Customer ID in your system of record for Customer Profiles linked to a Lookup Adaptor installed prior to 05/12/21. If Customer Profile is linked to a Lookup Adaptor installed on or after 05/12/21, this field is not searchable.
+phoneNumber
+string
+Example:
+phoneNumber=+16505551987
+Phone number in E.164 format. The value should be URL escaped where
++
+becomes
+%2B
+.
+Responses
+200
+found customers
+400
+error finding customers
+get
+/api/v1/customer-profiles
+https://organization.gladly.com
+/api/v1/customer-profiles
+Response samples
+200
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"name"
+:
+"Martha J Williams"
+,
+"image"
+:
+"
+https://www.gladly.com/your-image.jpg
+"
+,
+"address"
+:
+"563 Rigoberto Station Apt. 197"
+,
+"emails"
+:
+[
+{
+"normalized"
+:
+"martha.williams@gmail.com"
+,
+"original"
+:
+"Martha.Williams@gmail.com"
+,
+"primary"
+:
+false
+}
+]
+,
+"phones"
+:
+[
+{
+"normalized"
+:
+"+17244895501"
+,
+"extension"
+:
+"123"
+,
+"original"
+:
+"7244895501"
+,
+"regionCode"
+:
+"US"
+,
+"primary"
+:
+false
+,
+"smsPreference"
+:
+"OFF"
+,
+"type"
+:
+"OFFICE"
+}
+]
+,
+"externalCustomerId"
+:
+"a21c1636-c622-48b7-bf6a-d9032645aa55"
+,
+"customAttributes"
+:
+{
+"membershipNumber"
+:
+"RQ564555333"
+,
+"membershipTier"
+:
+"gold"
+}
+,
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"createdAt"
+:
+"2019-02-21T07:15:18.07272933Z"
+,
+"updatedAt"
+:
+"2019-02-21T19:50:23.486566336Z"
+,
+"externalCustomerIds"
+:
+{
+"ABC12345"
+:
+"54321"
+}
+}
+]
+Get customer
+Get a customer by unique id.
+If a customer has been merged into another, an error will be returned specifying the new id of the customer.
+path
+Parameters
+customerId
+required
+string
+Example:
+OOrlNMXeS72gs_WEX2TtMg
+id of the customer
+Responses
+200
+fetched customer
+301
+customer id no longer exists and has been changed due to a merge with another customer
+404
+customer not found
+get
+/api/v1/customer-profiles/{customerId}
+https://organization.gladly.com
+/api/v1/customer-profiles/{customerId}
+Response samples
+200
+301
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"Martha J Williams"
+,
+"image"
+:
+"
+https://www.gladly.com/your-image.jpg
+"
+,
+"address"
+:
+"563 Rigoberto Station Apt. 197"
+,
+"emails"
+:
+[
+{
+"normalized"
+:
+"martha.williams@gmail.com"
+,
+"original"
+:
+"Martha.Williams@gmail.com"
+,
+"primary"
+:
+false
+}
+]
+,
+"phones"
+:
+[
+{
+"normalized"
+:
+"+17244895501"
+,
+"extension"
+:
+"123"
+,
+"original"
+:
+"7244895501"
+,
+"regionCode"
+:
+"US"
+,
+"primary"
+:
+false
+,
+"smsPreference"
+:
+"OFF"
+,
+"type"
+:
+"OFFICE"
+}
+]
+,
+"externalCustomerId"
+:
+"a21c1636-c622-48b7-bf6a-d9032645aa55"
+,
+"customAttributes"
+:
+{
+"membershipNumber"
+:
+"RQ564555333"
+,
+"membershipTier"
+:
+"gold"
+}
+,
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"createdAt"
+:
+"2019-02-21T07:15:18.07272933Z"
+,
+"updatedAt"
+:
+"2019-02-21T19:50:23.486566336Z"
+,
+"externalCustomerIds"
+:
+{
+"ABC12345"
+:
+"54321"
+}
+}
+Update customer
+Update a customer by unique id with the supplied JSON patch.
+You may supply only the properties which you want to update or insert into the profile.
+When updating arrays, such as
+phones
+and
+emails
+you must provide the entire list of values
+since it is not possible to add or delete a single value.
+If the customer has been merged into another customer,
+410 Gone
+is returned and the response body carries the id of the surviving customer. Reissue the update against that id.
+path
+Parameters
+customerId
+required
+string
+Example:
+OOrlNMXeS72gs_WEX2TtMg
+id of the customer
+Request Body schema:
+application/json
+JSON patch of customer profiles properties to insert or update.
+name
+string
+Customer's name
+image
+string
+URL for an image that will appear as the customer's avatar
+address
+string
+Customer's street address
+emails
+Array of
+objects
+(
+email addresses
+)
+Customer's email addresses
+phones
+Array of
+objects
+(
+phone numbers
+)
+Customer's phone numbers
+externalCustomerId
+string
+Customer ID in your system of record for Customer Profiles linked to a Lookup Adaptor installed prior to 05/12/21. If Customer Profile is linked to a Lookup Adaptor installed on or after 05/12/21, this field will not exist and cannot be set.
+customAttributes
+object
+Organization-specific attributes from Customer system of record.
+The shape of customAttributes is defined by the Customer Profile Definition. These are specific to a customer and different from the Custom Attribute entity.
+Responses
+204
+updated customer
+400
+error updating customer
+404
+customer not found
+410
+The customer id no longer exists because the customer was merged into another customer
+patch
+/api/v1/customer-profiles/{customerId}
+https://organization.gladly.com
+/api/v1/customer-profiles/{customerId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"Frankie Avalon"
+,
+"emails"
+:
+[
+{
+"original"
+:
+"existing@francisavallone.com"
+}
+,
+{
+"original"
+:
+"new@frankieavalon.com"
+}
+]
+,
+"customAttributes"
+:
+{
+"albums"
+:
+"7"
+,
+"singles"
+:
+"41"
+}
+}
+Response samples
+400
+404
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Delete customer
+Delete a customer and all associated conversations.
+All conversations associated with the customer must be closed before the customer can be deleted.
+This operation is irreversible.
+The user associated with the API token must have both Compliance Admin and API User roles.
+path
+Parameters
+customerId
+required
+string
+Example:
+OOrlNMXeS72gs_WEX2TtMg
+id of the customer
+Responses
+204
+customer was deleted
+400
+error deleting customer with open or waiting conversation
+410
+The customer id no longer exists because the customer was merged into another customer
+delete
+/api/v1/customer-profiles/{customerId}
+https://organization.gladly.com
+/api/v1/customer-profiles/{customerId}
+Response samples
+400
+410
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+{
+"attr"
+:
+"conversation"
+,
+"code"
+:
+"invalid_state"
+,
+"detail"
+:
+"Unable to delete the profile. Please close any open or waiting conversations."
+}
+}
+Endpoints
+An
+Endpoint
+represents an inbound address that customers use to reach your organization — for example an email address, a phone number, or a chat channel. Each endpoint has a
+channel
+describing the type of contact it receives (
+EMAIL
+,
+SMS
+,
+VOICE
+,
+CHAT
+, and so on).
+The Endpoints API is read-only. It allows you to retrieve the endpoints configured for your organization so you can programmatically discover which channels and addresses your organization is set up to receive customer contacts on.
+List Endpoints
+Returns a list of all endpoints configured for your organization.
+Responses
+200
+Endpoints
+get
+/api/v1/endpoints
+https://organization.gladly.com
+/api/v1/endpoints
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"sms-endpoint-id"
+,
+"address"
+:
+"+15551234567"
+,
+"channel"
+:
+"SMS"
+}
+]
+Get Endpoint
+Get a single endpoint by its unique id.
+path
+Parameters
+endpointId
+required
+string
+Example:
+sms-endpoint-id
+id of the endpoint
+Responses
+200
+Endpoint
+400
+No endpoint with the given id exists
+get
+/api/v1/endpoints/{endpointId}
+https://organization.gladly.com
+/api/v1/endpoints/{endpointId}
+Response samples
+200
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"sms-endpoint-id"
+,
+"address"
+:
+"+15551234567"
+,
+"channel"
+:
+"SMS"
+}
+Events
+An
+Event
+is something that has happened in Gladly. The Events API allows you to extract event details from the past 24 hours.
+List events
+Returns a stream of events for the specified entities within the given time range. Responses are streamed using JSONL.
+Events are up to 15 seconds behind real-time.
+/
+api
+/
+v1
+/
+events
+?
+startAt
+=
+2020
+-
+05
+-
+20
+T14
+:
+00
+:
+00
+Z
+&
+entities
+=
+AGENT_STATUS
+&
+entities
+=
+AGENT_AVAILABILITY
+query
+Parameters
+startAt
+required
+string
+Example:
+startAt=2020-04-13T19:27:34-09:00
+Starting time of the events interval. This is based on the
+timestamp
+field which indicates when the event was recorded. Must be from last 24 hours.
+The date should be in ISO 8601 format.
+endAt
+string
+Example:
+endAt=2020-04-13T20:27:12-09:00
+Ending time of the events interval. This is based on the
+timestamp
+field which indicates when the event was recorded. If unspecified, current time will be implied.
+The date should be in ISO 8601 format.
+entities
+required
+array
+Example:
+entities=AGENT_AVAILABILITY,AGENT_STATUS
+Entity types that have associated events. Any number of types is acceptable and at least one must be present
+Available Types:
+AGENT_AVAILABILITY
+,
+AGENT_STATUS
+,
+CONTACT
+,
+CONVERSATION
+,
+CUSTOMER
+,
+CUSTOMER_PROFILE
+,
+PAYMENT_REQUEST
+,
+TASK
+Responses
+200
+Events Streaming Response
+400
+Bad Request
+get
+/api/v1/events
+https://organization.gladly.com
+/api/v1/events
+Response samples
+200
+400
+Content type
+application/x-jsonlines
+Example
+Agent Availability Focus Entered
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"type"
+:
+"AGENT_AVAILABILITY/FOCUS_ENTERED"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"context"
+:
+{
+"availableFor"
+:
+[
+"MAIL"
+,
+"TASK"
+,
+"VOICE"
+]
+}
+}
+}
+Export
+Export API is a simple, comprehensive, file-based data export. You can export the lifetime of your customers' conversations in Gladly to a central data repository such as your data warehouse or data lake. You can export all communications successfully delivered within a specified date range.  The export date range could be the past hour, the past 24 hours, or a custom data range. Please note, for one-time exports covering a period greater than six months, a service fee may apply.
+Job results can be deleted once downloaded.  Delete will remove all result files along with the job metadata.  Files older than 14 days are removed from Gladly and jobs older than 14 days are not available from the API.  If you discover that you need the deleted files later, please contact Gladly Support to regenerate them for you.
+SCHEDULING EXPORT JOBS
+You can schedule a one-time or repeating - hourly or daily - data export job.  By default, each organization has a daily export job configured.  To schedule a one-time job or change the job frequency, please contact Gladly Support.
+List schedules
+List all schedules. Currently, only one schedule can be configured per organization. The schedule will generate recurring data export jobs with an hourly or daily frequency. By default, each organization has a daily export job configured. To change the job frequency, please contact Gladly Support.
+Hourly schedules generate new jobs on a roughly two hour lag after the
+nextStartAt
+time. For example, for an hourly schedule with a
+nextStartAt
+equal to
+2019-01-21T08:00:00.00Z
+, the next job will be created at approximately
+2019-01-21T10:00:00.00Z
+. Daily schedules will run jobs during the night (UTC time).
+Responses
+200
+found jobs
+get
+/api/v1/export/schedules
+https://organization.gladly.com
+/api/v1/export/schedules
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"vZgCEQlDR6aQz_0HeWZ9_Q"
+,
+"frequency"
+:
+"HOURLY"
+,
+"type"
+:
+"CONVERSATIONS"
+,
+"nextStartAt"
+:
+"2019-01-21T08:00:00.00Z"
+,
+"updatedAt"
+:
+"2019-01-21T07:15:18.07272933Z"
+}
+]
+List jobs
+List all jobs for the organization in any status for the last 14 days.
+/
+api
+/
+v1
+/
+export
+/
+jobs
+You can further filter the results by including query parameters for
+status
+,
+startAt
+, and
+endAt
+.
+/
+api
+/
+v1
+/
+export
+/
+jobs
+?
+status
+=
+COMPLETED
+&
+startAt
+=
+2024
+-
+09
+-
+15
+T00
+:
+00
+:
+00.000
+Z
+&
+endAt
+=
+2024
+-
+09
+-
+16
+T00
+:
+00
+:
+00.000
+Z
+query
+Parameters
+status
+string
+Enum
+:
+"PENDING"
+"IN_PROGRESS"
+"COMPLETED"
+"FAILED"
+Example:
+status=COMPLETED
+export job status to search on.
+startAt
+string
+<
+ISO 8601
+>
+Example:
+startAt=2024-09-15T00:00:00.000Z
+Starting time to filter export jobs by. This is based on the
+updatedAt
+field which indicates when the job was last updated. Cannot be more than 14 days ago. Default is 14 days ago.
+The date should be in ISO 8601 format.
+endAt
+string
+<
+ISO 8601
+>
+Example:
+endAt=2024-09-16T00:00:00.000Z
+Ending time to filter export jobs by. This is based on the
+updatedAt
+field which indicates when the job was last updated. Cannot be before 'startAt' or in the future. Default is now.
+The date should be in ISO 8601 format.
+Responses
+200
+found jobs
+get
+/api/v1/export/jobs
+https://organization.gladly.com
+/api/v1/export/jobs
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"vZgCEQlDR6aQz_0HeWZ9_Q"
+,
+"scheduleId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"status"
+:
+"COMPLETED"
+,
+"updatedAt"
+:
+"2019-02-21T07:15:19.07272933Z"
+,
+"parameters"
+:
+{
+"type"
+:
+"CONVERSATIONS"
+,
+"startAt"
+:
+"2019-01-21T07:15:18.07272933Z"
+,
+"endAt"
+:
+"2019-01-22T07:15:18.07272933Z"
+}
+,
+"files"
+:
+[
+"agents.jsonl"
+,
+"conversation_items.jsonl"
+,
+"customers.jsonl"
+,
+"topics.jsonl"
+]
+}
+]
+Get job
+Get a job by unique id.
+path
+Parameters
+jobId
+required
+string
+Example:
+OOrlNMXeS72gs_WEX2TtMg
+id of the job
+Responses
+200
+fetched job
+404
+job not found
+get
+/api/v1/export/jobs/{jobId}
+https://organization.gladly.com
+/api/v1/export/jobs/{jobId}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"vZgCEQlDR6aQz_0HeWZ9_Q"
+,
+"scheduleId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"status"
+:
+"COMPLETED"
+,
+"updatedAt"
+:
+"2019-02-21T07:15:19.07272933Z"
+,
+"parameters"
+:
+{
+"type"
+:
+"CONVERSATIONS"
+,
+"startAt"
+:
+"2019-01-21T07:15:18.07272933Z"
+,
+"endAt"
+:
+"2019-01-22T07:15:18.07272933Z"
+}
+,
+"files"
+:
+[
+"agents.jsonl"
+,
+"conversation_items.jsonl"
+,
+"customers.jsonl"
+,
+"topics.jsonl"
+]
+}
+Delete job
+Delete a job and all associated files.
+Note
+: job status must be
+COMPLETED
+or
+FAILED
+to be deleted.
+path
+Parameters
+jobId
+required
+string
+Example:
+OOrlNMXeS72gs_WEX2TtMg
+id of the job
+Responses
+204
+the job was deleted
+400
+unable to delete job
+404
+job not found
+delete
+/api/v1/export/jobs/{jobId}
+https://organization.gladly.com
+/api/v1/export/jobs/{jobId}
+Response samples
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"attr"
+:
+"status"
+,
+"code"
+:
+"temporary_failure"
+,
+"detail"
+:
+"unable to delete job with status [IN_PROGRESS]. Please try again after it has finished"
+}
+]
+Get file
+Download a file generated by a data export job.
+Filenames can be found from an export
+job's
+files
+field.
+Files are returned in
+.jsonl
+format where each line is a
+json
+object representing an element from the array of data. Please note that, in rare cases, conversation items with invalid attributes may be excluded from the data export. For example:
+An email message that was undelivered due to an invalid recipient email address
+EMAIL / SMS auto-replies sent by Gladly to the customer via a Rule
+Examples are as follows with schema below.
+agents.jsonl
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"name"
+:
+"Amy Agent"
+,
+"emailAddress"
+:
+"amy.agent@company.com"
+}
+conversation_items.jsonl
+{
+"id"
+:
+"ybP4szYCSy6LdV4DNwEd6g"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-01T11:46:45.010Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CHAT_MESSAGE"
+,
+"sessionId"
+:
+"5k04bYuTRGqyT6uoSQfWVA"
+,
+"content"
+:
+"Hi! I know it's after hours but can someone help upgrade my account?"
+}
+}
+{
+"id"
+:
+"9lQDrx-HTz-JMoP2T4CtZA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-02T06:30:12.070Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"EMAIL"
+,
+"from"
+:
+"amy.agent@company.com"
+,
+"to"
+:
+[
+"martha.williams@gmail.com"
+]
+,
+"subject"
+:
+"Account upgrade"
+,
+"content"
+:
+"I would be happy to help you! We need a few details, so please give us a call this morning."
+}
+}
+{
+"id"
+:
+"QN1nURRuRne_eAEhW45UMA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"KgnVOMc2TbiA3zad6iVlWA"
+,
+"timestamp"
+:
+"2020-04-21T00:44:33.690Z"
+,
+"initiator"
+:
+{
+"type"
+:
+"AGENT"
+,
+"id"
+:
+"VjeJI9_GRUS_LUjKLcNlBw"
+}
+,
+"responder"
+:
+{
+"type"
+:
+"CUSTOMER"
+,
+"id"
+:
+"KgnVOMc2TbiA3zad6iVlWA"
+}
+,
+"content"
+:
+{
+"startedAt"
+:
+"2020-04-21T00:44:34.604Z"
+,
+"answeredAt"
+:
+"2020-04-21T00:44:45.515Z"
+,
+"completedAt"
+:
+"2020-04-21T00:44:57.130Z"
+,
+"from"
+:
+"+12096248260"
+,
+"to"
+:
+"+14155335980"
+,
+"recordingUrl"
+:
+"/api/v1/conversation-items/QN1nURRuRne_eAEhW45UMA/media/recording"
+,
+"recordingStatus"
+:
+"AVAILABLE"
+,
+"recordingDuration"
+:
+11
+,
+"type"
+:
+"PHONE_CALL"
+}
+}
+{
+"id"
+:
+"K0UGL3n6S4uPpvtMvItqHA"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"timestamp"
+:
+"2019-07-02T08:12:55.870Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"type"
+:
+"TOPIC_CHANGE"
+,
+"addedTopicIds"
+:
+[
+"uu4t00vITaKQ3bVjU2UrGQ"
+]
+}
+}
+{
+"id"
+:
+"VMn_5L1iTPmcM5DBP1U8oQ"
+,
+"conversationId"
+:
+"9BcE2O0DQ2ynGHRmk9FeoA"
+,
+"customerId"
+:
+"KgnVOMc2TbiA3zad6iVlWA"
+,
+"timestamp"
+:
+"2020-04-21T00:56:03.712Z"
+,
+"initiator"
+:
+{
+"type"
+:
+"CUSTOMER"
+,
+"id"
+:
+"KgnVOMc2TbiA3zad6iVlWA"
+}
+,
+"content"
+:
+{
+"startedAt"
+:
+"2020-04-21T00:55:50.703Z"
+,
+"recordingUrl"
+:
+"/api/v1/conversation-items/VMn_5L1iTPmcM5DBP1U8oQ/media/recording"
+,
+"recordingStatus"
+:
+"AVAILABLE"
+,
+"recordingDuration"
+:
+13
+,
+"type"
+:
+"VOICEMAIL"
+}
+}
+{
+"id"
+:
+"SShWgSCHSHy6EO5TiL7rNw"
+,
+"conversationId"
+:
+"gHuxLQNXSAmmWuNePSyVTw"
+,
+"customerId"
+:
+"0EphnSIJR0ycjMWFTf-GXA"
+,
+"timestamp"
+:
+"2020-04-20T23:58:51.941Z"
+,
+"initiator"
+:
+{
+"type"
+:
+"AGENT"
+,
+"id"
+:
+"LsFXSnO6Ty6gdnyH6y8yug"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CONVERSATION_STATUS_CHANGE"
+,
+"status"
+:
+"CLOSED"
+}
+}
+{
+"id"
+:
+"DnaU23pZSIqOixATlII1vA"
+,
+"conversationId"
+:
+"HXRqKC5GSV-jAlq0-sxYTA"
+,
+"customerId"
+:
+"o2sg-TMTSD2rTwMuxzewbA"
+,
+"timestamp"
+:
+"2020-04-24T23:42:57.780Z"
+,
+"initiator"
+:
+{
+"type"
+:
+"AGENT"
+,
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDA"
+}
+,
+"content"
+:
+{
+"type"
+:
+"CONVERSATION_NOTE"
+,
+"body"
+:
+"Customer has requested more information about our loyalty program."
+}
+}
+customers.jsonl
+{
+"id"
+:
+"OOrlNMXeS72gs_WEX2TtMg"
+,
+"name"
+:
+"Martha J Williams"
+,
+"address"
+:
+"563 Rigoberto Station Apt. 197"
+,
+"emailAddresses"
+:
+[
+"Martha.Williams@gmail.com"
+]
+,
+"phoneNumbers"
+:
+[
+"+17244895501"
+]
+,
+"externalCustomerId"
+:
+"a21c1636-c622-48b7-bf6a-d9032645aa55"
+}
+topics.jsonl
+{
+"id"
+:
+"uu4t00vITaKQ3bVjU2UrGQ"
+,
+"name"
+:
+"Order Returns"
+,
+"disabled"
+:
+false
+}
+path
+Parameters
+jobId
+required
+string
+Example:
+OOrlNMXeS72gs_WEX2TtMg
+id of the job
+filename
+required
+string
+Example:
+agents.jsonl
+name of the file
+Responses
+200
+returns a file
+404
+file not found
+get
+/api/v1/export/jobs/{jobId}/files/{filename}
+https://organization.gladly.com
+/api/v1/export/jobs/{jobId}/files/{filename}
+Response samples
+200
+404
+Content type
+application/x-ndjson
+No sample
+Freeform Topics
+Freeform Topics allow you to associate granular data like Order Number to a Conversation. This data can be accessed for analysis via APIs, Webhooks, and AWS EventBridge. They are powered by custom attributes as you will see throughout this API, the Conversations API, the Events API and events used in Webhooks.
+Note: These attributes are associated to the Conversation and Task entities and are therefore different from customAttributes listed under the Customer entity. See the Customer API for more information on Customer custom attributes.
+Get custom attribute
+Returns a custom attribute that matches the provided custom attribute id.
+path
+Parameters
+customAttributeId
+required
+string
+Example:
+1grfSzATQLa334VDLCWc4A
+id of the custom attribute
+Responses
+200
+404
+Custom Attribute not found
+get
+/api/v1/custom-attributes/:customAttributeId
+https://organization.gladly.com
+/api/v1/custom-attributes/:customAttributeId
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"1grfSzATQLa334VDLCWc4A"
+,
+"key"
+:
+"orderId"
+,
+"label"
+:
+"Order ID"
+,
+"deactivated"
+:
+true
+,
+"createdAt"
+:
+"2020-05-20T15:00:00.000Z"
+,
+"createdBy"
+:
+"7MRwXOeWRaGatwYCbBLLA"
+}
+Inboxes
+An
+Inbox
+receives customer communications in Gladly. The communications route to the inbox according to channel and destination endpoint configuration.
+For example, all calls to a specific phone number or emails to a specific address may go to an inbox.
+List inboxes
+Returns a list of inbox metadata.
+Responses
+200
+Inboxes
+get
+/api/v1/inboxes
+https://organization.gladly.com
+/api/v1/inboxes
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"vZgCEQlDR6aQz_0HeWZ9_Q"
+,
+"name"
+:
+"Email Inbox"
+,
+"disabled"
+:
+false
+}
+]
+Get inbox
+Get the metadata for an inbox by its unique id.
+path
+Parameters
+inboxId
+required
+string
+Example:
+vZgCEQlDR6aQz_0HeWZ9_Q
+id of the inbox
+Responses
+200
+Inbox
+get
+/api/v1/inboxes/{inboxId}
+https://organization.gladly.com
+/api/v1/inboxes/{inboxId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"vZgCEQlDR6aQz_0HeWZ9_Q"
+,
+"name"
+:
+"Email Inbox"
+,
+"disabled"
+:
+false
+}
+Add or remove inbox agents
+Adds and/or removes agents from an inbox in a single request. The
+resulting membership is the inbox's current agents, plus the agents in
+add
+, minus the agents in
+remove
+.
+At least one of
+add
+or
+remove
+must contain at least one agent id. A
+maximum of 100 agent ids may be changed per request (across both lists
+combined), and an agent id may not appear in both
+add
+and
+remove
+.
+Every agent id in
+add
+must belong to an agent in your organization;
+ids in
+remove
+are not checked for existence.
+path
+Parameters
+inboxId
+required
+string
+Example:
+vZgCEQlDR6aQz_0HeWZ9_Q
+id of the inbox
+Request Body schema:
+application/json
+The agent ids to add to and/or remove from the inbox. At least one of
+add
+or
+remove
+must be non-empty.
+add
+Array of
+strings
+Ids of agents to add to the inbox
+remove
+Array of
+strings
+Ids of agents to remove from the inbox
+Responses
+204
+The inbox agents were updated successfully
+400
+Invalid field(s) in request body, for example an empty request, more than 100 agent ids, or an unknown agent id in
+add
+404
+An inbox with the given id could not be found
+409
+The same agent id appears in both
+add
+and
+remove
+post
+/api/v1/inboxes/{inboxId}/agents
+https://organization.gladly.com
+/api/v1/inboxes/{inboxId}/agents
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"add"
+:
+[
+"WmeA3Y51Q5ayCAaZ1AotIA"
+,
+"sHuXx-U3QqOmhvFusJGeBw"
+]
+,
+"remove"
+:
+[
+"ovg2jQCQS9ScsDkBxG-o2Q"
+]
+}
+Response samples
+400
+404
+409
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Organization
+An
+Organization
+contains metadata about your company that Gladly is configured with.
+Get organization
+Returns metadata about your organization.
+Responses
+200
+Organization
+get
+/api/v1/organization
+https://organization.gladly.com
+/api/v1/organization
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"ihKsWxiZCDVtXg1iwVmT9Q"
+,
+"loginDomain"
+:
+"organization.com"
+,
+"name"
+:
+"My Organization"
+,
+"timezone"
+:
+"America/Los_Angeles"
+,
+"gladlyUrl"
+:
+"
+https://organization.gladly.com
+"
+}
+Proactive Conversations
+A proactive conversation consists of a
+campaign
+and
+recipients
+. This APIs intended use-case would be to provide status updates to a customer and not for marketing purposes.
+Create recipient collection for an existing proactive campaign
+Create a new recipient collection for an existing proactive campaign that will be contacted based on the campaign settings.
+You can locate the
+campaignId
+by navigating to the campaign in the dashboard and copying the
+id
+from the URL.
+path
+Parameters
+campaignId
+required
+string
+Example:
+yQ16L_YURROhXAg3KzkuYQ
+id of the campaign to create a new recipient collection for
+Request Body schema:
+application/json
+name
+required
+string
+Name for recipient collection
+startAfter
+required
+string
+<
+RFC3339
+>
+The time after which the recipient collection should start processing
+endBefore
+string
+<
+RFC3339
+>
+The time before which the recipient collection should stop processing
+recipients
+required
+Array of
+Email Recipients (object) or SMS Recipients (object) or Voice Recipients (object)
+Responses
+200
+created recipient collection
+404
+campaign not found
+post
+/api/v1/campaigns/{campaignId}/recipient-collections
+https://organization.gladly.com
+/api/v1/campaigns/{campaignId}/recipient-collections
+Request samples
+Payload
+Content type
+application/json
+Example
+Create recipient collection with email recipients
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"Email collection"
+,
+"startAfter"
+:
+"2024-05-13T16:32:00.000Z"
+,
+"recipients"
+:
+[
+{
+"customerName"
+:
+"John Baker"
+,
+"emailAddress"
+:
+"john.baker@example.com"
+,
+"timezone"
+:
+"America/Los_Angeles"
+}
+,
+{
+"customerName"
+:
+"Jane Smith"
+,
+"emailAddress"
+:
+"jane.smith@example.com"
+,
+"timezone"
+:
+"America/New_York"
+}
+]
+}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"oiaFOojmQu2v8CRQaVUIjw"
+,
+"campaignId"
+:
+"qmkz789yRyO6BdC8WeEitA"
+,
+"type"
+:
+"EMAIL"
+,
+"startAfter"
+:
+"2019-02-21T07:15:19.07272933Z"
+,
+"endBefore"
+:
+"2019-02-21T07:15:19.07272933Z"
+,
+"name"
+:
+"My Collection"
+,
+"status"
+:
+"ACTIVE"
+}
+Reports
+A
+Report
+in Gladly contains metrics that you need to run the contact center. Reports API allows you to access Gladly's reports programatically.
+Generate a report
+Generate a report with a set of specific parameters and filters. The report is returned as a CSV file. These are the same reports that you can normally access via UI. For more information about each report, check out the
+Reporting and Insights
+section of the help docs.
+Request Body schema:
+application/json
+Parameters describing the report to generate.
+metricSet
+required
+string
+Enum
+:
+"AbandonedCallsInIVRReport"
+"AgentAvailableTimeReportV2"
+"AgentAwayTimeReport"
+"AgentDurationsReportV2"
+"AgentLoginTimeReport"
+"AgentSummaryGlanceReportV2"
+"AgentSummaryV2"
+"AgentTimestampsReport"
+"AnswerUsageByAgentReport"
+"AnswerUsageReport"
+"AutoThrottleChangesReport"
+"AutoThrottleMissedConversationsReport"
+"ChannelMixReportV2"
+"ChannelWaitTimeReportV2"
+"ChatDisplayPctChangesReport"
+"ContactExportReportV3"
+"ContactSummaryCountsReport"
+"ContactSummaryDurationsReportV2"
+"ContactSummaryReportV2"
+"ContactTimestampsReport"
+"ConversationExportReport"
+"ConversationSidekickExportReport"
+"ConversationSummaryReport"
+"ConversationTimestampsReport"
+"FirstContactResolutionByAgentV2Report"
+"GladAppAnswerSearchReport"
+"GladAppAnswerUsageReport"
+"GladAppContactPointsReport"
+"GladlyAISessionsDetailReport"
+"GladlyAISessionsDetailWithMessagesReport"
+"HelpCenterAnswerSearchReport"
+"HelpCenterAnswerUsageReport"
+"IvrEndStatesReportV2"
+"IVRExecutiveSummaryReportV2"
+"PaymentsByAgentReport"
+"PaymentsSummaryReport"
+"ProactiveVoiceSummaryReport"
+"QuickActionsUsageReport"
+"SelfServiceThreadsReport"
+"SidekickAssistsByClassificationTopicReport"
+"TaskExportReport"
+"TaskSummaryReport"
+"TaskTimestampsReport"
+"TopicHierarchyReport"
+"TopicSummaryReport"
+"WorkSessionEventsReportV4"
+"WorkSessionsReportV3"
+This parameter is used to specify that the report should include a predetermined set of metrics. These are the same reports that you can normally access via UI.
+For more information about each report, check out the
+Work With OOTB Reports
+section of the help docs.
+WorkSessionEventsReportV4
+returns a leading
+Timezone Filter
+column followed by the columns listed under
+Generate a work session report
+. Read columns by header name rather than by position.
+timezone
+string
+The timezone to be used for the report. Supported timezones are those found in the IANA timezone database.
+If omitted, the organization's default timezone will be used.
+With a date range (
+startAt
+and
+endAt
+), the timezone sets the calendar day boundaries of the report.
+With a time range (
+startAtTime
+and
+endAtTime
+), set
+timezone
+to
+UTC
+. Any other value, including the organization default used when
+timezone
+is omitted, returns data for a window offset from the one requested. Timestamp columns are returned in the report timezone, and the value in use appears in the
+Timezone Filter
+column.
+startAt
+string
+Starting date at the timezone indicated by the timezone parameter. The report will begin at midnight of the specified date.
+The date should be in the format
+YYYY-mm-dd
+. For example
+2019-05-01
+.
+Required unless a time range is used, with which it is mutually exclusive (see
+startAtTime
+).
+endAt
+string
+Ending date at the timezone indicated by the timezone parameter. The report will end just before midnight of the following day such that the report includes all data for the
+endAt
+day.
+The date should be in the format
+YYYY-mm-dd
+. For example
+2019-05-01
+.
+Required unless a time range is used, with which it is mutually exclusive (see
+endAtTime
+).
+startAtTime
+string
+Starting time of the report interval, in ISO 8601 format
+YYYY-mm-ddThh:mmZ
+. For example
+2020-04-13T19:27Z
+.
+This filter applies to the
+AgentSummaryV2
+metricSet
+, where it is optional; and
+WorkSessionEventsReportV4
+, where it is
+required
+because that report supports only a time range, not a date range (
+startAt
+/
+endAt
+).
+If
+startAtTime
+is supplied,
+endAtTime
+must also be supplied, and
+startAt
+and
+endAt
+must not be specified. Set
+timezone
+to
+UTC
+when using a time range (see
+timezone
+).
+endAtTime
+string
+Ending time of the report interval, in ISO 8601 format
+YYYY-mm-ddThh:mmZ
+. For example
+2020-04-13T19:27Z
+.
+This filter applies to the
+AgentSummaryV2
+metricSet
+, where it is optional; and
+WorkSessionEventsReportV4
+, where it is
+required
+because that report supports only a time range, not a date range (
+startAt
+/
+endAt
+).
+If
+endAtTime
+is supplied,
+startAtTime
+must also be supplied, and
+startAt
+and
+endAt
+must not be specified. Set
+timezone
+to
+UTC
+when using a time range (see
+timezone
+).
+This time is inclusive through the 59th second of the minute supplied. To retrieve exactly one day without overlapping the next day's report, use
+00:00Z
+through
+23:59Z
+of the same day.
+aggregationLevel
+string
+Default:
+"daily"
+Enum
+:
+"halfHourly"
+"daily"
+"weekly"
+"monthly"
+"quarterly"
+The aggregation level for the report.
+Applies to the following
+metricSet
+s:
+AgentAwayTimeReport
+,
+AgentAvailableTimeReportV2
+,
+AgentLoginTimeReport
+,
+AgentSummaryV2
+,
+AgentSummaryGlanceReportV2
+,
+AnswerUsageReport
+,
+AnswerUsageByAgentReport
+,
+ChannelMixReportV2
+,
+ChannelWaitTimeReportV2
+,
+ContactSummaryReportV2
+,
+ContactSummaryCountsReport
+,
+ContactSummaryDurationsReportV2
+,
+ConversationSummaryReport
+,
+AbandonedCallsInIVRReport
+,
+AutoThrottleMissedConversationsReport
+,
+PaymentsSummaryReport
+,
+ProactiveVoiceSummaryReport
+,
+TopicHierarchyReport
+,
+TaskSummaryReport
+,
+HelpCenterAnswerUsageReport
+,
+QuickActionsUsageReport
+, and
+GladAppAnswerUsageReport
+.
+Note that an individual aggregationLevel may only be available depending on the
+metricSet
+and date range selected (e.g.: "halfHourly" is not available on the
+AgentSummaryV2
+metricSet
+if requesting over 1 month's worth of data)
+filters
+object
+Additional filters that can be applied to the report. Each filter applies to select
+metricSet
+s. Compatibility is detailed in the description of each parameter.
+Responses
+200
+Report CSV
+400
+Invalid request
+post
+/api/v1/reports
+https://organization.gladly.com
+/api/v1/reports
+Request samples
+Payload
+Content type
+application/json
+Example
+AbandonedCallsInIVRReport
+Copy
+Expand all
+Collapse all
+{
+"metricSet"
+:
+"AbandonedCallsInIVRReport"
+,
+"timezone"
+:
+"America/Los_Angeles"
+,
+"startAt"
+:
+"2021-10-01"
+,
+"endAt"
+:
+"2021-10-02"
+,
+"aggregationLevel"
+:
+"daily"
+}
+Response samples
+400
+Content type
+application/json
+Example
+invalid filter
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"filters.phoneNumber"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"the phoneNumber filter cannot be applied to the SummaryReport metricSet"
+}
+,
+{
+"attr"
+:
+"aggregationLevel"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"the specified value is not a valid aggregation level"
+}
+]
+}
+Generate a work session report
+Note:
+As of September 2026, this endpoint returns the same data as the
+WorkSessionEventsReportV4
+metricSet
+of the
+Reports API
+. The time range is always applied in UTC and timestamps are returned in UTC.
+Integrations built against the earlier version of this endpoint will see these changes:
+work_session_handle_time
+is now
+work_session_handle_time_sec
+, and
+work_session_unknown_time
+is now
+work_session_unknown_time_sec
+. Both are calculated differently from the earlier version, so values may differ.
+work_session_after_contact_time_sec
+is a new column.
+company_address
+now follows
+channel
+instead of appearing last.
+Read columns by header name rather than by position.
+A
+Work Session
+represents a period of time that an Agent spends working with a Customer on a given channel, during a given Contact (messaging exchange, phone call, etc.). In particular:
+A Customer may have 0 or more Conversations, but only 1 Conversation is open at any given time.
+A Conversation may contain 0 or more Contacts (e.g.: A single phone call, a chat session, an email session).
+A Contact may have 0 or more Work Sessions (i.e.: Agents who work on the Contact).
+A Work Session is the unique combination of contact_session_id and agent_id. The agent_id column will be NULL if the contact has not been handled by any Agent.
+The Work Session Report API contains
+both
+contacts and work sessions. It allows you to understand what your inbound contact volume looks like, and to get a view into how Agents are using their time. The primary use of this information is for forecasting and scheduling purposes, but it can also be used to understand, at a fine-grained level, aspects of agent behavior, agent performance, multichannel conversation patterns and more.
+The time anchor for data returned by this API is COALESCE(contact_session_created_at, contact_session_ended_at) (i.e.: if contact_session_ended_at does not exist, use contact_session_created_at. Otherwise, use contact_session_ended_at).
+This means that if it is currently 2023-03-23T00:00Z and:
+contact_session_id A was created on 2023-03-21T04:00Z and ended on 2023-03-22T04:00Z
+You set the startAt time filter to 2023-03-21T00:00Z
+You set the endAt time filter to 2023-03-22T00:00Z
+You would not be able to retrieve contact_session_id A in your API request. Instead, you will need to set the endAt time filter to now() (aka 2023-03-23T00:00Z) to retrieve the contact information.
+Therefore, the general recommendation to get correct data is always to set the endAt time to now() rather than the end interval you'd like to analyze - this will accomodate contacts that "move" intervals due to ending.
+Note that:
+work_session_unknown_time_sec and work_session_after_contact_time_sec may accumulate after the contact ends and before the conversation ends / another contact begins
+work_session_handle_time_sec will only be available for a contact after it ends
+This report is subject to the same
+data latency
+as other Gladly reports
+This CSV file contains the following columns, whose definitions may be viewed via the
+Work Sessions
+section of the help docs.
+id
+contact_session_id
+contact_session_created_at
+customer_id
+conversation_id
+inbox_id
+channel
+company_address
+direction
+agent_accepted_at
+contact_session_routed_at
+agent_id
+sla_fulfilled_at
+contact_session_ended_at
+status
+within_sla
+work_session_handle_time_sec
+work_session_after_contact_time_sec
+work_session_unknown_time_sec
+accepted_inbox_id
+Request Body schema:
+application/json
+A time range for the report that will be generated.
+startAtTime
+required
+string
+Starting time of the report interval
+The date should be in ISO 8601 format
+YYYY-mm-ddThh:mmZ
+. For example 2020-04-13T19:27Z
+endAtTime
+required
+string
+Ending time of the report interval. This date is inclusive meaning that the report will include data up to 1min past the endAtTime
+The date should be in ISO 8601 format
+YYYY-mm-ddThh:mmZ
+. For example 2020-04-14T19:27-09:00
+Responses
+200
+Work Session Report CSV
+400
+Bad Request
+post
+/api/v1/reports/work-session-events
+https://organization.gladly.com
+/api/v1/reports/work-session-events
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"startAtTime"
+:
+"2020-04-13T19:27-09:00"
+,
+"endAtTime"
+:
+"2020-04-14T19:27-09:00"
+}
+Response samples
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"startAtTime"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"endAtTime must occur after startAtTime"
+}
+]
+}
+Tasks
+A task is a way to create and do internal follow-up work for a customer within Gladly. Tasks have a due date, an assignee, a description of what is needed for a customer, and can be commented on. Tasks can also be assigned topics and freeform topics. These can be created through the API to assign items to work within Gladly.
+Create task
+To add tasks to the timeline for a customer specified by identifying information. If the customer doesn't exist, a new customer profile is created.
+If any id in
+topicIds
+is rejected, the task is not created.
+Request Body schema:
+application/json
+Task to create
+id
+string
+<= 50 characters
+Specifies the id of the task
+assignee
+required
+object
+(
+Assignee
+)
+Inbox and Agent assignee for a Task
+body
+required
+string
+<= 10000 characters
+Text to describe what task to complete. Constrained HTML
+Rich Content
+is supported.
+dueAt
+required
+string
+<
+RFC3339
+>
+Time when the task will be due. This must be set to a time in the future.
+topicIds
+Array of
+strings
+Ids of topics to assign to the task. A topic must be enabled and must not be a category, and at most 50 can be assigned. Duplicate ids are ignored.
+customer
+required
+object
+(
+Customer Specification
+)
+Specifies the customer this belongs to. You must provide exactly one of the values.
+Responses
+201
+task created
+400
+Invalid field(s) in request body
+post
+/api/v1/tasks
+https://organization.gladly.com
+/api/v1/tasks
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"assignee"
+:
+{
+"inboxId"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+}
+,
+"body"
+:
+"Call customer back with information about booking"
+,
+"dueAt"
+:
+"2020-03-15T06:13:00.125Z"
+,
+"topicIds"
+:
+[
+"pOVVdzweSumI4bFxjlT8LA"
+]
+,
+"customer"
+:
+{
+"emailAddress"
+:
+"michelle.smith@example.org"
+,
+"mobilePhone"
+:
+"+16505551987"
+}
+}
+Response samples
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"topicId"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"topicId(s) [pOVVdzweSumI4bFxjlT8LA] invalid / disabled"
+}
+]
+}
+Create task for customer
+Add a task to an existing customer's conversation timeline.
+If any id in
+topicIds
+is rejected, the task is not created.
+path
+Parameters
+customerId
+required
+string
+Id of the customer associated with the task to create.
+You can look up the id using the
+Find customers
+API.
+Request Body schema:
+application/json
+Create Task
+id
+string
+<= 50 characters
+Unique task id. Must be URL safe and under 50 characters. An id will be automatically generated if one is not included.
+assignee
+required
+object
+(
+Assignee
+)
+Inbox and Agent assignee for a Task
+body
+required
+string
+<= 10000 characters
+Text to describe what task to complete. Constrained HTML
+Rich Content
+is supported.
+dueAt
+required
+string
+<
+RFC3339
+>
+Time when the task will be due. This must be set to a time in the future.
+topicIds
+Array of
+strings
+Ids of topics to assign to the task. A topic must be enabled and must not be a category, and at most 50 can be assigned. Duplicate ids are ignored.
+Responses
+201
+task created
+400
+Invalid field(s) in request body
+404
+Customer with customerId does not exist
+409
+Specified id is in use
+410
+The customer id no longer exists because the customer was merged into another customer
+post
+/api/v1/customers/{customerId}/tasks
+https://organization.gladly.com
+/api/v1/customers/{customerId}/tasks
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"assignee"
+:
+{
+"inboxId"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+}
+,
+"body"
+:
+"Call customer back with information about booking"
+,
+"dueAt"
+:
+"2020-03-15T06:13:00.125Z"
+,
+"topicIds"
+:
+[
+"pOVVdzweSumI4bFxjlT8LA"
+]
+}
+Response samples
+400
+404
+409
+410
+Content type
+application/json
+Example
+topic does not exist or is disabled
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"topicId"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"topicId(s) [pOVVdzweSumI4bFxjlT8LA] invalid / disabled"
+}
+]
+}
+List tasks
+Fetch all tasks for a customer.
+The list is not paginated and will return at most 2000 tasks. The tasks are returned in descending order by timestamp. 
+The
+Gladly-Limited-Data
+header flag in the response will indicate if the customer has more tasks than returned.
+To see and act on any newly created tasks, webhooks can be used to listen for task related events.
+Tasks older than the limit can be viewed using the Task Export.
+path
+Parameters
+customerId
+required
+string
+Id of the customer whose tasks you'd like to view.
+query
+Parameters
+status
+string
+Enum
+:
+"OPEN"
+"CLOSED"
+Fetch tasks with the provided status.
+Responses
+200
+Array of tasks
+400
+Invalid input
+404
+A customer with the given id does not exist
+get
+/api/v1/customers/{customerId}/tasks
+https://organization.gladly.com
+/api/v1/customers/{customerId}/tasks
+Response samples
+200
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"createdBy"
+:
+{
+"id"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"assignee"
+:
+{
+"inboxId"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+}
+,
+"body"
+:
+"Call customer back with information about booking"
+,
+"dueAt"
+:
+"2020-03-15T06:13:00.125Z"
+,
+"status"
+:
+"OPEN"
+,
+"topicIds"
+:
+[
+"pOVVdzweSumI4bFxjlT8LA"
+]
+,
+"customAttributes"
+:
+[
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"value"
+:
+"1234567890"
+}
+]
+}
+]
+Update task
+Update an existing task.
+Topics and freeform topics are not changed here. Use
+Add or remove task topics
+and
+Add or remove task freeform topics
+.
+path
+Parameters
+taskId
+required
+string
+Id of the task that is to be updated
+Request Body schema:
+application/json
+Task properties to create
+status
+string
+Enum
+:
+"OPEN"
+"CLOSED"
+body
+string
+<= 10000 characters
+Text to describe what task to complete. Constrained HTML
+Rich Content
+is supported.
+dueAt
+string
+<
+RFC3339 with millis
+>
+Due date of task
+assignee
+object
+(
+Assignee
+)
+Inbox and Agent assignee for a Task
+Responses
+204
+The task was created task
+400
+Invalid field(s) in request body
+404
+Task with taskId does not exist.
+patch
+/api/v1/tasks/{taskId}
+https://organization.gladly.com
+/api/v1/tasks/{taskId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"status"
+:
+"OPEN"
+,
+"body"
+:
+"Call customer back with information about booking"
+,
+"dueAt"
+:
+"2021-04-11T14:09:23.000Z"
+,
+"assignee"
+:
+{
+"inboxId"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+}
+}
+Response samples
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Get task
+Get task
+path
+Parameters
+taskId
+required
+string
+Id of the task requested
+Responses
+200
+Returns requested task
+404
+Given task id does not exist
+get
+/api/v1/tasks/{taskId}
+https://organization.gladly.com
+/api/v1/tasks/{taskId}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"customerId"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"createdBy"
+:
+{
+"id"
+:
+"gHufx-U3QqOmhvFuViceTw"
+,
+"type"
+:
+"CUSTOMER"
+}
+,
+"assignee"
+:
+{
+"inboxId"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+}
+,
+"body"
+:
+"Call customer back with information about booking"
+,
+"dueAt"
+:
+"2020-03-15T06:13:00.125Z"
+,
+"status"
+:
+"OPEN"
+,
+"topicIds"
+:
+[
+"pOVVdzweSumI4bFxjlT8LA"
+]
+,
+"customAttributes"
+:
+[
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"value"
+:
+"1234567890"
+}
+]
+}
+Add or remove task topics
+Adds topics to and removes topics from a task. A topic that is already on the task is ignored, and so is an id in
+removeTopicIds
+that is not on the task.
+A topic must be enabled and must not be a category. An id cannot appear in both
+associations
+and
+removeTopicIds
+.
+path
+Parameters
+taskId
+required
+string
+Id of the task whose topics are changing.
+Request Body schema:
+application/json
+associations
+Array of
+objects
+(
+Task Topic
+)
+Topics to add to the task
+removeTopicIds
+Array of
+strings
+Ids of topics to remove from the task
+Responses
+204
+The topics were updated successfully
+400
+Invalid field(s) in request body
+404
+Task with taskId does not exist
+post
+/api/v1/tasks/{taskId}/topic-associations
+https://organization.gladly.com
+/api/v1/tasks/{taskId}/topic-associations
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"associations"
+:
+[
+{
+"topicId"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+}
+]
+,
+"removeTopicIds"
+:
+[
+"tYVmwhIVQe-2tflRIszQ3g"
+]
+}
+Response samples
+400
+404
+Content type
+application/json
+Example
+topic does not exist or is disabled
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"topicId"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"topicId(s) [pOVVdzweSumI4bFxjlT8LA] invalid / disabled"
+}
+]
+}
+Add or remove task freeform topics
+Adds
+freeform topics
+to and removes them from a task. A freeform topic that is already on the task is ignored, and so is one in
+remove
+that is not on the task.
+path
+Parameters
+taskId
+required
+string
+Id of the task whose freeform topics are changing.
+Request Body schema:
+application/json
+add
+Array of
+objects
+(
+Task Freeform Topic
+)
+Freeform topics to add to the task
+remove
+Array of
+objects
+(
+Task Freeform Topic
+)
+Freeform topics to remove from the task
+Responses
+204
+The freeform topics were updated successfully
+400
+Invalid field(s) in request body
+404
+Task with taskId does not exist
+post
+/api/v1/tasks/{taskId}/custom-attributes
+https://organization.gladly.com
+/api/v1/tasks/{taskId}/custom-attributes
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"add"
+:
+[
+{
+"key"
+:
+"ORDER_ID"
+,
+"value"
+:
+"ORD_3"
+}
+]
+,
+"remove"
+:
+[
+{
+"key"
+:
+"ORDER_ID"
+,
+"value"
+:
+"ORD_3"
+}
+]
+}
+Response samples
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"value"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"cannot be blank"
+}
+]
+}
+Add task comment
+Create a comment on a task.  Note that you can’t create comments on closed tasks.
+path
+Parameters
+taskId
+required
+string
+Id of the task that will be commented on.
+Request Body schema:
+application/json
+Add comment to task
+id
+string
+<= 50 characters
+Unique comment id. Must be URL safe and under 50 characters. An id will be automatically generated if one is not included.
+agentId
+required
+string
+the id of the agent making the comment
+comment
+string
+<= 10000 characters
+Comment body
+Responses
+201
+comment added
+400
+Invalid field(s) in request body
+404
+Task with taskId does not exist
+post
+/api/v1/tasks/{taskId}/comments
+https://organization.gladly.com
+/api/v1/tasks/{taskId}/comments
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"agentId"
+:
+"dzweSumI4bFxjlT8LApOVV"
+,
+"comment"
+:
+"Return call to customer"
+}
+Response samples
+400
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+Get task comments
+The comments are returned in ascending order by createdAt timestamp. The list is not paginated and will return at most 1000 task comments. The
+Gladly-Limited-Data
+header flag in the response will indicate if the task has more comments than returned.
+To see and act on any newly created task comments, webhooks can be used to listen to any task comment related events.
+path
+Parameters
+taskId
+required
+string
+Id of the task comments are requested for.
+Responses
+200
+All comments that belong to task
+404
+Task with taskId does not exist
+get
+/api/v1/tasks/{taskId}/comments
+https://organization.gladly.com
+/api/v1/tasks/{taskId}/comments
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"agentId"
+:
+"dzweSumI4bFxjlT8LApOVV"
+,
+"comment"
+:
+"Return call to customer."
+,
+"taskId"
+:
+"dzweSumI4bFxjlT8LApOVV"
+,
+"createdAt"
+:
+"2020-03-15T06:13:00.125Z"
+}
+]
+Get task comment
+Get task comment.
+path
+Parameters
+taskId
+required
+string
+Task id
+commentId
+required
+string
+Comment id
+Responses
+200
+Returns task comment
+404
+Comment with commentId does not exist
+get
+/api/v1/tasks/{taskId}/comments/{commentId}
+https://organization.gladly.com
+/api/v1/tasks/{taskId}/comments/{commentId}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"pOVVdzweSumI4bFxjlT8LA"
+,
+"agentId"
+:
+"dzweSumI4bFxjlT8LApOVV"
+,
+"comment"
+:
+"Return call to customer."
+,
+"taskId"
+:
+"dzweSumI4bFxjlT8LApOVV"
+,
+"createdAt"
+:
+"2020-03-15T06:13:00.125Z"
+}
+Teams
+A
+Team
+represents a group of Agents. They may handle particular
+Inboxes
+or types of work within Gladly.
+List teams
+Returns a list of teams.
+Responses
+200
+Teams
+get
+/api/v1/teams
+https://organization.gladly.com
+/api/v1/teams
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"ovg2jQCQS9ScsDkBxG-o2Q"
+,
+"name"
+:
+"Stay Advisors"
+,
+"description"
+:
+"Team to answer customer questions about new bookings"
+,
+"agentIds"
+:
+[
+"WmeA3Y51Q5ayCAaZ1AotIA"
+]
+}
+]
+Get team
+Get a team by its unique id.
+path
+Parameters
+teamId
+required
+string
+Example:
+ovg2jQCQS9ScsDkBxG-o2Q
+id of the team
+Responses
+200
+Team
+get
+/api/v1/teams/{teamId}
+https://organization.gladly.com
+/api/v1/teams/{teamId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"ovg2jQCQS9ScsDkBxG-o2Q"
+,
+"name"
+:
+"Stay Advisors"
+,
+"description"
+:
+"Team to answer customer questions about new bookings"
+,
+"agentIds"
+:
+[
+"WmeA3Y51Q5ayCAaZ1AotIA"
+]
+}
+User Identity
+Create a User Identity JWT
+Create a User Identity JWT for a customer. The JWT is used to authenticate the customer with
+Chat
+. The JWT contains the customer identity information.
+Request Body schema:
+application/json
+Customer Identity Information
+identityType
+string
+Enum
+:
+"EMAIL"
+"MOBILE_PHONE_NUMBER"
+The type of identity information
+identity
+string
+The identity information, the value depends on the identityType field. Needs to be a valid email or phone number format (
+E.164
+).
+Responses
+200
+customer created
+400
+error creating JWT
+post
+/api/v1/user-identity-jwt
+https://organization.gladly.com
+/api/v1/user-identity-jwt
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"identityType"
+:
+"EMAIL"
+,
+"identity"
+:
+"test@example.com"
+}
+Response samples
+200
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"token"
+:
+"string"
+}
+Topics
+A
+Topic
+is a way of labeling a conversation in Gladly for specific business purposes. For example, an agent may apply the topic "Return" to a conversation where a customer returns merchandise.
+Topics are used for reporting and to control various workflows.
+Topics can be configured to have a nested hierarchy. For instance, the topic "Return" could be a parent of "Size" and "Color" child topics. Visit our
+Help Pages
+to learn more about Hierarchical Topics.
+List Topics
+Returns a list of Topics.
+Responses
+200
+Topics
+get
+/api/v1/topics
+https://organization.gladly.com
+/api/v1/topics
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"summary"
+:
+"Topics"
+,
+"value"
+:
+[
+{
+"id"
+:
+"Z_Oto7j-Sy2DlQdnZBDdDw"
+,
+"disabled"
+:
+false
+,
+"name"
+:
+"Order Return"
+}
+,
+{
+"id"
+:
+"8eiDakrnTgKa3HIxtgV5OA"
+,
+"disabled"
+:
+false
+,
+"name"
+:
+"Damaged Merchandise"
+,
+"parentId"
+:
+"Z_Oto7j-Sy2DlQdnZBDdDw"
+}
+,
+{
+"id"
+:
+"WgZnWNicSMmORcNzP8rwGQ"
+,
+"disabled"
+:
+true
+,
+"name"
+:
+"Holiday 2019"
+,
+"parentId"
+:
+"Z_Oto7j-Sy2DlQdnZBDdDw"
+}
+]
+}
+Add Topic
+Add a Topic to the list of available Topics.
+Request Body schema:
+application/json
+Topic to create
+id
+string
+unique Topic id - optional (a new id will be generated if not provided)
+name
+required
+string
+Name of the Topic - must be unique
+disabled
+boolean
+If the Topic is not in use - optional, defaults to
+false
+parentId
+string
+id of parent Topic, if the Topic is nested under another topic - optional
+Responses
+201
+Topic Created
+400
+Bad Request
+409
+Topic contains conflicting values
+post
+/api/v1/topics
+https://organization.gladly.com
+/api/v1/topics
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"uu4t00vITaKQ3bVjU2UrGQ"
+,
+"name"
+:
+"Order Returns"
+,
+"disabled"
+:
+false
+,
+"parentId"
+:
+"ChefeoTHSlaIbKg57H5R9Q"
+}
+Response samples
+400
+409
+Content type
+application/json
+Example
+id contains unsupported characters
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"id"
+,
+"code"
+:
+"invalid"
+,
+"detail"
+:
+"id contains unsupported characters"
+}
+]
+}
+Get Topic
+Get a Topic by its unique id.
+path
+Parameters
+topicId
+required
+string
+Example:
+uu4t00vITaKQ3bVjU2UrGQ
+id of the Topic
+Responses
+200
+Topic
+404
+Given Topic id does not exist
+get
+/api/v1/topics/{topicId}
+https://organization.gladly.com
+/api/v1/topics/{topicId}
+Response samples
+200
+404
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"uu4t00vITaKQ3bVjU2UrGQ"
+,
+"name"
+:
+"Order Returns"
+,
+"disabled"
+:
+false
+,
+"parentId"
+:
+"ChefeoTHSlaIbKg57H5R9Q"
+}
+Update Topic
+Update an existing Topic.
+path
+Parameters
+topicId
+required
+string
+Example:
+uu4t00vITaKQ3bVjU2UrGQ
+id of the Topic
+Request Body schema:
+application/json
+name
+required
+string
+Name of the Topic
+disabled
+boolean
+If the Topic is not in use
+parentId
+string
+id of parent Topic, if the Topic is nested under another topic - optional
+Responses
+204
+Topic updated successfully
+400
+Bad Request
+404
+Topic with the specified id does not exist
+409
+Topic update contains conflicting values
+patch
+/api/v1/topics/{topicId}
+https://organization.gladly.com
+/api/v1/topics/{topicId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"Order Returns"
+,
+"disabled"
+:
+false
+,
+"parentId"
+:
+"ChefeoTHSlaIbKg57H5R9Q"
+}
+Response samples
+400
+404
+409
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"name"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"name cannot be blank"
+}
+]
+}
+Webhooks
+A
+Webhook
+is a way to send notifications about Gladly events as a POST request to the endpoint of your choice.
+Create webhook
+Create a new webhook with the supplied data. The webhook will be in disabled state by default.
+If creating a new enabled webhook, your service is expected to respond to a
+Ping Event
+.
+You are limited to 20 webhooks for your organization.
+Request Body schema:
+application/json
+Webhook to add
+name
+string
+<= 200 characters
+friendly name of the webhook
+events
+required
+Array of
+strings
+Items
+Enum
+:
+"AGENT_AVAILABILITY/FOCUS_ENTERED"
+"AGENT_AVAILABILITY/FOCUS_EXITED"
+"AGENT_AVAILABILITY/UPDATED"
+"AGENT_STATUS/CHANGED_ACTIVE_REASON"
+"AGENT_STATUS/LOGGED_IN"
+"AGENT_STATUS/LOGGED_OUT"
+"AGENT_STATUS/RETURNED_FROM_AWAY"
+"AGENT_STATUS/WENT_AWAY"
+"CONTACT/ENDED"
+"CONTACT/FULFILLED"
+"CONTACT/HOLD_ENDED"
+"CONTACT/HOLD_STARTED"
+"CONTACT/JOINED"
+"CONTACT/MESSAGE_RECEIVED"
+"CONTACT/MESSAGE_SENT"
+"CONTACT/OFFER_ACCEPTED"
+"CONTACT/OFFERED"
+"CONTACT/OFFER_REJECTED"
+"CONTACT/STARTED"
+"CONTACT/TRANSFERRED"
+"CONVERSATION/CLOSED"
+"CONVERSATION/CREATED"
+"CONVERSATION/CUSTOM_ATTRIBUTE_ADDED"
+"CONVERSATION/CUSTOM_ATTRIBUTE_REMOVED"
+"CONVERSATION/NOTE_CREATED"
+"CONVERSATION/REOPENED"
+"CONVERSATION/TOPIC_ADDED"
+"CONVERSATION/TOPIC_REMOVED"
+"CONVERSATION_ASSIGNEE/UPDATED"
+"CONVERSATION_STATUS/UPDATED"
+"CUSTOMER/MERGED"
+"CUSTOMER_PROFILE/CREATED"
+"CUSTOMER_PROFILE/DELETED"
+"CUSTOMER_PROFILE/MERGED (deprecated)"
+"CUSTOMER_PROFILE/UPDATED"
+"EXPORT_JOB/COMPLETED"
+"EXPORT_JOB/FAILED"
+"PAYMENT_REQUEST/CREATED"
+"PAYMENT_REQUEST/STATUS_CHANGED"
+"PAYMENT_REQUEST/VIEWED"
+"TASK/ASSIGNEE_UPDATED"
+"TASK/CLOSED"
+"TASK/COMMENT_ADDED"
+"TASK/CONTENT_UPDATED"
+"TASK/CREATED"
+"TASK/DUE_DATE_UPDATED"
+"TASK/FOLLOWER_ADDED"
+"TASK/FOLLOWER_REMOVED"
+"TASK/REOPENED"
+list of events that trigger the webhook. More events are coming soon. Please see
+Events
+for more information about the data included for each event type.
+url
+required
+string
+your URL that POST requests are sent to when events occur. HTTPS is required and this value must be unique across all webhooks.
+credentials
+object
+(
+Basic Auth Credentials
+)
+headers
+object
+(
+HTTP Headers
+)
+custom HTTP headers to include in every request
+enabled
+boolean
+Default:
+false
+whether the webhook is delivering notifications
+Responses
+201
+Created webhook
+400
+Invalid field(s) in request body
+post
+/api/v1/webhooks
+https://organization.gladly.com
+/api/v1/webhooks
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"name"
+:
+"CSAT integration"
+,
+"url"
+:
+"
+https://gateway.organization.com/gladly/webhook
+"
+,
+"events"
+:
+[
+"CONVERSATION/CLOSED"
+]
+,
+"credentials"
+:
+{
+"username"
+:
+"integrations@organization.com"
+,
+"password"
+:
+"fxdUfTcejVxVs9bQ8DizKccq"
+}
+,
+"headers"
+:
+{
+"X-Gladly-Token"
+:
+"123"
+}
+}
+Response samples
+400
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"errors"
+:
+[
+{
+"attr"
+:
+"content"
+,
+"code"
+:
+"blank"
+,
+"detail"
+:
+"content cannot be blank"
+}
+]
+}
+List webhooks
+Returns a list of webhooks.
+Responses
+200
+Webhook
+get
+/api/v1/webhooks
+https://organization.gladly.com
+/api/v1/webhooks
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+[
+{
+"id"
+:
+"a9dIl-kKRrKUZLQtJ-tjtw"
+,
+"name"
+:
+"CSAT integration"
+,
+"events"
+:
+[
+"CONVERSATION/CLOSED"
+]
+,
+"url"
+:
+"
+https://gateway.organization.com/gladly/webhook
+"
+,
+"createdAt"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"updatedAt"
+:
+"2019-07-09T09:00:10.00Z"
+,
+"hasCredentials"
+:
+true
+,
+"headerKeys"
+:
+[
+"X-Gladly-Key"
+]
+,
+"enabled"
+:
+false
+,
+"disabledAtDueToRetryLimit"
+:
+"2019-07-10T12:00:00.00Z"
+}
+]
+Update webhook
+Update webhook by id.
+If enabling a webhook or updating a webhook's URL, your service is expected to respond to a
+Ping Event
+.
+path
+Parameters
+webhookId
+required
+string
+Example:
+a9dIl-kKRrKUZLQtJ-tjtw
+id of the webhook
+Request Body schema:
+application/json
+JSON patch of webhook properties to insert or update
+name
+string
+<= 200 characters
+friendly name of the webhook
+events
+Array of
+strings
+Items
+Enum
+:
+"AGENT_AVAILABILITY/FOCUS_ENTERED"
+"AGENT_AVAILABILITY/FOCUS_EXITED"
+"AGENT_AVAILABILITY/UPDATED"
+"AGENT_STATUS/CHANGED_ACTIVE_REASON"
+"AGENT_STATUS/LOGGED_IN"
+"AGENT_STATUS/LOGGED_OUT"
+"AGENT_STATUS/RETURNED_FROM_AWAY"
+"AGENT_STATUS/WENT_AWAY"
+"CONTACT/ENDED"
+"CONTACT/FULFILLED"
+"CONTACT/HOLD_ENDED"
+"CONTACT/HOLD_STARTED"
+"CONTACT/JOINED"
+"CONTACT/MESSAGE_RECEIVED"
+"CONTACT/MESSAGE_SENT"
+"CONTACT/OFFER_ACCEPTED"
+"CONTACT/OFFERED"
+"CONTACT/OFFER_REJECTED"
+"CONTACT/STARTED"
+"CONTACT/TRANSFERRED"
+"CONVERSATION/CLOSED"
+"CONVERSATION/CREATED"
+"CONVERSATION/CUSTOM_ATTRIBUTE_ADDED"
+"CONVERSATION/CUSTOM_ATTRIBUTE_REMOVED"
+"CONVERSATION/NOTE_CREATED"
+"CONVERSATION/REOPENED"
+"CONVERSATION/TOPIC_ADDED"
+"CONVERSATION/TOPIC_REMOVED"
+"CONVERSATION_ASSIGNEE/UPDATED"
+"CONVERSATION_STATUS/UPDATED"
+"CUSTOMER/MERGED"
+"CUSTOMER_PROFILE/CREATED"
+"CUSTOMER_PROFILE/DELETED"
+"CUSTOMER_PROFILE/MERGED (deprecated)"
+"CUSTOMER_PROFILE/UPDATED"
+"EXPORT_JOB/COMPLETED"
+"EXPORT_JOB/FAILED"
+"PAYMENT_REQUEST/CREATED"
+"PAYMENT_REQUEST/STATUS_CHANGED"
+"PAYMENT_REQUEST/VIEWED"
+"TASK/ASSIGNEE_UPDATED"
+"TASK/CLOSED"
+"TASK/COMMENT_ADDED"
+"TASK/CONTENT_UPDATED"
+"TASK/CREATED"
+"TASK/DUE_DATE_UPDATED"
+"TASK/FOLLOWER_ADDED"
+"TASK/FOLLOWER_REMOVED"
+"TASK/REOPENED"
+list of events that trigger the webhook. More events are coming soon. Please see
+Events
+for more information about the data included for each event type.
+url
+string
+your URL that POST requests are sent to when events occur. HTTPS is required and this value must be unique across all webhooks.
+credentials
+object
+(
+Basic Auth Credentials
+)
+headers
+object
+(
+HTTP Headers
+)
+custom HTTP headers to include in every request
+enabled
+boolean
+Default:
+false
+whether the webhook is delivering notifications
+Responses
+204
+Updated webhook
+400
+Invalid field(s) in request body
+404
+Webhook with id does not exist
+patch
+/api/v1/webhooks/{webhookId}
+https://organization.gladly.com
+/api/v1/webhooks/{webhookId}
+Request samples
+Payload
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"enabled"
+:
+true
+}
+Delete webhook
+Delete a webhook by ID
+path
+Parameters
+webhookId
+required
+string
+Example:
+a9dIl-kKRrKUZLQtJ-tjtw
+id of the webhook
+Responses
+204
+Webhook deleted
+400
+Webhook must be disabled to be deleted
+404
+Webhook with id does not exist
+delete
+/api/v1/webhooks/{webhookId}
+https://organization.gladly.com
+/api/v1/webhooks/{webhookId}
+Get webhook
+Get a webhook by ID
+path
+Parameters
+webhookId
+required
+string
+Example:
+a9dIl-kKRrKUZLQtJ-tjtw
+id of the webhook
+Responses
+200
+Webhook
+404
+Webhook with id does not exist
+get
+/api/v1/webhooks/{webhookId}
+https://organization.gladly.com
+/api/v1/webhooks/{webhookId}
+Response samples
+200
+Content type
+application/json
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"a9dIl-kKRrKUZLQtJ-tjtw"
+,
+"name"
+:
+"CSAT integration"
+,
+"events"
+:
+[
+"CONVERSATION/CLOSED"
+]
+,
+"url"
+:
+"
+https://gateway.organization.com/gladly/webhook
+"
+,
+"createdAt"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"updatedAt"
+:
+"2019-07-09T09:00:10.00Z"
+,
+"hasCredentials"
+:
+true
+,
+"headerKeys"
+:
+[
+"X-Gladly-Key"
+]
+,
+"enabled"
+:
+false
+,
+"disabledAtDueToRetryLimit"
+:
+"2019-07-10T12:00:00.00Z"
+}
+Summary
+Gladly
+webhooks
+are an easy way to send notifications about Gladly events and have them delivered to the endpoint of your choice, giving you a streamlined method to trigger associated actions in external systems that respond to events in Gladly.
+Simply choose where to send notifications about events that you are interested in (e.g. when a conversation is closed), and they’ll be delivered to the endpoint of your choice.
+Configure webhooks using the
+Webhooks API
+or the Webhooks Admin Page.
+Users with API User permissions can configure webhooks by navigating to Integrations > Webhooks.
+Securing Webhooks
+We provide two methods for your web service to authenticate requests from Gladly.
+We recommend implementing at least one
+authentication
+option.
+Basic Authentication
+For this method you will supply a username and password with the webhooks
+credentials
+field. This will be sent with each request. You may optionally supply a realm if needed.
+Header Based Token Authentication
+For this method you will configure one or more HTTP headers with the webhook's
+headers
+field. Gladly will send in each request to your web service.
+Ping Event
+Whenever you enable a webhook or update a webhook's URL, we'll send you a special
+PING
+event.
+Your web service is expected to respond with a 200 status code to this event. If it does not respond or times out, the webhook create or update will not succeed.
+Retry Policy
+Effective 6/28/23
+If your service responds to an event with a response code outside the 2XX range or times out after 15 seconds, Gladly considers that delivery as failed and will resend the request up to 4 times over an hour. After the fourth attempt, we will deactivate the webhook and wil notify all API Users in your organization's environment via email.
+To reactivate the webhook, your team will first need to investigate the issue and make the necessary changes for the webhook to start working again. Once the issue is resolved, you will be able to re-activate the webhook via the Settings > Webhooks page.
+The following table shows the intervals between each retry attempt.
+Attempt
+Retry interval
+1
+30 seconds
+2
+5 minutes
+3
+30 minutes
+4
+1 hour
+Logs
+We provide the last 100 HTTP request logs for a webhook that occurred during the past month. Logs can take up to 30 seconds to view and require you to refresh the page.
+Each log displays the status, event type and occurred at timestamp for a given request. You can expand the log for more details about the request and response.
+For more information about webhook logs, please see our
+Help Documentation
+.
+Payloads
+Gladly payloads are intentionally small: they contain only Gladly IDs and event names rather than the object/data that has been modified or created
+This helps Gladly webhooks perform more quickly when many events occur throughout the day. This also assists with security, so if you misconfigure a webhook, it does not send sensitive information to an outside service.
+To retrieve more information about the object in question, you may make an additional Gladly API call to retrieve the Gladly object. For example, to know more about conversationId whose status was updated, call the
+GET Conversation API
+or the
+List Items in Conversation API
+.
+Available Events
+Please see the
+Help Documentation
+for more information about many of the events listed below.
+Event
+Triggered by Gladly when:
+AGENT_AVAILABILITY/UPDATED
+an Agent's availability is updated
+AGENT_STATUS/CHANGED_ACTIVE_REASON
+an Agent's active reason is updated
+AGENT_STATUS/LOGGED_IN
+an Agent logs in
+AGENT_STATUS/LOGGED_OUT
+an Agent logs out
+AGENT_STATUS/RETURNED_FROM_AWAY
+an Agent returns from away
+AGENT_STATUS/WENT_AWAY
+an Agent goes away
+CONTACT/ENDED
+a Contact is ended
+CONTACT/FULFILLED
+a Contact's SLA is fulfilled
+CONTACT/HOLD_ENDED
+a Contact's hold is ended
+CONTACT/HOLD_STARTED
+a Contact's hold is started
+CONTACT/JOINED
+an Agent joins a Contact
+CONTACT/MESSAGE_RECEIVED
+a Message is received
+CONTACT/MESSAGE_SENT
+a Message is sent
+CONTACT/OFFER_ACCEPTED
+a Contact's offer is accepted
+CONTACT/OFFERED
+a Contact is offered
+CONTACT/OFFER_REJECTED
+a Contact's offer is rejected
+CONTACT/STARTED
+a Contact is started
+CONTACT/TRANSFERRED
+a Contact is transferred
+CONVERSATION/CLOSED
+a Conversation is closed
+CONVERSATION/CREATED
+a new Conversation is created
+CONVERSATION/CUSTOM_ATTRIBUTE_ADDED
+a custom attribute has been added to the conversation
+CONVERSATION/CUSTOM_ATTRIBUTE_REMOVED
+a custom attribute has been removed from the conversation
+CONVERSATION/NOTE_CREATED
+a Note is added to a Conversation
+CONVERSATION/REOPENED
+a Conversation is reopened
+CONVERSATION/TOPIC_ADDED
+a topic is added to a Conversation
+CONVERSATION/TOPIC_REMOVED
+a Conversation's topic is removed
+CONVERSATION_ASSIGNEE/UPDATED
+a Conversation's assignee (inbox and/or Agent) changes
+CONVERSATION_STATUS/UPDATED
+a Conversation changes statuses (e.g.: from OPEN to CLOSED)
+CUSTOMER/MERGED
+a Customer Profile is merged with another profile
+CUSTOMER_PROFILE/CREATED
+a Customer Profile is created
+CUSTOMER_PROFILE/DELETED
+a Customer Profile is deleted
+CUSTOMER_PROFILE/MERGED
+a Customer Profile is merged with another profile
+CUSTOMER_PROFILE/UPDATED
+a Customer Profile is updated (e.g.: name is updated)
+EXPORT_JOB/COMPLETED
+a
+data export job
+is completed
+EXPORT_JOB/FAILED
+a
+data export job
+fails to complete
+PAYMENT_REQUEST/CREATED
+a payment request is created
+PAYMENT_REQUEST/STATUS_CHANGED
+a payment request's status changes
+PAYMENT_REQUEST/VIEWED
+a payment request is viewed by the Customer
+PING
+a webhook is initially created to verify serivce availability
+TASK/ASSIGNEE_UPDATED
+a task's assignee is updated
+TASK/CLOSED
+a task is closed
+TASK/COMMENT_ADDED
+a comment is added to a task
+TASK/CONTENT_UPDATED
+the content of a task is updated
+TASK/CREATED
+a task is created
+TASK/DUE_DATE_UPDATED
+the due date of a task is updated
+TASK/FOLLOWER_ADDED
+a follower is added to a task
+TASK/FOLLOWER_REMOVED
+a follower is removed from a task
+TASK/REOPENED
+a closed task is reopened
+Payloads
+Events
+Gladly will perform a POST request to your endpoint when the event occurs.
+Your service is expected to respond within 15 seconds.
+If your service responds to a webhook notification with a response code outside the 2XX range or times out after 15 seconds, Gladly considers that delivery as failed and will resend the request up to 4 times over an hour. After the fourth attempt, we will deactivate the webhook and will notify all API Users in your organization's environment via email.
+Request Body schema:
+application/json
+the event payload
+One of
+Agent Availability Updated
+Agent Changed Active Reason
+Agent Logged In
+Agent Logged Out
+Agent Returned From Away
+Agent Went Away
+Contact Ended
+Contact Fulfilled
+Contact Hold Ended
+Contact Hold Started
+Contact Joined
+Contact Message Received
+Contact Message Sent
+Contact Offer Accepted
+Contact Offer Rejected
+Contact Offered
+Contact Started
+Contact Transferred
+Conversation Assignee Updated
+Conversation Closed
+Conversation Created
+Conversation Custom Attribute Added
+Conversation Custom Attribute Removed
+Conversation Note Created
+Conversation Reopened
+Conversation Status Updated
+Conversation Topic Added
+Conversation Topic Removed
+Customer Merged
+Customer Profile Created
+Customer Profile Deleted
+Customer Profile Merged (deprecated)
+Customer Profile Updated
+Export Job Completed
+Export Job Failed
+PING
+Payment Request Created
+Payment Status Changed
+Payment Request Viewed
+Task Assignee Updated
+Task Closed
+Task Comment Added
+Task Content Updated
+Task Created
+Task Due Date Updated
+Task Follower Added
+Task Follower Removed
+Task Reopened
+id
+required
+string
+Unique event ID
+type
+required
+string
+Value
+:
+"AGENT_AVAILABILITY/UPDATED"
+timestamp
+required
+string
+<
+ISO 8601
+>
+Time the event was recorded
+initiator
+required
+object
+(
+Initiator
+)
+Type and ID (if applicable) of the entity that triggered the event.
+content
+required
+object
+(
+Content
+)
+Content for event
+Responses
+200
+Success
+post
+/gladly/webhook
+Web service hosted on your servers should be reachable from the Gladly cluster
+https://gateway.organization.com
+/gladly/webhook
+Request samples
+Payload
+Content type
+application/json
+Example
+Agent Availability Updated
+Copy
+Expand all
+Collapse all
+{
+"id"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"type"
+:
+"AGENT_AVAILABILITY/UPDATED"
+,
+"timestamp"
+:
+"2019-07-03T04:30:12.07Z"
+,
+"initiator"
+:
+{
+"id"
+:
+"NFpDZtfqhk2pI6fjaVDlFf"
+,
+"type"
+:
+"AGENT"
+}
+,
+"content"
+:
+{
+"agentId"
+:
+"zGaHXjD4SR-moMR9LbULDa"
+,
+"availableFor"
+:
+[
+"MAIL"
+,
+"VOICE"
+]
+,
+"occurredAt"
+:
+"2019-07-03T04:30:12.07Z"
+}
+}
+Customer Lookup
+Customer Lookup
+allows you to provide a web service to search and get customer profile data and transactions.
+To support Customer Lookup, your organization will deploy an adaptor service (aka Lookup Adaptor) running on your network that implements the Lookup API.
+From there you can can connect the service to internal systems providing customer and transaction data.
+Overview
+Building a Lookup Adaptor will allow you to showcase extended customer profile information and actions in Gladly. For example, you may extend the customer profile in Gladly with loyalty points and lifetime value to assist with VIP routing. You can also display historical orders in Gladly to allow agents to view frequently used directly in Gladly without having to go to another system. You can even extend Gladly with Actions so that agents can cancel orders or award loyalty points directly in Gladly!
+On a high-level, Gladly will perform a request to your Customer Lookup integration(s) to retrieve extended information from your system(s) about a Customer Profile in Gladly.
+To ensure performance, Gladly recommends that your Customer Lookup integration(s) be able to respond back to the Gladly POST request in < 5 seconds. Gladly will terminate the request in 15 seconds if it receives no response from your integration(s). Please note that if one Customer Lookup integration times out / responds with an error that Gladly will consider this an error for all Customer Lookup integration(s).
+Sample code
+Sample code for building a Customer Lookup integration can be found
+here
+.
+Architecture, Setup, Authentication, Sample Requests and More
+A detailed overview of Lookup Adaptor architecture, requests, resposnes and more can be found
+here
+.
+Versioning
+As we evolve the Gladly API over time, changes will be either added to the current version of the API (i.e.
+backwards compatible changes
+),
+or result in a new version that you will need to integrate with afresh (i.e.
+non-backwards compatible changes
+).
+URL Path Versioning
+The various versions of the Gladly API will be differentiated via global versioning, with the relevant version number reflected within the path parameter of the URL:
+https
+:
+/
+/
+organization
+.
+gladly
+.
+com
+/
+api
+/
+v
+{
+major
+-
+version
+-
+number
+}
+/
+{
+resource path
+}
+Backwards Compatible Changes
+For the most part, changes to the API will be backwards compatible, such as adding resources, additional fields to response objects,
+new value types for enums, or expanding a validation constraint to be more accepting.
+Ensure your client can gracefully handle or ignore unfamiliar fields and values so it continues to operate smoothly over the lifespan of an API version.
+Non-Backwards Compatible Changes
+Versions will be upleveled when a non-backwards compatible change occurs. This should not happen often, but can occur in the case of:
+a field being removed from an object
+a resource path no longer being supported
+changing the type of a field
+adding a new required parameter for a resource
+constricting the validation parameters for a request
+These will only occur when absolutely necessary and a summary of the changes from version to version can be viewed in the release notes.
+Previous versions will be supported for a period of time before being removed after providing ample advanced notice.
+Error Handling
+Wherever possible, Gladly uses standard HTTP status codes to signal the success or failure of a call.
+Generally speaking,
+2xx
+statuses indicate success,
+3xx
+statuses indicate the client must take further action such as redirection,
+4xx
+statuses indicate an error with the input supplied by the client,
+5xx
+statuses indicate an unexpected error from Gladly servers (these will be rare cases).
+Common Status Codes
+HTTP Status
+Description
+200
+Success with results in response body
+201
+Resource created
+204
+Success with empty response body
+301
+The resource location has moved
+400
+API usage error
+401
+Authentication not provided
+403
+User does not have persmission to access resource
+404
+Resource is not found
+410
+Resource was merged into another and is gone
+429
+Rate limit reached
+Programmatic Remediation
+In the case of a
+400
+response, there will be a structured list of
+error
+objects that will provide information to correct the error.
+The error object will contain a
+code
+to describe the problem.
+The most common codes are:
+Code
+Description
+blank
+Presence error
+invalid
+Format error
+moved
+This resource is now located elsewhere;
+meta.new
+carries the id to use
+not_a_number
+Value not numeric error
+present
+Absence error
+taken
+Uniqueness error
+too_long
+Exceeds permissible length error
+wrong_length
+Length is not equal to expected error
+Refer to the errors section of each endpoint for more information.
+Example:
+{
+"errors"
+:
+[
+{
+"code"
+:
+"blank"
+,
+"detail"
+:
+"one of emailAddress, phoneNumber must be present"
+}
+]
+}
+Rate Limit
+The number of requests for an
+organization
+is rate limited for all APIs to ensure that adequate resources are available for all customers.
+Gladly has two types of API rate limits:
+Request Limit
+Request limits are applied on a per-second basis and are implemented to protect against denial-of-service attacks. This ensures that adequate resources are available for all customers.
+Concurrency Limit
+Concurrency limits are applied on the number of simultaneous requests to the endpoint. For example, a few long-lasting requests to an API endpoint simultaneously might exceed the concurrent rate limit for that endpoint.
+Default Rate Limit
+Organizations that send many requests in quick succession may see error responses that show up as status code
+429
+.
+Individual APIs may have their own API Rate Limit and will be documented as such. Otherwise, the following default rate limits apply.
+Method
+Request Limit
+Concurrency Limit
+GET
+10 Requests per second
+Not Applicable
+POST
+10 Requests per second
+Not Applicable
+PUT
+10 Requests per second
+Not Applicable
+PATCH
+10 Requests per second
+Not Applicable
+DELETE
+10 Requests per second
+Not Applicable
+We may adjust limits to prevent abuse.
+If you have questions about rate limited requests, please contact
+Gladly Support
+.
+Reporting API Rate Limit
+The
+Reports
+APIs have slightly different default rate limits than other APIs.
+Method
+Request Limit
+Concurrency Limit
+POST
+10 Requests per minute
+2 concurrent requests at a time across the entire organization
+Handling Rate Limit
+The Gladly API response headers include the organization's current rate limit and the number of requests remaining in the current second.
+The remaining limit is calculated using the total number of requests received from all clients with your organization's API tokens.
+Ratelimit
+-
+Limit
+-
+Second
+  Ratelimit
+-
+Remaining
+-
+Second
+You can anticipate hitting the rate limit by checking these headers.
+One technique for gracefully handling rate-limited requests is to watch for
+429
+status codes and implement a client-side retry mechanism with an exponential backoff schedule.
+We’d also recommend building some randomness into the backoff schedule to avoid a
+thundering herd effect
+.
+Rich Content
+In some data properties, HTML markup is supported for formatting rich content to display within Gladly.
+For security and readability, only a limited set of HTML tags and attributes are allowed.
+Tags
+Attributes
+a
+href, target
+img
+src, align, alt, height, width
+h1, h2, h3
+hr, br
+div
+style
+span, p
+font
+size, color
+strong, em, b, i, u
+ul, ol
+type
+li
+type, value
+dl, dt, dd
+table
+tbody, tfoot
+align, valign
+col, colgroup
+align, valign, height, width, span
+thead, tr
+align, valign
+td, th
+align, valign, style, abbr, colspan, rowspan, headers, height, width, scope, nowrap
+caption
+The
+style
+attribute may use style properties:
+border-left
+,
+margin
+,
+padding-left
+,
+text-align
+,
+background-color
+.
+Launching Soon
+We are continuously expanding Gladly's integration capabilities. To get early access to any of the following features, please contact Gladly Support.
+New Integrations
+Create customer service experiences that fit your business and delight your customers. We continue to build integrations with applications that your teams already rely on today. Customer satisfaction, quality assurance, workforce management, email marketing, and order management are application categories we're focusing on next. For the list of available integrations, see our
+Integrations Library
+.
+New APIs
+If you can't wait for native integrations mentioned above, you can integrate your apps with Gladly using a growing list of APIs and webhook events.  Sign up for our
+release notes
+to be notified of new developments.

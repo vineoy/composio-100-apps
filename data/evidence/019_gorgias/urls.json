@@ -1,0 +1,77 @@
+{
+ "app": "Gorgias",
+ "queries": [
+  "Gorgias API authentication documentation",
+  "Gorgias MCP server",
+  "Gorgias API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.gorgias.com/reference/authentication",
+  "https://docs.gorgias.com/en-US/rest-api-208286",
+  "https://developers.gorgias.com/reference/introduction",
+  "https://docs.gorgias.com/en-US/articles/developer-resources-18370"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - gorgias-developers",
+   "href": "https://developers.gorgias.com/reference/authentication"
+  },
+  {
+   "title": "Access your Gorgias REST API credentials",
+   "href": "https://docs.gorgias.com/en-US/rest-api-208286"
+  },
+  {
+   "title": "Introduction - gorgias-developers",
+   "href": "https://developers.gorgias.com/reference/introduction"
+  },
+  {
+   "title": "Developer resources - Gorgias",
+   "href": "https://docs.gorgias.com/en-US/articles/developer-resources-18370"
+  },
+  {
+   "title": "Gorgias Authentication with Alchemer | Alchemer Help",
+   "href": "https://help.alchemer.com/help/gorgias-authentication"
+  },
+  {
+   "title": "Connect your AI assistant to the Gorgias MCP",
+   "href": "https://docs.gorgias.com/en-US/connect-your-ai-assistant-to-the-gorgias-mcp-6310546"
+  },
+  {
+   "title": "GitHub - mattcoatsworth/Gorgias-MCP-Server",
+   "href": "https://github.com/mattcoatsworth/Gorgias-MCP-Server"
+  },
+  {
+   "title": "Gorgias MCP Server - GitHub",
+   "href": "https://github.com/benpalmer1/Gorgias-MCP-Server"
+  },
+  {
+   "title": "How to Connect Gorgias to Claude or ChatGPT (6 Workflows to ...",
+   "href": "https://www.gorgias.com/blog/gorgias-mcp"
+  },
+  {
+   "title": "Gorgias MCP server | Activepieces",
+   "href": "https://www.activepieces.com/mcp/gorgias"
+  },
+  {
+   "title": "Gorgias Pricing - AI-Powered Ecommerce CX Platform Plans",
+   "href": "https://www.gorgias.com/pricing"
+  },
+  {
+   "title": "gorgias-developers",
+   "href": "https://developers.gorgias.com/"
+  },
+  {
+   "title": "Access your Gorgias REST API credentials",
+   "href": "https://docs.gorgias.com/en-US/rest-api-208286"
+  },
+  {
+   "title": "Gorgias API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/gorgias.com/"
+  },
+  {
+   "title": "Overview - gorgias-developers",
+   "href": "https://developers.gorgias.com/docs/overview"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:53:58.278989"
+}
