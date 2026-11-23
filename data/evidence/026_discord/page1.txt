@@ -177,7 +177,7 @@ Bearer
 Example Basic Token Authorization Header
 Authorization:
 Basic
-MTk4NjIyNDgzNDcxOTI1MjQ4OlEzS052N0NSRW5DYS1nS0xMajFEOGV1ZFl1SmZ1Nm96
+[redacted]
 Encryption
 All HTTP-layer services and protocols (e.g. HTTP, WebSocket) within the Discord API are using TLS 1.2.
 Snowflakes
