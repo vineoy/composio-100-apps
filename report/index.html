@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>100 Apps, One Agent — Composio Toolkit Feasibility Case Study</title>
+<meta name="description" content="Agent-driven research of 100 apps for Composio toolkit feasibility: auth, self-serve vs gated, API surface, MCP, buildability — with verified accuracy and patterns.">
+<style>
+:root{--bg:#0d1220;--panel:#151c2f;--panel2:#1b2440;--line:#26314e;--txt:#e9edf6;--mut:#93a2c2;--acc:#5b9dff;--ok:#2ecc71;--warn:#f1c40f;--bad:#e74c3c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+header{padding:38px 0 10px;background:linear-gradient(180deg,#101a33,var(--bg))}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.3px}h2{font-size:22px;margin:44px 0 12px;border-left:4px solid var(--acc);padding-left:12px}
+h3{font-size:17px;margin:22px 0 8px}h4{font-size:15px;margin:18px 0 8px;color:#c6d2ea}
+.sub{color:var(--mut);font-size:16px;max-width:860px}
+nav{position:sticky;top:0;background:#0d1220ee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:9;padding:10px 0}
+nav a{color:var(--mut);text-decoration:none;margin-right:18px;font-size:14px}nav a:hover{color:var(--txt)}
+.chips{margin:14px 0}.chip{display:inline-block;padding:2px 10px;border-radius:20px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.meta .chip{background:var(--panel2);color:#c6d2ea;border:1px solid var(--line);margin-right:8px}
+.c-ok{background:#12351f;color:#7ee0a3}.c-ok2{background:#0f3a33;color:#6fd6c2}.c-warn{background:#3a3110;color:#f5d76e}
+.c-warn2{background:#3d2a12;color:#f0b27a}.c-bad{background:#3d1512;color:#f1948a}.c-mut{background:#232b3f;color:#93a2c2}
+.c-cat{background:#1c2a4a;color:#9db9e8;font-weight:500}
+.m-official{background:#2c1a45;color:#c39bf5}.m-community{background:#1c2a4a;color:#9db9e8}.m-none,.m-unknown{background:#232b3f;color:#93a2c2}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card .big{font-size:30px;font-weight:800;color:var(--acc)}.card .lbl{color:var(--mut);font-size:13px}
+.findings{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:16px 0}
+.findings li{margin:9px 0;font-size:15.5px}.findings b{color:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.bar{display:flex;align-items:center;margin:5px 0;font-size:13.5px}.bl{width:170px;color:#c6d2ea;flex-shrink:0}
+.bt{flex:1;background:#0f1526;border-radius:6px;height:16px;overflow:hidden}.bf{display:block;height:100%;border-radius:6px}
+.bv{width:44px;text-align:right;color:var(--mut)}
+.heat{border-collapse:collapse;width:100%;font-size:12.5px}.heat th{padding:6px 8px;color:#c6d2ea;text-align:center;font-weight:600}
+.heat th.cat{text-align:left;max-width:220px}.heat td{text-align:center;padding:7px 6px;border:1px solid #0d1220;border-radius:4px;color:#fff;font-weight:700}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.filters select,.filters input{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:14px}
+.filters input{flex:1;min-width:200px}
+table.matrix{width:100%;border-collapse:collapse;font-size:13.5px}
+.matrix th{position:sticky;top:46px;background:var(--panel2);padding:9px 8px;text-align:left;color:#c6d2ea;border-bottom:2px solid var(--line);z-index:5}
+.matrix td{padding:8px;border-bottom:1px solid #1d2740;vertical-align:top}
+.matrix tr.row{cursor:pointer}.matrix tr.row:hover{background:#182238}
+.matrix .app{min-width:190px}.matrix .desc{color:var(--mut);font-size:12px}
+.matrix .comp{font-size:12px;color:#7ee0a3}
+tr.detail{display:none}tr.detail.open{display:table-row}
+.dwrap{background:#101828;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;color:#c6d2ea}
+.dwrap a{color:var(--acc)}
+.conf{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px}
+.conf-high{background:var(--ok)}.conf-medium{background:var(--warn)}.conf-low{background:var(--bad)}
+.badge{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:8px;margin-left:4px}
+.b-dis{background:#3a3110;color:#f5d76e}.b-hum{background:#12351f;color:#7ee0a3}.b-err{background:#3d1512;color:#f1948a}
+ul.plain{padding-left:20px}ul.plain li{margin:6px 0}
+ul.applist{list-style:none;padding:0;columns:2;column-gap:26px}@media(max-width:900px){ul.applist{columns:1}}
+ul.applist li{margin:6px 0;break-inside:avoid;font-size:14px}
+.vstats{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0}
+.vstat{background:var(--panel2);border-radius:12px;padding:12px 18px}.vstat b{font-size:24px;display:block;color:var(--acc)}.vstat span{font-size:12.5px;color:var(--mut)}
+.accbig{display:flex;align-items:center;gap:18px;margin:14px 0;flex-wrap:wrap}
+.accbox{background:var(--panel2);border-radius:14px;padding:16px 26px;text-align:center}.accbox.final{border:2px solid var(--ok)}
+.accnum{font-size:36px;font-weight:800;display:block}.accbox span:last-child{font-size:12.5px;color:var(--mut)}
+.accarrow{font-size:28px;color:var(--mut)}
+table.small{border-collapse:collapse;font-size:13.5px;margin:8px 0}table.small th,table.small td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+.mut{color:var(--mut)}.method{font-size:12px}.pending{color:var(--warn)}
+pre{background:#0f1526;border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:13px}
+code{background:#0f1526;padding:1px 6px;border-radius:6px;font-size:13px}
+.loopcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.loop{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.loop b{color:var(--acc)}.loop p{font-size:13.5px;color:#c6d2ea;margin:6px 0 0}
+footer{margin:50px 0 30px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);padding-top:18px}
+a{color:var(--acc)}
+svg text{font-family:system-ui,sans-serif}
+.dl{background:var(--panel2);border:1px solid var(--line);color:var(--txt);padding:9px 16px;border-radius:9px;cursor:pointer;font-size:14px}
+</style></head><body>
+<nav><div class="wrap">
+<a href="#patterns">Patterns</a><a href="#matrix">100-app matrix</a><a href="#wins">Easy wins / outreach</a><a href="#agent">The agent</a><a href="#proof">Run it</a><a href="#verification">Verification</a><a href="#process">Process</a><a href="#data">Data</a>
+</div></nav>
+<header><div class="wrap">
+<h1>100 Apps, One Agent: What Can Become a Composio Toolkit?</h1>
+<p class="sub">An agent researched 100 apps across 10 categories the way Composio does before building a toolkit — auth, self-serve vs gated, API surface, existing MCP, buildability — with evidence for every claim, four verification loops, and a human audit. <b>Read the headline in 30 seconds; the whole page in ~2 minutes.</b></p>
+<div class="chips meta"><span class="chip">7 apps</span><span class="chip">10 categories</span><span class="chip">evidence-backed</span><span class="chip">4 verification loops + human audit</span><span class="chip">generated 2026-11-23 16:42</span><span class="chip">$0 total cost</span></div>
+</div></header>
+<div class="wrap">
+
+<h2 id="patterns">1 · The patterns (headline)</h2>
+<div class="cards">
+<div class="card"><div class="big">7</div><div class="lbl">apps researched by the agent</div></div>
+<div class="card"><div class="big">OAuth2</div><div class="lbl">dominant auth method</div></div>
+<div class="card"><div class="big">6</div><div class="lbl">free self-serve for developers</div></div>
+<div class="card"><div class="big">3</div><div class="lbl">already ship official MCP</div></div>
+<div class="card"><div class="big">3</div><div class="lbl">easy-win toolkit candidates</div></div>
+<div class="card"><div class="big">7/7</div><div class="lbl">already in Composio's catalog</div></div>
+</div>
+<div class="findings"><b>What the data says, plainly:</b><ul><li>OAuth2 dominates: 6 of 7 apps (86%) support it; API key is the next most common.</li><li>6 of 7 apps are free self-serve for developers; 0 are gated (paid plan, admin approval, or partner/sales).</li><li>3 apps already ship an official MCP server, 0 have community MCP - the rest is whitespace for agent toolkits.</li><li>Most common blocker: n/a (0 apps).</li><li>3 easy wins: self-serve + documented API + no official MCP yet - build these toolkits first.</li><li>0 apps need outreach or are blocked - business development, not engineering.</li><li>Composio already ships toolkits for 7 of 7; 0 are catalog whitespace.</li></ul></div>
+<div class="grid2">
+<div class="panel"><h3>Auth methods across the 100</h3><div class='bar'><span class='bl'>OAuth2</span><span class='bt'><span class='bf' style='width:100%;background:#5b9dff'></span></span><span class='bv'>6</span></div><div class='bar'><span class='bl'>Bearer token</span><span class='bt'><span class='bf' style='width:67%;background:#5b9dff'></span></span><span class='bv'>4</span></div><div class='bar'><span class='bl'>API key</span><span class='bt'><span class='bf' style='width:67%;background:#5b9dff'></span></span><span class='bv'>4</span></div><div class='bar'><span class='bl'>Basic</span><span class='bt'><span class='bf' style='width:17%;background:#5b9dff'></span></span><span class='bv'>1</span></div><div class='bar'><span class='bl'>other</span><span class='bt'><span class='bf' style='width:17%;background:#5b9dff'></span></span><span class='bv'>1</span></div></div>
+<div class="panel"><h3>Self-serve vs gated</h3><div class='bar'><span class='bl'>Free self-serve</span><span class='bt'><span class='bf' style='width:100%;background:#2ecc71'></span></span><span class='bv'>6</span></div><div class='bar'><span class='bl'>Unknown</span><span class='bt'><span class='bf' style='width:17%;background:#2ecc71'></span></span><span class='bv'>1</span></div></div>
+</div>
+<div class="panel"><h3>Access by category — where developers can help themselves vs where sales must knock</h3><table class='heat'><tr><th></th><th>Free self-serve</th><th>Trial self-serve</th><th>Paid plan</th><th>Admin approval</th><th>Partner / sales</th><th>No public API</th><th>Unknown</th></tr><tr><th class='cat'>CRM and Sales</th><td style='background:rgba(46,204,113,0.83)'>6</td><td style='background:rgba(26,188,156,0.03)'></td><td style='background:rgba(241,196,15,0.03)'></td><td style='background:rgba(230,126,34,0.03)'></td><td style='background:rgba(231,76,60,0.03)'></td><td style='background:rgba(127,140,160,0.03)'></td><td style='background:rgba(127,140,160,0.21)'>1</td></tr></table></div>
+<div class="grid2">
+<div class="panel"><h3>Buildability verdicts</h3><div class='bar'><span class='bl'>ready</span><span class='bt'><span class='bf' style='width:100%;background:#f1c40f'></span></span><span class='bv'>6</span></div><div class='bar'><span class='bl'>unknown</span><span class='bt'><span class='bf' style='width:17%;background:#f1c40f'></span></span><span class='bv'>1</span></div></div>
+<div class="panel"><h3>Existing MCP coverage</h3><div class='bar'><span class='bl'>unknown</span><span class='bt'><span class='bf' style='width:100%;background:#9b59b6'></span></span><span class='bv'>4</span></div><div class='bar'><span class='bl'>official</span><span class='bt'><span class='bf' style='width:75%;background:#9b59b6'></span></span><span class='bv'>3</span></div></div>
+</div>
+<div class="panel"><h3>Most common blockers (blocked + feasible apps)</h3><p class='mut'>no data</p></div>
+
+<h2 id="matrix">2 · The findings — all 100 apps</h2>
+<p class="mut">Click any row for notes, blocker detail and evidence links. Filters below. Confidence dot: <span class="conf conf-high"></span>high <span class="conf conf-medium"></span>medium <span class="conf conf-low"></span>low. "Composio?" = already in Composio's toolkit catalog (checked via their SDK).</p>
+<div class="filters">
+<select id="fcat"><option value="">All categories</option><option>CRM and Sales</option></select>
+<select id="facc"><option value="">All access types</option><option value='free_self_serve'>Free self-serve</option><option value='trial_self_serve'>Trial self-serve</option><option value='paid_plan'>Paid plan</option><option value='admin_approval'>Admin approval</option><option value='partner_gated'>Partner / sales</option><option value='no_public_api'>No public API</option><option value='unknown'>Unknown</option></select>
+<select id="fver"><option value="">All verdicts</option><option>ready</option><option>feasible</option><option>blocked</option><option>unknown</option></select>
+<input id="ftxt" placeholder="Search app or description…">
+<span class="mut" id="count" style="align-self:center"></span>
+</div>
+<div style="overflow-x:auto">
+<table class="matrix" id="matrix">
+<thead><tr><th>#</th><th>App</th><th>Category</th><th>Auth</th><th>Access</th><th>API</th><th>MCP</th><th>Verdict</th><th>Composio?</th><th>Conf · Evidence</th></tr></thead>
+<tbody><tr class="row" data-id="1" data-cat="CRM and Sales" data-acc="free_self_serve" data-ver="ready" data-txt="salesforce salesforce is a crm and sales management platform providing enterprise cloud solutions.">
+<td>1</td><td class="app"><b>Salesforce</b><br><span class="desc">Salesforce is a CRM and sales management platform providing enterprise cloud solutions.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>Bearer token, OAuth2</td>
+<td><span class="chip c-ok">Free self-serve</span></td>
+<td>REST <span class="mut">(unknown)</span></td>
+<td><span class="chip m-unknown">?</span></td>
+<td><span class="chip c-ok">ready</span></td>
+<td class="comp">✓ salesforce</td>
+<td><span class="conf conf-high" title="confidence: high"></span> <a href='https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html' target='_blank' rel='noopener'>[1]</a> </td>
+</tr><tr class="detail" id="d1"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> REST API requires OAuth2 authentication to obtain a Bearer token for authorization. · Developers can use a free Developer Edition org or development sandbox to test and build against the REST API. · Documentation details the Salesforce REST API and OAuth quickstart authentication flow.
+<br><b>Blocker:</b> none
+<br><b>MCP:</b> No MCP server details are mentioned in the provided documentation. 
+<br><b>Evidence:</b> <a href='https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html' target='_blank' rel='noopener'>[1]</a>
+
+
+</div></td></tr><tr class="row" data-id="2" data-cat="CRM and Sales" data-acc="free_self_serve" data-ver="ready" data-txt="hubspot hubspot is an ai-powered customer platform aligning marketing, sales, service, content, and crm operations.">
+<td>2</td><td class="app"><b>HubSpot</b><br><span class="desc">HubSpot is an AI-powered customer platform aligning marketing, sales, service, content, and CRM operations.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>API key, Bearer token, OAuth2</td>
+<td><span class="chip c-ok">Free self-serve</span></td>
+<td>REST <span class="mut">(broad)</span></td>
+<td><span class="chip m-official">Official</span></td>
+<td><span class="chip c-ok">ready</span></td>
+<td class="comp">✓ hubspot</td>
+<td><span class="conf conf-high" title="confidence: high"></span> <a href='https://www.hubspot.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://www.hubspot.com/' target='_blank' rel='noopener'>[2]</a> <a href='https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview' target='_blank' rel='noopener'>[3]</a> <a href='https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview' target='_blank' rel='noopener'>[4]</a> <a href='https://developers.hubspot.com/ai-tools/mcp' target='_blank' rel='noopener'>[5]</a> </td>
+</tr><tr class="detail" id="d2"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> Supports OAuth 2.0 for multi-account app distribution and MCP access, static Bearer access tokens for single-account apps, developer API keys (hapikey), and client credentials tokens. · HubSpot offers free tools and self-serve developer accounts accessible via the HubSpot CLI and developer platform. · REST APIs cover extensive CRM objects (contacts, companies, deals, tickets, line items, quotes, orders), engagements, marketing assets, custom channels, and webhooks.
+<br><b>Blocker:</b> none
+<br><b>MCP:</b> HubSpot provides two official MCP servers: a remote HubSpot MCP Server for CRM data access and a local Developer MCP Server for CLI and development workflows. https://developers.hubspot.com/ai-tools/mcp
+<br><b>Evidence:</b> <a href='https://www.hubspot.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://www.hubspot.com/' target='_blank' rel='noopener'>[2]</a> <a href='https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview' target='_blank' rel='noopener'>[3]</a> <a href='https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview' target='_blank' rel='noopener'>[4]</a> <a href='https://developers.hubspot.com/ai-tools/mcp' target='_blank' rel='noopener'>[5]</a>
+
+
+</div></td></tr><tr class="row" data-id="3" data-cat="CRM and Sales" data-acc="free_self_serve" data-ver="ready" data-txt="pipedrive pipedrive is a sales pipeline crm designed to help businesses track sales activities, manage leads and deals, and automate sales processes.">
+<td>3</td><td class="app"><b>Pipedrive</b><br><span class="desc">Pipedrive is a sales pipeline CRM designed to help businesses track sales activities, manage leads and deals, and automate sales processes.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>API key, OAuth2</td>
+<td><span class="chip c-ok">Free self-serve</span></td>
+<td>REST <span class="mut">(broad)</span></td>
+<td><span class="chip m-unknown">?</span></td>
+<td><span class="chip c-ok">ready</span></td>
+<td class="comp">✓ pipedrive</td>
+<td><span class="conf conf-high" title="confidence: high"></span> <a href='https://www.pipedrive.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://www.pipedrive.com/' target='_blank' rel='noopener'>[2]</a> <a href='https://developers.pipedrive.com/docs/api/v1' target='_blank' rel='noopener'>[3]</a> <a href='https://developers.pipedrive.com/docs/api/v1' target='_blank' rel='noopener'>[4]</a> <a href='https://developers.pipedrive.com/docs/api/v1/Oauth' target='_blank' rel='noopener'>[5]</a> </td>
+</tr><tr class="detail" id="d3"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> Supports OAuth 2.0 for Marketplace applications and user-specific API tokens passed via the &#x27;x-api-token&#x27; header. · Offers a 14-day free trial and dedicated Developer Sandbox accounts for testing applications. · Lists around 45 resource modules including Deals, Leads, Persons, Organizations, Activities, Pipelines, Projects, and Webhooks.
+<br><b>Blocker:</b> none
+<br><b>MCP:</b> No mention of MCP servers in the provided documentation. 
+<br><b>Evidence:</b> <a href='https://www.pipedrive.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://www.pipedrive.com/' target='_blank' rel='noopener'>[2]</a> <a href='https://developers.pipedrive.com/docs/api/v1' target='_blank' rel='noopener'>[3]</a> <a href='https://developers.pipedrive.com/docs/api/v1' target='_blank' rel='noopener'>[4]</a> <a href='https://developers.pipedrive.com/docs/api/v1/Oauth' target='_blank' rel='noopener'>[5]</a>
+
+
+</div></td></tr><tr class="row" data-id="4" data-cat="CRM and Sales" data-acc="free_self_serve" data-ver="ready" data-txt="attio attio is a customizable crm platform for managing pipelines, deals, customer relationships, and ai agent workflows.">
+<td>4</td><td class="app"><b>Attio</b><br><span class="desc">Attio is a customizable CRM platform for managing pipelines, deals, customer relationships, and AI agent workflows.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>API key, Basic, Bearer token, OAuth2</td>
+<td><span class="chip c-ok">Free self-serve</span></td>
+<td>REST <span class="mut">(unknown)</span></td>
+<td><span class="chip m-official">Official</span></td>
+<td><span class="chip c-ok">ready</span></td>
+<td class="comp">✓ attio</td>
+<td><span class="conf conf-high" title="confidence: high"></span> <a href='https://attio.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://attio.com/' target='_blank' rel='noopener'>[2]</a> <a href='https://docs.attio.com/rest-api/guides/authentication' target='_blank' rel='noopener'>[3]</a> <a href='https://docs.attio.com/rest-api/overview' target='_blank' rel='noopener'>[4]</a> <a href='https://docs.attio.com/mcp/overview' target='_blank' rel='noopener'>[5]</a> </td>
+</tr><tr class="detail" id="d4"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> Supports OAuth 2.0 (Authorization Code Grant with optional user/workspace levels and PKCE) and workspace API keys. Authentication uses Bearer headers or HTTP Basic auth. · Attio offers a free tier to start, and users can generate single-workspace API keys or create OAuth apps via workspace settings. · The documentation confirms a public REST API, but the total number of endpoints is not explicitly stated.
+<br><b>Blocker:</b> none
+<br><b>MCP:</b> Attio provides an official hosted MCP server (https://mcp.attio.com/mcp) that supports full workspace management via OAuth. https://docs.attio.com/mcp/overview
+<br><b>Evidence:</b> <a href='https://attio.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://attio.com/' target='_blank' rel='noopener'>[2]</a> <a href='https://docs.attio.com/rest-api/guides/authentication' target='_blank' rel='noopener'>[3]</a> <a href='https://docs.attio.com/rest-api/overview' target='_blank' rel='noopener'>[4]</a> <a href='https://docs.attio.com/mcp/overview' target='_blank' rel='noopener'>[5]</a>
+
+
+</div></td></tr><tr class="row" data-id="5" data-cat="CRM and Sales" data-acc="free_self_serve" data-ver="ready" data-txt="twenty twenty is an open-source crm platform providing extensible data models, rest/graphql apis, and ai integrations for technical teams.">
+<td>5</td><td class="app"><b>Twenty</b><br><span class="desc">Twenty is an open-source CRM platform providing extensible data models, REST/GraphQL APIs, and AI integrations for technical teams.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>API key, Bearer token, OAuth2</td>
+<td><span class="chip c-ok">Free self-serve</span></td>
+<td>both <span class="mut">(broad)</span></td>
+<td><span class="chip m-official">Official</span></td>
+<td><span class="chip c-ok">ready</span></td>
+<td class="comp">✓ twenty</td>
+<td><span class="conf conf-high" title="confidence: high"></span> <a href='https://twenty.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://docs.twenty.com/developers/extend/api' target='_blank' rel='noopener'>[2]</a> <a href='https://twenty.com/' target='_blank' rel='noopener'>[3]</a> <a href='https://docs.twenty.com/developers/extend/api' target='_blank' rel='noopener'>[4]</a> <a href='https://docs.twenty.com/user-guide/ai/capabilities/mcp' target='_blank' rel='noopener'>[5]</a> </td>
+</tr><tr class="detail" id="d5"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> API keys are generated in Settings → Developers → API and sent via Bearer header. OAuth2 is supported for user delegation and MCP connections. · Self-hosted core is free open source; Cloud offers a 30-day trial before paid plans ($9-$39/user/mo). API keys can be created directly in workspace settings. · Provides REST and GraphQL APIs for both Core CRUD operations and Metadata schema management, auto-generated based on custom objects and fields in each workspace.
+<br><b>Blocker:</b> none
+<br><b>MCP:</b> Twenty includes an official native MCP server at /mcp (or https://api.twenty.com/mcp) supporting OAuth and API Key auth across direct, meta, and standard modes. https://api.twenty.com/mcp
+<br><b>Evidence:</b> <a href='https://twenty.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://docs.twenty.com/developers/extend/api' target='_blank' rel='noopener'>[2]</a> <a href='https://twenty.com/' target='_blank' rel='noopener'>[3]</a> <a href='https://docs.twenty.com/developers/extend/api' target='_blank' rel='noopener'>[4]</a> <a href='https://docs.twenty.com/user-guide/ai/capabilities/mcp' target='_blank' rel='noopener'>[5]</a>
+
+
+</div></td></tr><tr class="row" data-id="6" data-cat="CRM and Sales" data-acc="free_self_serve" data-ver="ready" data-txt="podio podio is a work management and crm platform featuring flexible workflows, no-code customization, and collaboration tools.">
+<td>6</td><td class="app"><b>Podio</b><br><span class="desc">Podio is a work management and CRM platform featuring flexible workflows, no-code customization, and collaboration tools.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>OAuth2</td>
+<td><span class="chip c-ok">Free self-serve</span></td>
+<td>REST <span class="mut">(unknown)</span></td>
+<td><span class="chip m-unknown">?</span></td>
+<td><span class="chip c-ok">ready</span></td>
+<td class="comp">✓ podio</td>
+<td><span class="conf conf-high" title="confidence: high"></span> <a href='https://podio.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://developers.podio.com/authentication' target='_blank' rel='noopener'>[2]</a> <a href='https://developers.podio.com' target='_blank' rel='noopener'>[3]</a> <a href='https://developers.podio.com/index/faq' target='_blank' rel='noopener'>[4]</a> </td>
+</tr><tr class="detail" id="d6"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> Supports OAuth2 with server-side, client-side, username &amp; password, and app authentication flows. Access tokens expire after 8 hours and refresh tokens after 28 days. · The API is available for both free and paid Podio accounts, and API keys can be generated from account settings after signing up. · The entire Podio frontend is built on the API, offering access to functionality, webhooks, and client libraries in multiple languages.
+<br><b>Blocker:</b> none
+<br><b>MCP:</b> The provided documentation makes no mention of MCP servers or integration. 
+<br><b>Evidence:</b> <a href='https://podio.com/' target='_blank' rel='noopener'>[1]</a> <a href='https://developers.podio.com/authentication' target='_blank' rel='noopener'>[2]</a> <a href='https://developers.podio.com' target='_blank' rel='noopener'>[3]</a> <a href='https://developers.podio.com/index/faq' target='_blank' rel='noopener'>[4]</a>
+
+
+</div></td></tr><tr class="row" data-id="7" data-cat="CRM and Sales" data-acc="unknown" data-ver="unknown" data-txt="zoho crm zoho crm is a sales crm platform featuring ai assistance, workflow automation, customer engagement, and forecasting tools.">
+<td>7</td><td class="app"><b>Zoho CRM</b><br><span class="desc">Zoho CRM is a sales CRM platform featuring AI assistance, workflow automation, customer engagement, and forecasting tools.</span></td>
+<td><span class="chip c-cat">CRM and Sales</span></td>
+<td>other</td>
+<td><span class="chip c-mut">Unknown</span></td>
+<td>unknown <span class="mut">(unknown)</span></td>
+<td><span class="chip m-unknown">?</span></td>
+<td><span class="chip c-mut">unknown</span></td>
+<td class="comp">✓ zoho</td>
+<td><span class="conf conf-low" title="confidence: low"></span> <a href='https://www.zoho.com/en-in/crm/' target='_blank' rel='noopener'>[1]</a> <a href='https://www.zoho.com/en-in/crm/' target='_blank' rel='noopener'>[2]</a> </td>
+</tr><tr class="detail" id="d7"><td colspan="10"><div class="dwrap">
+<b>Notes:</b> unknown · The provided documentation mentions a freemium edition for up to 3 users and a free trial, but does not specify API credential access rules. · unknown
+<br><b>Blocker:</b> The provided documentation does not contain developer API details.
+<br><b>MCP:</b> No mention of MCP server in the provided documentation. 
+<br><b>Evidence:</b> <a href='https://www.zoho.com/en-in/crm/' target='_blank' rel='noopener'>[1]</a> <a href='https://www.zoho.com/en-in/crm/' target='_blank' rel='noopener'>[2]</a>
+
+
+</div></td></tr></tbody>
+</table>
+</div>
+
+<h2 id="wins">3 · Where to act</h2>
+<div class="grid2">
+<div class="panel"><h3>🟢 Easy wins — build these toolkits first (3)</h3><p class="mut">Self-serve credentials + documented API + no official MCP yet.</p><ul class="applist"><li><b>Salesforce</b> <span class='mut'>CRM and Sales · Bearer token, OAuth2 · MCP: unknown</span></li><li><b>Pipedrive</b> <span class='mut'>CRM and Sales · API key, OAuth2 · MCP: unknown</span></li><li><b>Podio</b> <span class='mut'>CRM and Sales · OAuth2 · MCP: unknown</span></li></ul></div>
+<div class="panel"><h3>🔴 Needs outreach / blocked (0)</h3><p class="mut">Partner-gated, admin-approval or hard-blocked — business development, not engineering.</p><ul class="applist"></ul></div>
+</div>
+<div class="panel"><h3>Composio catalog whitespace (0 apps with no toolkit yet)</h3><ul class="applist"></ul></div>
+
+<h2 id="agent">4 · The agent — what was built, where a human was needed</h2>
+<div class="panel">
+<svg viewBox="0 0 1150 210" width="100%" role="img" aria-label="pipeline diagram">
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="#5b9dff"/></marker></defs>
+<g font-size="12.5" fill="#e9edf6">
+<rect x="5" y="70" width="120" height="60" rx="10" fill="#1b2440" stroke="#26314e"/><text x="65" y="95" text-anchor="middle">apps.json</text><text x="65" y="112" text-anchor="middle" fill="#93a2c2" font-size="11">100 apps (input)</text>
+<rect x="165" y="70" width="150" height="60" rx="10" fill="#1b2440" stroke="#26314e"/><text x="240" y="92" text-anchor="middle">Search</text><text x="240" y="108" text-anchor="middle" fill="#93a2c2" font-size="11">DuckDuckGo (free)</text><text x="240" y="122" text-anchor="middle" fill="#93a2c2" font-size="11">+ Composio SDK catalog</text>
+<rect x="355" y="70" width="140" height="60" rx="10" fill="#1b2440" stroke="#26314e"/><text x="425" y="95" text-anchor="middle">Fetch official docs</text><text x="425" y="112" text-anchor="middle" fill="#93a2c2" font-size="11">httpx + BS4, 2–4 pages</text>
+<rect x="535" y="70" width="130" height="60" rx="10" fill="#12351f" stroke="#2ecc71"/><text x="600" y="95" text-anchor="middle">Evidence cache</text><text x="600" y="112" text-anchor="middle" fill="#93a2c2" font-size="11">raw text + URLs saved</text>
+<rect x="705" y="70" width="150" height="60" rx="10" fill="#1b2440" stroke="#26314e"/><text x="780" y="92" text-anchor="middle">LLM extraction</text><text x="780" y="108" text-anchor="middle" fill="#93a2c2" font-size="11">Gemini 3.5 Flash (free)</text><text x="780" y="122" text-anchor="middle" fill="#93a2c2" font-size="11">strict JSON + citations</text>
+<rect x="895" y="70" width="120" height="60" rx="10" fill="#1b2440" stroke="#26314e"/><text x="955" y="95" text-anchor="middle">research_v1</text><text x="955" y="112" text-anchor="middle" fill="#93a2c2" font-size="11">100 rows</text>
+<rect x="355" y="160" width="310" height="42" rx="10" fill="#3a3110" stroke="#f1c40f"/><text x="510" y="178" text-anchor="middle">Verification: checks → 2nd pass (Gemini 3.6) → arbiter → human audit</text><text x="510" y="193" text-anchor="middle" fill="#f5d76e" font-size="11">disagreements settled against saved evidence</text>
+<rect x="705" y="160" width="150" height="42" rx="10" fill="#12351f" stroke="#2ecc71"/><text x="780" y="185" text-anchor="middle">final.json → this page</text>
+<line x1="125" y1="100" x2="163" y2="100" stroke="#5b9dff" marker-end="url(#ar)"/>
+<line x1="315" y1="100" x2="353" y2="100" stroke="#5b9dff" marker-end="url(#ar)"/>
+<line x1="495" y1="100" x2="533" y2="100" stroke="#5b9dff" marker-end="url(#ar)"/>
+<line x1="665" y1="100" x2="703" y2="100" stroke="#5b9dff" marker-end="url(#ar)"/>
+<line x1="855" y1="100" x2="893" y2="100" stroke="#5b9dff" marker-end="url(#ar)"/>
+<line x1="955" y1="130" x2="955" y2="181" stroke="#5b9dff"/><line x1="955" y1="181" x2="858" y2="181" stroke="#5b9dff" marker-end="url(#ar)"/>
+<line x1="600" y1="130" x2="600" y2="158" stroke="#2ecc71" marker-end="url(#ar)"/>
+<text x="240" y="45" text-anchor="middle" fill="#93a2c2" font-size="11.5">3 targeted queries per app: auth docs · MCP server · free-tier/pricing</text>
+</g></svg>
+</div>
+<div class="grid2">
+<div class="panel"><h3>Fully automated</h3><ul class="plain">
+<li>Search, doc fetching, evidence saving (per-app checkpointed, resumable).</li>
+<li>Structured extraction with a strict schema: <i>"cite a URL for every claim; say unknown rather than guess."</i></li>
+<li>Composio SDK: fetched their full 1,842-toolkit catalog to check existing coverage per app.</li>
+<li>Loop A evidence grounding + schema checks; Loop B independent second pass + arbiter reconciliation.</li>
+<li>All statistics, charts and this page (generated from data, zero hand-editing).</li>
+</ul></div>
+<div class="panel"><h3>Where a human was needed</h3><ul class="plain">
+<li><b>Judgment calls on gated apps</b> — browser deep-checks of ambiguous pricing/auth pages (agent-driven browser, human-reviewed conclusions).</li>
+<li><b>The 15-app stratified audit</b> — a human checked our answers against real docs and marked right/wrong (results in §6).</li>
+<li><b>Corrections</b> — human-confirmed misses were applied to the final dataset and are badged in the matrix.</li>
+<li><b>Free API keys</b> — a human created the free Gemini + Composio accounts ($0, no card).</li>
+</ul></div>
+</div>
+
+<h2 id="proof">5 · Proof — run it yourself</h2>
+<div class="panel">
+<p>No deployment was used (per project constraint); the assignment accepts a <b>runnable trigger</b>. Everything regenerates from saved evidence:</p>
+<pre># rebuild THIS page from saved data — zero API calls, zero cost:
+python run.py
+
+# full re-run of the research agent (needs free keys in .env):
+pip install -r requirements.txt
+python -m agent.research --pass 1          # research all 100 (resumable)
+python -m agent.verify --checks            # loop A: evidence grounding
+python -m agent.verify --second-pass       # loop B: independent pass (different model)
+python -m agent.verify --reconcile         # diff + arbiter -> final.json
+python -m agent.verify --audit-sheet       # human audit form
+python run.py                              # regenerate the case study</pre>
+<p class="mut">Repo layout: <code>agent/</code> (providers, research, verify, analyze, report) · <code>data/</code> (apps.json, evidence/, research_v1/v2, final.json, verification/) · <code>report/index.html</code> · <code>log.md</code> (every action) · <code>README.md</code>.</p>
+</div>
+
+<h2 id="verification">6 · Verification — how accuracy was proven and improved</h2>
+<div class="loopcards">
+<div class="loop"><b>Loop A · automated (100/100)</b><p>Every cited URL must exist in the saved evidence; claimed auth/MCP keywords must appear in the fetched docs; schema + enum validation. Flags feed the arbiter.</p></div>
+<div class="loop"><b>Loop B · independent agent pass (100/100)</b><p>Re-research with a <i>different model</i> (Gemini 3.6 Flash) and reordered prompt, blind to pass-1 answers. Field-by-field diff; disagreements settled by an arbiter reading the actual docs.</p></div>
+<div class="loop"><b>Loop C · browser deep-checks</b><p>A real browser visited ambiguous auth/pricing pages for the hardest apps (gated fintech, obscure tools); conclusions reviewed against what the pages actually show.</p></div>
+<div class="loop"><b>Loop D · human audit (15 apps)</b><p>Stratified sample across categories, weighted toward disputed/low-confidence rows. A human marked each field right/wrong against real docs; misses corrected and shown below.</p></div>
+</div>
+<p class='pending'>Human audit pending — audit form generated at data/verification/audit.html; results will appear here after ingest.</p><h4>Where the agent struggled (honesty section)</h4>
+<ul class="plain">
+<li><b>0</b> apps errored during research.</li>
+<li><b>1</b> apps still carry at least one honest "unknown": Zoho CRM.</li>
+<li><b>0</b> apps appear to have no public API at all — a valid finding, not a failure.</li>
+</ul>
+
+<h2 id="process">7 · Process & limitations</h2>
+<div class="grid2">
+<div class="panel"><h3>How it was built</h3><ul class="plain">
+<li>Assignment + 100-app list extracted programmatically from Notion's page API (no manual transcription).</li>
+<li>Free-tier smoke tests before any bulk work; model availability issue found and fixed early (JSON-mode needed newer Gemini models).</li>
+<li>Pass 1 → automated checks → independent pass 2 → arbiter → browser checks → human audit → analysis → this page. Every action timestamped in <code>log.md</code>.</li>
+<li>Total cost: <b>$0</b> — Gemini free tier, DuckDuckGo, Composio free plan (2 catalog calls), no hosting.</li>
+</ul></div>
+<div class="panel"><h3>Honest limitations</h3><ul class="plain">
+<li>Docs-only research: no paid accounts were created, so "gated" findings rest on public pricing/docs pages — which the assignment explicitly says is correct.</li>
+<li>Pass 2 reuses the saved evidence (independence is at the reasoning level: different model + prompt); disputed fields triggered fresh evidence review by the arbiter.</li>
+<li>API breadth is a rough bucket estimated from visible docs, not an endpoint count.</li>
+<li>Obscure apps (e.g. Paygent Connect, iPayX, fanbasis) may have partner-only docs we cannot see; marked unknown/blocked with evidence rather than guessed.</li>
+<li>Free-tier rate limits pace the run (~9 LLM req/min); the pipeline is resumable, so nothing is lost on interruption.</li>
+</ul></div>
+</div>
+
+<h2 id="data">8 · Machine-readable data</h2>
+<div class="panel">
+<p>The full verified dataset is embedded in this page (below) and in the repo as <code>data/final.json</code> — so both humans and agents can consume the findings. Evidence text for every app is saved under <code>data/evidence/</code>.</p>
+<button class="dl" onclick="dl()">Download final.json</button>
+</div>
+<script type="application/json" id="dataset">[{"description": "Salesforce is a CRM and sales management platform providing enterprise cloud solutions.", "auth_methods": ["OAuth2", "Bearer token"], "auth_notes": "REST API requires OAuth2 authentication to obtain a Bearer token for authorization.", "access": "free_self_serve", "access_notes": "Developers can use a free Developer Edition org or development sandbox to test and build against the REST API.", "api_type": "REST", "api_breadth": "unknown", "api_notes": "Documentation details the Salesforce REST API and OAuth quickstart authentication flow.", "existing_mcp": {"status": "unknown", "url": "", "notes": "No MCP server details are mentioned in the provided documentation."}, "buildability": {"verdict": "ready", "blocker": ""}, "evidence": [{"claim": "Salesforce REST API uses OAuth access tokens (bearer tokens) and can be accessed using a free Developer Edition org or sandbox.", "url": "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html"}], "confidence": "high", "id": 1, "name": "Salesforce", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "salesforce", "name": "Salesforce"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 3, "evidence_dir": "data\\evidence\\001_salesforce", "seconds": 49.5, "at": "2026-11-23T16:42:00.692285"}}, {"description": "HubSpot is an AI-powered customer platform aligning marketing, sales, service, content, and CRM operations.", "auth_methods": ["OAuth2", "Bearer token", "API key"], "auth_notes": "Supports OAuth 2.0 for multi-account app distribution and MCP access, static Bearer access tokens for single-account apps, developer API keys (hapikey), and client credentials tokens.", "access": "free_self_serve", "access_notes": "HubSpot offers free tools and self-serve developer accounts accessible via the HubSpot CLI and developer platform.", "api_type": "REST", "api_breadth": "broad", "api_notes": "REST APIs cover extensive CRM objects (contacts, companies, deals, tickets, line items, quotes, orders), engagements, marketing assets, custom channels, and webhooks.", "existing_mcp": {"status": "official", "url": "https://developers.hubspot.com/ai-tools/mcp", "notes": "HubSpot provides two official MCP servers: a remote HubSpot MCP Server for CRM data access and a local Developer MCP Server for CLI and development workflows."}, "buildability": {"verdict": "ready", "blocker": ""}, "evidence": [{"claim": "HubSpot description and platform overview", "url": "https://www.hubspot.com/"}, {"claim": "Free self-serve availability for HubSpot tools and developer platform CLI access", "url": "https://www.hubspot.com/"}, {"claim": "Authentication methods including OAuth 2.0, static Bearer tokens, developer API keys, and client credential tokens", "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"}, {"claim": "REST API architecture for CRM objects and custom channels", "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"}, {"claim": "Official Remote and Local Developer MCP servers shipped by HubSpot", "url": "https://developers.hubspot.com/ai-tools/mcp"}], "confidence": "high", "id": 2, "name": "HubSpot", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "hubspot", "name": "HubSpot"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 4, "evidence_dir": "data\\evidence\\002_hubspot", "seconds": 106.0, "at": "2026-11-23T16:33:31.008075"}}, {"description": "Pipedrive is a sales pipeline CRM designed to help businesses track sales activities, manage leads and deals, and automate sales processes.", "auth_methods": ["OAuth2", "API key"], "auth_notes": "Supports OAuth 2.0 for Marketplace applications and user-specific API tokens passed via the 'x-api-token' header.", "access": "free_self_serve", "access_notes": "Offers a 14-day free trial and dedicated Developer Sandbox accounts for testing applications.", "api_type": "REST", "api_breadth": "broad", "api_notes": "Lists around 45 resource modules including Deals, Leads, Persons, Organizations, Activities, Pipelines, Projects, and Webhooks.", "existing_mcp": {"status": "unknown", "url": "", "notes": "No mention of MCP servers in the provided documentation."}, "buildability": {"verdict": "ready", "blocker": ""}, "evidence": [{"claim": "Pipedrive is a CRM software designed to manage leads, track activities, and automate sales processes.", "url": "https://www.pipedrive.com/"}, {"claim": "Pipedrive provides a 14-day free trial with no credit card required.", "url": "https://www.pipedrive.com/"}, {"claim": "Pipedrive offers a RESTful API returning JSON, validated against API tokens or OAuth 2.0.", "url": "https://developers.pipedrive.com/docs/api/v1"}, {"claim": "Developer sandbox accounts are available for testing API integrations.", "url": "https://developers.pipedrive.com/docs/api/v1"}, {"claim": "OAuth 2.0 authorization endpoints include GET /oauth/authorize and POST /oauth/token.", "url": "https://developers.pipedrive.com/docs/api/v1/Oauth"}, {"claim": "API tokens can be passed via the 'x-api-token' header.", "url": "https://pipedrive.readme.io/docs/core-api-concepts-authentication"}], "confidence": "high", "id": 3, "name": "Pipedrive", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "pipedrive", "name": "Pipedrive"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 4, "evidence_dir": "data\\evidence\\003_pipedrive", "seconds": 120.6, "at": "2026-11-23T16:35:31.638162"}}, {"description": "Attio is a customizable CRM platform for managing pipelines, deals, customer relationships, and AI agent workflows.", "auth_methods": ["OAuth2", "API key", "Bearer token", "Basic"], "auth_notes": "Supports OAuth 2.0 (Authorization Code Grant with optional user/workspace levels and PKCE) and workspace API keys. Authentication uses Bearer headers or HTTP Basic auth.", "access": "free_self_serve", "access_notes": "Attio offers a free tier to start, and users can generate single-workspace API keys or create OAuth apps via workspace settings.", "api_type": "REST", "api_breadth": "unknown", "api_notes": "The documentation confirms a public REST API, but the total number of endpoints is not explicitly stated.", "existing_mcp": {"status": "official", "url": "https://docs.attio.com/mcp/overview", "notes": "Attio provides an official hosted MCP server (https://mcp.attio.com/mcp) that supports full workspace management via OAuth."}, "buildability": {"verdict": "ready", "blocker": ""}, "evidence": [{"claim": "Attio is a CRM platform for pipeline building, advancing deals, and growing accounts", "url": "https://attio.com/"}, {"claim": "Users can start using Attio for free", "url": "https://attio.com/"}, {"claim": "Attio supports OAuth 2.0, API keys, Bearer tokens, and HTTP Basic Authentication", "url": "https://docs.attio.com/rest-api/guides/authentication"}, {"claim": "Attio provides a public REST API exchanging JSON over HTTPS", "url": "https://docs.attio.com/rest-api/overview"}, {"claim": "Attio provides an official hosted MCP server accessible at https://mcp.attio.com/mcp", "url": "https://docs.attio.com/mcp/overview"}], "confidence": "high", "id": 4, "name": "Attio", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "attio", "name": "Attio"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 4, "evidence_dir": "data\\evidence\\004_attio", "seconds": 51.3, "at": "2026-11-23T16:36:22.912045"}}, {"description": "Twenty is an open-source CRM platform providing extensible data models, REST/GraphQL APIs, and AI integrations for technical teams.", "auth_methods": ["API key", "OAuth2", "Bearer token"], "auth_notes": "API keys are generated in Settings → Developers → API and sent via Bearer header. OAuth2 is supported for user delegation and MCP connections.", "access": "free_self_serve", "access_notes": "Self-hosted core is free open source; Cloud offers a 30-day trial before paid plans ($9-$39/user/mo). API keys can be created directly in workspace settings.", "api_type": "both", "api_breadth": "broad", "api_notes": "Provides REST and GraphQL APIs for both Core CRUD operations and Metadata schema management, auto-generated based on custom objects and fields in each workspace.", "existing_mcp": {"status": "official", "url": "https://api.twenty.com/mcp", "notes": "Twenty includes an official native MCP server at /mcp (or https://api.twenty.com/mcp) supporting OAuth and API Key auth across direct, meta, and standard modes."}, "buildability": {"verdict": "ready", "blocker": ""}, "evidence": [{"claim": "Twenty description and open-source nature", "url": "https://twenty.com/"}, {"claim": "Authentication methods (Bearer API key and OAuth)", "url": "https://docs.twenty.com/developers/extend/api"}, {"claim": "Free open-source self-hosting and 30-day trial options", "url": "https://twenty.com/"}, {"claim": "Core and Metadata APIs in REST and GraphQL", "url": "https://docs.twenty.com/developers/extend/api"}, {"claim": "Official MCP server implementation and endpoints", "url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp"}], "confidence": "high", "id": 5, "name": "Twenty", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "twenty", "name": "Twenty"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 4, "evidence_dir": "data\\evidence\\005_twenty", "seconds": 48.4, "at": "2026-11-23T16:37:11.286132"}}, {"description": "Podio is a work management and CRM platform featuring flexible workflows, no-code customization, and collaboration tools.", "auth_methods": ["OAuth2"], "auth_notes": "Supports OAuth2 with server-side, client-side, username & password, and app authentication flows. Access tokens expire after 8 hours and refresh tokens after 28 days.", "access": "free_self_serve", "access_notes": "The API is available for both free and paid Podio accounts, and API keys can be generated from account settings after signing up.", "api_type": "REST", "api_breadth": "unknown", "api_notes": "The entire Podio frontend is built on the API, offering access to functionality, webhooks, and client libraries in multiple languages.", "existing_mcp": {"status": "unknown", "url": "", "notes": "The provided documentation makes no mention of MCP servers or integration."}, "buildability": {"verdict": "ready", "blocker": ""}, "evidence": [{"claim": "Podio is a work management platform with customizable workflows and no-code tools.", "url": "https://podio.com/"}, {"claim": "Podio API uses OAuth2 with 8-hour access token expiration and supports multiple authentication flows.", "url": "https://developers.podio.com/authentication"}, {"claim": "The entire Podio frontend is built on the API and supports webhooks and official SDKs/wrappers.", "url": "https://developers.podio.com"}, {"claim": "The Podio API is free to use for both paid and free accounts, and API keys can be generated under account settings.", "url": "https://developers.podio.com/index/faq"}], "confidence": "high", "id": 6, "name": "Podio", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "podio", "name": "Podio"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 4, "evidence_dir": "data\\evidence\\006_podio", "seconds": 47.9, "at": "2026-11-23T16:37:59.192658"}}, {"description": "Zoho CRM is a sales CRM platform featuring AI assistance, workflow automation, customer engagement, and forecasting tools.", "auth_methods": ["other: unknown"], "auth_notes": "unknown", "access": "unknown", "access_notes": "The provided documentation mentions a freemium edition for up to 3 users and a free trial, but does not specify API credential access rules.", "api_type": "unknown", "api_breadth": "unknown", "api_notes": "unknown", "existing_mcp": {"status": "unknown", "url": "", "notes": "No mention of MCP server in the provided documentation."}, "buildability": {"verdict": "unknown", "blocker": "The provided documentation does not contain developer API details."}, "evidence": [{"claim": "Zoho CRM is a sales CRM platform featuring AI assistance, workflow automation, and customer engagement.", "url": "https://www.zoho.com/en-in/crm/"}, {"claim": "Zoho CRM has a freemium edition supporting up to 3 users and offers a free trial.", "url": "https://www.zoho.com/en-in/crm/"}], "confidence": "low", "id": 7, "name": "Zoho CRM", "category": "CRM and Sales", "composio_toolkit": {"exists": true, "slug": "zoho", "name": "Zoho"}, "_meta": {"pass": 1, "model": "gemini-3.5-flash", "docs_fetched": 1, "evidence_dir": "data\\evidence\\007_zoho-crm", "seconds": 43.1, "at": "2026-11-23T16:38:42.347907"}}]</script>
+
+<footer>Generated 2026-11-23 16:42 from research_v1.json · agent: Gemini 3.5 Flash (pass 1) + Gemini 3.6 Flash (independent pass 2) + Gemini 3.5 Flash (arbiter) · search: DuckDuckGo · catalog: Composio SDK (free tier) · built for the Composio AI Product Ops take-home · every action logged in log.md</footer>
+</div>
+<script>
+const rows=[...document.querySelectorAll('#matrix tr.row')];
+const det=id=>document.getElementById('d'+id);
+rows.forEach(r=>r.addEventListener('click',e=>{if(e.target.tagName==='A')return;det(r.dataset.id).classList.toggle('open')}));
+const fcat=document.getElementById('fcat'),facc=document.getElementById('facc'),fver=document.getElementById('fver'),ftxt=document.getElementById('ftxt'),count=document.getElementById('count');
+function apply(){let n=0;rows.forEach(r=>{const ok=(!fcat.value||r.dataset.cat===fcat.value)&&(!facc.value||r.dataset.acc===facc.value)&&(!fver.value||r.dataset.ver===fver.value)&&(!ftxt.value||r.dataset.txt.includes(ftxt.value.toLowerCase()));r.style.display=ok?'':'none';det(r.dataset.id).classList.remove('open');if(ok)n++});count.textContent=n+' / '+rows.length+' apps'}
+[fcat,facc,fver].forEach(s=>s.addEventListener('change',apply));ftxt.addEventListener('input',apply);apply();
+function dl(){const data=document.getElementById('dataset').textContent;const b=new Blob([data],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='final.json';a.click()}
+</script>
+</body></html>

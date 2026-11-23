@@ -1,0 +1,77 @@
+{
+ "app": "Zendesk",
+ "queries": [
+  "Zendesk API authentication documentation",
+  "Zendesk MCP server",
+  "Zendesk API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+  "https://developer.zendesk.com/documentation/authentication/",
+  "https://developer.zendesk.com/api-reference/sales-crm/rate-limits/",
+  "https://developer.zendesk.com/api-reference/"
+ ],
+ "search_hits": [
+  {
+   "title": "Security and authentication | Zendesk Developer Docs",
+   "href": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/"
+  },
+  {
+   "title": "Authentication | Zendesk Developer Docs",
+   "href": "https://developer.zendesk.com/documentation/authentication/"
+  },
+  {
+   "title": "How can I authenticate API requests? - Zendesk help",
+   "href": "https://support.zendesk.com/hc/en-us/articles/4408831452954-How-can-I-authenticate-API-requests"
+  },
+  {
+   "title": "Using OAuth authentication with your application - Zendesk help",
+   "href": "https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application"
+  },
+  {
+   "title": "Zendesk API authentication and scopes: A complete 2026 guide",
+   "href": "https://www.eesel.ai/blog/zendesk-api-authentication-and-scopes"
+  },
+  {
+   "title": "MCP Server App Integration with Zendesk Support",
+   "href": "https://www.zendesk.com/marketplace/apps/support/1191848/mcp-server/"
+  },
+  {
+   "title": "Connecting external AI agents to the Zendesk MCP server or ...",
+   "href": "https://support.zendesk.com/hc/en-us/articles/11400026079130-Connecting-external-AI-agents-to-the-Zendesk-MCP-server-or-Zendesk-AI-agents-EAP"
+  },
+  {
+   "title": "MCP Server App Integration with Zendesk Support",
+   "href": "https://www.zendesk.com/in/marketplace/apps/support/1191848/mcp-server/"
+  },
+  {
+   "title": "Using the Zendesk MCP client to access MCP tools in action ...",
+   "href": "https://support.zendesk.com/hc/en-us/articles/10497779528730-Using-the-Zendesk-MCP-client-to-access-MCP-tools-in-action-flows-and-advanced-action-flows"
+  },
+  {
+   "title": "GitHub - KalchevS/zendesk-mcp: Zendesk MCP Server",
+   "href": "https://github.com/KalchevS/zendesk-mcp"
+  },
+  {
+   "title": "Pricing and Rate Limits | Zendesk Developer Docs",
+   "href": "https://developer.zendesk.com/api-reference/sales-crm/rate-limits/"
+  },
+  {
+   "title": "API Reference Home | Zendesk Developer Docs",
+   "href": "https://developer.zendesk.com/api-reference/"
+  },
+  {
+   "title": "Zendesk Pricing Plans | Starting from $19/month",
+   "href": "https://www.zendesk.com/pricing/"
+  },
+  {
+   "title": "Zendesk Pricing Plans | Starting from \u00a315/month | Zendesk India",
+   "href": "https://www.zendesk.com/in/pricing/"
+  },
+  {
+   "title": "Zendesk API Pricing & Rate Limits in 2026: What Developers ...",
+   "href": "https://corepiper.com/blog/zendesk-api-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:45:19.206920"
+}

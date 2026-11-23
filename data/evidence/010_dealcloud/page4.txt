@@ -1,0 +1,492 @@
+URL: https://api.docs.dealcloud.com/mcp/getting-started
+FETCHED: 2026-11-23T16:44:20.515906
+VIA: direct
+
+Getting Started with DealCloud MCP - DealCloud API Docs
+API Reference
+Getting Started
+API Keys
+Authorization Token
+Pagination
+Rate Limits
+Status Codes and Handling
+Core
+Schema
+EntryTypes
+All Entry Types
+Entry Type by ID
+Fields
+All Fields
+Fields by EntryType
+Field by ID
+Multiple Field IDs
+Choice Field Values
+Site Metadata
+Currencies
+Field Types
+Field Units
+Filter Operations
+Mappings
+Mappings Types
+System Entry Types
+System Field Types
+Time Zones
+Users
+Data
+Cells
+Get Data
+List Entries
+List Entries using Filters
+Create, Update or Upsert
+Rows
+Query
+Get
+Update
+Create
+List Views
+Get Data using View
+History
+History or All History
+Historical Data
+Files
+Delete
+Merge
+Template Reports
+Get Template
+Generate
+Get Report
+User Management
+Create User
+Get User
+Get Users by ID
+Update User
+Delete User
+Get All User Groups
+Get User Group by ID
+Create Users Proxy
+Get User Proxy
+Invite Users
+User Activity
+Other
+Publications
+Getting Started
+Topics
+Poll
+Acknowledge
+Event Types
+Data
+Schema
+User
+Bootstrap
+Site Backups
+Request Backup
+Retrieve Backups
+Delete
+Encryption
+Relationship Intelligence
+POST Emails
+POST Meetings
+GET Status
+GET Settings
+Schema Contracts
+MCP
+Getting Started
+AI Clients
+Authentication
+Available Tools
+Custom MCP Servers
+SDKs
+Python SDK v1.X
+Getting Started
+Getting Started
+Installation
+Quick Start
+Migration Guide
+Configuration
+Configuration
+Configuration Files
+Authentication
+Advanced Configuration
+Tracing & Telemetry
+API Reference
+Schema API
+Overview
+Objects
+Fields
+Metadata Types
+Mappings & Contracts
+Users & Currencies
+Schema Export
+Data API
+Overview
+Reading Data
+Read Operations
+Basic Reads
+Reading from Views
+Query Syntax
+Streaming Reads
+Typed Data (Pydantic)
+Reference Fields
+Polars Integration
+Writing Data
+Write Operations
+Insert Data
+Update Data
+Upsert Data
+Delete Data
+ID Mapping
+Advanced
+Cell Operations
+Delta Synchronization
+Files API
+Overview
+Download Files
+Upload Files
+Bulk Export
+User Management
+Overview
+User Management
+Groups
+Backups API
+Backups API
+History API
+History API
+Publications API
+Publications API
+Merge API
+Merge API
+Relationship Intelligence
+Relationship Intelligence
+Advanced Topics
+Advanced
+Async Operations
+Error Handling
+Error Enrichment
+Performance Tuning
+Logging & Debugging
+Troubleshooting & FAQ
+Reference
+API Reference
+Data Models
+Constants
+Utilities & helpers
+Exceptions
+Changelog
+License
+Intapp REST Client
+Getting Started
+Getting Started
+Installation
+Quick Start
+Configuration
+Configuration
+Authentication
+Retry Configuration
+Connection Pooling
+SSL/TLS
+Logging
+Advanced Topics
+Advanced
+Async Operations
+Pagination
+Streaming File Download
+Parallel Requests
+Error Handling
+Tracing & Telemetry
+Request Hooks
+Reference
+Reference
+Configuration Models
+Exceptions
+API Reference
+Changelog
+License
+Python (Legacy) v0.1.9
+Installation
+Authentication
+Usage
+Schema
+Data
+License
+C#
+Installation
+Authentication
+Logging
+Usage
+Schema
+Data
+License
+Guides
+How to Create a User
+How to Download Files
+How to Upload Files
+How to Backlink DMS Documents
+Real-Time Events from DealCloud
+Audit Trail for Read Events
+Feedback
+(opens in a new tab)
+API Reference
+Getting Started
+API Keys
+Authorization Token
+Pagination
+Rate Limits
+Status Codes and Handling
+Core
+Schema
+EntryTypes
+All Entry Types
+Entry Type by ID
+Fields
+All Fields
+Fields by EntryType
+Field by ID
+Multiple Field IDs
+Choice Field Values
+Site Metadata
+Currencies
+Field Types
+Field Units
+Filter Operations
+Mappings
+Mappings Types
+System Entry Types
+System Field Types
+Time Zones
+Users
+Data
+Cells
+Get Data
+List Entries
+List Entries using Filters
+Create, Update or Upsert
+Rows
+Query
+Get
+Update
+Create
+List Views
+Get Data using View
+History
+History or All History
+Historical Data
+Files
+Delete
+Merge
+Template Reports
+Get Template
+Generate
+Get Report
+User Management
+Create User
+Get User
+Get Users by ID
+Update User
+Delete User
+Get All User Groups
+Get User Group by ID
+Create Users Proxy
+Get User Proxy
+Invite Users
+User Activity
+Other
+Publications
+Getting Started
+Topics
+Poll
+Acknowledge
+Event Types
+Data
+Schema
+User
+Bootstrap
+Site Backups
+Request Backup
+Retrieve Backups
+Delete
+Encryption
+Relationship Intelligence
+POST Emails
+POST Meetings
+GET Status
+GET Settings
+Schema Contracts
+MCP
+Getting Started
+Prerequisites
+Default MCP Server
+Custom MCP Servers
+Enabling Write Tools
+Connecting to AI Clients
+AI Clients
+Authentication
+Available Tools
+Custom MCP Servers
+SDKs
+Python SDK v1.X
+Getting Started
+Getting Started
+Installation
+Quick Start
+Migration Guide
+Configuration
+Configuration
+Configuration Files
+Authentication
+Advanced Configuration
+Tracing & Telemetry
+API Reference
+Schema API
+Overview
+Objects
+Fields
+Metadata Types
+Mappings & Contracts
+Users & Currencies
+Schema Export
+Data API
+Overview
+Reading Data
+Read Operations
+Basic Reads
+Reading from Views
+Query Syntax
+Streaming Reads
+Typed Data (Pydantic)
+Reference Fields
+Polars Integration
+Writing Data
+Write Operations
+Insert Data
+Update Data
+Upsert Data
+Delete Data
+ID Mapping
+Advanced
+Cell Operations
+Delta Synchronization
+Files API
+Overview
+Download Files
+Upload Files
+Bulk Export
+User Management
+Overview
+User Management
+Groups
+Backups API
+Backups API
+History API
+History API
+Publications API
+Publications API
+Merge API
+Merge API
+Relationship Intelligence
+Relationship Intelligence
+Advanced Topics
+Advanced
+Async Operations
+Error Handling
+Error Enrichment
+Performance Tuning
+Logging & Debugging
+Troubleshooting & FAQ
+Reference
+API Reference
+Data Models
+Constants
+Utilities & helpers
+Exceptions
+Changelog
+License
+Intapp REST Client
+Getting Started
+Getting Started
+Installation
+Quick Start
+Configuration
+Configuration
+Authentication
+Retry Configuration
+Connection Pooling
+SSL/TLS
+Logging
+Advanced Topics
+Advanced
+Async Operations
+Pagination
+Streaming File Download
+Parallel Requests
+Error Handling
+Tracing & Telemetry
+Request Hooks
+Reference
+Reference
+Configuration Models
+Exceptions
+API Reference
+Changelog
+License
+Python (Legacy) v0.1.9
+Installation
+Authentication
+Usage
+Schema
+Data
+License
+C#
+Installation
+Authentication
+Logging
+Usage
+Schema
+Data
+License
+Guides
+How to Create a User
+How to Download Files
+How to Upload Files
+How to Backlink DMS Documents
+Real-Time Events from DealCloud
+Audit Trail for Read Events
+Light
+MCP
+Getting Started
+Getting Started with DealCloud MCP
+Prerequisites
+Requirement
+Details
+Licensing
+DealCloud with Celeste
+license.
+User Permissions
+Manage MCP Servers
+capability for admins to configure.
+Celeste Member
+user group assignment with
+MCP Access
+capability enabled for end-user connection.
+Default MCP Server
+DealCloud provides a default MCP Server out-of-the-box without any configuration required. It exposes your site's full schema and is the fastest way to get connected. Copy the MCP endpoint URL from
+Tools > MCP Servers
+and connect it to your AI client. The default endpoint follows this format:
+https://[tenant].my.intapp.com/mcp/celeste/DealCloud
+Custom MCP Servers
+Need to scope data access by team, workflow, or AI client? Custom MCP Servers let you control exactly what each client can see by pairing a server with a Schema Contract. See
+Custom MCP Servers
+for setup details.
+Enabling Write Tools
+To let assistants create and update records, go to
+Tools > MCP Servers
+, edit the MCP Server, and turn on the
+Enable Write Tools
+toggle. See
+MCP Tools
+for the full list.
+Connecting to AI Clients
+See setup steps & compatibility by
+AI clients
+.
+MCP
+AI Clients

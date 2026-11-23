@@ -1,0 +1,76 @@
+{
+ "app": "Salesforce",
+ "queries": [
+  "Salesforce API authentication documentation",
+  "Salesforce MCP server",
+  "Salesforce API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html",
+  "https://developer.salesforce.com/docs/apis",
+  "https://help.salesforce.com/s/articleView?id=platform.platform_o_manage_api_tokens.htm&language=en_US&type=5"
+ ],
+ "search_hits": [
+  {
+   "title": "Step Two: Set Up Authentication | Quick Start | REST API ...",
+   "href": "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html"
+  },
+  {
+   "title": "API Library | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/apis"
+  },
+  {
+   "title": "REST API Developer Guide - SalesforceManage API Tokens | Salesforce HelpAuthorize Apps with OAuth | Salesforce HelpSalesforce REST API Integration: A Step-by-Step Guide (2027)Salesforce Platform API Integration Guide - Trailhead",
+   "href": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/api_rest.pdf"
+  },
+  {
+   "title": "Manage API Tokens | Salesforce Help",
+   "href": "https://help.salesforce.com/s/articleView?id=platform.platform_o_manage_api_tokens.htm&language=en_US&type=5"
+  },
+  {
+   "title": "Salesforce REST API Integration: A Step-by-Step Guide (2027)",
+   "href": "https://www.integrate.io/blog/salesforce-rest-api-integration/"
+  },
+  {
+   "title": "Salesforce Hosted MCP Servers | Hosted MCP Servers ...",
+   "href": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/overview"
+  },
+  {
+   "title": "Get Started | Hosted MCP Servers | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html"
+  },
+  {
+   "title": "Salesforce Docs MCP Server",
+   "href": "https://mcp.dev.docs.salesforce.com/about/"
+  },
+  {
+   "title": "Manage MCP Servers in API Catalog | Salesforce Help",
+   "href": "https://help.salesforce.com/s/articleView?id=platform.api_catalog_manage_mcp_servers.htm&language=en_US&type=5"
+  },
+  {
+   "title": "What is the MCP Server and What Does it Mean for ... - Salesforce",
+   "href": "https://www.salesforce.com/blog/marketing-mcp-server/"
+  },
+  {
+   "title": "Salesforce Developers",
+   "href": "https://developer.salesforce.com/free-trials"
+  },
+  {
+   "title": "Salesforce Pricing: See Pricing Plans for All Salesforce ...",
+   "href": "https://www.salesforce.com/pricing/"
+  },
+  {
+   "title": "API Library | Salesforce Developers",
+   "href": "https://developer.salesforce.com/docs/apis"
+  },
+  {
+   "title": "Salesforce editions with API access | Salesforce Help",
+   "href": "https://help.salesforce.com/s/articleView?id=000385436&language=en_US&type=1"
+  },
+  {
+   "title": "Salesforce Certification Exam Pricing | Salesforce Help",
+   "href": "https://help.salesforce.com/s/articleView?id=005298916&language=en_US&type=1"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:41:51.362061"
+}

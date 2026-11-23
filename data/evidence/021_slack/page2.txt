@@ -1,0 +1,268 @@
+URL: https://docs.slack.dev/ai/slack-mcp-server/
+FETCHED: 2026-11-23T16:25:07.516768
+
+Overview | Slack Developer Docs
+guide
+Skip to main content
+Copy as markdown
+On this page
+With the Slack MCP server, your integrated apps can search channels, send messages, and perform other Slack actions through MCP clients. Workspace admins can approve and manage all MCP client integrations, keeping your Slack data safe. This guide discusses the MCP server offerings from Slack and how to develop with the Slack MCP server.
+Slack MCP server features
+​
+The Slack MCP server provides tools for searching through Slack, retrieving and sending messages, managing canvases, managing users, uploading files, and working with lists. Each of these tools provides useful functionality for interacting with Slack; combine them for comprehensive integrations that grasp your team's context and history.
+Searching throughout Slack
+​
+The MCP server can search for a variety of information found throughout a Slack workspace:
+Messages and files — filter by date, user, and content type. Retrieve metadata and content.
+Users in a workspace — filter by name (with partial name matching), email, and user ID. Retrieve user details and statuses.
+Private and public channels — filter by channel name and description. Retrieve channel metadata.
+List user channels — list the channels you're a member of, filterable by type (public, private, DMs, group DMs), name prefix, and workspace. Supports pagination and can return full details, names only, or IDs only. Archived channels are included by default.
+Emoji — returns the list of custom emoji available in the workspace.
+Retrieving and sending messages
+​
+The MCP server can retrieve and send messages throughout a Slack workspace:
+Send messages — send messages to any type of conversation in Slack.
+Schedule messages — schedule a message to be sent to a conversation at a future time.
+Draft messages — draft, format, and preview messages directly within AI clients.
+Read channels — grab the complete message history of channels.
+Read threads — grab complete message thread conversations.
+Create a conversation/channel — creates a new Slack channel, group DM, or IM conversation on behalf of the authenticated user.
+Add reactions — adds an emoji reaction to a Slack message on behalf of the authenticated user.
+Get reactions — retrieve the emoji reactions on a Slack message.
+Managing canvases
+​
+The MCP server can interact and modify Slack canvases:
+Create/update a canvas — create and share rich, formatted documents.
+Read a canvas — export canvases as markdown files.
+Managing users
+​
+Fetch user info — access complete user profile info, including custom profile fields and statuses.
+List channel members — retrieve a list of user IDs for members of a given Slack channel or conversation.
+Managing files
+​
+Upload files — upload files to Slack via a two-step process. The file isn't visible until the second step completes.
+Call the
+slack_get_file_upload_url
+tool to get a signed upload URL and file ID, then POST your file bytes to that URL.
+Call the
+slack_complete_file_upload
+tool with the file ID to finalize it, optionally sharing the file to a channel with a message.
+Working with lists
+​
+The MCP server can work with Slack lists, which hold structured tabular data with typed columns (text, date, select, user, and more):
+Create and read lists — create lists with custom schemas and read their contents.
+Update lists and records — update list metadata and columns, and add or update individual records (rows). Columns are addressed by display name or internal key. Column types include select/multi_select with color-coded options.
+Example use cases
+​
+There are many possibilities with the Slack MCP server. Here are just a few ideas:
+Create an AI assistant in Slack that can search through your team's Slack history to answer questions, find past decisions, and provide context for current projects.
+Bring content from outside Slack into Slack via messages and canvases for discussion with coworkers.
+Bring content from Slack to AI agents, providing them full context of projects that exist across multiple products.
+Rate limits
+​
+Like all Slack Web API methods, the Slack MCP server is subject to rate limits. Limits are enforced per tool or action type. Whether an action is performed via an MCP tool or directly through Slack Web API methods, the same rate limits apply. Here is the full list of MCP tools and their associated rate limit:
+MCP Tool
+Rate Limit
+Search messages & files
+Special rate limits apply; consult
+method page documentation
+Read files
+Tier 4: 100+ per minute
+Search emoji
+Tier 2: 20+ per minute
+Search users
+Tier 2: 20+ per minute
+Search channels
+Tier 2: 20+ per minute
+Send message
+Special rate limits apply; consult
+method page documentation
+Schedule message
+Tier 3: 50+ per minute
+Read a channel
+Tier 3: 50+ per minute
+Read a thread
+Tier 3: 50+ per minute
+Create conversation/channel
+Tier 2: 20+ per minute
+Add reactions
+Tier 3: 50+ per minute
+Get reactions
+Tier 3: 50+ per minute
+Create a canvas
+Tier 2: 20+ per minute
+Update a canvas
+Tier 3: 50+ per minute
+Read a canvas
+Tier 3: 50+ per minute
+/
+Tier 4: 100+ per minute
+Read a user profile
+Tier 4: 100+ per minute
+List channel members
+Tier 4: 100+ per minute
+List user channels
+Tier 2: 20+ per minute
+Upload a file
+Tier 4: 100+ per minute
+Create/read/update a list
+Tier 2: 20+ per minute
+/
+Tier 3: 50+ per minute
+Transport protocol and endpoint
+​
+Slack supports JSON-RPC 2.0 over Streamable HTTP. All requests should be sent to:
+https://mcp.slack.com/mcp
+We do not support SSE-based connections or Dynamic Client Registration at this time.
+App Identity
+​
+MCP clients must be backed by a registered Slack app with a fixed app ID and hardcode that app ID. This allows Slack to:
+Let admins manage and approve your app/MCP client app using standard Slack app approval process.
+Associate requests with your app for logging, rate limits, and access control.
+Provide better support and visibility into usage.
+If you're already using a Slack app for your integration, you can reuse it for MCP access.
+Only directory-published apps or internal apps may use MCP.
+Security concerns
+​
+When using the Slack MCP server, please be mindful about connecting to or utilizing other MCP servers at the same time. Different servers may have their own security, stability, and usage characteristics, so think carefully before mixing them together. Use judgment when evaluating what to connect and share across environments. Using these clients means giving them access to your Slack data so you can use it as context while interacting with those apps.
+Audit MCP activity with the associated
+audit logs
+.
+Only apps published in the Slack Marketplace and internal apps can use MCP at this time; unlisted apps are prohibited from using MCP.
+IP allowlist
+​
+If your app has
+allowed IP address ranges
+configured, requests to the Slack MCP server are subject to the same restrictions. API calls originating from IP addresses not on your allowlist will be rejected. Ensure that the IP addresses your MCP client uses are included in your app's allowed list.
+Authentication and Token Handling
+​
+Slack supports confidential OAuth for MCP clients. You'll need to use your app's
+client_id
+and
+client_secret
+for Slack OAuth.
+If your MCP client supports OAuth 2.0 Authorization Server Metadata (RFC 8414) per MCP spec, you can rely on that. Users go through OAuth consent and authorize the app. You can initiate this OAuth request from your UX following standard MCP metadata discovery files:
+https://mcp.slack.com/.well-known/oauth-protected-resource
+https://mcp.slack.com/.well-known/oauth-authorization-server
+OAuth URL and endpoints
+​
+Authorization endpoint for Slack user tokens:
+https://slack.com/oauth/v2_user/authorize
+Token endpoint for Slack user tokens:
+https://slack.com/api/oauth.v2.user.access
+(method docs
+here
+)
+If you also want to generate bot tokens (for in-Slack experience), follow instructions
+here
+.
+OAuth scopes needed on user token for different tools
+​
+Tool
+Scopes needed
+Search messages/channels
+search:read.public
+,
+search:read.private
+,
+search:read.mpim
+,
+search:read.im
+Search files
+search:read.files
+Read files
+files:read
+Search emoji
+emoji:read
+Search users
+search:read.users
+Send message
+chat:write
+Schedule message
+chat:write
+Read a channel/thread
+channels:history
+,
+groups:history
+,
+mpim:history
+,
+im:history
+Create conversation/channel
+channels:write
+for public channels,
+groups:write
+for private channels,
+im:write
+for direct messages,
+mpim:write
+for multi-party DMs
+Add reactions
+reactions:write
+Get reactions
+reactions:read
+Canvas create/update
+canvases:read
+,
+canvases:write
+User profile/email
+users:read
+,
+users:read.email
+List channel members
+channels:read
+for public channels,
+groups:read
+for private channels,
+mpim:read
+for multi-party DMs
+List user channels
+channels:read
+,
+groups:read
+,
+im:read
+,
+mpim:read
+Lists
+lists:read
+,
+lists:write
+Upload a file
+files:write
+Consider using PKCE
+Looking to use desktop clients? PKCE support is now available! Read more
+here
+.
+Using the Slack MCP server with partner apps
+​
+If you'd rather not build a Slack app, you can use the Slack MCP server through a partner-built client, no coding needed. For the current list of partner apps and how to connect them, see the
+Guide to MCP in Slack
+in the Slack Help Center.
+Related content
+​
+✨ Check out our documentation on Developing agents
+here
+.
+✨ To search Slack data without connecting it to an AI, see documentation for the Real Time Search API
+here
+. The Real Time Search (RTS) API offers access to Slack data via API call.
+Copy as markdown
+Slack MCP server features
+Searching throughout Slack
+Retrieving and sending messages
+Managing canvases
+Managing users
+Managing files
+Working with lists
+Example use cases
+Rate limits
+Transport protocol and endpoint
+App Identity
+Security concerns
+IP allowlist
+Authentication and Token Handling
+OAuth URL and endpoints
+OAuth scopes needed on user token for different tools
+Using the Slack MCP server with partner apps
+Related content

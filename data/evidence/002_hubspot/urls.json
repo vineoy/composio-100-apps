@@ -1,0 +1,77 @@
+{
+ "app": "HubSpot",
+ "queries": [
+  "HubSpot API authentication documentation",
+  "HubSpot MCP server",
+  "HubSpot API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://www.hubspot.com/",
+  "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+  "https://developers.hubspot.com/docs",
+  "https://developers.hubspot.com/ai-tools/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication overview - HubSpot docs",
+   "href": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"
+  },
+  {
+   "title": "HubSpot Developer Documentation - HubSpot docs",
+   "href": "https://developers.hubspot.com/docs"
+  },
+  {
+   "title": "The Fundamentals of Authenticating Integrations - HubSpot",
+   "href": "https://academy.hubspot.com/lessons/fundamentals-authenticating-integrations"
+  },
+  {
+   "title": "Authenticate your apps for HubSpot data sync",
+   "href": "https://knowledge.hubspot.com/integrations/data-sync-authentication"
+  },
+  {
+   "title": "HubSpot Public API Workspace | Postman API Network",
+   "href": "https://www.postman.com/hubspot/hubspot-public-api-workspace/overview"
+  },
+  {
+   "title": "HubSpot MCP Server",
+   "href": "https://developers.hubspot.com/ai-tools/mcp"
+  },
+  {
+   "title": "Using the HubSpot MCP server",
+   "href": "https://developers.hubspot.com/docs/build-with-ai/remote-mcp-server"
+  },
+  {
+   "title": "HubSpot MCP Server - GitHub",
+   "href": "https://github.com/baryhuang/mcp-hubspot"
+  },
+  {
+   "title": "@hubspot/mcp-server - npm",
+   "href": "https://www.npmjs.com/package/@hubspot/mcp-server"
+  },
+  {
+   "title": "hubspot-mcp-server - npm",
+   "href": "https://www.npmjs.com/package/hubspot-mcp-server"
+  },
+  {
+   "title": "APIs by tier - HubSpot docs",
+   "href": "https://developers.hubspot.com/docs/developer-tooling/platform/apis-by-tier"
+  },
+  {
+   "title": "Products API - HubSpot docs",
+   "href": "https://developers.hubspot.com/docs/api-reference/latest/crm/objects/products/guide"
+  },
+  {
+   "title": "Customer Platform Pricing | HubSpot",
+   "href": "https://www.hubspot.com/pricing/suite"
+  },
+  {
+   "title": "HubSpot Products & Services Catalog | Pricing Overview",
+   "href": "https://legal.hubspot.com/hubspot-product-and-services-catalog"
+  },
+  {
+   "title": "HubSpot is headless. Here\u2019s how we\u2019ll price it",
+   "href": "https://www.hubspot.com/company-news/pricing-headless"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:32:07.745029"
+}

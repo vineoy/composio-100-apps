@@ -1,0 +1,29 @@
+URL: https://developer.zendesk.com/documentation/authentication/
+FETCHED: 2026-11-23T16:45:19.205468
+VIA: direct
+
+Authentication | Zendesk Developer Docs
+Authentication
+Authentication
+Authenticating Zendesk API requests
+Getting started
+Using OAuth to authenticate API requests
+Learn how OAuth authentication works and choose the right flow for your integration.
+Migrating from API tokens to OAuth access tokens
+Move from API tokens to OAuth with a step-by-step migration guide and rollout timeline.
+Understanding the differences between API tokens and OAuth access tokens
+Compare API tokens and OAuth access tokens.
+Implementing OAuth flows
+Using OAuth to authenticate Zendesk API requests in a web app
+Build a web app that completes the authorization code flow and calls Zendesk APIs on behalf of a user.
+Using PKCE to make Zendesk OAuth access tokens more secure
+Add PKCE to your authorization code flow for stronger security in browser and mobile scenarios.
+Managing OAuth tokens
+Creating and using OAuth access tokens with the API
+Create OAuth tokens using the API and use them to authenticate API requests.
+Getting information about OAuth access tokens
+List OAuth tokens and review token metadata such as scopes and associated resources.
+Revoking an OAuth access token
+Invalidate tokens that are no longer needed or may have been compromised.
+Working with OAuth refresh tokens
+Implement refresh-token handling so your integration can renew access automatically.

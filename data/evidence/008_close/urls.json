@@ -1,0 +1,77 @@
+{
+ "app": "Close",
+ "queries": [
+  "Close API authentication documentation",
+  "Close MCP server",
+  "Close API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.close.com/api/overview/oauth-authentication",
+  "https://developer.close.com/api/overview",
+  "https://docs.close.city/guide/authentication/",
+  "https://help.close.com/integrations/api-keys-oauth"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication with OAuth - Close API Documentation",
+   "href": "https://developer.close.com/api/overview/oauth-authentication"
+  },
+  {
+   "title": "API Overview | Close | Developer API Documentation",
+   "href": "https://developer.close.com/api/overview"
+  },
+  {
+   "title": "Authentication | Close API",
+   "href": "https://docs.close.city/guide/authentication/"
+  },
+  {
+   "title": "API Keys & OAuth | Close Help Center",
+   "href": "https://help.close.com/integrations/api-keys-oauth"
+  },
+  {
+   "title": "help.close.com",
+   "href": "https://help.close.com/integrations/api-keys-oauth.md"
+  },
+  {
+   "title": "Close MCP Server | Close Help Center",
+   "href": "https://help.close.com/integrations/close-mcp-server"
+  },
+  {
+   "title": "Close MCP Server | Close | Developer API Documentation",
+   "href": "https://developer.close.com/mcp"
+  },
+  {
+   "title": "Close MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/close"
+  },
+  {
+   "title": "Close MCP Tools | Close Help Center",
+   "href": "https://help.close.com/integrations/close-mcp-server/close-mcp-tools"
+  },
+  {
+   "title": "Close.com MCP Server - GitHub",
+   "href": "https://github.com/ShiftEngineering/mcp-close-server"
+  },
+  {
+   "title": "Close API: pricing, rate limits & MCP | ONEGTMLAB",
+   "href": "https://www.onegtmlab.dev/tool-directory/crm/close"
+  },
+  {
+   "title": "Close API Documentation - Close Developer Platform | Close",
+   "href": "https://developer.close.com/"
+  },
+  {
+   "title": "API Overview | Close | Developer API Documentation",
+   "href": "https://developer.close.com/api/overview"
+  },
+  {
+   "title": "Close API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/close.com/"
+  },
+  {
+   "title": "X (Twitter) API Pricing in 2026: All Tiers | Postproxy",
+   "href": "https://postproxy.dev/blog/x-api-pricing-2026/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:42:29.308216"
+}

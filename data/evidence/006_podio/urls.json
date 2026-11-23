@@ -1,0 +1,77 @@
+{
+ "app": "Podio",
+ "queries": [
+  "Podio API authentication documentation",
+  "Podio MCP server",
+  "Podio API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://podio.com/",
+  "https://developers.podio.com/authentication",
+  "https://developers.podio.com",
+  "https://developers.podio.com/index/faq"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Podio API Documentation",
+   "href": "https://developers.podio.com/authentication"
+  },
+  {
+   "title": "Developers - Podio API Documentation",
+   "href": "https://developers.podio.com/"
+  },
+  {
+   "title": "Podio API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/428/podio"
+  },
+  {
+   "title": "Podio API - Progress Software",
+   "href": "https://www.progress.com/podio/documentation/using-podio/podio-and-other-services/podio-api"
+  },
+  {
+   "title": "Podio Oauth Api | APIs.io APIs",
+   "href": "https://apis.io/apis/podio/podio-oauth-api/"
+  },
+  {
+   "title": "Podio MCP Server Integration Guide - Progress Software",
+   "href": "https://www.progress.com/podio/documentation/using-podio/ai-and-mcp/podio-mcp-server-integration-guide"
+  },
+  {
+   "title": "mcp.podio.com",
+   "href": "https://mcp.podio.com/"
+  },
+  {
+   "title": "GitHub - stoskov/podio-mcp",
+   "href": "https://github.com/stoskov/podio-mcp"
+  },
+  {
+   "title": "GitHub - phases/mcp-server-for-podio: Model Context Protocol ...",
+   "href": "https://github.com/phases/mcp-server-for-podio"
+  },
+  {
+   "title": "Podio MCP Server - MCP AI | Zapier",
+   "href": "https://zapier.com/mcp/podio"
+  },
+  {
+   "title": "Developers - Podio API Documentation",
+   "href": "https://developers.podio.com/"
+  },
+  {
+   "title": "Frequently Asked Questions - Podio API Documentation",
+   "href": "https://developers.podio.com/index/faq"
+  },
+  {
+   "title": "Pricing | Flexible Plans for Teams of All Sizes | Podio",
+   "href": "https://www.progress.com/podio/pricing"
+  },
+  {
+   "title": "Pricing - Progress Software",
+   "href": "https://www.progress.com/podio/documentation/using-podio/account-billing-and-administration/pricing"
+  },
+  {
+   "title": "Podio",
+   "href": "https://podio.com/signup"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:37:43.113899"
+}

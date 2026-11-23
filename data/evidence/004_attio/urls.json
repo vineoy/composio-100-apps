@@ -1,0 +1,77 @@
+{
+ "app": "Attio",
+ "queries": [
+  "Attio API authentication documentation",
+  "Attio MCP server",
+  "Attio API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://attio.com/",
+  "https://docs.attio.com/rest-api/guides/authentication",
+  "https://docs.attio.com/rest-api/overview",
+  "https://docs.attio.com/mcp/overview"
+ ],
+ "search_hits": [
+  {
+   "title": "Authenticating requests - Attio Docs",
+   "href": "https://docs.attio.com/rest-api/guides/authentication"
+  },
+  {
+   "title": "Overview - Attio Docs",
+   "href": "https://docs.attio.com/rest-api/overview"
+  },
+  {
+   "title": "Developer Platform | Attio",
+   "href": "https://attio.com/platform/developers"
+  },
+  {
+   "title": "attio-tools/docs/rest-api/guides/authentication.md at main ...",
+   "href": "https://github.com/Genei-Ltd/attio-tools/blob/main/docs/rest-api/guides/authentication.md"
+  },
+  {
+   "title": "Generate an API key | Attio Help Center",
+   "href": "https://attio.com/help/reference/apps/generating-an-api-key"
+  },
+  {
+   "title": "Attio MCP - Attio Docs",
+   "href": "https://docs.attio.com/mcp/overview"
+  },
+  {
+   "title": "MCP Server | Attio",
+   "href": "https://mcp.attio.com/mcp"
+  },
+  {
+   "title": "Attio MCP Server - GitHub",
+   "href": "https://github.com/kesslerio/attio-mcp-server"
+  },
+  {
+   "title": "MCP Integration | Attio",
+   "href": "https://attio.com/apps/mcp"
+  },
+  {
+   "title": "MCP | Attio",
+   "href": "https://attio.com/platform/mcp"
+  },
+  {
+   "title": "Plans & Pricing | Attio",
+   "href": "https://attio.com/pricing"
+  },
+  {
+   "title": "Plans & Pricing | Attio",
+   "href": "https://attio.com/pricing?frame=0"
+  },
+  {
+   "title": "Attio Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/attio/attio-plans-pricing/"
+  },
+  {
+   "title": "Attio Pricing (November 2026): Free, Plus, Pro, Enterprise",
+   "href": "https://markaicode.com/pricing/attio-pricing/"
+  },
+  {
+   "title": "Attio API: pricing, rate limits & MCP | ONEGTMLAB",
+   "href": "https://www.onegtmlab.dev/tool-directory/crm/attio"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:35:42.588805"
+}

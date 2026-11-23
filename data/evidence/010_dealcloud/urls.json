@@ -1,0 +1,77 @@
+{
+ "app": "DealCloud",
+ "queries": [
+  "DealCloud API authentication documentation",
+  "DealCloud MCP server",
+  "DealCloud API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://api.docs.dealcloud.com/docs",
+  "https://api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentication",
+  "https://api.docs.dealcloud.com/mcp",
+  "https://api.docs.dealcloud.com/mcp/getting-started"
+ ],
+ "search_hits": [
+  {
+   "title": "Docs - DealCloud API Docs",
+   "href": "https://api.docs.dealcloud.com/docs"
+  },
+  {
+   "title": "Authentication - DealCloud API Docs",
+   "href": "https://api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentication"
+  },
+  {
+   "title": "DealCloud API - Docs, SDKs & Integration",
+   "href": "https://apitracker.io/a/dealcloud"
+  },
+  {
+   "title": "DealCloud API Reference Guide",
+   "href": "https://www.scribd.com/document/884864570/Deal-Management-Platform-API-Reference"
+  },
+  {
+   "title": "API Reference \u2014 dealcloud v0.4.0 - HexDocs",
+   "href": "https://dealcloud.hexdocs.pm/api-reference.html"
+  },
+  {
+   "title": "DealCloud MCP Server - DealCloud API Docs",
+   "href": "https://api.docs.dealcloud.com/mcp"
+  },
+  {
+   "title": "Getting Started with DealCloud MCP - DealCloud API Docs",
+   "href": "https://api.docs.dealcloud.com/mcp/getting-started"
+  },
+  {
+   "title": "What DealCloud's MCP Server Actually Does, and Where It Fits ...",
+   "href": "https://monarchfts.com/dealcloud-mcp-server/"
+  },
+  {
+   "title": "mcp-servers/servers/dealcloud-mcp/INSTALL.md at main ... - GitHub",
+   "href": "https://github.com/sniderzero/mcp-servers/blob/main/servers/dealcloud-mcp/INSTALL.md"
+  },
+  {
+   "title": "DealCloud MCP Server | Pipedream",
+   "href": "https://mcp.pipedream.com/app/dealcloud"
+  },
+  {
+   "title": "Dealcloud Developer Documentation",
+   "href": "https://api.docs.dealcloud.com/"
+  },
+  {
+   "title": "Obtaining an API Key - DealCloud API Docs",
+   "href": "https://api.docs.dealcloud.com/docs/apikeys"
+  },
+  {
+   "title": "DealCloud Pricing 2026: Real Costs, Fees & What Others Paid",
+   "href": "https://pricingnow.com/question/dealcloud-pricing/"
+  },
+  {
+   "title": "DealCloud Pricing November 2026 - G2",
+   "href": "https://www.g2.com/products/dealcloud/pricing"
+  },
+  {
+   "title": "DealCloud Pricing in 2026: Plans and Costs | The Geeks Club",
+   "href": "https://www.thegeeksclub.com/platforms/dealcloud/pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:44:20.516581"
+}

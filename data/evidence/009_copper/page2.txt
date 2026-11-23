@@ -1,0 +1,247 @@
+URL: https://developer.copper.com/introduction/oauth/flow.html
+FETCHED: 2026-11-23T16:43:16.557371
+VIA: direct
+
+Documentation - Copper Developer API
+Skip to content
+Copper OAuth2.0 Flow
+¶
+1. Introduction
+¶
+Third-party integrations may take advantage of
+OAuth 2.0
+for the purpose of authorizing and authenticating access to the Copper Developer API. Employing the widely used
+Authorization Code Grant
+flow, Copper ensures a seamless and quick authentication process. This approach is particularly well-suited for integrations that cater to existing Copper customers, facilitating the establishment of a robust and secure connection between the integration and Copper.
+1.1 Prerequisites
+¶
+Your application provides an HTTPS callback endpoint capable of receiving POST requests
+You have
+registered your application
+and received your
+client_id
+and
+client_secret
+credentials
+1.2 The Authorization Flow
+¶
+The authorization code grant flow involves the following steps:
+Authorization Request
+: The application initiates the flow by redirecting the user to the authorization server's authorization endpoint.
+User Authentication
+: The user logs in and grants permission to the application.
+Authorization Grant
+: The authorization server provides an authorization code to the application.
+Token Request
+: The application exchanges the authorization code for an access token from the token endpoint.
+Access Protected Resources
+: The application uses the access token to access the protected resources on behalf of the user.
+1.3 Sequence Diagram
+¶
+2. Flow Steps
+¶
+2.1 Authorization Request
+¶
+Endpoint:
+GET https://app.copper.com/oauth/authorize
+Redirect the user to this endpoint to initiate the OAuth2.0 authorization flow.
+Request
+GET
+https://app.copper.com/oauth/authorize?response_type
+=
+code
+&
+client_id
+={
+client_id
+}
+&
+redirect_uri
+={
+redirect_uri
+}
+&
+scope
+={
+scope
+}
+&
+state
+={
+state
+}
+Parameter
+Description
+response_type
+Must be
+"code"
+client_id
+Your
+client_id
+redirect_uri
+Your
+redirect_uri
+scope
+Requested access scope. Must be
+"developer/v1/all"
+state
+(optional) Any user-defined metadata to forward to the callback
+Please note that the parameters must be form-encoded (
+application/x-www-form-urlencoded
+), similar to how they would appear in an HTML
+<form>
+element
+2.2 User Authentication
+¶
+At this stage, the user will be prompted to login to their Copper account. If the user is already logged in, this step is skipped.
+2.3 Authorization Grant
+¶
+Upon logging in successfully, the user is presented with an authorization screen displaying your app's name and requested permissions.
+The user can grant or deny access by clicking 'Authorize' or 'Deny.' Afterward, the user is redirected to your app's
+redirect_uri
+via a POST request.
+If the authorization was successful, the payload includes a
+code
+parameter indicating the authorization code.
+In case of denial or errors, the payload contains an
+error
+parameter.
+Parameter
+Description
+Notes
+code
+The authorization code
+Only present on success
+error
+Error code
+Only present on failure. See
+Common OAuth2.0 errors
+2.4 Token Request
+¶
+Endpoint:
+POST https://app.copper.com/oauth/token
+After successfully acquiring an authorization
+code
+in the previous step, you may proceed to exchange it for an access token.
+This access token provides your application with access to the Developer API. Once you have obtained the access token,
+you may discard
+code
+.
+Currently, access tokens do not expire and do not need to be refreshed.
+Request
+Response (200)
+curl
+-X
+POST
+\
+-H
+"Content-Type: application/x-www-form-urlencoded"
+\
+-d
+"grant_type=authorization_code"
+\
+-d
+"code={code}"
+\
+-d
+"redirect_uri={redirect_uri}"
+\
+-d
+"client_id={client_id}"
+\
+-d
+"client_secret={client_secret}"
+\
+https://app.copper.com/oauth/token
+{
+"access_token"
+:
+"MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3"
+,
+"token_type"
+:
+"Bearer"
+,
+"scope"
+:
+"developer/v1/all"
+}
+Request parameters
+Parameter
+Description
+grant_type
+Must be
+"authorization_code"
+code
+Your
+code
+from the previous step
+redirect_uri
+Your
+redirect_uri
+client_id
+Your
+client_id
+client_secret
+Your
+client_secret
+Response parameters
+Parameter
+Description
+access_token
+The access token
+token_type
+Always
+"Bearer"
+scope
+The scope granted to the token
+Please note that the parameters must be form-encoded (
+application/x-www-form-urlencoded
+), similar to how they would appear in an HTML
+<form>
+element
+2.5 Access Protected Resources
+¶
+Once you have successfully obtained a valid
+access_token
+in the previous step, you can start accessing
+the Copper Developer API endpoints. To do so, you simply include the
+access_token
+in the
+Authorization
+header of your requests.
+For example, to fetch the
+Copper account details
+of the authenticated user:
+Request
+Response (200)
+curl
+-H
+"Authorization: Bearer {access_token}"
+\
+https://api.copper.com/developer_api/v1/account
+{
+"id"
+:
+123
+,
+"name"
+:
+"Company Name"
+,
+"primary_timezone"
+:
+"America/New_York"
+,
+"settings"
+:
+{
+"setting_team_permissions_enabled"
+:
+true
+,
+"setting_enable_leads"
+:
+true
+}
+}

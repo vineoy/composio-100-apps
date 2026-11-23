@@ -1,0 +1,309 @@
+URL: https://docs.attio.com/rest-api/guides/authentication
+FETCHED: 2026-11-23T16:35:40.563285
+
+Authenticating requests - Attio Docs
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+In order to make requests to the Attio REST API, you need to generate an access token.
+There are two ways to generate an access token:
+By implementing an OAuth 2.0 flow
+By generating an API key for your workspace
+You should prefer the OAuth 2.0 flow if building an app for multiple workspaces. If you are building
+an app for a single workspace, you can manually generate an API key to make requests on behalf of
+that workspace only.
+Generating access tokens
+OAuth 2.0
+Attio implements the standard
+OAuth 2.0 specification
+,
+using the Authorization Code Grant Flow (
+RFC 6749 section 4.1
+).
+You can find the reference for our OAuth authorize, token exchange and introspect endpoints
+here
+.
+If you would prefer a tutorial on how to implement an OAuth 2.0 flow into an existing app, you can
+find one
+here
+.
+We recommend using a well-established library for making OAuth requests, because they apply many of
+the security recommendations added after the original OAuth protocol was released. You can find some
+library recommendations here
+.
+OAuth for unpublished apps
+While you develop your app, it can grant tokens for the workspace it is installed in.
+To get access tokens for other workspaces, you’ll need to share your app with those workspaces or
+publish it. An unpublished app can be installed in up to 25 workspaces. See
+installation limit
+for more information.
+Before your app has an approved release, the version that an OAuth install gets depends on whether
+the workspace had a development install of your app before. See
+OAuth flows for unpublished apps
+.
+API key
+If you only need a token for a single workspace, you can generate an API key in the developer
+settings page of your apps. You can find docs on to do this
+here
+.
+Using tokens
+Both OAuth access tokens and single-workspace access token are used in the same way. Pass the value
+of the token in the
+Authorization
+header of your requests like so.
+Authorization: Bearer <access_token>
+We also support
+HTTP Basic
+Authentication
+,
+where the username is the token and the password is left blank. However, we recommend using Bearer
+authentication where possible.
+Scopes
+Both OAuth access tokens and single-workspace access tokens use scopes to control the resources that
+the token has access to and the actions that can be performed on those resources.
+The possible scopes for OAuth and single-workspace access tokens are the same.
+The reference documentation for each endpoint includes a “Required scopes” section that lists the
+scopes needed to call that endpoint.
+When using an OAuth access token, the scopes are specified by configuring the scope settings for
+your app in the
+developer console
+.
+When using a single-workspace access token, the scopes are specified in the settings UI when
+generating the token. Scopes for single-workspace access tokens can also be modified on existing
+tokens.
+Token levels
+As well as scopes, every access token has a level, which determines whose permissions the token acts
+with. There are two levels.
+Level
+Acts as
+PKCE
+workspace
+The workspace as a whole, independently of any one member. Single-workspace access tokens are always workspace-level, as are OAuth access tokens by default.
+Optional
+user
+A specific workspace member, limited to the data and permissions that member has. Only OAuth access tokens can be user-level.
+Required
+Most endpoints accept tokens of either level. Some endpoints are
+workspace-level only
+, because
+they administer workspace-wide configuration rather than a single member’s data. The
+webhook endpoints
+are one example.
+The reference documentation for each endpoint includes a “Supported token levels” section that lists
+the levels that endpoint accepts.
+Choosing the token level in the OAuth flow
+You choose the level of an OAuth access token with the
+token_level
+query parameter on the
+authorize URL
+. It accepts
+workspace
+or
+user
+. If you leave it out, the
+token is workspace-level.
+Only workspace admins can grant a workspace-level token. Any workspace member can grant a
+user-level token, as long as your app requests user scopes. You configure these in the “User
+scopes” section of the scopes tab in your app’s settings in the
+developer console
+. A workspace admin approves your app’s user scopes when
+they install it, and a user-level token only has access to the scopes they approved. If your app is
+not installed yet, a workspace member who is not an admin can send an install request, which a
+workspace admin must approve.
+User-level tokens also require PKCE (
+RFC 7636
+).
+The examples below extend the routes from the
+OAuth tutorial
+. Before redirecting to Attio,
+generate a random code verifier, store it in the user’s session next to
+state
+, and send its
+SHA-256 hash as
+code_challenge
+:
+const
+crypto
+=
+require
+(
+"crypto"
+)
+app
+.
+get
+(
+"/integrations/attio/connect"
+, (
+req
+,
+res
+)
+=>
+{
+const
+state
+=
+crypto
+.
+randomBytes
+(
+16
+).
+toString
+(
+"hex"
+)
+const
+codeVerifier
+=
+crypto
+.
+randomBytes
+(
+32
+).
+toString
+(
+"base64url"
+)
+req
+.
+session
+.
+oauthState
+=
+state
+req
+.
+session
+.
+oauthCodeVerifier
+=
+codeVerifier
+const
+authUrl
+=
+new
+URL
+(
+"https://app.attio.com/authorize"
+)
+authUrl
+.
+search
+=
+new
+URLSearchParams
+({
+response_type:
+"code"
+,
+client_id:
+process
+.
+env
+.
+ATTIO_CLIENT_ID
+,
+redirect_uri:
+"http://localhost:3050/integrations/attio/callback"
+,
+state
+,
+token_level:
+"user"
+,
+code_challenge:
+crypto
+.
+createHash
+(
+"sha256"
+).
+update
+(
+codeVerifier
+).
+digest
+(
+"base64url"
+),
+code_challenge_method:
+"S256"
+,
+})
+res
+.
+redirect
+(
+authUrl
+.
+toString
+())
+})
+When Attio redirects back to your app, send the stored code verifier as
+code_verifier
+when you
+exchange the code for an access token
+:
+const
+tokenResponse
+=
+await
+fetch
+(
+"https://app.attio.com/oauth/token"
+, {
+method:
+"POST"
+,
+headers:
+{
+"Content-Type"
+:
+"application/x-www-form-urlencoded"
+},
+body:
+new
+URLSearchParams
+({
+grant_type:
+"authorization_code"
+,
+code:
+code
+,
+client_id:
+process
+.
+env
+.
+ATTIO_CLIENT_ID
+,
+client_secret:
+process
+.
+env
+.
+ATTIO_CLIENT_SECRET
+,
+code_verifier:
+req
+.
+session
+.
+oauthCodeVerifier
+,
+}),
+})
+The access token you get back makes requests on behalf of the workspace member who approved the
+request.
+PKCE is also supported for workspace-level tokens but is optional.
+Was this page helpful?
+Yes
+No

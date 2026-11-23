@@ -1,0 +1,102 @@
+URL: https://developers.pipedrive.com/docs/api/v1
+FETCHED: 2026-11-23T16:33:52.811566
+
+Pipedrive API Reference and Documentation
+API Reference
+API Reference
+Getting started
+Endpoints
+Activities
+Activity fields
+Activity types
+Beta
+Billing
+Call logs
+Channels
+Currencies
+Deal fields
+Deal installments
+Deal products
+Deals
+Files
+Filters
+Goals
+Item search
+Lead fields
+Lead labels
+Leads
+Lead sources
+Legacy teams
+Mailbox
+Meetings
+Note fields
+Notes
+OAuth 2.0
+Organization fields
+Organization relationships
+Organizations
+Permission sets
+Person fields
+Persons
+Pipelines
+Product fields
+Products
+Project boards
+Project fields
+Project phases
+Projects
+Project templates
+Recents
+Roles
+Stages
+Tasks
+User connections
+Users
+User settings
+Webhooks
+API Reference
+This reference helps you implement the RESTful Pipedrive API. This API uses a JSON format for output and is capable of handling CORS (Cross-Origin Resource Sharing) requests. The API is stateless – all requests are validated against an API token. The API token can be
+obtained
+manually from the Pipedrive app.
+OpenAPI 3
+You can click on the "Run in Postman" button below to interact with our API. We have a
+tutorial
+for using Pipedrive API in Postman or Insomnia, but if you prefer to use a different tool, you can always import our OpenAPI 3 specification files (available for both
+v1
+and
+v2
+APIs) into your tool of choice. See
+this
+article to learn more about Pipedrive API v2. Keep in mind that we'll occasionally update our OpenAPI 3 specification files, so you might need to re-import them from time to time. For ready-to-use SDKs, read below under "Client libraries".
+Run in Postman
+Notice!
+Pipedrive's API and
+extension points
+cover the majority of our core product's functionality. As our product is constantly growing, so is our API. To be up to date with new additions and updates, please check out and subscribe to our
+Changelog
+.
+To test your applications, we recommend creating a new, separate Pipedrive account for sandboxing purposes. Go to
+the Developer Sandbox Account
+page to learn more and request your own sandbox account.
+Developer Documentation
+See
+Pipedrive Developer Documentation
+for more information.
+Want to create an app using Pipedrive API?
+Learn about what
+types of apps
+you can create, check out our
+coding tutorials
+and
+start creating
+your own app.
+Client libraries
+We offer two official Pipedrive API client libraries:
+Node.js
+and
+PHP
+.
+Subscribe to Pipedrive’s Developer Newsletter
+Your email address
+Subscribe
+We promise not to send you any marketing materials or spam, just developer news.

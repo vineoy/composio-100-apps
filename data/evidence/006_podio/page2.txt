@@ -1,0 +1,139 @@
+URL: https://developers.podio.com/authentication
+FETCHED: 2026-11-23T16:37:40.411346
+
+Authentication - Podio API Documentation
+Getting started
+Get an API key
+Authentication
+Scopes & Permissions
+Server-side flow
+Client-side flow
+Username & password flow
+App authentication flow
+API Reference
+Tutorials
+Client Libraries
+Developer Forums
+Partner Extensions
+Terms of Use
+How to authenticate with Podio API
+The Podio API uses the
+OAuth2 protocol
+for authentication. This allows external apps to request authorization to Podio without having direct access to the user's password. Our API supports different OAuth flows depending on what kind of integration you are making.
+Before you can use the Podio API you must
+register your application
+. Your application is assigned a unique identifier, called "Client ID", together with a "Client Secret". You will need both of these to authenticate. The Client Secret should not be shared with anyone.
+Authentication flows
+Podio supports four different ways of autheticating depending on what kind of application you are building:
+Server-side flow
+This is the preferred way of authenticating for web apps.
+Client-side flow
+Use the client-side flow if your application does not have a server. Examples: Browser extensions, web app running purely in the browser, mobile or desktop applications.
+Username & password flow
+Use this flow only if none of the other flows are suitable. It requires the user's username and password to be shared.
+App authentication flow
+Use app authentication if you only need to interact with a single Podio app and do not need to authenticate as a specific user. Examples: Automated scripts.
+All of these authentication methods will provide you with an access token. You will be including this access token in any subsequent requests to the API. You will do this by including an HTTP header with the access token like so:
+Authorization: OAuth2 ACCESS_TOKEN
+Where ACCESS_TOKEN should be replaced with the actual access token you have obtained. If you are using one of our
+client libraries
+this is handled for you automatically.
+Token Expiry
+All tokens received have an associated expiry time. Access Token & refresh Token can be exchanged prior to expiry.
+Token Expiry Time:
+Access Token: 8 hours
+Refresh Token: 28 days
+Recommended Usage:
+By default, the access token is valid for
+8 hours
+. So, you need
+NOT
+request a new token with each new API call.
+App Authentication flow, being more secure, is the preferred way of authentication over Username and Password flow.
+Refreshing expired tokens
+In addition to the access token, the response also contains a
+expires_in
+parameter, and a
+refresh_token
+parameter. The value of the expires_in parameter is the number of seconds until the token expires. This is an example of a full response when obtaining an access token:
+{
+"access_token"
+:
+ACCESS_TOKEN
+,
+"token_type"
+:
+"bearer"
+,
+"expires_in"
+:
+EXPIRES_IN
+,
+"refresh_token"
+:
+REFRESH_TOKEN
+,
+"scope"
+:
+GRANTED_SCOPE_STRING
+,
+"ref"
+:
+{
+"type"
+:
+"user"
+,
+"id"
+:
+USER_ID
+}
+}
+See
+Scopes & Permissions
+for details about the value of
+GRANTED_SCOPE_STRING
+When the access token expires, you can use the refresh_token to "refresh" your access, and gain another access_token. To use the refresh_token you need to do a
+POST
+request to our token-endpoint with the
+grant_type
+set to
+refresh_token
+:
+HTTP
+METHOD:
+POST
+URL:
+https://api.podio.com/oauth/token/v
+2
+HEADER:
+"Content-Type: application/json"
+BODY:
+{
+"grant_type"
+:
+"refresh_token"
+,
+"client_id"
+:
+YOUR_APP_ID
+,
+"client_secret"
+:
+YOUR_APP_SECRET
+,
+"refresh_token"
+:
+REFRESH_TOKEN
+,
+}
+This request returns the same data as above, and you can continue to do this over and over again, to keep your application authenticated without having to ask the user to re-authenticate.
+State parameter & Cross Site Request Forgery (CSRF)
+In order to avoid Cross Site Request Forgery attacks, we recommend you to use an optional state-parameter to pass an identifier, and then validate the state on the response you get from our API.
+When you make the request to obtain the authorization code include the state parameter like so:
+https://podio.com/oauth/authorize?client_id=YOUR_APP_ID&redirect_uri=YOUR_URL
+&state=YOUR_CSRF_TOKEN
+When the Podio API redirects the user back to your application the state parameter is included and you can validate it:
+http://YOUR_URL?code=A_CODE_GENERATED_BY_SERVER
+&state=YOUR_CSRF_TOKEN
+The state parameter is optional. Any string value can be used.

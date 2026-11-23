@@ -1,0 +1,56 @@
+{
+ "app": "Slack",
+ "queries": [
+  "Slack API authentication documentation",
+  "Slack MCP server",
+  "Slack API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://slack.com/intl/en-in/",
+  "https://docs.slack.dev/ai/slack-mcp-server/",
+  "https://docs.slack.dev/ai/mcp-overview/"
+ ],
+ "search_hits": [
+  {
+   "title": "Slack MCP Server",
+   "href": "https://grokipedia.com/page/Slack_MCP_Server"
+  },
+  {
+   "title": "Slack MCP server overview",
+   "href": "https://docs.slack.dev/ai/slack-mcp-server/"
+  },
+  {
+   "title": "GitHub - korotovsky/slack-mcp-server: The most powerful MCP ...",
+   "href": "https://github.com/korotovsky/slack-mcp-server"
+  },
+  {
+   "title": "Guide to Model Context Protocol in Slack",
+   "href": "https://slack.com/help/articles/48855576908307-Guide-to-Model-Context-Protocol-in-Slack"
+  },
+  {
+   "title": "MCP overview | Slack Developer Docs",
+   "href": "https://docs.slack.dev/ai/mcp-overview/"
+  },
+  {
+   "title": "Free Plan | Slack",
+   "href": "https://slack.com/pricing/free"
+  },
+  {
+   "title": "Slack Developer Program | Slack",
+   "href": "https://api.slack.com/developer-program"
+  },
+  {
+   "title": "Developer Signup | Slack",
+   "href": "https://api.slack.com/developer-program/join"
+  },
+  {
+   "title": "Rate limits | Slack Developer Docs",
+   "href": "https://docs.slack.dev/apis/web-api/rate-limits/"
+  },
+  {
+   "title": "Free subscription | Pricing | Slack",
+   "href": "https://slack.com/intl/en-gb/pricing/free"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:25:11.646467"
+}

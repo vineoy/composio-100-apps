@@ -1,0 +1,21 @@
+URL: https://help.salesforce.com/s/articleView?id=platform.platform_o_manage_api_tokens.htm&language=en_US&type=5
+FETCHED: 2026-11-23T16:41:51.361272
+VIA: jina-reader
+
+Title: Salesforce Help
+
+URL Source: https://help.salesforce.com/s/articleView?id=platform.platform_o_manage_api_tokens.htm&language=en_US&type=5
+
+Published Time: Sun, 23 Nov 2025 11:11:35 GMT
+
+Warning: This page maybe not yet fully loaded, consider explicitly specify a timeout.
+Warning: This page maybe requiring CAPTCHA, please make sure you are authorized to access this page.
+
+Markdown Content:
+Loading
+
+[×](https://help.salesforce.com/s/articleView?id=platform.platform_o_manage_api_tokens.htm&language=en_US&type=5# "Cancel and close")Sorry to interrupt
+
+CSS Error
+
+[Refresh](https://help.salesforce.com/s/articleView?)

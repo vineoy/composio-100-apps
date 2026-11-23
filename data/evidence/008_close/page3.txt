@@ -1,0 +1,50 @@
+URL: https://docs.close.city/guide/authentication/
+FETCHED: 2026-11-23T16:42:29.305785
+VIA: direct
+
+Authentication | Close API
+Skip to content
+Authentication
+Every metered route needs an API key, sent as a bearer token:
+Authorization: Bearer ck_live_…
+Create an account and a key
+Section titled “Create an account and a key”
+Go to
+account.close.city
+and enter your email.
+Confirm it with the magic link or six-digit code we send you. Verifying your
+email credits your one-time signup grant of tokens.
+Create an API key. It is shown once, at creation, so copy it then and store it
+securely. Never put a key in a URL.
+Set it as an environment variable so your code and the SDKs can read it:
+Terminal window
+export
+CLOSECITY_KEY
+=
+ck_live_your_key_here
+Every key begins
+ck_live_
+; there is no separate test mode. The free catalog
+routes below are the safe place to experiment without spending tokens.
+You may hold up to three active keys per account. Rotate a key by creating a new one
+and revoking the old one.
+Free routes
+Section titled “Free routes”
+These routes need no key, so you can do all your lookups before spending a token:
+GET /v1/health
+: liveness
+GET /v1/last-updated
+: newest-data timestamp
+GET /v1/meta/modes
+: travel modes and their ids
+GET /v1/meta/destination-types
+: the amenity taxonomy
+GET /v1/meta/vintage
+: the version of each dataset component
+GET /v1/places
+: look up a city or town by name
+GET /v1/isochrone/meta
+: isochrone version, directions, and assumptions
+Everything else is
+metered
+.

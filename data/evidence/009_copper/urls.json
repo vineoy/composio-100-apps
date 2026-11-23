@@ -1,0 +1,77 @@
+{
+ "app": "Copper",
+ "queries": [
+  "Copper API authentication documentation",
+  "Copper MCP server",
+  "Copper API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.copper.co/api-reference/authentication",
+  "https://developer.copper.com/introduction/oauth/flow.html",
+  "https://developer.copper.com/introduction/authentication.html",
+  "https://developer.copper.co/api-reference/getting-started"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Copper Developer Portal",
+   "href": "https://developer.copper.co/api-reference/authentication"
+  },
+  {
+   "title": "Documentation - Copper Developer API",
+   "href": "https://developer.copper.com/introduction/oauth/flow.html"
+  },
+  {
+   "title": "Overview - Copper Developer API",
+   "href": "https://developer.copper.com/introduction/authentication.html"
+  },
+  {
+   "title": "Copper Developer Documentation",
+   "href": "https://usecopper.com/docs"
+  },
+  {
+   "title": "Getting started - Copper Developer Portal",
+   "href": "https://developer.copper.co/api-reference/getting-started"
+  },
+  {
+   "title": "Copper MCP for Claude | Copper CRM",
+   "href": "https://www.copper.com/mcp"
+  },
+  {
+   "title": "Copper MCP server | Activepieces",
+   "href": "https://www.activepieces.com/mcp/copper"
+  },
+  {
+   "title": "Copper MCP Server | Composio",
+   "href": "https://composio.dev/toolkits/copper"
+  },
+  {
+   "title": "GitHub - dazanza/copper-mcp: MCP server for Copper CRM API ...",
+   "href": "https://github.com/dazanza/copper-mcp"
+  },
+  {
+   "title": "Copper MCP Server - MCP AI | Zapier",
+   "href": "https://zapier.com/mcp/copper"
+  },
+  {
+   "title": "Getting started - Copper Developer API",
+   "href": "https://developer.copper.com/"
+  },
+  {
+   "title": "Pricing | Copper CRM",
+   "href": "https://www.copper.com/pricing"
+  },
+  {
+   "title": "Copper API: pricing, rate limits & MCP | ONEGTMLAB",
+   "href": "https://www.onegtmlab.dev/tool-directory/crm/copper"
+  },
+  {
+   "title": "Copper API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/copper.com/"
+  },
+  {
+   "title": "Copper API \u2014 Docs, Pricing & OpenAPI | APIs.io",
+   "href": "https://apis.io/providers/copper/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:43:16.561997"
+}

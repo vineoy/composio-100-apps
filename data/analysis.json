@@ -1,0 +1,121 @@
+{
+ "source": "research_v1.json",
+ "n": 7,
+ "categories": [
+  "CRM and Sales"
+ ],
+ "auth_distribution": {
+  "OAuth2": 6,
+  "Bearer token": 4,
+  "API key": 4,
+  "Basic": 1,
+  "other": 1
+ },
+ "access_distribution": {
+  "free_self_serve": 6,
+  "trial_self_serve": 0,
+  "paid_plan": 0,
+  "admin_approval": 0,
+  "partner_gated": 0,
+  "no_public_api": 0,
+  "unknown": 1
+ },
+ "access_heatmap": {
+  "CRM and Sales": {
+   "free_self_serve": 6,
+   "trial_self_serve": 0,
+   "paid_plan": 0,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 1
+  }
+ },
+ "access_order": [
+  "free_self_serve",
+  "trial_self_serve",
+  "paid_plan",
+  "admin_approval",
+  "partner_gated",
+  "no_public_api",
+  "unknown"
+ ],
+ "api_type_distribution": {
+  "REST": 5,
+  "both": 1,
+  "unknown": 1
+ },
+ "breadth_distribution": {
+  "unknown": 4,
+  "broad": 3
+ },
+ "mcp_distribution": {
+  "unknown": 4,
+  "official": 3
+ },
+ "verdict_distribution": {
+  "ready": 6,
+  "unknown": 1
+ },
+ "confidence_distribution": {
+  "high": 6,
+  "low": 1
+ },
+ "blocker_buckets": {},
+ "composio_coverage": {
+  "have": 7,
+  "missing": 0,
+  "missing_apps": []
+ },
+ "easy_wins": [
+  {
+   "id": 1,
+   "name": "Salesforce",
+   "category": "CRM and Sales",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "unknown",
+   "composio": true
+  },
+  {
+   "id": 3,
+   "name": "Pipedrive",
+   "category": "CRM and Sales",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "OAuth2"
+   ],
+   "mcp": "unknown",
+   "composio": true
+  },
+  {
+   "id": 6,
+   "name": "Podio",
+   "category": "CRM and Sales",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "OAuth2"
+   ],
+   "mcp": "unknown",
+   "composio": true
+  }
+ ],
+ "outreach": [],
+ "no_api": [],
+ "headlines": [
+  "OAuth2 dominates: 6 of 7 apps (86%) support it; API key is the next most common.",
+  "6 of 7 apps are free self-serve for developers; 0 are gated (paid plan, admin approval, or partner/sales).",
+  "3 apps already ship an official MCP server, 0 have community MCP - the rest is whitespace for agent toolkits.",
+  "Most common blocker: n/a (0 apps).",
+  "3 easy wins: self-serve + documented API + no official MCP yet - build these toolkits first.",
+  "0 apps need outreach or are blocked - business development, not engineering.",
+  "Composio already ships toolkits for 7 of 7; 0 are catalog whitespace."
+ ]
+}

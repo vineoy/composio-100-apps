@@ -1,0 +1,75 @@
+URL: https://developers.podio.com/index/faq
+FETCHED: 2026-11-23T16:37:42.711796
+
+Frequently Asked Questions - Podio API Documentation
+Getting started
+The core concepts of Podio
+API conventions and structure
+Rate limits
+FAQ
+Get an API key
+Authentication
+API Reference
+Tutorials
+Client Libraries
+Developer Forums
+Partner Extensions
+Terms of Use
+Frequently Asked Questions
+Frequently Asked Questions
+Is the Podio API free to use?
+The Podio API is available to use for both paid and free Podio accounts. Both have full access to the API and the same base rate Limit A and Limit B apply. There is no extra charge for using the API as long as the usage is within these base rate limits. Paid accounts have an additional capability of upgrading to higher API rate limits by purchasing an API Add-on.
+How do I get an API key?
+You have to
+sign in or sign up
+with Podio. Then you find your API keys
+as a tab
+under your account settings.
+What are the limitation on API requests?
+To ensure Podio runs well for everyone, API integrations are subject to two base rate limits. Limit A applies to resource-intensive API operations, while Limit B applies to all other API operations. If you exceed an applicable limit, affected API requests will return errors. See the
+Rate Limits section
+for the current limits and information about monitoring your usage.
+Can I get a higher rate limit?
+Yes. If your API integration requires a higher rate limit, you can request your contract owner to purchase an API Add-on for the relevant API key. The API Add-on increases both Limit A and Limit B, with multiple tiers available to suit different usage requirements. See the
+product documentation
+to learn how to purchase and manage API Add-ons. Contact
+Podio Support
+for help if you are unable to reach your contract owner.
+If your usage exceeds the highest available tier, first
+follow our tips for reducing your API usage
+. If you still require higher limits,
+contact Podio Support
+to request an exception. Include a brief description of your project, your estimated usage, and the client_id of the concerned API key.
+I'm building an automated script, how do I authenticate automatically?
+The recommended authentication method for the Podio API is the
+OAuth server-side flow
+. We recognize that this is not a great way to authenticate automated scripts. For those situations it's recommended that you authenticate using
+app authentication
+. With app authentication you can authenticate as a single Podio app using a special app token.
+How can I get API tokens programmatically?
+App tokens are available in the developer info section of any Podio app, but sometimes it's useful to be able to get app token programmatically. This allows you to e.g. configure script automatically. To apply for programmatic access to app tokens, visit
+https://support.sharefile.com/s/
+and contact us with a brief description of your project and the client_id of the API key you are using.
+I'm getting errors about my trust level, how can I get my trust level increased?
+Certain API operations are limited to API clients with an increased trust level. These are typically destructive operations such as deletion of workspaces or apps. If you need access to a restricted API operation, visit
+https://support.sharefile.com/s/
+and contact us with a brief description of your project and the client_id of the API key you are using
+Where can I find client libraries for the Podio API?
+We provide client libraries for PHP, Ruby, .NET, Python, Java and iOS. You can find links to all of them under
+Client libraries
+.
+Where can I find API reference documentation?
+You can find full reference documentation right here on this site under
+API Areas
+. The reference documentation contains descriptions for each API operation along with sample code for use with the Ruby and PHP client libraries.
+Do you have a mobile SDK for iOS?
+We provide a fully native mobile SDK for iOS. You can find the link to it under
+Client libraries
+.
+I'm having trouble with my code, where can I go for help?
+The best places for help are our
+Developer forum
+or you can
+post your question on Stack Overflow
+and tag it with
+podio

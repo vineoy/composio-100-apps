@@ -1,0 +1,579 @@
+URL: https://docs.attio.com/mcp/overview
+FETCHED: 2026-11-23T16:35:42.183311
+
+Attio MCP - Attio Docs
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+Learn how to connect AI agents to your Attio workspace.
+Connect your AI tools to Attio using the
+Model Context Protocol (MCP)
+, an open standard that lets AI assistants interact with your Attio CRM workspace.
+What is Attio MCP?
+Attio MCP is Attio’s hosted MCP server that gives AI tools secure access to your Attio workspace. It’s designed to work seamlessly with popular AI assistants like Claude, ChatGPT, Cursor, and more.
+Why use Attio MCP?
+Easy setup
+— Connect through simple OAuth with one-click installation for supported AI tools
+Natural language CRM management
+— Manage your entire Attio workspace through conversational AI instead of clicking through multiple screens
+Full workspace access
+— AI tools can search, read, create, and update records across your CRM—people, companies, deals, tasks, and notes
+Optimized for AI
+— Built specifically for AI agents with efficient data formatting and human-readable responses
+Secure by design
+— Authenticates as your Attio user with OAuth, and read operations are auto-approved while write operations request confirmation
+What can you do with Attio MCP?
+Contact & company lookup
+— Find contacts at specific companies, look up email addresses, and discover decision makers
+Activity tracking
+— Log notes from calls and meetings, view interaction history, and track engagement
+Task management
+— Create follow-up tasks, set deadlines, and manage your to-do list
+Pipeline management
+— Search and filter records by stage, funding round, role, location, and more
+Meeting intelligence
+— Search call recordings, access transcripts, and find meeting notes
+Getting Started
+Prerequisites
+Before connecting Attio MCP, ensure you have:
+An active Attio workspace
+An MCP-compatible AI client (Claude Desktop, Claude.ai, ChatGPT, Cursor, etc.)
+Connecting to Attio MCP
+Attio MCP uses OAuth authentication, so you simply log in with your Attio account—no API keys required.
+Add as a Custom Connector
+In your AI tool of choice, add the following URL as a custom MCP connector:
+https://mcp.attio.com/mcp
+For Claude Desktop or Claude.ai:
+Open Settings -> Connectors -> Browse connectors
+Search for Attio
+Install Attio
+For ChatGPT:
+Open Apps
+Search for Attio
+Connect Attio
+For other MCP clients:
+Add
+https://mcp.attio.com/mcp
+as a remote MCP server and complete the OAuth authentication when prompted.
+Once connected, you’ll be authenticated as your Attio user with access to your workspace data.
+Supported Tools
+Now that you have installed Attio MCP, let’s explore how AI assistants can use these tools to search, create, and manage content in your Attio workspace.
+These tools work seamlessly together through prompts, and their real power comes from combining them. With a single prompt, you can search your workspace, create new records, log notes, and manage tasks. Understanding these building blocks helps you craft efficient prompts that tackle complex workflows.
+Records & Objects
+Tool
+Description
+Example Prompts
+list-objects
+List all objects in the workspace (e.g. companies, people, deals), with optional fuzzy search by name or API slug
+• “What objects do we have?”
+• “Find the object for tracking deals”
+search-records
+Full-text search for records (people, companies, deals, etc.) by name, email, domain, or other indexed attributes
+• “Find all contacts at Stripe”
+• “What’s the email for Namit Chadha?”
+• “Show me everything we know about TheSwarm”
+list-records
+List records in a given object with optional filtering and sorting
+• “List all open deals”
+• “Show me companies created this month”
+get-records-by-ids
+Retrieve full details for specific records by their IDs
+• “Get the complete profile for this contact”
+• “Show me all details for these three companies”
+create-record
+Create a new record (person, company, deal, or custom object)
+• “Add a new contact: John Smith, CTO at Acme Corp”
+• “Create a company record for Linear”
+upsert-record
+Create or update a record using a matching attribute (e.g., email or domain)
+• “Update the company record for stripe.com with their new funding info”
+• “Add or update Sarah’s contact with her new title”
+update-record
+Update an existing record by
+record_id
+• “Update this company record with the new ARR”
+• “Change Sarah’s title to VP Product”
+merge-records
+Merge two records of the same object into one new record. Where both records have a value for the same attribute, the primary record’s value takes precedence
+• “Merge these two duplicate Acme company records”
+• “Combine John Smith’s duplicate contact records into one”
+list-attribute-definitions
+List all attributes available on an object type, including their types and valid options
+• “What fields are available on company records?”
+• “Show me the status options for deals”
+Activities
+Activities
+model things that happen over time, such as phone calls or site visits. Each activity holds activity records, such as one specific phone call.
+Tool
+Description
+Example Prompts
+list-activities
+List all activities in the workspace, with optional fuzzy search by name or API slug
+• “What activities do we track?”
+• “Find the activity for site visits”
+list-activity-attribute-definitions
+List the attributes available on an activity, including their types and valid options
+• “What fields are available on phone calls?”
+• “Show me the direction options for calls”
+list-activity-records
+List records of a given activity with optional filtering and sorting
+• “Show me all outbound calls from last week”
+• “List site visits linked to Acme”
+create-activity-record
+Create a new record for an activity
+• “Log an outbound call with Sarah from Acme today at 2pm”
+• “Record a site visit at the Linear office”
+update-activity-record
+Update an existing activity record by
+record_id
+• “Change the title of this call to Renewal call”
+• “Add Stripe to the linked records of this site visit”
+upsert-activity-record
+Create or update an activity record using a unique matching attribute, such as an ID from your own system
+• “Log this call, or update it if it already exists with call ID 4821”
+• “Upsert the site visit with external ID SV-1029”
+Lists
+Tool
+Description
+Example Prompts
+list-lists
+List all lists in the workspace, with optional filtering by name or slug
+• “What lists do we have?”
+• “Find lists related to recruiting”
+create-list
+Create a new list to group and track records of a single object type
+• “Create a list called Enterprise Sales for companies”
+• “Set up a new pipeline list for deals, private to me”
+list-list-attribute-definitions
+List the available entry attributes for a given list, including their types and options
+• “What fields can I update on the sales pipeline list?”
+• “Show me the status options for this list”
+list-records-in-list
+List entries in a given list with optional filtering and sorting, including their parent records
+• “Show me all entries in the sales pipeline”
+• “List recruiting candidates in the onsite stage”
+add-record-to-list
+Add a record to a list as a new list entry
+• “Add Acme to the sales pipeline”
+• “Add this candidate to the interview pipeline”
+update-list
+Update a list’s name, API slug, or permissions
+• “Rename this list to Enterprise pipeline”
+• “Change this list’s API slug to enterprise_pipeline”
+• “Give the whole workspace read-only access to this list”
+update-list-entry-by-id
+Update an existing list entry when you already know the
+entry_id
+• “Move this sales pipeline entry to Closed Won”
+• “Update the owner on list entry
+9f0f9d7e-3e4b-4a4d-b48d-0b3d03a6e4d2
+”
+update-list-entry-by-record-id
+Find and update a list entry using its parent record ID. This tool errors if the record has zero or multiple entries in the target list.
+• “Update Acme’s entry in the sales pipeline to Proposal Sent”
+• “Set the owner on the recruiting pipeline entry for this candidate”
+Views
+Views are saved tables or kanban boards of an object or a list. Each view has its own filter, sorts and shown attributes. Changes to a view apply to everyone in the workspace who uses it.
+Tool
+Description
+Example Prompts
+list-views
+List the views of an object or a list, in the order that the Attio app shows them, with optional search by title
+• “What views do we have on companies?”
+• “Find the pipeline views on the sales pipeline list”
+get-view
+Get the full definition of a view, including its filter, sorts, shown attributes and kanban settings
+• “Which filter does the Enterprise deals view use?”
+• “Show me the columns of my Hot leads view”
+create-view
+Create a new table or kanban view for an object or a list
+• “Create a view of companies in the UK sorted by ARR”
+• “Add a kanban view of the sales pipeline grouped by stage”
+update-view
+Update the title, type, filter, sorts, shown attributes or kanban settings of a view. Each given field replaces that part of the view
+• “Add a filter for deals owned by me to the Open deals view”
+• “Rename this view to Q4 pipeline”
+delete-view
+Delete a view for everyone in the workspace. Records and list entries are not changed
+• “Delete the Old leads view on people”
+• “Remove the duplicate kanban view from the recruiting list”
+Comments
+Tool
+Description
+Example Prompts
+create-comment
+Create a new comment on a record, list entry, or as a reply to an existing comment thread
+• “Add a comment to the Acme company record: waiting on legal review”
+• “Reply to this thread and ask for an update”
+list-comments
+List comments on a record or list entry, with paginated top-level comments and inline replies
+• “Show me comments on the Linear account”
+• “List comments on this pipeline entry”
+list-comment-replies
+Fetch additional replies for a top-level comment thread
+• “Show all replies to this comment thread”
+• “Load more replies on this comment”
+delete-comment
+Delete a comment that you created. Deleting a parent comment also deletes all of its replies
+• “Delete my last comment on the Acme account”
+• “Remove this comment thread I started”
+Notes
+Tool
+Description
+Example Prompts
+create-note
+Create a new note attached to a record
+• “Log a note on the Linear account: had a great demo call, they want to see pricing”
+• “Add meeting notes to the Acme Corp record”
+search-notes-by-metadata
+Search notes by parent record, author, meeting, or creation time
+• “Show me all notes from this week”
+• “Find notes I created for the Notion deal”
+semantic-search-notes
+Find notes by topic using AI-powered semantic search
+• “Find notes where we discussed pricing objections”
+• “Search for notes mentioning competitor comparisons”
+get-note-body
+Retrieve the full content of a specific note
+• “Show me the full text of that meeting note”
+• “What did the note about the Q3 review say?”
+update-note
+Append or prepend content to a note, or update its title
+• “Add a follow-up action item to the end of the Linear meeting note”
+• “Prepend a summary to this note”
+• “Rename the note to ‘Q3 Review - Final‘“
+Tasks
+Tool
+Description
+Example Prompts
+list-tasks
+List tasks in the workspace with optional filters
+• “Show my incomplete tasks due this week”
+• “List tasks linked to the Stripe account”
+create-task
+Create a new task with optional deadline, assignee, and linked record
+• “Add a task to follow up with Ramp in 3 days”
+• “Create a task to send the proposal to Linear by Friday”
+update-task
+Update a task’s deadline, status, assignee, or linked record
+• “Mark the Stripe follow-up task as complete”
+• “Move the demo prep task deadline to next Monday”
+delete-task
+Delete a task from the workspace
+• “Delete the Ramp follow-up task”
+• “Remove the duplicate task to send the proposal to Linear”
+Meetings & Calls
+Tool
+Description
+Example Prompts
+search-meetings
+Search past and upcoming meetings by participants, related records, or time range
+• “What meetings do I have with Notion this week?”
+• “Find all calls with Linear from last month”
+search-call-recordings-by-metadata
+Search call recordings by participants, related records, title, or time range
+• “Find call recordings with the Stripe team”
+• “Show me all recorded calls from Q4”
+semantic-search-call-recordings
+Find call recordings by topic using AI-powered semantic search
+• “Find calls where we discussed enterprise pricing”
+• “Search recordings for mentions of API integration”
+get-call-recording
+Retrieve full details and transcript of a specific call recording
+• “Get the transcript from yesterday’s call with Linear”
+• “Show me the full recording details”
+Emails
+Tool
+Description
+Example Prompts
+search-emails-by-metadata
+Search emails by participants, domain, or time range
+• “Find emails from stripe.com in the last week”
+• “Show me all emails with
+john@acme.com
+”
+semantic-search-emails
+Find emails by topic using AI-powered semantic search
+• “Find emails discussing contract renewal”
+• “Search for emails about the Q3 proposal”
+get-email-content
+Retrieve the full body of a specific email
+• “Show me the full email about the partnership”
+• “What did that pricing email say?”
+Workspace
+Tool
+Description
+Example Prompts
+list-workspace-members
+List members in the workspace with their details and team memberships
+• “Who’s on the sales team?”
+• “Find the workspace member named Sarah”
+list-workspace-teams
+List all teams in the workspace
+• “What teams exist in our workspace?”
+• “Show me all the team structures”
+whoami
+Get information about the current user’s identity and workspace membership
+• “What’s my user ID?”
+• “Show my workspace access level”
+Reporting
+Tool
+Description
+Example Prompts
+run-basic-report
+Run aggregate reports on records or list entries, including totals, averages, and grouped breakdowns
+• “Count open deals by stage”
+• “Show average deal size by owner”
+SQL
+query-particle-sql
+is not available on every billing plan.
+For more information, please see the
+SQL overview
+.
+Tool
+Description
+Example Prompts
+query-particle-sql
+Execute a read-only SQL query against your workspace data
+• “Give me a weighted pipeline report by stage × segment × owner”
+• “What’s the source mix for deals over $100k?”
+Sample Prompts
+Contact & Company Lookup
+Prompt
+What it does
+”Find all contacts at Stripe”
+Searches for people records associated with Stripe
+”What’s the email for Namit Chadha?”
+Looks up contact information for a specific person
+”Show me everything we know about TheSwarm”
+Retrieves comprehensive company/contact information
+”Who’s the decision maker at Notion?”
+Finds key contacts with decision-making roles
+”Find contacts in the fintech space based in London”
+Filters contacts by industry and location
+Activity & Notes
+Prompt
+What it does
+”Log a note on the Linear account: had a great demo call, they want to see pricing”
+Creates a note attached to the Linear company record
+”What was the last interaction with Linear?”
+Searches for recent notes, emails, and meetings
+”Show me all notes from my calls this week”
+Retrieves notes created within the current week
+Tasks
+Prompt
+What it does
+”Add a task to follow up with Ramp in 3 days”
+Creates a task with a deadline and linked record
+”Show my incomplete tasks due this week”
+Lists matching tasks using task filters
+Bulk Operations
+Prompt
+What it does
+”Find all Series B companies in our CRM”
+Searches companies filtered by funding stage
+”Show me contacts who are CTOs or VPs of Engineering”
+Filters people by job title
+Lists
+Prompt
+What it does
+”What lists do we have?”
+Lists available workspace lists
+”Show me all entries in the sales pipeline”
+Lists records and entry values for a specific list
+”Add Acme to the sales pipeline”
+Creates a new list entry for the Acme record
+”Update Acme’s entry in the sales pipeline to Proposal Sent”
+Finds the matching list entry for the Acme record and updates its values
+”Update the owner on list entry
+9f0f9d7e-3e4b-4a4d-b48d-0b3d03a6e4d2
+to Sarah”
+Updates a specific list entry directly when you already know its entry ID
+Views
+Prompt
+What it does
+”What views do we have on companies?”
+Lists the saved views of the companies object
+”Create a view of companies in the UK sorted by ARR”
+Creates a table view with a filter and a sort on the companies object
+”Add a filter for deals owned by me to the Open deals view”
+Gets the view, adds the condition to its filter and updates the view
+Comments
+Prompt
+What it does
+”Show me comments on the Linear account”
+Lists comment threads on the Linear record
+”Add a comment to the Acme company record: waiting on legal review”
+Creates a new comment on the Acme record
+Reporting
+Prompt
+What it does
+”Count open deals by stage”
+Runs a grouped aggregate report over deal records
+”Show average deal size by owner”
+Runs an average report grouped by record owner
+Rate Limits
+Attio MCP applies per-workspace rate limits to tool calls. Tools are grouped into tiers, and each tier has its own limit. Tools in the same tier share a single bucket per workspace, so calls to any tool in a tier count against the same limit.
+Tier
+Limit
+Tools
+Read
+100 requests / second
+get-call-recording
+,
+get-email-content
+,
+get-note-body
+,
+get-records-by-ids
+,
+get-view
+,
+list-activities
+,
+list-activity-attribute-definitions
+,
+list-activity-records
+,
+list-attribute-definitions
+,
+list-comment-replies
+,
+list-comments
+,
+list-list-attribute-definitions
+,
+list-lists
+,
+list-objects
+,
+list-records
+,
+list-records-in-list
+,
+list-tasks
+,
+list-views
+,
+list-workspace-members
+,
+list-workspace-teams
+,
+whoami
+Write
+25 requests / second
+add-record-to-list
+,
+create-activity-record
+,
+create-comment
+,
+create-list
+,
+create-note
+,
+create-record
+,
+create-task
+,
+create-view
+,
+delete-comment
+,
+delete-task
+,
+delete-view
+,
+update-activity-record
+,
+update-list
+,
+update-list-entry-by-id
+,
+update-list-entry-by-record-id
+,
+update-note
+,
+update-record
+,
+update-task
+,
+update-view
+,
+upsert-activity-record
+,
+upsert-record
+Merge
+5 requests / second
+merge-records
+Search
+300 requests / minute
+search-call-recordings-by-metadata
+,
+search-emails-by-metadata
+,
+search-meetings
+,
+search-notes-by-metadata
+,
+search-records
+Semantic search
+2 requests / second
+semantic-search-call-recordings
+,
+semantic-search-emails
+,
+semantic-search-notes
+Reporting
+2 requests / second
+run-basic-report
+SQL
+2 requests / second
+query-particle-sql
+The Read and Write tiers match the equivalent
+REST API rate limits
+.
+What to do if you’re rate-limited
+If you encounter rate limit errors:
+Prompt your AI tool to reduce parallel operations
+Space out sequential requests
+Try again after a brief waiting period
+In most cases, normal conversational use stays well within rate limits.
+Security Best Practices
+Authentication
+Attio MCP uses OAuth authentication, which means:
+You log in with your existing Attio credentials
+No API keys to manage or rotate
+Access is tied to your Attio user permissions
+Sessions can be revoked from your Attio account settings
+Approval Flows
+Attio MCP uses MCP safety annotations:
+Read operations
+: Auto-approved for seamless searching and viewing
+Write operations
+: Request user confirmation before creating or updating data
+Data Access
+Attio MCP only operates within your workspace
+You have the same permissions as your Attio user account
+No data is shared with external systems unless you configure additional integrations
+All operations are logged and auditable
+Getting Help
+If you encounter issues not covered here:
+Check the
+Attio Help Center
+Contact
+Attio Support
+What’s Next
+Attio REST API Documentation
+— Full API reference for custom integrations
+Attio Developer Platform
+— Build custom apps and integrations
+Attio Help Center
+— Product guides and support
+Was this page helpful?
+Yes
+No

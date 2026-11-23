@@ -1,0 +1,77 @@
+{
+ "app": "Pipedrive",
+ "queries": [
+  "Pipedrive API authentication documentation",
+  "Pipedrive MCP server",
+  "Pipedrive API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://www.pipedrive.com/",
+  "https://developers.pipedrive.com/docs/api/v1",
+  "https://developers.pipedrive.com/docs/api/v1/Oauth",
+  "https://pipedrive.readme.io/docs/core-api-concepts-authentication"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Pipedrive Developer Documentation",
+   "href": "https://pipedrive.readme.io/docs/core-api-concepts-authentication"
+  },
+  {
+   "title": "Pipedrive API Reference and Documentation",
+   "href": "https://developers.pipedrive.com/docs/api/v1"
+  },
+  {
+   "title": "Pipedrive API v1 Dev References (Oauth) - Learn - Test - Try Now",
+   "href": "https://developers.pipedrive.com/docs/api/v1/Oauth"
+  },
+  {
+   "title": "OAuth authorization - Pipedrive Developer Documentation",
+   "href": "https://pipedrive.readme.io/docs/marketplace-oauth-authorization"
+  },
+  {
+   "title": "Pipedrive OAUTH API - apis.io",
+   "href": "https://apis.io/apis/pipedrive/pipedrive-oauth-api/"
+  },
+  {
+   "title": "Pipedrive MCP Server | Connect Claude & ChatGPT to Your CRM",
+   "href": "https://www.pipedrive.com/en/features/mcp-server"
+  },
+  {
+   "title": "Pipedrive MCP for Claude - Knowledge Base | Pipedrive",
+   "href": "https://support.pipedrive.com/en/article/mcp-claude"
+  },
+  {
+   "title": "GitHub - WillDent/pipedrive-mcp-server: Secure, self-hosted ...",
+   "href": "https://github.com/WillDent/pipedrive-mcp-server"
+  },
+  {
+   "title": "Native Model Context Protocol (MCP) from Pipedrive",
+   "href": "https://support.pipedrive.com/en/article/mcp"
+  },
+  {
+   "title": "GitHub - Wirasm/pipedrive-mcp",
+   "href": "https://github.com/Wirasm/pipedrive-mcp"
+  },
+  {
+   "title": "CRM API | REST API integration | Pipedrive",
+   "href": "https://www.pipedrive.com/en/features/crm-api"
+  },
+  {
+   "title": "Pipedrive API Reference and Documentation",
+   "href": "https://developers.pipedrive.com/docs/api/v1"
+  },
+  {
+   "title": "CRM Pricing Plans | Affordable CRM Software Costs | Pipedrive",
+   "href": "https://www.pipedrive.com/en/pricing"
+  },
+  {
+   "title": "Pipedrive API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/pipedrive.com/"
+  },
+  {
+   "title": "Pipedrive API: pricing, rate limits & MCP | ONEGTMLAB",
+   "href": "https://www.onegtmlab.dev/tool-directory/crm/pipedrive"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:33:56.623771"
+}

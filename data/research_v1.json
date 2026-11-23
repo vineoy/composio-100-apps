@@ -1,0 +1,577 @@
+[
+ {
+  "description": "Salesforce is a CRM and sales management platform providing enterprise cloud solutions.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "REST API requires OAuth2 authentication to obtain a Bearer token for authorization.",
+  "access": "free_self_serve",
+  "access_notes": "Developers can use a free Developer Edition org or development sandbox to test and build against the REST API.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Documentation details the Salesforce REST API and OAuth quickstart authentication flow.",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "No MCP server details are mentioned in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Salesforce REST API uses OAuth access tokens (bearer tokens) and can be accessed using a free Developer Edition org or sandbox.",
+    "url": "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html"
+   }
+  ],
+  "confidence": "high",
+  "id": 1,
+  "name": "Salesforce",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "salesforce",
+   "name": "Salesforce"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 3,
+   "evidence_dir": "data\\evidence\\001_salesforce",
+   "seconds": 49.5,
+   "at": "2026-11-23T16:42:00.692285"
+  }
+ },
+ {
+  "description": "HubSpot is an AI-powered customer platform aligning marketing, sales, service, content, and CRM operations.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token",
+   "API key"
+  ],
+  "auth_notes": "Supports OAuth 2.0 for multi-account app distribution and MCP access, static Bearer access tokens for single-account apps, developer API keys (hapikey), and client credentials tokens.",
+  "access": "free_self_serve",
+  "access_notes": "HubSpot offers free tools and self-serve developer accounts accessible via the HubSpot CLI and developer platform.",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "REST APIs cover extensive CRM objects (contacts, companies, deals, tickets, line items, quotes, orders), engagements, marketing assets, custom channels, and webhooks.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developers.hubspot.com/ai-tools/mcp",
+   "notes": "HubSpot provides two official MCP servers: a remote HubSpot MCP Server for CRM data access and a local Developer MCP Server for CLI and development workflows."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "HubSpot description and platform overview",
+    "url": "https://www.hubspot.com/"
+   },
+   {
+    "claim": "Free self-serve availability for HubSpot tools and developer platform CLI access",
+    "url": "https://www.hubspot.com/"
+   },
+   {
+    "claim": "Authentication methods including OAuth 2.0, static Bearer tokens, developer API keys, and client credential tokens",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"
+   },
+   {
+    "claim": "REST API architecture for CRM objects and custom channels",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"
+   },
+   {
+    "claim": "Official Remote and Local Developer MCP servers shipped by HubSpot",
+    "url": "https://developers.hubspot.com/ai-tools/mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 2,
+  "name": "HubSpot",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "hubspot",
+   "name": "HubSpot"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\002_hubspot",
+   "seconds": 106.0,
+   "at": "2026-11-23T16:33:31.008075"
+  }
+ },
+ {
+  "description": "Pipedrive is a sales pipeline CRM designed to help businesses track sales activities, manage leads and deals, and automate sales processes.",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "Supports OAuth 2.0 for Marketplace applications and user-specific API tokens passed via the 'x-api-token' header.",
+  "access": "free_self_serve",
+  "access_notes": "Offers a 14-day free trial and dedicated Developer Sandbox accounts for testing applications.",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "Lists around 45 resource modules including Deals, Leads, Persons, Organizations, Activities, Pipelines, Projects, and Webhooks.",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "No mention of MCP servers in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Pipedrive is a CRM software designed to manage leads, track activities, and automate sales processes.",
+    "url": "https://www.pipedrive.com/"
+   },
+   {
+    "claim": "Pipedrive provides a 14-day free trial with no credit card required.",
+    "url": "https://www.pipedrive.com/"
+   },
+   {
+    "claim": "Pipedrive offers a RESTful API returning JSON, validated against API tokens or OAuth 2.0.",
+    "url": "https://developers.pipedrive.com/docs/api/v1"
+   },
+   {
+    "claim": "Developer sandbox accounts are available for testing API integrations.",
+    "url": "https://developers.pipedrive.com/docs/api/v1"
+   },
+   {
+    "claim": "OAuth 2.0 authorization endpoints include GET /oauth/authorize and POST /oauth/token.",
+    "url": "https://developers.pipedrive.com/docs/api/v1/Oauth"
+   },
+   {
+    "claim": "API tokens can be passed via the 'x-api-token' header.",
+    "url": "https://pipedrive.readme.io/docs/core-api-concepts-authentication"
+   }
+  ],
+  "confidence": "high",
+  "id": 3,
+  "name": "Pipedrive",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "pipedrive",
+   "name": "Pipedrive"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\003_pipedrive",
+   "seconds": 120.6,
+   "at": "2026-11-23T16:35:31.638162"
+  }
+ },
+ {
+  "description": "Attio is a customizable CRM platform for managing pipelines, deals, customer relationships, and AI agent workflows.",
+  "auth_methods": [
+   "OAuth2",
+   "API key",
+   "Bearer token",
+   "Basic"
+  ],
+  "auth_notes": "Supports OAuth 2.0 (Authorization Code Grant with optional user/workspace levels and PKCE) and workspace API keys. Authentication uses Bearer headers or HTTP Basic auth.",
+  "access": "free_self_serve",
+  "access_notes": "Attio offers a free tier to start, and users can generate single-workspace API keys or create OAuth apps via workspace settings.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "The documentation confirms a public REST API, but the total number of endpoints is not explicitly stated.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.attio.com/mcp/overview",
+   "notes": "Attio provides an official hosted MCP server (https://mcp.attio.com/mcp) that supports full workspace management via OAuth."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Attio is a CRM platform for pipeline building, advancing deals, and growing accounts",
+    "url": "https://attio.com/"
+   },
+   {
+    "claim": "Users can start using Attio for free",
+    "url": "https://attio.com/"
+   },
+   {
+    "claim": "Attio supports OAuth 2.0, API keys, Bearer tokens, and HTTP Basic Authentication",
+    "url": "https://docs.attio.com/rest-api/guides/authentication"
+   },
+   {
+    "claim": "Attio provides a public REST API exchanging JSON over HTTPS",
+    "url": "https://docs.attio.com/rest-api/overview"
+   },
+   {
+    "claim": "Attio provides an official hosted MCP server accessible at https://mcp.attio.com/mcp",
+    "url": "https://docs.attio.com/mcp/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 4,
+  "name": "Attio",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "attio",
+   "name": "Attio"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\004_attio",
+   "seconds": 51.3,
+   "at": "2026-11-23T16:36:22.912045"
+  }
+ },
+ {
+  "description": "Twenty is an open-source CRM platform providing extensible data models, REST/GraphQL APIs, and AI integrations for technical teams.",
+  "auth_methods": [
+   "API key",
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "API keys are generated in Settings → Developers → API and sent via Bearer header. OAuth2 is supported for user delegation and MCP connections.",
+  "access": "free_self_serve",
+  "access_notes": "Self-hosted core is free open source; Cloud offers a 30-day trial before paid plans ($9-$39/user/mo). API keys can be created directly in workspace settings.",
+  "api_type": "both",
+  "api_breadth": "broad",
+  "api_notes": "Provides REST and GraphQL APIs for both Core CRUD operations and Metadata schema management, auto-generated based on custom objects and fields in each workspace.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://api.twenty.com/mcp",
+   "notes": "Twenty includes an official native MCP server at /mcp (or https://api.twenty.com/mcp) supporting OAuth and API Key auth across direct, meta, and standard modes."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Twenty description and open-source nature",
+    "url": "https://twenty.com/"
+   },
+   {
+    "claim": "Authentication methods (Bearer API key and OAuth)",
+    "url": "https://docs.twenty.com/developers/extend/api"
+   },
+   {
+    "claim": "Free open-source self-hosting and 30-day trial options",
+    "url": "https://twenty.com/"
+   },
+   {
+    "claim": "Core and Metadata APIs in REST and GraphQL",
+    "url": "https://docs.twenty.com/developers/extend/api"
+   },
+   {
+    "claim": "Official MCP server implementation and endpoints",
+    "url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 5,
+  "name": "Twenty",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "twenty",
+   "name": "Twenty"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\005_twenty",
+   "seconds": 48.4,
+   "at": "2026-11-23T16:37:11.286132"
+  }
+ },
+ {
+  "description": "Podio is a work management and CRM platform featuring flexible workflows, no-code customization, and collaboration tools.",
+  "auth_methods": [
+   "OAuth2"
+  ],
+  "auth_notes": "Supports OAuth2 with server-side, client-side, username & password, and app authentication flows. Access tokens expire after 8 hours and refresh tokens after 28 days.",
+  "access": "free_self_serve",
+  "access_notes": "The API is available for both free and paid Podio accounts, and API keys can be generated from account settings after signing up.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "The entire Podio frontend is built on the API, offering access to functionality, webhooks, and client libraries in multiple languages.",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "The provided documentation makes no mention of MCP servers or integration."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Podio is a work management platform with customizable workflows and no-code tools.",
+    "url": "https://podio.com/"
+   },
+   {
+    "claim": "Podio API uses OAuth2 with 8-hour access token expiration and supports multiple authentication flows.",
+    "url": "https://developers.podio.com/authentication"
+   },
+   {
+    "claim": "The entire Podio frontend is built on the API and supports webhooks and official SDKs/wrappers.",
+    "url": "https://developers.podio.com"
+   },
+   {
+    "claim": "The Podio API is free to use for both paid and free accounts, and API keys can be generated under account settings.",
+    "url": "https://developers.podio.com/index/faq"
+   }
+  ],
+  "confidence": "high",
+  "id": 6,
+  "name": "Podio",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "podio",
+   "name": "Podio"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\006_podio",
+   "seconds": 47.9,
+   "at": "2026-11-23T16:37:59.192658"
+  }
+ },
+ {
+  "description": "Zoho CRM is a sales CRM platform featuring AI assistance, workflow automation, customer engagement, and forecasting tools.",
+  "auth_methods": [
+   "other: unknown"
+  ],
+  "auth_notes": "unknown",
+  "access": "unknown",
+  "access_notes": "The provided documentation mentions a freemium edition for up to 3 users and a free trial, but does not specify API credential access rules.",
+  "api_type": "unknown",
+  "api_breadth": "unknown",
+  "api_notes": "unknown",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "No mention of MCP server in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "unknown",
+   "blocker": "The provided documentation does not contain developer API details."
+  },
+  "evidence": [
+   {
+    "claim": "Zoho CRM is a sales CRM platform featuring AI assistance, workflow automation, and customer engagement.",
+    "url": "https://www.zoho.com/en-in/crm/"
+   },
+   {
+    "claim": "Zoho CRM has a freemium edition supporting up to 3 users and offers a free trial.",
+    "url": "https://www.zoho.com/en-in/crm/"
+   }
+  ],
+  "confidence": "low",
+  "id": 7,
+  "name": "Zoho CRM",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "zoho",
+   "name": "Zoho"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 1,
+   "evidence_dir": "data\\evidence\\007_zoho-crm",
+   "seconds": 43.1,
+   "at": "2026-11-23T16:38:42.347907"
+  }
+ },
+ {
+  "description": "Close is a CRM and sales platform for managing leads, contacts, opportunities, activities, and sales pipelines.",
+  "auth_methods": [
+   "OAuth2",
+   "API key",
+   "Basic"
+  ],
+  "auth_notes": "Supports OAuth 2.0 (Bearer token) for user integrations and API keys authenticated via HTTP Basic Auth using the API key as the username and an empty password.",
+  "access": "unknown",
+  "access_notes": "The provided documentation does not specify whether API access requires a paid subscription, trial, or free tier.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Docs cover core concepts like Leads, Contacts, Opportunities, Activities, Custom Fields, Webhooks, and Event Logs, but do not provide an explicit total endpoint count.",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "No Model Context Protocol (MCP) server is mentioned in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Close is a CRM platform built around core concepts like Leads, Contacts, Opportunities, and Activities.",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "API authentication supports API Keys (HTTP Basic Auth with API key as username) and OAuth 2.0.",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "OAuth 2.0 authorization, token exchange, refresh, and revocation endpoints are fully documented.",
+    "url": "https://developer.close.com/api/overview/oauth-authentication"
+   },
+   {
+    "claim": "API keys can be created under Settings > Developer > API Keys with configured permissions.",
+    "url": "https://help.close.com/integrations/api-keys-oauth"
+   }
+  ],
+  "confidence": "high",
+  "id": 8,
+  "name": "Close",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "close",
+   "name": "Close"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\008_close",
+   "seconds": 34.1,
+   "at": "2026-11-23T16:42:46.643839"
+  }
+ },
+ {
+  "description": "CRM and sales platform offering developer APIs for custom integrations and data management",
+  "auth_methods": [
+   "OAuth2",
+   "API key",
+   "Bearer token"
+  ],
+  "auth_notes": "Supports API Keys (generated via System settings with header token or HMAC SHA256 signature) and OAuth 2.0 Authorization Code Grant issuing Bearer tokens.",
+  "access": "unknown",
+  "access_notes": "API keys are generated in System settings > API Keys within the web app, but provided docs do not specify plan or tier requirements.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "REST API documented with downloadable OpenAPI specification and Postman collection, but total endpoint count is not detailed in provided excerpts.",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "No mention of Model Context Protocol (MCP) in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Supports API Keys and OAuth2 for API access",
+    "url": "https://developer.copper.com/introduction/authentication.html"
+   },
+   {
+    "claim": "OAuth 2.0 Authorization Code Grant flow uses Bearer tokens",
+    "url": "https://developer.copper.com/introduction/oauth/flow.html"
+   },
+   {
+    "claim": "API key authentication supports HMAC SHA256 request signatures",
+    "url": "https://developer.copper.co/api-reference/authentication"
+   },
+   {
+    "claim": "Offers REST endpoints with OpenAPI spec and Postman collection",
+    "url": "https://developer.copper.co/api-reference/getting-started"
+   }
+  ],
+  "confidence": "high",
+  "id": 9,
+  "name": "Copper",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "copper",
+   "name": "Copper"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\009_copper",
+   "seconds": 54.6,
+   "at": "2026-11-23T16:43:41.247280"
+  }
+ },
+ {
+  "description": "DealCloud is a CRM and deal management platform designed for private capital markets and investment banking teams.",
+  "auth_methods": [
+   "OAuth2",
+   "API key",
+   "Basic",
+   "JWT"
+  ],
+  "auth_notes": "Supports OAuth2 (Client Credentials and Password Grant), API Key (header or query param), HTTP Basic Auth, local JWTs, as well as enterprise SSO integrations via Microsoft Entra ID and Okta.",
+  "access": "paid_plan",
+  "access_notes": "API access is provisioned for existing DealCloud tenant sites and requires appropriate subscriptions/licensing (e.g. Celeste license) and admin-assigned user group permissions.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Comprehensive REST API covering Schema, Data, User Management, Backups, Publications (real-time events), and Relationship Intelligence.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://api.docs.dealcloud.com/mcp",
+   "notes": "DealCloud provides an official built-in MCP Server supporting default and custom servers with user permission controls and optional write tools."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "DealCloud provides REST APIs for CRM, deal management, schema, data, and user management.",
+    "url": "https://api.docs.dealcloud.com/docs"
+   },
+   {
+    "claim": "Intapp REST Client supports OAuth2, API Key, Basic Auth, JWT, Entra ID, and Okta authentication.",
+    "url": "https://api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentication"
+   },
+   {
+    "claim": "Official DealCloud MCP Server is documented and available out-of-the-box.",
+    "url": "https://api.docs.dealcloud.com/mcp"
+   },
+   {
+    "claim": "DealCloud MCP server usage requires a paid tenant site, Celeste license, and admin capability assignment.",
+    "url": "https://api.docs.dealcloud.com/mcp/getting-started"
+   }
+  ],
+  "confidence": "high",
+  "id": 10,
+  "name": "DealCloud",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\010_dealcloud",
+   "seconds": 63.3,
+   "at": "2026-11-23T16:44:44.556446"
+  }
+ }
+]

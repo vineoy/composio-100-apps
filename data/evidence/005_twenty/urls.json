@@ -1,0 +1,77 @@
+{
+ "app": "Twenty",
+ "queries": [
+  "Twenty API authentication documentation",
+  "Twenty MCP server",
+  "Twenty API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://twenty.com/",
+  "https://docs.twenty.com/developers/extend/api",
+  "https://api.twenty.com/open-api/core",
+  "https://docs.twenty.com/user-guide/ai/capabilities/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "APIs - Twenty Documentation",
+   "href": "https://docs.twenty.com/developers/extend/api"
+  },
+  {
+   "title": "api.twenty.com",
+   "href": "https://api.twenty.com/open-api/core"
+  },
+  {
+   "title": "Authentication and Authorization | twentyhq/twenty | DeepWiki",
+   "href": "https://deepwiki.com/twentyhq/twenty/6-authentication-and-authorization"
+  },
+  {
+   "title": "Authentication System | twentyhq/twenty | DeepWiki",
+   "href": "https://deepwiki.com/twentyhq/twenty/5.1-authentication-system"
+  },
+  {
+   "title": "Twenty Authentication | APIs.io Security",
+   "href": "https://apis.io/security/twenty/twenty-authentication/"
+  },
+  {
+   "title": "MCP Server - Twenty Documentation",
+   "href": "https://docs.twenty.com/user-guide/ai/capabilities/mcp"
+  },
+  {
+   "title": "Twenty MCP Server - GitHub",
+   "href": "https://github.com/homeserverhq/twenty-mcp"
+  },
+  {
+   "title": "GitHub - jezweb/twenty-mcp",
+   "href": "https://github.com/jezweb/twenty-mcp"
+  },
+  {
+   "title": "Twenty MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/IgorWarzocha/twenty-mcp-server"
+  },
+  {
+   "title": "Twenty MCP server for Claude & ChatGPT | usefulapi",
+   "href": "https://usefulapi.io/twenty/"
+  },
+  {
+   "title": "Twenty Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/twenty/twenty-plans-pricing/"
+  },
+  {
+   "title": "Twenty CRM Pricing \u2014 Plans from $9 per User per Month",
+   "href": "https://twenty.com/pricing"
+  },
+  {
+   "title": "Pricing Plans - Twenty Documentation",
+   "href": "https://docs.twenty.com/user-guide/billing/capabilities/pricing-plans"
+  },
+  {
+   "title": "Twenty API: pricing, rate limits & MCP | ONEGTMLAB",
+   "href": "https://www.onegtmlab.dev/tool-directory/crm/twenty"
+  },
+  {
+   "title": "Twenty Crm Plans Pricing \u2014 API Pricing Plans | APIs.io Plans",
+   "href": "https://apis.io/plans/twenty-crm/twenty-crm-plans-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:36:46.561937"
+}

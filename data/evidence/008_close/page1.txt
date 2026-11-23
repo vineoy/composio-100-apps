@@ -1,0 +1,215 @@
+URL: https://developer.close.com/api/overview/oauth-authentication
+FETCHED: 2026-11-23T16:42:29.303682
+VIA: direct
+
+Authentication with OAuth | Close | Developer API Documentation
+For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
+Skip to navigation
+On this page
+Authorization
+Obtain Access Token
+Perform API calls with Access Token
+Refresh Access Token
+Revoke application access
+Scroll to top
+To implement authentication with OAuth 2.0, you need to
+create an OAuth app
+to get your
+Client ID
+and
+Client Secret
+.
+You’ll also need to implement a redirect URI in your application. In the examples below we use
+https://example.com/callback/close
+as that redirect URI.
+Authorization
+First you need to have your application redirect the user to Close’s
+authorization page with the
+client_id
+and
+redirect_uri
+.
+https://app.close.com/oauth2/authorize/?client_id=CLIENT_ID&response_type=code
+The user will be presented with a Consent Screen and be able to select an
+organization and grant or decline access. If the user chooses to grant access,
+their browser is redirected to that OAuth App’s
+redirect_uri
+, the
+Authorization Code is passed inside the
+code
+query parameter.
+https://example.com/callback/close?code=CODE
+If the users chooses to decline access instead, their browser is redirected to
+the same
+redirect_uri
+with error information in query parameters.
+https://example.com/callback/close?error=access_denied
+Obtain Access Token
+The Authorization Code can be exchanged for an Access Token by performing a POST
+request with form-encoded parameters to
+https://api.close.com/oauth2/token/
+POST /oauth2/token/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Host: api.close.com
+client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=authorization_code&code=CODE
+You will get a following JSON response:
+{
+"
+token_type
+"
+:
+"
+Bearer
+"
+,
+"
+access_token
+"
+:
+"
+ACCESS_TOKEN
+"
+,
+"
+expires_in
+"
+:
+3600
+,
+"
+refresh_token
+"
+:
+"
+REFRESH_TOKEN
+"
+,
+"
+scope
+"
+:
+"
+all.full_access offline_access
+"
+,
+"
+organization_id
+"
+:
+"
+ORGANIZATION_ID
+"
+,
+"
+user_id
+"
+:
+"
+USER_ID
+"
+}
+Notice that the Access Token has a limited lifetime and expires in
+expires_in
+seconds from the moment it was issued. If your application has
+offline_access
+scope
+refresh_token
+property will be present in the response and you can
+refresh Access Token (See below).
+Perform API calls with Access Token
+Send your HTTP requests with an
+Authorization
+header that contains the word
+Bearer
+followed by a space and the Access Token.
+e.g. using cURL:
+curl
+https://api.close.com/api/v1/me/
+-H
+"
+Authorization: Bearer ACCESS_TOKEN
+"
+which results in the following request:
+GET /api/v1/me/ HTTP/1.1
+Authorization: Bearer ACCESS_TOKEN
+Host: api.close.com
+Refresh Access Token
+If your application has an
+offline_access
+scope you can refresh the Access
+Token using Refresh Token obtained before by performing a POST request with
+form-encoded parameters to
+https://api.close.com/oauth2/token/
+POST /oauth2/token/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Host: api.close.com
+client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=refresh_token&refresh_token=REFRESH_TOKEN
+You will get a following JSON response
+{
+"
+token_type
+"
+:
+"
+Bearer
+"
+,
+"
+access_token
+"
+:
+"
+ACCESS_TOKEN
+"
+,
+"
+expires_in
+"
+:
+3600
+,
+"
+refresh_token
+"
+:
+"
+REFRESH_TOKEN
+"
+,
+"
+scope
+"
+:
+"
+all.full_access offline_access
+"
+,
+"
+organization_id
+"
+:
+"
+ORGANIZATION_ID
+"
+,
+"
+user_id
+"
+:
+"
+USER_ID
+"
+}
+Note that the authorization server issues a new Refresh Token and the client
+must discard the old Refresh Token and replace it with the new one. The
+authorization server revokes the old Refresh Token after issuing a new one.
+Revoke application access
+It’s a good security practice to revoke Access and Refresh Tokens immediately if
+the user chooses to disable the integration with Close. You can accomplish this
+by performing a POST request with form-encoded parameters to
+https://api.close.com/oauth2/revoke/
+.
+POST /oauth2/revoke/ HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Host: api.close.com
+client_id=CLIENT_ID&client_secret=CLIENT_SECRET&token=REFRESH_TOKEN

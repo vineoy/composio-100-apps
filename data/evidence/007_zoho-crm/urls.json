@@ -1,0 +1,74 @@
+{
+ "app": "Zoho CRM",
+ "queries": [
+  "Zoho CRM API authentication documentation",
+  "Zoho CRM MCP server",
+  "Zoho CRM API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://www.zoho.com/en-in/crm/"
+ ],
+ "search_hits": [
+  {
+   "title": "OAuth 2.0 Authentication | Zoho CRM API | V8",
+   "href": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"
+  },
+  {
+   "title": "Zoho CRM V8 APIs",
+   "href": "https://www.zoho.com/crm/developer/docs/api/v8/"
+  },
+  {
+   "title": "Authentication - Zoho CRM API",
+   "href": "https://zoho-crm-api.readthedocs.io/en/latest/authentication/"
+  },
+  {
+   "title": "Kaizen #2 - OAuth2.0 and Self Client #API - Zoho Corporation",
+   "href": "https://help.zoho.com/portal/en/community/topic/kaizen-2-oauth2-0-and-self-client-api"
+  },
+  {
+   "title": "How to Generate CRM API Authtokens - Zoho Corporation",
+   "href": "https://help.zoho.com/portal/en/community/topic/how-to-generate-crm-api-authtokens"
+  },
+  {
+   "title": "MCP for Zoho CRM: AI Agent Servers for Secure CRM Access",
+   "href": "https://www.zoho.com/crm/developer/mcp.html"
+  },
+  {
+   "title": "Zoho CRM MCP - An Overview | Developer Tools",
+   "href": "https://www.zoho.com/crm/developer/docs/mcp/overview.html"
+  },
+  {
+   "title": "Zoho MCP Implementation Guide",
+   "href": "https://help.zoho.com/portal/en/kb/mcp/implementation-guide/articles/zoho-mcp-implementation-guide"
+  },
+  {
+   "title": "GitHub - SkanderBS2024/zoho-mcp: Zoho MCP Server",
+   "href": "https://github.com/SkanderBS2024/zoho-mcp"
+  },
+  {
+   "title": "Get Started With Zoho MCP",
+   "href": "https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation"
+  },
+  {
+   "title": "Get Zoho CRMs free full-featured developer edition",
+   "href": "https://www.zoho.com/crm/developer/developer-edition.html"
+  },
+  {
+   "title": "API Usage Limits & Pricing - Zoho",
+   "href": "https://www.zoho.com/analytics/api/v2/api-limits-pricing.html"
+  },
+  {
+   "title": "Kaizen #34 - API Credits - Zoho Corporation",
+   "href": "https://help.zoho.com/portal/en/community/topic/kaizen-34-api-credits"
+  },
+  {
+   "title": "Is Zoho CRM Free? Free Plan Limits & Upgrade Triggers (2026)",
+   "href": "https://costbench.com/software/crm/zoho-crm/free-plan/"
+  },
+  {
+   "title": "Zoho CRM Pricing 2026: Every Edition and What You Pay",
+   "href": "https://www.codestringers.com/articles/zoho-crm-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T16:38:30.940863"
+}

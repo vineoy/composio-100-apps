@@ -1,0 +1,26 @@
+URL: https://developer.copper.com/introduction/authentication.html
+FETCHED: 2026-11-23T16:43:16.558423
+VIA: direct
+
+Overview - Copper Developer API
+Skip to content
+Authentication
+¶
+There are two ways to access the Copper Developer API:
+API keys
+and
+OAuth2.0
+.
+API Keys are suitable for individual users, while OAuth2.0 is the preferred approach for partner integrations.
+API Keys
+¶
+The Dev API uses token based authentication. You have to include the token in the header of every request, along 
+with the email address of the user who generated the token. Users can hold multiple valid tokens at the same time.
+Admins can see all user generated tokens and generate new ones.
+To generate an API token, in the Copper web app go to System settings > API Keys and click the 'GENERATE API KEY' 
+button. Copper allows you to label each key for its unique purpose. You'll need to generate an API key to make 
+an API Request.
+OAuth2.0
+¶
+Click here
+to get started.

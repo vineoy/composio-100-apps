@@ -1,0 +1,9212 @@
+[
+ {
+  "slug": "gmail",
+  "name": "Gmail",
+  "description": ""
+ },
+ {
+  "slug": "composio",
+  "name": "Composio",
+  "description": ""
+ },
+ {
+  "slug": "github",
+  "name": "GitHub",
+  "description": ""
+ },
+ {
+  "slug": "googlecalendar",
+  "name": "Google Calendar",
+  "description": ""
+ },
+ {
+  "slug": "notion",
+  "name": "Notion",
+  "description": ""
+ },
+ {
+  "slug": "googlesheets",
+  "name": "Google Sheets",
+  "description": ""
+ },
+ {
+  "slug": "slack",
+  "name": "Slack",
+  "description": ""
+ },
+ {
+  "slug": "supabase",
+  "name": "Supabase",
+  "description": ""
+ },
+ {
+  "slug": "outlook",
+  "name": "Outlook",
+  "description": ""
+ },
+ {
+  "slug": "perplexityai",
+  "name": "Perplexity AI",
+  "description": ""
+ },
+ {
+  "slug": "twitter",
+  "name": "Twitter",
+  "description": ""
+ },
+ {
+  "slug": "googledrive",
+  "name": "Google Drive",
+  "description": ""
+ },
+ {
+  "slug": "googledocs",
+  "name": "Google Docs",
+  "description": ""
+ },
+ {
+  "slug": "hubspot",
+  "name": "HubSpot",
+  "description": ""
+ },
+ {
+  "slug": "linear",
+  "name": "Linear",
+  "description": ""
+ },
+ {
+  "slug": "airtable",
+  "name": "Airtable",
+  "description": ""
+ },
+ {
+  "slug": "serpapi",
+  "name": "SerpApi",
+  "description": ""
+ },
+ {
+  "slug": "jira",
+  "name": "Jira",
+  "description": ""
+ },
+ {
+  "slug": "firecrawl",
+  "name": "Firecrawl",
+  "description": ""
+ },
+ {
+  "slug": "tavily",
+  "name": "Tavily",
+  "description": ""
+ },
+ {
+  "slug": "youtube",
+  "name": "YouTube",
+  "description": ""
+ },
+ {
+  "slug": "slackbot",
+  "name": "Slackbot",
+  "description": ""
+ },
+ {
+  "slug": "canvas",
+  "name": "Canvas",
+  "description": ""
+ },
+ {
+  "slug": "bitbucket",
+  "name": "Bitbucket",
+  "description": ""
+ },
+ {
+  "slug": "googletasks",
+  "name": "Google Tasks",
+  "description": ""
+ },
+ {
+  "slug": "discord",
+  "name": "Discord",
+  "description": ""
+ },
+ {
+  "slug": "figma",
+  "name": "Figma",
+  "description": ""
+ },
+ {
+  "slug": "reddit",
+  "name": "Reddit",
+  "description": ""
+ },
+ {
+  "slug": "cal",
+  "name": "Cal",
+  "description": ""
+ },
+ {
+  "slug": "wrike",
+  "name": "Wrike",
+  "description": ""
+ },
+ {
+  "slug": "exa",
+  "name": "Exa",
+  "description": ""
+ },
+ {
+  "slug": "sentry",
+  "name": "Sentry",
+  "description": ""
+ },
+ {
+  "slug": "snowflake",
+  "name": "Snowflake",
+  "description": ""
+ },
+ {
+  "slug": "hackernews",
+  "name": "Hacker News",
+  "description": ""
+ },
+ {
+  "slug": "elevenlabs",
+  "name": "ElevenLabs",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_teams",
+  "name": "Microsoft Teams",
+  "description": ""
+ },
+ {
+  "slug": "asana",
+  "name": "Asana",
+  "description": ""
+ },
+ {
+  "slug": "peopledatalabs",
+  "name": "People Data Labs",
+  "description": ""
+ },
+ {
+  "slug": "shopify",
+  "name": "Shopify",
+  "description": ""
+ },
+ {
+  "slug": "linkedin",
+  "name": "LinkedIn",
+  "description": ""
+ },
+ {
+  "slug": "google_maps",
+  "name": "Google Maps",
+  "description": ""
+ },
+ {
+  "slug": "one_drive",
+  "name": "OneDrive",
+  "description": ""
+ },
+ {
+  "slug": "docusign",
+  "name": "DocuSign",
+  "description": ""
+ },
+ {
+  "slug": "discordbot",
+  "name": "Discord Bot",
+  "description": ""
+ },
+ {
+  "slug": "salesforce",
+  "name": "Salesforce",
+  "description": ""
+ },
+ {
+  "slug": "calendly",
+  "name": "Calendly",
+  "description": ""
+ },
+ {
+  "slug": "trello",
+  "name": "Trello",
+  "description": ""
+ },
+ {
+  "slug": "apollo",
+  "name": "Apollo",
+  "description": ""
+ },
+ {
+  "slug": "semrush",
+  "name": "Semrush",
+  "description": ""
+ },
+ {
+  "slug": "mem0",
+  "name": "Mem0",
+  "description": ""
+ },
+ {
+  "slug": "neon",
+  "name": "Neon",
+  "description": ""
+ },
+ {
+  "slug": "posthog",
+  "name": "PostHog",
+  "description": ""
+ },
+ {
+  "slug": "clickup",
+  "name": "ClickUp",
+  "description": ""
+ },
+ {
+  "slug": "brevo",
+  "name": "Brevo",
+  "description": ""
+ },
+ {
+  "slug": "stripe",
+  "name": "Stripe",
+  "description": ""
+ },
+ {
+  "slug": "klaviyo",
+  "name": "Klaviyo",
+  "description": ""
+ },
+ {
+  "slug": "browserbase_tool",
+  "name": "Browserbase",
+  "description": ""
+ },
+ {
+  "slug": "mailchimp",
+  "name": "Mailchimp",
+  "description": ""
+ },
+ {
+  "slug": "attio",
+  "name": "Attio",
+  "description": ""
+ },
+ {
+  "slug": "googlemeet",
+  "name": "Google Meet",
+  "description": ""
+ },
+ {
+  "slug": "zoho",
+  "name": "Zoho",
+  "description": ""
+ },
+ {
+  "slug": "fireflies",
+  "name": "Fireflies",
+  "description": ""
+ },
+ {
+  "slug": "dropbox",
+  "name": "Dropbox",
+  "description": ""
+ },
+ {
+  "slug": "shortcut",
+  "name": "Shortcut",
+  "description": ""
+ },
+ {
+  "slug": "confluence",
+  "name": "Confluence",
+  "description": ""
+ },
+ {
+  "slug": "freshdesk",
+  "name": "Freshdesk",
+  "description": ""
+ },
+ {
+  "slug": "borneo",
+  "name": "Borneo",
+  "description": ""
+ },
+ {
+  "slug": "mixpanel",
+  "name": "Mixpanel",
+  "description": ""
+ },
+ {
+  "slug": "coda",
+  "name": "Coda",
+  "description": ""
+ },
+ {
+  "slug": "acculynx",
+  "name": "Acculynx",
+  "description": ""
+ },
+ {
+  "slug": "ahrefs",
+  "name": "Ahrefs",
+  "description": ""
+ },
+ {
+  "slug": "affinity",
+  "name": "Affinity",
+  "description": ""
+ },
+ {
+  "slug": "amplitude",
+  "name": "Amplitude",
+  "description": ""
+ },
+ {
+  "slug": "heygen",
+  "name": "HeyGen",
+  "description": ""
+ },
+ {
+  "slug": "agencyzoom",
+  "name": "AgencyZoom",
+  "description": ""
+ },
+ {
+  "slug": "googlebigquery",
+  "name": "Google BigQuery",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_clarity",
+  "name": "Microsoft Clarity",
+  "description": ""
+ },
+ {
+  "slug": "coinbase",
+  "name": "Coinbase",
+  "description": ""
+ },
+ {
+  "slug": "monday",
+  "name": "Monday",
+  "description": ""
+ },
+ {
+  "slug": "semanticscholar",
+  "name": "Semantic Scholar",
+  "description": ""
+ },
+ {
+  "slug": "sendgrid",
+  "name": "SendGrid",
+  "description": ""
+ },
+ {
+  "slug": "junglescout",
+  "name": "Jungle Scout",
+  "description": ""
+ },
+ {
+  "slug": "pipedrive",
+  "name": "Pipedrive",
+  "description": ""
+ },
+ {
+  "slug": "bamboohr",
+  "name": "BambooHR",
+  "description": ""
+ },
+ {
+  "slug": "whatsapp",
+  "name": "WhatsApp",
+  "description": ""
+ },
+ {
+  "slug": "dynamics365",
+  "name": "Dynamics 365",
+  "description": ""
+ },
+ {
+  "slug": "zendesk",
+  "name": "Zendesk",
+  "description": ""
+ },
+ {
+  "slug": "googlephotos",
+  "name": "Google Photos",
+  "description": ""
+ },
+ {
+  "slug": "lmnt",
+  "name": "LMNT",
+  "description": ""
+ },
+ {
+  "slug": "metaads",
+  "name": "Meta Ads",
+  "description": ""
+ },
+ {
+  "slug": "zenrows",
+  "name": "ZenRows",
+  "description": ""
+ },
+ {
+  "slug": "googlesuper",
+  "name": "Google Super",
+  "description": ""
+ },
+ {
+  "slug": "yousearch",
+  "name": "You.com",
+  "description": ""
+ },
+ {
+  "slug": "linkup",
+  "name": "Linkup",
+  "description": ""
+ },
+ {
+  "slug": "listennotes",
+  "name": "Listen Notes",
+  "description": ""
+ },
+ {
+  "slug": "typefully",
+  "name": "Typefully",
+  "description": ""
+ },
+ {
+  "slug": "bolna",
+  "name": "Bolna",
+  "description": ""
+ },
+ {
+  "slug": "rocketlane",
+  "name": "Rocketlane",
+  "description": ""
+ },
+ {
+  "slug": "zoom",
+  "name": "Zoom",
+  "description": ""
+ },
+ {
+  "slug": "onepage",
+  "name": "Onepage",
+  "description": ""
+ },
+ {
+  "slug": "entelligence",
+  "name": "Entelligence",
+  "description": ""
+ },
+ {
+  "slug": "retellai",
+  "name": "Retell AI",
+  "description": ""
+ },
+ {
+  "slug": "servicenow",
+  "name": "ServiceNow",
+  "description": ""
+ },
+ {
+  "slug": "googleads",
+  "name": "Google Ads",
+  "description": ""
+ },
+ {
+  "slug": "pagerduty",
+  "name": "PagerDuty",
+  "description": ""
+ },
+ {
+  "slug": "toneden",
+  "name": "Toneden",
+  "description": ""
+ },
+ {
+  "slug": "rafflys",
+  "name": "Rafflys",
+  "description": ""
+ },
+ {
+  "slug": "finage",
+  "name": "Finage",
+  "description": ""
+ },
+ {
+  "slug": "fomo",
+  "name": "Fomo",
+  "description": ""
+ },
+ {
+  "slug": "bannerbear",
+  "name": "Bannerbear",
+  "description": ""
+ },
+ {
+  "slug": "miro",
+  "name": "Miro",
+  "description": ""
+ },
+ {
+  "slug": "share_point",
+  "name": "SharePoint",
+  "description": ""
+ },
+ {
+  "slug": "mocean",
+  "name": "Mocean",
+  "description": ""
+ },
+ {
+  "slug": "formcarry",
+  "name": "Formcarry",
+  "description": ""
+ },
+ {
+  "slug": "appdrag",
+  "name": "AppDrag",
+  "description": ""
+ },
+ {
+  "slug": "metatextai",
+  "name": "Metatextai",
+  "description": ""
+ },
+ {
+  "slug": "breezy_hr",
+  "name": "Breezy Hr",
+  "description": ""
+ },
+ {
+  "slug": "launch_darkly",
+  "name": "LaunchDarkly",
+  "description": ""
+ },
+ {
+  "slug": "mailerlite",
+  "name": "MailerLite",
+  "description": ""
+ },
+ {
+  "slug": "contentful",
+  "name": "Contentful",
+  "description": ""
+ },
+ {
+  "slug": "close",
+  "name": "Close",
+  "description": ""
+ },
+ {
+  "slug": "docmosis",
+  "name": "Docmosis",
+  "description": ""
+ },
+ {
+  "slug": "ably",
+  "name": "Ably",
+  "description": ""
+ },
+ {
+  "slug": "more_trees",
+  "name": "More Trees",
+  "description": ""
+ },
+ {
+  "slug": "netsuite",
+  "name": "Netsuite",
+  "description": ""
+ },
+ {
+  "slug": "moz",
+  "name": "Moz",
+  "description": ""
+ },
+ {
+  "slug": "recallai",
+  "name": "Recall.ai",
+  "description": ""
+ },
+ {
+  "slug": "apaleo",
+  "name": "Apaleo",
+  "description": ""
+ },
+ {
+  "slug": "survey_monkey",
+  "name": "SurveyMonkey",
+  "description": ""
+ },
+ {
+  "slug": "zoho_books",
+  "name": "Zoho Books",
+  "description": ""
+ },
+ {
+  "slug": "zoho_inventory",
+  "name": "Zoho Inventory",
+  "description": ""
+ },
+ {
+  "slug": "facebook",
+  "name": "Facebook",
+  "description": ""
+ },
+ {
+  "slug": "tinypng",
+  "name": "TinyPNG",
+  "description": ""
+ },
+ {
+  "slug": "mopinion",
+  "name": "Mopinion",
+  "description": ""
+ },
+ {
+  "slug": "crustdata",
+  "name": "Crustdata",
+  "description": ""
+ },
+ {
+  "slug": "front",
+  "name": "Front",
+  "description": ""
+ },
+ {
+  "slug": "webex",
+  "name": "Webex",
+  "description": ""
+ },
+ {
+  "slug": "brandfetch",
+  "name": "Brandfetch",
+  "description": ""
+ },
+ {
+  "slug": "canva",
+  "name": "Canva",
+  "description": ""
+ },
+ {
+  "slug": "digicert",
+  "name": "Digicert",
+  "description": ""
+ },
+ {
+  "slug": "amazon",
+  "name": "Amazon",
+  "description": ""
+ },
+ {
+  "slug": "dailybot",
+  "name": "Dailybot",
+  "description": ""
+ },
+ {
+  "slug": "linkhut",
+  "name": "Linkhut",
+  "description": ""
+ },
+ {
+  "slug": "dropbox_sign",
+  "name": "Dropbox Sign",
+  "description": ""
+ },
+ {
+  "slug": "timely",
+  "name": "Timely",
+  "description": ""
+ },
+ {
+  "slug": "box",
+  "name": "Box",
+  "description": ""
+ },
+ {
+  "slug": "smugmug",
+  "name": "SmugMug",
+  "description": ""
+ },
+ {
+  "slug": "productboard",
+  "name": "Productboard",
+  "description": ""
+ },
+ {
+  "slug": "blackbaud",
+  "name": "Blackbaud",
+  "description": ""
+ },
+ {
+  "slug": "webflow",
+  "name": "Webflow",
+  "description": ""
+ },
+ {
+  "slug": "amcards",
+  "name": "Amcards",
+  "description": ""
+ },
+ {
+  "slug": "simplesat",
+  "name": "Simplesat",
+  "description": ""
+ },
+ {
+  "slug": "flutterwave",
+  "name": "Flutterwave",
+  "description": ""
+ },
+ {
+  "slug": "hackerrank_work",
+  "name": "HackerRank Work",
+  "description": ""
+ },
+ {
+  "slug": "freshbooks",
+  "name": "FreshBooks",
+  "description": ""
+ },
+ {
+  "slug": "process_street",
+  "name": "Process Street",
+  "description": ""
+ },
+ {
+  "slug": "screenshotone",
+  "name": "ScreenshotOne",
+  "description": ""
+ },
+ {
+  "slug": "chatwork",
+  "name": "Chatwork",
+  "description": ""
+ },
+ {
+  "slug": "klipfolio",
+  "name": "Klipfolio",
+  "description": ""
+ },
+ {
+  "slug": "demio",
+  "name": "Demio",
+  "description": ""
+ },
+ {
+  "slug": "altoviz",
+  "name": "Altoviz",
+  "description": ""
+ },
+ {
+  "slug": "d2lbrightspace",
+  "name": "D2L Brightspace",
+  "description": ""
+ },
+ {
+  "slug": "blackboard",
+  "name": "Blackboard",
+  "description": ""
+ },
+ {
+  "slug": "lever",
+  "name": "Lever",
+  "description": ""
+ },
+ {
+  "slug": "zoho_bigin",
+  "name": "Zoho Bigin",
+  "description": ""
+ },
+ {
+  "slug": "pandadoc",
+  "name": "PandaDoc",
+  "description": ""
+ },
+ {
+  "slug": "workiom",
+  "name": "Workiom",
+  "description": ""
+ },
+ {
+  "slug": "lexoffice",
+  "name": "Lexoffice",
+  "description": ""
+ },
+ {
+  "slug": "gorgias",
+  "name": "Gorgias",
+  "description": ""
+ },
+ {
+  "slug": "google_analytics",
+  "name": "Google Analytics",
+  "description": ""
+ },
+ {
+  "slug": "todoist",
+  "name": "Todoist",
+  "description": ""
+ },
+ {
+  "slug": "zoho_desk",
+  "name": "Zoho Desk",
+  "description": ""
+ },
+ {
+  "slug": "ashby",
+  "name": "Ashby",
+  "description": ""
+ },
+ {
+  "slug": "datarobot",
+  "name": "DataRobot",
+  "description": ""
+ },
+ {
+  "slug": "ngrok",
+  "name": "Ngrok",
+  "description": ""
+ },
+ {
+  "slug": "square",
+  "name": "Square",
+  "description": ""
+ },
+ {
+  "slug": "yandex",
+  "name": "Yandex",
+  "description": ""
+ },
+ {
+  "slug": "baserow",
+  "name": "Baserow",
+  "description": ""
+ },
+ {
+  "slug": "dialpad",
+  "name": "Dialpad",
+  "description": ""
+ },
+ {
+  "slug": "formsite",
+  "name": "Formsite",
+  "description": ""
+ },
+ {
+  "slug": "ynab",
+  "name": "YNAB",
+  "description": ""
+ },
+ {
+  "slug": "kommo",
+  "name": "Kommo",
+  "description": ""
+ },
+ {
+  "slug": "deel",
+  "name": "Deel",
+  "description": ""
+ },
+ {
+  "slug": "tisane",
+  "name": "Tisane Labs",
+  "description": ""
+ },
+ {
+  "slug": "coinmarketcal",
+  "name": "CoinMarketCal",
+  "description": ""
+ },
+ {
+  "slug": "browseai",
+  "name": "Browseai",
+  "description": ""
+ },
+ {
+  "slug": "maintainx",
+  "name": "Maintainx",
+  "description": ""
+ },
+ {
+  "slug": "tinyurl",
+  "name": "Tinyurl",
+  "description": ""
+ },
+ {
+  "slug": "bitwarden",
+  "name": "Bitwarden",
+  "description": ""
+ },
+ {
+  "slug": "epic_games",
+  "name": "Epic Games",
+  "description": ""
+ },
+ {
+  "slug": "timecamp",
+  "name": "TimeCamp",
+  "description": ""
+ },
+ {
+  "slug": "piggy",
+  "name": "Piggy",
+  "description": ""
+ },
+ {
+  "slug": "alchemy",
+  "name": "Alchemy",
+  "description": ""
+ },
+ {
+  "slug": "gumroad",
+  "name": "Gumroad",
+  "description": ""
+ },
+ {
+  "slug": "foursquare",
+  "name": "Foursquare",
+  "description": ""
+ },
+ {
+  "slug": "open_sea",
+  "name": "OpenSea",
+  "description": ""
+ },
+ {
+  "slug": "humanloop",
+  "name": "Humanloop",
+  "description": ""
+ },
+ {
+  "slug": "zoominfo",
+  "name": "Zoominfo",
+  "description": ""
+ },
+ {
+  "slug": "gong",
+  "name": "Gong",
+  "description": ""
+ },
+ {
+  "slug": "placekey",
+  "name": "Placekey",
+  "description": ""
+ },
+ {
+  "slug": "datagma",
+  "name": "Datagma",
+  "description": ""
+ },
+ {
+  "slug": "servicem8",
+  "name": "Servicem8",
+  "description": ""
+ },
+ {
+  "slug": "textrazor",
+  "name": "TextRazor",
+  "description": ""
+ },
+ {
+  "slug": "bubble",
+  "name": "Bubble",
+  "description": ""
+ },
+ {
+  "slug": "chmeetings",
+  "name": "Chmeetings",
+  "description": ""
+ },
+ {
+  "slug": "cloudflare",
+  "name": "Cloudflare",
+  "description": ""
+ },
+ {
+  "slug": "harvest",
+  "name": "Harvest",
+  "description": ""
+ },
+ {
+  "slug": "wakatime",
+  "name": "WakaTime",
+  "description": ""
+ },
+ {
+  "slug": "xero",
+  "name": "Xero",
+  "description": ""
+ },
+ {
+  "slug": "boldsign",
+  "name": "Boldsign",
+  "description": ""
+ },
+ {
+  "slug": "rippling",
+  "name": "Rippling",
+  "description": ""
+ },
+ {
+  "slug": "active_campaign",
+  "name": "ActiveCampaign",
+  "description": ""
+ },
+ {
+  "slug": "zoho_mail",
+  "name": "Zoho Mail",
+  "description": ""
+ },
+ {
+  "slug": "mural",
+  "name": "Mural",
+  "description": ""
+ },
+ {
+  "slug": "brex",
+  "name": "Brex",
+  "description": ""
+ },
+ {
+  "slug": "intercom",
+  "name": "Intercom",
+  "description": ""
+ },
+ {
+  "slug": "eventbrite",
+  "name": "Eventbrite",
+  "description": ""
+ },
+ {
+  "slug": "beeminder",
+  "name": "Beeminder",
+  "description": ""
+ },
+ {
+  "slug": "rocket_reach",
+  "name": "RocketReach",
+  "description": ""
+ },
+ {
+  "slug": "interzoid",
+  "name": "Interzoid",
+  "description": ""
+ },
+ {
+  "slug": "exist",
+  "name": "Exist",
+  "description": ""
+ },
+ {
+  "slug": "zenserp",
+  "name": "Zenserp",
+  "description": ""
+ },
+ {
+  "slug": "zoho_invoice",
+  "name": "Zoho Invoice",
+  "description": ""
+ },
+ {
+  "slug": "stack_exchange",
+  "name": "Stack Exchange",
+  "description": ""
+ },
+ {
+  "slug": "botbaba",
+  "name": "Botbaba",
+  "description": ""
+ },
+ {
+  "slug": "twitch",
+  "name": "Twitch",
+  "description": ""
+ },
+ {
+  "slug": "datadog",
+  "name": "Datadog",
+  "description": ""
+ },
+ {
+  "slug": "waboxapp",
+  "name": "Waboxapp",
+  "description": ""
+ },
+ {
+  "slug": "echtpost",
+  "name": "Echtpost",
+  "description": ""
+ },
+ {
+  "slug": "0codekit",
+  "name": "0CodeKit",
+  "description": ""
+ },
+ {
+  "slug": "0xarchive",
+  "name": "0xArchive",
+  "description": ""
+ },
+ {
+  "slug": "_1password",
+  "name": "1password",
+  "description": ""
+ },
+ {
+  "slug": "_21risk",
+  "name": "21risk",
+  "description": ""
+ },
+ {
+  "slug": "_2chat",
+  "name": "2chat",
+  "description": ""
+ },
+ {
+  "slug": "44api",
+  "name": "44API",
+  "description": ""
+ },
+ {
+  "slug": "7shifts",
+  "name": "7shifts",
+  "description": ""
+ },
+ {
+  "slug": "abstract",
+  "name": "Abstract",
+  "description": ""
+ },
+ {
+  "slug": "abuselpdb",
+  "name": "AbuseIPDB",
+  "description": ""
+ },
+ {
+  "slug": "abyssale",
+  "name": "Abyssale",
+  "description": ""
+ },
+ {
+  "slug": "accredible_certificates",
+  "name": "Accredible certificates",
+  "description": ""
+ },
+ {
+  "slug": "accu_weather",
+  "name": "AccuWeather",
+  "description": ""
+ },
+ {
+  "slug": "active_merge",
+  "name": "ActiveMerge",
+  "description": ""
+ },
+ {
+  "slug": "active_trail",
+  "name": "ActiveTrail",
+  "description": ""
+ },
+ {
+  "slug": "adafruit_io",
+  "name": "Adafruit IO",
+  "description": ""
+ },
+ {
+  "slug": "addressfinder",
+  "name": "Addressfinder",
+  "description": ""
+ },
+ {
+  "slug": "addresszen",
+  "name": "Addresszen",
+  "description": ""
+ },
+ {
+  "slug": "admakeai",
+  "name": "AdMakeAI",
+  "description": ""
+ },
+ {
+  "slug": "adobe_marketing_agent_mcp",
+  "name": "Adobe Marketing Agent MCP",
+  "description": ""
+ },
+ {
+  "slug": "adrapid",
+  "name": "Adrapid",
+  "description": ""
+ },
+ {
+  "slug": "adroll",
+  "name": "AdRoll",
+  "description": ""
+ },
+ {
+  "slug": "adtraction",
+  "name": "Adtraction",
+  "description": ""
+ },
+ {
+  "slug": "adyntel",
+  "name": "Adyntel",
+  "description": ""
+ },
+ {
+  "slug": "aeroleads",
+  "name": "Aeroleads",
+  "description": ""
+ },
+ {
+  "slug": "affinda",
+  "name": "Affinda",
+  "description": ""
+ },
+ {
+  "slug": "aftership",
+  "name": "AfterShip",
+  "description": ""
+ },
+ {
+  "slug": "agent_mail",
+  "name": "Agent Mail",
+  "description": ""
+ },
+ {
+  "slug": "agent37",
+  "name": "Agent37",
+  "description": ""
+ },
+ {
+  "slug": "agentphone",
+  "name": "AgentPhone",
+  "description": ""
+ },
+ {
+  "slug": "agentql",
+  "name": "Agentql",
+  "description": ""
+ },
+ {
+  "slug": "agenty",
+  "name": "Agenty",
+  "description": ""
+ },
+ {
+  "slug": "agile_crm",
+  "name": "Agile CRM",
+  "description": ""
+ },
+ {
+  "slug": "agiled",
+  "name": "Agiled",
+  "description": ""
+ },
+ {
+  "slug": "agility_cms",
+  "name": "Agility CMS",
+  "description": ""
+ },
+ {
+  "slug": "aha",
+  "name": "Aha!",
+  "description": ""
+ },
+ {
+  "slug": "ahrefs_mcp",
+  "name": "Ahrefs MCP",
+  "description": ""
+ },
+ {
+  "slug": "ai_ark",
+  "name": "AI Ark",
+  "description": ""
+ },
+ {
+  "slug": "ai_ml_api",
+  "name": "AI/ML API",
+  "description": ""
+ },
+ {
+  "slug": "aimtell",
+  "name": "AimTell",
+  "description": ""
+ },
+ {
+  "slug": "aircall",
+  "name": "Aircall",
+  "description": ""
+ },
+ {
+  "slug": "airops_mcp",
+  "name": "AirOps MCP",
+  "description": ""
+ },
+ {
+  "slug": "airparser",
+  "name": "Airparser",
+  "description": ""
+ },
+ {
+  "slug": "airtop",
+  "name": "Airtop",
+  "description": ""
+ },
+ {
+  "slug": "airwallex",
+  "name": "Airwallex",
+  "description": ""
+ },
+ {
+  "slug": "aivoov",
+  "name": "Aivoov",
+  "description": ""
+ },
+ {
+  "slug": "aiwyn_tax_mcp",
+  "name": "Aiwyn Tax MCP",
+  "description": ""
+ },
+ {
+  "slug": "akta",
+  "name": "Akta",
+  "description": ""
+ },
+ {
+  "slug": "algodocs",
+  "name": "Algodocs",
+  "description": ""
+ },
+ {
+  "slug": "algolia",
+  "name": "Algolia",
+  "description": ""
+ },
+ {
+  "slug": "alion",
+  "name": "Alion",
+  "description": ""
+ },
+ {
+  "slug": "all_images_ai",
+  "name": "All Images AI",
+  "description": ""
+ },
+ {
+  "slug": "allmodels",
+  "name": "AllModels",
+  "description": ""
+ },
+ {
+  "slug": "alltrails_mcp",
+  "name": "AllTrails MCP",
+  "description": ""
+ },
+ {
+  "slug": "alpaca",
+  "name": "Alpaca",
+  "description": ""
+ },
+ {
+  "slug": "alpha_vantage",
+  "name": "Alpha Vantage",
+  "description": ""
+ },
+ {
+  "slug": "alttext_ai",
+  "name": "AltText.ai",
+  "description": ""
+ },
+ {
+  "slug": "alt_text_lab",
+  "name": "AltTextLab",
+  "description": ""
+ },
+ {
+  "slug": "amara",
+  "name": "Amara",
+  "description": ""
+ },
+ {
+  "slug": "amazing_marvin",
+  "name": "Amazing Marvin",
+  "description": ""
+ },
+ {
+  "slug": "ambee",
+  "name": "Ambee",
+  "description": ""
+ },
+ {
+  "slug": "ambient_weather",
+  "name": "Ambient Weather",
+  "description": ""
+ },
+ {
+  "slug": "ambiguous_mcp",
+  "name": "Ambiguous MCP",
+  "description": ""
+ },
+ {
+  "slug": "amplitude_mcp",
+  "name": "Amplitude MCP",
+  "description": ""
+ },
+ {
+  "slug": "anakin_io",
+  "name": "Anakin",
+  "description": ""
+ },
+ {
+  "slug": "anaplan",
+  "name": "Anaplan",
+  "description": ""
+ },
+ {
+  "slug": "anchor_browser",
+  "name": "Anchor Browser",
+  "description": ""
+ },
+ {
+  "slug": "android_texter",
+  "name": "Android Texter",
+  "description": ""
+ },
+ {
+  "slug": "anonyflow",
+  "name": "Anonyflow",
+  "description": ""
+ },
+ {
+  "slug": "anrok",
+  "name": "Anrok",
+  "description": ""
+ },
+ {
+  "slug": "anthropic_administrator",
+  "name": "Anthropic Administrator",
+  "description": ""
+ },
+ {
+  "slug": "anyapi",
+  "name": "AnyAPI",
+  "description": ""
+ },
+ {
+  "slug": "any_db",
+  "name": "AnyDB",
+  "description": ""
+ },
+ {
+  "slug": "apexverify",
+  "name": "ApexVerify",
+  "description": ""
+ },
+ {
+  "slug": "api_labz",
+  "name": "API Labz",
+  "description": ""
+ },
+ {
+  "slug": "api_ninjas",
+  "name": "API Ninjas",
+  "description": ""
+ },
+ {
+  "slug": "api_sports",
+  "name": "API-Sports",
+  "description": ""
+ },
+ {
+  "slug": "api_bible",
+  "name": "API.Bible",
+  "description": ""
+ },
+ {
+  "slug": "api2pdf",
+  "name": "API2PDF",
+  "description": ""
+ },
+ {
+  "slug": "apiflash",
+  "name": "Apiflash",
+  "description": ""
+ },
+ {
+  "slug": "apiframe",
+  "name": "Apiframe",
+  "description": ""
+ },
+ {
+  "slug": "apify",
+  "name": "Apify",
+  "description": ""
+ },
+ {
+  "slug": "apify_mcp",
+  "name": "Apify MCP",
+  "description": ""
+ },
+ {
+  "slug": "apilio",
+  "name": "Apilio",
+  "description": ""
+ },
+ {
+  "slug": "apipie_ai",
+  "name": "APIpie AI",
+  "description": ""
+ },
+ {
+  "slug": "apitemplate_io",
+  "name": "Apitemplate",
+  "description": ""
+ },
+ {
+  "slug": "apiverve",
+  "name": "Apiverve",
+  "description": ""
+ },
+ {
+  "slug": "appcircle",
+  "name": "Appcircle",
+  "description": ""
+ },
+ {
+  "slug": "appfollow",
+  "name": "AppFollow",
+  "description": ""
+ },
+ {
+  "slug": "appointo",
+  "name": "Appointo",
+  "description": ""
+ },
+ {
+  "slug": "apptivegrid",
+  "name": "ApptiveGrid",
+  "description": ""
+ },
+ {
+  "slug": "appveyor",
+  "name": "Appveyor",
+  "description": ""
+ },
+ {
+  "slug": "archive_org",
+  "name": "Archive.org",
+  "description": ""
+ },
+ {
+  "slug": "arena",
+  "name": "Are.na",
+  "description": ""
+ },
+ {
+  "slug": "arize_ax",
+  "name": "Arize AX",
+  "description": ""
+ },
+ {
+  "slug": "artificial_analysis",
+  "name": "Artificial Analysis",
+  "description": ""
+ },
+ {
+  "slug": "aryn",
+  "name": "Aryn",
+  "description": ""
+ },
+ {
+  "slug": "ascora",
+  "name": "Ascora",
+  "description": ""
+ },
+ {
+  "slug": "asin_data_api",
+  "name": "ASIN Data API",
+  "description": ""
+ },
+ {
+  "slug": "assemblyai",
+  "name": "AssemblyAI",
+  "description": ""
+ },
+ {
+  "slug": "astica_ai",
+  "name": "Astica AI",
+  "description": ""
+ },
+ {
+  "slug": "async_interview",
+  "name": "Async Interview",
+  "description": ""
+ },
+ {
+  "slug": "atlassian_mcp",
+  "name": "Atlassian MCP",
+  "description": ""
+ },
+ {
+  "slug": "audd",
+  "name": "AudD",
+  "description": ""
+ },
+ {
+  "slug": "audioscrape_mcp",
+  "name": "Audioscrape MCP",
+  "description": ""
+ },
+ {
+  "slug": "authyo",
+  "name": "Authyo",
+  "description": ""
+ },
+ {
+  "slug": "autobound",
+  "name": "Autobound",
+  "description": ""
+ },
+ {
+  "slug": "autom",
+  "name": "Autom",
+  "description": ""
+ },
+ {
+  "slug": "aviationstack",
+  "name": "AviationStack",
+  "description": ""
+ },
+ {
+  "slug": "aviato",
+  "name": "Aviato",
+  "description": ""
+ },
+ {
+  "slug": "avoma",
+  "name": "Avoma",
+  "description": ""
+ },
+ {
+  "slug": "aweber",
+  "name": "AWeber",
+  "description": ""
+ },
+ {
+  "slug": "aws_marketplace_mcp",
+  "name": "AWS Marketplace MCP",
+  "description": ""
+ },
+ {
+  "slug": "ayrshare",
+  "name": "Ayrshare",
+  "description": ""
+ },
+ {
+  "slug": "azure_blob_storage",
+  "name": "Azure Blob Storage",
+  "description": ""
+ },
+ {
+  "slug": "azure_devops",
+  "name": "Azure DevOps",
+  "description": ""
+ },
+ {
+  "slug": "azure_monitor_activity_log",
+  "name": "Azure Monitor Activity Log",
+  "description": ""
+ },
+ {
+  "slug": "backendless",
+  "name": "Backendless",
+  "description": ""
+ },
+ {
+  "slug": "bannerbite",
+  "name": "Bannerbite",
+  "description": ""
+ },
+ {
+  "slug": "baremetrics",
+  "name": "Baremetrics",
+  "description": ""
+ },
+ {
+  "slug": "bart",
+  "name": "Bart",
+  "description": ""
+ },
+ {
+  "slug": "basecamp",
+  "name": "Basecamp",
+  "description": ""
+ },
+ {
+  "slug": "baselinker",
+  "name": "Baselinker",
+  "description": ""
+ },
+ {
+  "slug": "basin",
+  "name": "Basin",
+  "description": ""
+ },
+ {
+  "slug": "beach_day_api",
+  "name": "Beach Day API",
+  "description": ""
+ },
+ {
+  "slug": "beaconchain",
+  "name": "beaconcha.in",
+  "description": ""
+ },
+ {
+  "slug": "beaconstac",
+  "name": "Beaconstac",
+  "description": ""
+ },
+ {
+  "slug": "beamer",
+  "name": "Beamer",
+  "description": ""
+ },
+ {
+  "slug": "beatapi",
+  "name": "BeatAPI",
+  "description": ""
+ },
+ {
+  "slug": "beehiiv",
+  "name": "Beehiiv",
+  "description": ""
+ },
+ {
+  "slug": "bench",
+  "name": "Bench",
+  "description": ""
+ },
+ {
+  "slug": "benchmark_email",
+  "name": "Benchmark Email",
+  "description": ""
+ },
+ {
+  "slug": "benzinga",
+  "name": "Benzinga",
+  "description": ""
+ },
+ {
+  "slug": "bestbuy",
+  "name": "Bestbuy",
+  "description": ""
+ },
+ {
+  "slug": "better_proposals",
+  "name": "Better Proposals",
+  "description": ""
+ },
+ {
+  "slug": "better_stack",
+  "name": "Better Stack",
+  "description": ""
+ },
+ {
+  "slug": "better_stack_mcp",
+  "name": "Better Stack MCP",
+  "description": ""
+ },
+ {
+  "slug": "bettercontact",
+  "name": "Bettercontact",
+  "description": ""
+ },
+ {
+  "slug": "bexio",
+  "name": "bexio",
+  "description": ""
+ },
+ {
+  "slug": "bidsketch",
+  "name": "Bidsketch",
+  "description": ""
+ },
+ {
+  "slug": "bigcommerce",
+  "name": "BigCommerce",
+  "description": ""
+ },
+ {
+  "slug": "bigdata_com_mcp",
+  "name": "Bigdata.com MCP",
+  "description": ""
+ },
+ {
+  "slug": "big_data_cloud",
+  "name": "BigDataCloud",
+  "description": ""
+ },
+ {
+  "slug": "bigmailer",
+  "name": "Bigmailer",
+  "description": ""
+ },
+ {
+  "slug": "bigml",
+  "name": "Bigml",
+  "description": ""
+ },
+ {
+  "slug": "bigpicture_io",
+  "name": "BigPicture.io",
+  "description": ""
+ },
+ {
+  "slug": "bika",
+  "name": "Bika.ai",
+  "description": ""
+ },
+ {
+  "slug": "billsby",
+  "name": "Billsby",
+  "description": ""
+ },
+ {
+  "slug": "bing_webmaster_tools",
+  "name": "Bing Webmaster Tools",
+  "description": ""
+ },
+ {
+  "slug": "bitly",
+  "name": "Bitly",
+  "description": ""
+ },
+ {
+  "slug": "bitquery",
+  "name": "Bitquery",
+  "description": ""
+ },
+ {
+  "slug": "bfl",
+  "name": "Black Forest Labs",
+  "description": ""
+ },
+ {
+  "slug": "bland_ai",
+  "name": "Bland AI",
+  "description": ""
+ },
+ {
+  "slug": "blazemeter",
+  "name": "Blazemeter",
+  "description": ""
+ },
+ {
+  "slug": "blitz_api",
+  "name": "Blitz API",
+  "description": ""
+ },
+ {
+  "slug": "blocknative",
+  "name": "Blocknative",
+  "description": ""
+ },
+ {
+  "slug": "blooio",
+  "name": "Blooio",
+  "description": ""
+ },
+ {
+  "slug": "bluepillow",
+  "name": "Blue Pillow Hotels & Stays",
+  "description": ""
+ },
+ {
+  "slug": "bluebarry",
+  "name": "Bluebarry",
+  "description": ""
+ },
+ {
+  "slug": "bluefox_email",
+  "name": "BlueFox Email",
+  "description": ""
+ },
+ {
+  "slug": "boloforms",
+  "name": "Boloforms",
+  "description": ""
+ },
+ {
+  "slug": "bolt_iot",
+  "name": "Bolt Iot",
+  "description": ""
+ },
+ {
+  "slug": "bonsai",
+  "name": "Bonsai",
+  "description": ""
+ },
+ {
+  "slug": "bookingmood",
+  "name": "Bookingmood",
+  "description": ""
+ },
+ {
+  "slug": "booqable",
+  "name": "Booqable",
+  "description": ""
+ },
+ {
+  "slug": "botdog",
+  "name": "Botdog",
+  "description": ""
+ },
+ {
+  "slug": "botmape",
+  "name": "BotMape",
+  "description": ""
+ },
+ {
+  "slug": "botpenguin",
+  "name": "BotPenguin",
+  "description": ""
+ },
+ {
+  "slug": "botpress",
+  "name": "Botpress",
+  "description": ""
+ },
+ {
+  "slug": "botsonic",
+  "name": "Botsonic",
+  "description": ""
+ },
+ {
+  "slug": "botstar",
+  "name": "Botstar",
+  "description": ""
+ },
+ {
+  "slug": "botster",
+  "name": "Botster",
+  "description": ""
+ },
+ {
+  "slug": "bouncer",
+  "name": "Bouncer",
+  "description": ""
+ },
+ {
+  "slug": "bouncify",
+  "name": "Bouncify",
+  "description": ""
+ },
+ {
+  "slug": "box_mcp",
+  "name": "Box MCP",
+  "description": ""
+ },
+ {
+  "slug": "boxhero",
+  "name": "Boxhero",
+  "description": ""
+ },
+ {
+  "slug": "brain_graph",
+  "name": "BrainGraph",
+  "description": ""
+ },
+ {
+  "slug": "braintrust",
+  "name": "Braintrust",
+  "description": ""
+ },
+ {
+  "slug": "brave_search",
+  "name": "Brave Search",
+  "description": ""
+ },
+ {
+  "slug": "braze",
+  "name": "Braze",
+  "description": ""
+ },
+ {
+  "slug": "bread_butter",
+  "name": "Bread & Butter",
+  "description": ""
+ },
+ {
+  "slug": "breathehr",
+  "name": "Breathe HR",
+  "description": ""
+ },
+ {
+  "slug": "breeze",
+  "name": "Breeze",
+  "description": ""
+ },
+ {
+  "slug": "brightdata",
+  "name": "Bright Data",
+  "description": ""
+ },
+ {
+  "slug": "brilliant_directories",
+  "name": "Brilliant Directories",
+  "description": ""
+ },
+ {
+  "slug": "browser_use",
+  "name": "Browser Use",
+  "description": ""
+ },
+ {
+  "slug": "browseract",
+  "name": "BrowserAct",
+  "description": ""
+ },
+ {
+  "slug": "browserbase_mcp",
+  "name": "Browserbase MCP",
+  "description": ""
+ },
+ {
+  "slug": "browserless",
+  "name": "Browserless",
+  "description": ""
+ },
+ {
+  "slug": "bsc_designer",
+  "name": "BSC Designer",
+  "description": ""
+ },
+ {
+  "slug": "btcpay_server",
+  "name": "BTCPay Server",
+  "description": ""
+ },
+ {
+  "slug": "buffer",
+  "name": "Buffer",
+  "description": ""
+ },
+ {
+  "slug": "bug_recorder",
+  "name": "Bug Recorder",
+  "description": ""
+ },
+ {
+  "slug": "bugbug",
+  "name": "Bugbug",
+  "description": ""
+ },
+ {
+  "slug": "bugherd",
+  "name": "Bugherd",
+  "description": ""
+ },
+ {
+  "slug": "bugsnag",
+  "name": "Bugsnag",
+  "description": ""
+ },
+ {
+  "slug": "builder_io",
+  "name": "Builder.io",
+  "description": ""
+ },
+ {
+  "slug": "buildkite",
+  "name": "Buildkite",
+  "description": ""
+ },
+ {
+  "slug": "builtwith",
+  "name": "BuiltWith",
+  "description": ""
+ },
+ {
+  "slug": "bulk_email_checker",
+  "name": "Bulk Email Checker",
+  "description": ""
+ },
+ {
+  "slug": "bulkpublish",
+  "name": "BulkPublish",
+  "description": ""
+ },
+ {
+  "slug": "bunnycdn",
+  "name": "BunnyCDN",
+  "description": ""
+ },
+ {
+  "slug": "byteforms",
+  "name": "Byteforms",
+  "description": ""
+ },
+ {
+  "slug": "byte_plus_ark",
+  "name": "BytePlus Ark",
+  "description": ""
+ },
+ {
+  "slug": "cabinpanda",
+  "name": "Cabinpanda",
+  "description": ""
+ },
+ {
+  "slug": "calendarhero",
+  "name": "CalendarHero",
+  "description": ""
+ },
+ {
+  "slug": "calendly_mcp",
+  "name": "Calendly MCP",
+  "description": ""
+ },
+ {
+  "slug": "callback24",
+  "name": "Callback24",
+  "description": ""
+ },
+ {
+  "slug": "callerapi",
+  "name": "Callerapi",
+  "description": ""
+ },
+ {
+  "slug": "callingly",
+  "name": "Callingly",
+  "description": ""
+ },
+ {
+  "slug": "callonthego",
+  "name": "CallOnTheGo",
+  "description": ""
+ },
+ {
+  "slug": "callpage",
+  "name": "Callpage",
+  "description": ""
+ },
+ {
+  "slug": "camb_ai",
+  "name": "CAMB.AI",
+  "description": ""
+ },
+ {
+  "slug": "campaign_cleaner",
+  "name": "Campaign Cleaner",
+  "description": ""
+ },
+ {
+  "slug": "campayn",
+  "name": "Campayn",
+  "description": ""
+ },
+ {
+  "slug": "candid_mcp",
+  "name": "Candid MCP",
+  "description": ""
+ },
+ {
+  "slug": "canny",
+  "name": "Canny",
+  "description": ""
+ },
+ {
+  "slug": "canva_mcp",
+  "name": "Canva MCP",
+  "description": ""
+ },
+ {
+  "slug": "capsolver",
+  "name": "CapSolver",
+  "description": ""
+ },
+ {
+  "slug": "capsule_crm",
+  "name": "Capsule CRM",
+  "description": ""
+ },
+ {
+  "slug": "captions",
+  "name": "Captions",
+  "description": ""
+ },
+ {
+  "slug": "capturekit",
+  "name": "CaptureKit",
+  "description": ""
+ },
+ {
+  "slug": "carbon_voice_mcp",
+  "name": "Carbon Voice MCP",
+  "description": ""
+ },
+ {
+  "slug": "carbone",
+  "name": "Carbone",
+  "description": ""
+ },
+ {
+  "slug": "cardboard_mcp",
+  "name": "Cardboard MCP",
+  "description": ""
+ },
+ {
+  "slug": "cardclan",
+  "name": "CardClan",
+  "description": ""
+ },
+ {
+  "slug": "cardly",
+  "name": "Cardly",
+  "description": ""
+ },
+ {
+  "slug": "carsxe",
+  "name": "CarsXE",
+  "description": ""
+ },
+ {
+  "slug": "carta",
+  "name": "Carta",
+  "description": ""
+ },
+ {
+  "slug": "cartesia",
+  "name": "Cartesia",
+  "description": ""
+ },
+ {
+  "slug": "cashfree_payments_mcp",
+  "name": "Cashfree MCP",
+  "description": ""
+ },
+ {
+  "slug": "castingwords",
+  "name": "Castingwords",
+  "description": ""
+ },
+ {
+  "slug": "cats",
+  "name": "Cats",
+  "description": ""
+ },
+ {
+  "slug": "cb_insights",
+  "name": "CB Insights",
+  "description": ""
+ },
+ {
+  "slug": "cdr_platform",
+  "name": "Cdr Platform",
+  "description": ""
+ },
+ {
+  "slug": "celigo",
+  "name": "Celigo",
+  "description": ""
+ },
+ {
+  "slug": "census_bureau",
+  "name": "Census Bureau",
+  "description": ""
+ },
+ {
+  "slug": "centralstationcrm",
+  "name": "CentralStationCRM",
+  "description": ""
+ },
+ {
+  "slug": "ceramic",
+  "name": "Ceramic",
+  "description": ""
+ },
+ {
+  "slug": "certifier",
+  "name": "Certifier",
+  "description": ""
+ },
+ {
+  "slug": "cert_seal",
+  "name": "CertSeal",
+  "description": ""
+ },
+ {
+  "slug": "chameleon",
+  "name": "Chameleon",
+  "description": ""
+ },
+ {
+  "slug": "charla",
+  "name": "Charla",
+  "description": ""
+ },
+ {
+  "slug": "chartly",
+  "name": "Chartly",
+  "description": ""
+ },
+ {
+  "slug": "chartmogul",
+  "name": "ChartMogul",
+  "description": ""
+ },
+ {
+  "slug": "chaser",
+  "name": "Chaser",
+  "description": ""
+ },
+ {
+  "slug": "chatbotkit",
+  "name": "Chatbotkit",
+  "description": ""
+ },
+ {
+  "slug": "chatfai",
+  "name": "Chatfai",
+  "description": ""
+ },
+ {
+  "slug": "chatforma",
+  "name": "Chatforma",
+  "description": ""
+ },
+ {
+  "slug": "check_cherry",
+  "name": "Check Cherry",
+  "description": ""
+ },
+ {
+  "slug": "checkflow",
+  "name": "CheckFlow",
+  "description": ""
+ },
+ {
+  "slug": "checkvist",
+  "name": "Checkvist",
+  "description": ""
+ },
+ {
+  "slug": "cincopa",
+  "name": "Cincopa",
+  "description": ""
+ },
+ {
+  "slug": "circleback_mcp",
+  "name": "Circleback MCP",
+  "description": ""
+ },
+ {
+  "slug": "circleci",
+  "name": "CircleCI",
+  "description": ""
+ },
+ {
+  "slug": "claid_ai",
+  "name": "Claid.ai",
+  "description": ""
+ },
+ {
+  "slug": "clarify_mcp",
+  "name": "Clarify MCP",
+  "description": ""
+ },
+ {
+  "slug": "clarity_ai_mcp",
+  "name": "Clarity AI MCP",
+  "description": ""
+ },
+ {
+  "slug": "classmarker",
+  "name": "Classmarker",
+  "description": ""
+ },
+ {
+  "slug": "clay",
+  "name": "Clay",
+  "description": ""
+ },
+ {
+  "slug": "clay_mcp",
+  "name": "Clay MCP",
+  "description": ""
+ },
+ {
+  "slug": "clearout",
+  "name": "Clearout",
+  "description": ""
+ },
+ {
+  "slug": "clerkfield",
+  "name": "Clerkfield",
+  "description": ""
+ },
+ {
+  "slug": "cleverreach",
+  "name": "CleverReach",
+  "description": ""
+ },
+ {
+  "slug": "clickfunnels",
+  "name": "ClickFunnels 2.0",
+  "description": ""
+ },
+ {
+  "slug": "clickhouse",
+  "name": "ClickHouse",
+  "description": ""
+ },
+ {
+  "slug": "clickhouse_mcp",
+  "name": "ClickHouse MCP",
+  "description": ""
+ },
+ {
+  "slug": "clickmeeting",
+  "name": "Clickmeeting",
+  "description": ""
+ },
+ {
+  "slug": "clicksend",
+  "name": "ClickSend",
+  "description": ""
+ },
+ {
+  "slug": "clickup_mcp",
+  "name": "ClickUp MCP",
+  "description": ""
+ },
+ {
+  "slug": "clientary",
+  "name": "Clientary",
+  "description": ""
+ },
+ {
+  "slug": "clio_manage",
+  "name": "Clio Manage",
+  "description": ""
+ },
+ {
+  "slug": "clockify",
+  "name": "Clockify",
+  "description": ""
+ },
+ {
+  "slug": "cloro",
+  "name": "Cloro",
+  "description": ""
+ },
+ {
+  "slug": "close_mcp",
+  "name": "Close MCP",
+  "description": ""
+ },
+ {
+  "slug": "cloud_66",
+  "name": "Cloud 66",
+  "description": ""
+ },
+ {
+  "slug": "cloudcart",
+  "name": "Cloudcart",
+  "description": ""
+ },
+ {
+  "slug": "cloudconvert",
+  "name": "CloudConvert",
+  "description": ""
+ },
+ {
+  "slug": "cloudflare_api_key",
+  "name": "Cloudflare Api Key",
+  "description": ""
+ },
+ {
+  "slug": "cloudflare_browser_rendering",
+  "name": "Cloudflare Browser Rendering",
+  "description": ""
+ },
+ {
+  "slug": "cloudflare_mcp",
+  "name": "Cloudflare MCP",
+  "description": ""
+ },
+ {
+  "slug": "cloudinary",
+  "name": "Cloudinary",
+  "description": ""
+ },
+ {
+  "slug": "cloudlayer",
+  "name": "Cloudlayer",
+  "description": ""
+ },
+ {
+  "slug": "cloud_pdf",
+  "name": "CloudPDF",
+  "description": ""
+ },
+ {
+  "slug": "cloudpress",
+  "name": "Cloudpress",
+  "description": ""
+ },
+ {
+  "slug": "cloudsmith",
+  "name": "Cloudsmith",
+  "description": ""
+ },
+ {
+  "slug": "clover",
+  "name": "Clover",
+  "description": ""
+ },
+ {
+  "slug": "clueso_mcp",
+  "name": "Clueso MCP",
+  "description": ""
+ },
+ {
+  "slug": "coassemble",
+  "name": "Coassemble",
+  "description": ""
+ },
+ {
+  "slug": "codacy",
+  "name": "Codacy",
+  "description": ""
+ },
+ {
+  "slug": "codemagic",
+  "name": "Codemagic",
+  "description": ""
+ },
+ {
+  "slug": "codereadr",
+  "name": "Codereadr",
+  "description": ""
+ },
+ {
+  "slug": "cody",
+  "name": "Cody",
+  "description": ""
+ },
+ {
+  "slug": "cohere",
+  "name": "Cohere",
+  "description": ""
+ },
+ {
+  "slug": "coinbase_agents_mcp",
+  "name": "Coinbase Agents MCP",
+  "description": ""
+ },
+ {
+  "slug": "coinbase_wallet_mcp",
+  "name": "Coinbase Wallet MCP",
+  "description": ""
+ },
+ {
+  "slug": "coingecko",
+  "name": "CoinGecko",
+  "description": ""
+ },
+ {
+  "slug": "coinmarketcap",
+  "name": "CoinMarketCap",
+  "description": ""
+ },
+ {
+  "slug": "coinranking",
+  "name": "Coinranking",
+  "description": ""
+ },
+ {
+  "slug": "college_football_data",
+  "name": "College Football Data",
+  "description": ""
+ },
+ {
+  "slug": "cometapi",
+  "name": "CometAPI",
+  "description": ""
+ },
+ {
+  "slug": "commcare",
+  "name": "CommCare",
+  "description": ""
+ },
+ {
+  "slug": "commerce_layer",
+  "name": "Commerce Layer",
+  "description": ""
+ },
+ {
+  "slug": "common_room_mcp",
+  "name": "Common Room MCP",
+  "description": ""
+ },
+ {
+  "slug": "company_url_finder",
+  "name": "Company URL Finder",
+  "description": ""
+ },
+ {
+  "slug": "companycam",
+  "name": "CompanyCam",
+  "description": ""
+ },
+ {
+  "slug": "companyenrich",
+  "name": "CompanyEnrich",
+  "description": ""
+ },
+ {
+  "slug": "compdf",
+  "name": "ComPDF",
+  "description": ""
+ },
+ {
+  "slug": "conductor",
+  "name": "Conductor",
+  "description": ""
+ },
+ {
+  "slug": "configcat",
+  "name": "ConfigCat",
+  "description": ""
+ },
+ {
+  "slug": "connecteam",
+  "name": "Connecteam",
+  "description": ""
+ },
+ {
+  "slug": "consensus",
+  "name": "Consensus",
+  "description": ""
+ },
+ {
+  "slug": "consensus_mcp",
+  "name": "Consensus MCP",
+  "description": ""
+ },
+ {
+  "slug": "constant_contact",
+  "name": "Constant Contact",
+  "description": ""
+ },
+ {
+  "slug": "contactout",
+  "name": "ContactOut",
+  "description": ""
+ },
+ {
+  "slug": "contacts_plus",
+  "name": "Contacts+",
+  "description": ""
+ },
+ {
+  "slug": "contentdrips",
+  "name": "Contentdrips",
+  "description": ""
+ },
+ {
+  "slug": "contentful_graphql",
+  "name": "Contentful Graphql",
+  "description": ""
+ },
+ {
+  "slug": "contentsquare_mcp",
+  "name": "Contentsquare MCP",
+  "description": ""
+ },
+ {
+  "slug": "content_studio",
+  "name": "ContentStudio",
+  "description": ""
+ },
+ {
+  "slug": "context_dev",
+  "name": "Context.dev",
+  "description": ""
+ },
+ {
+  "slug": "context7_mcp",
+  "name": "Context7 MCP",
+  "description": ""
+ },
+ {
+  "slug": "contractbook",
+  "name": "Contractbook",
+  "description": ""
+ },
+ {
+  "slug": "control_d",
+  "name": "Control D",
+  "description": ""
+ },
+ {
+  "slug": "conversion_tools",
+  "name": "Conversion Tools",
+  "description": ""
+ },
+ {
+  "slug": "convertapi",
+  "name": "Convertapi",
+  "description": ""
+ },
+ {
+  "slug": "convex",
+  "name": "Convex",
+  "description": ""
+ },
+ {
+  "slug": "conveyor",
+  "name": "Conveyor",
+  "description": ""
+ },
+ {
+  "slug": "convolo_ai",
+  "name": "Convolo AI",
+  "description": ""
+ },
+ {
+  "slug": "copper",
+  "name": "Copper",
+  "description": ""
+ },
+ {
+  "slug": "copyleaks",
+  "name": "Copyleaks",
+  "description": ""
+ },
+ {
+  "slug": "coresignal",
+  "name": "Coresignal",
+  "description": ""
+ },
+ {
+  "slug": "corrently",
+  "name": "Corrently",
+  "description": ""
+ },
+ {
+  "slug": "countdown_api",
+  "name": "Countdown API",
+  "description": ""
+ },
+ {
+  "slug": "coupa",
+  "name": "Coupa",
+  "description": ""
+ },
+ {
+  "slug": "cradl_ai",
+  "name": "Cradl AI",
+  "description": ""
+ },
+ {
+  "slug": "craft_mcp",
+  "name": "Craft MCP",
+  "description": ""
+ },
+ {
+  "slug": "craftmypdf",
+  "name": "Craftmypdf",
+  "description": ""
+ },
+ {
+  "slug": "crawl4ai",
+  "name": "Crawl4AI",
+  "description": ""
+ },
+ {
+  "slug": "crawlbase",
+  "name": "Crawlbase",
+  "description": ""
+ },
+ {
+  "slug": "creatomate",
+  "name": "Creatomate",
+  "description": ""
+ },
+ {
+  "slug": "creem",
+  "name": "Creem",
+  "description": ""
+ },
+ {
+  "slug": "crew_ai",
+  "name": "CrewAI",
+  "description": ""
+ },
+ {
+  "slug": "crisp",
+  "name": "Crisp",
+  "description": ""
+ },
+ {
+  "slug": "cronfree_time_scheduler",
+  "name": "Cronfree Time Scheduler",
+  "description": ""
+ },
+ {
+  "slug": "cronly",
+  "name": "Cronly",
+  "description": ""
+ },
+ {
+  "slug": "crowdin",
+  "name": "Crowdin",
+  "description": ""
+ },
+ {
+  "slug": "crowterminal",
+  "name": "CrowTerminal",
+  "description": ""
+ },
+ {
+  "slug": "crunchbase",
+  "name": "Crunchbase",
+  "description": ""
+ },
+ {
+  "slug": "csvbox",
+  "name": "CSVBox",
+  "description": ""
+ },
+ {
+  "slug": "cults",
+  "name": "Cults",
+  "description": ""
+ },
+ {
+  "slug": "curated",
+  "name": "Curated",
+  "description": ""
+ },
+ {
+  "slug": "currencyapi",
+  "name": "Currencyapi",
+  "description": ""
+ },
+ {
+  "slug": "currencyscoop",
+  "name": "CurrencyScoop",
+  "description": ""
+ },
+ {
+  "slug": "currents_api",
+  "name": "Currents API",
+  "description": ""
+ },
+ {
+  "slug": "cursor",
+  "name": "Cursor",
+  "description": ""
+ },
+ {
+  "slug": "customerio",
+  "name": "Customer.io",
+  "description": ""
+ },
+ {
+  "slug": "customerio_mcp",
+  "name": "Customer.io MCP",
+  "description": ""
+ },
+ {
+  "slug": "customgpt",
+  "name": "Customgpt",
+  "description": ""
+ },
+ {
+  "slug": "customjs",
+  "name": "Customjs",
+  "description": ""
+ },
+ {
+  "slug": "cutt_ly",
+  "name": "Cutt.ly",
+  "description": ""
+ },
+ {
+  "slug": "cve_now_mcp",
+  "name": "cve.now MCP",
+  "description": ""
+ },
+ {
+  "slug": "dadata_ru",
+  "name": "DaData.ru",
+  "description": ""
+ },
+ {
+  "slug": "daffy",
+  "name": "Daffy",
+  "description": ""
+ },
+ {
+  "slug": "daily",
+  "name": "Daily",
+  "description": ""
+ },
+ {
+  "slug": "dart",
+  "name": "Dart",
+  "description": ""
+ },
+ {
+  "slug": "data247",
+  "name": "Data247",
+  "description": ""
+ },
+ {
+  "slug": "databox",
+  "name": "Databox",
+  "description": ""
+ },
+ {
+  "slug": "databricks",
+  "name": "Databricks",
+  "description": ""
+ },
+ {
+  "slug": "datadog_mcp",
+  "name": "Datadog MCP",
+  "description": ""
+ },
+ {
+  "slug": "dataforb2b",
+  "name": "DataForB2B",
+  "description": ""
+ },
+ {
+  "slug": "dataforseo",
+  "name": "DataForSEO",
+  "description": ""
+ },
+ {
+  "slug": "datascope",
+  "name": "Datascope",
+  "description": ""
+ },
+ {
+  "slug": "daytona",
+  "name": "Daytona",
+  "description": ""
+ },
+ {
+  "slug": "dbt_cloud",
+  "name": "dbt Cloud",
+  "description": ""
+ },
+ {
+  "slug": "deadline_funnel",
+  "name": "Deadline Funnel",
+  "description": ""
+ },
+ {
+  "slug": "debitura",
+  "name": "Debitura",
+  "description": ""
+ },
+ {
+  "slug": "debounce",
+  "name": "DeBounce",
+  "description": ""
+ },
+ {
+  "slug": "deepgram",
+  "name": "Deepgram",
+  "description": ""
+ },
+ {
+  "slug": "deepimage",
+  "name": "DeepImage",
+  "description": ""
+ },
+ {
+  "slug": "deepl_mcp",
+  "name": "DeepL MCP",
+  "description": ""
+ },
+ {
+  "slug": "deepseek",
+  "name": "DeepSeek",
+  "description": ""
+ },
+ {
+  "slug": "deepwiki_mcp",
+  "name": "DeepWiki MCP",
+  "description": ""
+ },
+ {
+  "slug": "delighted",
+  "name": "Delighted",
+  "description": ""
+ },
+ {
+  "slug": "deployhq",
+  "name": "DeployHQ",
+  "description": ""
+ },
+ {
+  "slug": "deputy",
+  "name": "Deputy",
+  "description": ""
+ },
+ {
+  "slug": "descope",
+  "name": "Descope",
+  "description": ""
+ },
+ {
+  "slug": "descript_mcp",
+  "name": "Descript MCP",
+  "description": ""
+ },
+ {
+  "slug": "desktime",
+  "name": "DeskTime",
+  "description": ""
+ },
+ {
+  "slug": "details_mcp",
+  "name": "Details MCP",
+  "description": ""
+ },
+ {
+  "slug": "detrack",
+  "name": "Detrack",
+  "description": ""
+ },
+ {
+  "slug": "devto",
+  "name": "DEV Community",
+  "description": ""
+ },
+ {
+  "slug": "dev_cycle",
+  "name": "DevCycle",
+  "description": ""
+ },
+ {
+  "slug": "devin_mcp",
+  "name": "Devin MCP",
+  "description": ""
+ },
+ {
+  "slug": "devolens",
+  "name": "Devolens / Cryptolens",
+  "description": ""
+ },
+ {
+  "slug": "dialmycalls",
+  "name": "Dialmycalls",
+  "description": ""
+ },
+ {
+  "slug": "dice_mcp",
+  "name": "Dice MCP",
+  "description": ""
+ },
+ {
+  "slug": "dictionary_api",
+  "name": "Dictionary Api",
+  "description": ""
+ },
+ {
+  "slug": "didit",
+  "name": "Didit",
+  "description": ""
+ },
+ {
+  "slug": "diffbot",
+  "name": "Diffbot",
+  "description": ""
+ },
+ {
+  "slug": "dify",
+  "name": "Dify",
+  "description": ""
+ },
+ {
+  "slug": "digital_humani",
+  "name": "Digital Humani",
+  "description": ""
+ },
+ {
+  "slug": "digital_ocean",
+  "name": "DigitalOcean",
+  "description": ""
+ },
+ {
+  "slug": "directiq",
+  "name": "DirectIQ",
+  "description": ""
+ },
+ {
+  "slug": "disqus",
+  "name": "Disqus",
+  "description": ""
+ },
+ {
+  "slug": "dnsfilter",
+  "name": "Dnsfilter",
+  "description": ""
+ },
+ {
+  "slug": "dock_certs",
+  "name": "Dock Certs",
+  "description": ""
+ },
+ {
+  "slug": "docker_hub",
+  "name": "Docker Hub",
+  "description": ""
+ },
+ {
+  "slug": "docnify",
+  "name": "Docnify",
+  "description": ""
+ },
+ {
+  "slug": "docparser",
+  "name": "Docparser",
+  "description": ""
+ },
+ {
+  "slug": "docraptor",
+  "name": "DocRaptor",
+  "description": ""
+ },
+ {
+  "slug": "docsautomator",
+  "name": "Docsautomator",
+  "description": ""
+ },
+ {
+  "slug": "docsbot_ai",
+  "name": "DocsBot AI",
+  "description": ""
+ },
+ {
+  "slug": "docsumo",
+  "name": "Docsumo",
+  "description": ""
+ },
+ {
+  "slug": "docugenerate",
+  "name": "DocuGenerate",
+  "description": ""
+ },
+ {
+  "slug": "documenso",
+  "name": "Documenso",
+  "description": ""
+ },
+ {
+  "slug": "documentero",
+  "name": "Documentero",
+  "description": ""
+ },
+ {
+  "slug": "documint",
+  "name": "Documint",
+  "description": ""
+ },
+ {
+  "slug": "docupilot",
+  "name": "Docupilot",
+  "description": ""
+ },
+ {
+  "slug": "docupipe",
+  "name": "DocuPipe",
+  "description": ""
+ },
+ {
+  "slug": "docupost",
+  "name": "DocuPost",
+  "description": ""
+ },
+ {
+  "slug": "docupotion",
+  "name": "DocuPotion",
+  "description": ""
+ },
+ {
+  "slug": "docuseal",
+  "name": "DocuSeal",
+  "description": ""
+ },
+ {
+  "slug": "domotz_mcp",
+  "name": "Domotz MCP",
+  "description": ""
+ },
+ {
+  "slug": "donately",
+  "name": "Donately",
+  "description": ""
+ },
+ {
+  "slug": "doppler",
+  "name": "Doppler",
+  "description": ""
+ },
+ {
+  "slug": "doppler_marketing_automation",
+  "name": "Doppler Marketing Automation",
+  "description": ""
+ },
+ {
+  "slug": "doppler_secretops",
+  "name": "Doppler SecretOps",
+  "description": ""
+ },
+ {
+  "slug": "dotsimple",
+  "name": "Dotsimple",
+  "description": ""
+ },
+ {
+  "slug": "dovetail",
+  "name": "Dovetail",
+  "description": ""
+ },
+ {
+  "slug": "dpd2",
+  "name": "Dpd2",
+  "description": ""
+ },
+ {
+  "slug": "draftable",
+  "name": "Draftable",
+  "description": ""
+ },
+ {
+  "slug": "dreamstudio",
+  "name": "Dreamstudio",
+  "description": ""
+ },
+ {
+  "slug": "dribbble",
+  "name": "Dribbble",
+  "description": ""
+ },
+ {
+  "slug": "dripcel",
+  "name": "Dripcel",
+  "description": ""
+ },
+ {
+  "slug": "dromo",
+  "name": "Dromo",
+  "description": ""
+ },
+ {
+  "slug": "drop_to_cdn",
+  "name": "Drop to CDN",
+  "description": ""
+ },
+ {
+  "slug": "dropcontact",
+  "name": "Dropcontact",
+  "description": ""
+ },
+ {
+  "slug": "dropleads",
+  "name": "Dropleads",
+  "description": ""
+ },
+ {
+  "slug": "dub",
+  "name": "Dub",
+  "description": ""
+ },
+ {
+  "slug": "dungeon_fighter_online",
+  "name": "Dungeon Fighter Online",
+  "description": ""
+ },
+ {
+  "slug": "dynamic_mockups",
+  "name": "Dynamic Mockups",
+  "description": ""
+ },
+ {
+  "slug": "dynapictures",
+  "name": "Dynapictures",
+  "description": ""
+ },
+ {
+  "slug": "dynatrace",
+  "name": "Dynatrace",
+  "description": ""
+ },
+ {
+  "slug": "dynosend",
+  "name": "Dynosend",
+  "description": ""
+ },
+ {
+  "slug": "e2b",
+  "name": "E2B",
+  "description": ""
+ },
+ {
+  "slug": "eagle_doc",
+  "name": "Eagle doc",
+  "description": ""
+ },
+ {
+  "slug": "easy_email_verification",
+  "name": "Easy Email Verification",
+  "description": ""
+ },
+ {
+  "slug": "ebay",
+  "name": "eBay",
+  "description": ""
+ },
+ {
+  "slug": "ecologi",
+  "name": "Ecologi",
+  "description": ""
+ },
+ {
+  "slug": "eden_ai",
+  "name": "Eden AI",
+  "description": ""
+ },
+ {
+  "slug": "edworking",
+  "name": "Edworking",
+  "description": ""
+ },
+ {
+  "slug": "egnyte",
+  "name": "Egnyte",
+  "description": ""
+ },
+ {
+  "slug": "elai",
+  "name": "Elai",
+  "description": ""
+ },
+ {
+  "slug": "elastic_email",
+  "name": "Elastic Email",
+  "description": ""
+ },
+ {
+  "slug": "elasticsearch",
+  "name": "Elasticsearch",
+  "description": ""
+ },
+ {
+  "slug": "electricity_maps",
+  "name": "Electricity Maps",
+  "description": ""
+ },
+ {
+  "slug": "eledo",
+  "name": "Eledo PDF",
+  "description": ""
+ },
+ {
+  "slug": "elevenreader",
+  "name": "Elevenreader",
+  "description": ""
+ },
+ {
+  "slug": "elorus",
+  "name": "Elorus",
+  "description": ""
+ },
+ {
+  "slug": "emailable",
+  "name": "Emailable",
+  "description": ""
+ },
+ {
+  "slug": "emaillistverify",
+  "name": "Emaillistverify",
+  "description": ""
+ },
+ {
+  "slug": "emailoctopus",
+  "name": "EmailOctopus",
+  "description": ""
+ },
+ {
+  "slug": "emailvalidation",
+  "name": "Emailvalidation",
+  "description": ""
+ },
+ {
+  "slug": "emelia",
+  "name": "Emelia",
+  "description": ""
+ },
+ {
+  "slug": "encodian",
+  "name": "Encodian",
+  "description": ""
+ },
+ {
+  "slug": "endorsal",
+  "name": "Endorsal",
+  "description": ""
+ },
+ {
+  "slug": "enforcedflow",
+  "name": "EnforcedFlow",
+  "description": ""
+ },
+ {
+  "slug": "engage",
+  "name": "Engage",
+  "description": ""
+ },
+ {
+  "slug": "engage_platform",
+  "name": "Engage Platform",
+  "description": ""
+ },
+ {
+  "slug": "enginemailer",
+  "name": "Enginemailer",
+  "description": ""
+ },
+ {
+  "slug": "enigma",
+  "name": "Enigma",
+  "description": ""
+ },
+ {
+  "slug": "enrich",
+  "name": "Enrich",
+  "description": ""
+ },
+ {
+  "slug": "enrich_layer",
+  "name": "Enrich Layer",
+  "description": ""
+ },
+ {
+  "slug": "eodhd_apis",
+  "name": "EODHD APIs",
+  "description": ""
+ },
+ {
+  "slug": "era_context_mcp",
+  "name": "Era Context MCP",
+  "description": ""
+ },
+ {
+  "slug": "eranol",
+  "name": "Eranol",
+  "description": ""
+ },
+ {
+  "slug": "eraser_mcp",
+  "name": "Eraser MCP",
+  "description": ""
+ },
+ {
+  "slug": "erpnext",
+  "name": "Erpnext",
+  "description": ""
+ },
+ {
+  "slug": "esignatures",
+  "name": "eSignatures",
+  "description": ""
+ },
+ {
+  "slug": "esignatures_io",
+  "name": "eSignatures.io",
+  "description": ""
+ },
+ {
+  "slug": "espocrm",
+  "name": "Espocrm",
+  "description": ""
+ },
+ {
+  "slug": "esputnik",
+  "name": "Esputnik",
+  "description": ""
+ },
+ {
+  "slug": "etermin",
+  "name": "Etermin",
+  "description": ""
+ },
+ {
+  "slug": "etherscan",
+  "name": "Etherscan",
+  "description": ""
+ },
+ {
+  "slug": "evenium",
+  "name": "Evenium",
+  "description": ""
+ },
+ {
+  "slug": "eventee",
+  "name": "Eventee",
+  "description": ""
+ },
+ {
+  "slug": "eventzilla",
+  "name": "Eventzilla",
+  "description": ""
+ },
+ {
+  "slug": "everhour",
+  "name": "Everhour",
+  "description": ""
+ },
+ {
+  "slug": "eversign",
+  "name": "Eversign",
+  "description": ""
+ },
+ {
+  "slug": "excalidraw_mcp",
+  "name": "Excalidraw MCP",
+  "description": ""
+ },
+ {
+  "slug": "excel",
+  "name": "Excel",
+  "description": ""
+ },
+ {
+  "slug": "exceptionless",
+  "name": "Exceptionless",
+  "description": ""
+ },
+ {
+  "slug": "explorium",
+  "name": "Explorium",
+  "description": ""
+ },
+ {
+  "slug": "explorium_mcp",
+  "name": "Explorium MCP",
+  "description": ""
+ },
+ {
+  "slug": "expofp",
+  "name": "Expofp",
+  "description": ""
+ },
+ {
+  "slug": "extracta_ai",
+  "name": "Extracta.ai",
+  "description": ""
+ },
+ {
+  "slug": "extrovert",
+  "name": "Extrovert",
+  "description": ""
+ },
+ {
+  "slug": "faceup",
+  "name": "Faceup",
+  "description": ""
+ },
+ {
+  "slug": "fairing",
+  "name": "Fairing",
+  "description": ""
+ },
+ {
+  "slug": "fal_ai",
+  "name": "Fal.ai",
+  "description": ""
+ },
+ {
+  "slug": "faraday",
+  "name": "Faraday",
+  "description": ""
+ },
+ {
+  "slug": "fathom",
+  "name": "Fathom",
+  "description": ""
+ },
+ {
+  "slug": "feathery",
+  "name": "Feathery",
+  "description": ""
+ },
+ {
+  "slug": "feedbear",
+  "name": "FeedBear",
+  "description": ""
+ },
+ {
+  "slug": "fellow_ai_mcp",
+  "name": "Fellow.ai MCP",
+  "description": ""
+ },
+ {
+  "slug": "felt",
+  "name": "Felt",
+  "description": ""
+ },
+ {
+  "slug": "fiber",
+  "name": "Fiber",
+  "description": ""
+ },
+ {
+  "slug": "fibery",
+  "name": "Fibery",
+  "description": ""
+ },
+ {
+  "slug": "fidel_api",
+  "name": "Fidel API",
+  "description": ""
+ },
+ {
+  "slug": "files_com",
+  "name": "Files.com",
+  "description": ""
+ },
+ {
+  "slug": "filetopdf",
+  "name": "FileToPDF.dev",
+  "description": ""
+ },
+ {
+  "slug": "fillout_forms",
+  "name": "Fillout Forms",
+  "description": ""
+ },
+ {
+  "slug": "financial_datasets_ai",
+  "name": "Financial Datasets",
+  "description": ""
+ },
+ {
+  "slug": "financial_datasets_ai_mcp",
+  "name": "Financial Datasets AI MCP",
+  "description": ""
+ },
+ {
+  "slug": "findymail",
+  "name": "Findymail",
+  "description": ""
+ },
+ {
+  "slug": "finerworks",
+  "name": "Finerworks",
+  "description": ""
+ },
+ {
+  "slug": "fingertip",
+  "name": "Fingertip",
+  "description": ""
+ },
+ {
+  "slug": "finlight",
+  "name": "Finlight",
+  "description": ""
+ },
+ {
+  "slug": "finmei",
+  "name": "Finmei",
+  "description": ""
+ },
+ {
+  "slug": "finmo",
+  "name": "Finmo",
+  "description": ""
+ },
+ {
+  "slug": "finnhub",
+  "name": "Finnhub",
+  "description": ""
+ },
+ {
+  "slug": "finviz",
+  "name": "Finviz",
+  "description": ""
+ },
+ {
+  "slug": "firebase",
+  "name": "Firebase",
+  "description": ""
+ },
+ {
+  "slug": "fireberry",
+  "name": "Fireberry",
+  "description": ""
+ },
+ {
+  "slug": "fireworks_ai",
+  "name": "Fireworks AI",
+  "description": ""
+ },
+ {
+  "slug": "firmable",
+  "name": "Firmable",
+  "description": ""
+ },
+ {
+  "slug": "firmao",
+  "name": "Firmao",
+  "description": ""
+ },
+ {
+  "slug": "fish_audio",
+  "name": "Fish Audio",
+  "description": ""
+ },
+ {
+  "slug": "fixer",
+  "name": "Fixer",
+  "description": ""
+ },
+ {
+  "slug": "fixer_io",
+  "name": "Fixer.io",
+  "description": ""
+ },
+ {
+  "slug": "flatfile",
+  "name": "Flatfile",
+  "description": ""
+ },
+ {
+  "slug": "fleetio",
+  "name": "Fleetio",
+  "description": ""
+ },
+ {
+  "slug": "flexisign",
+  "name": "Flexisign",
+  "description": ""
+ },
+ {
+  "slug": "float",
+  "name": "Float",
+  "description": ""
+ },
+ {
+  "slug": "flotiq",
+  "name": "Flotiq",
+  "description": ""
+ },
+ {
+  "slug": "flowiseai",
+  "name": "Flowiseai",
+  "description": ""
+ },
+ {
+  "slug": "fluxguard",
+  "name": "Fluxguard",
+  "description": ""
+ },
+ {
+  "slug": "fly",
+  "name": "Fly",
+  "description": ""
+ },
+ {
+  "slug": "folk",
+  "name": "Folk",
+  "description": ""
+ },
+ {
+  "slug": "follow_up_boss",
+  "name": "Follow Up Boss",
+  "description": ""
+ },
+ {
+  "slug": "forcemanager",
+  "name": "Forcemanager",
+  "description": ""
+ },
+ {
+  "slug": "formbricks",
+  "name": "Formbricks",
+  "description": ""
+ },
+ {
+  "slug": "formcrafts",
+  "name": "Formcrafts",
+  "description": ""
+ },
+ {
+  "slug": "formdesk",
+  "name": "Formdesk",
+  "description": ""
+ },
+ {
+  "slug": "formilla",
+  "name": "Formilla",
+  "description": ""
+ },
+ {
+  "slug": "frame_io_v4",
+  "name": "Frame.io V4",
+  "description": ""
+ },
+ {
+  "slug": "framer",
+  "name": "Framer",
+  "description": ""
+ },
+ {
+  "slug": "fraudlabs_pro",
+  "name": "FraudLabs Pro",
+  "description": ""
+ },
+ {
+  "slug": "freeagent",
+  "name": "Freeagent",
+  "description": ""
+ },
+ {
+  "slug": "freee",
+  "name": "freee",
+  "description": ""
+ },
+ {
+  "slug": "freshsales",
+  "name": "Freshsales",
+  "description": ""
+ },
+ {
+  "slug": "freshservice",
+  "name": "Freshservice",
+  "description": ""
+ },
+ {
+  "slug": "fullenrich",
+  "name": "FullEnrich",
+  "description": ""
+ },
+ {
+  "slug": "fullstory",
+  "name": "FullStory",
+  "description": ""
+ },
+ {
+  "slug": "fuseai",
+  "name": "FuseAI",
+  "description": ""
+ },
+ {
+  "slug": "fuseai_mcp",
+  "name": "FuseAI MCP",
+  "description": ""
+ },
+ {
+  "slug": "fusedesk",
+  "name": "FuseDesk",
+  "description": ""
+ },
+ {
+  "slug": "futureagi",
+  "name": "FutureAGI",
+  "description": ""
+ },
+ {
+  "slug": "fynk",
+  "name": "fynk",
+  "description": ""
+ },
+ {
+  "slug": "gagelist",
+  "name": "Gagelist",
+  "description": ""
+ },
+ {
+  "slug": "gamma",
+  "name": "Gamma",
+  "description": ""
+ },
+ {
+  "slug": "gan_ai",
+  "name": "Gan.AI",
+  "description": ""
+ },
+ {
+  "slug": "gatherup",
+  "name": "Gatherup",
+  "description": ""
+ },
+ {
+  "slug": "geekflare",
+  "name": "Geekflare",
+  "description": ""
+ },
+ {
+  "slug": "gelato",
+  "name": "Gelato",
+  "description": ""
+ },
+ {
+  "slug": "gemini",
+  "name": "Gemini",
+  "description": ""
+ },
+ {
+  "slug": "gender_api",
+  "name": "Gender API",
+  "description": ""
+ },
+ {
+  "slug": "genderapi_io",
+  "name": "GenderAPI.io",
+  "description": ""
+ },
+ {
+  "slug": "genderize",
+  "name": "Genderize",
+  "description": ""
+ },
+ {
+  "slug": "geoapify",
+  "name": "Geoapify",
+  "description": ""
+ },
+ {
+  "slug": "geocodio",
+  "name": "Geocodio",
+  "description": ""
+ },
+ {
+  "slug": "geokeo",
+  "name": "Geokeo",
+  "description": ""
+ },
+ {
+  "slug": "getanyapi",
+  "name": "GetAnyAPI",
+  "description": ""
+ },
+ {
+  "slug": "getform",
+  "name": "Getform",
+  "description": ""
+ },
+ {
+  "slug": "getprospect",
+  "name": "Getprospect",
+  "description": ""
+ },
+ {
+  "slug": "getresponse",
+  "name": "GetResponse",
+  "description": ""
+ },
+ {
+  "slug": "get_transcribe",
+  "name": "GetTranscribe",
+  "description": ""
+ },
+ {
+  "slug": "gift_up",
+  "name": "Gift Up!",
+  "description": ""
+ },
+ {
+  "slug": "gigasheet",
+  "name": "Gigasheet",
+  "description": ""
+ },
+ {
+  "slug": "giphy",
+  "name": "Giphy",
+  "description": ""
+ },
+ {
+  "slug": "gist",
+  "name": "Gist",
+  "description": ""
+ },
+ {
+  "slug": "gitea",
+  "name": "Gitea",
+  "description": ""
+ },
+ {
+  "slug": "github_mcp",
+  "name": "GitHub MCP",
+  "description": ""
+ },
+ {
+  "slug": "gitlab",
+  "name": "GitLab",
+  "description": ""
+ },
+ {
+  "slug": "givebutter",
+  "name": "Givebutter",
+  "description": ""
+ },
+ {
+  "slug": "gladia",
+  "name": "Gladia",
+  "description": ""
+ },
+ {
+  "slug": "glasp",
+  "name": "Glasp",
+  "description": ""
+ },
+ {
+  "slug": "gleap",
+  "name": "Gleap",
+  "description": ""
+ },
+ {
+  "slug": "gleif",
+  "name": "GLEIF API",
+  "description": ""
+ },
+ {
+  "slug": "glen_mcp",
+  "name": "Glen MCP",
+  "description": ""
+ },
+ {
+  "slug": "glide_mcp",
+  "name": "Glide MCP",
+  "description": ""
+ },
+ {
+  "slug": "globalping",
+  "name": "Globalping",
+  "description": ""
+ },
+ {
+  "slug": "gocardless_mcp",
+  "name": "GoCardless MCP",
+  "description": ""
+ },
+ {
+  "slug": "godaddy_mcp",
+  "name": "GoDaddy MCP",
+  "description": ""
+ },
+ {
+  "slug": "godial",
+  "name": "Godial",
+  "description": ""
+ },
+ {
+  "slug": "gofile",
+  "name": "GoFile",
+  "description": ""
+ },
+ {
+  "slug": "goodapi_plant_trees",
+  "name": "GoodAPI: Plant Trees",
+  "description": ""
+ },
+ {
+  "slug": "goodbits",
+  "name": "Goodbits",
+  "description": ""
+ },
+ {
+  "slug": "goody",
+  "name": "Goody",
+  "description": ""
+ },
+ {
+  "slug": "google_address_validation",
+  "name": "Google Address Validation",
+  "description": ""
+ },
+ {
+  "slug": "google_admin",
+  "name": "Google Admin",
+  "description": ""
+ },
+ {
+  "slug": "google_adsense",
+  "name": "Google AdSense",
+  "description": ""
+ },
+ {
+  "slug": "google_business_profile",
+  "name": "Google Business Profile",
+  "description": ""
+ },
+ {
+  "slug": "google_chat",
+  "name": "Google Chat",
+  "description": ""
+ },
+ {
+  "slug": "google_classroom",
+  "name": "Google Classroom",
+  "description": ""
+ },
+ {
+  "slug": "google_cloud_vision",
+  "name": "Google Cloud Vision",
+  "description": ""
+ },
+ {
+  "slug": "google_data_studio",
+  "name": "Google Data Studio",
+  "description": ""
+ },
+ {
+  "slug": "google_merchant",
+  "name": "Google Merchant Center",
+  "description": ""
+ },
+ {
+  "slug": "google_search_console",
+  "name": "Google Search Console",
+  "description": ""
+ },
+ {
+  "slug": "googleslides",
+  "name": "Google Slides",
+  "description": ""
+ },
+ {
+  "slug": "google_stitch",
+  "name": "Google Stitch",
+  "description": ""
+ },
+ {
+  "slug": "googlecontacts",
+  "name": "Googlecontacts",
+  "description": ""
+ },
+ {
+  "slug": "googleforms",
+  "name": "Googleforms",
+  "description": ""
+ },
+ {
+  "slug": "gorilladesk",
+  "name": "GorillaDesk",
+  "description": ""
+ },
+ {
+  "slug": "gosquared",
+  "name": "Gosquared",
+  "description": ""
+ },
+ {
+  "slug": "go_table",
+  "name": "GoTable",
+  "description": ""
+ },
+ {
+  "slug": "go_to_training",
+  "name": "GoTo Training",
+  "description": ""
+ },
+ {
+  "slug": "gptbots",
+  "name": "GPTBots",
+  "description": ""
+ },
+ {
+  "slug": "gradium",
+  "name": "Gradium",
+  "description": ""
+ },
+ {
+  "slug": "grafana",
+  "name": "Grafana",
+  "description": ""
+ },
+ {
+  "slug": "grafana_cloud_mcp",
+  "name": "Grafana Cloud MCP",
+  "description": ""
+ },
+ {
+  "slug": "grafbase",
+  "name": "Grafbase",
+  "description": ""
+ },
+ {
+  "slug": "grain",
+  "name": "Grain",
+  "description": ""
+ },
+ {
+  "slug": "granola_mcp",
+  "name": "Granola MCP",
+  "description": ""
+ },
+ {
+  "slug": "granted_mcp",
+  "name": "Granted MCP",
+  "description": ""
+ },
+ {
+  "slug": "graphhopper",
+  "name": "GraphHopper",
+  "description": ""
+ },
+ {
+  "slug": "greenhouse",
+  "name": "Greenhouse",
+  "description": ""
+ },
+ {
+  "slug": "greptile_mcp",
+  "name": "Greptile MCP",
+  "description": ""
+ },
+ {
+  "slug": "greynoise",
+  "name": "GreyNoise",
+  "description": ""
+ },
+ {
+  "slug": "griptape",
+  "name": "Griptape",
+  "description": ""
+ },
+ {
+  "slug": "grist",
+  "name": "Grist",
+  "description": ""
+ },
+ {
+  "slug": "grok",
+  "name": "Grok",
+  "description": ""
+ },
+ {
+  "slug": "groqcloud",
+  "name": "GroqCloud",
+  "description": ""
+ },
+ {
+  "slug": "gtmetrix",
+  "name": "GTmetrix",
+  "description": ""
+ },
+ {
+  "slug": "gusto",
+  "name": "Gusto",
+  "description": ""
+ },
+ {
+  "slug": "habitica",
+  "name": "Habitica",
+  "description": ""
+ },
+ {
+  "slug": "hackmd",
+  "name": "HackMD",
+  "description": ""
+ },
+ {
+  "slug": "halopsa",
+  "name": "HaloPSA",
+  "description": ""
+ },
+ {
+  "slug": "handwrite",
+  "name": "Handwrite.io",
+  "description": ""
+ },
+ {
+  "slug": "handwrytten",
+  "name": "Handwrytten",
+  "description": ""
+ },
+ {
+  "slug": "happy_scribe",
+  "name": "Happy Scribe",
+  "description": ""
+ },
+ {
+  "slug": "harmonic",
+  "name": "Harmonic",
+  "description": ""
+ },
+ {
+  "slug": "harness",
+  "name": "Harness",
+  "description": ""
+ },
+ {
+  "slug": "harvestapi",
+  "name": "HarvestAPI",
+  "description": ""
+ },
+ {
+  "slug": "harvey",
+  "name": "Harvey",
+  "description": ""
+ },
+ {
+  "slug": "hashnode",
+  "name": "Hashnode",
+  "description": ""
+ },
+ {
+  "slug": "headout",
+  "name": "Headout",
+  "description": ""
+ },
+ {
+  "slug": "heartbeat",
+  "name": "Heartbeat",
+  "description": ""
+ },
+ {
+  "slug": "heights_platform",
+  "name": "Heights Platform",
+  "description": ""
+ },
+ {
+  "slug": "helloleads",
+  "name": "Helloleads",
+  "description": ""
+ },
+ {
+  "slug": "hello_tracks",
+  "name": "HelloTracks",
+  "description": ""
+ },
+ {
+  "slug": "help_scout",
+  "name": "Help Scout",
+  "description": ""
+ },
+ {
+  "slug": "helpdesk",
+  "name": "Helpdesk",
+  "description": ""
+ },
+ {
+  "slug": "help_spot",
+  "name": "HelpSpot",
+  "description": ""
+ },
+ {
+  "slug": "helpwise",
+  "name": "Helpwise",
+  "description": ""
+ },
+ {
+  "slug": "here",
+  "name": "HERE",
+  "description": ""
+ },
+ {
+  "slug": "hex",
+  "name": "Hex",
+  "description": ""
+ },
+ {
+  "slug": "heyreach",
+  "name": "Heyreach",
+  "description": ""
+ },
+ {
+  "slug": "heyy",
+  "name": "Heyy",
+  "description": ""
+ },
+ {
+  "slug": "heyzine",
+  "name": "Heyzine",
+  "description": ""
+ },
+ {
+  "slug": "hibob",
+  "name": "HiBob",
+  "description": ""
+ },
+ {
+  "slug": "higgsfield",
+  "name": "Higgsfield",
+  "description": ""
+ },
+ {
+  "slug": "higgsfield_mcp",
+  "name": "Higgsfield MCP",
+  "description": ""
+ },
+ {
+  "slug": "highergov",
+  "name": "Highergov",
+  "description": ""
+ },
+ {
+  "slug": "highlevel_agency",
+  "name": "HighLevel Agency",
+  "description": ""
+ },
+ {
+  "slug": "highlevel_location",
+  "name": "HighLevel Location",
+  "description": ""
+ },
+ {
+  "slug": "highlevel_mcp",
+  "name": "HighLevel MCP",
+  "description": ""
+ },
+ {
+  "slug": "hireflix",
+  "name": "Hireflix",
+  "description": ""
+ },
+ {
+  "slug": "hitpay",
+  "name": "HitPay",
+  "description": ""
+ },
+ {
+  "slug": "hive",
+  "name": "Hive",
+  "description": ""
+ },
+ {
+  "slug": "hjarni",
+  "name": "Hjarni",
+  "description": ""
+ },
+ {
+  "slug": "hlr_lookup",
+  "name": "HLR Lookup",
+  "description": ""
+ },
+ {
+  "slug": "holded",
+  "name": "Holded",
+  "description": ""
+ },
+ {
+  "slug": "honcho",
+  "name": "Honcho",
+  "description": ""
+ },
+ {
+  "slug": "honeybadger",
+  "name": "Honeybadger",
+  "description": ""
+ },
+ {
+  "slug": "honeycomb_mcp",
+  "name": "Honeycomb MCP",
+  "description": ""
+ },
+ {
+  "slug": "honeyhive",
+  "name": "Honeyhive",
+  "description": ""
+ },
+ {
+  "slug": "hookdeck",
+  "name": "Hookdeck",
+  "description": ""
+ },
+ {
+  "slug": "hostinger",
+  "name": "Hostinger",
+  "description": ""
+ },
+ {
+  "slug": "hotspotsystem",
+  "name": "Hotspotsystem",
+  "description": ""
+ },
+ {
+  "slug": "housecall_pro",
+  "name": "Housecall Pro",
+  "description": ""
+ },
+ {
+  "slug": "hr_partner",
+  "name": "HR Partner",
+  "description": ""
+ },
+ {
+  "slug": "html_to_image",
+  "name": "HTML to Image",
+  "description": ""
+ },
+ {
+  "slug": "htmlcss_to_image",
+  "name": "HTML/CSS to Image",
+  "description": ""
+ },
+ {
+  "slug": "hub_planner",
+  "name": "Hub Planner",
+  "description": ""
+ },
+ {
+  "slug": "hugging_face",
+  "name": "Hugging Face",
+  "description": ""
+ },
+ {
+  "slug": "hitl",
+  "name": "Human Approval - HITL Platform",
+  "description": ""
+ },
+ {
+  "slug": "humanitix",
+  "name": "Humanitix",
+  "description": ""
+ },
+ {
+  "slug": "hunter",
+  "name": "Hunter",
+  "description": ""
+ },
+ {
+  "slug": "hydradb",
+  "name": "HydraDB",
+  "description": ""
+ },
+ {
+  "slug": "hypeauditor",
+  "name": "Hypeauditor",
+  "description": ""
+ },
+ {
+  "slug": "hyperbrowser",
+  "name": "Hyperbrowser",
+  "description": ""
+ },
+ {
+  "slug": "hyperise",
+  "name": "Hyperise",
+  "description": ""
+ },
+ {
+  "slug": "hypotize",
+  "name": "Hypotize",
+  "description": ""
+ },
+ {
+  "slug": "hystruct",
+  "name": "Hystruct",
+  "description": ""
+ },
+ {
+  "slug": "ibm_x_force_exchange",
+  "name": "IBM X-Force Exchange",
+  "description": ""
+ },
+ {
+  "slug": "icons8",
+  "name": "Icons8",
+  "description": ""
+ },
+ {
+  "slug": "icypeas",
+  "name": "Icypeas",
+  "description": ""
+ },
+ {
+  "slug": "idealpostcodes",
+  "name": "Ideal Postcodes",
+  "description": ""
+ },
+ {
+  "slug": "identitycheck",
+  "name": "Identitycheck",
+  "description": ""
+ },
+ {
+  "slug": "ignav_flights",
+  "name": "Ignav Flights",
+  "description": ""
+ },
+ {
+  "slug": "ignav_flights_mcp",
+  "name": "Ignav Flights MCP",
+  "description": ""
+ },
+ {
+  "slug": "ignisign",
+  "name": "Ignisign",
+  "description": ""
+ },
+ {
+  "slug": "ilert",
+  "name": "iLert",
+  "description": ""
+ },
+ {
+  "slug": "i_love_pdf",
+  "name": "iLovePDF",
+  "description": ""
+ },
+ {
+  "slug": "imagekit_io",
+  "name": "ImageKit",
+  "description": ""
+ },
+ {
+  "slug": "imagerouter",
+  "name": "ImageRouter",
+  "description": ""
+ },
+ {
+  "slug": "imagior",
+  "name": "Imagior",
+  "description": ""
+ },
+ {
+  "slug": "imejis_io",
+  "name": "Imejis.io",
+  "description": ""
+ },
+ {
+  "slug": "imgbb",
+  "name": "ImgBB",
+  "description": ""
+ },
+ {
+  "slug": "imgix",
+  "name": "Imgix",
+  "description": ""
+ },
+ {
+  "slug": "imply_polaris",
+  "name": "Imply Polaris",
+  "description": ""
+ },
+ {
+  "slug": "inblog",
+  "name": "Inblog",
+  "description": ""
+ },
+ {
+  "slug": "incident_io",
+  "name": "incident.io",
+  "description": ""
+ },
+ {
+  "slug": "infisical",
+  "name": "Infisical",
+  "description": ""
+ },
+ {
+  "slug": "influxdb_cloud",
+  "name": "InfluxDB Cloud",
+  "description": ""
+ },
+ {
+  "slug": "inistate",
+  "name": "Inistate",
+  "description": ""
+ },
+ {
+  "slug": "insighto_ai",
+  "name": "Insighto.ai",
+  "description": ""
+ },
+ {
+  "slug": "inspo_mcp",
+  "name": "Inspo MCP",
+  "description": ""
+ },
+ {
+  "slug": "instagram",
+  "name": "Instagram",
+  "description": ""
+ },
+ {
+  "slug": "instantly",
+  "name": "Instantly",
+  "description": ""
+ },
+ {
+  "slug": "instatus",
+  "name": "Instatus",
+  "description": ""
+ },
+ {
+  "slug": "intelliprint",
+  "name": "Intelliprint",
+  "description": ""
+ },
+ {
+  "slug": "intercom_mcp",
+  "name": "Intercom MCP",
+  "description": ""
+ },
+ {
+  "slug": "interzoid_mcp",
+  "name": "Interzoid MCP",
+  "description": ""
+ },
+ {
+  "slug": "invalid_bounce",
+  "name": "Invalid Bounce",
+  "description": ""
+ },
+ {
+  "slug": "invofox",
+  "name": "Invofox",
+  "description": ""
+ },
+ {
+  "slug": "inworld_ai",
+  "name": "Inworld AI",
+  "description": ""
+ },
+ {
+  "slug": "ip2location",
+  "name": "Ip2Location",
+  "description": ""
+ },
+ {
+  "slug": "ip2location_io",
+  "name": "IP2Location.io",
+  "description": ""
+ },
+ {
+  "slug": "ip2proxy",
+  "name": "Ip2Proxy",
+  "description": ""
+ },
+ {
+  "slug": "ip2whois",
+  "name": "Ip2Whois",
+  "description": ""
+ },
+ {
+  "slug": "ipdata_co",
+  "name": "Ipdata.co",
+  "description": ""
+ },
+ {
+  "slug": "ipgeolocation",
+  "name": "IPGeolocation.io",
+  "description": ""
+ },
+ {
+  "slug": "ipinfo_io",
+  "name": "IPinfo",
+  "description": ""
+ },
+ {
+  "slug": "iplocate",
+  "name": "IPLocate",
+  "description": ""
+ },
+ {
+  "slug": "ip_registry",
+  "name": "IPRegistry",
+  "description": ""
+ },
+ {
+  "slug": "iqair_airvisual",
+  "name": "IQAir AirVisual",
+  "description": ""
+ },
+ {
+  "slug": "ironclad",
+  "name": "Ironclad",
+  "description": ""
+ },
+ {
+  "slug": "iterable",
+  "name": "Iterable",
+  "description": ""
+ },
+ {
+  "slug": "iterate",
+  "name": "Iterate",
+  "description": ""
+ },
+ {
+  "slug": "itm_platform",
+  "name": "ITM Platform",
+  "description": ""
+ },
+ {
+  "slug": "jam",
+  "name": "Jam",
+  "description": ""
+ },
+ {
+  "slug": "jentic_mcp",
+  "name": "Jentic MCP",
+  "description": ""
+ },
+ {
+  "slug": "jev",
+  "name": "Jev",
+  "description": ""
+ },
+ {
+  "slug": "jibble",
+  "name": "Jibble",
+  "description": ""
+ },
+ {
+  "slug": "jigsawstack",
+  "name": "Jigsawstack",
+  "description": ""
+ },
+ {
+  "slug": "jinko",
+  "name": "Jinko",
+  "description": ""
+ },
+ {
+  "slug": "job_search",
+  "name": "Job Search",
+  "description": ""
+ },
+ {
+  "slug": "jobber",
+  "name": "Jobber",
+  "description": ""
+ },
+ {
+  "slug": "jobnimbus",
+  "name": "JobNimbus",
+  "description": ""
+ },
+ {
+  "slug": "jogg_ai",
+  "name": "JoggAI",
+  "description": ""
+ },
+ {
+  "slug": "jotform",
+  "name": "Jotform",
+  "description": ""
+ },
+ {
+  "slug": "jotform_sign",
+  "name": "Jotform Sign",
+  "description": ""
+ },
+ {
+  "slug": "judge_me",
+  "name": "Judge.me",
+  "description": ""
+ },
+ {
+  "slug": "jumpcloud",
+  "name": "JumpCloud",
+  "description": ""
+ },
+ {
+  "slug": "just_one_api",
+  "name": "Just One API",
+  "description": ""
+ },
+ {
+  "slug": "kadoa",
+  "name": "Kadoa",
+  "description": ""
+ },
+ {
+  "slug": "kaggle",
+  "name": "Kaggle",
+  "description": ""
+ },
+ {
+  "slug": "kajabi",
+  "name": "Kajabi",
+  "description": ""
+ },
+ {
+  "slug": "kaleido",
+  "name": "Kaleido",
+  "description": ""
+ },
+ {
+  "slug": "kanban_tool",
+  "name": "Kanban Tool",
+  "description": ""
+ },
+ {
+  "slug": "kanbanize",
+  "name": "Kanbanize",
+  "description": ""
+ },
+ {
+  "slug": "kapso",
+  "name": "Kapso",
+  "description": ""
+ },
+ {
+  "slug": "keen_io",
+  "name": "Keen.io",
+  "description": ""
+ },
+ {
+  "slug": "keenable",
+  "name": "Keenable",
+  "description": ""
+ },
+ {
+  "slug": "keiki_mcp",
+  "name": "Keiki MCP",
+  "description": ""
+ },
+ {
+  "slug": "kernel",
+  "name": "Kernel",
+  "description": ""
+ },
+ {
+  "slug": "kernel_mcp",
+  "name": "Kernel MCP",
+  "description": ""
+ },
+ {
+  "slug": "keyword",
+  "name": "Keyword",
+  "description": ""
+ },
+ {
+  "slug": "keyzy",
+  "name": "Keyzy",
+  "description": ""
+ },
+ {
+  "slug": "kibana",
+  "name": "Kibana",
+  "description": ""
+ },
+ {
+  "slug": "kick",
+  "name": "Kick",
+  "description": ""
+ },
+ {
+  "slug": "kickbox",
+  "name": "Kickbox",
+  "description": ""
+ },
+ {
+  "slug": "kieai",
+  "name": "Kieai",
+  "description": ""
+ },
+ {
+  "slug": "kintone",
+  "name": "Kintone",
+  "description": ""
+ },
+ {
+  "slug": "kintone_rest",
+  "name": "Kintone REST",
+  "description": ""
+ },
+ {
+  "slug": "kit",
+  "name": "Kit",
+  "description": ""
+ },
+ {
+  "slug": "kitt",
+  "name": "Kitt AI",
+  "description": ""
+ },
+ {
+  "slug": "klarna",
+  "name": "Klarna",
+  "description": ""
+ },
+ {
+  "slug": "klazify",
+  "name": "Klazify",
+  "description": ""
+ },
+ {
+  "slug": "knack",
+  "name": "Knack",
+  "description": ""
+ },
+ {
+  "slug": "ko_fi",
+  "name": "Ko-fi",
+  "description": ""
+ },
+ {
+  "slug": "kobotoolbox",
+  "name": "KoboToolbox",
+  "description": ""
+ },
+ {
+  "slug": "kommunicate",
+  "name": "Kommunicate",
+  "description": ""
+ },
+ {
+  "slug": "kontent_ai",
+  "name": "Kontent.ai",
+  "description": ""
+ },
+ {
+  "slug": "kraken_io",
+  "name": "Kraken.io",
+  "description": ""
+ },
+ {
+  "slug": "l2s",
+  "name": "L2s",
+  "description": ""
+ },
+ {
+  "slug": "lagrowthmachine",
+  "name": "La Growth Machine",
+  "description": ""
+ },
+ {
+  "slug": "labs64_netlicensing",
+  "name": "Labs64 NetLicensing",
+  "description": ""
+ },
+ {
+  "slug": "labsmobile",
+  "name": "LabsMobile",
+  "description": ""
+ },
+ {
+  "slug": "lakera_guard",
+  "name": "Lakera Guard",
+  "description": ""
+ },
+ {
+  "slug": "landbot",
+  "name": "Landbot",
+  "description": ""
+ },
+ {
+  "slug": "langbase",
+  "name": "Langbase",
+  "description": ""
+ },
+ {
+  "slug": "langfuse",
+  "name": "Langfuse",
+  "description": ""
+ },
+ {
+  "slug": "laposta",
+  "name": "Laposta",
+  "description": ""
+ },
+ {
+  "slug": "lark",
+  "name": "Lark",
+  "description": ""
+ },
+ {
+  "slug": "layerre",
+  "name": "Layerre",
+  "description": ""
+ },
+ {
+  "slug": "lc_cx",
+  "name": "lc.cx",
+  "description": ""
+ },
+ {
+  "slug": "leadboxer",
+  "name": "LeadBoxer",
+  "description": ""
+ },
+ {
+  "slug": "leadfeeder",
+  "name": "Leadfeeder",
+  "description": ""
+ },
+ {
+  "slug": "leadiq",
+  "name": "LeadIQ",
+  "description": ""
+ },
+ {
+  "slug": "leadmagic",
+  "name": "LeadMagic",
+  "description": ""
+ },
+ {
+  "slug": "leadoku",
+  "name": "Leadoku",
+  "description": ""
+ },
+ {
+  "slug": "leadsforge",
+  "name": "Leadsforge",
+  "description": ""
+ },
+ {
+  "slug": "leexi",
+  "name": "Leexi",
+  "description": ""
+ },
+ {
+  "slug": "legal_data_hunter_mcp",
+  "name": "Legal Data Hunter MCP",
+  "description": ""
+ },
+ {
+  "slug": "leiga",
+  "name": "Leiga",
+  "description": ""
+ },
+ {
+  "slug": "lemlist",
+  "name": "Lemlist",
+  "description": ""
+ },
+ {
+  "slug": "lemon_squeezy",
+  "name": "Lemon Squeezy",
+  "description": ""
+ },
+ {
+  "slug": "lessonspace",
+  "name": "Lessonspace",
+  "description": ""
+ },
+ {
+  "slug": "lettr",
+  "name": "Lettr",
+  "description": ""
+ },
+ {
+  "slug": "leverly",
+  "name": "Leverly",
+  "description": ""
+ },
+ {
+  "slug": "lightspeed",
+  "name": "Lightspeed Retail X-Series",
+  "description": ""
+ },
+ {
+  "slug": "lilt_mcp",
+  "name": "LILT MCP",
+  "description": ""
+ },
+ {
+  "slug": "limadata",
+  "name": "LimaData",
+  "description": ""
+ },
+ {
+  "slug": "line",
+  "name": "LINE",
+  "description": ""
+ },
+ {
+  "slug": "linear_mcp",
+  "name": "Linear MCP",
+  "description": ""
+ },
+ {
+  "slug": "linguapop",
+  "name": "Linguapop",
+  "description": ""
+ },
+ {
+  "slug": "linguin_ai",
+  "name": "Linguin AI",
+  "description": ""
+ },
+ {
+  "slug": "linkedin_ads",
+  "name": "Linkedin Ads",
+  "description": ""
+ },
+ {
+  "slug": "linkly",
+  "name": "Linkly",
+  "description": ""
+ },
+ {
+  "slug": "link_twin",
+  "name": "LinkTwin",
+  "description": ""
+ },
+ {
+  "slug": "linode",
+  "name": "Linode",
+  "description": ""
+ },
+ {
+  "slug": "linq",
+  "name": "Linq",
+  "description": ""
+ },
+ {
+  "slug": "listclean",
+  "name": "Listclean",
+  "description": ""
+ },
+ {
+  "slug": "livechat",
+  "name": "LiveChat",
+  "description": ""
+ },
+ {
+  "slug": "livesession",
+  "name": "Livesession",
+  "description": ""
+ },
+ {
+  "slug": "llm_api",
+  "name": "LLM API",
+  "description": ""
+ },
+ {
+  "slug": "llmwhisperer",
+  "name": "LLMWhisperer",
+  "description": ""
+ },
+ {
+  "slug": "lob",
+  "name": "Lob",
+  "description": ""
+ },
+ {
+  "slug": "lodgify",
+  "name": "Lodgify",
+  "description": ""
+ },
+ {
+  "slug": "logo_dev",
+  "name": "Logo.dev",
+  "description": ""
+ },
+ {
+  "slug": "lokalise",
+  "name": "Lokalise",
+  "description": ""
+ },
+ {
+  "slug": "longbridge_mcp",
+  "name": "Longbridge MCP",
+  "description": ""
+ },
+ {
+  "slug": "loomio",
+  "name": "Loomio",
+  "description": ""
+ },
+ {
+  "slug": "loops_so",
+  "name": "Loops.so",
+  "description": ""
+ },
+ {
+  "slug": "loyverse",
+  "name": "Loyverse",
+  "description": ""
+ },
+ {
+  "slug": "lucid_mcp",
+  "name": "Lucid MCP",
+  "description": ""
+ },
+ {
+  "slug": "luma_labs",
+  "name": "Luma Labs",
+  "description": ""
+ },
+ {
+  "slug": "lumify",
+  "name": "Lumify",
+  "description": ""
+ },
+ {
+  "slug": "lusha",
+  "name": "Lusha",
+  "description": ""
+ },
+ {
+  "slug": "lyzr",
+  "name": "Lyzr",
+  "description": ""
+ },
+ {
+  "slug": "magic_hour",
+  "name": "Magic Hour",
+  "description": ""
+ },
+ {
+  "slug": "magic_patterns_mcp",
+  "name": "Magic Patterns MCP",
+  "description": ""
+ },
+ {
+  "slug": "magicslides",
+  "name": "MagicSlides",
+  "description": ""
+ },
+ {
+  "slug": "magnetic",
+  "name": "Magnetic",
+  "description": ""
+ },
+ {
+  "slug": "mailbluster",
+  "name": "MailBluster",
+  "description": ""
+ },
+ {
+  "slug": "mailboxlayer",
+  "name": "Mailboxlayer",
+  "description": ""
+ },
+ {
+  "slug": "mailboxvalidator",
+  "name": "MailboxValidator",
+  "description": ""
+ },
+ {
+  "slug": "mail_channels",
+  "name": "MailChannels",
+  "description": ""
+ },
+ {
+  "slug": "mailcheck",
+  "name": "Mailcheck",
+  "description": ""
+ },
+ {
+  "slug": "mailcoach",
+  "name": "Mailcoach",
+  "description": ""
+ },
+ {
+  "slug": "maildroppa",
+  "name": "Maildroppa",
+  "description": ""
+ },
+ {
+  "slug": "mailercheck",
+  "name": "MailerCheck",
+  "description": ""
+ },
+ {
+  "slug": "mailercloud",
+  "name": "Mailercloud",
+  "description": ""
+ },
+ {
+  "slug": "mailersend",
+  "name": "MailerSend",
+  "description": ""
+ },
+ {
+  "slug": "mailfloss",
+  "name": "mailfloss",
+  "description": ""
+ },
+ {
+  "slug": "mails_so",
+  "name": "Mails.so",
+  "description": ""
+ },
+ {
+  "slug": "mailslurp",
+  "name": "MailSlurp",
+  "description": ""
+ },
+ {
+  "slug": "mailsoftly",
+  "name": "Mailsoftly",
+  "description": ""
+ },
+ {
+  "slug": "mailtrap",
+  "name": "Mailtrap",
+  "description": ""
+ },
+ {
+  "slug": "mail_up",
+  "name": "MailUp",
+  "description": ""
+ },
+ {
+  "slug": "mailvalid",
+  "name": "MailValid",
+  "description": ""
+ },
+ {
+  "slug": "mailveri",
+  "name": "MailVeri",
+  "description": ""
+ },
+ {
+  "slug": "make",
+  "name": "Make",
+  "description": ""
+ },
+ {
+  "slug": "malwarebytes_mcp",
+  "name": "Malwarebytes MCP",
+  "description": ""
+ },
+ {
+  "slug": "manus",
+  "name": "Manus",
+  "description": ""
+ },
+ {
+  "slug": "many_chat",
+  "name": "ManyChat",
+  "description": ""
+ },
+ {
+  "slug": "manyreach",
+  "name": "ManyReach",
+  "description": ""
+ },
+ {
+  "slug": "mapbox",
+  "name": "Mapbox",
+  "description": ""
+ },
+ {
+  "slug": "mapflow",
+  "name": "Mapflow.ai",
+  "description": ""
+ },
+ {
+  "slug": "mapulus",
+  "name": "Mapulus",
+  "description": ""
+ },
+ {
+  "slug": "marcopolo_mcp",
+  "name": "MarcoPolo MCP",
+  "description": ""
+ },
+ {
+  "slug": "marketstack",
+  "name": "Marketstack",
+  "description": ""
+ },
+ {
+  "slug": "markup_ai",
+  "name": "Markup AI",
+  "description": ""
+ },
+ {
+  "slug": "mathpix",
+  "name": "Mathpix",
+  "description": ""
+ },
+ {
+  "slug": "matterport",
+  "name": "Matterport",
+  "description": ""
+ },
+ {
+  "slug": "maxio",
+  "name": "Maxio",
+  "description": ""
+ },
+ {
+  "slug": "meetgeek",
+  "name": "MeetGeek",
+  "description": ""
+ },
+ {
+  "slug": "meister_task",
+  "name": "MeisterTask",
+  "description": ""
+ },
+ {
+  "slug": "melo",
+  "name": "Melo",
+  "description": ""
+ },
+ {
+  "slug": "mem",
+  "name": "Mem",
+  "description": ""
+ },
+ {
+  "slug": "memberspot",
+  "name": "Memberspot",
+  "description": ""
+ },
+ {
+  "slug": "memberstack",
+  "name": "Memberstack",
+  "description": ""
+ },
+ {
+  "slug": "membervault",
+  "name": "Membervault",
+  "description": ""
+ },
+ {
+  "slug": "memelord",
+  "name": "Memelord",
+  "description": ""
+ },
+ {
+  "slug": "memelord_mcp",
+  "name": "Memelord MCP",
+  "description": ""
+ },
+ {
+  "slug": "merchantpro",
+  "name": "MerchantPro",
+  "description": ""
+ },
+ {
+  "slug": "mercury_mcp",
+  "name": "Mercury MCP",
+  "description": ""
+ },
+ {
+  "slug": "mermaid_chart_mcp",
+  "name": "Mermaid Chart MCP",
+  "description": ""
+ },
+ {
+  "slug": "meshy",
+  "name": "Meshy",
+  "description": ""
+ },
+ {
+  "slug": "metabase",
+  "name": "Metabase",
+  "description": ""
+ },
+ {
+  "slug": "metaphor",
+  "name": "Metaphor",
+  "description": ""
+ },
+ {
+  "slug": "metricool_mcp",
+  "name": "Metricool MCP",
+  "description": ""
+ },
+ {
+  "slug": "metronome",
+  "name": "Metronome",
+  "description": ""
+ },
+ {
+  "slug": "mezmo",
+  "name": "Mezmo",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_365",
+  "name": "Microsoft 365",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_copilot",
+  "name": "Microsoft 365 Copilot",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_advertising",
+  "name": "Microsoft Advertising",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_bookings",
+  "name": "Microsoft Bookings",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_defender",
+  "name": "Microsoft Defender",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_entra_id",
+  "name": "Microsoft Entra ID",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_fabric",
+  "name": "Microsoft Fabric",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_intune",
+  "name": "Microsoft Intune",
+  "description": ""
+ },
+ {
+  "slug": "onenote",
+  "name": "Microsoft OneNote",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_planner",
+  "name": "Microsoft Planner",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_power_bi",
+  "name": "Microsoft Power Bi",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_powerpoint",
+  "name": "Microsoft PowerPoint",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_purview",
+  "name": "Microsoft Purview",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_todo",
+  "name": "Microsoft To Do",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_viva_engage",
+  "name": "Microsoft Viva Engage",
+  "description": ""
+ },
+ {
+  "slug": "microsoft_word",
+  "name": "Microsoft Word",
+  "description": ""
+ },
+ {
+  "slug": "midpage_mcp",
+  "name": "Midpage MCP",
+  "description": ""
+ },
+ {
+  "slug": "mighty_networks",
+  "name": "Mighty Networks",
+  "description": ""
+ },
+ {
+  "slug": "mihu_ai",
+  "name": "Mihu AI",
+  "description": ""
+ },
+ {
+  "slug": "mindbody",
+  "name": "Mindbody",
+  "description": ""
+ },
+ {
+  "slug": "minelead",
+  "name": "Minelead.io",
+  "description": ""
+ },
+ {
+  "slug": "minerstat",
+  "name": "Minerstat",
+  "description": ""
+ },
+ {
+  "slug": "minimax",
+  "name": "MiniMax",
+  "description": ""
+ },
+ {
+  "slug": "mintlify",
+  "name": "Mintlify",
+  "description": ""
+ },
+ {
+  "slug": "mintlify_mcp",
+  "name": "Mintlify MCP",
+  "description": ""
+ },
+ {
+  "slug": "missive",
+  "name": "Missive",
+  "description": ""
+ },
+ {
+  "slug": "mistral_ai",
+  "name": "Mistral AI",
+  "description": ""
+ },
+ {
+  "slug": "mixmax",
+  "name": "Mixmax",
+  "description": ""
+ },
+ {
+  "slug": "mobbin",
+  "name": "Mobbin",
+  "description": ""
+ },
+ {
+  "slug": "mobbin_mcp",
+  "name": "Mobbin MCP",
+  "description": ""
+ },
+ {
+  "slug": "moco",
+  "name": "Moco",
+  "description": ""
+ },
+ {
+  "slug": "modelry",
+  "name": "Modelry",
+  "description": ""
+ },
+ {
+  "slug": "modem",
+  "name": "Modem",
+  "description": ""
+ },
+ {
+  "slug": "modem_mcp",
+  "name": "Modem MCP",
+  "description": ""
+ },
+ {
+  "slug": "moderationapi",
+  "name": "Moderation API",
+  "description": ""
+ },
+ {
+  "slug": "moltsets",
+  "name": "MoltSets",
+  "description": ""
+ },
+ {
+  "slug": "monday_mcp",
+  "name": "Monday MCP",
+  "description": ""
+ },
+ {
+  "slug": "money_forward",
+  "name": "Money Forward",
+  "description": ""
+ },
+ {
+  "slug": "moneybird",
+  "name": "Moneybird",
+  "description": ""
+ },
+ {
+  "slug": "mongodb",
+  "name": "MongoDB",
+  "description": ""
+ },
+ {
+  "slug": "mongodb_mcp",
+  "name": "MongoDB MCP",
+  "description": ""
+ },
+ {
+  "slug": "moonclerk",
+  "name": "Moonclerk",
+  "description": ""
+ },
+ {
+  "slug": "moosend",
+  "name": "Moosend",
+  "description": ""
+ },
+ {
+  "slug": "mospi_mcp",
+  "name": "MoSPI MCP",
+  "description": ""
+ },
+ {
+  "slug": "motherduck_mcp",
+  "name": "MotherDuck MCP",
+  "description": ""
+ },
+ {
+  "slug": "motion",
+  "name": "Motion",
+  "description": ""
+ },
+ {
+  "slug": "mrscraper",
+  "name": "MrScraper",
+  "description": ""
+ },
+ {
+  "slug": "msg91",
+  "name": "Msg91",
+  "description": ""
+ },
+ {
+  "slug": "muapi",
+  "name": "MuAPI",
+  "description": ""
+ },
+ {
+  "slug": "mx_technologies",
+  "name": "MX Technologies",
+  "description": ""
+ },
+ {
+  "slug": "mx_toolbox",
+  "name": "MXToolbox",
+  "description": ""
+ },
+ {
+  "slug": "myemailverifier",
+  "name": "MyEmailVerifier",
+  "description": ""
+ },
+ {
+  "slug": "namsor",
+  "name": "NamSor",
+  "description": ""
+ },
+ {
+  "slug": "nango",
+  "name": "Nango",
+  "description": ""
+ },
+ {
+  "slug": "nano_nets",
+  "name": "Nanonets",
+  "description": ""
+ },
+ {
+  "slug": "nanonets_ocr",
+  "name": "Nanonets OCR",
+  "description": ""
+ },
+ {
+  "slug": "narwhal_api",
+  "name": "Narwhal API",
+  "description": ""
+ },
+ {
+  "slug": "nasa",
+  "name": "Nasa",
+  "description": ""
+ },
+ {
+  "slug": "nasdaq",
+  "name": "Nasdaq",
+  "description": ""
+ },
+ {
+  "slug": "navan",
+  "name": "Navan",
+  "description": ""
+ },
+ {
+  "slug": "needle",
+  "name": "Needle",
+  "description": ""
+ },
+ {
+  "slug": "neetoform",
+  "name": "NeetoForm",
+  "description": ""
+ },
+ {
+  "slug": "neo4j",
+  "name": "Neo4J",
+  "description": ""
+ },
+ {
+  "slug": "neon_mcp",
+  "name": "Neon MCP",
+  "description": ""
+ },
+ {
+  "slug": "nethunt_crm",
+  "name": "NetHunt CRM",
+  "description": ""
+ },
+ {
+  "slug": "netlicensing",
+  "name": "NetLicensing",
+  "description": ""
+ },
+ {
+  "slug": "netlify_mcp",
+  "name": "Netlify MCP",
+  "description": ""
+ },
+ {
+  "slug": "neuronwriter",
+  "name": "Neuronwriter",
+  "description": ""
+ },
+ {
+  "slug": "neutrino",
+  "name": "Neutrino",
+  "description": ""
+ },
+ {
+  "slug": "neverbounce",
+  "name": "NeverBounce",
+  "description": ""
+ },
+ {
+  "slug": "new_relic",
+  "name": "New Relic",
+  "description": ""
+ },
+ {
+  "slug": "news_api",
+  "name": "NewsAPI",
+  "description": ""
+ },
+ {
+  "slug": "nextdns",
+  "name": "Nextdns",
+  "description": ""
+ },
+ {
+  "slug": "ngram",
+  "name": "Ngram",
+  "description": ""
+ },
+ {
+  "slug": "niftyimages",
+  "name": "Niftyimages",
+  "description": ""
+ },
+ {
+  "slug": "ninox",
+  "name": "Ninox",
+  "description": ""
+ },
+ {
+  "slug": "nmkr_studio",
+  "name": "NMKR Studio",
+  "description": ""
+ },
+ {
+  "slug": "nocodb",
+  "name": "NocoDB",
+  "description": ""
+ },
+ {
+  "slug": "nocrm_io",
+  "name": "NoCRM.io",
+  "description": ""
+ },
+ {
+  "slug": "noloco",
+  "name": "Noloco",
+  "description": ""
+ },
+ {
+  "slug": "northflank",
+  "name": "Northflank",
+  "description": ""
+ },
+ {
+  "slug": "notebook_lm",
+  "name": "NotebookLM",
+  "description": ""
+ },
+ {
+  "slug": "notion_mcp",
+  "name": "Notion MCP",
+  "description": ""
+ },
+ {
+  "slug": "notra",
+  "name": "Notra",
+  "description": ""
+ },
+ {
+  "slug": "nozbe_teams",
+  "name": "Nozbe Teams",
+  "description": ""
+ },
+ {
+  "slug": "npm",
+  "name": "Npm",
+  "description": ""
+ },
+ {
+  "slug": "ntfy",
+  "name": "Ntfy",
+  "description": ""
+ },
+ {
+  "slug": "nusii_proposals",
+  "name": "Nusii proposals",
+  "description": ""
+ },
+ {
+  "slug": "nutrient_document_web_services_api",
+  "name": "Nutrient Document Web Services API",
+  "description": ""
+ },
+ {
+  "slug": "nutshell",
+  "name": "Nutshell",
+  "description": ""
+ },
+ {
+  "slug": "nylas_mcp",
+  "name": "Nylas MCP",
+  "description": ""
+ },
+ {
+  "slug": "oboard",
+  "name": "Oboard",
+  "description": ""
+ },
+ {
+  "slug": "ocean_io",
+  "name": "Ocean.io",
+  "description": ""
+ },
+ {
+  "slug": "ocr_web_service",
+  "name": "OCR Web Service",
+  "description": ""
+ },
+ {
+  "slug": "ocrspace",
+  "name": "OCR.space",
+  "description": ""
+ },
+ {
+  "slug": "octagon_mcp",
+  "name": "Octagon MCP",
+  "description": ""
+ },
+ {
+  "slug": "octen",
+  "name": "Octen",
+  "description": ""
+ },
+ {
+  "slug": "odata",
+  "name": "OData",
+  "description": ""
+ },
+ {
+  "slug": "odoo",
+  "name": "Odoo",
+  "description": ""
+ },
+ {
+  "slug": "oksign",
+  "name": "Oksign",
+  "description": ""
+ },
+ {
+  "slug": "okzest",
+  "name": "OKZest",
+  "description": ""
+ },
+ {
+  "slug": "ollama",
+  "name": "Ollama",
+  "description": ""
+ },
+ {
+  "slug": "olostep",
+  "name": "Olostep",
+  "description": ""
+ },
+ {
+  "slug": "omnisend",
+  "name": "Omnisend",
+  "description": ""
+ },
+ {
+  "slug": "onedesk",
+  "name": "Onedesk",
+  "description": ""
+ },
+ {
+  "slug": "onesignal_rest_api",
+  "name": "OneSignal REST API",
+  "description": ""
+ },
+ {
+  "slug": "onesignal_user_auth",
+  "name": "OneSignal User Auth",
+  "description": ""
+ },
+ {
+  "slug": "onesimpleapi",
+  "name": "OneSimpleAPI",
+  "description": ""
+ },
+ {
+  "slug": "onetapcheckin",
+  "name": "OneTapCheckIn",
+  "description": ""
+ },
+ {
+  "slug": "oneup",
+  "name": "OneUp",
+  "description": ""
+ },
+ {
+  "slug": "onlyoffice_docspace",
+  "name": "ONLYOFFICE DocSpace",
+  "description": ""
+ },
+ {
+  "slug": "onlysocial",
+  "name": "OnlySocial",
+  "description": ""
+ },
+ {
+  "slug": "open_exchange_rates",
+  "name": "Open Exchange Rates",
+  "description": ""
+ },
+ {
+  "slug": "openai",
+  "name": "OpenAI",
+  "description": ""
+ },
+ {
+  "slug": "openalex",
+  "name": "OpenAlex",
+  "description": ""
+ },
+ {
+  "slug": "opencage",
+  "name": "Opencage",
+  "description": ""
+ },
+ {
+  "slug": "open_fda",
+  "name": "openFDA",
+  "description": ""
+ },
+ {
+  "slug": "openfunnel_agent_primitives",
+  "name": "OpenFunnel Agent Primitives",
+  "description": ""
+ },
+ {
+  "slug": "opengraph_io",
+  "name": "OpenGraph.io",
+  "description": ""
+ },
+ {
+  "slug": "openlayer",
+  "name": "Openlayer",
+  "description": ""
+ },
+ {
+  "slug": "openperplex",
+  "name": "Openperplex",
+  "description": ""
+ },
+ {
+  "slug": "open_register",
+  "name": "OpenRegister",
+  "description": ""
+ },
+ {
+  "slug": "openrouter",
+  "name": "OpenRouter",
+  "description": ""
+ },
+ {
+  "slug": "openui",
+  "name": "OpenUI Cloud",
+  "description": ""
+ },
+ {
+  "slug": "openweather_api",
+  "name": "OpenWeather API",
+  "description": ""
+ },
+ {
+  "slug": "openweb_ninja",
+  "name": "OpenWeb Ninja",
+  "description": ""
+ },
+ {
+  "slug": "opn_form",
+  "name": "OPNForm",
+  "description": ""
+ },
+ {
+  "slug": "optimoroute",
+  "name": "OptimoRoute",
+  "description": ""
+ },
+ {
+  "slug": "order_desk",
+  "name": "Order Desk",
+  "description": ""
+ },
+ {
+  "slug": "ordinal",
+  "name": "Ordinal",
+  "description": ""
+ },
+ {
+  "slug": "orgo",
+  "name": "Orgo",
+  "description": ""
+ },
+ {
+  "slug": "orshot",
+  "name": "Orshot",
+  "description": ""
+ },
+ {
+  "slug": "osv",
+  "name": "OSV",
+  "description": ""
+ },
+ {
+  "slug": "otter_ai_mcp",
+  "name": "Otter.ai MCP",
+  "description": ""
+ },
+ {
+  "slug": "outbound_dev",
+  "name": "Outbound",
+  "description": ""
+ },
+ {
+  "slug": "outline",
+  "name": "Outline",
+  "description": ""
+ },
+ {
+  "slug": "owl_protocol",
+  "name": "Owl Protocol",
+  "description": ""
+ },
+ {
+  "slug": "page_x",
+  "name": "Page X",
+  "description": ""
+ },
+ {
+  "slug": "page_vitals",
+  "name": "PageVitals",
+  "description": ""
+ },
+ {
+  "slug": "pandadoc_mcp",
+  "name": "PandaDoc MCP",
+  "description": ""
+ },
+ {
+  "slug": "paperform",
+  "name": "Paperform",
+  "description": ""
+ },
+ {
+  "slug": "paradym",
+  "name": "Paradym",
+  "description": ""
+ },
+ {
+  "slug": "parallel",
+  "name": "Parallel",
+  "description": ""
+ },
+ {
+  "slug": "parallel_task_mcp",
+  "name": "Parallel Task MCP",
+  "description": ""
+ },
+ {
+  "slug": "parma",
+  "name": "Parma",
+  "description": ""
+ },
+ {
+  "slug": "parse_bot",
+  "name": "Parse.bot",
+  "description": ""
+ },
+ {
+  "slug": "parsehub",
+  "name": "Parsehub",
+  "description": ""
+ },
+ {
+  "slug": "parsera",
+  "name": "Parsera",
+  "description": ""
+ },
+ {
+  "slug": "parseur",
+  "name": "Parseur",
+  "description": ""
+ },
+ {
+  "slug": "parsio",
+  "name": "Parsio",
+  "description": ""
+ },
+ {
+  "slug": "parsio_io",
+  "name": "Parsio.io",
+  "description": ""
+ },
+ {
+  "slug": "particl_mcp",
+  "name": "Particl MCP",
+  "description": ""
+ },
+ {
+  "slug": "passcreator",
+  "name": "Passcreator",
+  "description": ""
+ },
+ {
+  "slug": "passslot",
+  "name": "Passslot",
+  "description": ""
+ },
+ {
+  "slug": "past_dev",
+  "name": "Past.dev",
+  "description": ""
+ },
+ {
+  "slug": "paved",
+  "name": "Paved",
+  "description": ""
+ },
+ {
+  "slug": "paychasers",
+  "name": "PayChasers",
+  "description": ""
+ },
+ {
+  "slug": "payhere",
+  "name": "Payhere",
+  "description": ""
+ },
+ {
+  "slug": "payhip",
+  "name": "Payhip",
+  "description": ""
+ },
+ {
+  "slug": "paypal",
+  "name": "Paypal",
+  "description": ""
+ },
+ {
+  "slug": "zettle",
+  "name": "PayPal Zettle",
+  "description": ""
+ },
+ {
+  "slug": "paystack",
+  "name": "Paystack",
+  "description": ""
+ },
+ {
+  "slug": "pdf_blocks",
+  "name": "PDF Blocks",
+  "description": ""
+ },
+ {
+  "slug": "pdf_munk",
+  "name": "PDF Munk",
+  "description": ""
+ },
+ {
+  "slug": "pdf_vector",
+  "name": "PDF Vector",
+  "description": ""
+ },
+ {
+  "slug": "pdf_api_io",
+  "name": "PDF-API.io",
+  "description": ""
+ },
+ {
+  "slug": "pdf_co",
+  "name": "PDF.co",
+  "description": ""
+ },
+ {
+  "slug": "pdf4me",
+  "name": "Pdf4me",
+  "description": ""
+ },
+ {
+  "slug": "pdfgen",
+  "name": "PDFgen",
+  "description": ""
+ },
+ {
+  "slug": "pdfless",
+  "name": "Pdfless",
+  "description": ""
+ },
+ {
+  "slug": "pdfmonkey",
+  "name": "PDFMonkey",
+  "description": ""
+ },
+ {
+  "slug": "peaka",
+  "name": "Peaka",
+  "description": ""
+ },
+ {
+  "slug": "peec_ai_mcp",
+  "name": "Peec AI MCP",
+  "description": ""
+ },
+ {
+  "slug": "peerdom",
+  "name": "Peerdom",
+  "description": ""
+ },
+ {
+  "slug": "penpot",
+  "name": "Penpot",
+  "description": ""
+ },
+ {
+  "slug": "perigon",
+  "name": "Perigon",
+  "description": ""
+ },
+ {
+  "slug": "persistiq",
+  "name": "Persistiq",
+  "description": ""
+ },
+ {
+  "slug": "persona",
+  "name": "Persona",
+  "description": ""
+ },
+ {
+  "slug": "personio",
+  "name": "Personio",
+  "description": ""
+ },
+ {
+  "slug": "pexels",
+  "name": "Pexels",
+  "description": ""
+ },
+ {
+  "slug": "phantombuster",
+  "name": "PhantomBuster",
+  "description": ""
+ },
+ {
+  "slug": "phone_harness",
+  "name": "Phone Harness",
+  "description": ""
+ },
+ {
+  "slug": "photon_mcp",
+  "name": "Photon MCP",
+  "description": ""
+ },
+ {
+  "slug": "photoroom",
+  "name": "PhotoRoom",
+  "description": ""
+ },
+ {
+  "slug": "phrase",
+  "name": "Phrase",
+  "description": ""
+ },
+ {
+  "slug": "picnie",
+  "name": "Picnie",
+  "description": ""
+ },
+ {
+  "slug": "pigment",
+  "name": "Pigment",
+  "description": ""
+ },
+ {
+  "slug": "piloterr",
+  "name": "Piloterr",
+  "description": ""
+ },
+ {
+  "slug": "pilvio",
+  "name": "Pilvio",
+  "description": ""
+ },
+ {
+  "slug": "pinata",
+  "name": "Pinata",
+  "description": ""
+ },
+ {
+  "slug": "pinecone",
+  "name": "Pinecone",
+  "description": ""
+ },
+ {
+  "slug": "pingdom",
+  "name": "Pingdom",
+  "description": ""
+ },
+ {
+  "slug": "pinterest",
+  "name": "Pinterest",
+  "description": ""
+ },
+ {
+  "slug": "pinterest_ads",
+  "name": "Pinterest Ads",
+  "description": ""
+ },
+ {
+  "slug": "pipeless",
+  "name": "Pipeless Recommendations",
+  "description": ""
+ },
+ {
+  "slug": "pipeline_crm",
+  "name": "Pipeline CRM",
+  "description": ""
+ },
+ {
+  "slug": "pitchbook",
+  "name": "PitchBook",
+  "description": ""
+ },
+ {
+  "slug": "pivot",
+  "name": "Pivot",
+  "description": ""
+ },
+ {
+  "slug": "placid",
+  "name": "Placid",
+  "description": ""
+ },
+ {
+  "slug": "plaid",
+  "name": "Plaid",
+  "description": ""
+ },
+ {
+  "slug": "plaid_mcp",
+  "name": "Plaid MCP",
+  "description": ""
+ },
+ {
+  "slug": "plain",
+  "name": "Plain",
+  "description": ""
+ },
+ {
+  "slug": "plain_mcp",
+  "name": "Plain MCP",
+  "description": ""
+ },
+ {
+  "slug": "planetscale",
+  "name": "PlanetScale",
+  "description": ""
+ },
+ {
+  "slug": "planly",
+  "name": "Planly",
+  "description": ""
+ },
+ {
+  "slug": "planyo_online_booking",
+  "name": "Planyo Online Booking",
+  "description": ""
+ },
+ {
+  "slug": "plasmic",
+  "name": "Plasmic",
+  "description": ""
+ },
+ {
+  "slug": "platerecognizer",
+  "name": "Plate Recognizer",
+  "description": ""
+ },
+ {
+  "slug": "plausible_analytics",
+  "name": "Plausible Analytics",
+  "description": ""
+ },
+ {
+  "slug": "plisio",
+  "name": "Plisio",
+  "description": ""
+ },
+ {
+  "slug": "plivo",
+  "name": "Plivo",
+  "description": ""
+ },
+ {
+  "slug": "ploid",
+  "name": "Ploid",
+  "description": ""
+ },
+ {
+  "slug": "pneumatic",
+  "name": "Pneumatic",
+  "description": ""
+ },
+ {
+  "slug": "pocketsmith",
+  "name": "PocketSmith",
+  "description": ""
+ },
+ {
+  "slug": "podio",
+  "name": "Podio",
+  "description": ""
+ },
+ {
+  "slug": "pointagram",
+  "name": "Pointagram",
+  "description": ""
+ },
+ {
+  "slug": "polar",
+  "name": "Polar",
+  "description": ""
+ },
+ {
+  "slug": "polar_signals_mcp",
+  "name": "Polar Signals MCP",
+  "description": ""
+ },
+ {
+  "slug": "polygon",
+  "name": "Polygon",
+  "description": ""
+ },
+ {
+  "slug": "polygon_io",
+  "name": "Polygon.io",
+  "description": ""
+ },
+ {
+  "slug": "polymarket",
+  "name": "Polymarket US",
+  "description": ""
+ },
+ {
+  "slug": "polymarket_us",
+  "name": "Polymarket US",
+  "description": ""
+ },
+ {
+  "slug": "polymer_co",
+  "name": "Polymer.co",
+  "description": ""
+ },
+ {
+  "slug": "poma_grill",
+  "name": "POMA Grill",
+  "description": ""
+ },
+ {
+  "slug": "poof",
+  "name": "Poof",
+  "description": ""
+ },
+ {
+  "slug": "pophive_mcp",
+  "name": "PopHIVE MCP",
+  "description": ""
+ },
+ {
+  "slug": "popupsmart",
+  "name": "Popupsmart",
+  "description": ""
+ },
+ {
+  "slug": "postal_data_api",
+  "name": "Postal Data API",
+  "description": ""
+ },
+ {
+  "slug": "postalytics",
+  "name": "Postalytics",
+  "description": ""
+ },
+ {
+  "slug": "postgrid",
+  "name": "Postgrid",
+  "description": ""
+ },
+ {
+  "slug": "postgrid_verify",
+  "name": "PostGrid Verify",
+  "description": ""
+ },
+ {
+  "slug": "posthog_mcp",
+  "name": "PostHog MCP",
+  "description": ""
+ },
+ {
+  "slug": "postiz_mcp",
+  "name": "Postiz",
+  "description": ""
+ },
+ {
+  "slug": "postman",
+  "name": "Postman",
+  "description": ""
+ },
+ {
+  "slug": "postmark",
+  "name": "Postmark",
+  "description": ""
+ },
+ {
+  "slug": "postpone",
+  "name": "Postpone",
+  "description": ""
+ },
+ {
+  "slug": "predicthq",
+  "name": "PredictHQ",
+  "description": ""
+ },
+ {
+  "slug": "predict_leads",
+  "name": "PredictLeads",
+  "description": ""
+ },
+ {
+  "slug": "prerender",
+  "name": "Prerender",
+  "description": ""
+ },
+ {
+  "slug": "presenton",
+  "name": "Presenton",
+  "description": ""
+ },
+ {
+  "slug": "pricemend",
+  "name": "Pricemend",
+  "description": ""
+ },
+ {
+  "slug": "printautopilot",
+  "name": "Printautopilot",
+  "description": ""
+ },
+ {
+  "slug": "printful",
+  "name": "Printful",
+  "description": ""
+ },
+ {
+  "slug": "printify",
+  "name": "Printify",
+  "description": ""
+ },
+ {
+  "slug": "prisma",
+  "name": "Prisma",
+  "description": ""
+ },
+ {
+  "slug": "prismic",
+  "name": "Prismic",
+  "description": ""
+ },
+ {
+  "slug": "proabono",
+  "name": "Proabono",
+  "description": ""
+ },
+ {
+  "slug": "procfu",
+  "name": "Procfu",
+  "description": ""
+ },
+ {
+  "slug": "procore_company_admin",
+  "name": "Procore Company Admin",
+  "description": ""
+ },
+ {
+  "slug": "procore_core",
+  "name": "Procore Core",
+  "description": ""
+ },
+ {
+  "slug": "procore_field_operations",
+  "name": "Procore Field Operations",
+  "description": ""
+ },
+ {
+  "slug": "procore_financials",
+  "name": "Procore Financials",
+  "description": ""
+ },
+ {
+  "slug": "procore_preconstruction",
+  "name": "Procore Preconstruction",
+  "description": ""
+ },
+ {
+  "slug": "procore_project_documents",
+  "name": "Procore Project Documents",
+  "description": ""
+ },
+ {
+  "slug": "procore_quality_safety",
+  "name": "Procore Quality & Safety",
+  "description": ""
+ },
+ {
+  "slug": "procore_resource_management",
+  "name": "Procore Resource Management",
+  "description": ""
+ },
+ {
+  "slug": "product_hunt",
+  "name": "Product Hunt",
+  "description": ""
+ },
+ {
+  "slug": "product_hunt_mcp",
+  "name": "Product Hunt MCP",
+  "description": ""
+ },
+ {
+  "slug": "productlane",
+  "name": "Productlane",
+  "description": ""
+ },
+ {
+  "slug": "productnow_mcp",
+  "name": "ProductNow MCP",
+  "description": ""
+ },
+ {
+  "slug": "project_bubble",
+  "name": "Project Bubble",
+  "description": ""
+ },
+ {
+  "slug": "prompt_hub",
+  "name": "PromptHub",
+  "description": ""
+ },
+ {
+  "slug": "promptlayer",
+  "name": "PromptLayer",
+  "description": ""
+ },
+ {
+  "slug": "promptmate_io",
+  "name": "Promptmate.io",
+  "description": ""
+ },
+ {
+  "slug": "proofly",
+  "name": "Proofly",
+  "description": ""
+ },
+ {
+  "slug": "prospeo",
+  "name": "Prospeo",
+  "description": ""
+ },
+ {
+  "slug": "proxiedmail",
+  "name": "Proxiedmail",
+  "description": ""
+ },
+ {
+  "slug": "pumble",
+  "name": "Pumble",
+  "description": ""
+ },
+ {
+  "slug": "purechecker",
+  "name": "PureChecker",
+  "description": ""
+ },
+ {
+  "slug": "push_by_techulus",
+  "name": "Push by Techulus",
+  "description": ""
+ },
+ {
+  "slug": "push_alert",
+  "name": "PushAlert",
+  "description": ""
+ },
+ {
+  "slug": "pushbullet",
+  "name": "Pushbullet",
+  "description": ""
+ },
+ {
+  "slug": "pushinator",
+  "name": "Pushinator",
+  "description": ""
+ },
+ {
+  "slug": "pushover",
+  "name": "Pushover",
+  "description": ""
+ },
+ {
+  "slug": "pylon_mcp",
+  "name": "Pylon MCP",
+  "description": ""
+ },
+ {
+  "slug": "quaderno",
+  "name": "Quaderno",
+  "description": ""
+ },
+ {
+  "slug": "quickbooks",
+  "name": "QuickBooks",
+  "description": ""
+ },
+ {
+  "slug": "quickenrich",
+  "name": "QuickEnrich",
+  "description": ""
+ },
+ {
+  "slug": "quicknode_mcp",
+  "name": "QuickNode MCP",
+  "description": ""
+ },
+ {
+  "slug": "quiltt",
+  "name": "Quiltt",
+  "description": ""
+ },
+ {
+  "slug": "quintadb",
+  "name": "QuintaDB",
+  "description": ""
+ },
+ {
+  "slug": "quire",
+  "name": "Quire",
+  "description": ""
+ },
+ {
+  "slug": "quo",
+  "name": "Quo",
+  "description": ""
+ },
+ {
+  "slug": "qwilr",
+  "name": "Qwilr",
+  "description": ""
+ },
+ {
+  "slug": "radar",
+  "name": "Radar",
+  "description": ""
+ },
+ {
+  "slug": "ragic",
+  "name": "Ragic",
+  "description": ""
+ },
+ {
+  "slug": "ragie",
+  "name": "Ragie",
+  "description": ""
+ },
+ {
+  "slug": "railway",
+  "name": "Railway",
+  "description": ""
+ },
+ {
+  "slug": "railway_mcp",
+  "name": "Railway MCP",
+  "description": ""
+ },
+ {
+  "slug": "raindrop",
+  "name": "Raindrop.io",
+  "description": ""
+ },
+ {
+  "slug": "raisely",
+  "name": "Raisely",
+  "description": ""
+ },
+ {
+  "slug": "ramp",
+  "name": "Ramp",
+  "description": ""
+ },
+ {
+  "slug": "ramp_mcp",
+  "name": "Ramp MCP",
+  "description": ""
+ },
+ {
+  "slug": "rawg_video_games_database",
+  "name": "RAWG Video Games Database",
+  "description": ""
+ },
+ {
+  "slug": "razorpay",
+  "name": "Razorpay",
+  "description": ""
+ },
+ {
+  "slug": "rd_station_marketing",
+  "name": "RD Station Marketing",
+  "description": ""
+ },
+ {
+  "slug": "re_amaze",
+  "name": "Re:amaze",
+  "description": ""
+ },
+ {
+  "slug": "read_ai_mcp",
+  "name": "Read AI MCP",
+  "description": ""
+ },
+ {
+  "slug": "readwise_reader",
+  "name": "Readwise Reader",
+  "description": ""
+ },
+ {
+  "slug": "realphonevalidation",
+  "name": "Realphonevalidation",
+  "description": ""
+ },
+ {
+  "slug": "rebrandly",
+  "name": "Rebrandly",
+  "description": ""
+ },
+ {
+  "slug": "recraft",
+  "name": "Recraft",
+  "description": ""
+ },
+ {
+  "slug": "recraft_mcp",
+  "name": "Recraft MCP",
+  "description": ""
+ },
+ {
+  "slug": "recruitee",
+  "name": "Recruitee",
+  "description": ""
+ },
+ {
+  "slug": "recurly",
+  "name": "Recurly",
+  "description": ""
+ },
+ {
+  "slug": "redcircle_api",
+  "name": "RedCircle API",
+  "description": ""
+ },
+ {
+  "slug": "reddit_ads",
+  "name": "Reddit Ads",
+  "description": ""
+ },
+ {
+  "slug": "redirect_pizza",
+  "name": "redirect.pizza",
+  "description": ""
+ },
+ {
+  "slug": "referralrock",
+  "name": "ReferralRock",
+  "description": ""
+ },
+ {
+  "slug": "refiner",
+  "name": "Refiner",
+  "description": ""
+ },
+ {
+  "slug": "reloadly",
+  "name": "Reloadly",
+  "description": ""
+ },
+ {
+  "slug": "remarkety",
+  "name": "Remarkety",
+  "description": ""
+ },
+ {
+  "slug": "remote_retrieval",
+  "name": "Remote Retrieval",
+  "description": ""
+ },
+ {
+  "slug": "remove_bg",
+  "name": "Remove.bg",
+  "description": ""
+ },
+ {
+  "slug": "render",
+  "name": "Render",
+  "description": ""
+ },
+ {
+  "slug": "renderform",
+  "name": "Renderform",
+  "description": ""
+ },
+ {
+  "slug": "rentman",
+  "name": "Rentman",
+  "description": ""
+ },
+ {
+  "slug": "repairshopr",
+  "name": "RepairShopr",
+  "description": ""
+ },
+ {
+  "slug": "replay_mcp",
+  "name": "Replay MCP",
+  "description": ""
+ },
+ {
+  "slug": "replicate",
+  "name": "Replicate",
+  "description": ""
+ },
+ {
+  "slug": "reply",
+  "name": "Reply",
+  "description": ""
+ },
+ {
+  "slug": "reply_io",
+  "name": "Reply.io",
+  "description": ""
+ },
+ {
+  "slug": "request_tracker",
+  "name": "Request Tracker (RT)",
+  "description": ""
+ },
+ {
+  "slug": "resend",
+  "name": "Resend",
+  "description": ""
+ },
+ {
+  "slug": "resend_mcp",
+  "name": "Resend MCP",
+  "description": ""
+ },
+ {
+  "slug": "resortlife_travel_mcp",
+  "name": "Resortlife Travel MCP",
+  "description": ""
+ },
+ {
+  "slug": "resource_planner",
+  "name": "Resource Planner",
+  "description": ""
+ },
+ {
+  "slug": "respond_io",
+  "name": "Respond.io",
+  "description": ""
+ },
+ {
+  "slug": "retable",
+  "name": "Retable",
+  "description": ""
+ },
+ {
+  "slug": "retailed",
+  "name": "Retailed",
+  "description": ""
+ },
+ {
+  "slug": "reteno",
+  "name": "Reteno",
+  "description": ""
+ },
+ {
+  "slug": "retently",
+  "name": "Retently",
+  "description": ""
+ },
+ {
+  "slug": "rev",
+  "name": "Rev AI",
+  "description": ""
+ },
+ {
+  "slug": "rev_ai",
+  "name": "Rev AI",
+  "description": ""
+ },
+ {
+  "slug": "revolt",
+  "name": "Revolt",
+  "description": ""
+ },
+ {
+  "slug": "rillet",
+  "name": "Rillet",
+  "description": ""
+ },
+ {
+  "slug": "ritekit",
+  "name": "Ritekit",
+  "description": ""
+ },
+ {
+  "slug": "rize",
+  "name": "Rize",
+  "description": ""
+ },
+ {
+  "slug": "rkvst",
+  "name": "Rkvst",
+  "description": ""
+ },
+ {
+  "slug": "roam",
+  "name": "Roam",
+  "description": ""
+ },
+ {
+  "slug": "roblox",
+  "name": "Roblox",
+  "description": ""
+ },
+ {
+  "slug": "roboflow",
+  "name": "Roboflow",
+  "description": ""
+ },
+ {
+  "slug": "rocketadmin",
+  "name": "Rocketadmin",
+  "description": ""
+ },
+ {
+  "slug": "rollbar",
+  "name": "Rollbar",
+  "description": ""
+ },
+ {
+  "slug": "rootly",
+  "name": "Rootly",
+  "description": ""
+ },
+ {
+  "slug": "rosette_text_analytics",
+  "name": "Rosette Text Analytics",
+  "description": ""
+ },
+ {
+  "slug": "route4me",
+  "name": "Route4me",
+  "description": ""
+ },
+ {
+  "slug": "rudderstack_transformation",
+  "name": "RudderStack Transformation",
+  "description": ""
+ },
+ {
+  "slug": "rulebricks",
+  "name": "Rulebricks",
+  "description": ""
+ },
+ {
+  "slug": "runpod",
+  "name": "RunPod",
+  "description": ""
+ },
+ {
+  "slug": "runway",
+  "name": "Runway",
+  "description": ""
+ },
+ {
+  "slug": "safetyculture",
+  "name": "SafetyCulture",
+  "description": ""
+ },
+ {
+  "slug": "sage_intacct",
+  "name": "Sage Intacct",
+  "description": ""
+ },
+ {
+  "slug": "salesflare",
+  "name": "Salesflare",
+  "description": ""
+ },
+ {
+  "slug": "salesforce_data_360",
+  "name": "Salesforce Data 360",
+  "description": ""
+ },
+ {
+  "slug": "salesforce_service_cloud",
+  "name": "Salesforce Service Cloud",
+  "description": ""
+ },
+ {
+  "slug": "salesmate",
+  "name": "Salesmate",
+  "description": ""
+ },
+ {
+  "slug": "salesrobot",
+  "name": "SalesRobot",
+  "description": ""
+ },
+ {
+  "slug": "sanity",
+  "name": "Sanity",
+  "description": ""
+ },
+ {
+  "slug": "sap_successfactors",
+  "name": "SAP SuccessFactors",
+  "description": ""
+ },
+ {
+  "slug": "saperly",
+  "name": "Saperly",
+  "description": ""
+ },
+ {
+  "slug": "saperly_mcp",
+  "name": "Saperly MCP",
+  "description": ""
+ },
+ {
+  "slug": "satismeter",
+  "name": "Satismeter",
+  "description": ""
+ },
+ {
+  "slug": "saucelabs",
+  "name": "Saucelabs",
+  "description": ""
+ },
+ {
+  "slug": "savvycal",
+  "name": "SavvyCal",
+  "description": ""
+ },
+ {
+  "slug": "scale_ai",
+  "name": "Scale ai",
+  "description": ""
+ },
+ {
+  "slug": "scheduleonce",
+  "name": "Scheduleonce",
+  "description": ""
+ },
+ {
+  "slug": "scorecard_mcp",
+  "name": "Scorecard MCP",
+  "description": ""
+ },
+ {
+  "slug": "scrape_do",
+  "name": "Scrape Do",
+  "description": ""
+ },
+ {
+  "slug": "scrapecreators",
+  "name": "ScrapeCreators",
+  "description": ""
+ },
+ {
+  "slug": "scrapegraph_ai",
+  "name": "ScrapeGraphAI",
+  "description": ""
+ },
+ {
+  "slug": "scrapfly",
+  "name": "Scrapfly",
+  "description": ""
+ },
+ {
+  "slug": "scrapingant",
+  "name": "Scrapingant",
+  "description": ""
+ },
+ {
+  "slug": "scrapingbee",
+  "name": "Scrapingbee",
+  "description": ""
+ },
+ {
+  "slug": "scrapingdog",
+  "name": "Scrapingdog",
+  "description": ""
+ },
+ {
+  "slug": "screenshot_api",
+  "name": "Screenshot API",
+  "description": ""
+ },
+ {
+  "slug": "screenshot_fyi",
+  "name": "Screenshot.fyi",
+  "description": ""
+ },
+ {
+  "slug": "screenshotbase",
+  "name": "Screenshotbase",
+  "description": ""
+ },
+ {
+  "slug": "seam",
+  "name": "Seam",
+  "description": ""
+ },
+ {
+  "slug": "search_api",
+  "name": "Search api",
+  "description": ""
+ },
+ {
+  "slug": "search1api",
+  "name": "Search1API",
+  "description": ""
+ },
+ {
+  "slug": "searchapi_mcp",
+  "name": "SearchAPI MCP",
+  "description": ""
+ },
+ {
+  "slug": "seat_geek",
+  "name": "Seat Geek",
+  "description": ""
+ },
+ {
+  "slug": "seatable",
+  "name": "SeaTable",
+  "description": ""
+ },
+ {
+  "slug": "sec",
+  "name": "SEC EDGAR",
+  "description": ""
+ },
+ {
+  "slug": "securitytrails",
+  "name": "Securitytrails",
+  "description": ""
+ },
+ {
+  "slug": "seek_table",
+  "name": "SeekTable",
+  "description": ""
+ },
+ {
+  "slug": "segment",
+  "name": "Segment",
+  "description": ""
+ },
+ {
+  "slug": "segmetrics",
+  "name": "Segmetrics",
+  "description": ""
+ },
+ {
+  "slug": "seltz",
+  "name": "Seltz",
+  "description": ""
+ },
+ {
+  "slug": "semrush_mcp",
+  "name": "Semrush MCP",
+  "description": ""
+ },
+ {
+  "slug": "sendbird",
+  "name": "Sendbird",
+  "description": ""
+ },
+ {
+  "slug": "sendbird_ai_chabot",
+  "name": "Sendbird AI Chatbot",
+  "description": ""
+ },
+ {
+  "slug": "sender",
+  "name": "Sender",
+  "description": ""
+ },
+ {
+  "slug": "sendfox",
+  "name": "Sendfox",
+  "description": ""
+ },
+ {
+  "slug": "sendlane",
+  "name": "Sendlane",
+  "description": ""
+ },
+ {
+  "slug": "sendloop",
+  "name": "Sendloop",
+  "description": ""
+ },
+ {
+  "slug": "send_pulse",
+  "name": "SendPulse",
+  "description": ""
+ },
+ {
+  "slug": "sendspark",
+  "name": "Sendspark",
+  "description": ""
+ },
+ {
+  "slug": "sensibo",
+  "name": "Sensibo",
+  "description": ""
+ },
+ {
+  "slug": "sentfromai",
+  "name": "SentFromAI",
+  "description": ""
+ },
+ {
+  "slug": "sentry_mcp",
+  "name": "Sentry MCP",
+  "description": ""
+ },
+ {
+  "slug": "seoptimer",
+  "name": "SEOptimer",
+  "description": ""
+ },
+ {
+  "slug": "seqera",
+  "name": "Seqera",
+  "description": ""
+ },
+ {
+  "slug": "sequenzy",
+  "name": "Sequenzy",
+  "description": ""
+ },
+ {
+  "slug": "serpdog",
+  "name": "Serpdog",
+  "description": ""
+ },
+ {
+  "slug": "serper",
+  "name": "Serper",
+  "description": ""
+ },
+ {
+  "slug": "serphouse",
+  "name": "Serphouse",
+  "description": ""
+ },
+ {
+  "slug": "serply",
+  "name": "Serply",
+  "description": ""
+ },
+ {
+  "slug": "serveravatar",
+  "name": "Serveravatar",
+  "description": ""
+ },
+ {
+  "slug": "servicetitan",
+  "name": "ServiceTitan",
+  "description": ""
+ },
+ {
+  "slug": "sevdesk",
+  "name": "Sevdesk",
+  "description": ""
+ },
+ {
+  "slug": "seven_io",
+  "name": "Seven.io",
+  "description": ""
+ },
+ {
+  "slug": "sharepoint_graph",
+  "name": "SharePoint Graph",
+  "description": ""
+ },
+ {
+  "slug": "shipday",
+  "name": "Shipday",
+  "description": ""
+ },
+ {
+  "slug": "shipengine",
+  "name": "Shipengine",
+  "description": ""
+ },
+ {
+  "slug": "shippo",
+  "name": "Shippo",
+  "description": ""
+ },
+ {
+  "slug": "shodan",
+  "name": "Shodan",
+  "description": ""
+ },
+ {
+  "slug": "short_io",
+  "name": "Short Io",
+  "description": ""
+ },
+ {
+  "slug": "short_menu",
+  "name": "Short Menu",
+  "description": ""
+ },
+ {
+  "slug": "shorten_rest",
+  "name": "Shorten.REST",
+  "description": ""
+ },
+ {
+  "slug": "shortpixel",
+  "name": "Shortpixel",
+  "description": ""
+ },
+ {
+  "slug": "shotlane",
+  "name": "Shotlane",
+  "description": ""
+ },
+ {
+  "slug": "shotstack",
+  "name": "Shotstack",
+  "description": ""
+ },
+ {
+  "slug": "sideshow",
+  "name": "Sideshow",
+  "description": ""
+ },
+ {
+  "slug": "sideshow_mcp",
+  "name": "Sideshow MCP",
+  "description": ""
+ },
+ {
+  "slug": "sidetracker",
+  "name": "Sidetracker",
+  "description": ""
+ },
+ {
+  "slug": "signa",
+  "name": "Signa",
+  "description": ""
+ },
+ {
+  "slug": "signalbase",
+  "name": "Signalbase",
+  "description": ""
+ },
+ {
+  "slug": "signaturely",
+  "name": "Signaturely",
+  "description": ""
+ },
+ {
+  "slug": "sign_now",
+  "name": "SignNow",
+  "description": ""
+ },
+ {
+  "slug": "signpath",
+  "name": "Signpath",
+  "description": ""
+ },
+ {
+  "slug": "signwell",
+  "name": "Signwell",
+  "description": ""
+ },
+ {
+  "slug": "similarweb_digitalrank_api",
+  "name": "SimilarWeb Digital Rank API",
+  "description": ""
+ },
+ {
+  "slug": "simla_com",
+  "name": "Simla.com",
+  "description": ""
+ },
+ {
+  "slug": "simple_analytics",
+  "name": "Simple Analytics",
+  "description": ""
+ },
+ {
+  "slug": "simplekpi",
+  "name": "Simplekpi",
+  "description": ""
+ },
+ {
+  "slug": "simple_localize",
+  "name": "SimpleLocalize",
+  "description": ""
+ },
+ {
+  "slug": "simplero",
+  "name": "Simplero",
+  "description": ""
+ },
+ {
+  "slug": "simplescraper_mcp",
+  "name": "Simplescraper MCP",
+  "description": ""
+ },
+ {
+  "slug": "siteleaf",
+  "name": "Siteleaf",
+  "description": ""
+ },
+ {
+  "slug": "sitespeakai",
+  "name": "Sitespeakai",
+  "description": ""
+ },
+ {
+  "slug": "sixtyfour",
+  "name": "Sixtyfour",
+  "description": ""
+ },
+ {
+  "slug": "skyfire",
+  "name": "Skyfire",
+  "description": ""
+ },
+ {
+  "slug": "skyvern",
+  "name": "Skyvern",
+  "description": ""
+ },
+ {
+  "slug": "slazzer",
+  "name": "Slazzer",
+  "description": ""
+ },
+ {
+  "slug": "slidesgpt_mcp",
+  "name": "SlidesGPT MCP",
+  "description": ""
+ },
+ {
+  "slug": "slite",
+  "name": "Slite",
+  "description": ""
+ },
+ {
+  "slug": "smarthr",
+  "name": "SmartHR",
+  "description": ""
+ },
+ {
+  "slug": "smartlead",
+  "name": "Smartlead",
+  "description": ""
+ },
+ {
+  "slug": "smartproxy",
+  "name": "Smartproxy",
+  "description": ""
+ },
+ {
+  "slug": "smartsheet",
+  "name": "Smartsheet",
+  "description": ""
+ },
+ {
+  "slug": "smokeball",
+  "name": "Smokeball",
+  "description": ""
+ },
+ {
+  "slug": "smol_machines",
+  "name": "Smol Machines",
+  "description": ""
+ },
+ {
+  "slug": "sms_alert",
+  "name": "SMS Alert",
+  "description": ""
+ },
+ {
+  "slug": "smtp2go",
+  "name": "Smtp2go",
+  "description": ""
+ },
+ {
+  "slug": "smtping",
+  "name": "SMTPing",
+  "description": ""
+ },
+ {
+  "slug": "snapchat",
+  "name": "Snapchat",
+  "description": ""
+ },
+ {
+  "slug": "snaprender",
+  "name": "SnapRender",
+  "description": ""
+ },
+ {
+  "slug": "sncf",
+  "name": "SNCF",
+  "description": ""
+ },
+ {
+  "slug": "snowflake_basic",
+  "name": "Snowflake Basic",
+  "description": ""
+ },
+ {
+  "slug": "snyk",
+  "name": "Snyk",
+  "description": ""
+ },
+ {
+  "slug": "softr",
+  "name": "Softr",
+  "description": ""
+ },
+ {
+  "slug": "solcast",
+  "name": "Solcast",
+  "description": ""
+ },
+ {
+  "slug": "soundcloud",
+  "name": "SoundCloud",
+  "description": ""
+ },
+ {
+  "slug": "sourcegraph",
+  "name": "Sourcegraph",
+  "description": ""
+ },
+ {
+  "slug": "specific",
+  "name": "Specific",
+  "description": ""
+ },
+ {
+  "slug": "speechmatics",
+  "name": "Speechmatics",
+  "description": ""
+ },
+ {
+  "slug": "spider",
+  "name": "Spider",
+  "description": ""
+ },
+ {
+  "slug": "splice_mcp",
+  "name": "Splice MCP",
+  "description": ""
+ },
+ {
+  "slug": "splitwise",
+  "name": "Splitwise",
+  "description": ""
+ },
+ {
+  "slug": "spoki",
+  "name": "Spoki",
+  "description": ""
+ },
+ {
+  "slug": "spondyr",
+  "name": "Spondyr",
+  "description": ""
+ },
+ {
+  "slug": "spotify",
+  "name": "Spotify",
+  "description": ""
+ },
+ {
+  "slug": "spotlightr",
+  "name": "Spotlightr",
+  "description": ""
+ },
+ {
+  "slug": "sprout_social",
+  "name": "Sprout Social",
+  "description": ""
+ },
+ {
+  "slug": "spydra",
+  "name": "Spydra",
+  "description": ""
+ },
+ {
+  "slug": "sslmate_cert_spotter_api",
+  "name": "SSLMate Cert Spotter API",
+  "description": ""
+ },
+ {
+  "slug": "stack_ai",
+  "name": "Stack Ai",
+  "description": ""
+ },
+ {
+  "slug": "stackby",
+  "name": "Stackby",
+  "description": ""
+ },
+ {
+  "slug": "stannp",
+  "name": "Stannp",
+  "description": ""
+ },
+ {
+  "slug": "starcovery",
+  "name": "Starcovery",
+  "description": ""
+ },
+ {
+  "slug": "starshipit",
+  "name": "Starshipit",
+  "description": ""
+ },
+ {
+  "slug": "starton",
+  "name": "Starton",
+  "description": ""
+ },
+ {
+  "slug": "statsig",
+  "name": "Statsig",
+  "description": ""
+ },
+ {
+  "slug": "statsig_mcp",
+  "name": "Statsig MCP",
+  "description": ""
+ },
+ {
+  "slug": "statuscake",
+  "name": "Statuscake",
+  "description": ""
+ },
+ {
+  "slug": "storeganise",
+  "name": "Storeganise",
+  "description": ""
+ },
+ {
+  "slug": "storerocket",
+  "name": "Storerocket",
+  "description": ""
+ },
+ {
+  "slug": "stormboard",
+  "name": "Stormboard",
+  "description": ""
+ },
+ {
+  "slug": "stormglass_io",
+  "name": "Stormglass Io",
+  "description": ""
+ },
+ {
+  "slug": "storyblok",
+  "name": "Storyblok",
+  "description": ""
+ },
+ {
+  "slug": "strale",
+  "name": "Strale",
+  "description": ""
+ },
+ {
+  "slug": "streamtime",
+  "name": "Streamtime",
+  "description": ""
+ },
+ {
+  "slug": "stripe_mcp",
+  "name": "Stripe MCP",
+  "description": ""
+ },
+ {
+  "slug": "studio_by_ai21_labs",
+  "name": "Studio By Ai21 Labs",
+  "description": ""
+ },
+ {
+  "slug": "stytch_mcp",
+  "name": "Stytch MCP",
+  "description": ""
+ },
+ {
+  "slug": "suitedash",
+  "name": "Suitedash",
+  "description": ""
+ },
+ {
+  "slug": "sumble",
+  "name": "Sumble",
+  "description": ""
+ },
+ {
+  "slug": "supabase_mcp",
+  "name": "Supabase MCP",
+  "description": ""
+ },
+ {
+  "slug": "supabase_read_mcp",
+  "name": "Supabase Read MCP",
+  "description": ""
+ },
+ {
+  "slug": "supadata",
+  "name": "Supadata",
+  "description": ""
+ },
+ {
+  "slug": "superchat",
+  "name": "Superchat",
+  "description": ""
+ },
+ {
+  "slug": "supermemory",
+  "name": "Supermemory",
+  "description": ""
+ },
+ {
+  "slug": "supersaas",
+  "name": "Supersaas",
+  "description": ""
+ },
+ {
+  "slug": "supportbee",
+  "name": "Supportbee",
+  "description": ""
+ },
+ {
+  "slug": "supportivekoala",
+  "name": "Supportivekoala",
+  "description": ""
+ },
+ {
+  "slug": "surecontact",
+  "name": "SureContact",
+  "description": ""
+ },
+ {
+  "slug": "surf",
+  "name": "Surf",
+  "description": ""
+ },
+ {
+  "slug": "svix",
+  "name": "Svix",
+  "description": ""
+ },
+ {
+  "slug": "swaggerhub",
+  "name": "Swaggerhub",
+  "description": ""
+ },
+ {
+  "slug": "swarmsyncai",
+  "name": "Swarmsyncai",
+  "description": ""
+ },
+ {
+  "slug": "sympla",
+  "name": "Sympla",
+  "description": ""
+ },
+ {
+  "slug": "synthesia",
+  "name": "Synthesia",
+  "description": ""
+ },
+ {
+  "slug": "synthesize_bio_mcp",
+  "name": "Synthesize Bio MCP",
+  "description": ""
+ },
+ {
+  "slug": "synthflow_ai",
+  "name": "Synthflow AI",
+  "description": ""
+ },
+ {
+  "slug": "tableau",
+  "name": "Tableau",
+  "description": ""
+ },
+ {
+  "slug": "taggun",
+  "name": "Taggun",
+  "description": ""
+ },
+ {
+  "slug": "tailscale",
+  "name": "Tailscale",
+  "description": ""
+ },
+ {
+  "slug": "talenthr",
+  "name": "Talenthr",
+  "description": ""
+ },
+ {
+  "slug": "tally",
+  "name": "Tally",
+  "description": ""
+ },
+ {
+  "slug": "tapfiliate",
+  "name": "Tapfiliate",
+  "description": ""
+ },
+ {
+  "slug": "taskrabbit_mcp",
+  "name": "Taskrabbit MCP",
+  "description": ""
+ },
+ {
+  "slug": "tave",
+  "name": "Tave",
+  "description": ""
+ },
+ {
+  "slug": "tavily_mcp",
+  "name": "Tavily MCP",
+  "description": ""
+ },
+ {
+  "slug": "taxjar",
+  "name": "Taxjar",
+  "description": ""
+ },
+ {
+  "slug": "teamcamp",
+  "name": "Teamcamp",
+  "description": ""
+ },
+ {
+  "slug": "teamleader",
+  "name": "Teamleader Focus",
+  "description": ""
+ },
+ {
+  "slug": "teamwork",
+  "name": "Teamwork",
+  "description": ""
+ },
+ {
+  "slug": "telegram",
+  "name": "Telegram",
+  "description": ""
+ },
+ {
+  "slug": "telnyx",
+  "name": "Telnyx",
+  "description": ""
+ },
+ {
+  "slug": "teltel",
+  "name": "Teltel",
+  "description": ""
+ },
+ {
+  "slug": "templated",
+  "name": "Templated",
+  "description": ""
+ },
+ {
+  "slug": "templatefox",
+  "name": "TemplateFox",
+  "description": ""
+ },
+ {
+  "slug": "temporal",
+  "name": "Temporal",
+  "description": ""
+ },
+ {
+  "slug": "tenderlead",
+  "name": "TenderLead",
+  "description": ""
+ },
+ {
+  "slug": "test_app",
+  "name": "Test app",
+  "description": ""
+ },
+ {
+  "slug": "textcortex",
+  "name": "Textcortex",
+  "description": ""
+ },
+ {
+  "slug": "textit",
+  "name": "Textit",
+  "description": ""
+ },
+ {
+  "slug": "thanks_io",
+  "name": "Thanks.io",
+  "description": ""
+ },
+ {
+  "slug": "thecompaniesapi",
+  "name": "The Companies API",
+  "description": ""
+ },
+ {
+  "slug": "the_odds_api",
+  "name": "The Odds API",
+  "description": ""
+ },
+ {
+  "slug": "the_org",
+  "name": "The Org",
+  "description": ""
+ },
+ {
+  "slug": "theirstack",
+  "name": "TheirStack",
+  "description": ""
+ },
+ {
+  "slug": "thoughtspot_spotter_mcp",
+  "name": "ThoughtSpot Spotter MCP",
+  "description": ""
+ },
+ {
+  "slug": "threads",
+  "name": "Threads",
+  "description": ""
+ },
+ {
+  "slug": "ticket_tailor_mcp",
+  "name": "Ticket Tailor MCP",
+  "description": ""
+ },
+ {
+  "slug": "ticketmaster",
+  "name": "Ticketmaster",
+  "description": ""
+ },
+ {
+  "slug": "ticktick",
+  "name": "Ticktick",
+  "description": ""
+ },
+ {
+  "slug": "tidb_cloud",
+  "name": "TiDB Cloud",
+  "description": ""
+ },
+ {
+  "slug": "tidy",
+  "name": "Tidy",
+  "description": ""
+ },
+ {
+  "slug": "tiingo",
+  "name": "Tiingo",
+  "description": ""
+ },
+ {
+  "slug": "tik_hub",
+  "name": "TikHub",
+  "description": ""
+ },
+ {
+  "slug": "tiktok",
+  "name": "Tiktok",
+  "description": ""
+ },
+ {
+  "slug": "tiktok_ads",
+  "name": "TikTok Ads",
+  "description": ""
+ },
+ {
+  "slug": "timelinesai",
+  "name": "TimelinesAI",
+  "description": ""
+ },
+ {
+  "slug": "timelink",
+  "name": "Timelink",
+  "description": ""
+ },
+ {
+  "slug": "timetopost",
+  "name": "TimeToPost",
+  "description": ""
+ },
+ {
+  "slug": "tinyfish",
+  "name": "TinyFish",
+  "description": ""
+ },
+ {
+  "slug": "tinyfish_mcp",
+  "name": "TinyFish MCP",
+  "description": ""
+ },
+ {
+  "slug": "tipalti",
+  "name": "Tipalti",
+  "description": ""
+ },
+ {
+  "slug": "tldv",
+  "name": "Tldv",
+  "description": ""
+ },
+ {
+  "slug": "todoist_mcp",
+  "name": "Todoist MCP",
+  "description": ""
+ },
+ {
+  "slug": "toggl",
+  "name": "Toggl",
+  "description": ""
+ },
+ {
+  "slug": "toggl_track",
+  "name": "Toggl Track",
+  "description": ""
+ },
+ {
+  "slug": "token_metrics",
+  "name": "Token Metrics",
+  "description": ""
+ },
+ {
+  "slug": "tomba",
+  "name": "Tomba",
+  "description": ""
+ },
+ {
+  "slug": "tomtom",
+  "name": "Tomtom",
+  "description": ""
+ },
+ {
+  "slug": "toolfound_mcp",
+  "name": "Toolfound MCP",
+  "description": ""
+ },
+ {
+  "slug": "tpscheck",
+  "name": "Tpscheck",
+  "description": ""
+ },
+ {
+  "slug": "trackdesk",
+  "name": "Trackdesk",
+  "description": ""
+ },
+ {
+  "slug": "trackingmore",
+  "name": "TrackingMore",
+  "description": ""
+ },
+ {
+  "slug": "transloadit",
+  "name": "Transloadit",
+  "description": ""
+ },
+ {
+  "slug": "trello_mcp",
+  "name": "Trello MCP",
+  "description": ""
+ },
+ {
+  "slug": "trestle",
+  "name": "Trestle",
+  "description": ""
+ },
+ {
+  "slug": "trigger_dev",
+  "name": "Trigger.dev",
+  "description": ""
+ },
+ {
+  "slug": "triggercmd",
+  "name": "Triggercmd",
+  "description": ""
+ },
+ {
+  "slug": "tripadvisor",
+  "name": "Tripadvisor",
+  "description": ""
+ },
+ {
+  "slug": "tripadvisor_content_api",
+  "name": "TripAdvisor Content API",
+  "description": ""
+ },
+ {
+  "slug": "tripo3d",
+  "name": "Tripo3D",
+  "description": ""
+ },
+ {
+  "slug": "trivago_mcp",
+  "name": "Trivago MCP",
+  "description": ""
+ },
+ {
+  "slug": "true_list",
+  "name": "TrueList",
+  "description": ""
+ },
+ {
+  "slug": "truthscan",
+  "name": "TruthScan",
+  "description": ""
+ },
+ {
+  "slug": "truvera",
+  "name": "Truvera",
+  "description": ""
+ },
+ {
+  "slug": "tryfundable",
+  "name": "TryFundable",
+  "description": ""
+ },
+ {
+  "slug": "turbot_pipes",
+  "name": "Turbot Pipes",
+  "description": ""
+ },
+ {
+  "slug": "turso",
+  "name": "Turso",
+  "description": ""
+ },
+ {
+  "slug": "twelve_data",
+  "name": "Twelve Data",
+  "description": ""
+ },
+ {
+  "slug": "twenty",
+  "name": "Twenty",
+  "description": ""
+ },
+ {
+  "slug": "twilio",
+  "name": "Twilio",
+  "description": ""
+ },
+ {
+  "slug": "twittershots",
+  "name": "TwitterShots",
+  "description": ""
+ },
+ {
+  "slug": "twocaptcha",
+  "name": "Twocaptcha",
+  "description": ""
+ },
+ {
+  "slug": "typecast",
+  "name": "Typecast",
+  "description": ""
+ },
+ {
+  "slug": "typeform",
+  "name": "Typeform",
+  "description": ""
+ },
+ {
+  "slug": "typless",
+  "name": "Typless",
+  "description": ""
+ },
+ {
+  "slug": "u301",
+  "name": "U301",
+  "description": ""
+ },
+ {
+  "slug": "unifi",
+  "name": "UniFi",
+  "description": ""
+ },
+ {
+  "slug": "unione",
+  "name": "Unione",
+  "description": ""
+ },
+ {
+  "slug": "unipile",
+  "name": "Unipile",
+  "description": ""
+ },
+ {
+  "slug": "unisender",
+  "name": "Unisender",
+  "description": ""
+ },
+ {
+  "slug": "uniswap_api",
+  "name": "Uniswap Api",
+  "description": ""
+ },
+ {
+  "slug": "unleash",
+  "name": "Unleash",
+  "description": ""
+ },
+ {
+  "slug": "unsplash",
+  "name": "Unsplash",
+  "description": ""
+ },
+ {
+  "slug": "unstructured",
+  "name": "Unstructured",
+  "description": ""
+ },
+ {
+  "slug": "updown_io",
+  "name": "Updown.io",
+  "description": ""
+ },
+ {
+  "slug": "uplisting",
+  "name": "Uplisting",
+  "description": ""
+ },
+ {
+  "slug": "upload_to_url",
+  "name": "Upload to URL",
+  "description": ""
+ },
+ {
+  "slug": "upload_post",
+  "name": "Upload-Post",
+  "description": ""
+ },
+ {
+  "slug": "uploadcare",
+  "name": "Uploadcare",
+  "description": ""
+ },
+ {
+  "slug": "uptimerobot",
+  "name": "Uptimerobot",
+  "description": ""
+ },
+ {
+  "slug": "urlscanio",
+  "name": "urlscan.io",
+  "description": ""
+ },
+ {
+  "slug": "userflow",
+  "name": "Userflow",
+  "description": ""
+ },
+ {
+  "slug": "userlist",
+  "name": "Userlist",
+  "description": ""
+ },
+ {
+  "slug": "v0",
+  "name": "V0",
+  "description": ""
+ },
+ {
+  "slug": "valyu",
+  "name": "Valyu",
+  "description": ""
+ },
+ {
+  "slug": "vantage_mcp",
+  "name": "Vantage MCP",
+  "description": ""
+ },
+ {
+  "slug": "vapi",
+  "name": "Vapi",
+  "description": ""
+ },
+ {
+  "slug": "vaquill",
+  "name": "Vaquill",
+  "description": ""
+ },
+ {
+  "slug": "vast_ai",
+  "name": "Vast.ai",
+  "description": ""
+ },
+ {
+  "slug": "vectorshift",
+  "name": "Vectorshift",
+  "description": ""
+ },
+ {
+  "slug": "veo",
+  "name": "Veo",
+  "description": ""
+ },
+ {
+  "slug": "vercel",
+  "name": "Vercel",
+  "description": ""
+ },
+ {
+  "slug": "vercel_ai_gateway",
+  "name": "Vercel AI Gateway",
+  "description": ""
+ },
+ {
+  "slug": "vercel_mcp",
+  "name": "Vercel MCP",
+  "description": ""
+ },
+ {
+  "slug": "verifi_email",
+  "name": "Verifi.Email",
+  "description": ""
+ },
+ {
+  "slug": "verifiedemail",
+  "name": "Verifiedemail",
+  "description": ""
+ },
+ {
+  "slug": "veriphone",
+  "name": "Veriphone",
+  "description": ""
+ },
+ {
+  "slug": "veriphone_mcp",
+  "name": "Veriphone MCP",
+  "description": ""
+ },
+ {
+  "slug": "veryfi",
+  "name": "Veryfi OCR",
+  "description": ""
+ },
+ {
+  "slug": "vestaboard",
+  "name": "Vestaboard",
+  "description": ""
+ },
+ {
+  "slug": "viator_mcp",
+  "name": "Viator MCP",
+  "description": ""
+ },
+ {
+  "slug": "vibe",
+  "name": "Vibe",
+  "description": ""
+ },
+ {
+  "slug": "vibe_prospecting_mcp",
+  "name": "Vibe Prospecting MCP",
+  "description": ""
+ },
+ {
+  "slug": "video_db",
+  "name": "VideoDB",
+  "description": ""
+ },
+ {
+  "slug": "vidiq_mcp",
+  "name": "vidIQ MCP",
+  "description": ""
+ },
+ {
+  "slug": "vimeo",
+  "name": "Vimeo",
+  "description": ""
+ },
+ {
+  "slug": "viral_loops",
+  "name": "Viral Loops",
+  "description": ""
+ },
+ {
+  "slug": "virkly",
+  "name": "Virkly",
+  "description": ""
+ },
+ {
+  "slug": "virustotal",
+  "name": "VirusTotal",
+  "description": ""
+ },
+ {
+  "slug": "visualping",
+  "name": "Visualping",
+  "description": ""
+ },
+ {
+  "slug": "vlm_run",
+  "name": "VLM Run",
+  "description": ""
+ },
+ {
+  "slug": "voiceflow",
+  "name": "Voiceflow",
+  "description": ""
+ },
+ {
+  "slug": "wachete",
+  "name": "Wachete",
+  "description": ""
+ },
+ {
+  "slug": "waiverfile",
+  "name": "Waiverfile",
+  "description": ""
+ },
+ {
+  "slug": "wanikani",
+  "name": "WaniKani",
+  "description": ""
+ },
+ {
+  "slug": "wati",
+  "name": "Wati",
+  "description": ""
+ },
+ {
+  "slug": "weaviate_mcp",
+  "name": "Weaviate MCP",
+  "description": ""
+ },
+ {
+  "slug": "web3_career",
+  "name": "Web3 Career",
+  "description": ""
+ },
+ {
+  "slug": "webcrawlerapi",
+  "name": "WebCrawlerAPI",
+  "description": ""
+ },
+ {
+  "slug": "webpushr",
+  "name": "Webpushr",
+  "description": ""
+ },
+ {
+  "slug": "webscraper_io",
+  "name": "Webscraper io",
+  "description": ""
+ },
+ {
+  "slug": "webscraping_ai",
+  "name": "WebScraping.AI",
+  "description": ""
+ },
+ {
+  "slug": "webvizio",
+  "name": "Webvizio",
+  "description": ""
+ },
+ {
+  "slug": "weights_and_biases",
+  "name": "Weights & Biases",
+  "description": ""
+ },
+ {
+  "slug": "whautomate",
+  "name": "Whautomate",
+  "description": ""
+ },
+ {
+  "slug": "whoisfreaks",
+  "name": "Whoisfreaks",
+  "description": ""
+ },
+ {
+  "slug": "whop",
+  "name": "Whop",
+  "description": ""
+ },
+ {
+  "slug": "wild_apricot",
+  "name": "WildApricot",
+  "description": ""
+ },
+ {
+  "slug": "windsor_ai",
+  "name": "Windsor.ai",
+  "description": ""
+ },
+ {
+  "slug": "winston_ai",
+  "name": "Winston AI",
+  "description": ""
+ },
+ {
+  "slug": "wise",
+  "name": "Wise",
+  "description": ""
+ },
+ {
+  "slug": "wisepops",
+  "name": "Wisepops",
+  "description": ""
+ },
+ {
+  "slug": "wispr_flow_mcp",
+  "name": "Wispr Flow MCP",
+  "description": ""
+ },
+ {
+  "slug": "wistia",
+  "name": "Wistia",
+  "description": ""
+ },
+ {
+  "slug": "wit_ai",
+  "name": "Wit.ai",
+  "description": ""
+ },
+ {
+  "slug": "withpica",
+  "name": "withPICA",
+  "description": ""
+ },
+ {
+  "slug": "wix",
+  "name": "Wix",
+  "description": ""
+ },
+ {
+  "slug": "wix_mcp",
+  "name": "Wix MCP",
+  "description": ""
+ },
+ {
+  "slug": "wiza",
+  "name": "Wiza",
+  "description": ""
+ },
+ {
+  "slug": "wolfram_alpha_api",
+  "name": "Wolfram|Alpha API",
+  "description": ""
+ },
+ {
+  "slug": "woodpecker_co",
+  "name": "Woodpecker Co",
+  "description": ""
+ },
+ {
+  "slug": "woop_social",
+  "name": "WoopSocial",
+  "description": ""
+ },
+ {
+  "slug": "wordpress_com",
+  "name": "WordPress.com",
+  "description": ""
+ },
+ {
+  "slug": "words_into_music",
+  "name": "Words into Music (Savuko)",
+  "description": ""
+ },
+ {
+  "slug": "workable",
+  "name": "Workable",
+  "description": ""
+ },
+ {
+  "slug": "workday",
+  "name": "Workday",
+  "description": ""
+ },
+ {
+  "slug": "workday_adaptive_planning",
+  "name": "Workday Adaptive Planning",
+  "description": ""
+ },
+ {
+  "slug": "workday_raas",
+  "name": "Workday RaaS",
+  "description": ""
+ },
+ {
+  "slug": "workiz",
+  "name": "Workiz",
+  "description": ""
+ },
+ {
+  "slug": "workos",
+  "name": "WorkOS",
+  "description": ""
+ },
+ {
+  "slug": "worksnaps",
+  "name": "Worksnaps",
+  "description": ""
+ },
+ {
+  "slug": "world_news_api",
+  "name": "World News API",
+  "description": ""
+ },
+ {
+  "slug": "wp_maps",
+  "name": "Wp Maps",
+  "description": ""
+ },
+ {
+  "slug": "writer",
+  "name": "Writer",
+  "description": ""
+ },
+ {
+  "slug": "wufoo",
+  "name": "Wufoo",
+  "description": ""
+ },
+ {
+  "slug": "x_mcp",
+  "name": "X MCP",
+  "description": ""
+ },
+ {
+  "slug": "xata",
+  "name": "Xata",
+  "description": ""
+ },
+ {
+  "slug": "y_gy",
+  "name": "Y gy",
+  "description": ""
+ },
+ {
+  "slug": "yelp",
+  "name": "Yelp",
+  "description": ""
+ },
+ {
+  "slug": "youtube_transcript",
+  "name": "YouTube Transcript",
+  "description": ""
+ },
+ {
+  "slug": "zelt",
+  "name": "Zelt",
+  "description": ""
+ },
+ {
+  "slug": "zep",
+  "name": "Zep",
+  "description": ""
+ },
+ {
+  "slug": "zeplin",
+  "name": "Zeplin",
+  "description": ""
+ },
+ {
+  "slug": "zernio_mcp",
+  "name": "Zernio MCP",
+  "description": ""
+ },
+ {
+  "slug": "zerobounce",
+  "name": "ZeroBounce",
+  "description": ""
+ },
+ {
+  "slug": "zigpoll",
+  "name": "Zigpoll",
+  "description": ""
+ },
+ {
+  "slug": "zip",
+  "name": "Zip",
+  "description": ""
+ },
+ {
+  "slug": "ziprecruiter_mcp",
+  "name": "ZipRecruiter MCP",
+  "description": ""
+ },
+ {
+  "slug": "zixflow",
+  "name": "Zixflow",
+  "description": ""
+ },
+ {
+  "slug": "zoho_analytics",
+  "name": "Zoho Analytics",
+  "description": ""
+ },
+ {
+  "slug": "zoho_bookings",
+  "name": "Zoho Bookings",
+  "description": ""
+ },
+ {
+  "slug": "zoho_calendar",
+  "name": "Zoho Calendar",
+  "description": ""
+ },
+ {
+  "slug": "zoho_campaigns",
+  "name": "Zoho Campaigns",
+  "description": ""
+ },
+ {
+  "slug": "zoho_cliq",
+  "name": "Zoho Cliq",
+  "description": ""
+ },
+ {
+  "slug": "zoho_creator",
+  "name": "Zoho Creator",
+  "description": ""
+ },
+ {
+  "slug": "zoho_forms",
+  "name": "Zoho Forms",
+  "description": ""
+ },
+ {
+  "slug": "zoho_people",
+  "name": "Zoho People",
+  "description": ""
+ },
+ {
+  "slug": "zoho_projects",
+  "name": "Zoho Projects",
+  "description": ""
+ },
+ {
+  "slug": "zoho_recruit",
+  "name": "Zoho Recruit",
+  "description": ""
+ },
+ {
+  "slug": "zoho_sheet",
+  "name": "Zoho Sheet",
+  "description": ""
+ },
+ {
+  "slug": "zoho_sign",
+  "name": "Zoho Sign",
+  "description": ""
+ },
+ {
+  "slug": "zoho_work_drive",
+  "name": "Zoho WorkDrive",
+  "description": ""
+ },
+ {
+  "slug": "zoom_chat",
+  "name": "Zoom Team Chat",
+  "description": ""
+ },
+ {
+  "slug": "zulip",
+  "name": "Zulip",
+  "description": ""
+ },
+ {
+  "slug": "zylvie",
+  "name": "Zylvie",
+  "description": ""
+ },
+ {
+  "slug": "zyte_api",
+  "name": "Zyte Api",
+  "description": ""
+ }
+]

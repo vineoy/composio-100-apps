@@ -1,0 +1,23 @@
+URL: https://developer.zendesk.com/api-reference/sales-crm/rate-limits/
+FETCHED: 2026-11-23T16:45:19.205943
+VIA: direct
+
+Pricing and Rate Limits | Zendesk Developer Docs
+Sales CRM
+Pricing and Rate Limits
+Copy page
+Pricing
+Sell offers its Core API along with premium Firehose, Sync and Search APIs for advanced uses. Visit our
+pricing page
+for complete details.
+Rate Limiting
+To prevent API abuse, we have introduced a rate limit to the Sell API.
+You can make
+up to 36,000 requests per hour
+(10 requests/token/second). Every request is considered on a per-token basis. If you are consistently running into the current limits, please let us know.
+If your limits reaches zero, subsequent requests will receive the
+429 Too Many Requests
+response code until the request reset time has been reached.
+Tips
+Design your requests to adhere to the rate limit.
+Cache data on your site to avoid unnecessary extra requests.

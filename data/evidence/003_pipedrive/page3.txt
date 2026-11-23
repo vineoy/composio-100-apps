@@ -1,0 +1,207 @@
+URL: https://developers.pipedrive.com/docs/api/v1/Oauth
+FETCHED: 2026-11-23T16:33:54.709134
+
+Pipedrive API v1 Dev References (Oauth) - Learn - Test - Try Now
+API Reference
+API Reference
+Getting started
+Endpoints
+Activities
+Activity fields
+Activity types
+Beta
+Billing
+Call logs
+Channels
+Currencies
+Deal fields
+Deal installments
+Deal products
+Deals
+Files
+Filters
+Goals
+Item search
+Lead fields
+Lead labels
+Leads
+Lead sources
+Legacy teams
+Mailbox
+Meetings
+Note fields
+Notes
+OAuth 2.0
+Requesting authorization
+GET
+/oauth/authorize
+Getting the tokens
+POST
+/oauth/token
+Refreshing the tokens
+POST
+/oauth/token
+Organization fields
+Organization relationships
+Organizations
+Permission sets
+Person fields
+Persons
+Pipelines
+Product fields
+Products
+Project boards
+Project fields
+Project phases
+Projects
+Project templates
+Recents
+Roles
+Stages
+Tasks
+User connections
+Users
+User settings
+Webhooks
+OAuth 2.0
+Run in Postman
+Using OAuth 2.0 is necessary for developing apps that are available in the Pipedrive Marketplace. Authorization via OAuth 2.0 is a well-known and stable way to get fine-grained access to an API. To retrieve OAuth2 tokens you should send requests to the
+https://oauth.pipedrive.com
+domain. After registering the app, you must add the necessary server-side logic to your app to establish the OAuth flow. Please read more about authorization step on the
+Pipedrive Developers page
+.
+Requesting authorization
+Authorize a user by redirecting them to the Pipedrive OAuth authorization page and request their permissions to act on their behalf. This step is necessary to implement only when you allow app installation outside of the Marketplace.
+API v1
+Request
+GET
+/oauth/authorize
+Query parameters
+client_id
+string
+required
+The client ID provided to you by the Pipedrive Marketplace when you register your app
+redirect_uri
+string
+required
+The callback URL you provided when you registered your app. Authorization code will be sent to that URL (if it matches with the value you entered in the registration form) if a user approves the app install. Or, if a customer declines, the corresponding error will also be sent to this URL.
+state
+string
+You may pass any random string as the state parameter and the same string will be returned to your app after a user authorizes access. It may be used to store the user's session ID from your app or distinguish different responses. Using state may increase security; see RFC-6749.
+Response
+200
+OK
+As a result of the request, the customer will see a page with the confirmation dialog, which will present your app details (title, company name, icon) and explain the permission scopes that you have set for the app. Customers should confirm their wish to install the app by clicking "Allow and install" or deny authorization by clicking "Cancel".
+Getting the tokens
+After the customer has confirmed the app installation, you will need to exchange the
+authorization_code
+to a pair of access and refresh tokens. Using an access token, you can access the user's data through the API.
+API v1
+Request
+POST
+/oauth/token
+Header parameters
+Authorization
+string
+required
+Base 64 encoded string containing the
+client_id
+and
+client_secret
+values. The header value should be
+Basic <base64(client_id:client_secret)>
+.
+Body parameters
+application/x-www-form-urlencoded
+grant_type
+string
+Since you are trying to exchange an authorization code for a pair of tokens, you must use the value "authorization_code"
+Default
+authorization_code
+Values
+authorization_code
+refresh_token
+code
+string
+The authorization code that you received after the user confirmed app installation
+redirect_uri
+string
+The callback URL you provided when you registered your app
+Response
+200
+OK
+Expand all
+Copy code
+"access_token":
+"v1u:AQIBAHj+LzTNK1yuuuaLqifzhWb9crUNKTpk4FlQ9rjnXqp/6AErhI98syaV25RmpLJLIgOkAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMbGNxa4UccVoXAmLNAgEQgDsiQ7cNdoRBJeFr1i3KW84RYyM1Qtwq1oSBJOl/NFQdVjDI2iQH0LBhS28DbL2KDvoVIihea9Ryt/9rIQ==:RIDnTOIXo8QirT3DMYw0Y0s8xBbxz59f5IMq7T7WhSz313e2MXRHB6g+8OTNCSqVO7QsUhluoAmOfBP1FNkPycy9txn7t2Uoz9y/JDVf4Givv4MMiK/Xq3I7hO4N6FeD+2GqDJDBn24OW6b0SRIr4FEROhGo3BpcPRGehv46NLn1n5LrqXrQwO9qrGD4gIZe40oO2IQgGL9QAPDfqvZ+JhUtcpAipRLp7cCDRfYU8+sdOFJ+hLffqC8isFcV6iPsNrmj"
+"token_type":
+"Bearer"
+"expires_in":
+3599
+"refresh_token":
+"1:1:2a5496a8bdd0f829dcb09dc8ba82b188f0ea4481"
+"scope":
+"base"
+"api_domain":
+"https://user-company.pipedrive.com"
+Refreshing the tokens
+The
+access_token
+has a lifetime. After a period of time, which was returned to you in
+expires_in
+JSON property, the
+access_token
+will be invalid, and you can no longer use it to get data from our API. To refresh the
+access_token
+, you must use the
+refresh_token
+.
+API v1
+Request
+POST
+/oauth/token
+Header parameters
+Authorization
+string
+required
+Base 64 encoded string containing the
+client_id
+and
+client_secret
+values. The header value should be
+Basic <base64(client_id:client_secret)>
+.
+Body parameters
+application/x-www-form-urlencoded
+grant_type
+string
+Since you are to refresh your access_token, you must use the value "refresh_token"
+Default
+refresh_token
+Values
+authorization_code
+refresh_token
+refresh_token
+string
+The refresh token that you received after you exchanged the authorization code
+Response
+200
+OK
+Expand all
+Copy code
+"access_token":
+"v1u:AQIBAHj+LzTNK1yuuuaLqifzhWb9crUNKTpk4FlQ9rjnXqp/6AErhI98syaV25RmpLJLIgOkAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMbGNxa4UccVoXAmLNAgEQgDsiQ7cNdoRBJeFr1i3KW84RYyM1Qtwq1oSBJOl/NFQdVjDI2iQH0LBhS28DbL2KDvoVIihea9Ryt/9rIQ==:RIDnTOIXo8QirT3DMYw0Y0s8xBbxz59f5IMq7T7WhSz313e2MXRHB6g+8OTNCSqVO7QsUhluoAmOfBP1FNkPycy9txn7t2Uoz9y/JDVf4Givv4MMiK/Xq3I7hO4N6FeD+2GqDJDBn24OW6b0SRIr4FEROhGo3BpcPRGehv46NLn1n5LrqXrQwO9qrGD4gIZe40oO2IQgGL9QAPDfqvZ+JhUtcpAipRLp7cCDRfYU8+sdOFJ+hLffqC8isFcV6iPsNrmj"
+"token_type":
+"Bearer"
+"expires_in":
+3599
+"refresh_token":
+"1:1:2a5496a8bdd0f829dcb09dc8ba82b188f0ea4481"
+"scope":
+"base"
+"api_domain":
+"https://user-company.pipedrive.com"
+Subscribe to Pipedrive’s Developer Newsletter
+Your email address
+Subscribe
+We promise not to send you any marketing materials or spam, just developer news.

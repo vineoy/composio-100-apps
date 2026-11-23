@@ -1,0 +1,1242 @@
+URL: https://api.docs.dealcloud.com/sdk/intapp-rest-client/configuration/authentication
+FETCHED: 2026-11-23T16:44:20.513850
+VIA: direct
+
+Authentication - DealCloud API Docs
+API Reference
+Getting Started
+API Keys
+Authorization Token
+Pagination
+Rate Limits
+Status Codes and Handling
+Core
+Schema
+EntryTypes
+All Entry Types
+Entry Type by ID
+Fields
+All Fields
+Fields by EntryType
+Field by ID
+Multiple Field IDs
+Choice Field Values
+Site Metadata
+Currencies
+Field Types
+Field Units
+Filter Operations
+Mappings
+Mappings Types
+System Entry Types
+System Field Types
+Time Zones
+Users
+Data
+Cells
+Get Data
+List Entries
+List Entries using Filters
+Create, Update or Upsert
+Rows
+Query
+Get
+Update
+Create
+List Views
+Get Data using View
+History
+History or All History
+Historical Data
+Files
+Delete
+Merge
+Template Reports
+Get Template
+Generate
+Get Report
+User Management
+Create User
+Get User
+Get Users by ID
+Update User
+Delete User
+Get All User Groups
+Get User Group by ID
+Create Users Proxy
+Get User Proxy
+Invite Users
+User Activity
+Other
+Publications
+Getting Started
+Topics
+Poll
+Acknowledge
+Event Types
+Data
+Schema
+User
+Bootstrap
+Site Backups
+Request Backup
+Retrieve Backups
+Delete
+Encryption
+Relationship Intelligence
+POST Emails
+POST Meetings
+GET Status
+GET Settings
+Schema Contracts
+MCP
+Getting Started
+AI Clients
+Authentication
+Available Tools
+Custom MCP Servers
+SDKs
+Python SDK v1.X
+Getting Started
+Getting Started
+Installation
+Quick Start
+Migration Guide
+Configuration
+Configuration
+Configuration Files
+Authentication
+Advanced Configuration
+Tracing & Telemetry
+API Reference
+Schema API
+Overview
+Objects
+Fields
+Metadata Types
+Mappings & Contracts
+Users & Currencies
+Schema Export
+Data API
+Overview
+Reading Data
+Read Operations
+Basic Reads
+Reading from Views
+Query Syntax
+Streaming Reads
+Typed Data (Pydantic)
+Reference Fields
+Polars Integration
+Writing Data
+Write Operations
+Insert Data
+Update Data
+Upsert Data
+Delete Data
+ID Mapping
+Advanced
+Cell Operations
+Delta Synchronization
+Files API
+Overview
+Download Files
+Upload Files
+Bulk Export
+User Management
+Overview
+User Management
+Groups
+Backups API
+Backups API
+History API
+History API
+Publications API
+Publications API
+Merge API
+Merge API
+Relationship Intelligence
+Relationship Intelligence
+Advanced Topics
+Advanced
+Async Operations
+Error Handling
+Error Enrichment
+Performance Tuning
+Logging & Debugging
+Troubleshooting & FAQ
+Reference
+API Reference
+Data Models
+Constants
+Utilities & helpers
+Exceptions
+Changelog
+License
+Intapp REST Client
+Getting Started
+Getting Started
+Installation
+Quick Start
+Configuration
+Configuration
+Authentication
+Retry Configuration
+Connection Pooling
+SSL/TLS
+Logging
+Advanced Topics
+Advanced
+Async Operations
+Pagination
+Streaming File Download
+Parallel Requests
+Error Handling
+Tracing & Telemetry
+Request Hooks
+Reference
+Reference
+Configuration Models
+Exceptions
+API Reference
+Changelog
+License
+Python (Legacy) v0.1.9
+Installation
+Authentication
+Usage
+Schema
+Data
+License
+C#
+Installation
+Authentication
+Logging
+Usage
+Schema
+Data
+License
+Guides
+How to Create a User
+How to Download Files
+How to Upload Files
+How to Backlink DMS Documents
+Real-Time Events from DealCloud
+Audit Trail for Read Events
+Feedback
+(opens in a new tab)
+API Reference
+Getting Started
+API Keys
+Authorization Token
+Pagination
+Rate Limits
+Status Codes and Handling
+Core
+Schema
+EntryTypes
+All Entry Types
+Entry Type by ID
+Fields
+All Fields
+Fields by EntryType
+Field by ID
+Multiple Field IDs
+Choice Field Values
+Site Metadata
+Currencies
+Field Types
+Field Units
+Filter Operations
+Mappings
+Mappings Types
+System Entry Types
+System Field Types
+Time Zones
+Users
+Data
+Cells
+Get Data
+List Entries
+List Entries using Filters
+Create, Update or Upsert
+Rows
+Query
+Get
+Update
+Create
+List Views
+Get Data using View
+History
+History or All History
+Historical Data
+Files
+Delete
+Merge
+Template Reports
+Get Template
+Generate
+Get Report
+User Management
+Create User
+Get User
+Get Users by ID
+Update User
+Delete User
+Get All User Groups
+Get User Group by ID
+Create Users Proxy
+Get User Proxy
+Invite Users
+User Activity
+Other
+Publications
+Getting Started
+Topics
+Poll
+Acknowledge
+Event Types
+Data
+Schema
+User
+Bootstrap
+Site Backups
+Request Backup
+Retrieve Backups
+Delete
+Encryption
+Relationship Intelligence
+POST Emails
+POST Meetings
+GET Status
+GET Settings
+Schema Contracts
+MCP
+Getting Started
+AI Clients
+Authentication
+Available Tools
+Custom MCP Servers
+SDKs
+Python SDK v1.X
+Getting Started
+Getting Started
+Installation
+Quick Start
+Migration Guide
+Configuration
+Configuration
+Configuration Files
+Authentication
+Advanced Configuration
+Tracing & Telemetry
+API Reference
+Schema API
+Overview
+Objects
+Fields
+Metadata Types
+Mappings & Contracts
+Users & Currencies
+Schema Export
+Data API
+Overview
+Reading Data
+Read Operations
+Basic Reads
+Reading from Views
+Query Syntax
+Streaming Reads
+Typed Data (Pydantic)
+Reference Fields
+Polars Integration
+Writing Data
+Write Operations
+Insert Data
+Update Data
+Upsert Data
+Delete Data
+ID Mapping
+Advanced
+Cell Operations
+Delta Synchronization
+Files API
+Overview
+Download Files
+Upload Files
+Bulk Export
+User Management
+Overview
+User Management
+Groups
+Backups API
+Backups API
+History API
+History API
+Publications API
+Publications API
+Merge API
+Merge API
+Relationship Intelligence
+Relationship Intelligence
+Advanced Topics
+Advanced
+Async Operations
+Error Handling
+Error Enrichment
+Performance Tuning
+Logging & Debugging
+Troubleshooting & FAQ
+Reference
+API Reference
+Data Models
+Constants
+Utilities & helpers
+Exceptions
+Changelog
+License
+Intapp REST Client
+Getting Started
+Getting Started
+Installation
+Quick Start
+Configuration
+Configuration
+Authentication
+Authentication Methods
+OAuth2 Client Credentials
+API Key Authentication
+Basic Authentication
+JWT Authentication
+Microsoft Entra ID (Azure AD)
+Okta
+Enterprise Authentication (httpx-auth)
+Combining with Retry
+Security Best Practices
+Next Steps
+Retry Configuration
+Connection Pooling
+SSL/TLS
+Logging
+Advanced Topics
+Advanced
+Async Operations
+Pagination
+Streaming File Download
+Parallel Requests
+Error Handling
+Tracing & Telemetry
+Request Hooks
+Reference
+Reference
+Configuration Models
+Exceptions
+API Reference
+Changelog
+License
+Python (Legacy) v0.1.9
+Installation
+Authentication
+Usage
+Schema
+Data
+License
+C#
+Installation
+Authentication
+Logging
+Usage
+Schema
+Data
+License
+Guides
+How to Create a User
+How to Download Files
+How to Upload Files
+How to Backlink DMS Documents
+Real-Time Events from DealCloud
+Audit Trail for Read Events
+Light
+SDKs
+Intapp REST Client
+Configuration
+Authentication
+Authentication
+The Intapp REST Client supports multiple authentication methods. Choose based on your API requirements.
+Authentication Methods
+Method
+Use Case
+Configuration
+OAuth2
+Most REST APIs
+OAuth2Config
+API Key
+Simple APIs
+api_key
+parameter
+Basic Auth
+Legacy systems
+basic_auth
+tuple
+JWT
+Token-based
+JWTConfig
+Entra ID
+Microsoft APIs
+EntraConfig
+Okta
+Enterprise SSO
+OktaConfig
+External
+Azure AD, AWS, etc.
+httpx_auth
+OAuth2 Client Credentials
+The most common authentication method for API integrations.
+from
+intapp_rest_client
+import
+RestClient
+,
+OAuth2Config
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+oauth2_config
+=
+OAuth2Config
+(
+token_url
+=
+"https://api.example.com/oauth/token"
+,
+client_id
+=
+"your_client_id"
+,
+client_secret
+=
+"your_secret"
+,
+scope
+=
+"data"
+# Optional
+)
+)
+# Tokens are automatically managed
+data
+=
+client
+.
+get
+(
+"/api/v4/resources"
+)
+OAuth2 Password Grant
+For APIs that require user credentials:
+from
+intapp_rest_client
+import
+OAuth2Config
+,
+OAuth2GrantType
+config
+=
+OAuth2Config
+(
+token_url
+=
+"https://api.example.com/oauth/token"
+,
+client_id
+=
+"your_client_id"
+,
+client_secret
+=
+"your_secret"
+,
+grant_type
+=
+OAuth2GrantType.PASSWORD,
+username
+=
+"user@example.com"
+,
+password
+=
+"user_password"
+)
+Token Management
+The client automatically handles:
+Token Acquisition
+: Fetches token on first request
+Token Caching
+: Reuses valid tokens
+Token Refresh
+: Refreshes before expiration (default: 30 seconds before)
+401 Handling
+: Automatically retries with fresh token
+# Configure refresh timing
+config
+=
+OAuth2Config
+(
+token_url
+=
+"https://api.example.com/oauth/token"
+,
+client_id
+=
+"client_id"
+,
+client_secret
+=
+"secret"
+,
+token_refresh_margin
+=
+60
+# Refresh 60 seconds before expiry
+)
+Advanced Token Control
+For custom token management workflows, the client stores the OAuth2 manager in the internal attribute
+_auth
+(only when using OAuth2). You can check refresh state, force refresh, or parse token responses:
+from
+intapp_rest_client
+import
+RestClient
+,
+OAuth2Config
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+oauth2_config
+=
+OAuth2Config
+(...)
+)
+# When using OAuth2, client._auth is the OAuth2Manager instance
+oauth_manager
+=
+client
+.
+_auth
+# Check if token needs refresh
+if
+oauth_manager
+.
+token_needs_refresh
+:
+print
+(
+"Token will be refreshed soon"
+)
+# Force token refresh
+oauth_manager
+.
+force_refresh_sync
+()
+# Parse token responses from external sources (class method)
+from
+intapp_rest_client
+import
+OAuth2Manager
+token_data
+=
+OAuth2Manager
+.
+parse_token_response
+({
+"access_token"
+:
+"..."
+,
+"expires_in"
+:
+3600
+,
+"token_type"
+:
+"Bearer"
+})
+⚠️
+client._auth
+is an internal attribute and may change in future versions. Prefer using the client's public API (e.g.
+get()
+,
+post()
+) and let the client manage tokens automatically.
+API Key Authentication
+Header (Default)
+Query Parameter
+from
+intapp_rest_client
+import
+RestClient
+# API key in header (default: X-API-Key)
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+api_key
+=
+"your-api-key"
+)
+# Custom header name
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+api_key
+=
+"your-api-key"
+,
+api_key_header
+=
+"Authorization"
+# or "Api-Key", etc.
+)
+Basic Authentication
+For APIs using HTTP Basic Auth:
+from
+intapp_rest_client
+import
+RestClient
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+basic_auth
+=
+(
+"username"
+,
+"password"
+)
+)
+JWT Authentication
+Generate and sign JWT tokens locally:
+from
+intapp_rest_client
+import
+RestClient
+,
+JWTConfig
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+jwt_config
+=
+JWTConfig
+(
+secret_key
+=
+"your-secret-key"
+,
+algorithm
+=
+"HS256"
+,
+# HS256, RS256, ES256, etc.
+token_lifetime
+=
+3600
+,
+# seconds
+issuer
+=
+"my-service"
+,
+# Optional: iss claim
+audience
+=
+"api.example.com"
+,
+# Optional: aud claim
+custom_claims
+=
+{
+# Additional claims
+"user_id"
+:
+123
+,
+"role"
+:
+"admin"
+}
+)
+)
+💡
+JWT support requires the
+jwt
+extra:
+pip
+:
+pip install intapp-rest-client[jwt]
+uv
+:
+uv add intapp-rest-client[jwt]
+poetry
+:
+poetry add intapp-rest-client -E jwt
+Supported Algorithms
+Algorithm
+Type
+Use Case
+HS256, HS384, HS512
+HMAC
+Shared secret
+RS256, RS384, RS512
+RSA
+Public/private key
+ES256, ES384, ES512
+ECDSA
+Elliptic curve
+PS256, PS384, PS512
+RSA-PSS
+Enhanced RSA
+Microsoft Entra ID (Azure AD)
+Built-in support for Microsoft identity platform:
+from
+intapp_rest_client
+import
+RestClient
+,
+EntraConfig
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+entra_config
+=
+EntraConfig
+(
+tenant_id
+=
+"your-tenant-id"
+,
+client_id
+=
+"your-client-id"
+,
+client_secret
+=
+"your-client-secret"
+,
+scope
+=
+"api://your-api/.default"
+)
+)
+Okta
+Built-in support for Okta:
+from
+intapp_rest_client
+import
+RestClient
+,
+OktaConfig
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+okta_config
+=
+OktaConfig
+(
+domain
+=
+"your-org.okta.com"
+,
+client_id
+=
+"your-client-id"
+,
+client_secret
+=
+"your-client-secret"
+,
+scope
+=
+"api-scope"
+)
+)
+Enterprise Authentication (httpx-auth)
+For other identity providers, use the
+httpx_auth
+parameter with
+httpx-auth
+(opens in a new tab)
+:
+pip
+uv
+poetry
+conda
+pip
+install
+intapp-rest-client[enterprise-auth]
+Azure AD via httpx-auth
+from
+intapp_rest_client
+import
+RestClient
+from
+httpx_auth
+import
+AzureActiveDirectoryClientCredentials
+azure_auth
+=
+AzureActiveDirectoryClientCredentials
+(
+tenant_id
+=
+"your-tenant-id"
+,
+client_id
+=
+"your-client-id"
+,
+client_secret
+=
+"your-client-secret"
+,
+scope
+=
+"api://your-api/.default"
+)
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+httpx_auth
+=
+azure_auth
+)
+AWS Signature V4
+from
+intapp_rest_client
+import
+RestClient
+from
+httpx_auth
+import
+AWS4Auth
+aws_auth
+=
+AWS4Auth
+(
+access_id
+=
+"your-access-key"
+,
+secret_key
+=
+"your-secret-key"
+,
+region
+=
+"us-east-1"
+,
+service
+=
+"execute-api"
+)
+client
+=
+RestClient
+(
+base_url
+=
+"https://your-api.execute-api.us-east-1.amazonaws.com"
+,
+httpx_auth
+=
+aws_auth
+)
+Okta via httpx-auth
+from
+intapp_rest_client
+import
+RestClient
+from
+httpx_auth
+import
+OktaClientCredentials
+okta_auth
+=
+OktaClientCredentials
+(
+instance
+=
+"your-org.okta.com"
+,
+client_id
+=
+"your-client-id"
+,
+client_secret
+=
+"your-client-secret"
+,
+scope
+=
+"api-scope"
+)
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+httpx_auth
+=
+okta_auth
+)
+Other Supported Providers
+httpx-auth supports:
+Azure AD
+-
+AzureActiveDirectoryClientCredentials
+,
+AzureActiveDirectoryImplicit
+Okta
+-
+OktaClientCredentials
+,
+OktaImplicit
+,
+OktaAuthorizationCode
+AWS
+-
+AWS4Auth
+(Signature V4)
+OAuth2
+-
+OAuth2ClientCredentials
+,
+OAuth2ResourceOwnerPasswordCredentials
+API Key
+-
+HeaderApiKey
+,
+QueryApiKey
+Basic/Digest
+-
+Basic
+,
+Digest
+NTLM
+-
+NTLM
+See
+httpx-auth documentation
+(opens in a new tab)
+for details.
+Combining with Retry
+External auth works seamlessly with retry configuration:
+from
+intapp_rest_client
+import
+RestClient
+,
+RetryConfig
+from
+httpx_auth
+import
+AzureActiveDirectoryClientCredentials
+client
+=
+RestClient
+(
+base_url
+=
+"https://api.example.com"
+,
+httpx_auth
+=
+AzureActiveDirectoryClientCredentials
+(...),
+retry_config
+=
+RetryConfig
+(
+max_retries
+=
+5
+,
+backoff_factor
+=
+2.0
+,
+retryable_statuses
+=
+(
+429
+,
+500
+,
+502
+,
+503
+,
+504
+)
+)
+)
+Security Best Practices
+⚠️
+Never hardcode credentials
+in source code. Use environment variables or secrets managers.
+Environment Variables
+import
+os
+from
+intapp_rest_client
+import
+RestClient
+,
+OAuth2Config
+client
+=
+RestClient
+(
+base_url
+=
+os.environ[
+"API_BASE_URL"
+],
+oauth2_config
+=
+OAuth2Config
+(
+token_url
+=
+os.environ[
+"TOKEN_URL"
+],
+client_id
+=
+os.environ[
+"CLIENT_ID"
+],
+client_secret
+=
+os.environ[
+"CLIENT_SECRET"
+]
+)
+)
+Cloud Secrets Managers
+# AWS Secrets Manager
+import
+boto3
+import
+json
+def
+get_client
+():
+sm
+=
+boto3
+.
+client
+(
+'secretsmanager'
+)
+secret
+=
+json
+.
+loads
+(
+sm.
+get_secret_value
+(SecretId
+=
+'my-api-creds'
+)[
+'SecretString'
+]
+)
+return
+RestClient
+(
+base_url
+=
+secret[
+'base_url'
+],
+oauth2_config
+=
+OAuth2Config
+(
+token_url
+=
+secret[
+'token_url'
+],
+client_id
+=
+secret[
+'client_id'
+],
+client_secret
+=
+secret[
+'client_secret'
+]
+)
+)
+Next Steps
+Retry Configuration
+- Configure retry behavior
+Connection Pooling
+- Optimize connections
+Error Handling
+- Handle authentication errors
+Quick Start
+Retry Configuration
