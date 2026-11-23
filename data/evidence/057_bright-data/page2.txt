@@ -1,0 +1,84 @@
+URL: https://docs.brightsec.com/docs/creating-authentication
+FETCHED: 2026-11-23T17:35:42.133415
+VIA: direct
+
+Authentication
+For AI agents: the docs index is at https://docs.brightsec.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+The Bright authentication capabilities allow you to scan all the login-protected resources within your target application or API. You configure Bright once with a way to log in, and it uses that login whenever you select the authentication object in a Discovery or a scan.
+Why Authenticate to the Target Application
+Most applications keep their most valuable pages, data and API endpoints behind a login. Bright can test only what it can reach. Without a valid session, Bright reaches the public part of the application. The protected entrypoints are not discovered, so they are not tested, and the scan results say nothing about them.
+When Bright can log in, it scans the application the way an authenticated user would, and you get complete scan coverage of the target.
+Authentication must also keep working for the whole run. Sessions expire, and a scan can last a long time. Bright checks that the session is still valid and logs in again when it is not.
+The Main Parts of an Authentication Object
+An
+authentication object
+holds everything Bright needs to log in to your target and to confirm that the login still works. You create it once, and then select it when you define a Discovery or a scan.
+An authentication object has three main parts. All three must be configured correctly, or the authentication does not work.
+Auth flow
+is the login procedure that Bright performs, for example filling in a login form or requesting a token from an API. You set it up in the
+Auth Flow Setup
+tab.
+Protected resource
+is a page or an API endpoint that only a logged-in user can open. Bright requests it to check whether the session is valid. You set it up in the
+Authentication Validation
+tab.
+Re-authentication triggers
+are the rules that describe what a response looks like when the session has expired, for example a 401 status. When a response matches a trigger, Bright checks the session with the protected resource and logs in again if needed. You set them up in the
+Authentication Validation
+tab.
+The
+Advanced Settings
+tab adds optional parts: one-time passwords, headers that Bright adds to the requests of the login flow, and headers and body that Bright adds to the requests it sends after it logs in.
+Before you use an authentication object in a scan, you can test it and fix configuration failures. See
+Testing Authentication
+. For the full setup, see
+Add an Authentication Object
+.
+Authentication Flows
+Bright supports several authentication methods. They fall into three categories, based on how Bright reaches the target.
+Browser-based
+— Bright opens the application in a browser and logs in the way a user would, by filling in or replaying a login form. See
+Browser-Based Authentication
+.
+Recorded browser-based form authentication
+is a quick and visual way of creating authentication flows. It allows recording an authentication session using
+a built-in Authentication Recorder
+. You can also use the
+Chrome recorder
+.
+Manual browser-based form authentication
+is a simplified option of the form authentication method. You specify the fields on the login pages and the credentials to enter into them, and Bright completes the form like you would. You can also configure it for multi-step login forms.
+API-based
+— Bright sends HTTP requests directly, with static headers or a custom login flow, without opening a browser. See
+API-Based Authentication
+.
+Header authentication
+is the most straightforward method. Use it for static authentication tokens that are generated outside of Bright and will not expire during a scan.
+Custom API authentication flow
+lets you create a single-stage or multi-stage authentication flow. You can create templates to extract dynamic information from the previous steps, using the
+String Interpolation Syntax
+.
+Protocol-based
+— Bright follows a standard external authentication protocol. See
+Protocol-Based Authentication
+.
+OpenID Connect (OAuth)
+configures the standard OAuth 2.0 flow, which requires the use of client or user secrets. It relies on the authentication performed by an OpenID Connect Provider to verify a user's identity.
+NTLM authentication
+establishes a connection between a user's workstation and a network that uses the NTLM protocol.
+📘
+Note
+If your target requires signed requests (HMAC), an authentication method alone is not enough. Use a Repeater script to sign each request. See
+Using Repeater Scripts
+.
+Updated
+5 days ago
+What’s Next
+Add an Authentication Object
+Bright Authentication Recorder
+Google Chrome DevTools
+Testing Authentication
+Did this page help you?
+Yes
+No
+Copy Page

@@ -1,0 +1,79 @@
+URL: https://www.brex.com/support/brex-api
+FETCHED: 2026-11-23T22:36:57.046571
+VIA: direct
+
+Brex API
+Brex API
+In this article
+In this article
+Overview
+Workflow capabilities
+Safeguards and security
+Start building
+Developer support
+Overview
+The
+Brex API
+is an automation layer that can be used to customize Brex workflows.
+Spend limits API:
+View and manage your Brex spend limits.
+Expenses API:
+View expense categories, capture, and report on spend.
+Fields API:
+Manage your Brex fields and field values.
+Payments API:
+Initiate ACH, check, and wire payments and manage vendors from your Brex business accounts.
+Team API:
+Manage users, departments, locations, and create virtual cards.
+Transactions API:
+Surface your company’s Brex transactional data in external apps or tools.
+Workflow capabilities
+Here are some actions you can automate on Brex using our APIs.
+Spend limits API
+Dynamically create spend limits with the ability to set limits, assign who can spend from it, and more.
+Instantly change spend limits, budget members, and more.
+View spend limit details including limits and spend.
+Expenses API
+Access expense information, such as spend categories, memos, and receipts, edited by customers.
+Accurately capture and report on spend.
+Fields API
+Sync your fields from any third-party system to be used within Brex to simplify and automate your workflows.
+View, create and update fields and values that you want to use within Brex.
+Payments API
+Trigger vendor payments via ACH, wire, and check based on information in other internal systems so payments are initiated immediately.
+If you plan to send more than 1,000 payments per day, please contact developer-support@brex.com for more details on use of the payments API.
+Automatically create new vendors in Brex based on your records in other systems.
+Team API
+Dynamically create virtual cards with spend limits for new employees or vendors.
+Change spend limits per card instantly.
+Lock any number of Brex employee or vendor cards with one line of code.
+Invite new Brex users or terminate them to keep Brex in sync with your HR system.
+Transactions API
+Surface real-time financial data where you make business-critical decisions — e.g., see your current Brex transactions and balance in your own finance dashboard.
+View Brex data in external applications — e.g., pull transaction data into Google Sheets or Excel to create custom reports and charts.
+Build bespoke analytics tools and monitoring for fine-tuned expense tracking.
+Safeguards and security
+Here are some ways that we help to keep your Brex data secure through the API:
+Only account or card admins can create API tokens in the dashboard.
+You can restrict scopes to only allow the functionality you need to access via API.
+All account and card admins on the account receive an email confirmation every time a token is created or revoked.
+Start building
+Account and card admins can get started on the API by visiting
+Brex for Developers
+, our documentation hub, and reading through our documentation and example apps.
+Check your
+role permissions
+and if you’re authorized, generate a user token from your Brex dashboard following
+these instructions
+.
+Developer support
+Please email your support requests to developer-support@brex.com or
+join us on Slack
+.
+In this article
+Overview
+Workflow capabilities
+Safeguards and security
+Start building
+Developer support
+Chat

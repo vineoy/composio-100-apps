@@ -1,0 +1,77 @@
+{
+ "app": "Sherlock",
+ "queries": [
+  "Sherlock API authentication documentation",
+  "Sherlock MCP server",
+  "Sherlock API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.sherlockai.dev/api-reference/",
+  "https://www.sherlock.sh/pricing",
+  "https://docs.cloudferro.com/en/latest/sherlock/Sherlock-authentication-API-keys-on-CloudFerro-Cloud.html",
+  "https://github.com/Burnsedia/sherlock-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "API Documentation \u2014 Sherlock 0.3.0 documentation - Read the Docs",
+   "href": "https://sher-lock.readthedocs.io/en/latest/api_documentation.html"
+  },
+  {
+   "title": "Sherlock API Reference",
+   "href": "https://app.sherlock.sh/reference"
+  },
+  {
+   "title": "API Reference - Sherlock AI Documentation",
+   "href": "https://docs.sherlockai.dev/api-reference/"
+  },
+  {
+   "title": "Authenticate to Sherlock AI with API keys on CloudFerro Cloud",
+   "href": "https://docs.cloudferro.com/en/latest/sherlock/Sherlock-authentication-API-keys-on-CloudFerro-Cloud.html"
+  },
+  {
+   "title": "Sherlock user guide on CloudFerro Cloud \u2014 CloudFerro Cloud 0.0.1 ...",
+   "href": "https://docs.sherlock.cloudferro.com/"
+  },
+  {
+   "title": "Sherlock MCP Server - GitHub",
+   "href": "https://github.com/Burnsedia/sherlock-mcp"
+  },
+  {
+   "title": "NuGet Gallery | Sherlock.MCP.Server 2.15.0",
+   "href": "https://www.nuget.org/packages/Sherlock.MCP.Server"
+  },
+  {
+   "title": "sherlock-mcp \u00b7 PyPI",
+   "href": "https://pypi.org/project/sherlock-mcp/"
+  },
+  {
+   "title": "GitHub - p1atdev/sherlock-mcp",
+   "href": "https://github.com/p1atdev/sherlock-mcp"
+  },
+  {
+   "title": "Sherlock MCP server \u00b7 Apify",
+   "href": "https://apify.com/misceres/sherlock/api/mcp"
+  },
+  {
+   "title": "Sherlock Pricing 2026: Real Costs, Plans & Alternatives | xpay",
+   "href": "https://www.xpay.sh/saas-pricing/sherlock/"
+  },
+  {
+   "title": "Pricing - Sherlock AI",
+   "href": "https://www.sherlock.sh/pricing"
+  },
+  {
+   "title": "Sherlock API Reference",
+   "href": "https://app.sherlock.sh/reference"
+  },
+  {
+   "title": "Sherlock API \u00b7 Apify",
+   "href": "https://apify.com/misceres/sherlock/api"
+  },
+  {
+   "title": "Sherlock Pricing (2026) \u2014 aicoolies",
+   "href": "https://aicoolies.com/pricing/sherlock"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:36:10.106381"
+}

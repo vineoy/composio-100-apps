@@ -1,5 +1,5 @@
 URL: https://docs.ecwid.com/get-started/make-your-first-api-request
-FETCHED: 2026-11-23T17:28:26.626429
+FETCHED: 2026-11-23T17:43:16.340169
 VIA: direct
 
 Make your first API request | Ecwid Documentation

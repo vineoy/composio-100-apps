@@ -1,0 +1,25 @@
+URL: https://docs.github.com/en/rest/authentication
+FETCHED: 2026-11-23T17:38:01.733943
+VIA: direct
+
+Authenticating to the REST API - GitHub Docs
+Skip to main content
+Skip to content
+Collapse sidebar
+Expand sidebar
+Authenticating to the REST API
+Learn how to authenticate your REST API requests.
+Authenticating to the REST API
+You can authenticate to the REST API to access more endpoints and have a higher rate limit.
+Keeping your API credentials secure
+Follow these best practices to keep your API credentials and tokens secure.
+Endpoints available for GitHub App installation access tokens
+Your GitHub App can make requests to the following REST endpoints with an installation access token.
+Endpoints available for GitHub App user access tokens
+Your GitHub App can make requests to the following REST endpoints with a user access token.
+Endpoints available for fine-grained personal access tokens
+Your fine-grained personal access token can make requests to the following REST endpoints.
+Permissions required for GitHub Apps
+For each permission granted to a GitHub App, these are the REST API endpoints that the app can use.
+Permissions required for fine-grained personal access tokens
+For each permission granted to a fine-grained personal access token, these are the REST API endpoints that the app can use.

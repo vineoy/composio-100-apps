@@ -1,0 +1,36 @@
+URL: https://harvestdata.org/docs
+FETCHED: 2026-11-23T22:30:04.413501
+VIA: direct
+
+API Documentation
+Skip to content
+Developers
+Query, filter, and pull: three endpoints
+The API is deliberately small. You describe the slice you want, we return a job, and the job resolves to a signed URL or a stream. Everything else is configuration.
+Authentication
+Bearer token in the Authorization header. Keys are scoped per environment and can be rotated without downtime. Never put a key in client-side code.
+POST /v1/datasets/query
+Takes a dataset name, a set of field conditions, and a format. Returns a job id and an exact row count before you commit to the spend. If you would rather describe the slice in words, send it to support and we return the conditions for you.
+GET /v1/jobs/{id}
+Polls a job. When status is complete, the response carries a signed download URL valid for 24 hours plus the manifest: per-field fill rates, record count, and collection timestamps.
+POST /v1/verify
+Resolves and verifies a single address or a batch. Returns the five check results, a verdict of valid, catch-all, risky or invalid, and a confidence score.
+Webhooks
+Register an endpoint and we POST job completions rather than making you poll. Payloads are signed; verify the signature before trusting them.
+Rate limits and idempotency
+Queries are idempotent on a client-supplied key, so a retried request never bills twice. Limits are per key and stated in your plan.
+End to end
+High volume. Validated.
+Compliant.
+Start with a free 100-row sample, or bring us a source that isn't in the catalog yet.
+Buy a dataset
+[→]
+Download a sample
+21B+
+records live
+700+
+datasets
+<24h
+typical delivery
+50K+
+teams served

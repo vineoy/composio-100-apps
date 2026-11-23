@@ -1,0 +1,77 @@
+{
+ "app": "Snowflake",
+ "queries": [
+  "Snowflake API authentication documentation",
+  "Snowflake MCP server",
+  "Snowflake API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/authentication",
+  "https://docs.snowflake.com/en/user-guide/api-authentication",
+  "https://docs.snowflake.cn/en/en/developer-guide/snowflake-rest-api/authentication",
+  "https://docs.snowflake.cn/en/developer-guide/snowflake-rest-api/authentication"
+ ],
+ "search_hits": [
+  {
+   "title": "Authenticating Snowflake REST APIs with Snowflake",
+   "href": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/authentication"
+  },
+  {
+   "title": "External API authentication and secrets - Snowflake Documentation",
+   "href": "https://docs.snowflake.com/en/user-guide/api-authentication"
+  },
+  {
+   "title": "Authenticating Snowflake REST APIs with Snowflake",
+   "href": "https://docs.snowflake.cn/en/en/developer-guide/snowflake-rest-api/authentication"
+  },
+  {
+   "title": "Authenticating Snowflake REST APIs with Snowflake | Snowflake Documentation",
+   "href": "https://docs.snowflake.cn/en/developer-guide/snowflake-rest-api/authentication"
+  },
+  {
+   "title": "A Postman Tutorial for the Snowflake SQL API",
+   "href": "https://www.snowflake.com/en/developers/guides/a-postman-tutorial-for-snowflake-sql-api/"
+  },
+  {
+   "title": "Snowflake-managed MCP server",
+   "href": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+  },
+  {
+   "title": "Getting Started with Managed Snowflake MCP Server",
+   "href": "https://www.snowflake.com/en/developers/guides/getting-started-with-snowflake-mcp-server/"
+  },
+  {
+   "title": "CREATE MCP SERVER | Snowflake Documentation",
+   "href": "https://docs.snowflake.com/en/en/sql-reference/sql/create-mcp-server"
+  },
+  {
+   "title": "Snowflake-managed MCP server | Snowflake Documentation",
+   "href": "https://docs.snowflake.cn/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+  },
+  {
+   "title": "GitHub - isaacwasserman/mcp-snowflake-server",
+   "href": "https://github.com/isaacwasserman/mcp-snowflake-server"
+  },
+  {
+   "title": "Snowflake Pricing | Choose the Right Edition for Your Data Needs",
+   "href": "https://www.snowflake.com/en/pricing-options/"
+  },
+  {
+   "title": "Snowflake AI pricing - Snowflake Documentation",
+   "href": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing"
+  },
+  {
+   "title": "Snowflake Pricing Calculator | Estimate Snowflake Cost",
+   "href": "https://www.snowflake.com/en/pricing-options/calculator/"
+  },
+  {
+   "title": "Snowflake editions - Snowflake Documentation",
+   "href": "https://docs.snowflake.com/en/user-guide/intro-editions"
+  },
+  {
+   "title": "Is there developer pricing for Snowflake? : r/snowflake - Reddit",
+   "href": "https://www.reddit.com/r/snowflake/comments/ukp8nb/is_there_developer_pricing_for_snowflake/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:41:59.841609"
+}

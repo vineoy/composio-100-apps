@@ -1,0 +1,214 @@
+URL: https://vercel.com/docs/rest-api
+FETCHED: 2026-11-23T17:38:33.191625
+VIA: direct
+
+Vercel REST API Reference
+Skip to content
+On this page
+API basics
+Authentication
+Accessing team resources
+Rate limits
+Endpoints
+APIs & SDKs
+Vercel REST API
+Using the REST API
+Interact programmatically with your Vercel account using the SDK or direct HTTP requests. You can deploy new versions of web applications, manage custom domains, retrieve information about deployments, and manage secrets and environment variables for projects.
+The API supports any programming language or framework that can send HTTP requests.
+API basics
+The API is exposed as an HTTP/1 and HTTP/2 service over SSL. All endpoints live under the URL
+https://api.vercel.com
+and follow the REST architecture.
+Authentication
+Vercel Access Tokens are required to authenticate and use the Vercel API. Include the token in the
+Authorization
+header:
+Authorization: Bearer <TOKEN>
+Create and manage Access Tokens in your
+account settings
+.
+Accessing team resources
+By default, a request with a full-account token targets your default team. To access resources owned by another team, append the Team ID as a query string:
+https://api.vercel.com/v6/deployments?teamId=[teamID]
+Rate limits
+The API limits the number of calls you can make over a period of time. Rate limits are specified via response headers:
+X-RateLimit-Limit
+,
+X-RateLimit-Remaining
+, and
+X-RateLimit-Reset
+. See the
+limits documentation
+for details.
+Endpoints
+Browse all available REST API endpoints grouped by category.
+Access Groups
+11
+endpoint
+s
+Ai Gateway
+25
+endpoint
+s
+Aliases
+6
+endpoint
+s
+Artifacts
+7
+endpoint
+s
+Authentication
+5
+endpoint
+s
+Billing
+2
+endpoint
+s
+Bulk Redirects
+7
+endpoint
+s
+Certs
+5
+endpoint
+s
+Checks V2
+10
+endpoint
+s
+Connect
+15
+endpoint
+s
+Daemons
+3
+endpoint
+s
+Deployments
+10
+endpoint
+s
+DNS
+4
+endpoint
+s
+Domains
+9
+endpoint
+s
+Domains Registrar
+19
+endpoint
+s
+Drains
+6
+endpoint
+s
+Drives
+5
+endpoint
+s
+CDN Cache
+4
+endpoint
+s
+Environment
+11
+endpoint
+s
+Feature Flags
+28
+endpoint
+s
+Global Config
+18
+endpoint
+s
+Integrations
+10
+endpoint
+s
+Kms
+13
+endpoint
+s
+Logs
+1
+endpoint
+Marketplace
+25
+endpoint
+s
+Microfrontends
+5
+endpoint
+s
+Networking
+11
+endpoint
+s
+Observability
+2
+endpoint
+s
+Organizations
+12
+endpoint
+s
+Project Routes
+8
+endpoint
+s
+Projectmembers
+3
+endpoint
+s
+Projects
+33
+endpoint
+s
+Rolling Release
+8
+endpoint
+s
+Sandboxes
+28
+endpoint
+s
+Security
+18
+endpoint
+s
+Static Ips
+1
+endpoint
+Storage
+3
+endpoint
+s
+Teams
+16
+endpoint
+s
+User
+4
+endpoint
+s
+VCR
+27
+endpoint
+s
+Vercel Ci
+23
+endpoint
+s
+Web Analytics
+4
+endpoint
+s
+Webhooks
+4
+endpoint
+s

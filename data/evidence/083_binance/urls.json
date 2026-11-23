@@ -1,0 +1,75 @@
+{
+ "app": "Binance",
+ "queries": [
+  "Binance API authentication documentation",
+  "Binance MCP server",
+  "Binance API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.binance.info/en/docs/",
+  "https://developers.binance.com/en/docs/introduction"
+ ],
+ "search_hits": [
+  {
+   "title": "Binance Developer Documentation | Binance Developer Docs",
+   "href": "https://developers.binance.com/en/docs/introduction"
+  },
+  {
+   "title": "Binance API",
+   "href": "https://www.binance.com/en/binance-api"
+  },
+  {
+   "title": "Authentication | Binance Web3 API",
+   "href": "https://web3.binance.com/en/dev-docs/authentication"
+  },
+  {
+   "title": "Binance Pay API: Authentication | Binance Developer Docs",
+   "href": "https://developers.binance.com/en/docs/products/binance-pay-merchant/authentication"
+  },
+  {
+   "title": "Binance Developer Docs",
+   "href": "https://developers.binance.info/docs/"
+  },
+  {
+   "title": "Binance MCP Server | Binance Developer Docs",
+   "href": "https://developers.binance.com/en/docs/agent-native/mcp-server/agentic"
+  },
+  {
+   "title": "MCP Server | Binance Developer Docs",
+   "href": "https://developers.binance.com/en/docs/agent-native/mcp-server"
+  },
+  {
+   "title": "What Is the Binance MCP Server? | Binance Support",
+   "href": "https://www.binance.com/en/support/faq/detail/7a6e676e36fb455d96478932cb12d9f3"
+  },
+  {
+   "title": "Binance Agent OS: MCP Server for Crypto AI Agents",
+   "href": "https://www.binance.com/en-IN/agent-os"
+  },
+  {
+   "title": "binance-mcp-server - npm",
+   "href": "https://www.npmjs.com/package/binance-mcp-server"
+  },
+  {
+   "title": "Binance API",
+   "href": "https://www.binance.com/en/binance-api"
+  },
+  {
+   "title": "Developer Center - Binance",
+   "href": "https://developers.binance.com/en"
+  },
+  {
+   "title": "Binance API Pricing: Free Tier, Costs & Limits \u2014 VoiceOfChain Academy",
+   "href": "https://voiceofchain.com/academy/binance-api-pricing"
+  },
+  {
+   "title": "Binance Developer Docs",
+   "href": "https://developers.binance.com/en/docs/catalog"
+  },
+  {
+   "title": "API prices - Spot/Margin API - Binance Developer Community",
+   "href": "https://dev.binance.vision/t/api-prices/17319"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:33:04.426149"
+}

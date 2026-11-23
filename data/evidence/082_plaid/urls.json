@@ -1,0 +1,77 @@
+{
+ "app": "Plaid",
+ "queries": [
+  "Plaid API authentication documentation",
+  "Plaid MCP server",
+  "Plaid API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://plaid.com/docs/",
+  "https://plaid.com/docs/api/",
+  "https://plaid.com/docs/api/products/auth/",
+  "https://plaid.com/docs/resources/mcp/"
+ ],
+ "search_hits": [
+  {
+   "title": "API - Overview | Plaid Docs",
+   "href": "https://plaid.com/docs/api/"
+  },
+  {
+   "title": "API - Auth | Plaid Docs",
+   "href": "https://plaid.com/docs/api/products/auth/"
+  },
+  {
+   "title": "Plaid API Documentation",
+   "href": "https://documenter.getpostman.com/view/26275816/2sBXVme8Mj"
+  },
+  {
+   "title": "Plaid API Documentation",
+   "href": "https://documenter.getpostman.com/view/33783485/2sAYBVgWbH"
+  },
+  {
+   "title": "Plaid API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/1601/plaid"
+  },
+  {
+   "title": "Resources - MCP Server | Plaid Docs",
+   "href": "https://plaid.com/docs/resources/mcp/"
+  },
+  {
+   "title": "Connect your Plaid integration to agents built with OpenAI",
+   "href": "https://plaid.com/blog/openai-plaid-mcp/"
+  },
+  {
+   "title": "GitHub - LesterAJohn/plaid-mcp: Open-source MCP server for Plaid. Give ...",
+   "href": "https://github.com/LesterAJohn/plaid-mcp"
+  },
+  {
+   "title": "mcp-server-plaid \u00b7 PyPI",
+   "href": "https://pypi.org/project/mcp-server-plaid/"
+  },
+  {
+   "title": "GitHub - jsbarton/plaid-mcp-server",
+   "href": "https://github.com/jsbarton/plaid-mcp-server"
+  },
+  {
+   "title": "Pricing - United States & Canada | Plaid",
+   "href": "https://plaid.com/pricing/"
+  },
+  {
+   "title": "Plaid Pricing 2026: Plans & Costs Compared - costbench.com",
+   "href": "https://costbench.com/software/api-management/plaid/"
+  },
+  {
+   "title": "Account - Pricing and billing | Plaid Docs",
+   "href": "https://plaid.com/docs/account/billing/"
+  },
+  {
+   "title": "Plaid Pricing 2026: Plans, Hidden Costs & Alternatives",
+   "href": "https://toolradar.com/tools/plaid/pricing"
+  },
+  {
+   "title": "Can I use Plaid for free? - Plaid Customer Help Center",
+   "href": "https://support.plaid.com/hc/en-us/articles/16194695660311-Can-I-use-Plaid-for-free"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:15:02.198003"
+}

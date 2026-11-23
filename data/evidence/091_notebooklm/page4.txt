@@ -1,0 +1,183 @@
+URL: https://github.com/khengyun/notebooklm-mcp
+FETCHED: 2026-11-23T22:40:41.836939
+VIA: direct
+
+GitHub - khengyun/notebooklm-mcp: Professional Automation for Google NotebookLM · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+119 Commits
+119 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github
+.github
+docs
+docs
+examples
+examples
+src/
+notebooklm_mcp
+src/
+notebooklm_mcp
+tests
+tests
+.codecov.yml
+.codecov.yml
+.env.example
+.env.example
+.gitattributes
+.gitattributes
+.gitignore
+.gitignore
+.pre-commit-config.yaml
+.pre-commit-config.yaml
+Dockerfile
+Dockerfile
+LICENSE
+LICENSE
+README.md
+README.md
+Taskfile.yml
+Taskfile.yml
+ci-test.md
+ci-test.md
+docker-compose.yml
+docker-compose.yml
+notebooklm-config.example.json
+notebooklm-config.example.json
+pyproject.toml
+pyproject.toml
+uv.lock
+uv.lock
+View all files
+Repository files navigation
+NotebookLM MCP
+MCP server for Google NotebookLM — chat with your sources and manage notebooks/sources as MCP tools.
+Driven by an RPC backend (
+notebooklm-py
+), so there's
+no browser at runtime
+.
+Setup
+uv add notebooklm-mcp
+uv run notebooklm login
+#
+one-time Google login (saves a session)
+notebooklm-mcp init
+<
+notebook-url
+>
+#
+writes notebooklm-config.json
+Run
+notebooklm-mcp -c notebooklm-config.json server
+#
+MCP server (stdio | http | sse)
+notebooklm-mcp -c notebooklm-config.json chat -m
+"
+...
+"
+#
+quick chat from the CLI
+Tools (28)
+Chat:
+send_chat_message
+,
+get_chat_response
+,
+chat_with_notebook
+,
+navigate_to_notebook
+,
+get
+/
+set_default_notebook
+,
+healthcheck
+Manage:
+list
+/
+create
+/
+rename
+/
+delete_notebook
+,
+get_notebook_summary
+,
+list_sources
+,
+add_source_url
+/
+add_source_text
+/
+delete_source
+Compose:
+copy_source
+,
+create_notebook_from_sources
+(merge sources across notebooks)
+Studio:
+generate_audio_overview
+/
+list_audio_overviews
+,
+generate_video_overview
+/
+list_video_overviews
+,
+generate_mind_map
+/
+list_mind_maps
+/
+get_mind_map
+Share:
+get_share_status
+,
+set_notebook_public
+,
+share_notebook_with_user
+MIT License
+About
+Professional Automation for Google NotebookLM
+pypi.org/project/notebooklm-mcp/
+Resources
+Readme
+License
+Activity
+Stars
+83
+stars
+Watchers
+0
+watching
+Forks
+16
+forks
+Report repository
+Releases
+Packages
+Used by
+Contributors
+Languages
+You can’t perform that action at this time.

@@ -1,0 +1,75 @@
+{
+ "app": "iPayX",
+ "queries": [
+  "iPayX API authentication documentation",
+  "iPayX MCP server",
+  "iPayX API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://mcp.ipayx.ai/mcp",
+  "https://www.ipayx.ai/docs/api"
+ ],
+ "search_hits": [
+  {
+   "title": "FX Audit API Docs \u00b7 iPayX Protocol",
+   "href": "https://www.ipayx.ai/docs/api"
+  },
+  {
+   "title": "ipayx/app/api at main \u00b7 IpayX-org/ipayx \u00b7 GitHub",
+   "href": "https://github.com/IpayX-org/ipayx/tree/main/app/api"
+  },
+  {
+   "title": "GitHub - IpayX-org/ipayx: https://ipayx.vercel.app/ \u00b7 GitHub",
+   "href": "https://github.com/IpayX-org/ipayx/tree/main"
+  },
+  {
+   "title": "Welcome to iPay | iPay API Documentation",
+   "href": "https://docs.i-pay.io/"
+  },
+  {
+   "title": "mcp.ipayx.ai",
+   "href": "https://mcp.ipayx.ai/mcp"
+  },
+  {
+   "title": "iPayX MCP Server \u2014 Documentation",
+   "href": "https://www.ipayx.ai/docs/mcp-server?lang=en"
+  },
+  {
+   "title": "iPayX FX Audit MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/ipayx-technologies/mcp-fx-audit"
+  },
+  {
+   "title": "mcp.ipayx.ai",
+   "href": "https://mcp.ipayx.ai/mcp"
+  },
+  {
+   "title": "GitHub - Ipayx-stellar/mcp-fx-audit: MCP server for iPayX Protocol ...",
+   "href": "https://github.com/Ipayx-stellar/mcp-fx-audit"
+  },
+  {
+   "title": "GitHub - iPAYX-Technologies/mcp-fx-audit",
+   "href": "https://github.com/iPAYX-Technologies/mcp-fx-audit"
+  },
+  {
+   "title": "Pricing \u2014 iPayX Forensic Reports & FX Audit API",
+   "href": "https://www.ipayx.ai/pricing"
+  },
+  {
+   "title": "FX Audit API & MCP \u2014 Developer Documentation \u2014 iPayX",
+   "href": "https://www.ipayx.ai/developers?lang=en"
+  },
+  {
+   "title": "Developer API Pricing: Pay-As-You-Go Credits | AxioAPI",
+   "href": "https://axioapi.com/pricing"
+  },
+  {
+   "title": "Free developer plan - Box Dev Docs",
+   "href": "https://developer.box.com/guides/getting-started/free-developer-plan"
+  },
+  {
+   "title": "X API pay-per-usage pricing and credits - X",
+   "href": "https://docs.x.com/x-api/getting-started/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:34:43.469843"
+}

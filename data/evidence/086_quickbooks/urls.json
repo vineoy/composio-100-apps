@@ -1,0 +1,75 @@
+{
+ "app": "QuickBooks",
+ "queries": [
+  "QuickBooks API authentication documentation",
+  "QuickBooks MCP server",
+  "QuickBooks API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77",
+  "https://github.com/laf-rge/quickbooks-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Intuit Developer",
+   "href": "https://developer.intuit.com/app/developer/qbo/docs/develop"
+  },
+  {
+   "title": "QuickBooks API: Complete Developer's Guide (2026)",
+   "href": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+  },
+  {
+   "title": "Set up OAuth 2.0 \u00b7 QuickBooks Online - Intuit",
+   "href": "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0"
+  },
+  {
+   "title": "QuickBooks Online API Guide 2026: OAuth, Docs & Code Examples",
+   "href": "https://satvasolutions.com/blog/quickbooks-online-api-guide"
+  },
+  {
+   "title": "How to integrate with QuickBooks API - Intuit",
+   "href": "https://help.developer.intuit.com/s/article/How-to-integrate-with-QuickBooks-API"
+  },
+  {
+   "title": "GitHub - laf-rge/quickbooks-mcp: MCP server for QuickBooks ...",
+   "href": "https://github.com/laf-rge/quickbooks-mcp"
+  },
+  {
+   "title": "GitHub - alfork/qbconductor-mcp-server",
+   "href": "https://github.com/alfork/qbconductor-mcp-server"
+  },
+  {
+   "title": "Is there any MCP available for Quickbooks online?",
+   "href": "https://help.developer.intuit.com/s/question/0D5TR00001M7S950AF/is-there-any-mcp-available-for-quickbooks-online"
+  },
+  {
+   "title": "QuickBooks MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/quickbooks"
+  },
+  {
+   "title": "QuickBooks MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/nikhilgy/quickbooks-mcp-server"
+  },
+  {
+   "title": "QuickBooks API Pricing and the Intuit App Partner Program",
+   "href": "https://www.apideck.com/blog/quickbooks-api-pricing-and-the-intuit-app-partner-program"
+  },
+  {
+   "title": "Intuit App Partner Program FAQ \u00b7 QuickBooks Online",
+   "href": "https://developer.intuit.com/app/developer/qbo/docs/get-started/partner-faq"
+  },
+  {
+   "title": "I\u2019m looking to use the free Builder plan for the QuickBooks ...",
+   "href": "https://help.developer.intuit.com/s/question/0D5TR00001SPsg30AD/im-looking-to-use-the-free-builder-plan-for-the-quickbooks-api-platform-but-i-wanted-to-doublecheck-a-detail-on-the-pricing-side"
+  },
+  {
+   "title": "How Much Does the QuickBooks API Cost? (2026 Pricing & Rate ...",
+   "href": "https://truto.one/blog/how-much-does-the-quickbooks-api-cost-2026-pricing-rate-limits/"
+  },
+  {
+   "title": "QuickBooks Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/quickbooks/quickbooks-plans-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:34:57.585574"
+}

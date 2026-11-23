@@ -1,0 +1,717 @@
+URL: https://docs.consensus.app/api-get-started
+FETCHED: 2026-11-23T22:44:23.107684
+VIA: direct
+
+Get started with Consensus API - Consensus
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+The Consensus API lets you search 400+ million scholarly articles, including 350 million peer-reviewed research papers, over a single REST endpoint. Send a query and get back ranked papers with titles, authors, journals, publication years, citation counts, and direct links.
+Quickstart
+Make your first API call in a few minutes. Every plan includes API access, and the Free plan includes 30 calls a month.
+1
+Sign in to Consensus
+Create a free account or sign in at
+consensus.app
+. The dashboard in the next step only opens when you’re signed in.
+2
+Open the API & MCP Dashboard
+Go to
+consensus.app/api-mcp
+. You can also get there from your profile icon: choose
+API & MCP Dashboard
+.
+3
+Create and copy an API key
+Click
+Create API key
+, name the key, and click
+Copy API key
+. The full key is shown only once, so store it somewhere safe.
+Already have a key? Open
+Keys and clients
+and click
+New key
+.
+4
+Make your first request
+Save the key in an environment variable named
+CONSENSUS_API_KEY
+:
+export
+CONSENSUS_API_KEY
+=
+"paste-your-key-here"
+Then search.
+query
+is the only required parameter, and the key goes in the
+x-api-key
+header.
+cURL
+Python
+JavaScript
+Go
+PHP
+Ruby
+Java
+curl
+"https://api.consensus.app/v1/search?query=creatine%20and%20cognitive%20function"
+\
+-H
+"x-api-key:
+$CONSENSUS_API_KEY
+"
+import
+os
+import
+requests
+resp
+=
+requests.get(
+"https://api.consensus.app/v1/search"
+,
+headers
+=
+{
+"x-api-key"
+: os.environ[
+"CONSENSUS_API_KEY"
+]},
+params
+=
+{
+"query"
+:
+"creatine and cognitive function"
+},
+)
+resp.raise_for_status()
+for
+paper
+in
+resp.json()[
+"results"
+]:
+print
+(paper[
+"title"
+],
+"—"
+, paper[
+"journal_name"
+], paper[
+"publish_year"
+])
+const
+params
+=
+new
+URLSearchParams
+({
+query:
+"creatine and cognitive function"
+});
+const
+resp
+=
+await
+fetch
+(
+`https://api.consensus.app/v1/search?
+${
+params
+}
+`
+, {
+headers:
+{
+"x-api-key"
+:
+process
+.
+env
+.
+CONSENSUS_API_KEY
+},
+});
+const
+{
+results
+}
+=
+await
+resp
+.
+json
+();
+for
+(
+const
+paper
+of
+results
+) {
+console
+.
+log
+(
+paper
+.
+title
+,
+"—"
+,
+paper
+.
+journal_name
+,
+paper
+.
+publish_year
+);
+}
+package
+main
+import
+(
+"
+encoding/json
+"
+"
+fmt
+"
+"
+net/http
+"
+"
+net/url
+"
+"
+os
+"
+)
+func
+main
+() {
+req
+,
+_
+:=
+http
+.
+NewRequest
+(
+"GET"
+,
+"https://api.consensus.app/v1/search"
+,
+nil
+)
+req
+.
+Header
+.
+Set
+(
+"x-api-key"
+,
+os
+.
+Getenv
+(
+"CONSENSUS_API_KEY"
+))
+req
+.
+URL
+.
+RawQuery
+=
+url
+.
+Values
+{
+"query"
+: {
+"creatine and cognitive function"
+}}.
+Encode
+()
+resp
+,
+err
+:=
+http
+.
+DefaultClient
+.
+Do
+(
+req
+)
+if
+err
+!=
+nil
+{
+panic
+(
+err
+)
+}
+defer
+resp
+.
+Body
+.
+Close
+()
+var
+body
+struct
+{
+Results
+[]
+struct
+{
+Title
+string
+`json:"title"`
+JournalName
+string
+`json:"journal_name"`
+PublishYear
+int
+`json:"publish_year"`
+}
+`json:"results"`
+}
+json
+.
+NewDecoder
+(
+resp
+.
+Body
+).
+Decode
+(
+&
+body
+)
+for
+_
+,
+paper
+:=
+range
+body
+.
+Results
+{
+fmt
+.
+Printf
+(
+"
+%s
+—
+%s
+%d
+\n
+"
+,
+paper
+.
+Title
+,
+paper
+.
+JournalName
+,
+paper
+.
+PublishYear
+)
+}
+}
+<?
+php
+$query
+=
+urlencode
+(
+"creatine and cognitive function"
+);
+$ch
+=
+curl_init
+(
+"https://api.consensus.app/v1/search?query={
+$query
+}"
+);
+curl_setopt
+(
+$ch
+,
+CURLOPT_RETURNTRANSFER
+,
+true
+);
+curl_setopt
+(
+$ch
+,
+CURLOPT_HTTPHEADER
+, [
+"x-api-key: "
+.
+getenv
+(
+"CONSENSUS_API_KEY"
+)]);
+$data
+=
+json_decode
+(
+curl_exec
+(
+$ch
+),
+true
+);
+curl_close
+(
+$ch
+);
+foreach
+(
+$data
+[
+"results"
+]
+as
+$paper
+) {
+echo
+"{
+$paper
+['title']} — {
+$paper
+['journal_name']} {
+$paper
+['publish_year']}
+\n
+"
+;
+}
+require
+"net/http"
+require
+"json"
+require
+"uri"
+uri
+=
+URI
+(
+"https://api.consensus.app/v1/search"
+)
+uri.
+query
+=
+URI
+.
+encode_www_form
+(
+query:
+"creatine and cognitive function"
+)
+req
+=
+Net
+::
+HTTP
+::
+Get
+.
+new
+(uri)
+req[
+"x-api-key"
+]
+=
+ENV
+[
+"CONSENSUS_API_KEY"
+]
+res
+=
+Net
+::
+HTTP
+.
+start
+(uri.
+hostname
+, uri.
+port
+,
+use_ssl:
+true
+) { |
+http
+| http.
+request
+(req) }
+JSON
+.
+parse
+(res.
+body
+)[
+"results"
+].
+each
+do
+|
+paper
+|
+puts
+"
+#{
+paper[
+'title'
+]
+}
+—
+#{
+paper[
+'journal_name'
+]
+}
+#{
+paper[
+'publish_year'
+]
+}
+"
+end
+import
+java.net.URI;
+import
+java.net.http.HttpClient;
+import
+java.net.http.HttpRequest;
+import
+java.net.http.HttpResponse;
+public
+class
+Search
+{
+public
+static
+void
+main
+(
+String
+[]
+args
+)
+throws
+Exception
+{
+HttpRequest
+request
+=
+HttpRequest
+.
+newBuilder
+()
+.
+uri
+(
+URI
+.
+create
+(
+"https://api.consensus.app/v1/search?query=creatine%20and%20cognitive%20function"
+))
+.
+header
+(
+"x-api-key"
+,
+System
+.
+getenv
+(
+"CONSENSUS_API_KEY"
+))
+.
+build
+();
+HttpResponse
+<
+String
+>
+response
+=
+HttpClient
+.
+newHttpClient
+()
+.
+send
+(request,
+HttpResponse
+.
+BodyHandlers
+.
+ofString
+());
+// Parse response.body() with your preferred JSON library (Jackson, Gson, ...)
+System
+.
+out
+.
+println
+(
+response
+.
+body
+());
+}
+}
+You get back a JSON object with a
+results
+list of ranked papers. A
+401
+means the key is missing or wrong.
+What a response looks like
+Here’s a real request and response on a paid plan, where open-access results carry full-text excerpts:
+curl
+-G
+"https://api.consensus.app/v1/search"
+-H
+"x-api-key:
+$CONSENSUS_API_KEY
+"
+\
+--data-urlencode
+"query=what dose of creatine improves working memory"
+{
+"results"
+: [
+{
+"title"
+:
+"Creatine and improvement in cognitive function: Evaluation of a health claim pursuant to article 13(5) of regulation (EC) No 1924/2006"
+,
+"authors"
+: [
+"Dominique Turck"
+,
+"T. Bohn"
+,
+"Montaña Cámara"
+,
+"…"
+],
+"journal_name"
+:
+"EFSA Journal"
+,
+"publisher_name"
+:
+"Wiley"
+,
+"publish_year"
+:
+2024
+,
+"sjr_best_quartile"
+:
+1
+,
+"citation_count"
+:
+5
+,
+"doi"
+:
+"10.2903/j.efsa.2024.9100"
+,
+"url"
+:
+"https://consensus.app/papers/creatine-and-improvement-in-cognitive-function-turck-bohn/7e703e828b815257b31687a25eceac9d/"
+,
+"takeaway"
+:
+"Creatine supplementation has not been established as a cause-and-effect relationship for improving cognitive function in one or more domains."
+,
+"full_text_chunks"
+: [
+"Section: Human intervention studies in healthy individuals conducted under normal conditions | Two studies had an initial loading phase of 20 g/day of creatine for 5 days, followed by 5 g/day … A significant improvement in working memory, as measured by the Backwards Digit Span test, was observed only in the study of shorter duration …"
+,
+"Section: Weighing of the evidence | … the acute effect of creatine on working memory reported in some studies at doses of 20 g/day given for 5-7 days … was not observed at lower creatine doses, ranging from 2.2 to 14 g/day …"
+]
+}
+]
+}
+Trimmed to one result with shortened excerpts. The
+takeaway
+gives you the paper’s conclusion; the
+full_text_chunks
+give you the doses and study designs behind it, each labeled with the section of the paper it came from.
+How Consensus compares
+In blinded evaluations on real user queries, Consensus search returns more relevant papers than Google Scholar and than frontier models with web search. See
+Benchmarks
+.
+More relevant than Google Scholar
+88.1% vs 81.8% precision on 500 real user queries, judged blind by PhD researchers.
+Beats GPT-5.5 and Opus 4.8, 10x faster
+More relevant top-20 papers at a median of 8.7 seconds, versus 75 to 103 seconds.
+What people build with the API
+What you can build with the Consensus API
+Teams use the API to power internal research tools, field-monitoring agents, and scientific agents. Phylo calls it directly from its agents to screen about 20,000 drug targets across hundreds of diseases. Browse the use cases.
+Internal tools:
+paper search for scientific agents, field-monitoring agents, and literature tables that fill themselves.
+Research systems:
+literature review pipelines, citation-grounded writing, and recurring evidence reports.
+Full text in the API
+Every search reaches inside the paper. Queries are matched against full text where available, and on paid plans each open-access result also carries the passages that answer your query, in
+full_text_chunks
+. To read a whole open-access paper, pass its
+paper_id
+to
+GET /v1/papers/full_text
+for its complete text as Markdown.
+Full text in the API
+Excerpts and complete text: what comes back, which papers qualify, plans, and credits.
+Base URL and authentication
+All requests go to:
+https://api.consensus.app
+Every request must include your API key in the
+x-api-key
+header:
+x-api-key
+:
+YOUR_API_KEY
+See
+plans and access
+for each plan’s monthly calls, page sizes, features, and rate limits.
+Next steps
+Plans and access
+Monthly calls, page sizes, full-text access, rate limits, and errors by plan.
+Search endpoint reference
+Full parameter list, response schema, and interactive playground.
+API on GitHub
+Client code, examples, and issues for the Consensus API.
+MCP server
+Prefer a no-code path? Connect Consensus to Claude, ChatGPT, and other MCP clients.
+Consensus website
+Explore the Consensus research platform.

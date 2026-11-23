@@ -65,14 +65,31 @@ def run():
             bb = blocker_bucket(b)
             if bb: blockers[bb] += 1
 
-    composio_have = [r for r in rows if (r.get("composio_toolkit") or {}).get("exists")]
-    composio_missing = [r for r in rows if not (r.get("composio_toolkit") or {}).get("exists")]
-
     self_serve = {"free_self_serve", "trial_self_serve"}
     easy_wins = [r for r in rows if r.get("access") in self_serve
                  and r.get("api_type") in ("REST", "GraphQL", "both")
                  and (r.get("buildability") or {}).get("verdict") in ("ready", "feasible")
                  and (r.get("existing_mcp") or {}).get("status") != "official"]
+    composio_have = [r for r in rows if (r.get("composio_toolkit") or {}).get("exists")]
+    composio_missing = [r for r in rows if not (r.get("composio_toolkit") or {}).get("exists")]
+    cat_summary = []
+    for c in cats:
+        cr = [r for r in rows if r["category"] == c]
+        auth_c = collections.Counter()
+        for r in cr:
+            for m in set(norm_auth(x) for x in r.get("auth_methods", [])):
+                auth_c[m] += 1
+        cat_summary.append({
+            "category": c, "n": len(cr),
+            "free": sum(1 for r in cr if r.get("access") == "free_self_serve"),
+            "trial": sum(1 for r in cr if r.get("access") == "trial_self_serve"),
+            "gated": sum(1 for r in cr if r.get("access") in ("paid_plan", "admin_approval", "partner_gated")),
+            "no_api": sum(1 for r in cr if r.get("access") == "no_public_api"),
+            "mcp_official": sum(1 for r in cr if (r.get("existing_mcp") or {}).get("status") == "official"),
+            "ready": sum(1 for r in cr if (r.get("buildability") or {}).get("verdict") == "ready"),
+            "easy_wins": sum(1 for r in cr if r in easy_wins),
+            "top_auth": auth_c.most_common(1)[0][0] if auth_c else "?",
+        })
     outreach = [r for r in rows if r.get("access") in ("partner_gated", "admin_approval")
                 or (r.get("buildability") or {}).get("verdict") == "blocked"]
     no_api = [r for r in rows if r.get("access") == "no_public_api" or r.get("api_type") == "none"]
@@ -85,9 +102,11 @@ def run():
                 "composio": (r.get("composio_toolkit") or {}).get("exists", False)}
 
     top_auth = auth.most_common(1)[0] if auth else ("?", 0)
+    auth_two = auth.most_common(2)
+    second_auth = auth_two[1][0] if len(auth_two) > 1 else "no other method"
     gated_total = sum(access[a] for a in ("paid_plan", "admin_approval", "partner_gated"))
     headlines = [
-        f"{top_auth[0]} dominates: {top_auth[1]} of {n} apps ({round(100*top_auth[1]/max(n,1))}%) support it; API key is the next most common.",
+        f"{top_auth[0]} dominates: {top_auth[1]} of {n} apps ({round(100*top_auth[1]/max(n,1))}%) support it; {second_auth} is next.",
         f"{access['free_self_serve']} of {n} apps are free self-serve for developers; {gated_total} are gated (paid plan, admin approval, or partner/sales).",
         f"{mcp['official']} apps already ship an official MCP server, {mcp['community']} have community MCP - the rest is whitespace for agent toolkits.",
         f"Most common blocker: {blockers.most_common(1)[0][0] if blockers else 'n/a'} ({blockers.most_common(1)[0][1] if blockers else 0} apps).",
@@ -106,6 +125,7 @@ def run():
         "verdict_distribution": dict(verdict.most_common()),
         "confidence_distribution": dict(conf.most_common()),
         "blocker_buckets": dict(blockers.most_common()),
+        "category_summary": cat_summary,
         "composio_coverage": {"have": len(composio_have), "missing": len(composio_missing),
                                "missing_apps": [slim(r) for r in composio_missing]},
         "easy_wins": [slim(r) for r in sorted(easy_wins, key=lambda r: r["id"])],

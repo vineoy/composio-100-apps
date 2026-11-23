@@ -1,0 +1,77 @@
+{
+ "app": "Bright Data",
+ "queries": [
+  "Bright Data API authentication documentation",
+  "Bright Data MCP server",
+  "Bright Data API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.brightdata.com/api-reference/authentication",
+  "https://docs.brightsec.com/docs/creating-authentication",
+  "https://docs.brightsec.com/docs/add-new-auth-object",
+  "https://docs.brightdata.com/products/mcp-server/overview"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Bright Data Docs",
+   "href": "https://docs.brightdata.com/api-reference/authentication"
+  },
+  {
+   "title": "Bright Data documentation - Bright Data Docs",
+   "href": "https://docs.brightdata.com/introduction"
+  },
+  {
+   "title": "Authentication - Bright-docs",
+   "href": "https://docs.brightsec.com/docs/creating-authentication"
+  },
+  {
+   "title": "Add an Authentication Object - docs.brightsec.com",
+   "href": "https://docs.brightsec.com/docs/add-new-auth-object"
+  },
+  {
+   "title": "Bright Data Access API \u2014 Documentation, OpenAPI - apis.io",
+   "href": "https://apis.io/apis/bright-data/bright-data-access-api/"
+  },
+  {
+   "title": "Bright Data Alternative - Connect AI Agent to Coresignal",
+   "href": "https://duckduckgo.com/y.js?ad_domain=coresignal.com&ad_provider=bingv7aa&ad_type=txad&click_metadata=APIzDLvKCCwQhOkM4UkOcAlZUbKSO7kUf2Q1Qo2P31BczT7sokUa_h_KjLRvmwNRyH4R%2DIblzmxRQMvLuqhreL%2DJRJX2jNjMalkJglmWKMPMjBrj2D9gvS8LvJyrxvFnhkMEoRfxFyg7vvHpQ%2DF6G8aMjVFO36NWA0ro26EdVBc.vIvZey9LnCpRjk%2D7NpgHQQ&rut=52c50ccee5f3745eb1e814813aa641c83e77d7a91f4d05ffea4e56410906835b&u3=https%3A%2F%2Fwww.bing.com%2Faclick%3Fld%3De8V83iz_VEpND93KHFbOH8eTVUCUwXx6l4tIFDTeGGRdjomuxqv%2DL8NOaQhKaPTqr0NwFFcmray5MBMMP3tDv%2D3gtFBE67084hCk7vNVeyFiDBGPNI9n87UO43023fhY7Zu7UlKxhiXfaZqBS9zNEW0G%2DhK2eNTXb8C9gyRpQMc0j1xnU6g8KuKvn5941kY79Btz_y_vKlRKJGjJ3m7y%2D3wLT7gjQ%26u%3DaHR0cHMlM2ElMmYlMmZjb3Jlc2lnbmFsLmNvbSUyZmNvcmVzaWduYWwtdnMtYnJpZ2h0ZGF0YSUyZiUzZmlkMSUzZDEzNDI1MDYyNzE0MTI1MDclMjZpZDIlM2RCcmlnaHRkYXRhJTI2dXRtX3NvdXJjZSUzZGJpbmclMjZ1dG1fbWVkaXVtJTNkY3BjJTI2dXRtX2NhbXBhaWduJTNkNjA2MzMyOTU0JTI2dXRtX2NvbnRlbnQlM2QlMjZ1dG1fdGVybSUzZEJyaWdodGRhdGElMjZtc2Nsa2lkJTNkN2ZlYWFkNWU3OGJkMWVmMGVlNGRjNjVhNTRhZmI0YjY%26rlid%3D7feaad5e78bd1ef0ee4dc65a54afb4b6&vqd=4-315151261130035316770546714311647863371&iurl=%7B1%7DIG%3D1DACDEAB4EB2434DA158F3E0EA616CF6%26CID%3D342F89F064D060E9385491EA65B2619F%26ID%3DDevEx%2C5037.1"
+  },
+  {
+   "title": "more info",
+   "href": "https://duckduckgo.com/duckduckgo-help-pages/company/ads-by-microsoft-on-duckduckgo-private-search/"
+  },
+  {
+   "title": "The Bright Data MCP Server - Start with a Free Plan",
+   "href": "https://brightdata.com/ai/mcp-server"
+  },
+  {
+   "title": "MCP server overview - Bright Data Docs",
+   "href": "https://docs.brightdata.com/products/mcp-server/overview"
+  },
+  {
+   "title": "How to get started with remote MCP server - Bright Data Docs",
+   "href": "https://docs.brightdata.com/products/mcp-server/remote/quickstart"
+  },
+  {
+   "title": "Free tier - Bright Data Docs",
+   "href": "https://docs.brightdata.com/general/account/billing-and-pricing/free-tier"
+  },
+  {
+   "title": "Top-Tier Proxies & Scraping APIs Pricing - Bright Data",
+   "href": "https://brightdata.com/pricing"
+  },
+  {
+   "title": "Web Scraper API Pricing Plans - Bright Data",
+   "href": "https://brightdata.com/pricing/web-scraper"
+  },
+  {
+   "title": "Billing and pricing FAQs - Bright Data Docs",
+   "href": "https://docs.brightdata.com/general/account/billing-and-pricing/faqs"
+  },
+  {
+   "title": "Bright Data API pricing: plans, free tier and what to watch for",
+   "href": "https://openapipricing.com/blog/enrichment/bright-data"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:35:42.140578"
+}

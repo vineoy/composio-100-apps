@@ -1,0 +1,1660 @@
+[
+ {
+  "description": "Customer Relationship Management (CRM) and sales platform providing REST APIs for managing customer data and business workflows.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "OAuth2 / bearer token obtained via Salesforce CLI or connected apps",
+  "access": "free_self_serve",
+  "access_notes": "Free developer edition org or development sandbox can be created for API access",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "REST API documented for connecting via OAuth and bearer tokens",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No mention of an MCP server in the provided documentation"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods, access, and buildability",
+    "url": "https://developer.salesforce.com/docs/platform/api-rest/guide/quickstart-oauth.html"
+   }
+  ],
+  "confidence": "medium",
+  "id": 1,
+  "name": "Salesforce",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "salesforce",
+   "name": "Salesforce"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 3,
+   "evidence_dir": "data\\evidence\\001_salesforce",
+   "seconds": 2.2,
+   "at": "2026-11-23T23:58:27.404368"
+  }
+ },
+ {
+  "description": "CRM and sales pipeline management software",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "OAuth2 for user‑level access; API key (x‑api‑token) for server‑side requests",
+  "access": "free_self_serve",
+  "access_notes": "New accounts get a 14‑day free trial; API token available immediately after signup",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "REST API v1 with ~200 endpoints across deals, persons, organizations, activities, etc.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No MCP server announced"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://www.pipedrive.com/"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://developers.pipedrive.com/docs/api/v1/Oauth"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://developers.pipedrive.com/docs/api/v1/Oauth"
+   },
+   {
+    "claim": "access",
+    "url": "https://www.pipedrive.com/"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://www.pipedrive.com/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developers.pipedrive.com/docs/api/v1"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developers.pipedrive.com/docs/api/v1"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://developers.pipedrive.com/docs/api/v1"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://developers.pipedrive.com/docs/api/v1"
+   }
+  ],
+  "confidence": "high",
+  "id": 3,
+  "name": "Pipedrive",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "pipedrive",
+   "name": "Pipedrive"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\003_pipedrive",
+   "seconds": 34.4,
+   "at": "2026-11-23T23:59:01.771452"
+  }
+ },
+ {
+  "description": "A CRM platform that automates pipeline, deal, and account management with AI-powered agents.",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "OAuth2 for multi‑workspace apps; API key for single‑workspace use.",
+  "access": "free_self_serve",
+  "access_notes": "Users can sign up for free and generate API keys in the developer settings.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "REST API exposes dozens of tools (records, lists, activities, notes, tasks, etc.) with many endpoints.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.attio.com/mcp/overview",
+   "notes": "Attio hosts an MCP server for AI assistants."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.attio.com/rest-api/guides/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://attio.com/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.attio.com/rest-api/overview"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.attio.com/rest-api/overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.attio.com/mcp/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 4,
+  "name": "Attio",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "attio",
+   "name": "Attio"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\004_attio",
+   "seconds": 47.9,
+   "at": "2026-11-23T23:59:49.625976"
+  }
+ },
+ {
+  "description": "AI-powered CRM software for sales automation, customer engagement, and business growth",
+  "auth_methods": [
+   "unknown"
+  ],
+  "auth_notes": "unknown",
+  "access": "free_self_serve",
+  "access_notes": "freemium edition supports up to 3 users and free trial available",
+  "api_type": "unknown",
+  "api_breadth": "unknown",
+  "api_notes": "unknown",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "no MCP server mentioned in the documentation"
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "API documentation not detailed in the provided pages to confirm endpoints and auth specifics"
+  },
+  "evidence": [
+   {
+    "claim": "access is free_self_serve (freemium edition up to 3 users)",
+    "url": "https://www.zoho.com/en-in/crm/"
+   }
+  ],
+  "confidence": "low",
+  "id": 7,
+  "name": "Zoho CRM",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "zoho",
+   "name": "Zoho"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 1,
+   "evidence_dir": "data\\evidence\\007_zoho-crm",
+   "seconds": 2.5,
+   "at": "2026-11-23T23:59:52.155635"
+  }
+ },
+ {
+  "description": "Customer service platform and helpdesk API for managing customer conversations, profiles, and support workflows",
+  "auth_methods": [
+   "Basic"
+  ],
+  "auth_notes": "Token-based Basic Authentication using agent email as username and API token as password",
+  "access": "paid_plan",
+  "access_notes": "Requires a paid Gladly subscription and administrator approval to enable API permissions and tokens",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "Extensive REST API covering agents, conversations, customers, tasks, webhooks, reports, and more",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://help.gladly.com/docs/what-are-mcp-connections",
+   "notes": "Gladly natively supports connecting AI agents to external Model Context Protocol (MCP) servers"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.gladly.com/rest/"
+   },
+   {
+    "claim": "access",
+    "url": "https://help.gladly.com/developer-tutorials/docs/setup-and-testing"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer.gladly.com/rest/"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://help.gladly.com/docs/what-are-mcp-connections"
+   }
+  ],
+  "confidence": "high",
+  "id": 20,
+  "name": "Gladly",
+  "category": "Support and Helpdesk",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\020_gladly",
+   "seconds": 3.8,
+   "at": "2026-11-23T23:59:55.917108"
+  }
+ },
+ {
+  "description": "Discord is a communications and messaging platform for voice, video, and text chat.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token",
+   "API key",
+   "Basic"
+  ],
+  "auth_notes": "Bot tokens, OAuth2 bearer tokens, and client‑credentials (basic) are all supported.",
+  "access": "free_self_serve",
+  "access_notes": "Developer applications can be created for free; bot tokens and OAuth2 credentials are issued immediately.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "The REST API contains over 300 endpoints across guilds, channels, messages, users, and more.",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/jonvanausdeln/discord-mcp",
+   "notes": "Community‑built MCP server exists for Discord."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.discord.com/developers/reference#authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.discord.com/developers/reference#authentication"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.discord.com/developers/reference"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.discord.com/developers/reference"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/jonvanausdeln/discord-mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 26,
+  "name": "Discord",
+  "category": "Communications and Messaging",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "discord",
+   "name": "Discord"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\026_discord",
+   "seconds": 39.9,
+   "at": "2026-11-24T00:00:35.807812"
+  }
+ },
+ {
+  "description": "Telegram is a cloud‑based messaging app that offers a public API for bots and a gateway API for sending verification codes.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "Bot API uses a bot token (API key). MTProto requires an api_id and api_hash.",
+  "access": "free_self_serve",
+  "access_notes": "API credentials (api_id & api_hash) are free to obtain via the Telegram API Development Tools.",
+  "api_type": "both",
+  "api_breadth": "moderate",
+  "api_notes": "REST‑based Gateway API (few endpoints) plus MTProto RPC (many endpoints).",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/sparfenyuk/mcp-telegram",
+   "notes": "Community‑maintained MCP server for MTProto."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://core.telegram.org/api/auth"
+   },
+   {
+    "claim": "access",
+    "url": "https://core.telegram.org/api/auth"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://core.telegram.org/gateway/api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://core.telegram.org/gateway/api"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/sparfenyuk/mcp-telegram"
+   }
+  ],
+  "confidence": "high",
+  "id": 27,
+  "name": "Telegram",
+  "category": "Communications and Messaging",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "telegram",
+   "name": "Telegram"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\027_telegram",
+   "seconds": 45.3,
+   "at": "2026-11-24T00:01:21.153288"
+  }
+ },
+ {
+  "description": "Twilio SendGrid email delivery and marketing platform API",
+  "auth_methods": [
+   "API key",
+   "Bearer token",
+   "Basic"
+  ],
+  "auth_notes": "API keys via Bearer token (Authorization: Bearer <API-Key>) or Basic auth (username: 'apikey', password: API key)",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and obtain API credentials via developer console",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "API v3 REST endpoints for email sending, templates, contacts, and stats",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/FINCH285/SendGrid-MCP-Server",
+   "notes": "Multiple community MCP servers exist on GitHub (e.g., FINCH285/SendGrid-MCP-Server, recepyavuz0/sendgrid-mcp-server)"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://www.twilio.com/docs/sendgrid/for-developers/sending-email/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://ahoy.sendgrid.com/rs/294-TKB-300/images/SendGrid_API_Guide.pdf"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/FINCH285/SendGrid-MCP-Server"
+   }
+  ],
+  "confidence": "high",
+  "id": 40,
+  "name": "SendGrid",
+  "category": "Marketing, Ads, Email and Social",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "sendgrid",
+   "name": "SendGrid"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\040_sendgrid",
+   "seconds": 13.0,
+   "at": "2026-11-24T00:01:34.147708"
+  }
+ },
+ {
+  "description": "Shopify developer resources, AI toolkit, and MCP server for building Shopify apps and extensions.",
+  "auth_methods": [
+   "other: API key / token / unauthenticated for local MCP"
+  ],
+  "auth_notes": "The Dev MCP server runs locally and doesn't require authentication.",
+  "access": "free_self_serve",
+  "access_notes": "Dev MCP server can be installed via npx without authentication; developers can sign up freely.",
+  "api_type": "GraphQL",
+  "api_breadth": "unknown",
+  "api_notes": "Partner API and GraphQL Admin API mentioned in pricing docs; Dev MCP exposes developer resources.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://shopify.dev/changelog/posts/mcp-server-for-the-shopify-dev-assistant",
+   "notes": "Shopify provides an official Shopify.dev MCP Server and Dev MCP server (@shopify/dev-mcp)."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Official MCP server release",
+    "url": "https://shopify.dev/changelog/posts/mcp-server-for-the-shopify-dev-assistant"
+   },
+   {
+    "claim": "Dev MCP server runs locally and doesn't require authentication",
+    "url": "https://shopify.dev/docs/api/ai-toolkit"
+   }
+  ],
+  "confidence": "high",
+  "id": 41,
+  "name": "Shopify",
+  "category": "Ecommerce",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "shopify",
+   "name": "Shopify"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\041_shopify",
+   "seconds": 3.2,
+   "at": "2026-11-24T00:01:37.366314"
+  }
+ },
+ {
+  "description": "WooCommerce is a free, open‑source e‑commerce plugin for WordPress that lets store owners create, manage, and sell products online.",
+  "auth_methods": [
+   "API key",
+   "Basic"
+  ],
+  "auth_notes": "REST API uses Consumer Key/Consumer Secret; MCP uses WordPress Application Password (Basic auth).",
+  "access": "free_self_serve",
+  "access_notes": "API keys can be generated by any store owner for free; no paid tier required for basic access.",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "The REST API exposes dozens of endpoints for products, orders, customers, coupons, etc., totaling well over 100 distinct routes.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://woocommerce.com/document/mcp/",
+   "notes": "MCP is shipped as an official plugin (MCP Adapter) that exposes WooCommerce abilities."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://woocommerce.com/document/woocommerce-rest-api/"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://woocommerce.com/document/woocommerce-rest-api/"
+   },
+   {
+    "claim": "access",
+    "url": "https://woocommerce.com/document/woocommerce-rest-api/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://woocommerce.com/document/woocommerce-rest-api/"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://woocommerce.com/document/woocommerce-rest-api/"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developer.woocommerce.com/docs/features/mcp"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://woocommerce.com/document/woocommerce-rest-api/"
+   }
+  ],
+  "confidence": "high",
+  "id": 42,
+  "name": "WooCommerce",
+  "category": "Ecommerce",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\042_woocommerce",
+   "seconds": 35.1,
+   "at": "2026-11-24T00:02:12.487345"
+  }
+ },
+ {
+  "description": "E-commerce platform for building and managing online stores",
+  "auth_methods": [
+   "OAuth2"
+  ],
+  "auth_notes": "OAuth2 for app, store, and account level API accounts",
+  "access": "free_self_serve",
+  "access_notes": "Developers can create app-level API accounts in the Developer Portal; store owners can generate store-level credentials via the store control panel",
+  "api_type": "both",
+  "api_breadth": "moderate",
+  "api_notes": "REST Store Management, REST Storefront, GraphQL Storefront, Customer Login, Current Customer, and GraphQL Account APIs are documented",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.bigcommerce.com/_mcp/server",
+   "notes": "Docs MCP server is published for AI agents to search documentation"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.bigcommerce.com/developer/api-reference/about-our-apis"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.bigcommerce.com/developer/api-reference/about-our-apis"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.bigcommerce.com/developer/api-reference/mcp/overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.bigcommerce.com/developer/docs/ai-agent-setup"
+   }
+  ],
+  "confidence": "high",
+  "id": 43,
+  "name": "BigCommerce",
+  "category": "Ecommerce",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "bigcommerce",
+   "name": "BigCommerce"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\043_bigcommerce",
+   "seconds": 45.5,
+   "at": "2026-11-24T00:02:57.981265"
+  }
+ },
+ {
+  "description": "Amazon Selling Partner API for e‑commerce sellers",
+  "auth_methods": [
+   "OAuth2"
+  ],
+  "auth_notes": "Login with Amazon access token (Bearer) for all operations; Restricted Data Token for PII operations",
+  "access": "free_self_serve",
+  "access_notes": "No developer fees; free to register and obtain credentials",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "Over 200 distinct endpoints across multiple services (e.g., Catalog, Orders, Fulfillment, Reports, etc.)",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No MCP server announced"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developer-docs.amazon/sp-api/docs/connecting-to-the-selling-partner-api"
+   },
+   {
+    "claim": "access",
+    "url": "https://developer.amazonservices.com/cancellation-of-sp-api-fees"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer-docs.amazon/sp-api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developer-docs.amazon/sp-api"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://developer-docs.amazon/sp-api"
+   }
+  ],
+  "confidence": "high",
+  "id": 49,
+  "name": "Amazon Selling Partner",
+  "category": "Ecommerce",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "amazon",
+   "name": "Amazon"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\049_amazon-selling-partner",
+   "seconds": 62.2,
+   "at": "2026-11-24T00:04:00.163979"
+  }
+ },
+ {
+  "description": "unknown",
+  "auth_methods": [],
+  "auth_notes": "unknown",
+  "access": "unknown",
+  "access_notes": "unknown",
+  "api_type": "unknown",
+  "api_breadth": "unknown",
+  "api_notes": "unknown",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "unknown"
+  },
+  "buildability": {
+   "verdict": "unknown",
+   "blocker": ""
+  },
+  "evidence": [],
+  "confidence": "low",
+  "id": 50,
+  "name": "fanbasis",
+  "category": "Ecommerce",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\050_fanbasis",
+   "seconds": 45.1,
+   "at": "2026-11-24T00:04:45.297703"
+  }
+ },
+ {
+  "description": "Programmatic web scraping and data extraction API",
+  "auth_methods": [
+   "API key",
+   "Bearer token"
+  ],
+  "auth_notes": "API token passed in x‑api‑token header; marketplace endpoints use Bearer token",
+  "access": "free_self_serve",
+  "access_notes": "API tokens are created in the dashboard; no paid plan required for basic usage",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Endpoints include Web Search, Scraper API (HTML, Markdown, Screenshot, Brand, JSON), Platform, Analytics, subscription‑accounts",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "Docs mention an MCP Server but no public URL provided"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.mrscraper.com/docs/api/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.mrscraper.com/docs/api/authentication"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.mrscraper.com/docs/api/overview"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.mrscraper.com/docs/api/overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.mrscraper.com/docs/getting-started/api-token"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.mrscraper.com/docs/api/authentication"
+   }
+  ],
+  "confidence": "high",
+  "id": 54,
+  "name": "MrScraper",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "mrscraper",
+   "name": "MrScraper"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\054_mrscraper",
+   "seconds": 46.9,
+   "at": "2026-11-24T00:05:32.172945"
+  }
+ },
+ {
+  "description": "Platform for building, running, and managing web‑scraping and automation Actors",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "API token passed in Authorization header",
+  "access": "free_self_serve",
+  "access_notes": "Any Apify account can create a token and use the API",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "RESTful endpoints for Actors, datasets, key‑value stores, logs, etc.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No MCP server is announced"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.apify.com/integrations/api"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.apify.com/integrations/api"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.apify.com/api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.apify.com/api/v2"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.apify.com/api/v2/getting-started"
+   }
+  ],
+  "confidence": "high",
+  "id": 55,
+  "name": "Apify",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "apify",
+   "name": "Apify"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\055_apify",
+   "seconds": 45.8,
+   "at": "2026-11-24T00:06:17.983416"
+  }
+ },
+ {
+  "description": "Programmatic web data extraction, crawling, and search via a REST API",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "Include an Authorization header with a Bearer token (API key)",
+  "access": "unknown",
+  "access_notes": "Docs do not specify the pricing or tier model for API key access",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "The API reference lists many endpoints (scrape, search, crawl, map, etc.) but does not provide a count",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.firecrawl.dev/mcp-server",
+   "notes": "MCP server documentation is provided by Firecrawl"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   }
+  ],
+  "confidence": "medium",
+  "id": 56,
+  "name": "Firecrawl",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "firecrawl",
+   "name": "Firecrawl"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\056_firecrawl",
+   "seconds": 49.3,
+   "at": "2026-11-24T00:07:07.257102"
+  }
+ },
+ {
+  "description": "Bright Data provides web data collection infrastructure, proxy networks, and APIs for scraping and SEO data.",
+  "auth_methods": [
+   "API key",
+   "Basic"
+  ],
+  "auth_notes": "Supports API key via Authorization Bearer header for API access, and native proxy username and password for proxy protocols.",
+  "access": "free_self_serve",
+  "access_notes": "Free developer edition with free monthly requests/credits (e.g., 5,000 requests per month for MCP server); production needs a paid plan.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "API access covers endpoints like /request for web unlocking and scraping.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.brightdata.com/products/mcp-server/overview",
+   "notes": "Bright Data provides an official MCP server with remote and self-hosted options."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.brightdata.com/api-reference/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.brightdata.com/products/mcp-server/overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.brightdata.com/products/mcp-server/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 57,
+  "name": "Bright Data",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "brightdata",
+   "name": "Bright Data"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\057_bright-data",
+   "seconds": 2.6,
+   "at": "2026-11-24T00:07:09.846470"
+  }
+ },
+ {
+  "description": "AI-powered interview fraud detection platform",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "API keys are created per project in the control panel",
+  "access": "free_self_serve",
+  "access_notes": "New accounts start with $20 free credits; API keys can be generated immediately after signup",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Documentation lists an API reference but does not enumerate endpoints; breadth cannot be determined from the provided docs",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/Burnsedia/sherlock-mcp",
+   "notes": "Community‑maintained MCP server for Sherlock"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.cloudferro.com/en/latest/sherlock/Sherlock-authentication-API-keys-on-CloudFerro-Cloud.html"
+   },
+   {
+    "claim": "access",
+    "url": "https://www.sherlock.sh/pricing"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.sherlockai.dev/api-reference/"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   }
+  ],
+  "confidence": "medium",
+  "id": 58,
+  "name": "Sherlock",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\058_sherlock",
+   "seconds": 56.6,
+   "at": "2026-11-24T00:08:06.434672"
+  }
+ },
+ {
+  "description": "Interact programmatically with your Vercel account to deploy apps, manage domains, and handle resources.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "Vercel Access Tokens are used in the Authorization Bearer header, or OAuth2 via Vercel Apps for user sign-in.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and create Access Tokens in their account settings.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "Hundreds of endpoints across dozens of categories like deployments, projects, domains, and storage.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": ""
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://vercel.com/docs/rest-api"
+   },
+   {
+    "claim": "access",
+    "url": "https://vercel.com/docs/rest-api"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://vercel.com/docs/rest-api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://vercel.com/docs/rest-api"
+   }
+  ],
+  "confidence": "high",
+  "id": 62,
+  "name": "Vercel",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "vercel",
+   "name": "Vercel"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\062_vercel",
+   "seconds": 181.6,
+   "at": "2026-11-24T00:11:08.036612"
+  }
+ },
+ {
+  "description": "Netlify provides a REST API for managing sites, deployments, DNS, forms, and more.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "OAuth2 for user data; Bearer token (PAT) for server‑side",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and generate a personal access token for API use",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "OpenAPI reference lists dozens of endpoints across sites, deploys, DNS, forms, etc.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No official MCP server is shipped by Netlify"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   }
+  ],
+  "confidence": "medium",
+  "id": 63,
+  "name": "Netlify",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "netlify_mcp",
+   "name": "Netlify MCP",
+   "fuzzy": true
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\063_netlify",
+   "seconds": 32.9,
+   "at": "2026-11-24T00:11:40.993901"
+  }
+ },
+ {
+  "description": "Neo4j graph database platform with APIs for querying and managing graph data.",
+  "auth_methods": [
+   "other: Basic / user credentials or session tokens"
+  ],
+  "auth_notes": "Authentication depends on the database instance setup (e.g., local server or Aura cloud instance credentials).",
+  "access": "free_self_serve",
+  "access_notes": "Can install locally or sign up for a free/paid Aura cloud instance.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Provides REST/HTTP APIs and Cypher query endpoints for interacting with the database.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://neo4j.com/docs/mcp/current/",
+   "notes": "Neo4j MCP implements the Model Context Protocol to connect MCP-compatible clients to Neo4j instances."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Neo4j provides REST/HTTP API and Cypher query interfaces.",
+    "url": "https://neo4j.com/docs/rest-docs/current/"
+   },
+   {
+    "claim": "Can install Neo4j locally or sign up for an Aura cloud instance which includes free plans.",
+    "url": "https://neo4j.com/docs/http-api/current/"
+   },
+   {
+    "claim": "Neo4j MCP is documented as an official integration implementing the Model Context Protocol.",
+    "url": "https://neo4j.com/docs/mcp/current/"
+   }
+  ],
+  "confidence": "high",
+  "id": 66,
+  "name": "Neo4j",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "neo4j",
+   "name": "Neo4J"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 3,
+   "evidence_dir": "data\\evidence\\066_neo4j",
+   "seconds": 7.8,
+   "at": "2026-11-24T00:11:48.774934"
+  }
+ },
+ {
+  "description": "Productivity and project management tool for notes, tasks, databases, and collaboration.",
+  "auth_methods": [
+   "OAuth2",
+   "API key",
+   "Bearer token"
+  ],
+  "auth_notes": "Internal connections use static API tokens; personal access tokens use user-scoped static tokens; public/OAuth integrations use OAuth 2.0.",
+  "access": "free_self_serve",
+  "access_notes": "Free developer self-serve setup via the Developer portal; Notion MCP works on every plan with some plan-dependent features.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "REST API documented for pages, users, and integrations, alongside Model Context Protocol (MCP).",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.notion.com/mcp",
+   "notes": "Official Notion MCP server connecting AI assistants to Notion workspaces using Streamable HTTP transport."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developers.notion.com/guides/authorization/overview"
+   },
+   {
+    "claim": "access",
+    "url": "https://developers.notion.com/guides/mcp/get-started-with-mcp"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developers.notion.com/guides/mcp/get-started-with-mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 71,
+  "name": "Notion",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "notion",
+   "name": "Notion"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\071_notion",
+   "seconds": 2.1,
+   "at": "2026-11-24T00:11:50.864139"
+  }
+ },
+ {
+  "description": "Asana is a productivity and project‑management platform that lets teams create, track, and manage tasks, projects, portfolios, and custom fields.",
+  "auth_methods": [
+   "API key",
+   "OAuth2",
+   "other: OpenID Connect"
+  ],
+  "auth_notes": "PATs (API keys) are long‑lived tokens for single‑user scripts; OAuth2 is recommended for multi‑user apps; OpenID Connect is an OAuth2‑based login flow.",
+  "access": "free_self_serve",
+  "access_notes": "PATs and OAuth apps can be created in the developer console without a paid plan; enterprise‑wide Service Accounts require a super‑admin.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "RESTful JSON API with predictable URLs; extensive resource set (tasks, projects, portfolios, custom fields, etc.).",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developers.asana.com/docs/using-asanas-mcp-server",
+   "notes": "Asana provides an MCP server for AI assistants."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developers.asana.com/docs/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://developers.asana.com/docs/authentication"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developers.asana.com/docs/api-features"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developers.asana.com/docs/api-features"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developers.asana.com/docs/using-asanas-mcp-server"
+   }
+  ],
+  "confidence": "high",
+  "id": 75,
+  "name": "Asana",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "asana",
+   "name": "Asana"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\075_asana",
+   "seconds": 35.6,
+   "at": "2026-11-24T00:12:26.507801"
+  }
+ },
+ {
+  "description": "Financial infrastructure platform for accepting payments, managing billing, and building financial workflows via REST APIs.",
+  "auth_methods": [
+   "API key",
+   "Bearer token",
+   "OAuth2",
+   "other: Basic Auth",
+   "other: Workload Identity Federation"
+  ],
+  "auth_notes": "API keys (secret or restricted) via HTTP Basic Auth or Bearer token; OAuth2 for apps; Workload Identity Federation for cloud providers.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and obtain test/sandbox API credentials free.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "Unified set of REST APIs covering core resources, commerce, billing, capital, connect, issuing, terminal, treasury, etc.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "Model Context Protocol is listed under features/tools in the docs sidebar [DOC 3], but no explicit MCP server implementation or URL is provided in the documentation text."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "The Stripe API uses API keys to authenticate requests.",
+    "url": "https://docs.stripe.com/api/authentication"
+   },
+   {
+    "claim": "The Stripe API authenticates requests using HTTP Basic Auth or bearer auth.",
+    "url": "https://docs.stripe.com/api/authentication"
+   },
+   {
+    "claim": "The Stripe API is organized around REST.",
+    "url": "https://docs.stripe.com/api"
+   },
+   {
+    "claim": "Test mode secret keys start with sk_test_ and have unrestricted access to their sandboxes.",
+    "url": "https://docs.stripe.com/api/authentication"
+   },
+   {
+    "claim": "Stripe provides a unified set of REST APIs",
+    "url": "https://docs.stripe.com/apis"
+   },
+   {
+    "claim": "OAuth 2.0 supported for Stripe Apps",
+    "url": "https://docs.stripe.com/stripe-apps/api-authentication"
+   }
+  ],
+  "confidence": "high",
+  "id": 81,
+  "name": "Stripe",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "stripe",
+   "name": "Stripe"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\081_stripe",
+   "seconds": 11.1,
+   "at": "2026-11-24T00:12:37.609412"
+  }
+ },
+ {
+  "description": "Binance developer platform offering APIs, market data, and trading interfaces for finance and fintech integrations.",
+  "auth_methods": [
+   "API key",
+   "other: HMAC-based request signing, RSA, Ed25519, Session-based"
+  ],
+  "auth_notes": "API keys with HMAC request signing, asymmetric keys (RSA, Ed25519), and session-based authentication.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and create API keys; public endpoints require no key.",
+  "api_type": "both",
+  "api_breadth": "very_broad",
+  "api_notes": "REST APIs, WebSocket APIs, WebSocket Streams, FIX APIs, and SBE across numerous products.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developers.binance.com/en/docs/introduction",
+   "notes": "Model Context Protocol server available for AI development tools as part of Agent Native features."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Access is free self-serve with public endpoints needing no key",
+    "url": "https://developers.binance.info/en/docs/"
+   },
+   {
+    "claim": "Auth methods include HMAC request signing, RSA, and Ed25519",
+    "url": "https://developers.binance.com/en/docs/introduction"
+   },
+   {
+    "claim": "API types include REST, WebSocket, FIX, etc.",
+    "url": "https://developers.binance.com/en/docs/introduction"
+   },
+   {
+    "claim": "Official MCP server exists",
+    "url": "https://developers.binance.com/en/docs/introduction"
+   }
+  ],
+  "confidence": "high",
+  "id": 83,
+  "name": "Binance",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 2,
+   "evidence_dir": "data\\evidence\\083_binance",
+   "seconds": 3.7,
+   "at": "2026-11-24T00:12:41.368894"
+  }
+ },
+ {
+  "description": "Backend API for managing plans, users, and subscriptions for AI agents and usage tracking",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "API key passed in Authorization: Bearer header",
+  "access": "free_self_serve",
+  "access_notes": "Product creation endpoint requires no authentication and returns the first API key",
+  "api_type": "REST",
+  "api_breadth": "narrow",
+  "api_notes": "Small REST API exposing products, config plans, and users endpoints",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.withpaygent.com/_mcp/server",
+   "notes": "Official MCP server mentioned in documentation for AI client integration"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Backend API REST type and endpoints",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "Bearer token authentication format",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "Product creation without authentication",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "Official MCP server for AI client integration",
+    "url": "https://docs.withpaygent.com/cli/commands/authentication.md"
+   }
+  ],
+  "confidence": "high",
+  "id": 84,
+  "name": "Paygent Connect",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\084_paygent-connect",
+   "seconds": 4.1,
+   "at": "2026-11-24T00:12:45.515743"
+  }
+ },
+ {
+  "description": "Corporate card, expense management, and financial automation platform with modular APIs and agent-ready protocols.",
+  "auth_methods": [
+   "unknown"
+  ],
+  "auth_notes": "unknown",
+  "access": "unknown",
+  "access_notes": "unknown",
+  "api_type": "unknown",
+  "api_breadth": "unknown",
+  "api_notes": "unknown",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.ramp.com/developer-api/v1/ramp-mcp",
+   "notes": "Ramp provides an official MCP server for building agents."
+  },
+  "buildability": {
+   "verdict": "unknown",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Ramp provides an official MCP server for building agents.",
+    "url": "https://ramp.com/developer-tools"
+   }
+  ],
+  "confidence": "low",
+  "id": 89,
+  "name": "Ramp",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "ramp",
+   "name": "Ramp"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\089_ramp",
+   "seconds": 5.0,
+   "at": "2026-11-24T00:12:50.478367"
+  }
+ },
+ {
+  "description": "Programmatic access to Otter.ai meeting transcripts, channels, conversations, and workspace details",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "API requests require authentication using Bearer token authentication via API keys created in the Otter account.",
+  "access": "paid_plan",
+  "access_notes": "Otter's Public API is available for all Enterprise workspaces.",
+  "api_type": "REST",
+  "api_breadth": "narrow",
+  "api_notes": "Endpoints cover channels, channel members, and conversation creation, listing, details, and audio downloads.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+   "notes": "Otter ships an official MCP Server available for tools like Claude, ChatGPT, Cursor, and Perplexity via URL https://mcp.otter.ai/mcp"
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "Requires an Enterprise workspace to access API keys."
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "access",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server"
+   }
+  ],
+  "confidence": "high",
+  "id": 92,
+  "name": "Otter AI",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "otter_ai_mcp",
+   "name": "Otter.ai MCP"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\092_otter-ai",
+   "seconds": 5.7,
+   "at": "2026-11-24T00:12:56.183559"
+  }
+ },
+ {
+  "description": "Unified API for generating images and videos with multiple AI models",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "API key obtained via free developer account",
+  "access": "free_self_serve",
+  "access_notes": "New accounts receive 2 concurrent generations and free credits; paid plan unlocks higher concurrency",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Docs list dozens of model endpoints (e.g., /v1/generate/image, /v1/generate/video) and pricing endpoints",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://higgsfield.ai/mcp",
+   "notes": "MCP server documented on Higgsfield site"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://open.higgsfield.ai/pricing"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://open.higgsfield.ai/pricing"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://open.higgsfield.ai/pricing"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://higgsfield.ai/mcp"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://higgsfield.ai/cli"
+   }
+  ],
+  "confidence": "high",
+  "id": 97,
+  "name": "higgsfield",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "higgsfield",
+   "name": "Higgsfield"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\097_higgsfield",
+   "seconds": 30.2,
+   "at": "2026-11-24T00:13:26.402245"
+  }
+ }
+]

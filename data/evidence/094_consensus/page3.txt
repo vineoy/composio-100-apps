@@ -1,0 +1,539 @@
+URL: https://docs.consensus.app/consensus-mcp
+FETCHED: 2026-11-23T22:44:23.109872
+VIA: direct
+
+Get started with Consensus MCP - Consensus
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+One hosted server covers every field of science, so you don’t need separate PubMed, OpenAlex or Semantic Scholar servers. Your assistant gets ranked papers it can filter by study design, sample size and journal quality, and cites real studies in its answers. Connect your client below. You’ll be searching in under 2 minutes.
+What you can build with the Consensus MCP
+MCP is the fastest way to give an assistant or agent paper search. Owkin plugged Consensus MCP into its agentic AI scientist and went from curated PubMed abstracts to 25x the paper coverage in days. Browse the use cases.
+Server URL
+https://mcp.consensus.app/mcp
+Claude
+Add Consensus from the Claude connectors directory.
+ChatGPT
+Add Consensus from the ChatGPT app directory.
+Microsoft 365 Copilot
+Add Consensus for Copilot from the Microsoft Marketplace.
+Perplexity
+Add Consensus from the Perplexity Computer connectors store.
+How Consensus compares
+In blinded evaluations on real user queries, Consensus search returns more relevant papers than Google Scholar and than frontier models with web search. See
+Benchmarks
+.
+More relevant than Google Scholar
+88.1% vs 81.8% precision on 500 real user queries, judged blind by PhD researchers.
+Beats GPT-5.5 and Opus 4.8, 10x faster
+More relevant top-20 papers at a median of 8.7 seconds, versus 75 to 103 seconds.
+Connect Your Client
+Claude Desktop
+One-click:
+open
+Consensus in the Claude directory
+and click
+Connect
+. Or connect manually:
+1
+Open Settings
+Open
+claude.ai
+or the Claude desktop app and go to
+Settings
+.
+2
+Browse connectors
+Select
+Connectors
+, then
+Browse connectors
+.
+3
+Find Consensus
+Search for
+Consensus
+and click
+Connect
+.
+4
+Sign in
+Approve the sign-in with your Consensus account, or continue without one at reduced limits.
+5
+Start searching
+Ask a research question in any chat. Consensus appears in the tools menu.
+Claude Code
+claude mcp add --transport http consensus https://mcp.consensus.app/mcp
+OAuth will open in your browser automatically on first use. You can also trigger it manually with the
+/mcp
+command inside Claude Code.
+ChatGPT
+One-click:
+open
+Consensus in the ChatGPT app directory
+and click
+Connect
+. Or connect manually:
+1
+Open ChatGPT
+Open
+chatgpt.com
+and sign in.
+2
+Find Consensus
+Open
+Apps
+from the sidebar, search for
+Consensus
+, and click
+Connect
+.
+3
+Sign in
+Sign in with your Consensus account when prompted.
+4
+Start searching
+Ask a research question, or call it by name: “Use Consensus to find RCTs on…”
+Search results display in an interactive widget showing top papers with citations and direct links.
+Consensus also works with ChatGPT Deep Research. See
+Using Consensus with ChatGPT Deep Research
+below.
+Codex
+codex mcp add consensus --url https://mcp.consensus.app/mcp
+codex mcp login consensus
+Or add to
+~/.codex/config.toml
+:
+[
+mcp_servers
+.
+consensus
+]
+url
+=
+"https://mcp.consensus.app/mcp"
+Cursor
+One-click:
+Install in Cursor
+. Or add to
+~/.cursor/mcp.json
+:
+{
+"mcpServers"
+: {
+"consensus"
+: {
+"command"
+:
+"npx"
+,
+"args"
+: [
+"-y"
+,
+"mcp-remote@latest"
+,
+"https://mcp.consensus.app/mcp"
+]
+}
+}
+}
+VS Code (GitHub Copilot)
+Add to your MCP configuration:
+{
+"servers"
+: {
+"consensus"
+: {
+"url"
+:
+"https://mcp.consensus.app/mcp"
+}
+}
+}
+Windsurf
+Add to your MCP configuration:
+{
+"mcpServers"
+: {
+"consensus"
+: {
+"serverUrl"
+:
+"https://mcp.consensus.app/mcp"
+}
+}
+}
+Gemini Spark
+Add Consensus as a custom app for Gemini Spark:
+1
+Open Connected Apps
+Go to
+gemini.google.com
+and sign in with a personal Google Account, then click
+Settings & help
+→
+Connected Apps
+.
+2
+Add a custom app
+Under
+Custom apps for Spark
+, click
+Add a custom app
+and paste the server URL:
+https://mcp.consensus.app/mcp
+3
+Approve the connection
+Click
+Next
+and follow the prompts to finish OAuth. If your client doesn’t support Dynamic Client Registration, expand
+Advanced features
+and enter your credentials.
+4
+Start searching
+Ask Gemini Spark a research question and it can call Consensus tools.
+Requires access to Gemini Spark, a personal Google Account, Keep Activity turned on, and is currently available in the US. Workspace and school accounts are not supported yet.
+Perplexity
+1
+Open the Consensus connector
+Go to
+Consensus in the Perplexity connectors store
+.
+2
+Add the connector
+Click
++ Add Connector
+.
+3
+Sign in with Consensus
+Complete the OAuth sign-in with your Consensus account. You need a
+Consensus account
+, which is free to create.
+4
+Confirm the connection
+Click
+Connect
+on the OAuth confirmation screen.
+5
+Open Computer
+Click
+Computer
+.
+6
+Ask a research question
+Say “Use Consensus to…” followed by a scientific question, for example: “Use Consensus to identify the pros and cons of GLP-1s.”
+Microsoft 365 Copilot
+In Microsoft 365 Copilot, Consensus is a connector your admin sets up for the tenant. Once it’s there, connect it yourself under
+Sources
+.
+1
+Open Copilot Chat settings
+In Microsoft 365 Copilot, select the
+gear icon
+at the bottom of the left sidebar, then
+Settings
+, then
+Sources
+.
+2
+Connect Consensus
+Find
+Consensus for Copilot
+and select
+Connect
+, then sign in with your Consensus account.
+3
+Ask a research question
+Type a research question like ‘What does the research say about creatine and cognitive function?’ and Copilot will call Consensus to find relevant papers.
+Don’t see Consensus under Sources? Your admin needs to add it first. Send them the
+Microsoft 365 Copilot admin guide
+. A
+Consensus account
+is required and free to create.
+Microsoft 365 Copilot Studio
+This allows you to add Consensus as a custom tool in Copilot studio so it can be used with agents or other automations you have have. This type of authentication will
+1
+Open custom tools
+Go to Copilot studio and find the ‘tools’ tab on the left hand side.
+2
+Create 'Create new tool'
+Click ‘new tool’ to add a custom tool
+3
+Click 'Model context protocol'
+You can also use the API to do this. But to use the MCP, click ‘model context protocol’.
+4
+Fill in the connector information
+Server name
+Consensus
+Server Description
+Consensus is the go-to MCP for academic research. Search 400M+ scholarly articles, including 350M peer-reviewed papers, from PubMed, Semantic Scholar, and ArXiv — filter by study type (RCTs, meta-analyses, systematic reviews), journal quality, sample size, and more. Get structured results with citations, study takeaways, and direct links, or run pre-built workflows for literature reviews, grant research, and evidence synthesis.
+Server URL
+https://mcp.consensus.app/mcp
+Authentication
+OAuth 2.0
+Type
+Dynamic Discovery
+5
+Save and use!
+Thats it! This custom tool can now be used and shared with other team members. Each team member will be able to connect to their own Consensus account when they use the tool.
+A
+Consensus account
+is required. It is free to create.
+API key (Bearer token)
+Use an API key for clients without OAuth, headless agents, and server-side automations. Send it in the
+Authorization
+header on every request to
+https://mcp.consensus.app/mcp
+:
+Authorization
+:
+Bearer YOUR_API_KEY
+Create a key from your profile icon under
+API & MCP Dashboard
+→
+Keys and clients
+→
+New key
+. The key gets its owner’s plan limits and draws from the same monthly pool as the API. See
+MCP plans and access
+.
+JSON config
+(Cursor, VS Code, and most clients that accept headers):
+{
+"mcpServers"
+: {
+"consensus"
+: {
+"url"
+:
+"https://mcp.consensus.app/mcp"
+,
+"headers"
+: {
+"Authorization"
+:
+"Bearer YOUR_API_KEY"
+}
+}
+}
+}
+Claude Code:
+claude mcp add --transport http consensus https://mcp.consensus.app/mcp --header
+"Authorization: Bearer $CONSENSUS_API_KEY"
+An invalid or revoked key fails the search with a tool error: “Your API key is invalid or expired.” Create a new key from the
+API & MCP Dashboard
+and update your client config.
+Keep the key server-side. Don’t paste it into prompts or commit it to a repo.
+Other MCP clients
+Any client that supports remote MCP servers (Streamable HTTP) works. Point it at
+https://mcp.consensus.app/mcp
+. If your client supports OAuth, authentication is handled automatically.
+Pick your client for step-by-step setup.
+Watch: connect Consensus and run your first search
+Using Consensus with ChatGPT Deep Research
+Consensus also works with ChatGPT Deep Research. When Deep Research uses the Consensus app, it can search Consensus for relevant papers and retrieve full paper details for cited results.
+1
+Connect the Consensus app
+Connect the Consensus app in ChatGPT using the steps above.
+2
+Start a Deep Research request
+Start a Deep Research request in ChatGPT.
+3
+Ask ChatGPT to use Consensus
+Ask ChatGPT to use Consensus for peer-reviewed research, for example:
+Use Consensus to research the evidence on exercise for depression. Prioritize systematic reviews, meta-analyses, and randomized controlled trials.
+Deep Research may run multiple Consensus searches, refine filters, retrieve paper details, and return a cited synthesis with direct links to papers on Consensus.
+Verify Your Connection
+Try one of these in your connected client. Each link opens the question pre-filled:
+Ask
+Try it
+”What does the research say about creatine and cognitive function?”
+Claude
+·
+ChatGPT
+”Find meta-analyses on mindfulness for anxiety published since 2020”
+Claude
+·
+ChatGPT
+”Are there RCTs on intermittent fasting with more than 500 participants?”
+Claude
+·
+ChatGPT
+”What is the strongest evidence for and against remote work productivity?”
+Claude
+·
+ChatGPT
+You should see results citing specific papers with titles, journals, years, citation counts, and direct links.
+Plans and Access
+Your Consensus plan, not your AI subscription, sets how many papers each search returns, your monthly calls, whether results include DOIs and full-text excerpts, and whether Threads can use
+deep
+mode. No account is needed to try it.
+Plans and access
+Limits for every plan, how calls are counted, additional usage, and API key access.
+Tools
+Consensus MCP exposes six tools. Your assistant picks the right one from your question.
+Tool
+What it does
+search
+Find ranked, peer-reviewed papers for a query in one call.
+get_full_text
+Read the complete text of open-access papers from search results or Threads, as Markdown.
+create_thread
+Start a Thread: hand a research question to the Consensus research agent.
+get_thread
+Poll a Thread and read the agent’s cited answer.
+add_to_thread
+Ask a follow-up in an existing Thread.
+find_threads
+List your Threads and find an earlier one.
+search
+works without an account. The thread tools need a signed-in Consensus account or an API key.
+get_full_text
+needs a paid plan.
+Quick start: Search & Threads
+When to use search, when to start a Thread, and how a Thread runs.
+Troubleshooting
+OAuth login is only supported for streamable HTTP servers (Codex)
+You added the server with
+-- --transport http
+instead of
+--url
+. Remove and re-add:
+codex mcp remove consensus
+codex mcp add consensus --url https://mcp.consensus.app/mcp
+codex mcp login consensus
+Authentication successful but server reconnection failed (Claude Code)
+Fully quit and restart Claude Code. Do not just use the reconnect option. Your credentials are saved and will work after restart.
+Tools stop working after a few hours (401 errors)
+Your OAuth token has expired. Re-authenticate:
+Claude Code:
+Type
+/mcp
+, select Consensus, choose Clear authentication, re-authenticate, then restart Claude Code
+Codex:
+Run
+codex mcp logout consensus
+then
+codex mcp login consensus
+Cursor:
+Disconnect and reconnect the server in Settings then Tools and MCP
+Claude Desktop:
+Disconnect and reconnect the connector in Settings then Connectors
+ChatGPT:
+Disconnect and reconnect the Consensus app from ChatGPT Apps
+Perplexity:
+Disconnect and reconnect Consensus in Computer then Connectors
+Server shows failed or no tools appear
+Verify the URL includes
+/mcp
+at the end
+Remove and re-add the server using the commands above
+Restart your client completely
+Consensus search has not been loaded yet (Claude Code)
+This is normal. Claude loads tool definitions on demand when many tools are present. Retry the query and it will work on the second attempt.
+ChatGPT Deep Research is not using Consensus
+Confirm the Consensus app is connected in ChatGPT Apps, then ask Deep Research to use Consensus explicitly. For example:
+Use Consensus to find peer-reviewed papers on this question and cite the strongest evidence.
+Deep Research decides when to call connected tools, so it may not call Consensus for questions that are not research-focused.
+No results found
+Try broadening your search query or removing filters. Use specific academic terminology rather than casual language.
+Monthly call limit reached
+Paid plans can continue making calls past the included monthly limit when the account has an active metered API subscription and additional usage is enabled; extra usage is billed at $0.05 per call, with each call covering up to 100 papers. Free plans must wait for the next monthly reset or upgrade.
+Rate limit exceeded (429 error)
+Rate limits are per user for authenticated MCP clients. A 429 that says you’re sending requests too quickly is a per-minute rate limit; wait a few moments and add backoff between requests. A 429 that mentions monthly call credits is a usage limit, not a rate limit.
+Security
+Endpoint:
+Only connect to the official URL:
+https://mcp.consensus.app/mcp
+API keys:
+Store securely using environment variables. Never share keys in prompts or public conversations. Rotate if compromised.
+Data handling:
+Search queries are sent to the Consensus API over HTTPS/TLS. Results contain publicly available academic paper metadata. No personal data is stored from MCP requests.
+Supported Platforms
+Platform
+Auth
+Status
+Claude Desktop
+OAuth
+Supported
+ChatGPT
+OAuth
+Supported
+ChatGPT Deep Research
+OAuth
+Supported
+Claude Code
+OAuth
+Supported
+Codex
+OAuth
+Supported
+Cursor
+OAuth
+Supported
+VS Code (GitHub Copilot)
+Config
+Supported
+Windsurf
+Config
+Supported
+Gemini Spark
+OAuth
+Supported
+Perplexity
+OAuth
+Supported
+Other MCP Clients
+Bearer token
+Supported
+FAQ
+Is there a PubMed MCP server with semantic search?
+Yes. Consensus covers all of PubMed plus the rest of science, ranked semantically rather than by keyword match alone. You can filter by study design, sample size, journal quartile and citation count. See
+Where the papers come from
+.
+What's the best MCP server for scientific literature in Claude?
+Consensus is in the
+Claude connectors directory
+and works in Claude on the web, the Claude desktop app and
+Claude Code
+.
+How do I add a scientific search connector to ChatGPT?
+Connect Consensus from the
+ChatGPT app directory
+. It also works with
+ChatGPT Deep Research
+.
+Can I use a research paper search MCP server in Cursor or VS Code?
+Yes. Install it in one click in
+Cursor
+, or add the server URL to your MCP configuration in
+VS Code (GitHub Copilot)
+.
+Which MCP server works for pharma and drug discovery?
+Consensus is SOC 2 Type II compliant, doesn’t use customer data to train AI models, and offers a zero-data-retention option on enterprise agreements. It runs behind
+AI gateways
+and in
+Microsoft 365 Copilot
+. Owkin uses it in its agentic AI scientist. See
+Security and data handling
+.
+Does it work for systematic reviews and meta-analyses?
+Yes. Filter by study design, including RCTs, systematic reviews and meta-analyses, and run deep literature reviews with Threads. See the
+Threads quick start
+.
+Is this the same as Consensus (goconsensus.com)?
+No. This is Consensus, the AI academic search engine at
+consensus.app
+. It’s unrelated to the sales demo platform at goconsensus.com.
+Additional Resources
+Consensus Website
+Explore the Consensus research platform.
+API Documentation
+Structured JSON results for pipelines and integrations.
+MCP Specification
+Learn more about the Model Context Protocol.
+MCP server on GitHub
+View the source, report issues, and star the Consensus MCP server.

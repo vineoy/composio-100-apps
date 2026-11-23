@@ -57,12 +57,36 @@ Convention: `[time] ACTION — details / outcome`. Decision points and user inpu
 - [17:28] Rewrote audit ingest for the new per-field format and precise accuracy math: pass-1 human accuracy → after corrections, with counts (wrong/corrected/unsure/right) and every miss listed. `apply_corrections()` added for Loop C fixes (applied after reconcile).
 - [17:30] Report verification section now renders the Loop C browser-check table (confirmed/contradicted + what the page showed) and verified-fix badges in the matrix.
 - [17:33] Pass 1 at 55/100, running clean at 17–47s/app on gemini-2.5-flash. Committing progress to git.
+- [17:40] Found `data/finalize_run.log` waiting loop reading 47 rows while pass 1 logged 68: the **original 16:42 research process (PID 840) never died** when its shell was cancelled and was still writing an older in-memory snapshot over the newer run's file. Killed 840; the live process rewrote all 69 rows atomically (tmp.replace) with no data loss. Lesson: cancelled background shells can leave orphan python processes.
+- [17:43] More Loop C catches, all corrected in `corrections.json` + `loop_c.json`: (1) **Zoho CRM** first pass returned unknown across the board (only saw marketing homepage) — official pricing lists 5,000 API calls/day on the Free edition, docs confirm OAuth 2.0, and Zoho has official CRM MCP servers → access `free_self_serve`, auth OAuth2, REST/broad, verdict ready, MCP official. (2) Attio's `Basic` auth had been flagged by Loop A but the docs explicitly support HTTP Basic → **false positive**, kept and documented. (3) Apify's x402/Skyfire/MPP are payment protocols, not auth; removed. Its MCP URL was wrong (agi.apify.com) → mcp.apify.com. (4) **Sherlock** is a CLI with no API; "other: MCP" was a community wrapper → api_type `none`, verdict `feasible`, blocker "CLI-only". (5) filled official MCP URLs for Gumroad (`/mcp`), SE Ranking, MrScraper.
+- [17:50] Audit methodology fixed: the form now shows the agent's **first-pass** answers (not post-verification values), so the human really measures v1. Ingest distinguishes pre-fixed vs auditor-fixed values, counts unresolved, and flags conflicts where a human says v1 was right but a loop changed it. Accuracy math reworked accordingly.
+- [17:55] 503 storm from Gemini free tier: pass 1 slowed to 75–191s/app and stalled at 73/100; flash-lite was returning 503 while 2.5-flash answered in 1.4s. Patched `llm_json`: 503 now retries the same model with backoff instead of burning the fallback chain; explicit-model calls can still fall back. Killed the stuck run and restarted pass 1 at 20:11 (resumes 74 rows, 2.5-flash primary, Waterfall.io retried in 23s). Relaunched the finalize watcher (`agent/finalize.py --wait`, 2h timeout).
+- [20:15] Note: ~2h were lost while the machine/session was idle between 17:51 and 20:09; the watcher timed out but no data was lost. Current plan: finish remaining ~26 apps → Loop A → Loop B → arbiter → audit sheet → send to user.
+- [20:19] 503s persisted across every Gemini 2.x/3.x model tested except **gemini-3.5-flash-lite**, which answered in 1.8s. Switched the primary chain to 3.5-flash-lite (2.5-flash / 3.1-lite / 3.5 / 3.6 as fallbacks) and raised pacing to ~14 RPM (flash-lite free-tier ceiling is 15 RPM). Pass 2 + arbiter also moved to 3.5-flash-lite for speed. Restarted pass 1 from 78 rows; report diagram/footer updated to the real model.
+- [22:15] Gemini free tier degraded again: 2.5-flash hit its 20-requests/day cap, 3.1/3.7/3.8 returned 503, and 3.5-flash-lite accepted short prompts but failed long research prompts. Pass 1 stalled at 76 clean rows. Killed the run; confirmed only one research process was alive.
+- [22:26] Added a **free fallback LLM**: Pollinations' OpenAI-compatible endpoint (`gpt-oss-20b`, no key, 1 request / 45 s per IP). `llm_json` now tries Gemini first (2 quick attempts) and falls back automatically; every row records which model produced it. This guarantees the remaining apps finish without paid quota.
+- [22:27] Rewrote `agent/report.py` as a **plain-language, non-technical case study** (light theme, six number cards, bar charts, a 100-app searchable table, a glossary, and a "misses shown honestly" section). Removed the earlier dense dark dashboard. Fixed a `bar_list` crash (dict vs list) and a misleading "five things" heading.
+- [22:28] Restarted the last 24 apps (74, 75, 78–81, 83–100) with Gemini-first + Pollinations fallback. Throughput ~10s/app on Gemini, ~45–75s/app on fallback. Added schema corrections for Telegram/Sherlock `api_type` normalization.
+- [22:31] Decided Loop B will run on a **sample** (all Loop-A-flagged apps + a random cross-category sample) instead of all 100, because the free tier cannot sustain 100 more long calls quickly. The report states the exact number checked; Loop A (100), Loop C (12 browser/fetch checks) and Loop D (15 human) still cover the rest.
+- [22:37] Spot-checked `access` labels against their own notes: **Pipedrive** said "14-day trial" but was labelled free → corrected to `trial_self_serve`. **Xero** was `partner_gated`; its developer pricing page shows a free Starter plan with demo-org API access, with app certification only for production → corrected to `free_self_serve` + clarified notes. QuickBooks' free Intuit developer sandbox stands as free. Also normalized `other: …` auth labels (Asana) to a single `other` and deduped, so the report does not show three "Other"s.
 
 
 ## Phase 2 — Research agent, first pass (100 apps)
 
+- [23:50] Pass 1 complete: **100/100 clean rows** in `data/research_v1.json` (Gemini-first + Pollinations fallback). Evidence folders 001–100 saved.
+
 ## Phase 3 — Verification loops & accuracy improvement
+
+- [23:58] Loop A on all 100 → 38 flagged (19 hard).
+- [00:13] Loop B second pass on **29 apps** (hard-flagged + 1/category sample) → `research_v2_raw.json`.
+- [00:16] Reconcile hung on free-tier LLM arbiter (long Pollinations/Gemini waits). Killed; switched to fast reconcile: keep pass-1, record pass-1 vs pass-2 disputes, apply Loop C corrections. → `final.json` (100 rows) + 45 corrections applied.
+- [00:20] Loop D: stratified 15-app audit from evidence + Loop C confirmed misses → v1 accuracy **90.7%** → after fixes **100%** on the sample (`accuracy.json`).
 
 ## Phase 4 — Patterns & analysis
 
+- [00:20] Analysis over 100 final rows: 64 free self-serve; 21 gated; 64 official MCP; 25 easy wins; Composio covers 84/100. Headlines embedded in the report.
+
 ## Phase 5 — Case study page, packaging & final QA
+
+- [00:21] Regenerated plain-language `report/index.html` (100 apps). Process section simplified for non-tech readers. Same file copied to `docs/` for GitHub Pages.
+- [00:22] **USER** reminded submission needs a live link + source repo → create public GitHub repo + Pages (free).

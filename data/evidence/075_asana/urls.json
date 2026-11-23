@@ -1,0 +1,77 @@
+{
+ "app": "Asana",
+ "queries": [
+  "Asana API authentication documentation",
+  "Asana MCP server",
+  "Asana API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.asana.com/docs/authentication",
+  "https://developers.asana.com/docs/api-features",
+  "https://developers.asana.com/docs/using-asanas-mcp-server",
+  "https://developers.asana.com/docs/mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Asana Docs",
+   "href": "https://developers.asana.com/docs/authentication"
+  },
+  {
+   "title": "API - Asana Docs",
+   "href": "https://developers.asana.com/docs/api-features"
+  },
+  {
+   "title": "Asana API: connect & build integrations | Help Center",
+   "href": "https://help.asana.com/s/article/api?language=en_US"
+  },
+  {
+   "title": "Asana Developers - API, Documentation & Community Support \u2022 Asana",
+   "href": "https://asana.com/developers"
+  },
+  {
+   "title": "Asana authentication: passwords, SSO & SAML | Help Center",
+   "href": "https://help.asana.com/s/article/authentication-and-access-management-options-for-paid-plans?language=en_US"
+  },
+  {
+   "title": "Using Asana's MCP Server",
+   "href": "https://developers.asana.com/docs/using-asanas-mcp-server"
+  },
+  {
+   "title": "MCP Server - developers.asana.com",
+   "href": "https://developers.asana.com/docs/mcp-server"
+  },
+  {
+   "title": "GitHub - roychri/mcp-server-asana",
+   "href": "https://github.com/roychri/mcp-server-asana"
+  },
+  {
+   "title": "Setting up Asana MCP Server on Copilot Studio",
+   "href": "https://forum.asana.com/t/setting-up-asana-mcp-server-on-copilot-studio/1128982"
+  },
+  {
+   "title": "Asana MCP Server - GitHub",
+   "href": "https://github.com/rungtruong/asana-mcp"
+  },
+  {
+   "title": "Asana Pricing | Personal, Starter, Advanced, & Enterprise plans \u2022 Asana",
+   "href": "https://asana.com/pricing"
+  },
+  {
+   "title": "API - Asana Docs",
+   "href": "https://developers.asana.com/docs/api-features"
+  },
+  {
+   "title": "Asana Developers - API, Documentation & Community Support \u2022 Asana",
+   "href": "https://asana.com/developers"
+  },
+  {
+   "title": "Which API features are available for each pricing tier - Asana Forum",
+   "href": "https://forum.asana.com/t/which-api-features-are-available-for-each-pricing-tier/104411"
+  },
+  {
+   "title": "Asana subscriptions & pricing: plans explained | Help Center",
+   "href": "https://help.asana.com/s/article/asana-subscriptions-and-pricing?language=en_US-1"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:28:26.027475"
+}

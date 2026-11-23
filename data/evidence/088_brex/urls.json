@@ -1,0 +1,77 @@
+{
+ "app": "Brex",
+ "queries": [
+  "Brex API authentication documentation",
+  "Brex MCP server",
+  "Brex API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.brex.com/guides/authentication",
+  "https://developer.brex.com/docs/mcp",
+  "https://developer.brex.com/docs/mcp.md",
+  "https://www.brex.com/support/brex-api"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Brex Developer API",
+   "href": "https://developer.brex.com/guides/authentication"
+  },
+  {
+   "title": "Brex API",
+   "href": "https://www.brex.com/support/brex-api"
+  },
+  {
+   "title": "Brex Developer API",
+   "href": "https://developer.brex.com/"
+  },
+  {
+   "title": "Brex API",
+   "href": "https://www.brex.com/product/api"
+  },
+  {
+   "title": "Brex API Documentation, Developer Portal & SDKs",
+   "href": "https://www.openbankingtracker.com/provider/brex/apis"
+  },
+  {
+   "title": "Brex MCP",
+   "href": "https://developer.brex.com/docs/mcp"
+  },
+  {
+   "title": "Brex MCP: Connect Brex to any AI tool that supports MCP",
+   "href": "https://www.brex.com/journal/brex-mcp-connect-brex-to-ai-tools"
+  },
+  {
+   "title": "GitHub - dennisonbertram/mcp-brex: A model context protocol ...",
+   "href": "https://github.com/dennisonbertram/mcp-brex"
+  },
+  {
+   "title": "Official Brex MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/brex-mcp"
+  },
+  {
+   "title": "developer.brex.com",
+   "href": "https://developer.brex.com/docs/mcp.md"
+  },
+  {
+   "title": "Brex Pricing Plans | Get Started Today",
+   "href": "https://www.brex.com/pricing"
+  },
+  {
+   "title": "Brex Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/brex/brex-plans-pricing/"
+  },
+  {
+   "title": "Brex API",
+   "href": "https://www.brex.com/product/api"
+  },
+  {
+   "title": "Brex API \u2014 Docs, Pricing & OpenAPI | APIs.io",
+   "href": "https://apis.io/providers/brex/"
+  },
+  {
+   "title": "Brex Developer API",
+   "href": "https://developer.brex.com/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:36:57.049406"
+}

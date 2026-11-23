@@ -1,0 +1,152 @@
+URL: https://user-documentation.vercel.app/database-and-apis/auth/providers/vercel.html
+FETCHED: 2026-11-23T17:38:33.196321
+VIA: direct
+
+Vercel authentication | Documentation
+Skip to content
+Menu
+Return to top
+Was this page helpful?
+Updating visuals
+If you see any images containing outdated UI, please bear with us.
+We are updating all content as quickly as possible to mirror our new UI.
+Vercel authentication
+​
+Vercel authentication lets your users sign in with their Vercel account. Once connected, you can offer “Continue with Vercel” in your WeWeb app.
+What this integration supports
+​
+Social sign in with Vercel (Sign in with Vercel)
+Redirect to different pages for success, error, and first-time users
+Setup in the Vercel Dashboard
+​
+You create a Vercel App and register WeWeb’s callback URL (the URL Vercel sends users back to after they approve sign in).
+1. Create a Vercel App
+​
+Open your team
+Settings
+in the
+Vercel Dashboard
+.
+Go to
+Apps
+and click
+Create
+.
+Fill in your app details and save.
+2. Generate a client secret
+​
+On your app’s manage page:
+Find
+Client secrets
+.
+Click
+Generate
+.
+Copy the
+Client ID
+and
+Client Secret
+.
+3. Add the authorization callback URL
+​
+In the app settings, find
+Authorization Callback URLs
+.
+Add:
+https://<your-domain>/api/auth/callback/vercel
+Click
+Add
+.
+If you use multiple environments, add one callback URL per environment (preview, staging, production).
+Connect Vercel in WeWeb
+​
+In the WeWeb editor, open the
+Data & API
+tab, then open the
+Authentication
+subtab and go to
+SSO Providers
+.
+Find
+Vercel
+and expand it.
+Turn on the
+Enable
+toggle.
+Paste:
+Client ID
+Client Secret
+Click
+Save
+.
+WeWeb stores these values as environment variables (for example
+PROVIDER_VERCEL_CLIENT_ID
+and
+PROVIDER_VERCEL_CLIENT_SECRET
+).
+Test sign in
+​
+In
+Interface
+, add a “Continue with Vercel” button.
+Create a workflow on click and add
+Sign in with social provider
+.
+Set:
+Provider
+:
+vercel
+Success Page
+,
+Error Page
+, And (optional)
+New User Page
+Preview your project and complete the Vercel sign-in flow.
+For what to do after sign in (roles, private pages, and access checks), see
+Users and roles overview →
+.
+Common pitfalls
+​
+Callback URL mismatch
+​
+If Vercel shows an error after you approve sign in, your callback URL is usually missing or different.
+In Vercel, confirm
+Authorization Callback URLs
+includes
+https://
+/api/auth/callback/vercel
+.
+Make sure the domain matches the environment you are testing (preview vs production).
+Using the wrong team
+​
+Vercel apps are created at the team level.
+Make sure you created the app under the same team your users will sign in with.
+If you have multiple teams, double-check the team selector before copying the credentials.
+Reference
+​
+WeWeb settings
+​
+Setting in WeWeb
+Description
+Where to find it in Vercel
+Client ID
+Identifies your Vercel App.
+Vercel App manage page (Client ID).
+Client Secret
+Secret used to securely complete sign in.
+Vercel App manage page (generate client secret).
+FAQs
+​
+What provider value should I use in the workflow action?
+Use
+vercel
+as the
+Provider
+value in the
+Sign in with social provider
+action.
+Can I rotate the client secret later?
+Yes. Vercel lets you generate new client secrets so you can rotate them. Update the value in WeWeb after rotating.
+Continue learning
+Next, learn how to manage users and roles after users sign in.
+Users and roles overview →

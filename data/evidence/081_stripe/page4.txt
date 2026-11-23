@@ -1,0 +1,130 @@
+URL: https://docs.stripe.com/apis
+FETCHED: 2026-11-23T22:31:20.516146
+VIA: direct
+
+Stripe APIs | Stripe Documentation
+Skip to content
+API
+Create account
+or
+Sign in
+Search
+/
+Ask AI
+Create account
+Sign in
+APIs & SDKs
+Help
+Overview
+Versioning
+Changelog
+Upgrade your integration
+How API versioning works
+Essentials
+SDKs
+API
+API v2
+Rate limits
+Authentication
+API keys
+Service principals
+Workload Identity Federation
+Specify request context
+Domains and IP addresses
+Make requests
+Expand responses
+Pagination
+Search objects
+Localise content
+Testing and data
+Metadata
+Test your application
+Error handling
+Handle errors
+Error codes
+Events
+Testing
+Stripe CLI
+Tools
+Stripe Dashboard
+Stripe Projects
+Provisioning
+Workbench
+Developers Dashboard
+Stripe for Visual Studio Code
+Terraform
+Stripe Discord server
+Features
+Workflows
+Batch Jobs
+Stripe health alerts
+File uploads
+AI tools
+Agent plugins
+Model Context Protocol
+Agent skills
+Stripe Directory
+Extend Stripe
+Overview
+Build Stripe apps
+Use apps from Stripe
+Build extensions
+Custom objects
+Security and privacy
+Security
+Activity logs
+Stripebot web crawler
+Privacy
+Partners
+Partner ecosystem
+Partner certification
+India
+English (United Kingdom)
+Stripe APIs
+Learn about Stripe APIs.
+Ask about this page
+Copy for LLM
+View as Markdown
+Set up agent
+Stripe provides a unified set of
+REST APIs
+, comprised of
+two namespaces
+, for accepting payments, managing billing and subscriptions, sending payouts and building financial workflows. You can authenticate requests, shape responses, localise data, test integrations and handle errors consistently across Stripe products.
+Overview
+Compare the API v1 and v2 namespaces
+Learn about Stripe API v2, its response model and how it compares to API v1.
+Manage null API v2 responses
+Request dependent values in a single response.
+Rate limits
+Understand throttling and throughput behaviour.
+Authentication and security
+API keys
+Authenticate requests with secret and restricted keys.
+Manage secret API keys
+Best practices for creating, rotating and securing keys.
+Specify request context
+Pass account and idempotency context with requests.
+Domains and IP addresses
+Allowlist domains and IP ranges used by Stripe.
+Make requests
+Expand responses
+Return nested objects in a single request.
+Pagination
+Iterate through large lists of resources.
+Search objects
+Look up objects in your Stripe data.
+Testing and data
+Metadata
+Attach custom key-value pairs to objects.
+Use cases
+Common patterns for modelling data with metadata.
+Automated testing
+Test your application’s behaviour and ability to handle errors.
+Error handling
+Error handling
+Interpret errors and display them to users.
+Advanced error handling
+Work with low-level error details.
+Error codes
+Browse common error types and parameters.

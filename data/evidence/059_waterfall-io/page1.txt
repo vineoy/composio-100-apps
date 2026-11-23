@@ -1,0 +1,47 @@
+URL: https://docs.waterfall.io/v1/authentication
+FETCHED: 2026-11-23T20:12:05.489746
+VIA: direct
+
+Authentication - Waterfall.io API Documentation
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Authenticate data and account API requests with your Waterfall API key in the
+x-api-key
+header.
+Contact the team
+for API access and pricing.
+x-api-key
+:
+YOUR_API_KEY
+The API host is
+https://api.waterfall.io
+. Data endpoints use
+/v1/
+; Account Reporter V2 uses
+/v2/account
+. Use the path shown on each reference page.
+Best practices
+Store keys in server-side environment variables. Keep them out of browser code and public repositories.
+Rotate keys periodically.
+Use
+dedicated sub-keys
+to manage access and usage for separate teams or workflows. Creating and managing sub-keys requires a
+master API key
+.
+Missing keys return
+401
+. Invalid keys return
+403
+; this status can also indicate that a feature or permission is unavailable to the key. Inspect the error
+code
+using the
+Errors guide
+.
+Follow the
+quickstart
+to make your first request, or use
+Agent Skills
+to build with an agent.

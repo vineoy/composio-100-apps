@@ -1,0 +1,1853 @@
+URL: https://docs.wpwaterfall.com/mcp/tools
+FETCHED: 2026-11-23T20:12:05.493875
+VIA: direct
+
+MCP tools reference | WP Waterfall Docs
+Skip to content
+MCP tools reference
+Every tool the hosted WP Waterfall MCP server offers, by toolset: what it does, the key scope it needs, and whether it asks you first.
+{/* This page is generated from the tool registry. Do not edit it by hand. Run
+pnpm gen:mcp-tools
+. */}
+The hosted server offers 331 tools. Your role decides which of them your assistant sees, and the API checks your role and your sites again on every call. See
+Tools and guardrails
+for the rules that apply to all of them.
+The tools are grouped in toolsets, and a connection starts with every set on. To load fewer tools, add
+?toolsets=
+to the server address, for example
+https://mcp.wpwaterfall.com/?toolsets=sites,webhooks
+, or
+?toolsets=compact
+for the short list the server offered before every set became the default. The
+core
+toolset is always on, and the assistant can call
+enable_toolset
+to turn a set on or off during a session. A tool outside the sets that are on is refused if it is called.
+Asks first
+means the tool works in two steps. The first call changes nothing and says what would happen. Your assistant asks you in the chat, and only if you say yes does it call again with
+confirm
+set to true.
+Core
+Toolset
+core
+, on by default. 10 tools. Always on, whatever
+toolsets
+says. Find sites, follow jobs, search for tools, switch toolsets.
+Tool
+What it does
+Key scope
+Asks first
+enable_toolset
+Turn a toolset on (or off with enabled false) for this connection.
+sites:read
+No
+get_job
+Show the state of a job right now: queued, dispatched, running, succeeded, failed, or cancelled, with progress and any result or error.
+sites:read
+No
+get_site
+Show one site with its live environment: status, node and node status, region, PHP version, WordPress version, temporary hostname, code mode, SSH and SFTP host details, outbound_ip (the address other ...
+sites:read
+No
+list_companies
+List the companies this connection may act in.
+sites:read
+No
+list_environments
+List the environments of a site with their role (staging, live, or preview), Git branch, status, hostname, the commit each runs, and wordpress (installed, not_installed, or unknown; WordPress tools ...
+sites:read
+No
+list_regions
+List the data center locations.
+sites:read
+No
+list_sites
+List the user's WordPress sites with status, region, PHP version, and health.
+sites:read
+No
+list_toolsets
+List the toolsets of this server: what each holds, whether it is on now, how many tools it has, and about how many tokens its tool list costs.
+sites:read
+No
+search_tools
+Find a tool by what it does, in every toolset, including the sets that are off.
+sites:read
+No
+wait_for_job
+Wait for a job to finish, up to 120 seconds, and return its progress notes and final state.
+sites:read
+No
+Sites, environments, and settings
+Toolset
+sites
+, off until you turn it on. 32 tools. Create and change sites, environments, access, cron jobs, and environment variables.
+Tool
+What it does
+Key scope
+Asks first
+check_site_integrity
+Compare WordPress core and the wordpress.org plugins with their official checksums, look for PHP files in uploads and for well known web shell names, and, on read-only Git mode code, list any file ...
+sites:read
+,
+sites:write
+No
+create_cron_job
+Add a server cron job that runs one allowed WP-CLI command on a schedule, such as 0 3 * * * for 3:00 every day.
+sites:read
+,
+sites:write
+Yes
+create_environment
+Create a staging or preview environment from staging or another environment: the code of the source's last commit goes into a new Git branch of the same name, and the database and content are cloned ...
+sites:read
+,
+sites:write
+Yes
+create_site
+Create a new WordPress site.
+sites:write
+No
+delete_cron_job
+Delete one server cron job.
+sites:read
+,
+sites:write
+Yes
+delete_env_var
+Delete one environment variable or secret from a site.
+sites:read
+,
+sites:write
+Yes
+delete_environment
+Permanently delete a branch (preview) environment and its content.
+danger:destroy
+,
+sites:read
+Yes
+delete_site
+Permanently delete a site.
+danger:destroy
+,
+sites:read
+Yes
+get_additional_preview_quote
+Say whether the next preview environment of a site is included or additional, and whether the company has a free additional preview slot for it.
+sites:read
+No
+get_local_dev_config
+Settings for running one environment on a developer's computer with DDEV: PHP version, database engine, version, and prefix, multisite mode, site addresses, SSH host, port, user, and host key ...
+sites:read
+No
+get_php_engine
+Show how PHP runs on an environment: the version, the worker pool, the effective ini values (memory_limit, max_execution_time), OPcache, the live pool status, and recent automatic restarts.
+sites:read
+No
+launch_live
+Create a site's live environment from its staging environment: a copy of staging's database and uploads, the code staging has committed, as a read-only release, its own hostname, and a certificate.
+sites:read
+,
+sites:write
+Yes
+list_additional_previews
+Show the company's additional preview slots (how many it holds, how many hold an environment, how many are free), the slot hours used so far this billing period and what they cost, and the additional ...
+billing:read
+No
+list_branches
+List the code branches of a site's Git repository, so the user can pick the branch for a new environment.
+sites:read
+No
+list_cron_jobs
+List the server cron jobs of a site's environment: id, schedule, WP-CLI command, whether it is on, how it is doing, and when it last ran.
+sites:read
+No
+list_env_vars
+List the environment variables of a site's environment: name, whether it is a secret, and when it changed.
+sites:read
+No
+manage_sftp_accounts
+List, switch on or off, or remove the extra SFTP users of a site.
+sites:read
+,
+sites:write
+For a command that changes the site
+rename_site
+Rename a site.
+sites:read
+,
+sites:write
+Yes
+reset_site
+Reset a site's staging environment.
+danger:destroy
+,
+sites:read
+Yes
+restart_php
+Restart PHP-FPM for a site.
+sites:read
+,
+sites:write
+No
+set_auto_login_enabled
+Switch the Log in to WP Admin button of a site on or off.
+sites:read
+,
+sites:write
+No
+set_block_xmlrpc
+Block or allow /xmlrpc.php on the live environment of a site.
+sites:read
+,
+sites:write
+No
+set_bot_protection
+Set a site's bot protection level, or turn it off.
+sites:read
+,
+sites:write
+Yes
+set_env_var
+Set an environment variable or secret on a site, for example an API key a plugin reads.
+sites:read
+,
+sites:write
+No
+set_ip_deny_enabled
+Switch every IP allow and deny rule of a site on or off without deleting any.
+sites:read
+,
+sites:write
+No
+set_mobile_cache
+Keep a separate page cache for mobile visitors, on the server and at the edge, for themes that show different pages on phones.
+sites:read
+,
+sites:write
+No
+set_php_version
+Change the PHP version of a site.
+sites:read
+,
+sites:write
+No
+set_redirects_enabled
+Switch every redirect rule of a site on or off without deleting any.
+sites:read
+,
+sites:write
+No
+set_server_cron_enabled
+Run WordPress's scheduled events (WP-Cron) from a server schedule every 15 minutes, or go back to WP Waterfall's standard schedule.
+sites:read
+,
+sites:write
+No
+set_ssh_access
+Turn SSH on or off for a site, allow or block password sign-in, set a password expiry in days, or limit SSH to a list of IP addresses.
+sites:read
+,
+sites:write
+Yes
+set_webroot
+Serve a site from a subfolder, for example public.
+sites:read
+,
+sites:write
+Yes
+wake_environment
+Staging and previews sleep after 30 minutes without use and wake on the first visit.
+sites:read
+,
+sites:write
+No
+Domains, redirects, and DNS
+Toolset
+domains
+, off until you turn it on. 15 tools. Domains, certificates, redirects, and DNS records.
+Tool
+What it does
+Key scope
+Asks first
+add_domain
+Attach a custom domain to a site.
+sites:read
+,
+sites:write
+No
+add_redirect
+Add a redirect rule to a site at the edge: a path or regular expression to a path or URL, with a 301 or 302.
+sites:read
+,
+sites:write
+No
+delete_dns_record
+Delete one record from a Cloudflare DNS zone.
+dns:write
+,
+domains:read
+Yes
+delete_redirect
+Delete one redirect rule from a site's environment.
+sites:read
+,
+sites:write
+Yes
+get_custom_certificate
+Read the custom SSL certificate a user installed on one domain: subject, issuer, names, start and end dates, fingerprint, status, and which layer carries it (the server only, or the server and ...
+sites:read
+No
+get_domain_status
+List the custom domains of a site with their status, certificate status, which one is primary, and, for each domain not active yet, the exact DNS records the user has to set (type, name, value ...
+domains:read
+,
+sites:read
+No
+list_dns_records
+List the records of a Cloudflare DNS zone, with the zone's status, nameservers, and any warnings such as too many SPF lookups.
+domains:read
+No
+list_dns_zones
+List the Cloudflare DNS zones of the company, with each zone's name, status, and nameservers.
+domains:read
+No
+list_redirects
+List the redirect rules of a site's environment, with each rule's id, source, destination, status code, and whether the redirects switch is on.
+sites:read
+No
+refresh_ssl
+Check the certificate of one domain again and fix what is missing.
+sites:read
+,
+sites:write
+No
+remove_custom_certificate
+Delete the custom SSL certificate and its stored key from one domain.
+sites:read
+,
+sites:write
+Yes
+remove_domain
+Remove a custom domain from a site.
+sites:read
+,
+sites:write
+Yes
+set_primary_domain
+Make an active custom domain the primary hostname of a site.
+sites:read
+,
+sites:write
+Yes
+upsert_dns_record
+Add a record to a Cloudflare DNS zone, or change the content of the one record that already has this type and name.
+dns:write
+,
+domains:read
+Yes
+verify_domain
+Ask WP Waterfall to check that a custom domain's DNS records are in place now, instead of waiting for the next check.
+sites:read
+,
+sites:write
+No
+WordPress
+Toolset
+wordpress
+, on by default. 23 tools. WP-CLI, plugins and themes, WordPress users, and Safe Updates.
+Tool
+What it does
+Key scope
+Asks first
+apply_update_anyway
+Apply one update that a check held back (get_auto_updates, skipped) because the owner accepts the change.
+sites:read
+,
+sites:write
+Yes
+bulk_extensions
+Run one change on up to 50 plugins or themes as one job: activate, deactivate (plugins only), update, delete, or turn automatic updates on or off (staging and previews, in SFTP mode and Git mode ...
+sites:read
+,
+sites:write
+Yes
+clear_cache
+Clear a site's caches.
+sites:read
+,
+sites:write
+No
+create_wp_admin_user
+Create a WordPress user with the administrator role from an email address.
+sites:read
+,
+sites:write
+Yes
+delete_wp_user
+Delete one WordPress user.
+danger:destroy
+,
+sites:read
+Yes
+get_auto_updates
+Read the automatic updates and Safe Updates state of a staging or preview environment: how updates reach it (a Git commit in Git mode, the working copy in SFTP mode), the switches (names in disabled ...
+sites:read
+No
+get_network
+Show whether a site is a WordPress Multisite network, and if it is: the network type (subdirectory or subdomain), the network address, and every subsite with its name, language, address, status, and ...
+sites:read
+No
+get_wp_login_url
+Read the WordPress login and admin addresses, which follow plugins that move the login page to a secret address (Solid Security, WPS Hide Login).
+sites:read
+No
+list_plugins
+List the plugins of a site with their version, status, and whether an update is waiting. auto_update is null on live, which has no automatic updates.
+sites:read
+No
+list_themes
+List the themes of a site with their version, status, and whether an update is waiting. auto_update is null on live, which has no automatic updates.
+sites:read
+No
+list_wp_logins
+List recent WordPress sign-in attempts, newest first: who, when, whether it worked, and from which IP address.
+sites:read
+No
+list_wp_users
+List the WordPress users of a site with their id, login, email, roles, and created_by_platform (made by one click login).
+sites:read
+No
+manage_plugin
+Change one plugin: activate, deactivate, update to the newest version, or delete it.
+sites:read
+,
+sites:write
+Yes
+manage_theme
+Change one theme: activate it, update it to the newest version, or delete it.
+sites:read
+,
+sites:write
+Yes
+refresh_extensions
+Ask the site for its plugin or theme list again, for example after a change made in wp-admin or a push.
+sites:read
+No
+run_auto_updates_now
+Run automatic updates on a staging or preview environment now, for the plugins and themes whose switch is on: restore point first, one update at a time with a health check after each, and a failed ...
+sites:read
+,
+sites:write
+Yes
+run_wp_cli
+Run an allowed WP-CLI command on a site and return its output.
+sites:read
+,
+sites:write
+For a command that changes the site
+search_replace
+Find text in the site database and replace it.
+sites:read
+,
+sites:write
+When it applies a change
+send_wp_password_reset
+Have WordPress email one user its standard link to choose a new password.
+sites:read
+,
+sites:write
+Yes
+set_auto_update
+Staging and previews, in SFTP mode and Git mode.
+sites:read
+,
+sites:write
+No
+set_auto_update_settings
+Change automatic updates settings on a staging or preview environment. safe_enabled turns Safe Updates on (needs the add-on, $5 a month for the site): on the days (safe_days) and the hour in the time ...
+sites:read
+,
+sites:write
+Yes
+set_super_admin
+Make a WordPress user of a network a super administrator, or take the right away.
+sites:read
+,
+sites:write
+Yes
+set_wp_user_role
+Change the WordPress role of one user, for example from subscriber to editor.
+sites:read
+,
+sites:write
+Yes
+Database
+Toolset
+database
+, off until you turn it on. 7 tools. Read tables and rows, change rows, and run SQL.
+Tool
+What it does
+Key scope
+Asks first
+browse_db_rows
+Read up to 100 rows of one table, with optional filters and sort.
+sites:read
+No
+edit_db_rows
+Insert, update, or delete up to 100 rows of one table.
+sites:read
+,
+sites:write
+Yes
+execute_sql
+Run one SQL statement that may change data (INSERT, UPDATE, DELETE, ALTER) as the site's own database user, with a time limit.
+sites:read
+,
+sites:write
+Yes
+get_db_cell
+Read the full value of one cell (up to 1 MB), picked by the row's key columns. browse_db_rows cuts long values to 1,000 characters; use this for the rest.
+sites:read
+No
+get_db_table
+Show one table's columns, primary key, and indexes.
+sites:read
+No
+list_db_tables
+List the tables of a site's database with their row counts and sizes.
+sites:read
+No
+query_database
+Run one read-only SQL statement (SELECT, SHOW, DESCRIBE, EXPLAIN, or WITH) on a site's database (the main environment unless you name another) and return up to 200 rows.
+sites:read
+,
+sites:write
+No
+Code and Git
+Toolset
+code
+, off until you turn it on. 25 tools. Releases, deploys, promotes, and Git.
+Tool
+What it does
+Key scope
+Asks first
+clone_content
+Copy the database and uploads from live (or another environment) into an existing staging or preview environment, and replace the old hostname with the new one in the copied tables.
+sites:read
+,
+sites:write
+Yes
+connect_git_repository
+Connect an external repository to the whole site.
+sites:read
+,
+sites:write
+Yes
+copy_into_live
+Copy database tables and uploads from staging (or a branch) of the same site into LIVE.
+sites:read
+,
+sites:write
+Yes
+create_branch_from_remote
+Make a branch named like a remote branch that was pushed and has no branch (see unlinked_branches in get_git_repository), then pull the remote branch into it.
+sites:read
+,
+sites:write
+No
+create_git_token
+Make a token to clone, fetch, and (with scope write) push over HTTPS to staging or a preview.
+sites:read
+,
+sites:write
+Yes
+deploy_to_live
+Put code live the safe way (ADR 024 and 028): live only takes code from staging.
+sites:read
+,
+sites:write
+Yes
+disconnect_git_repository
+Disconnect the repository from the site.
+sites:read
+,
+sites:write
+Yes
+enable_git_ssh
+Serve the site repository over SSH on staging or a preview.
+sites:read
+,
+sites:write
+No
+get_build_log
+Read the output of a build, which a deploy runs before it goes live.
+sites:read
+No
+get_deploy_key
+Get the public SSH key to add as a read-only deploy key on GitHub, GitLab, or Bitbucket before connect_git_repository.
+sites:read
+,
+sites:write
+No
+get_git_connection
+Show an environment's connection mode (SFTP or Git), the WP Waterfall Git clone addresses over SSH and over HTTPS (with a token), the last push to the WP Waterfall remote with the job that applied ...
+sites:read
+No
+get_git_repository
+Show the external repository connected to a site (GitHub, GitLab, Bitbucket, or any Git remote): the remote, the staging branch, whether new remote branches create branches automatically, the deploy ...
+sites:read
+No
+ignore_remote_branch
+Remove a remote branch from the list of unlinked branches.
+sites:read
+,
+sites:write
+No
+import_git_push
+A push over SSH tells WP Waterfall by itself.
+sites:read
+,
+sites:write
+Yes
+list_git_tokens
+List the HTTPS Git access tokens of staging or a preview: name, scope (read or write), first characters, expiry, last use, and who made each one.
+sites:read
+No
+list_releases
+Show the releases of a site (the last ten are kept) with their status and which one is active, plus the latest commits on a branch.
+sites:read
+No
+preview_promote
+Show what promoting staging to live would change: the commits and files live lacks, how many uploads would be added (new), updated (changed), or kept as live has them (conflict), and anything that ...
+sites:read
+No
+promote_to_live
+Put the code staging runs on live: WP Waterfall builds it, takes a restore point of live, and swaps live to it.
+sites:read
+,
+sites:write
+Yes
+pull_git_repository
+Fetch the remote branch an environment follows and update the environment, fast forward only.
+sites:read
+,
+sites:write
+Yes
+revoke_git_token
+Revoke a Git token by id (from list_git_tokens).
+sites:read
+,
+sites:write
+Yes
+rollback_release
+Make an earlier release the live one again.
+sites:write
+Yes
+rotate_deploy_key
+Replace the site's Git deploy key with a new one, for example after the old key leaked or a team member left.
+sites:read
+,
+sites:write
+Yes
+set_auto_create_branches
+Turn automatic branch creation on or off for the connected repository.
+sites:read
+,
+sites:write
+No
+set_connection_mode
+Staging and previews start in Git mode: the code is a read-only release that changes only by a Git push, a merge, or a promote, and wp-admin cannot install or update plugins or themes.
+sites:read
+,
+sites:write
+Yes
+set_remote_branch
+By default a branch follows the remote branch with its own name.
+sites:read
+,
+sites:write
+Yes
+Backups
+Toolset
+backups
+, on by default. 11 tools. Backups, schedules, and off-site backups.
+Tool
+What it does
+Key scope
+Asks first
+create_backup
+Take a manual snapshot (code, database, files, settings) before a risky change.
+backups:write
+,
+sites:read
+No
+delete_backup
+Delete one backup from the server.
+backups:write
+Yes
+disconnect_offsite_backup
+Stop off-site backups for a site: WP Waterfall forgets the bucket credentials and the repository password.
+backups:write
+,
+sites:read
+Yes
+download_backup
+Pack one backup (code, database, and uploads) into a .tar.gz and return a link that works for a short time.
+backups:write
+,
+sites:read
+Yes
+get_backup_schedule
+Read how often an environment is backed up (daily, weekly, or off), at what hour (UTC), how many scheduled backups are kept, and when the next one runs.
+sites:read
+No
+get_offsite_backup
+Read a site's off-site backup bucket (never its credentials): the bucket and folder, whether it is connected, the retention, the last and next daily run, recent runs, and the snapshots in the bucket ...
+sites:read
+No
+list_backups
+List the backups of an environment: daily, manual, and the ones WP Waterfall takes before risky changes, with status, size, and expiry.
+sites:read
+No
+restore_backup
+Restore one backup from list_backups into an environment of the same site.
+backups:write
+,
+sites:read
+Yes
+restore_offsite_backup
+Restore one snapshot from the site's bucket into staging or a preview, never live.
+backups:write
+,
+sites:read
+Yes
+run_offsite_backup
+Upload an encrypted snapshot of an environment (code, uploads, and a database dump) to the site's connected bucket now.
+backups:write
+,
+sites:read
+Yes
+set_backup_schedule
+Set an environment's scheduled backups (daily, weekly, or off; hour in UTC; keep 1 to 30, or 3 on a sandbox, older ones deleted, so fewer or off can lose restore points) and the Hourly Backups ...
+backups:write
+,
+sites:read
+Yes
+Logs, performance, and speed tests
+Toolset
+monitoring
+, off until you turn it on. 7 tools. Logs, performance, usage, and Lighthouse speed tests.
+Tool
+What it does
+Key scope
+Asks first
+clear_log
+Empty one log file (error, access, cache, php-fpm, or slow) on an environment, so the next test starts clean.
+sites:read
+,
+sites:write
+Yes
+get_analytics_usage
+Read visits, bandwidth, and disk against the plan for the current billing period: for one site when site is given, otherwise for the whole company.
+sites:read
+No
+get_apm_url
+Show the performance data of one URL group from get_performance: requests, timings, the split between PHP, database, and outside calls, and slow samples.
+sites:read
+No
+get_logs
+Read the last lines of a site log: error, access, cache, php-fpm, slow (the PHP slow request log), or cron (the server cron log).
+sites:read
+No
+get_pagespeed
+Read the newest Lighthouse results of a site's live address from Google PageSpeed Insights, in Monitor: the performance, accessibility, best practices, and SEO scores for mobile and desktop, the lab ...
+sites:read
+No
+get_performance
+Read a site's performance data from Monitor for a recent window: requests a minute, average and 95th percentile response time, error rate, where the time goes (PHP, MySQL, external calls), the 10 ...
+sites:read
+No
+run_pagespeed_test
+Start a Lighthouse test of the site's live address through Google PageSpeed Insights, for mobile, desktop, or both.
+sites:read
+,
+sites:write
+No
+Billing, add-ons, and migrations
+Toolset
+billing
+, off until you turn it on. 29 tools. Plans, add-ons, invoices, and moving a site in.
+Tool
+What it does
+Key scope
+Asks first
+add_disk_space
+Set how many 20 GB blocks of Additional disk space the account holds in total, 1 to 500.
+billing:write
+,
+sites:read
+Yes
+buy_license
+Buy a new plan on the account's default card, or on a saved card you name.
+billing:read
+,
+billing:write
+Yes
+buy_migration_priority
+Closed.
+billing:write
+,
+sites:read
+Yes
+cancel_license
+Cancel one subscription by id (list_subscriptions).
+billing:read
+,
+billing:write
+Yes
+cancel_migration
+Cancel a migration that has not started its work yet (status requested, checking, queued, or needs your input).
+sites:read
+,
+sites:write
+Yes
+change_dedicated_server
+action request_size asks staff for tier (they run it; an upsize bills the difference, a downsize is not refunded). cancel_request withdraws the open request that staff have not answered; nothing ...
+billing:write
+Yes
+clean_migration
+For a migration whose status is malware found.
+billing:write
+,
+sites:read
+Yes
+create_migration
+Move an existing WordPress site from another host into a new WP Waterfall site.
+sites:write
+No
+decline_migration
+Decline a migration.
+sites:read
+,
+sites:write
+Yes
+disable_add_on
+Turn off a self-serve add-on now: php_performance (every extra block), safe_updates (the whole site), hourly_backups (one environment, back to daily; backups already taken stay until they expire) ...
+billing:write
+,
+sites:read
+Yes
+enable_add_on
+Turn on a self-serve add-on for a site and bill it at once. php_performance (blocks of 512 MB added to the PHP memory pool, $10 a month for each block, up to a 4 GB pool; set blocks to the total the ...
+billing:write
+,
+sites:read
+Yes
+get_billing_summary
+Read the company's main plan, its entitlements, add-ons, usage this period, and the next invoice estimate.
+billing:read
+No
+get_billing_usage
+Read the company's usage this billing period against its plan allowances: server bandwidth, CDN bandwidth, and disk, with the overage so far, the overage that will bill, when each figure was ...
+billing:read
+No
+get_dedicated_server
+Read the dedicated server: size, price, next invoice date, newest invoice status (draft, open, paid, past_due, void) and link, sites, the change in progress with job ids, and what the user may do. ...
+billing:read
+No
+get_disaster_recovery
+Read the Standby Failover state of a site's environment (live by default): off, setting_up (with the step), active, failing_over, degraded, resyncing, or failing_back, where the standby copy lives ...
+sites:read
+No
+get_migration
+Show one migration: its status (requested, checking, queued, in progress, ready for review, declined, complete, needs your input, malware found, cancelled, or failed), whether it paid for priority ...
+sites:read
+No
+get_object_cache
+Read the live state of the Redis object cache of a site's environment (live by default): whether Redis runs, memory used and its cap, keys, hits, misses, hit rate, and the state recorded when the ...
+sites:read
+No
+get_referral_link
+Get the company's referral link, its referral code, the numbers so far (sign-ups, paying customers, credit earned and pending), and what the program pays.
+billing:read
+No
+get_roadmap
+Read the product roadmap: what is in progress, planned, and being considered.
+sites:read
+No
+list_invoices
+List the company's recent invoices with their status, totals, and dates.
+billing:read
+No
+list_migrations
+List the company's site migrations, newest first.
+sites:read
+No
+list_payment_methods
+List the saved cards: brand, last four digits, expiry, and which one is the default.
+billing:read
+No
+list_referrals
+List the company's referrals, newest first.
+billing:read
+No
+list_site_add_ons
+List the add-ons for a site: each one's price, whether it is on, how it is taken (toggle, request, connect, add_to_plan, or enable), the purchase of a self-serve add-on, and the latest request for a ...
+sites:read
+No
+list_subscriptions
+List the subscriptions on the account.
+billing:read
+No
+preview_license
+Show what a plan costs before it is bought: the price, the tax line, the total, the site licenses, and what the card pays today.
+billing:read
+No
+remove_payment_method
+Remove a saved card.
+billing:write
+Yes
+request_add_on
+Ask WP Waterfall to add a contact us add-on to a site: dedicated_server or disaster_recovery (for a site on a dedicated server, from $300 a month, the same price as on a shared node; a site on a ...
+billing:write
+,
+sites:read
+Yes
+set_default_payment_method
+Make a saved card the default.
+billing:write
+No
+Account
+Toolset
+account
+, off until you turn it on. 12 tools. Notifications, how to reach support, API keys, SSH keys, and webhooks.
+Tool
+What it does
+Key scope
+Asks first
+add_ssh_key
+Add a PUBLIC SSH key (the one line from a .pub file) to the account of the person who approved this connection, so they can push code to staging and preview environments over Git.
+ssh-keys:write
+Yes
+create_api_key
+Make an API key for the company and return its secret once.
+keys:write
+Yes
+create_webhook
+Add an outbound webhook endpoint: WP Waterfall sends a signed HTTPS request to the URL when the chosen events happen.
+webhooks:read
+,
+webhooks:write
+Yes
+delete_webhook
+Delete one webhook endpoint.
+webhooks:read
+,
+webhooks:write
+Yes
+get_notification_preferences
+Show where WP Waterfall tells the person who approved this connection about each kind of event: the bell in the dashboard, email, or both.
+No
+get_support_contact
+Say how the user reaches WP Waterfall support.
+sites:read
+No
+list_api_keys
+List the company's API keys: name, the first characters of the key, scopes, expiry, and last use.
+keys:read
+No
+list_ssh_keys
+List the SSH keys on the account of the person who approved this connection: name, fingerprint, and when it was added.
+ssh-keys:read
+No
+list_webhooks
+List the company's webhook endpoints: id, URL, the events each receives, and whether it is on.
+webhooks:read
+No
+remove_ssh_key
+Remove one SSH key from the account of the person who approved this connection.
+ssh-keys:write
+Yes
+revoke_api_key
+Revoke one API key of the company so it stops working at once.
+keys:write
+Yes
+set_notification_preferences
+Turn the bell or email on or off for one or more notification categories of the person who approved this connection.
+Yes
+Webhooks
+Toolset
+webhooks
+, off until you turn it on. 8 tools. Read and change webhook endpoints, rotate secrets, send tests, and read and redeliver deliveries.
+Tool
+What it does
+Key scope
+Asks first
+get_webhook
+Show one webhook endpoint: its URL, events, whether it is on, when it last delivered, and how many deliveries failed in a row.
+webhooks:read
+No
+get_webhook_delivery
+Show one delivery with its event type and every attempt: when it ran, the HTTP status the receiver answered, how long it took, any error, and the start of the receiver's response.
+webhooks:read
+No
+list_webhook_deliveries
+List the deliveries of a webhook endpoint, newest first: event type, status, attempts, and the last HTTP status code.
+webhooks:read
+No
+list_webhook_events
+List the event types a webhook can listen for, with the group and a one line description of each.
+webhooks:read
+No
+redeliver_webhook
+Send a delivery's event to its endpoint again, as a new attempt with the same event id.
+webhooks:write
+No
+rotate_webhook_secret
+Make a new signing secret for a webhook endpoint.
+webhooks:write
+Yes
+send_test_webhook
+Send a test event to a webhook endpoint.
+webhooks:write
+No
+update_webhook
+Change a webhook endpoint: its URL, note, events, or whether it is on.
+webhooks:write
+For a command that changes the site
+People and labels
+Toolset
+team
+, off until you turn it on. 14 tools. The company, members, invitations, site members, and labels.
+Tool
+What it does
+Key scope
+Asks first
+add_site_member
+Give a person who is already in the company access to one site, as site_admin or site_developer.
+sites:read
+,
+sites:write
+For a command that changes the site
+create_label
+Create a label with a name and a hex color.
+sites:write
+No
+delete_label
+Delete a label.
+sites:write
+Yes
+get_company
+Show the company the connection acts for: name, account type, plan, whether sign-in rules (single sign-on, two-factor) are enforced, billing access, and a pending deletion if there is one.
+sites:read
+No
+invite_member
+Invite a person to the company by email with a role: owner, admin, developer, billing, viewer, site_admin, or site_developer.
+users:write
+Yes
+list_invitations
+List the invitations that have not been accepted: email, role, and when each expires.
+users:read
+No
+list_labels
+List the company's labels with the number of sites each one is on.
+sites:read
+No
+list_members
+List the people in the company with their role.
+users:read
+No
+list_site_members
+List the people who have access to one site through a site role (Site Admin or Site Developer).
+sites:read
+No
+remove_site_member
+Take a person's site role away.
+sites:read
+,
+sites:write
+Yes
+resend_invitation
+Send an invitation email again and extend the invitation.
+users:write
+No
+revoke_invitation
+Cancel an invitation that has not been accepted.
+users:write
+Yes
+update_label
+Rename a label or change its color.
+sites:write
+No
+update_site_member
+Change a site member's role between site_admin and site_developer.
+sites:read
+,
+sites:write
+For a command that changes the site
+Activity, analytics, and jobs
+Toolset
+insights
+, off until you turn it on. 21 tools. Activity logs, uptime, integrity reports, analytics, Google Search Console and Google Analytics, performance data, cache numbers, and jobs.
+Tool
+What it does
+Key scope
+Asks first
+export_activity_log
+Build a CSV or NDJSON file of the company activity log for a date range, up to 396 days back, in the background.
+activity:read
+No
+get_activity_log_export
+State of a long activity log export (queued, building, ready, failed, expired).
+activity:read
+No
+get_analytics
+Read one analytics view for an environment, such as visits, bandwidth, top pages, or response codes, over a time window.
+sites:read
+No
+get_apm_status
+Show whether Monitor is collecting performance data on an environment, whether Monitor's performance part is on, its mode, and when data last arrived.
+sites:read
+No
+get_cache_stats
+Show cache hits, misses, bypasses, and the hit ratio of an environment over a time window.
+sites:read
+No
+get_company_analytics
+Read one analytics view added up across all the company's environments, such as visits or bandwidth.
+sites:read
+No
+get_google_analytics_report
+Read a site's traffic from Google Analytics 4: users, sessions, page views, and engagement rate (the share of sessions that were engaged). kind overview gives the totals and one entry for each day ...
+sites:read
+No
+get_integrity_report
+Read the latest integrity check of an environment without starting a new one: whether WordPress core and plugin files match the originals, and any suspicious findings.
+sites:read
+No
+get_job_group
+Show a group of jobs that one bulk action started: how many there are, how many succeeded or failed, and the progress.
+sites:read
+No
+get_platform
+Show what this WP Waterfall deployment allows right now: whether test sites and new paid sites can be made, the default region and the open regions, and the WordPress version new sites get.
+sites:read
+No
+get_search_console_report
+Read how a site does in Google search from Google Search Console: clicks, impressions, click through rate, and average position (lower is better). kind overview gives the totals and one entry for ...
+sites:read
+No
+get_uptime
+Show the Uptime part of Monitor: the uptime of the data center an environment runs in, the same numbers as the status page.
+sites:read
+No
+list_cache_purges
+List the cache purges of an environment, newest first: when, what, and who.
+sites:read
+No
+list_company_activity
+List what happened in the company, newest first: who did what, to which site or setting, and when.
+activity:read
+No
+list_jobs
+List jobs, newest first.
+sites:read
+No
+list_site_activity
+List what happened on one site, newest first: logins, users, plugins, content, code, domains, and settings.
+activity:read
+,
+sites:read
+No
+set_apm_collection
+Start or stop collecting performance data on an environment, the Performance part of Monitor.
+sites:read
+,
+sites:write
+No
+set_apm_tool
+Turn the Performance part of Monitor on an environment on or off.
+sites:read
+,
+sites:write
+No
+set_google_analytics_property
+Choose the Google Analytics property a site reads, and turn the tool on.
+sites:read
+,
+sites:write
+For a command that changes the site
+set_search_console_property
+Choose the Google Search Console property a site reads, and turn the tool on.
+sites:read
+,
+sites:write
+For a command that changes the site
+set_uptime_tool
+Turn the Uptime part of Monitor on a live environment on or off.
+sites:read
+,
+sites:write
+No
+Files
+Toolset
+files
+, off until you turn it on. 6 tools. Browse, read, edit, rename, delete, and download site files, and read disk use.
+Tool
+What it does
+Key scope
+Asks first
+browse_files
+List a folder of the site, or read a text file.
+sites:read
+No
+delete_file
+Delete a file or a folder from the site.
+sites:read
+,
+sites:write
+Yes
+download_file
+Get one file of the site as a short lived download link, or its text when it is small.
+sites:read
+No
+edit_file
+Replace the whole text of a file (under 1 MB) with the content you send.
+sites:read
+,
+sites:write
+Yes
+get_disk_usage
+Show how much disk an environment uses: the total, the limit, the breakdown by area, and the largest folders and files.
+sites:read
+No
+rename_file
+Rename or move a file or folder inside the site.
+sites:read
+,
+sites:write
+Yes
+DNS zones and domain settings
+Toolset
+dns
+, off until you turn it on. 18 tools. Create and manage Cloudflare DNS zones, records, and snapshots, and change one domain.
+Tool
+What it does
+Key scope
+Asks first
+adopt_dns_zone
+Take over a zone that already exists in WP Waterfall's Cloudflare account, when creating it said so.
+dns:write
+,
+domains:read
+No
+check_dns_activation
+Check whether a zone's nameservers at the registrar now point at WP Waterfall's Cloudflare.
+dns:write
+,
+domains:read
+No
+create_dns_snapshot
+Save a snapshot of the zone's records now, with a reason, so it can be restored later.
+dns:write
+,
+domains:read
+No
+create_dns_zone
+Create a Cloudflare DNS zone for a domain the user owns, so WP Waterfall can manage its records.
+dns:write
+No
+delete_dns_snapshot
+Delete one saved snapshot of a zone.
+dns:write
+,
+domains:read
+Yes
+delete_dns_zone
+Delete a Cloudflare DNS zone and all its records.
+dns:write
+,
+domains:read
+Yes
+get_dns_zone
+Show one DNS zone: status, the nameservers to set at the registrar, DNSSEC status, and how many records it holds against its limit.
+domains:read
+No
+get_domain
+Show one custom domain of a site: status, certificate status, whether it is primary, wildcard, Force HTTPS, and the setup mode.
+sites:read
+No
+get_domain_certificate
+Show the custom SSL certificate installed on a domain: status, issuer, names it covers, and when it expires.
+sites:read
+No
+get_nameserver_request
+Show the custom nameserver request for a zone and its status, if one was made.
+domains:read
+No
+list_dns_snapshots
+List the saved snapshots of a zone, newest first: version, record count, who saved it, and why.
+domains:read
+No
+refresh_dns_records
+Read the zone's records from Cloudflare again, for when someone changed them outside WP Waterfall.
+dns:write
+,
+domains:read
+No
+remove_domains
+Remove several custom domains from an environment at once.
+sites:read
+,
+sites:write
+Yes
+request_nameservers
+Ask WP Waterfall for custom (vanity) nameservers for a zone, such as ns1.example.com and ns2.example.com.
+dns:write
+,
+domains:read
+No
+restore_dns_snapshot
+Roll a zone's records back to a snapshot.
+dns:write
+,
+domains:read
+Yes
+retry_dns_zone
+Run the setup of a zone again after it failed.
+dns:write
+,
+domains:read
+No
+update_dns_record
+Change one record of a Cloudflare DNS zone by its id (from list_dns_records): its type, name, content, TTL, priority, or comment.
+dns:write
+,
+domains:read
+Yes
+update_domain
+Change a domain's Force HTTPS mode (off, all_hostnames, or primary_only) or its setup mode (standard or prepare_first).
+sites:read
+,
+sites:write
+For a command that changes the site
+Cache, CDN, and redirects
+Toolset
+edge
+, off until you turn it on. 13 tools. Cache settings, the CDN, Force HTTPS, redirect rules, Sleep when idle, and speed optimizations.
+Tool
+What it does
+Key scope
+Asks first
+get_cache_purge_schedule
+Show whether an environment of a site (the main one unless you name another) clears its caches on a schedule: off, daily, or weekly, the hour in UTC, the day for a weekly one, and when the next purge ...
+sites:read
+No
+get_cache_settings
+Show an environment's cache settings: server and edge caching with their lifetimes, the static file lifetime, stale serving, excluded paths, ignored query parameters, and image optimization.
+sites:read
+No
+get_edge_settings
+Show Force HTTPS and geolocation of an environment, and whether the edge has applied them.
+sites:read
+No
+import_redirects
+Import redirect rules from CSV text with the columns source, destination, status_code, is_regex, and domain_scope.
+sites:read
+,
+sites:write
+For a command that changes the site
+purge_cdn
+Clear the static files (images, scripts, styles) cached at the CDN edge for an environment, so visitors get fresh copies.
+sites:read
+,
+sites:write
+No
+replace_redirect
+Replace one redirect rule by its id (from list_redirects) with a whole new rule: source, destination, status code (301 or 302), whether the source is a regular expression, an optional hostname scope ...
+sites:read
+,
+sites:write
+No
+set_cache_purge_schedule
+Clear the edge and server caches of an environment of a site (the main one unless you name another) every day or every week at an hour in UTC, or turn the schedule off.
+sites:read
+,
+sites:write
+No
+set_cache_settings
+Change an environment's cache settings.
+sites:read
+,
+sites:write
+No
+set_edge_settings
+Change Force HTTPS (off, all_hostnames, or primary_only) or geolocation headers for an environment.
+sites:read
+,
+sites:write
+For a command that changes the site
+set_image_optimization
+Set image optimization at the CDN: off, lossless (same quality, smaller files), or lossy (smallest files, some quality loss).
+sites:read
+,
+sites:write
+No
+set_sleep_when_idle
+Turn Sleep when idle on or off for an environment.
+sites:read
+,
+sites:write
+No
+set_speed_optimizations
+Turn the speed optimizations of a site on or off, each on its own. remove_jquery_migrate loads jQuery without jQuery Migrate on the front end (wp-admin, the login page, and a script that asks for ...
+sites:read
+,
+sites:write
+No
+test_redirect
+Follow a path or URL through the environment's redirect rules without sending any traffic.
+sites:read
+No
+Access and security
+Toolset
+security
+, off until you turn it on. 20 tools. SSH, IP rules, bot protection, credential rotation, tool switches, and the malware scanner.
+Tool
+What it does
+Key scope
+Asks first
+add_environment_ssh_key
+Add a public SSH key to one environment so its owner can connect over SSH or SFTP.
+sites:read
+,
+sites:write
+Yes
+add_ip_rule
+Add an IP deny or allow rule to an environment.
+sites:read
+,
+sites:write
+Yes
+delete_ip_rule
+Delete one IP rule by its id.
+sites:read
+,
+sites:write
+Yes
+dispute_malware_finding
+For a finding from list_malware_findings that is quarantined, reported, or blocked, when the user believes the file is safe (scanners can be wrong, for example about a plugin's own file).
+sites:read
+Yes
+get_bot_breakdown
+Break the last 24 hours of requests down by kind (people, verified bots, other bots) and by what happened to them.
+sites:read
+No
+get_bot_protection
+Show an environment's bot protection: the mode and level, whether verified bots pass, the AI crawler block, the allowlists, and exclusions.
+sites:read
+No
+get_bot_traffic
+Show requests, challenges, and blocks from bot protection over the last 24 hours for an environment.
+sites:read
+No
+get_ssh_allowed_ips
+List the IP addresses allowed to connect over SSH.
+sites:read
+No
+get_ssh_connection
+Show the commands to connect to an environment: ssh, sftp, and the database tunnel, with the host key fingerprint.
+sites:read
+No
+get_ssh_settings
+Show an environment's SSH settings: whether SSH is on, host, port, user name, whether password sign-in is allowed, the allowed IP addresses, and the names and fingerprints of the keys.
+sites:read
+No
+get_vulnerability_protection
+Show where vulnerability protection stands on an environment.
+sites:read
+No
+list_ip_rules
+List the IP allow and deny rules of an environment, whether the IP deny switch is on, and where the rules are enforced.
+sites:read
+No
+list_malware_findings
+List what the malware scanner found in a site, newest first, and when the files and the database were last scanned.
+sites:read
+No
+list_super_admins
+List the super administrators of a WordPress Multisite network on an environment.
+sites:read
+No
+list_vulnerabilities
+List the known vulnerabilities in the WordPress, plugins, and themes an environment runs, worst first.
+sites:read
+No
+remove_environment_ssh_key
+Remove one SSH key from an environment.
+sites:read
+,
+sites:write
+Yes
+replace_ip_rules
+Replace the whole IP rule list of an environment with the rules you send.
+sites:read
+,
+sites:write
+Yes
+rotate_credentials
+Make new SFTP, database, or both passwords for an environment.
+sites:read
+,
+sites:write
+Yes
+scan_for_malware
+Scan the files that are new or changed since the last scan (uploads, and the code in SFTP mode) with ClamAV and WP Waterfall's own rules, and the rows of the WordPress database, read only, now.
+sites:read
+,
+sites:write
+No
+set_tool_settings
+Change an environment's tool switches: WP_DEBUG, password protection for the whole site (a user name and a password of at least 12 characters), and removing Set-Cookie headers from cached pages.
+sites:read
+,
+sites:write
+For a command that changes the site
+More environment tools
+Toolset
+environments
+, off until you turn it on. 16 tools. One environment, PHP performance, cron edits, one plugin or theme, database checks, failback, and off-site backup settings.
+Tool
+What it does
+Key scope
+Asks first
+bulk_environment_action
+Run one action on up to 200 environments at once: cache_clear (clear the server cache), php_settings (set the PHP version), or labels (add or remove labels by id).
+sites:write
+For a command that changes the site
+check_database
+Run CHECK TABLE on the database (mode check, the default) or REPAIR TABLE (mode repair).
+sites:read
+,
+sites:write
+For a command that changes the site
+convert_to_included_preview
+Turn an additional preview environment into one of the site's 5 included previews.
+sites:read
+,
+sites:write
+Yes
+deactivate_theme
+Disable a theme for a WordPress Multisite network, so subsites cannot use it.
+sites:read
+,
+sites:write
+No
+failback_disaster_recovery
+After a failover, bring the site back to its home server, or keep the standby as the new primary with role_swap true.
+sites:read
+,
+sites:write
+Yes
+get_database_details
+Show an environment's database: name, user, host, port, version, size, table count, and the largest tables.
+sites:read
+No
+get_environment
+Show one environment: kind (live, staging, preview), status, PHP version, the code mode (Git or classic), the release that is live, Sleep when idle, and whether it is an included or an additional ...
+sites:read
+No
+get_plugin
+Show one plugin by its slug: version, whether it is active, whether an update is available, and whether it updates itself.
+sites:read
+No
+get_theme
+Show one theme by its slug: version, whether it is active, whether an update is available, and whether it updates itself.
+sites:read
+No
+refresh_offsite_snapshots
+Read the snapshot list from the site's off-site bucket again.
+backups:write
+,
+sites:read
+No
+resume_environment
+Serve a suspended environment again.
+sites:read
+,
+sites:write
+No
+set_php_performance
+Set the PHP threads and the PHP pool memory (in MB) of an environment.
+sites:read
+,
+sites:write
+Yes
+suspend_environment
+Stop an environment from serving until resume_environment.
+sites:read
+,
+sites:write
+Yes
+test_offsite_backup
+Test that WP Waterfall can reach the site's off-site backup bucket with the saved credentials.
+backups:write
+,
+sites:read
+No
+update_cron_job
+Change or pause a server cron job by its id (from list_cron_jobs): its schedule, its WP-CLI command, its note, or whether it is on.
+sites:read
+,
+sites:write
+For a command that changes the site
+update_offsite_backup
+Pause or resume the daily off-site backup of a site, or change how many snapshots are kept (keep_last, keep_daily, keep_weekly).
+backups:write
+,
+sites:read
+For a command that changes the site
+Migrations
+Toolset
+migrations
+, off until you turn it on. 6 tools. Migration options, the backup link, notes to staff, and accepting a migrated site.
+Tool
+What it does
+Key scope
+Asks first
+accept_migration
+Accept the result of a migration whose status is ready for review.
+sites:write
+Yes
+add_migration_note
+Send a note to WP Waterfall staff about a migration, up to 4000 characters.
+sites:write
+No
+dispute_migration_malware
+For a migration whose status is malware found, when the user believes the flagged files are safe (the check is rule based and can be wrong, for example for a plugin's own file).
+sites:write
+Yes
+get_migration_options
+Show what a migration costs and allows: whether paid priority in the queue is offered now (expedited) and its fee and due hours, the largest archive, which link kinds work (Google Drive or https).
+sites:read
+No
+set_migration_source
+Replace the backup link of a migration that has not been imported: a Google Drive share link set to Anyone with the link, or a direct https link to a .zip, .tar.gz, or .tgz archive.
+sites:write
+No
+update_migration
+Choose whether a migration starts its import by itself once the backup passes the checks (auto_import true), or waits for a person at WP Waterfall (false).
+sites:write
+No
+Company billing
+Toolset
+company
+, off until you turn it on. 17 tools. The plan catalog, plan changes, site tiers, promo code checks, billing details, additional preview slots, and the add-on catalog.
+Tool
+What it does
+Key scope
+Asks first
+change_license
+Change one subscription's plan: its site licenses or term, charged to the saved card with proration.
+billing:read
+,
+billing:write
+Yes
+disable_enterprise_support
+Turn off the Enterprise Support add-on of the company now.
+billing:write
+Yes
+enable_enterprise_support
+Turn on Enterprise Support for the whole company, with no site needed: a dedicated Slack channel, a named support contact, and tickets that start at high priority.
+billing:write
+Yes
+get_billing_details
+Show the company's billing name, email, address, and tax id, and whether a card is on file.
+billing:read
+No
+get_enterprise_support
+Read the Enterprise Support of the whole company, with no site needed. mode is included for an Enterprise account (every level includes it, so nothing is charged) and add_on for any other company ...
+billing:read
+No
+get_pricing_breakdown
+Read every recurring charge, line by line: each plan, site tier, add-on, and dedicated server with its quantity, term (monthly, annual, triennial, or hourly), price, and renewal date, plus the total ...
+billing:read
+No
+list_addon_catalog
+List the add-ons that exist with their keys, names, and prices. unit_cents is the price of one unit (unit says what a unit is) for one price_interval, a month or a year; min_quantity is the fewest ...
+billing:read
+No
+list_company_add_ons
+List the add-ons, site tiers, and additional preview slots the company holds, grouped by kind and term, with the units held and the sites and environments that use each (up to 100 per row; uses_total ...
+billing:read
+No
+list_licenses
+List the plans the company may buy (a number of site licenses: 1, 2, 5, 10, 20, or 40) and the tiers a site may run at, with their prices on each term and their limits.
+billing:read
+No
+list_promo_redemptions
+List the promo codes the company has used, newest first.
+billing:read
+No
+preview_license_change
+Show what changing one subscription's site licenses or term would do before it changes: whether it is allowed, the plain reasons if not (fewer site licenses than the sites in use, too many ...
+billing:read
+No
+preview_site_tier
+Show what moving one site to another tier would do before it changes: whether it is allowed, the plain reasons if not (a test site, no subscription, or a prepaid plan that moves down only at ...
+billing:read
+,
+sites:read
+No
+retry_add_on
+Run the server work of a self-serve add-on again, when it was bought but its setup failed.
+billing:write
+,
+sites:read
+No
+set_additional_preview_slots
+Set how many additional preview slots the company holds.
+billing:write
+Yes
+set_site_tier
+Move one site to another tier: more server and CDN bandwidth, disk, PHP threads, and backup days.
+billing:read
+,
+billing:write
+,
+sites:read
+Yes
+update_billing_details
+Change the company's billing name, email, address, or tax id, which appear on invoices.
+billing:write
+No
+validate_promo_code
+Check a promo code for a plan (give plan_lookup_key, a plan lookup key such as license_5_monthly) or for an add-on (give addon_key).
+billing:read
+No
+Developer tools
+Toolset
+developer
+, off until you turn it on. 15 tools. The repository, commits, builds, code mode, merges, pushes between environments, and local development plans.
+Tool
+What it does
+Key scope
+Asks first
+approve_auto_update_run
+Approve a Safe Updates run that stopped because a page matched less than the required match (get_auto_updates, outcome needs_confirmation).
+sites:read
+,
+sites:write
+Yes
+check_merge
+Check whether an environment's branch merges cleanly into another branch, and how many commits it is ahead and behind.
+sites:read
+No
+commit_working_tree
+Commit the uncommitted code changes of a staging or preview environment in classic mode to its branch, with a message of up to 200 characters.
+sites:read
+,
+sites:write
+No
+get_commit
+Read one commit of a site's repository with its message, author, and diff.
+sites:read
+No
+get_repository
+Show a site's Git repository: the remote, the default branch, and the commands to clone it over HTTPS and over SSH, and whether Git over SSH is on.
+sites:read
+No
+list_builds
+List the builds of an environment, newest first: status, the commit, and when.
+sites:read
+No
+list_pushes
+List the pushes into an environment, newest first, with whether each can still be undone (within 48 hours).
+sites:read
+No
+merge_branch
+Merge an environment's branch into another branch (default: the main branch).
+sites:read
+,
+sites:write
+Yes
+plan_local_pull
+Record that a developer is pulling an environment to their own computer and get the plan: the method (ssh or a backup), the parts (code, database, uploads), whether SSH is ready, and the steps.
+sites:read
+No
+plan_local_push
+Record that a developer is pushing from their own computer to an environment and get the plan: the parts, whether SSH is ready, the steps, and the Git remote for code.
+sites:read
+No
+push_environment
+Push database tables and uploads from one environment to another of the same site.
+sites:read
+,
+sites:write
+Yes
+reject_auto_update_run
+Turn down a Safe Updates run that waits for confirmation (get_auto_updates, outcome needs_confirmation): the restore point is put back on staging and nothing goes live.
+sites:read
+,
+sites:write
+Yes
+rotate_git_webhook_secret
+Make a new webhook secret for the site's connected external repository.
+sites:read
+,
+sites:write
+Yes
+set_code_mode
+Switch an environment's code mode: git (code arrives from the repository as read-only releases) or classic (code can be changed over SFTP).
+sites:read
+,
+sites:write
+Yes
+undo_push
+Undo a push by restoring the restore point it took first.
+sites:write
+Yes
+Accessibility
+Toolset
+accessibility
+, off until you turn it on. 6 tools. Turn the Accessibility add-on on, scan the live site, read the issues with their selectors, export the report, and scan again after a fix.
+Tool
+What it does
+Key scope
+Asks first
+export_accessibility_audit
+Export an accessibility scan (the latest unless you give scan_id) as text. format json with scope report is the whole report (score, pages, rules, issues); format csv with scope report is the page ...
+sites:read
+No
+get_accessibility_audit
+Read one accessibility scan of a site (the latest unless you give scan_id): its status and progress (queued, discovering, running, done, partial, or failed), the score out of 100 and its label ...
+sites:read
+No
+get_accessibility_settings
+Read the Accessibility add-on of a site: whether it is on, whether the site can be scanned (the live site only), pages per scan (25 by default, up to 2,500), the weekly scheduled scan (off by ...
+sites:read
+No
+list_accessibility_issues
+List the failing elements of an accessibility scan (the latest unless you give scan_id), most serious first.
+sites:read
+No
+run_accessibility_audit
+Scan the LIVE site for accessibility issues.
+sites:read
+,
+sites:write
+No
+set_accessibility_settings
+Turn the Accessibility add-on on or off for a site, set the pages per scan (1 to 2500, default 25), turn the weekly scheduled scan on or off (off by default; each scheduled scan uses pages of the ...
+billing:write
+,
+sites:read
+,
+sites:write
+For a command that changes the site
+Still stuck?
+Email
+support at wpwaterfall dot com
+with your site name and what you tried, or
+send us a message
+.

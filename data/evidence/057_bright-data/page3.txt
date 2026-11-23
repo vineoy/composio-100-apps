@@ -1,0 +1,399 @@
+URL: https://docs.brightsec.com/docs/add-new-auth-object
+FETCHED: 2026-11-23T17:35:42.136319
+VIA: direct
+
+Add an Authentication Object
+For AI agents: the docs index is at https://docs.brightsec.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+Creating authentication
+From the menu in the left pane of the
+Bright app
+, select
+Authentications
+.
+In the
+Authentications
+pane, click
++ Create Authentication
+.
+Alternatively, go to
+Projects
+→
+your project
+→
+Authentications
+→
+Create Authentication
+.
+In the
+Create Authentication
+dialog, fill in the fields on each tab, as described in the sections below.
+Run
+Test authentication
+and make sure all steps are successful. See
+Testing Authentication
+.
+Click
+Create
+.
+Authentication Details
+This tab contains the basic settings of the authentication object. These settings help you find the related project and tell this authentication object apart from others.
+Specify the details of the authentication object you want to create.
+Field
+Guidelines
+Description
+Enter the authentication object description. For example, you can specify the application type or other information that helps you distinguish your created object.
+Project
+Select the project to attach the authentication object to.
+Repeater
+If you use a local
+Repeater
+to reach the target, select it from the dropdown list to connect it to the authentication object.
+Auth Flow Setup
+Here you choose how Bright will log in to the target application.
+Select the required
+Authentication type
+and then configure the authentication details.
+To learn how to configure a specific authentication object, follow the relevant links below.
+Authentication types fall into three categories, based on how Bright reaches the target:
+Browser-based
+— Bright opens the application in a browser and logs in the way a user would, by filling in or replaying a login form.
+Recorded Browser-Based Form Authentication
+Manual Browser-Based Form Authentication
+API-based
+— Bright sends HTTP requests directly, with static headers or a custom login flow, without opening a browser.
+Header Authentication
+Custom API Authentication Flow
+Protocol-based
+— Bright follows a standard external authentication protocol.
+OpenID Connect (OAuth)
+NTLM Authentication
+Authentication Validation
+During the run, Bright constantly checks if it's authenticated to the target app. If it receives a response from the target app that flags an authentication error, Bright tries to re-authenticate. The settings in this tab control which endpoint Bright uses for auth validation, and which responses flag the necessity to authenticate.
+Protected Resource
+The protected resource is a page or API endpoint that only a logged-in user can open, for example a profile page or
+GET /api/me
+. Bright sends a request to it for two reasons:
+In
+Test authentication
+, to check that the login worked. This is the
+Access Protected Resource
+step in the test results.
+During a scan or discovery, to check whether the session is still valid when a response matches a re-auth trigger. See
+What Happens When a Trigger Matches
+.
+📘
+Choose a Protected Resource That
+Requires a login and returns something different when you are not logged in, such as a 401 or 403 status or a redirect to the login page. Your re-auth triggers need to match that response.
+Is not the login URL.
+Does not change data when it is requested. A page that shows the user's profile or account is a safe choice.
+📘
+Choose the Validation URL Carefully
+An authentication object has one Validation URL. If your front end and your API use credentials with different lifetimes, such as a long-lived session cookie and a short-lived access token, choose a URL that depends on the short-lived one. Otherwise, the check keeps passing after the token has expired, and requests keep failing because Bright does not log in again.
+More about the rest of the Protected Resource fields:
+Field
+Guidelines
+Method
+Select the HTTP method that Bright uses to request the protected resource.
+Validation URL
+Enter the URL of the protected resource. It must be different from the authentication URL.
+Protected Resource Request Headers
+Select an additional header to be replaced or appended before sending each request, for example, Authorization.
+The
+Clear text/Masked text
+dropdown defines whether the value of the header is displayed as clear text or masked.
+The ability to mask and unmask values is determined by the unmasking access scope.
+If the same header is set in more than one place, see
+Header precedence
+.
+Body
+Enter the HTTP request body that Bright sends with the request, for example:
+{"user": "foo", "pass": "bar"}
+The
+Clear text/Masked text
+dropdown defines whether the value of the body is displayed as clear text or masked.
+The ability to mask and unmask values is determined by the unmasking access scope.
+Redirects Limit
+Enter the maximum number of redirections that Bright should follow during the authentication process
+Pro Tip
+: Select the checkbox
+Change redirected method to GET
+for the redirects with code
+302
+, where the server expects the following methods to always be
+GET
+during redirects and not the original method that triggered the redirect
+Re-Authentication Triggers
+Re-auth triggers define what a response from your application looks like when the session has expired, for example a 401 status or a redirect to the login page.
+During discoveries and scans, Bright checks every response against the triggers. A match tells Bright to verify the session with the protected resource. If that check also matches a trigger, Bright logs in again. See
+What Happens When a Trigger Matches
+.
+In
+Test authentication
+, Bright applies the same triggers to the response from the protected resource. If that response matches a trigger, the
+Access Protected Resource
+step fails.
+Trigger Configuration
+Triggers are organized in
+groups
+. A group contains one or more triggers. Bright checks all triggers against the same response. Matches on different responses are not combined.
+Start with the default group. It contains the trigger
+Response status
+= 401.
+(Optional) Add more statuses in the
+Failure statuses
+field, for example
+403
+or
+302
+.
+(Optional) Click
++Add trigger
+to add another trigger to the group.
+Choose the
+group operator
+:
+AND
+: all triggers in the group must match.
+OR
+: at least one trigger in the group must match.
+(Optional) Add up to three more groups and choose the operator between the groups.
+Click
+Save
+.
+📘
+Limits and Behavior
+Each trigger type can be added once per group.
+If you enter more than one status or pattern in a field, Bright combines them with OR.
+Operators have precedence: AND is evaluated before OR. For example, A OR B AND C is evaluated as A OR (B AND C).
+Max groups:
+4 (the default group and three additional groups). After you create four groups,
+Add group
+is unavailable.
+Nesting:
+One level only. A group cannot contain other groups.
+Deleting groups:
+When you remove the last trigger from a group, Bright deletes the group.
+The following trigger types are available.
+Trigger
+Guidelines
+Response status
+Matches the HTTP status code of a response. Enter one status, such as
+401
+, or several statuses, such as
+401
+and
+403
+. A response matches if it has any of the listed statuses.
+A status on its own is the most common cause of false matches, because other hosts and background requests also return 401. Combine it with a
+Request URL pattern
+trigger. See
+Avoid Triggers That Match Unrelated Responses
+.
+Header pattern
+Matches a response header. Enter the header name and a regular expression for its value. For example, the header
+Location
+with the pattern
+/login
+matches a redirect to your login page.
+Some pages of your application always redirect to the login page or to an identity provider, even when the session is valid. A
+Location
+trigger matches these redirects too.
+Body pattern
+Matches text in the response body. Enter a regular expression. For example, this pattern matches a body that contains a UUID in a
+sessionId
+parameter:
+sessionId:\s*"[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
+.
+Use text that only your application returns when the session has expired, such as a logout message.
+Page pattern
+Matches elements on a page that Bright opens in a browser. Enter CSS selectors or text.
+This trigger is available only for browser-based authentication. A good choice is an element that exists only on the login page, such as the password field.
+For each Page pattern entry, the engine tries it as a CSS selector first. If that finds no element, it searches element text and attribute values—including placeholder, value, and aria-label—using a case-insensitive substring match. Any one entry can match.
+Hidden elements can match: the Page pattern check does not require visibility.
+The UI accepts separate entries using a comma, semicolon, or newline.
+Bright checks a Page pattern in a browser only when the request to the protected resource uses GET and the response
+Content-Type
+header is missing or starts with
+text/html
+. If the header has another value, Bright skips the browser check and checks the HTTP request and response instead. A Page pattern cannot be evaluated in that check.
+Request URL pattern
+Matches the URL of the request. Enter the URL or a part of it. The pattern matches anywhere in the URL, so include the scheme and the full host name, for example
+https://your-app.example.com/api
+.
+Use this trigger together with a
+Response status
+trigger to limit the match to your own application. See
+Avoid Triggers That Match Unrelated Responses
+.
+What Happens When a Trigger Matches
+During a scan, Bright checks every response against your triggers. A match does not mean the session is lost, so Bright first checks the session:
+Bright sends a request to the
+Validation URL
+of the authentication object, using the current session. This is the same
+Access Protected Resource
+step you see in
+Test authentication
+.
+If the response to this request matches no trigger, Bright treats the session as valid. It records an
+Authentication: failure
+error for the original request and continues the scan. It does not log in again.
+If the response also matches a trigger, Bright treats the session as expired and runs the full authentication flow again.
+If the login fails, the scan fails.
+If the login succeeds, Bright repeats the original request once. If the request fails again, Bright records an
+Authentication: failure
+error and continues the scan.
+📘
+Note
+A single
+Authentication: failure
+error does not stop a scan.
+Avoid Triggers That Match Unrelated Responses
+Bright checks every response it receives against your triggers, including responses from outside the scan's target scope and from the extra requests a page makes while it loads, such as scripts, token renewal calls and third-party APIs.
+A trigger that is too broad matches these responses even when your session is valid. A
+Response status
+trigger on its own, such as 401, or a list of statuses such as 400, 401, 403 and 500, is the most common cause. Each match starts the session check described in
+What Happens When a Trigger Matches
+and can start a new login. This can slow a scan considerably, produce
+Authentication: failure
+errors and lower the scan
+Health
+. It happens most often during attack tests, because a server under attack often answers with 400 or 500.
+To avoid this, combine a status with a second trigger that only your application produces:
+Add a
+Response status
+trigger, for example 401.
+Add a
+Request URL pattern
+trigger with the full address of your application or API, including
+https://
+, for example
+https://your-app.example.com/api
+.
+Include the scheme. A short host name can also match inside a longer one:
+app.example.com
+matches inside
+login-app.example.com
+.
+Set the group operator to
+AND
+.
+For example, with the group
+Response status
+= 401 AND
+Request URL pattern
+=
+https://your-app.example.com/api
+, a 401 from
+https://login.microsoftonline.com
+does not match, because the URL fails. Bright does not start a re-auth loop.
+You can also use signals that appear only when the session has expired:
+Header pattern
+: the
+Location
+header contains
+/login
+.
+Body pattern
+: text that appears only in a response from a logged-out session, such as an error message your API returns or text on your login page.
+Page pattern
+(browser-based authentication): a CSS selector for the login form, such as the password field.
+📘
+Note
+Do not use URL patterns such as
+/login
+,
+/authorize
+or
+/token
+alone. Your application calls these paths during normal operation, for example when it renews a token.
+Advanced Settings
+This tab holds the OTP generation settings and two places to add headers during authentication: Global Auth Flow Headers and Authorized requests setup.
+OTP Generation Settings
+One-time passwords (OTP) add a short-lived code to the authentication flow, on top of a regular password. Bright supports
+Time-Based One-Time Password
+(TOTP),
+Hash-Based One-Time Password
+(HOTP),
+Google Authenticator
+(TOTP),
+Email OTP
+and
+SMS OTP
+. See
+OTP Configuration
+for how to set up each type.
+📘
+Note
+This tab is only available for
+Recorded Browser-Based Form Authentication
+,
+Manual Browser-Based Form Authentication
+and
+Custom API authentication flow
+.
+Global Auth Flow Headers
+Global Auth Flow Headers are inserted into every request throughout the authentication process. Use them, for example, to get past a WAF or a CAPTCHA. If a request already has a header with the same name, Bright replaces its value.
+If the same header is set in more than one place, see
+Header precedence
+.
+Authorized Requests Setup
+Once the authentication flow succeeds, Bright needs the resulting session to look authenticated on every later request — for example, attaching a token captured during login as an
+Authorization
+header.
+Authorized requests setup
+lets you define that. Bright adds it to every request sent using this authentication object: the protected resource check, and every request during a scan or discovery.
+Headers
+Go to the
+Advanced Settings
+tab, the
+Authorized requests setup
+, and click
+Add header
+.
+Field
+Guidelines
+Name
+The header name, for example
+x-auth
+.
+Merge strategy
+Replace
+replaces the existing value.
+Append
+adds the value to the end of the existing value, separated by a comma. For example, appending
+header2
+to a header whose value is
+header1
+results in
+header1,header2
+.
+Value
+The header value. Build it with the
+String Interpolation Syntax
+, for example
+{{ auth_object.any_stage.request.headers | get: '/x-auth'}}
+.
+If the same header is set in more than one place, see
+Header precedence
+.
+Body
+The Body fields are displayed only when
+Custom API Authentication Flow
+is selected. See
+Authorized Requests Setup
+on the API-Based Authentication page.
+Testing the Authentication Object
+Testing is the last step of setting up an authentication object, and it is an important one.
+Test authentication
+shows whether Bright can log in and reach the protected resource, so you find configuration problems before you run a scan.
+Click
+Test authentication
+at the bottom of the dialog and check that every step succeeds. Run the test again each time you change the object. For the steps and how to read the results, see
+Testing Authentication
+.
+Updated
+about 21 hours ago
+Did this page help you?
+Yes
+No
+Copy Page

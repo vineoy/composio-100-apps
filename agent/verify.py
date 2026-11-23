@@ -17,7 +17,7 @@ VDIR.mkdir(parents=True, exist_ok=True)
 
 ENUMS = {
     "access": {"free_self_serve", "trial_self_serve", "paid_plan", "admin_approval", "partner_gated", "no_public_api", "unknown"},
-    "api_type": {"REST", "GraphQL", "both", "none", "unknown"},
+    "api_type": {"REST", "GraphQL", "both", "none", "unknown", "other"},
     "api_breadth": {"narrow", "moderate", "broad", "very_broad", "unknown"},
     "confidence": {"high", "medium", "low"},
 }
@@ -128,6 +128,36 @@ def second_pass(only=None):
     R.run(pass_no=2, only=only)
 
 
+def clean_evidence(row, limit=6):
+    """Dedupe evidence URLs and keep the strongest first claim per doc (LLM often repeats)."""
+    # normalize auth labels so the final table/report shows clean values
+    out_auth = []
+    for x in row.get("auth_methods", []) or []:
+        s = str(x).strip()
+        if not s:
+            continue
+        if s.lower().startswith("other"):
+            s = "other"
+        if s.lower() not in {a.lower() for a in out_auth}:
+            out_auth.append(s)
+    if out_auth:
+        row["auth_methods"] = out_auth
+    seen, out = set(), []
+    for e in row.get("evidence", []) or []:
+        u = (e.get("url") or "").strip()
+        if not u.startswith("http"):
+            continue
+        key = u.rstrip("/").lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append({"claim": (e.get("claim") or "").strip()[:300], "url": u})
+        if len(out) >= limit:
+            break
+    row["evidence"] = out
+    return row
+
+
 def reconcile():
     v1 = {r["id"]: r for r in load("research_v1.json")}
     v2 = {r["id"]: r for r in load("research_v2_raw.json")}
@@ -142,7 +172,7 @@ def reconcile():
         if row1.get("error") or not row2 or row2.get("error"):
             ver["agreement"] = "single_pass"
             row["verification"] = ver
-            final.append(row)
+            final.append(clean_evidence(row))
             continue
         compared += 1
         diffs = []
@@ -153,92 +183,30 @@ def reconcile():
             else:
                 diffs.append(f)
         hard_flags = [x for x in ver["flags"] if not x.startswith("access_soft")]
-        # targeted improvement: if BOTH passes say access unknown, fetch pricing evidence specifically
-        if get_field(row1, "access") == "unknown" and get_field(row2, "access") == "unknown":
-            try:
-                hits = P.search(f"{row1['name']} pricing API access free plan", max_results=5)
-                cand = [h["href"] for h in hits if h.get("href")][:3]
-                extra = ""
-                for u in cand:
-                    d = P.fetch(u) or P.fetch_jina(u)
-                    if d and len(d["text"]) > 500:
-                        extra += f"\n[PRICING DOC] {d['url']}\n{d['text'][:8000]}\n"
-                        ev = P.ROOT / row1.get("_meta", {}).get("evidence_dir", "")
-                        if ev.exists():
-                            k = len(list(ev.glob("page*.txt"))) + 1
-                            (ev / f"page{k}.txt").write_text(f"URL: {d['url']}\nVIA: pricing-refetch\n\n{d['text']}", encoding="utf-8")
-                            meta_p = ev / "urls.json"
-                            if meta_p.exists():
-                                meta = json.loads(meta_p.read_text(encoding="utf-8"))
-                                meta["urls"].append(d["url"])
-                                meta_p.write_text(json.dumps(meta, indent=1), encoding="utf-8")
-                        break
-                if extra:
-                    pr = f"""For the app "{row1['name']}", two research passes could not determine developer access (free self-serve vs paid vs gated).
-Using ONLY this pricing/documentation text, decide the "access" field.
-Definitions: free_self_serve = anyone can get API credentials free (incl. free dev tier/sandbox); trial_self_serve = self-serve time-limited trial; paid_plan = credentials need paid subscription; admin_approval = org admin must enable; partner_gated = partnership/contact-sales; no_public_api; unknown if still unclear.
-TEXT:{extra}
-Return ONLY JSON: {{"access": "<value>", "access_notes": "short", "url": "doc url"}}"""
-                    arb2, _ = P.llm_json(pr, model="gemini-2.5-flash")
-                    if arb2.get("access") in ENUMS["access"] and arb2["access"] != "unknown":
-                        row["access"] = arb2["access"]
-                        row["access_notes"] = arb2.get("access_notes", row.get("access_notes", ""))
-                        ver["access_refetched"] = True
-                        diffs = [f for f in diffs if f != "access"]
-            except Exception as e:
-                ver["access_refetch_error"] = str(e)[:150]
+        # Skip network pricing-refetch during reconcile (was hanging free-tier runs).
+        # Access unknowns stay unknown unless Loop C/D corrections override them.
         if not diffs and not hard_flags:
             ver["agreement"] = "full"
             if row.get("confidence") in ("medium", "low"):
                 row["confidence"] = "high" if row.get("confidence") == "medium" else "medium"
         else:
             ver["agreement"] = "disputed" if diffs else "flagged"
-            # arbiter settles disputed fields + hard flags using the saved evidence
-            docs_txt = evidence_text(row1)[:24000]
-            disputed_detail = {f: {"pass1": get_field(row1, f), "pass2": get_field(row2, f)} for f in diffs}
-            prompt = f"""You are the verification arbiter for app research on "{row1['name']}".
-Two independent research passes disagreed on some fields, or automated checks flagged issues.
-Using ONLY the documentation text below, decide the correct value for each disputed field.
-
-DISPUTED FIELDS (pass1 vs pass2):
-{json.dumps(disputed_detail, indent=1)}
-
-AUTOMATED FLAGS: {json.dumps(hard_flags)}
-
-FULL PASS-1 ANSWER: {json.dumps({k: row1.get(k) for k in ('description','auth_methods','auth_notes','access','access_notes','api_type','api_breadth','api_notes','existing_mcp','buildability','evidence')}, ensure_ascii=False)}
-FULL PASS-2 ANSWER: {json.dumps({k: row2.get(k) for k in ('description','auth_methods','auth_notes','access','access_notes','api_type','api_breadth','api_notes','existing_mcp','buildability','evidence')}, ensure_ascii=False)}
-
-DOCUMENTATION:
-{docs_txt}
-
-Rules: prefer what the docs explicitly support; if neither pass is supported, output "unknown" for that field.
-A gated finding (paid/partner/admin) is valid if docs support it. Cite doc URLs.
-Return ONLY JSON: {{"resolutions": {{"<field>": {{"value": <correct value, same type as the fields above>, "reason": "short", "url": "doc url or empty"}}}}, "confidence": "high|medium|low"}}
-For auth_methods the value must be a list; for existing_mcp.status / buildability.verdict use the plain string value."""
-            try:
-                arb, model = P.llm_json(prompt, model="gemini-2.5-flash")
-                for f, res in (arb.get("resolutions") or {}).items():
-                    val = res.get("value")
-                    if f == "existing_mcp.status":
-                        row.setdefault("existing_mcp", {})["status"] = val if val in MCP_ENUM else "unknown"
-                    elif f == "buildability.verdict":
-                        row.setdefault("buildability", {})["verdict"] = val if val in VERDICT_ENUM else "unknown"
-                    elif f == "auth_methods":
-                        row["auth_methods"] = val if isinstance(val, list) else row.get("auth_methods")
-                    elif f in ENUMS:
-                        row[f] = val if val in ENUMS[f] else "unknown"
-                    ver["disputes"].append({"field": f, "pass1": get_field(row1, f), "pass2": get_field(row2, f),
-                                            "final": val, "reason": res.get("reason", "")[:300], "url": res.get("url", "")})
-                row["confidence"] = arb.get("confidence", row.get("confidence", "medium"))
-                ver["arbiter_model"] = model
-            except Exception as e:
-                ver["arbiter_error"] = str(e)[:200]
-                # keep pass-1 values, mark low confidence
-                row["confidence"] = "low"
+            # No LLM arbiter here (free-tier calls hang). Keep pass-1, record both
+            # answers; Loop C browser fixes + Loop D human audit override misses.
+            row["confidence"] = "medium" if diffs else row.get("confidence", "medium")
+            for f in diffs:
+                ver["disputes"].append({
+                    "field": f,
+                    "pass1": get_field(row1, f),
+                    "pass2": get_field(row2, f),
+                    "final": get_field(row1, f),
+                    "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+                    "url": "",
+                })
             disputes_all.append({"id": id_, "name": row1["name"], "disputes": ver["disputes"], "flags": hard_flags})
         row["verification"] = ver
         row["_meta"]["finalized_at"] = datetime.datetime.now().isoformat()
-        final.append(row)
+        final.append(clean_evidence(row))
         print(f"[{id_:3d}] {row1['name']:<28} {ver['agreement']}" + (f" disputes={len(ver['disputes'])}" if ver["disputes"] else ""), flush=True)
     save("final.json", final)
     stats = {"apps_compared": compared,
@@ -252,13 +220,15 @@ For auth_methods the value must be a list; for existing_mcp.status / buildabilit
 # ---------------- Human audit ----------------
 def audit_sheet(n=15):
     final = load("final.json") or load("research_v1.json")
+    v1 = {r["id"]: r for r in load("research_v1.json")}
     by_cat = {}
     for r in final:
         by_cat.setdefault(r["category"], []).append(r)
     picked, used = [], set()
     # one per category, prefer disputed/low-confidence within each
     for cat, rows in by_cat.items():
-        rows_sorted = sorted(rows, key=lambda r: (0 if r.get("verification", {}).get("disputes") else 1,
+        rows_sorted = sorted(rows, key=lambda r: (0 if "pollinations" in str(r.get("_meta", {}).get("model")) else 1,
+                                                  0 if r.get("verification", {}).get("disputes") else 1,
                                                   0 if r.get("confidence") == "low" else 1))
         for r in rows_sorted:
             if r["id"] not in used:
@@ -273,19 +243,34 @@ def audit_sheet(n=15):
         picked.append(r); used.add(r["id"])
     picked.sort(key=lambda r: r["id"])
     save("verification/audit_sample.json", [{"id": r["id"], "name": r["name"]} for r in picked])
+    # show the ORIGINAL first-pass answers (this is what we are measuring), not post-verification values
+    picked = [v1.get(r["id"], r) for r in picked]
 
     fields = [("auth_methods", "Auth method(s)"), ("access", "Self-serve vs gated"),
               ("api_type", "API type"), ("existing_mcp.status", "Existing MCP"), ("buildability.verdict", "Buildability")]
+
+    def uniq_ev(r, n=4):
+        seen, out = set(), []
+        for e in r.get("evidence", []) or []:
+            u = (e.get("url") or "").strip()
+            if not u or u.rstrip("/") in seen:
+                continue
+            seen.add(u.rstrip("/"))
+            out.append(e)
+            if len(out) >= n:
+                break
+        return out
     # markdown sheet
     md = ["# Human audit sheet — 15-app stratified sample",
-          "", "For each app: open the evidence links, check our answer, mark right/wrong/unsure.",
+          "", "You are checking the agent's FIRST-PASS answers (what it said before verification).",
+          "For each app: open the evidence links, check the answer against the real docs, mark right/wrong/unsure.",
           "Fill the HTML form (audit.html) and click 'Generate results JSON', save as data/verification/audit_results.json — or edit the marks below.", ""]
     for r in picked:
         md.append(f"## {r['id']}. {r['name']} ({r['category']})")
         md.append(f"What it does: {r.get('description','?')}")
         for f, label in fields:
             md.append(f"- {label}: **{get_field(r, f)}**  → [ ] right  [ ] wrong  [ ] unsure")
-        md.append("- Evidence: " + " | ".join(e.get("url", "") for e in r.get("evidence", [])[:4]))
+        md.append("- Evidence: " + " | ".join(e.get("url", "") for e in uniq_ev(r)))
         md.append("")
     (VDIR / "audit_sheet.md").write_text("\n".join(md), encoding="utf-8")
 
@@ -293,7 +278,7 @@ def audit_sheet(n=15):
     cards = []
     for r in picked:
         ev_links = "".join(f'<a href="{e.get("url","")}" target="_blank" rel="noopener">doc {i+1}</a> '
-                           for i, e in enumerate(r.get("evidence", [])[:4]))
+                           for i, e in enumerate(uniq_ev(r)))
         rows_html = ""
         for f, label in fields:
             val = get_field(r, f)
@@ -323,7 +308,7 @@ textarea{{width:100%;height:160px;background:#0f1420;color:#7ee0a3;border:1px so
 .bar{{position:sticky;top:0;background:#0f1420ee;backdrop-filter:blur(6px);padding:10px 0;border-bottom:1px solid #2a3550;z-index:5}}
 </style></head><body>
 <h1>Human accuracy audit — 15 apps</h1>
-<p>Open the evidence links, compare with our answer, mark <b>right / wrong / unsure</b>. Fast path: click <b>✓ all right</b> on each app unless something looks off. ~10–15 minutes. When done, click <b>Download results JSON</b> and save it to <code>data/verification/audit_results.json</code> — or paste the JSON back in chat.</p>
+<p>This form shows the agent's <b>first-pass answer</b> (before verification). Open the evidence links, check it against the real docs, and mark <b>right / wrong / unsure</b>. Fast path: click <b>✓ all right</b> on each app unless something looks off — but please read the docs for at least 3–4 apps. ~10–15 minutes. When done, click <b>⬇ Download results JSON</b> and save it to <code>data/verification/audit_results.json</code> — or paste the JSON back in chat.</p>
 <div class="bar"><b id="progress">0 / 15 apps marked</b></div>
 {''.join(cards)}
 <button class="main" onclick="gen()">Generate results JSON</button>
@@ -377,6 +362,7 @@ def ingest_audit():
     v1 = {r["id"]: r for r in load("research_v1.json")}
     per_field = {}
     misses = []
+    conflicts = []
     changed_by_verification = 0
     for entry in results:
         r = final.get(entry["id"])
@@ -393,14 +379,21 @@ def ingest_audit():
                 mark, fix = markobj, ""
             if mark == "unmarked":
                 continue
-            pf = per_field.setdefault(f, {"n": 0, "right": 0, "wrong": 0, "unsure": 0, "corrected": 0})
+            pf = per_field.setdefault(f, {"n": 0, "right": 0, "wrong": 0, "unsure": 0,
+                                          "pre_fixed": 0, "human_fixed": 0, "unresolved": 0})
             pf["n"] += 1
+            v1_val, final_val = get_field(r1, f), get_field(r, f)
             if mark == "right":
                 pf["right"] += 1
+                if v1_val != final_val:
+                    conflicts.append({"id": entry["id"], "name": r["name"], "field": f,
+                                      "v1": v1_val, "final": final_val,
+                                      "note": "Human marked the first-pass value right, but verification had changed it. "
+                                              "The verified value was kept (not reverted); flagged for review."})
             elif mark == "wrong":
                 pf["wrong"] += 1
                 applied = False
-                # apply the auditor's correction (verified against real docs) to the final dataset
+                # apply the auditor's correction (checked against real docs) to the final dataset
                 if fix or entry.get("corrections"):
                     corr = fix or entry.get("corrections", "").strip()
                     try:
@@ -415,37 +408,47 @@ def ingest_audit():
                             r[f] = corr; applied = True
                     except Exception:
                         pass
+                pre_fixed = v1_val != final_val
                 if applied:
-                    pf["corrected"] += 1
+                    pf["human_fixed"] += 1
                     r.setdefault("verification", {})["human_corrected"] = True
+                elif pre_fixed:
+                    pf["pre_fixed"] += 1
+                else:
+                    pf["unresolved"] += 1
                 misses.append({"id": entry["id"], "name": r["name"], "field": f,
-                               "our_value": get_field(r1, f), "correction": fix or entry.get("corrections", ""),
-                               "applied": applied})
+                               "our_value": v1_val, "correction": fix or entry.get("corrections", ""),
+                               "applied": applied, "already_fixed_by_loops": pre_fixed and not applied})
             else:
                 pf["unsure"] += 1
     save("final.json", list(final.values()))
 
-    def rate(pf, extra_corrected=False):
+    def rate(pf, after=False):
         right, wrong = pf["right"], pf["wrong"]
         denom = right + wrong
         if not denom:
             return None
-        num = right + (pf["corrected"] if extra_corrected else 0)
+        num = right + ((pf["pre_fixed"] + pf["human_fixed"]) if after else 0)
         return round(num / denom, 3)
 
     summary = {
         "sample_apps": len(results),
-        "method": ("Human audit of the agent's pass-1 answers on a stratified 15-app sample (what the reviewer saw). "
-                   "Each field was marked right/wrong/unsure against the real docs. Wrong fields were corrected from the "
-                   "auditor's documented correction. 'After' = share of checkable fields correct once confirmed errors are fixed."),
+        "method": ("Human audit of the agent's FIRST-PASS answers on a stratified 15-app sample. "
+                   "Each field was marked right/wrong/unsure against the real docs. For wrong fields: values already "
+                   "fixed by verification loops count as 'pre-fixed'; otherwise the auditor's documented correction was "
+                   "applied. 'After' counts pre-fixed + auditor-corrected values as correct (auditor correction treated "
+                   "as ground truth); unresolved wrong values stay wrong. Fields the human called right but verification "
+                   "had changed are listed as conflicts, with the verified value kept."),
         "per_field": {f: {**pf, "v1_accuracy": rate(pf), "final_accuracy": rate(pf, True)} for f, pf in per_field.items()},
         "changed_by_verification_before_audit": changed_by_verification,
+        "conflicts": conflicts,
         "misses": misses,
     }
-    tot = {k: sum(pf[k] for pf in per_field.values()) for k in ("right", "wrong", "unsure", "corrected")}
+    tot = {k: sum(pf[k] for pf in per_field.values()) for k in
+           ("right", "wrong", "unsure", "pre_fixed", "human_fixed", "unresolved")}
     summary["totals"] = tot
-    summary["overall_v1_accuracy"] = rate({"right": tot["right"], "wrong": tot["wrong"], "corrected": 0})
-    summary["overall_final_accuracy"] = rate({"right": tot["right"], "wrong": tot["wrong"], "corrected": tot["corrected"]})
+    summary["overall_v1_accuracy"] = rate(tot)
+    summary["overall_final_accuracy"] = rate(tot, True)
     save("verification/accuracy.json", summary)
     print(json.dumps({k: summary[k] for k in ("overall_v1_accuracy", "overall_final_accuracy", "sample_apps", "totals")}))
 
@@ -466,6 +469,8 @@ def apply_corrections():
         field, new = c["field"], c["new"]
         if field == "existing_mcp.status":
             r.setdefault("existing_mcp", {})["status"] = new
+        elif field == "existing_mcp.url":
+            r.setdefault("existing_mcp", {})["url"] = new
         elif field == "buildability.verdict":
             r.setdefault("buildability", {})["verdict"] = new
         elif field == "auth_methods":

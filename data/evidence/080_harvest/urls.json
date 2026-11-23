@@ -1,0 +1,77 @@
+{
+ "app": "Harvest",
+ "queries": [
+  "Harvest API authentication documentation",
+  "Harvest MCP server",
+  "Harvest API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+  "https://help.getharvest.com/api-v2/",
+  "https://harvestdocs.greenhouse.io/docs/authentication",
+  "https://harvestdata.org/docs"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Harvest API V2 Documentation",
+   "href": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/"
+  },
+  {
+   "title": "Authentication - Harvest API V2 Documentation",
+   "href": "https://help.getharvest.com/api-v2/authentication-api/"
+  },
+  {
+   "title": "Authentication - harvestdocs.greenhouse.io",
+   "href": "https://harvestdocs.greenhouse.io/docs/authentication"
+  },
+  {
+   "title": "API Documentation - harvestdata.org",
+   "href": "https://harvestdata.org/docs"
+  },
+  {
+   "title": "Harvest API Documentation - API - HARVEST.com",
+   "href": "https://harvest.com/support/api/"
+  },
+  {
+   "title": "Harvest MCP - Harvest Help Center",
+   "href": "https://support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP"
+  },
+  {
+   "title": "GitHub - taiste/harvest-mcp-server: MCP Server for Harvest",
+   "href": "https://github.com/taiste/harvest-mcp-server"
+  },
+  {
+   "title": "Harvest MCP Server - Connect Harvest to Any MCP Client",
+   "href": "https://harvest-mcp.southleft.com/"
+  },
+  {
+   "title": "GitHub - baspenny/harvest-mcp: MCP server for Harvest time tracking API",
+   "href": "https://github.com/baspenny/harvest-mcp"
+  },
+  {
+   "title": "Harvest MCP Server | MCP Servers \u00b7 LobeHub",
+   "href": "https://lobehub.com/mcp/standardbeagle-harvest-mcp"
+  },
+  {
+   "title": "Harvest Pricing 2026: Plans, Hidden Costs & Alternatives",
+   "href": "https://toolradar.com/tools/harvest/pricing"
+  },
+  {
+   "title": "The Harvest API - Harvest Help Center",
+   "href": "https://support.getharvest.com/hc/en-us/articles/360048180732-The-Harvest-API"
+  },
+  {
+   "title": "Harvest API V2 Documentation",
+   "href": "https://help.getharvest.com/api-v2/"
+  },
+  {
+   "title": "Harvest Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/harvest/harvest-plans-pricing/"
+  },
+  {
+   "title": "Harvest Pricing in 2026 \u2014 Full Breakdown + Alternative",
+   "href": "https://www.tempough.com/harvest-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:30:04.414351"
+}

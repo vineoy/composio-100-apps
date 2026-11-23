@@ -1,0 +1,77 @@
+{
+ "app": "Linear",
+ "queries": [
+  "Linear API authentication documentation",
+  "Linear MCP server",
+  "Linear API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://linear.app/developers/graphql",
+  "https://linear.app/developers/oauth-2-0-authentication",
+  "https://linearcli.com/authentication",
+  "https://linear.app/docs/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Getting started - Linear Developers",
+   "href": "https://linear.app/developers/graphql"
+  },
+  {
+   "title": "OAuth 2.0 authentication - Linear Developers",
+   "href": "https://linear.app/developers/oauth-2-0-authentication"
+  },
+  {
+   "title": "Linear authentication | Documentation",
+   "href": "https://user-documentation.vercel.app/database-and-apis/auth/providers/linear.html"
+  },
+  {
+   "title": "Linear API - Documentation & Integration",
+   "href": "https://apitracker.io/a/linear-app"
+  },
+  {
+   "title": "Linear CLI Authentication & API Key Setup",
+   "href": "https://linearcli.com/authentication/"
+  },
+  {
+   "title": "MCP server - Linear Docs",
+   "href": "https://linear.app/docs/mcp"
+  },
+  {
+   "title": "Linear MCP server - Changelog",
+   "href": "https://linear.app/changelog/2025-05-01-mcp"
+  },
+  {
+   "title": "Linear MCP Server - GitHub",
+   "href": "https://github.com/jerhadf/linear-mcp-server"
+  },
+  {
+   "title": "GitHub - cline/linear-mcp: a private MCP server for accessing Linear",
+   "href": "https://github.com/cline/linear-mcp"
+  },
+  {
+   "title": "Linear MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/timottowitz/linear-mcp"
+  },
+  {
+   "title": "Pricing - Linear",
+   "href": "https://linear.app/pricing"
+  },
+  {
+   "title": "Billing and plans - Linear Docs",
+   "href": "https://linear.app/docs/billing-and-plans"
+  },
+  {
+   "title": "Pricing | Liner Developers",
+   "href": "https://liner.com/developers/docs/pricing"
+  },
+  {
+   "title": "Linear Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/linear-app/linear-app-plans-pricing/"
+  },
+  {
+   "title": "Linear API: pricing, auth, rate limits | API Terms",
+   "href": "https://apiterms.com/api/linear.app/"
+  }
+ ],
+ "fetched_at": "2026-11-23T20:12:29.239448"
+}

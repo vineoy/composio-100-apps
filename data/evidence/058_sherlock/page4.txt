@@ -1,0 +1,267 @@
+URL: https://github.com/Burnsedia/sherlock-mcp
+FETCHED: 2026-11-23T17:36:10.105222
+VIA: direct
+
+GitHub - Burnsedia/sherlock-mcp: Sherlock MCP Server: Find truth and counter propaganda through ethical OSINT. FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol. Empowering investigators, journalists, and AI assistants with transparent, verifiable tools. · GitHub
+Skip to content
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+master
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+32 Commits
+32 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github/
+ISSUE_TEMPLATE
+.github/
+ISSUE_TEMPLATE
+__pycache__
+__pycache__
+tests
+tests
+.python-version
+.python-version
+CONTRIBUTING.md
+CONTRIBUTING.md
+DEVLOG.md
+DEVLOG.md
+Dockerfile
+Dockerfile
+MISSION.md
+MISSION.md
+README.md
+README.md
+main.py
+main.py
+pyproject.toml
+pyproject.toml
+uv.lock
+uv.lock
+View all files
+Repository files navigation
+Sherlock MCP Server
+FastMCP server integration for the Sherlock OSINT tool
+– Seamlessly search social media accounts across 400+ platforms using the Model Context Protocol. Perfect for OSINT researchers, cybersecurity professionals, and AI assistants performing username enumeration and open-source intelligence gathering.
+Mission
+This project is built with a commitment to finding truth and countering propaganda through ethical open-source intelligence. In an era of misinformation and digital manipulation, we believe in empowering investigators, journalists, and truth-seekers with transparent, verifiable tools for social media reconnaissance.
+Our mission is to:
+Promote Truthful Investigation
+: Provide reliable tools for fact-checking and source verification
+Counter Propaganda
+: Enable systematic analysis of online narratives and account authenticity
+Maintain Ethical Standards
+: Ensure all usage aligns with privacy rights and responsible disclosure
+Foster Transparency
+: Open-source development for community scrutiny and improvement
+Read our full
+Mission Statement
+for detailed principles and applications.
+Features
+Username Search
+: Find social media profiles associated with a username
+Structured Output
+: Returns formatted results with site names, URLs, and existence status
+Error Handling
+: Graceful handling of missing dependencies, timeouts, and failures
+Ethical Use
+: Designed for responsible OSINT investigations
+MCP Integration
+: Native support for Model Context Protocol in AI workflows
+Demo
+Experience the power of OSINT username searching with this MCP server. Connect to your favorite MCP-compatible AI assistant and query social media presence instantly.
+Placeholder for demo GIF or screenshot – coming soon!
+Prerequisites
+Python 3.13+
+Sherlock CLI tool installed:
+pipx install sherlock-project
+Docker Setup
+For containerized deployment using the official Sherlock Docker image:
+Build the Docker image:
+docker build -t sherlock-mcp
+.
+Run the container:
+docker run -it sherlock-mcp
+This starts the MCP server inside the container. Connect MCP clients via stdio pipes or configure HTTP transport for remote access.
+Installation
+Clone this repository:
+git clone
+<
+repo-url
+>
+cd
+sherlock-mcp
+Install dependencies:
+pip install -e
+.
+Ensure Sherlock is installed:
+pipx install sherlock-project
+Usage
+Running the Server
+python main.py
+This starts the MCP server with stdio transport, ready for MCP clients.
+Example MCP Client Usage
+When connected to an MCP-compatible client (e.g., Claude Desktop), use the
+search_username
+tool:
+Tool: search_username
+Arguments: {"username": "exampleuser"}
+Response:
+{
+"found"
+: [
+    {
+"site"
+:
+"
+github
+"
+,
+"url"
+:
+"
+https://github.com/exampleuser
+"
+,
+"exists"
+:
+true
+},
+    {
+"site"
+:
+"
+twitter
+"
+,
+"url"
+:
+"
+https://twitter.com/exampleuser
+"
+,
+"exists"
+:
+true
+}
+  ],
+"total_found"
+:
+2
+,
+"error"
+:
+null
+}
+Tool Reference
+search_username(username: str)
+Searches for social media accounts associated with the given username.
+Parameters:
+username
+(str): The username to search for
+Returns:
+found
+(list): Array of found profiles with site, URL, and exists status
+total_found
+(int): Number of profiles found
+error
+(str): Error message if any (null on success)
+Contributing
+We welcome contributions to enhance this OSINT MCP server! Whether it's bug fixes, new features, or documentation improvements, your input helps the cybersecurity and AI communities.
+Fork the repository
+Create a feature branch (
+git checkout -b feature/amazing-feature
+)
+Commit your changes (
+git commit -m 'Add amazing feature'
+)
+Push to the branch (
+git push origin feature/amazing-feature
+)
+Open a Pull Request
+Please read our
+Contributing Guidelines
+for more details.
+Ethical Considerations
+This tool is designed for truth-seeking and countering propaganda, but with great power comes great responsibility. Always use ethically and legally.
+General Guidelines
+Use only for legitimate OSINT purposes
+Respect platform terms of service
+Be aware of privacy implications
+Consider rate limiting to avoid overwhelming services
+Countering Propaganda Best Practices
+Cross-Reference Sources
+: Verify account authenticity across multiple platforms
+Check Creation Dates
+: New accounts may indicate coordinated campaigns
+Analyze Patterns
+: Look for coordinated posting behaviors or similar content
+Respect Privacy
+: Focus on public information and avoid doxxing
+Fact-Check Results
+: Use additional verification tools for claims
+Document Methodology
+: Maintain transparency in investigative processes
+Avoid Harm
+: Do not use findings to harass or intimidate individuals
+Responsible Usage
+Obtain proper authorization for investigations
+Comply with local laws and regulations
+Use findings to promote truth and accountability
+Share results responsibly to avoid contributing to misinformation
+Troubleshooting
+Sherlock not found
+: Install with
+pipx install sherlock-project
+Timeout errors
+: Increase timeout in code or use smaller username sets
+No results
+: Username may not exist on searched platforms
+License
+MIT License
+About
+Sherlock MCP Server: Find truth and counter propaganda through ethical OSINT. FastMCP integration for social media username searches across 400+ platforms using Model Context Protocol. Empowering investigators, journalists, and AI assistants with transparent, verifiable tools.
+Topics
+ai
+app
+mcp
+osint
+python
+security
+Resources
+Readme
+Contributing
+Contributing
+Activity
+Stars
+8
+stars
+Watchers
+1
+watching
+Forks
+1
+fork
+Report repository
+Releases
+Packages
+Contributors
+Languages
+You can’t perform that action at this time.

@@ -1,0 +1,63 @@
+URL: https://docs.withpaygent.com/cli/commands/authentication.md
+FETCHED: 2026-11-23T22:33:45.285591
+VIA: direct
+
+> For clean Markdown of any page, append .md to the page URL.
+> For a complete documentation index, see https://docs.withpaygent.com/llms.txt.
+> For AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://docs.withpaygent.com/_mcp/server.
+
+# Authentication
+
+> Sign in, check who you are, and sign out.
+
+The CLI talks to two services. Dashboard commands use a browser session; usage-tracking commands use an API key.
+
+## `paygent login`
+
+Authenticate and store credentials for this machine.
+
+```bash
+paygent login
+```
+
+Opens a browser, signs you in, and saves the credential at mode `0600`.
+
+| Flag              | Description                                                   |
+| ----------------- | ------------------------------------------------------------- |
+| `--token <->`     | Read a session token from stdin instead of opening a browser. |
+| `--api-key <->`   | Read an API key from stdin, for usage-tracking commands.      |
+| `--no-browser`    | Print the URL instead of opening it.                          |
+| `--timeout
+` | How long to wait for the browser callback.                    |
+
+For CI, authenticate without a browser:
+
+```bash
+echo "$PAYGENT_TOKEN" | paygent login --token -
+```
+
+Usage-tracking commands (`usage send`, `agent ensure`, `customer ensure`) need an API key, never a session token:
+
+```bash
+echo "$PAYGENT_API_KEY" | paygent login --api-key -
+```
+
+> **Info**
+>
+> Both credentials can be stored at once. Signing in with an API key does not sign you out of the dashboard.
+
+## `paygent whoami`
+
+Show the account the stored credentials belong to.
+
+```bash
+paygent whoami
+```
+
+## `paygent logout`
+
+Remove stored credentials from this machine.
+
+```bash
+paygent logout
+```

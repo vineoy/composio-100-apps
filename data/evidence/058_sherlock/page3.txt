@@ -1,0 +1,86 @@
+URL: https://docs.cloudferro.com/en/latest/sherlock/Sherlock-authentication-API-keys-on-CloudFerro-Cloud.html
+FETCHED: 2026-11-23T17:36:10.103407
+VIA: direct
+
+Authenticate to Sherlock AI with API keys on CloudFerro Cloud — CloudFerro Cloud 0.0.1 documentation
+Home
+>
+>
+Authenticate to Sherlock AI with API keys on CloudFerro Cloud
+Authenticate to Sherlock AI with API keys on CloudFerro Cloud
+
+Sherlock AI uses API keys to authenticate programmatic requests to AI models. You create API keys inside a Sherlock AI project in the control panel and then use them from your application, automation script, or backend service.
+Treat every API key as a secret. Do not share it with other users, commit it to a repository, paste it into documentation, or expose it in client-side code such as browsers and mobile applications. Production requests should go through your own backend, where the key can be loaded from an environment variable or a secrets management service.
+Prerequisites
+
+Before you start, make sure that:
+You can log in to the Sherlock AI control panel after completing
+account and organization setup
+.
+You have
+selected the project
+where the API key will be created.
+Your account has permissions to manage API keys in that project.
+You know where the key will be stored after creation, because Sherlock AI shows the generated key only once.
+Step 1: Open API Keys
+
+Log in to the Sherlock AI control panel and open the project in which you want to create the key. In the left navigation menu, select
+API Keys
+under
+Resources
+. The current console uses
+Create API Key
+for the creation action. The screenshots below show the earlier console layout, where this action is called
+Add API key
+.
+The API keys page lists the keys already created in the current project. Use this page to check existing keys, create a new one, and manage project-level authentication for programmatic access.
+API Keys page in the Sherlock AI control panel.
+
+Step 2: Start creating a new key
+
+Click
+Create API Key
+(
+Add API key
+in the earlier interface) to open the key creation window. Enter a clear name for the key, for example the name of the application, service, environment, or automation workflow that will use it.
+A descriptive name is important later, especially when several keys exist in the same project. It helps you recognize which application uses which key and makes key rotation safer.
+Window for entering the API key name before generation.
+
+Step 3: Generate and copy the key
+
+After entering the name, generate the key. Sherlock AI displays the new API key immediately after creation.
+Copy the key at this stage and store it in a secure location. This is the only time the full key is shown. If you close the window before saving it, you will need to create another key.
+Newly generated API key. Copy it before closing the window.
+
+Step 4: Verify that the key was created
+
+After copying the key, return to the API keys page and verify that the new entry is visible in the list. The list shows the key name and creation date, which helps you identify recently created keys and distinguish them from older credentials.
+Keep only the keys that are still needed. When a key is no longer used, replace it in your application first, verify that the new key works, and then remove the old one from the project.
+API keys list after a new key has been created.
+
+Using the API key securely
+
+Store the API key outside your source code. For local development, use an environment variable or a local secrets file that is excluded from version control. For production deployments, use the secret storage mechanism provided by your platform, CI/CD system, or infrastructure environment.
+Do not call Sherlock AI directly from frontend code. A browser or mobile application cannot keep an API key secret, because users can inspect network traffic or application bundles. Route production requests through a backend service that authenticates the user, loads the API key securely, and sends the request to Sherlock AI.
+Rotate API keys when access changes, when a key may have been exposed, or when an application is moved from testing to production. Use separate keys for separate applications or environments whenever possible, so that one leaked or retired key does not affect unrelated workloads.
+What to do next
+
+Continue with
+client installation and a first API request
+.
+Use
+Consumption and Events history
+to inspect project activity.
+Still need help?
+If this article doesn’t answer all of your questions, our support team will do their best to help you.
+Contact support
+Jump to
+Authenticate to Sherlock AI with API keys on CloudFerro Cloud
+Prerequisites
+Step 1: Open API Keys
+Step 2: Start creating a new key
+Step 3: Generate and copy the key
+Step 4: Verify that the key was created
+Using the API key securely
+What to do next
+↑

@@ -1,0 +1,217 @@
+URL: https://reducto.ai/developers
+FETCHED: 2026-11-23T22:45:25.904498
+VIA: direct
+
+Developers | Reducto — The Agentic Document Platform API
+Product
+Industries
+Customers
+Resources
+Pricing
+Introducing the Reducto Office SDK: read, edit and render Word, PowerPoint and Excel files in your product
+Reducto API
+One API for
+every document
+Parse, extract, classify, split, and edit 30+ file types. Production-ready structured JSON in minutes, not months.
+Get your API key
+Read the docs
+Python
+Node.js
+cURL
+from
+reducto
+import
+Reducto
+client
+=
+Reducto()
+result
+=
+client.parse.run(
+input
+=
+"https://cdn.reducto.ai/samples/fidelity-example.pdf"
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+},
+)
+for
+chunk
+in
+result.result.chunks:
+print
+(chunk.content)
+01
+Get your API key
+Sign up at
+studio.reducto.ai
+and create an API key. Set it as an environment variable.
+export
+REDUCTO_API_KEY
+=
+"your_api_key_here"
+02
+Install the SDK
+Python
+Node.js
+Go
+pip
+install
+reductoai
+03
+Parse your first document
+A few lines of code to convert any document into structured JSON with text, tables, and figures.
+Python
+Node.js
+cURL
+from
+reducto
+import
+Reducto
+client
+=
+Reducto()
+result
+=
+client.parse.run(
+input
+=
+"https://cdn.reducto.ai/samples/fidelity-example.pdf"
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+},
+)
+print
+(
+f
+"Processed
+{
+result.usage.num_pages
+}
+pages"
+)
+for
+chunk
+in
+result.result.chunks:
+print
+(chunk.content)
+04
+Use the structured output
+Every response returns chunks with typed blocks (Title, Table, Text, Figure) plus bounding box coordinates and a link to inspect results in Studio.
+{
+"job_id"
+:
+"5df31070-..."
+,
+"usage"
+: {
+"num_pages"
+:
+3
+},
+"result"
+: {
+"chunks"
+: [{
+"content"
+:
+"## Your Portfolio Value: $274,222.20
+\n
+..."
+,
+"blocks"
+: [{
+"type"
+:
+"Table"
+,
+"bbox"
+: {
+"page"
+:
+1
+,
+"left"
+:
+0.516
+}
+}]
+}]
+},
+"studio_link"
+:
+"https://studio.reducto.ai/job/..."
+}
+View the full quickstart guide
+Parse
+/parse
+Convert any document into structured JSON with text, tables, and figures. Layout-aware chunking optimized for LLMs.
+Extract
+/extract
+Define a JSON schema and pull specific fields from documents. Get exactly the data you need, nothing more.
+Classify
+/classify
+Route documents by type before processing. Define categories in natural language, no training data required.
+Split
+/split
+Divide documents into logical sections using natural language descriptions for targeted downstream processing.
+Edit
+/edit
+Fill PDF forms and modify DOCX files programmatically with natural language instructions.
+Studio
+Build, test, and deploy document workflows visually. Inspect results with bounding-box-level citations.
+SDKs
+First-class clients for Python, Node.js, and Go with full type safety. Install and authenticate in seconds.
+View SDK docs
+CLI
+Parse, extract, and manage documents from your terminal. Pipe output into other tools or scripts.
+View CLI docs
+MCP Server
+Connect AI agents to Reducto via the Model Context Protocol. Works with Claude, Cursor, VS Code, and more.
+View MCP docs
+Enterprise Grade
+Built for
+production
+5B+ pages processed. Autoscaling infrastructure with dedicated support for enterprise customers.
+SOC 2 Type II & HIPAA
+Audited security controls with BAA available on Growth and Enterprise tiers.
+Deploy anywhere
+SaaS, hybrid VPC, full VPC, or air-gapped on-premises. EU and AU regional endpoints available.
+Zero data retention
+Zero data retention policy available. 99.9%+ uptime SLA with dedicated enterprise support.
+Learn about enterprise readiness
+Documentation
+Comprehensive guides, API references, and configuration options for every endpoint.
+Browse docs
+API Reference
+Full OpenAPI spec with request/response schemas, error codes, and rate limits.
+View API reference
+Cookbooks
+Step-by-step guides for invoice extraction, contract review, multilingual processing, RAG pipelines, and more.
+Explore cookbooks
+Blog
+Engineering deep dives, product announcements, benchmarks, and best practices from the Reducto team.
+Read the blog
+Cookbook library
+Browse ready-to-use templates and recipes for building document workflows with Reducto.
+Browse cookbooks
+Compare
+See how Reducto compares with other document parsing and extraction tools.
+Read comparisons
+Search
+Ctrl K
+Search Reducto
+Search by title, description or content
+esc
+Try again

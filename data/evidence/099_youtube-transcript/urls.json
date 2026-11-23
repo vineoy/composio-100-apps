@@ -1,0 +1,77 @@
+{
+ "app": "YouTube Transcript",
+ "queries": [
+  "YouTube Transcript API authentication documentation",
+  "YouTube Transcript MCP server",
+  "YouTube Transcript API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://transcriptapi.com/docs/api/",
+  "https://yttranscript.ai/api-docs",
+  "https://www.youtubetranscript.dev/api-docs",
+  "https://transcriptapi.com/docs/"
+ ],
+ "search_hits": [
+  {
+   "title": "YouTube Transcript API Reference | TranscriptAPI.comAPI Documentation - YouTube Transcript API | YTTranscript.AIAPI Documentation - YouTube Transcript API | Creator ResearchTranscriptAPI Documentation | TranscriptAPI.comAPI Documentation | YouTube Transcript Generatoryoutube-transcript-api \u00b7 PyPIYouTube Transcript API Docs: Endpoints, Examples and Errors",
+   "href": "https://transcriptapi.com/docs/api/"
+  },
+  {
+   "title": "API Documentation - YouTube Transcript API | YTTranscript.AI",
+   "href": "https://yttranscript.ai/api-docs"
+  },
+  {
+   "title": "API Documentation - YouTube Transcript API | Creator Research",
+   "href": "https://www.youtubetranscript.dev/api-docs"
+  },
+  {
+   "title": "TranscriptAPI Documentation | TranscriptAPI.com",
+   "href": "https://transcriptapi.com/docs/"
+  },
+  {
+   "title": "API Documentation | YouTube Transcript Generator",
+   "href": "https://getyoutubetranscript.com/docs"
+  },
+  {
+   "title": "YouTube Transcript MCP Server - GitHub",
+   "href": "https://github.com/jkawamoto/mcp-youtube-transcript"
+  },
+  {
+   "title": "YouTube Transcript MCP Server - GitHub",
+   "href": "https://github.com/hancengiz/youtube-transcript-mcp"
+  },
+  {
+   "title": "MCP YouTube Transcript Server",
+   "href": "https://mcpservers.org/servers/lnmunhoz/mcp-youtube-transcript"
+  },
+  {
+   "title": "YouTube Transcript MCP Server \u2014 Connect Claude & ChatGPT",
+   "href": "https://youtube-transcript.ai/mcp"
+  },
+  {
+   "title": "YouTube Transcript MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/github-com-kimtaeyoon83-mcp-server-youtube-transcript"
+  },
+  {
+   "title": "YouTube Transcript API Pricing | TranscriptAPI",
+   "href": "https://transcriptapi.io/pricing"
+  },
+  {
+   "title": "YouTube Transcript API Pricing: Free, Lite, Basic, Pro ...",
+   "href": "https://www.youtubetranscript.dev/pricing"
+  },
+  {
+   "title": "YouTube Transcript API with Search, Channels & Playlists ...",
+   "href": "https://transcriptapi.com/"
+  },
+  {
+   "title": "6 YouTube Transcript APIs Compared (2026): Pricing, Limits, SDKs",
+   "href": "https://supadata.ai/blog/best-youtube-transcript-api"
+  },
+  {
+   "title": "YouTube Transcript API \u2014 Extract Transcripts, Search & Scrape ...",
+   "href": "https://transcriptapi.io/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:49:22.890871"
+}

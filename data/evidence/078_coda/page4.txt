@@ -1,0 +1,107 @@
+URL: https://coda.io/resources/guides/getting_started_with_coda_mcp
+FETCHED: 2026-11-23T22:29:04.707333
+VIA: direct
+
+Getting started with Superhuman Docs MCP | Guides
+Skip to content
+All resources
+Guides
+Courses
+Tips
+5 min read
+Getting started with Superhuman Docs MCP
+Let AI build, organize, and update real work inside your docs.
+With Superhuman Docs MCP (Model Context Protocol), your AI clients can move beyond chatting about work and start participating in it. No more copying and pasting data or switching tabs. Your AI works where your work already lives.
+Your agent can:
+Create docs and tables from simple descriptions.
+Turn rough notes into polished, shareable write-ups.
+Generate insights from your data and surface what matters most.
+You might paste a doc link into your AI client and ask:
+“Summarize the latest updates in this project table and create a weekly status report.”
+Your agent reads the table, generates a summary, and writes the update directly in your doc.
+What's covered:
+What Superhuman Docs MCP is and how it works
+Prompts that build real docs
+What to try first
+What you'll need:
+Access to Superhuman Docs MCP
+A few copy-and-paste prompts
+An AI client connected to the Superhuman Docs MCP
+If you can share a doc link and describe what you want, you can put your agent to work.
+When you use ChatGPT, Claude, Cursor, or similar clients, you’re already chatting with a powerful model.
+Connect your client to Superhuman Docs via MCP
+, and that model can act directly inside your workspace, creating docs, reading tables, or updating rows, all without leaving the conversation.
+Haven't set up Superhuman Docs MCP yet?
+Follow the step-by-step instructions in the guide for
+connecting the Superhuman Docs MCP
+.
+How Superhuman Docs MCP works
+Under the hood, Superhuman Docs runs an MCP server built on the open Model Context Protocol standard, giving AI clients tools to work directly in your docs. When you connect an AI client to Superhuman Docs MCP, the agent running inside that client gains access to those tools.
+From there, the process is simple. Share a doc link and describe what you want. Your agent determines which tools to use behind the scenes. It might read a page, analyze a table, or update content in your doc.
+You don’t need to choose actions manually. A clear prompt is enough, and the results appear directly in your doc.
+Quick terms
+AI client
+— The app where you chat with your AI (e.g., Claude, Cursor, or similar). This is where you share doc links and enter your prompts. The client connects to Superhuman Docs via MCP.
+Agent
+— The AI you’re chatting with inside that client. It reads your prompts, decides what to do, and uses MCP to act directly in Superhuman Docs.
+Superhuman Docs  MCP
+— Superhuman Docs' MCP server. It's Superhuman Docs' implementation of the open Model Context Protocol standard, which connects your agent to Superhuman Docs and gives it tools to act within your docs.
+What you can do with Superhuman Docs MCP
+Superhuman Docs MCP opens up a new way of working in docs.
+Instead of switching between tools or spending time manually setting up tables, rewriting notes, or piecing together information, you can describe the outcomes you want and let your agent handle the rest directly in your docs.
+The result is less manual work, fewer context switches, and more time spent moving work forward in your workspace.
+Here are three ways teams use Superhuman Docs MCP.
+1. Create docs and populate tables from scratch
+Sometimes the structure doesn’t exist yet, and that’s okay. This is exactly where Superhuman Docs MCP shines.
+You can build entire docs with structured tables using plain language. Describe the doc and the table you need, and your agent handles the rest.
+Your agent creates the doc, builds the table, and automatically populates it.
+It eliminates hours of manual work, ensures consistent structure, makes data accessible to all teammates, and turns unstructured information into systems you can actually use.
+Once your doc is created, keep going. You can ask your agent to refine the structure, clean up the data, or tailor the doc to your workflow.
+2. Transform scattered notes into polished write-ups
+You've probably had pages full of notes that made perfect sense yesterday.
+With Superhuman Docs MCP, rough notes don’t stay rough for long.
+You can turn bullet points, brainstorm fragments, or quick thoughts into a clearly organized doc with narrative flow, distinct headings, tables, and callouts.
+What starts as messy input can become something shareable, like a PRD, proposal, or strategy brief, without the heavy lifting.
+Paste a doc URL into your AI client and describe the outcome you want.
+Your agent will read the page, reorganize the content into structured sections, and update the doc directly.
+What used to be a rewrite becomes a quick edit.
+3. Ask questions about your data
+At some point, there are always questions about your data. The answers are technically there, but they might be buried in pages and tables and not easily visible.
+To get the answers, paste the doc URL into your AI client and ask your agent the questions directly.
+Your agent reads the relevant pages and tables, identifies patterns, aggregates results, and returns structured insights, often with supporting evidence.
+Analysis happens faster, patterns surface automatically, and the answers you get are grounded in your own work.
+Give it a try
+The fastest way to experience Superhuman Docs MCP is to start asking for what you need. Ask for something once, and you’ll see how quickly it comes together. You don’t need the perfect prompt, but a little clarity goes a long way.
+For example, instead of thinking about how to build a doc step by step, start with the outcome you want.
+Example prompt
+Create a team hub for my marketing team. Make it something we can use to stay organized, track work, and keep everyone aligned. Include example data and share the link when you are done.
+In one prompt, you go from nothing to a fully structured team hub, complete with data. You’re giving your agent an end goal and letting it figure out the structure. You’re also giving it useful context (a marketing team) and a clear expectation (organized, aligned, example data), which helps it make better decisions about what to create.
+If you want a different shape or style, you don’t need to start over. You can prompt it to keep going by saying something as simple as “
+beautify this doc.”
+Or be more specific, like “
+add a campaign tracking table”
+or
+“make this easier to scan for leadership.”
+The more specific you can be, the fewer follow-ups you’ll need.
+Try it with your own doc
+You can also start from something that already exists. Paste a doc URL into your AI client and describe what you want to happen. Here, the doc provides the context. You just define the outcome and, when helpful, what to focus on. For example:
+“Review everything in this doc and create a detailed action plan."
+“Summarize the top 3 themes from the tables and include examples from specific rows."
+“Turn this into a strategy brief with clear sections.”
+Now what?
+Now you have everything you need to get started with Superhuman Docs MCP. The rest comes from trying it on your own work and seeing how quickly you can turn ideas into structured, usable docs without the usual setup time.
+First, get started by
+connecting your AI tool of choice using this guide
+.
+Then, try one of these next:
+Build your doc with Superhuman Docs MCP
+and see how you can create pages and structured tables from a simple prompt.
+Check out how teams are using
+Superhuman Docs MCP in action
+.
+Learn how you can keep your MCP and AI safe with our
+MCP security guide
+.
+Was this helpful?
+Yes
+No

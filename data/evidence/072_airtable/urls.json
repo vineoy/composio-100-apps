@@ -1,0 +1,77 @@
+{
+ "app": "Airtable",
+ "queries": [
+  "Airtable API authentication documentation",
+  "Airtable MCP server",
+  "Airtable API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://airtable.com/developers/agents",
+  "https://support.airtable.com/articles/9897799762-using-the-airtable-mcp-server",
+  "https://airtable.com/developers/agents/mcp/getting-started",
+  "https://www.airtable.com/articles/mcp-server-interfaces-automations"
+ ],
+ "search_hits": [
+  {
+   "title": "airtable.com https://www.airtable.com",
+   "href": "https://www.airtable.com/"
+  },
+  {
+   "title": "airtable.com https://airtable.com \u203a login",
+   "href": "https://airtable.com/login"
+  },
+  {
+   "title": "zapier.com https://zapier.com \u203a blog \u203a what-is-airtable",
+   "href": "https://zapier.com/blog/what-is-airtable/?msockid=2bb2d10803316a651ef4c91202fd6b51"
+  },
+  {
+   "title": "airtable.com https://academy.airtable.com \u203a welcome-to-airtable",
+   "href": "https://academy.airtable.com/welcome-to-airtable"
+  },
+  {
+   "title": "wikipedia.org https://en.wikipedia.org \u203a wiki \u203a Airtable",
+   "href": "https://en.wikipedia.org/wiki/Airtable"
+  },
+  {
+   "title": "Using the Airtable MCP server",
+   "href": "https://support.airtable.com/articles/9897799762-using-the-airtable-mcp-server"
+  },
+  {
+   "title": "MCP server overview - Airtable Developers",
+   "href": "https://airtable.com/developers/agents/mcp/getting-started"
+  },
+  {
+   "title": "Airtable MCP Server: Build Interfaces & Automations",
+   "href": "https://www.airtable.com/articles/mcp-server-interfaces-automations"
+  },
+  {
+   "title": "airtable-mcp-server - npm",
+   "href": "https://www.npmjs.com/package/airtable-mcp-server"
+  },
+  {
+   "title": "GitHub - felores/airtable-mcp: Search, create and update ...",
+   "href": "https://github.com/felores/airtable-mcp"
+  },
+  {
+   "title": "Airtable API Pricing 2026: Free vs. Paid Tiers Explained",
+   "href": "https://ones.com/blog/airtable-api-pricing-2026-free-vs-paid-tiers-explained/"
+  },
+  {
+   "title": "Airtable Pricing | Compare Plans, Features & Costs",
+   "href": "https://airtable.com/pricing"
+  },
+  {
+   "title": "Airtable Web API",
+   "href": "https://airtable.com/developers/web/api/billing-plans"
+  },
+  {
+   "title": "Managing API call limits in Airtable",
+   "href": "https://support.airtable.com/articles/7735693959-managing-api-call-limits-in-airtable"
+  },
+  {
+   "title": "Airtable plans overview",
+   "href": "https://support.airtable.com/articles/2277136852-airtable-plans-overview"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:49:38.504117"
+}

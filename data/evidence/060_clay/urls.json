@@ -1,0 +1,77 @@
+{
+ "app": "Clay",
+ "queries": [
+  "Clay API authentication documentation",
+  "Clay MCP server",
+  "Clay API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.clay.com/public-api/authentication",
+  "https://university.clay.com/docs/http-api-integration-overview",
+  "https://developers.clay.com/quickstart",
+  "https://university.clay.com/docs/http-api-with-jwt-authentication-integration-overview"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Clay docs",
+   "href": "https://developers.clay.com/public-api/authentication"
+  },
+  {
+   "title": "HTTP API - Clay Docs",
+   "href": "https://university.clay.com/docs/http-api-integration-overview"
+  },
+  {
+   "title": "Quickstart - Clay docs",
+   "href": "https://developers.clay.com/quickstart"
+  },
+  {
+   "title": "Clay API Reference",
+   "href": "https://api.clay.cl/v2/reference"
+  },
+  {
+   "title": "HTTP API with JWT authentication - Clay Docs",
+   "href": "https://university.clay.com/docs/http-api-with-jwt-authentication-integration-overview"
+  },
+  {
+   "title": "Clay MCP Give reps the best prospecting data in their AI tools | clay.com",
+   "href": "https://www.clay.com/mcp"
+  },
+  {
+   "title": "What Is Clay MCP? Clay in Claude & ChatGPT (2026) | Clay",
+   "href": "https://www.clay.com/guides/clay-mcp"
+  },
+  {
+   "title": "Clay MCP Server",
+   "href": "https://clay-mcp.apps.ramousse.com/"
+  },
+  {
+   "title": "MCP in Clay - Clay Docs",
+   "href": "https://university.clay.com/docs/mcp-settings"
+  },
+  {
+   "title": "Clay MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/clay"
+  },
+  {
+   "title": "Compare plans, features & costs | Clay.com",
+   "href": "https://www.clay.com/pricing"
+  },
+  {
+   "title": "Clay Pricing 2026: Plans, Credits and 1M Record Cost",
+   "href": "https://leadocean.io/blog/clay-pricing"
+  },
+  {
+   "title": "Pricing Calculator | Clay.com",
+   "href": "https://www.clay.com/pricing-calculator"
+  },
+  {
+   "title": "Clay Pricing 2026: Plans, Credits and Hidden Costs",
+   "href": "https://webtechos.com/insights/clay-pricing"
+  },
+  {
+   "title": "Clay Pricing 2026: Plans, Credits and Real Cost per Record",
+   "href": "https://crustdata.com/reviews/clay"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:37:17.155968"
+}

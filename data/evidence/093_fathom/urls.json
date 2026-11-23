@@ -1,0 +1,77 @@
+{
+ "app": "Fathom",
+ "queries": [
+  "Fathom API authentication documentation",
+  "Fathom MCP server",
+  "Fathom API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.fathom.ai/api-overview",
+  "https://developers.fathom.ai/sdks/authentication",
+  "https://developers.fathom.ai/mcp-docs",
+  "https://usefathom.com/api/v1/authentication"
+ ],
+ "search_hits": [
+  {
+   "title": "Api overview - Fathom API",
+   "href": "https://developers.fathom.ai/api-overview"
+  },
+  {
+   "title": "Authentication - Fathom API",
+   "href": "https://developers.fathom.ai/sdks/authentication"
+  },
+  {
+   "title": "Fathom API",
+   "href": "https://api-docs.fathom.global/index.html"
+  },
+  {
+   "title": "Authentication \u00b7 Fathom Analytics API",
+   "href": "https://usefathom.com/api/v1/authentication"
+  },
+  {
+   "title": "API - Fathom Analytics",
+   "href": "https://usefathom.com/docs/features/api"
+  },
+  {
+   "title": "Overview - Fathom API",
+   "href": "https://developers.fathom.ai/mcp-docs"
+  },
+  {
+   "title": "Connect to Fathom's MCP server | Fathom Help Centre",
+   "href": "https://support.fathomhq.com/en/articles/17312058-connect-to-fathom-s-mcp-server"
+  },
+  {
+   "title": "Fathom MCP: Connect Claude & ChatGPT",
+   "href": "https://help.fathom.video/en/articles/11497793"
+  },
+  {
+   "title": "Fathom AI MCP Server - Connect Claude to Your Meetings",
+   "href": "https://fathom-mcp-server.com/"
+  },
+  {
+   "title": "GitHub - Dot-Fun/fathom-mcp: Model Context Protocol server ...",
+   "href": "https://github.com/Dot-Fun/fathom-mcp"
+  },
+  {
+   "title": "Fathom Pricing 2026: Free Plan or Plans from $15/mo",
+   "href": "https://www.fathom.ai/pricing"
+  },
+  {
+   "title": "Api overview - Fathom API - developers.fathom.ai",
+   "href": "https://developers.fathom.ai/api-overview"
+  },
+  {
+   "title": "Introduction - Fathom API",
+   "href": "https://developers.fathom.ai/"
+  },
+  {
+   "title": "Pricing - fathomhq.comFathom AI Pricing & API Plans | APIs.ioFathom APIFathom AI API \u2014 Docs, Pricing & OpenAPI | APIs.io",
+   "href": "https://www.fathomhq.com/pricing"
+  },
+  {
+   "title": "Fathom AI Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/fathom-ai/fathom-ai-plans-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:43:14.623235"
+}

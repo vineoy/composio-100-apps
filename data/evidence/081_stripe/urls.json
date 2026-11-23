@@ -1,0 +1,77 @@
+{
+ "app": "Stripe",
+ "queries": [
+  "Stripe API authentication documentation",
+  "Stripe MCP server",
+  "Stripe API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.stripe.com/api/authentication",
+  "https://docs.stripe.com/api",
+  "https://docs.stripe.com/stripe-apps/api-authentication",
+  "https://docs.stripe.com/apis"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication | Stripe API Reference",
+   "href": "https://docs.stripe.com/api/authentication"
+  },
+  {
+   "title": "API Reference - Stripe",
+   "href": "https://docs.stripe.com/api"
+  },
+  {
+   "title": "API authentication methods | Stripe Documentation",
+   "href": "https://docs.stripe.com/stripe-apps/api-authentication"
+  },
+  {
+   "title": "Stripe APIs | Stripe Documentation",
+   "href": "https://docs.stripe.com/apis"
+  },
+  {
+   "title": "OAuth 2.0 | Stripe Documentation",
+   "href": "https://docs.stripe.com/stripe-apps/api-authentication/oauth"
+  },
+  {
+   "title": "Model Context Protocol (MCP) | Stripe Documentation",
+   "href": "https://docs.stripe.com/mcp"
+  },
+  {
+   "title": "Stripe MCP | Stripe Apps",
+   "href": "https://marketplace.stripe.com/apps/stripe-mcp"
+  },
+  {
+   "title": "Monetize your Model Context Protocol (MCP) server | Stripe Documentation",
+   "href": "https://docs.stripe.com/agentic-commerce/monetize-mcp"
+  },
+  {
+   "title": "Stripe MCP Server - GitHub",
+   "href": "https://github.com/udaykapur/stripe-mcp-server"
+  },
+  {
+   "title": "MCP Registry | Stripe \u00b7 GitHub",
+   "href": "https://github.com/mcp/com.stripe/mcp"
+  },
+  {
+   "title": "Prices | Stripe API Reference",
+   "href": "https://docs.stripe.com/api/prices"
+  },
+  {
+   "title": "API Reference - Stripe",
+   "href": "https://docs.stripe.com/api"
+  },
+  {
+   "title": "Pricing & Fees - Stripe",
+   "href": "https://stripe.com/pricing"
+  },
+  {
+   "title": "API Call Pricing: How to Calculate and Manage Costs | Stripe",
+   "href": "https://stripe.com/resources/more/api-call-pricing"
+  },
+  {
+   "title": "Stripe API: pricing, free tier and alternatives \u00b7 ToolMango",
+   "href": "https://toolmango.com/apis/stripe-api"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:31:20.518394"
+}

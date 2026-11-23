@@ -1,0 +1,54 @@
+URL: https://www.mermaideditor.io/use-cases/api-documentation
+FETCHED: 2026-11-23T22:48:23.741353
+VIA: direct
+
+API Documentation Diagrams with Mermaid | Mermaid Editor
+Why Use Mermaid
+Sequence diagrams — Show exact request/response flow between services
+Auth flow documentation — Visualize OAuth, JWT, and session flows
+Error handling — Document error paths and retry logic visually
+Data model docs — ER diagrams alongside your API endpoints
+Stays in sync — Update diagrams in the same PR as API changes
+Example Diagram
+sequenceDiagram
+    participant C as Client
+    participant GW as API Gateway
+    participant Auth as Auth Service
+    participant API as REST API
+    participant DB as Database
+    participant Cache as Redis
+
+    C->>GW: POST /api/orders
+    GW->>Auth: Validate JWT
+    Auth-->>GW: Token valid
+
+    GW->>API: Forward request
+    API->>Cache: Check inventory
+    Cache-->>API: Cache miss
+
+    API->>DB: Query products
+    DB-->>API: Product data
+    API->>Cache: Update cache
+
+    API->>DB: Create order
+    DB-->>API: Order created
+
+    API-->>GW: 201 Created
+    GW-->>C: Order response
+Copy this code and paste it into the editor to see it rendered live.
+Try This Diagram Now
+Open the editor with live preview, autocomplete, and export to PNG, SVG, or PDF.
+Open Editor
+Frequently Asked Questions
+How do I show different HTTP methods?
+Can I show parallel requests?
+How do I document WebSocket connections?
+More Use Cases
+Database Schema Diagrams
+Visualize your database schema with Mermaid ER diagrams. Import SQL CREATE TABLE statements directly or write Mermaid syntax to define entities, attributes, primary keys, foreign keys, and relationships. Perfect for database design, documentation, and migration planning.
+Microservices Architecture Diagrams
+Document your microservices architecture with Mermaid flowcharts. Visualize service dependencies, API gateways, message queues, databases, and communication patterns. Diagrams as code means your architecture docs live alongside your code and stay up-to-date.
+CI/CD Pipeline Diagrams
+Document your CI/CD pipelines with Mermaid flowcharts. Visualize build stages, test suites, deployment environments, approval gates, and rollback procedures. Since Mermaid renders in GitHub, your pipeline docs live right next to your pipeline code.
+System Design Diagrams
+Visualize system designs with Mermaid for architecture reviews, technical interviews, and documentation. Use flowcharts for high-level architecture, sequence diagrams for data flows, and C4 diagrams for hierarchical decomposition. Text-based diagrams iterate faster than whiteboard drawings.

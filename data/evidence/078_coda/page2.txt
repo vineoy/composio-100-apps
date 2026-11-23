@@ -1,0 +1,134 @@
+URL: https://docs.coda.co/payout/integration-guides/getting-started/authentication-and-authorization
+FETCHED: 2026-11-23T22:29:04.699934
+VIA: direct
+
+Authentication and authorization | Coda
+For the complete documentation index, see
+llms.txt
+. Markdown versions of documentation pages are available by appending
+.md
+to page URLs.
+Skip to content
+English
+Explore our Products & Services
+ℹ️
+GENERAL INFORMATION
+🌐
+CODA PORTAL
+📳
+Payment Directory
+💳
+Codapay
+Overview
+Getting started
+Integration Guides
+Hosted Payment Page Integration
+Hosted Component Integration
+Direct API Integration
+In-App Payments
+Recurring Payments
+Refund a Payment
+Error Codes
+Codapay Integration FAQ
+📤
+PAYOUT
+Overview
+Integration Guides
+✅
+Getting Started
+Authentication and authorization
+How to generate the JWT token
+How to generate the x-signature
+Environments
+⚙️
+API Reference
+Payout Price Limits
+Codapay Payout FAQs
+CODA LINKS
+Overview
+Link users out to Coda-hosted Payment Page
+Link users out to Coda-powered Webstore
+Redirecting users from Coda Links back to your app
+🏪
+Coda Webstore
+Getting started
+Coda Webstore
+Coda Webstore Builder
+Commerce LiveOps
+Personalized Sales on Web Store
+Steps to Launch your Web Store
+Web Store Integration Guides
+Submit Web Store Inventory (SKUs)
+Bulk Upload Web Store Inventory (SKUs)
+User Login
+Coda Webstore Appendix
+Test transactions in webstore
+💎
+Codashop and Distribution
+Overview
+Steps to Launch your Title
+How it Works
+Integration Guides
+Add Your Title (App)
+Submit Your Title Content
+Submit Inventory (SKUs) Details
+Bulk Upload Inventory (SKUs)
+Personalized Sales
+Codashop Appendix
+📩
+Contact Us
+Powered by GitBook
+On this page
+Authentication guide
+The Payout API supports JWT and x-signature as the primary authentication mechanism. In order to make requests to our system, you will need to authenticate them. To do that, you need to include the following fields in the headers of all API requests:
+Content-Type
+X-API-Key
+Authorization
+x-signature
+The description of these parameters is provided in the table below:
+Parameter Name
+Description
+Required
+Validation / Example
+Content-Type
+Indicates the original media type of the resource
+Yes
+The value must be "application/json"
+X-API-Key
+Your API Key
+Yes
+X-API-Key: 9ezEvY3UZv72ouqeLnzeL45ylrbPdZ5C6Y3e2c1H
+Authorization
+JSON Web Token Generated based on header, payload, and signature.
+Refer to
+how to generate a JWT Token
+for more details.
+Yes
+Authorization:
+Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJhcGlLZXkiOiIzOWFhNmI5ZDhjNGZmYjFhOT
+QwM2I1MTQ2OWVmZDQ3ZSIsIm9yZGVySWQi
+OiIyMDIwMDMzMDE0MjYwMCIsImxhbmciOiJlb
+iIsIm1lcmNoYW50TmFtZSI6Iktva28gZUJvb2tzIiwi
+cGF5VHlwZSI6NSwicGF5Q2hhbm5lbCI6MzMyLC
+JwYXlQcm92aWRlciI6NTA2LCJpdGVtcyI6W3siY2
+9kZSI6IjEiLCJuYW1lIjoiT25lIERheSIsInByaWNlIjoxM
+H1dLCJpYXQiOjE1ODU3MDE3MzMsImNoZWNrc
+3VtIjoiZjQwZmM5ZTc0ZDY2MmRhZmY1MDc0MD
+NiZmM3YmEyOGUifQ.1vnmI6ayPNMHV9FNyx1
+x-signature
+To perform an integrity check,  signature value for checksum
+Refer to
+how to generate x-signature
+for more details.
+Yes
+pOsnb4LGor0/iOPsc/7ufSiQHslKkV6/iJ6c6tEpP3k=
+Previous
+Getting Started
+Next
+How to generate the JWT token
+Last updated
+1 year ago
+Was this helpful?
+Was this helpful?

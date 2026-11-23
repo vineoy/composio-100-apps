@@ -1,0 +1,137 @@
+URL: https://developers.cloudflare.com/fundamentals/api/get-started/create-token/
+FETCHED: 2026-11-23T17:40:07.872490
+VIA: direct
+
+Create API token · Cloudflare Fundamentals docs
+Skip to content
+Documentation Index
+Fetch the complete documentation index at: https://developers.cloudflare.com/fundamentals/llms.txt
+Use this file to discover all available pages before exploring further.
+Create API token
+Prerequisite
+Before you begin,
+find your zone and account IDs
+.
+Determine if you want a user token or an
+Account API token
+. Use Account API tokens if you prefer service tokens that are not associated with users and your
+desired API endpoints are compatible
+.
+From the
+Cloudflare dashboard
+↗︎
+, go to
+My Profile
+>
+API Tokens
+for user tokens. For Account Tokens, go to
+Manage Account
+>
+API Tokens
+.
+Select
+Create Token
+.
+Add a token name to describe why or how the token is used.
+Select a template from the available
+API token templates
+or start from scratch. Templates include policies with predefined permissions. The following example uses the
+Edit zone DNS
+template.
+Create a policy to organize the token's permissions. Select a policy type (
+Account
+,
+User
+, or
+Zone
+), then select resource rules within the policy to specify which resources the permissions apply to, such as specific accounts or zones.
+Choose the permissions to grant within the policy. Most permissions offer
+Edit
+or
+Read
+access.
+Edit
+is full CRUDL (create, read, update, delete, list) access, while
+Read
+is the read permission and list where appropriate. For example,
+Zone DNS Read
+for
+example.com
+allows the token to read DNS records only for that zone. Refer to the
+available token permissions
+for more information.
+(Optional) Restrict how a token is used in the
+Token expiration
+and
+Client IP Address Filtering
+fields.
+Select
+Continue to summary
+.
+Review the token summary. Select
+Back
+to make adjustments. You can also edit a token after creation.
+Select
+Create Token
+to generate the token's secret.
+Copy the secret to a secure place.
+Warning
+The token secret is
+only shown once
+. Do not store the secret in plaintext where others can access it. Anyone with this token can perform the authorized actions against the resources that the token has access to.
+The token secret page also includes an example command to test the token. Use the
+/user/tokens/verify
+endpoint to fetch the current status of the given token.
+curl
+"https://api.cloudflare.com/client/v4/user/tokens/verify"
+\
+--header
+"Authorization: Bearer <API_TOKEN>"
+The result:
+{
+"result"
+: {
+"id"
+:
+"100bf38cc8393103870917dd535e0628"
+,
+"status"
+:
+"active"
+},
+"success"
+:
+true
+,
+"errors"
+: [],
+"messages"
+: [
+{
+"code"
+:
+10000
+,
+"message"
+:
+"This API Token is valid and active"
+,
+"type"
+:
+null
+}
+]
+}
+New API tokens use the
+cfut_
+prefixed
+scannable format
+, which allows credential scanning tools to detect leaked tokens.
+With this you have successfully created an API token and can start working with the Cloudflare API. After creating your first API token, you can create additional API tokens
+via the API
+.
+Was this helpful?
+Yes
+No
+On this page
+Docs

@@ -1,0 +1,156 @@
+URL: https://mermaid.ai/products/mermaid-api
+FETCHED: 2026-11-23T22:48:23.737463
+VIA: direct
+
+Mermaid API
+Products
+Solutions
+Pricing
+Community
+Open Source
+Docs
+Contact sales
+Contact sales
+Mermaid API · Open beta
+Let your agent draw.
+We make sure the diagram works.
+Mermaid diagrams for your code, agents and products. One API call.
+Send diagram code or a plain-language description. Get back a verdict, a rendered image, or a working diagram. No headless browser to host, no Mermaid version to track.
+Read the docs
+One key, from code to collaboration
+Validate
+Check diagram code before anyone sees it. If it is broken, you get the line, the column and a stable error code your program can act on.
+Render
+Turn diagram code into SVG, PNG or PDF, with any Mermaid theme, look and layout, including Mermaid's own premium layouts.
+Generate
+Describe a diagram in plain language and get valid Mermaid code back. Every result is checked before it reaches you.
+Repair
+Send broken diagram code and get working code back, checked the same way.
+Browse
+Find your Mermaid Chart projects and diagrams, then fetch a diagram by ID with its code, version and edit URL.
+Create
+Save valid diagram code in Mermaid Chart, in your default project or a project you choose. Get a diagram ID and edit URL back.
+Update
+Change a stored diagram's code or title by ID. The API validates code before saving; the last write wins.
+Share
+Invite someone with a share link. Recipients must log in; links default to View, last 30 days and are not revocable before use.
+Stored diagrams require a personal key and follow its owner's existing Mermaid Chart permissions, including team projects.
+Where Mermaid API fits
+AI agents and chat tools
+Language models write Mermaid well, but not perfectly. Validate what your model produced before your user sees it, repair it when it breaks, and render it to an image your chat or app can show.
+Docs and CI pipelines
+Render the diagrams in your docs to SVG, PNG or PDF at build time. Validate them in CI and fail the build on a broken diagram, before it ships.
+From program to teammate
+Offer diagrams in your product without running a browser farm. Create a stored diagram, keep its ID for later updates, and hand an edit URL or share invitation to a teammate.
+Diagrams from a description
+Turn a sentence into a first draft. "Alice says hello to Bob, as a sequence diagram" becomes working Mermaid code, ready to render or refine.
+One request. A real answer.
+Render
+Validate
+bash
+Copy
+curl https://api.mermaid.ai/v1/render \
+  -H "Authorization: Bearer $MERMAID_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"code": "flowchart TD\n  A[Start] --> B[Done]", "format": "svg"}' \
+  -o diagram.svg
+The response is the image itself, ready to write to disk.
+bash
+Copy
+curl https://api.mermaid.ai/v1/validate \
+  -H "Authorization: Bearer $MERMAID_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"code": "flowchart TD\n  A --> B\n  C ==>> D"}'
+json
+Copy
+{
+  "valid": false,
+  "diagramType": "flowchart-v2",
+  "error": {
+    "code": "ERR_DIAGRAM_INVALID",
+    "message": "Parse error on line 3: ...",
+    "details": { "line": 3, "column": 4 }
+  }
+}
+Not just "invalid": the exact line and column, so your agent can fix it.
+Mermaid is open source. Why use the API?
+Nothing to host
+Rendering Mermaid needs a headless browser. We run it, so you send one HTTP request.
+Always the latest Mermaid
+Including Mermaid's own layouts and themes, the day they ship.
+Answers a program can use
+Stable error codes with line and column, not a stack trace.
+Built by the Mermaid team
+The people who make Mermaid run the service.
+Built for programs, not people
+Self-describing
+An OpenAPI document and an llms.txt, so agents and code generators can find their own way around.
+Stable error codes
+Every failure has a documented code that will not change. Messages may improve; codes stay.
+Pin your Mermaid version
+Choose the Mermaid version a call uses, so a render does not change under you.
+Know your balance
+A free endpoint tells your program what it has left and what each call costs. Out of credits says "buy"; too fast says "wait".
+From sign-in to first diagram in a minute
+01.
+01.
+Sign in
+Use your Mermaid account at the console. Free accounts work.
+02.
+02.
+Create a key
+Name it after where it runs, like "CI" or "support bot".
+03.
+03.
+Send your diagram
+Diagram code, or a description of the diagram you want.
+04.
+04.
+Get your answer
+A verdict, an image, or working diagram code.
+Get an API key
+Free to start. Pay as you grow.
+Every Mermaid account, free ones included, comes with a monthly allowance of API credits. Costs depend on the operation and options; stored-diagram reads are free. Check the live API docs or the free balance endpoint for current costs. When your allowance runs out, buy more credits in the console. Your key never changes: it spends the allowance first, then the credits you bought.
+See pricing
+Current API costs
+Contact sales
+From your program to your team
+An agent drafts a diagram. Your team takes it from there in Mermaid Chart.
+Create and keep the ID
+Create a diagram in your default project or a chosen project. Keep the returned diagram ID to fetch or update it later.
+Open the editor
+Give a teammate the returned editUrl to open the diagram in Mermaid Chart with their existing permissions.
+Invite a collaborator
+Request a shareUrl when you want to invite someone. They must log in; invitations default to View, last 30 days and are not revocable before use.
+Stored-diagram docs
+Valid, rendered, and ready to ship.
+Give your code, your agents and your product diagrams that work.
+FAQ
+Have questions about Mermaid API? These should help.
+Contact sales
+What is Mermaid API, and how is it different from Mermaid?
+Mermaid is the open-source language and library that turns text into diagrams. Mermaid API is a hosted service that runs Mermaid for you: your program sends diagram code over HTTP and gets back a validation result, an image, or new diagram code.
+Do I need a Mermaid subscription?
+No. Any Mermaid account works, including a free one, and every account gets a monthly allowance of API credits. Paid plans include a bigger allowance.
+How does pricing work?
+Costs depend on the operation and options; stored-diagram reads are free. Your monthly allowance is spent first, then any credits you have bought. See the current costs in
+api.mermaid.ai/v1/docs
+; the free balance endpoint also returns your balance and endpoint costs. For high volume, contact sales.
+Which diagram types and output formats are supported?
+Every diagram type Mermaid supports (
+see the docs
+). Images come as SVG, PNG or PDF.
+What happens to my diagram code?
+Validate, render, generate and repair do not save a diagram in Mermaid Chart. Create and update explicitly persist diagrams in Mermaid Chart; Mermaid API keeps no copy of the diagram code. Rendered images are cached for up to a day, and you can turn caching off per request. Usage records hold counts and sizes, never your diagrams.
+Who can access and share stored diagrams?
+Use a personal key: it can read, overwrite and share diagrams according to its owner's existing Mermaid Chart permissions, including team projects. Organisation keys cannot use stored-diagram operations. Trust key holders with that access and revoke keys you no longer trust. An editUrl opens the editor; it does not grant access. Edit URL access follows existing permissions; a share link invites a recipient to View, Comment or Edit. Each share request returns a new shareUrl. Recipients must log in; invitations default to View, last 30 days and are not revocable before use. You cannot grant more access than the key owner has. See
+api.mermaid.ai/v1/docs
+for the full contract.
+Can I pin a Mermaid version?
+Yes. Each call can name the Mermaid version it should use, so your output stays the same until you choose to upgrade.
+Is it production-ready?
+Mermaid API is in open beta. You can build on it; breaking changes are announced in advance in the changelog, and there is no uptime guarantee yet.
+Where are the docs?
+At
+api.mermaid.ai/v1/docs
+, with examples, an OpenAPI document and an llms.txt for agents.

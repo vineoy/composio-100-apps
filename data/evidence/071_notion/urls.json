@@ -1,0 +1,77 @@
+{
+ "app": "Notion",
+ "queries": [
+  "Notion API authentication documentation",
+  "Notion MCP server",
+  "Notion API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.notion.com/guides/authorization/overview",
+  "https://developers.notion.com/reference/authentication",
+  "https://developers.notion.com/guides/mcp/overview",
+  "https://developers.notion.com/guides/mcp/get-started-with-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Authorization - Notion API",
+   "href": "https://developers.notion.com/guides/authorization/overview"
+  },
+  {
+   "title": "Authentication - Notion Docs",
+   "href": "https://developers.notion.com/reference/authentication"
+  },
+  {
+   "title": "API documentation Template | Notion MarketplaceUnderstanding the Notion REST API Documentation ... - ones.comNotion API Documentation Guide: Real Examples for 2026Create integrations with the Notion API | Notion HelpYour Ultimate Notion API Doc Reference for 2026 | NotionSender",
+   "href": "https://www.notion.com/templates/api-documentation"
+  },
+  {
+   "title": "Understanding the Notion REST API Documentation ... - ones.com",
+   "href": "https://ones.com/blog/understanding-the-notion-rest-api-documentation-authentication-and-rate-limits/"
+  },
+  {
+   "title": "Notion API Documentation Guide: Real Examples for 2026",
+   "href": "https://www.ainovixa.com/notion-api-documentation/"
+  },
+  {
+   "title": "Connect AI assistants to Notion with MCP",
+   "href": "https://developers.notion.com/guides/mcp/overview"
+  },
+  {
+   "title": "Connect Notion to your AI assistant with MCP",
+   "href": "https://developers.notion.com/guides/mcp/get-started-with-mcp"
+  },
+  {
+   "title": "Connect AI tools with Notion MCP | Notion Help",
+   "href": "https://www.notion.com/help/notion-mcp"
+  },
+  {
+   "title": "Connect MCP servers to your Notion Agent",
+   "href": "https://www.notion.com/help/connect-mcp-servers-to-your-notion-agent"
+  },
+  {
+   "title": "notion-mcp-server - npm",
+   "href": "https://www.npmjs.com/package/notion-mcp-server"
+  },
+  {
+   "title": "notion.com https://www.notion.com",
+   "href": "https://www.notion.com/"
+  },
+  {
+   "title": "notion.com https://app.notion.com",
+   "href": "https://app.notion.com/"
+  },
+  {
+   "title": "notion.com https://app.notion.com \u203a signup",
+   "href": "https://app.notion.com/signup"
+  },
+  {
+   "title": "notion.com https://www.notion.com \u203a desktop",
+   "href": "https://www.notion.com/desktop"
+  },
+  {
+   "title": "notion.so https://mobile.www.notion.so \u203a community",
+   "href": "https://mobile.www.notion.so/community"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:46:34.275295"
+}

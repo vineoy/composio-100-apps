@@ -1,0 +1,77 @@
+{
+ "app": "Coda",
+ "queries": [
+  "Coda API authentication documentation",
+  "Coda MCP server",
+  "Coda API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.coda.co/codapay/archived-tokenization-api-2.0/security-and-authentication",
+  "https://docs.coda.co/payout/integration-guides/getting-started/authentication-and-authorization",
+  "https://docs.superhuman.com/developers/apis/v1",
+  "https://coda.io/resources/guides/getting_started_with_coda_mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Coda Authentication | APIs.io Security",
+   "href": "https://apis.io/security/coda/coda-authentication/"
+  },
+  {
+   "title": "Security and Authentication | Coda",
+   "href": "https://docs.coda.co/codapay/archived-tokenization-api-2.0/security-and-authentication"
+  },
+  {
+   "title": "Authentication and authorization | Coda",
+   "href": "https://docs.coda.co/payout/integration-guides/getting-started/authentication-and-authorization"
+  },
+  {
+   "title": "Learn to authenticate with an API using OAuth2 - Coda",
+   "href": "https://coda.io/packs/build/latest/tutorials/build/oauth/"
+  },
+  {
+   "title": "Coda API | Documentation | Postman API Network",
+   "href": "https://www.postman.com/codaio/coda-workspace/documentation/0vy7uxn/coda-api"
+  },
+  {
+   "title": "GitHub - orellazri/coda-mcp: MCP Server for Coda \u00b7 GitHub",
+   "href": "https://github.com/orellazri/coda-mcp"
+  },
+  {
+   "title": "Getting started with Superhuman Docs MCP | Guides - Coda",
+   "href": "https://coda.io/resources/guides/getting_started_with_coda_mcp"
+  },
+  {
+   "title": "Coda MCP Server - GitHub",
+   "href": "https://github.com/bluestemso/coda-io-mcp"
+  },
+  {
+   "title": "Coda MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/orellazri/coda-mcp"
+  },
+  {
+   "title": "Coda MCP Server - gamut.so",
+   "href": "https://www.gamut.so/mcp/project-management/coda"
+  },
+  {
+   "title": "Coda Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/coda/coda-plans-pricing/"
+  },
+  {
+   "title": "Coda Pricing: Codapay Fees, Webstore & Distribution Rates",
+   "href": "https://www.coda.co/pricing/"
+  },
+  {
+   "title": "Coda Project Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/coda-project/coda-project-plans-pricing/"
+  },
+  {
+   "title": "Coda Pricing Tiers & Costs - The Digital Project Manager",
+   "href": "https://thedigitalprojectmanager.com/tools/coda-pricing/"
+  },
+  {
+   "title": "Coda Pricing 2026: Real Costs and How to Choose Your Plan",
+   "href": "https://www.zite.com/blog/coda-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:29:04.708666"
+}

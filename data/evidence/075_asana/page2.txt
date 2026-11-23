@@ -1,0 +1,21 @@
+URL: https://developers.asana.com/docs/api-features
+FETCHED: 2026-11-23T22:28:26.021563
+VIA: direct
+
+API
+For AI agents: the docs index is at https://developers.asana.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+The Asana API is a RESTful interface, providing programmatic access to much of the data in the system. It provides predictable URLs for accessing resources, and uses built-in HTTP features to receive commands and return responses. This makes it easy to communicate from a wide variety of environments: apps, command-line utilities, gadgets, and even the browser URL bar itself.
+The API accepts JSON or form-encoded content in requests and returns JSON content in all of its responses, including errors. Only UTF-8 character encoding is supported for both requests and responses.
+How documentation is structured
+Documentation on this site is divided into two major sections:
+Guides: Contextual information, guides, and tutorials regarding API usage
+Guides for API include how to work with opt fields (input/output options), pagination, handling errors, rate limits, working with custom fields, storing external data, working with rich text, SCIM, Audit log events, and deprecations
+API reference
+: A comprehensive reference for objects, schemas, and endpoints available in the API
+You may navigate between both sections at any time using the navigation bar above.
+Updated
+about 1 year ago
+Did this page help you?
+Yes
+No
+Copy Page

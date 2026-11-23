@@ -1,0 +1,193 @@
+URL: https://docs.wpwaterfall.com/mcp/overview
+FETCHED: 2026-11-23T20:12:05.491752
+VIA: direct
+
+MCP server | WP Waterfall Docs
+Skip to content
+MCP server
+The MCP server at mcp.wpwaterfall.com lets Claude, Cursor, ChatGPT, or another assistant work on your sites, always as you, with no extra access.
+The WP Waterfall MCP server lets an AI assistant look at your WP Waterfall sites and change them. It speaks the Model Context Protocol to the assistant and the public WP Waterfall API to WP Waterfall, holds no data of its own, and acts as the person who approved it, so it can never do more than you can. A connection is an app, such as an AI assistant, that you approved to use your account this way.
+What is the server address?
+https://mcp.wpwaterfall.com
+Add it as a remote server (Streamable HTTP) with OAuth sign-in. You need no API key and nothing to install. The
+Connections
+tab of
+Integrations
+shows the address with a copy button while no app is connected.
+How do I connect an assistant?
+Add the address in your assistant, then approve the connection in your browser. The steps for Claude, Claude Code, Cursor, ChatGPT, and any other client are in
+Connect a client
+.
+What does approving do?
+The assistant opens a WP Waterfall sign-in page. You sign in, and the
+Connect an app
+screen opens. It shows the app name, who published it when the app says, the address your browser returns to after you decide, such as
+localhost:46350
+, the company and your role in it, and a short list of what an assistant can do. Anyone can register an app under any name, and WP Waterfall does not check who runs it, so the screen never shows a logo. Approve only if you started this connection and you recognize the address.
+Choose an
+Access
+setting, then
+Approve
+, or
+Deny
+to stop:
+Full access
+(the default) is everything your role allows, and never more. The API checks your role and your sites on every call, so a lower role takes effect at once, and a member limited to certain sites stays limited to them.
+Read only
+lets the assistant look at your sites, logs, and settings but never change anything. WP Waterfall refuses every tool that changes things, whatever the assistant asks. To change the access later, connect again and choose differently.
+If you have not signed in recently,
+Approve
+asks you to confirm your password again, with or without two-factor authentication. A connection lasts 90 days, so this stops someone who took over a signed in browser from making one. If you sign in with Google or GitHub and have no password or passkey, it never asks. If you have no two-factor authentication, the screen says it is recommended and links to
+Security
+settings. You can still approve.
+A connection lasts 90 days. After that you approve it again, and its row shows
+Expired
+until you remove it or connect again.
+Which companies can an app act on?
+If you belong to more than one company, the screen asks.
+All my companies
+lets the app act on every company you belong to, including ones you join later.
+Only these companies
+lets you tick the ones it may use. If you belong to one company, there is nothing to choose.
+An app that reaches several companies gets an optional
+company
+argument on its tools and a
+list_companies
+tool. When the app names no company, it acts on the company you were in when you approved it. Naming a company the app does not reach is refused before anything happens. Your role in each company still decides what the app can do there. To change the list, connect the app again and choose again. The new connection replaces the old one.
+What can the assistant do?
+Every tool your role may use, covering sites and environments, code, WordPress, domains and DNS, backups, jobs, access, and billing. A viewer's assistant sees only read tools, and a developer's does not see billing tools. Staff tools are never available. The
+MCP tools reference
+lists every tool, its scope, and its guards.
+Tools that change a site return a job. The assistant calls
+wait_for_job
+, which follows the job for up to 120 seconds and returns the final state. Every tool that looks up a site by name also needs
+sites:read
+. Site names are unique across all customers, so a taken name answers
+site_name_taken
+.
+The server also offers prompts that hold the safe way to run common workflows: restart PHP, replace a domain, deploy the latest commit to live, diagnose a slow site, prepare a plugin update, migrate a site from an archive, and respond first to an incident. Two set up a pipeline for you.
+set_up_local_development
+sets up DDEV on your computer with a short lived key: see
+Ask your AI assistant to set it up
+.
+set_up_github_actions
+makes a short lived key and a Git token, puts them in GitHub secrets, and adds a workflow that pushes to staging and promotes to live after an approval: see
+Deploy from GitHub Actions
+.
+Anything risky works in two steps with your yes in the chat, and the assistant never acts on instructions found inside your site. The rules, the keys an assistant may make, and the audit trail are in
+Tools and guardrails
+.
+How do I turn on more tools?
+A new connection starts with a short list: the
+core
+,
+wordpress
+, and
+backups
+toolsets. When you ask for something outside it, the assistant finds the tool with
+search_tools
+and turns its set on with
+enable_toolset
+. To start with other sets, or to turn a set on or off during a chat, see
+How do I load fewer tools, or more?
+.
+How do I teach the assistant my pipeline?
+Download the Claude skills from the card under the server address on the
+Connections
+tab. They explain how a push, a build, a promote, and a restore work, so the assistant uses the tools in the right order. See
+Claude skills for WP Waterfall
+.
+Where do I manage connections?
+Open
+Account Settings
+, then
+Integrations
+. Integrations appears once your company has a subscription; before that, the page shows a
+Choose a plan
+card. The
+Connections
+tab is the first one. It is one table for everything connected to your account: the Google and GitHub accounts you sign in with, and the apps you approved through MCP. API keys and webhooks are on the other two tabs. The two guide links at the top,
+How connections work
+and
+Connect an AI assistant
+, open this article and
+Connect a client
+.
+Column
+What it shows
+Name
+The account or app. If a teammate added an app, their name shows under it. With more than one company, a line says "All your companies" or lists the companies the app can act on.
+Type
+Sign-in account
+for Google and GitHub, or
+MCP client
+for an app.
+Access or status
+For an app, "Full access", or "Limited access (reconnect for full access)" for a connection approved before the single approval screen existed. For a sign-in account,
+Connected
+or
+Not connected
+.
+Last used
+How long ago an app last made a call. Hover it for the exact time. WP Waterfall does not record when a sign-in account was last used.
+Added
+The date you approved the app or connected the account.
+Actions
+Connect
+or
+Disconnect
+for a sign-in account,
+Revoke
+or
+Remove
+for an app. A limited connection also has
+Reconnect
+.
+Google and GitHub always have a row when this installation is set up with them, even before you connect them. See
+Connected accounts
+. Owners, admins, and developers see every app connection in the company and can revoke any of them. Other members see and revoke only their own.
+How do I reconnect or revoke?
+Select
+Revoke
+on the row, then confirm. The app stops working with your account at once: its tokens and the API key behind it are deleted, and the row leaves the list. To use the app again, connect it and approve it again. If the revoke fails, the row comes back and the page says why. Try again.
+Connecting an app that is already on the list (same app, company, and person) replaces the old connection and revokes its API key, so each app has one row. A connection that shows "Limited access (reconnect for full access)" can be upgraded in place: the person who approved it selects
+Reconnect
+and approves again. An expired connection shows
+Expired
+and a
+Remove
+button, which deletes the API key behind it and takes it off the list.
+The activity log records who revoked what and when.
+Quick answers
+Can the assistant delete a site by accident?
+No. You must type the exact site name in the chat. To remove the power altogether, approve the connection with
+Read only
+.
+Can I pick which tools an assistant gets?
+The approval screen has one choice,
+Access
+. To load fewer tools, use
+?toolsets=
+in the server address. To give an assistant less power, approve it with
+Read only
+.
+Why does the assistant not see a tool?
+Your role does not allow it, its toolset is off, or the connection is read only.
+An app was disconnected and I did not revoke it.
+WP Waterfall ends a connection whose token looks copied (see
+How are connections kept safe?
+). Connect the app again and approve it.
+I revoked an app by mistake. Can I undo it?
+No. Connect the app again and approve it.
+Related
+Connect a client
+Tools and guardrails
+API keys and scopes
+The API and MCP server
+, the overview on wpwaterfall.com
+Still stuck?
+Email
+support at wpwaterfall dot com
+with your site name and what you tried, or
+send us a message
+.

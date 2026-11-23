@@ -1,0 +1,89 @@
+URL: https://developers.asana.com/docs/authentication
+FETCHED: 2026-11-23T22:28:26.018884
+VIA: direct
+
+Authentication
+For AI agents: the docs index is at https://developers.asana.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+Asana’s API has several options for authenticating. The purpose of your app, who uses it, and its features will dictate the method of auth that’s best for your app. Here are the various authentication options and why you might want to use each of them.
+📘
+View only
+View only license users have limited access to the API. To check if a user has a view only license, use the
+get a workspace membership
+API endpoint.
+For more information on view only licenses, see this article in the
+Help Center
+.
+Personal access token
+A
+personal access token
+(PAT) is the quickest and simplest way to authenticate in the API. PATs are long-lived tokens allowing programmatic authentication to the API and should be stored securely. PATs provide the same authorization (i.e., permissions and level of access to Asana data) through the
+API
+as the user who generated them has in the Asana
+web product
+.
+Using a PAT is a good way to get started quickly with the API regardless of which auth type you end up using in production. If you are building a script or simple app that doesn’t need to support multiple users logging in, then using a PAT with your production app is a sufficient option.
+If your app needs more access to data than you have in Asana, then you should consider using a
+Service Account
+. You will likely want to use
+OAuth
+if your app needs to support multiple users signing in to use the app.
+PATs are generated in the
+developer console
+. See the
+PAT documentation
+for more information.
+PAT attribution
+If you generate a PAT from your Asana account, any API actions that are authenticated with your PAT will be attributed to you in the Asana web product. For example, if a script uses your PAT to authenticate an API request to comment on a task, the comment will appear to be made by you in the Asana app.
+If you prefer against having your app’s actions to be authored by you, then you should provision a new Asana user (or guest account) and then generate the PAT from this new account. This user will act as a "bot" account. You should give the account a name and photo that will make it clear to Asana users that an app is taking action and not a person. More details on this approach can be found in the
+Bots and scopes
+section of this guide.
+Service Account
+Similar to PATs,
+Service Accounts
+(SAs) are long-lived tokens that provide programmatic access to the API. Service Accounts are an
+Enterprise tier
+feature and can only be created by Asana super admins (see more about
+admin roles at Asana
+).
+Unlike PATs, SAs provide complete access to all data within your Asana account, including private user data. As such, SAs are ideal if your app needs to have org-wide authorization. Some common use cases include:
+Creating periodic data backups
+Automating programmatic management of your Asana account. For example:
+User management and access based on company's policies
+Administrative tasks like team member management
+Cleaning up inactive projects
+Standardizing the structure of objects in your domain (e.g., portfolios, projects, custom fields, etc.)
+Building integrations that require access to all Asana data
+Authenticating Asana API endpoints that require service accounts. For example:
+Audit log
+Organizational exports
+SCIM
+Instructions for Asana super admins to generate Service Accounts:
+Click the
+Apps
+tab from within the admin console
+Click
+Service Accounts
+Click the
+Add Service Account
+button
+📘
+Service Account Scopes
+To learn more about how Service Account scopes and how to configure them for your specific use case – check out our
+Service Account Scopes documentation
+OAuth
+OAuth is an open-standard authentication protocol that allows you to approve one application interacting with another on your behalf without providing your username and password. This is the best choice if multiple users need to sign in to your app.
+OAuth is more complex to implement than using token-based auth (i.e., PATs and SAs), but it offers more features and security. To implement OAuth, follow the detailed instructions in our
+OAuth documentation
+.
+OpenID Connect
+OpenID Connect (OIDC) is an open authentication protocol that works on top of the OAuth 2.0. The purpose of OIDC is for users to provide one set of credentials and access multiple sites.
+If you want to allow users to log into your app using their Asana account, the OpenID Connect protocol is a great way to have your apps users authenticate.
+See the
+OpenID Connect documentation
+for more information.
+Updated
+about 1 year ago
+Did this page help you?
+Yes
+No
+Copy Page

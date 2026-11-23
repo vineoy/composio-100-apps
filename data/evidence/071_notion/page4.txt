@@ -1,0 +1,536 @@
+URL: https://developers.notion.com/guides/mcp/get-started-with-mcp
+FETCHED: 2026-11-23T17:46:34.273069
+VIA: direct
+
+Connect Notion to your AI assistant with MCP
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+The easiest way to connect is through your AI assistant’s connector or plugin library. You can also browse available connections in Notion under
+Settings
+→
+Notion MCP
+.
+From your AI assistant
+Find Notion in your assistant’s connector or plugin library.
+From Notion
+Browse the directory in Notion’s settings.
+Manual setup
+Add Notion MCP using a server URL or client configuration.
+Connect from your AI assistant
+Open your AI assistant’s connector or plugin library and search for
+Notion
+. Select it and follow the prompts to authorize access to your Notion workspace.
+After you authorize the connection, your AI assistant can read and update content that you can access in the selected workspace.
+If Notion isn’t listed, check whether your assistant supports adding a custom MCP server and follow
+manual setup
+.
+Connect from Notion
+In Notion, open
+Settings
+→
+Notion MCP
+and browse the directory. Select your AI assistant and follow its connection instructions.
+Manual setup
+Use these instructions if you’re adding Notion as a custom MCP server or configuring a client directly. The remote server URL is
+https://mcp.notion.com/mcp
+.
+Codex
+Claude Code
+Cursor
+fx
+Hermes
+Devin
+Pi
+VS Code
+Antigravity
+Other MCP clients
+Codex (ChatGPT)
+Codex is OpenAI’s coding agent. See the
+Codex MCP documentation
+for more details.
+Install the
+Codex CLI
+before running the commands below. If you see
+command not found
+, make sure
+codex
+is on your
+PATH
+.
+1
+Add the Notion server to your Codex configuration at
+~/.codex/config.toml
+:
+[
+mcp_servers
+.
+notion
+]
+url
+=
+"https://mcp.notion.com/mcp"
+2
+Authenticate by running:
+codex
+mcp
+login
+notion
+Complete the OAuth flow to connect your Notion workspace.
+Project-level configuration
+To share the Notion MCP configuration with your team, create a
+.codex/config.toml
+file in your project root with the same server configuration.
+Claude Code
+Claude Code is Anthropic’s agentic coding tool for the terminal. See the
+Claude Code MCP documentation
+for more details.
+Install
+Claude Code
+before running the command below. If you see
+command not found
+, make sure
+claude
+is on your
+PATH
+.
+Run this command in your terminal:
+claude
+mcp
+add
+--transport
+http
+notion
+https://mcp.notion.com/mcp
+Then authenticate by running
+/mcp
+in Claude Code and following the OAuth flow.
+Using --scope flag for different installation scopes
+--scope local
+(default): Available only to you in the current project
+--scope project
+: Shared with your team via
+.mcp.json
+file
+--scope user
+: Available to you across all projects
+Use the
+/mcp
+command to list and manage the MCP servers you have installed, and use the
+/context
+command to understand the context token usage of your current session, including the number of tokens used by each MCP server that’s enabled.
+Install the
+Notion plugin for Claude Code
+to add the MCP server, Skills, and slash commands for common Notion workflows.
+Cursor
+Cursor is an AI code editor that can connect to MCP servers. See the
+Cursor MCP documentation
+for more details.
+1
+Create a
+.cursor/mcp.json
+file in your project root:
+{
+"mcpServers"
+: {
+"notion"
+: {
+"url"
+:
+"https://mcp.notion.com/mcp"
+}
+}
+}
+2
+Open
+Customize
+in Cursor’s sidebar, then enable Notion and complete the OAuth flow to connect your workspace.
+Global configuration
+To configure Notion across all projects, add the same server configuration to
+~/.cursor/mcp.json
+:
+{
+"mcpServers"
+: {
+"notion"
+: {
+"url"
+:
+"https://mcp.notion.com/mcp"
+}
+}
+}
+fx
+fx is a CLI coding agent from Vercel Labs. See the
+fx MCP documentation
+for more details.
+1
+Start an interactive fx session:
+fx
+2
+Add the Notion server:
+/mcp
+add
+notion
+https://mcp.notion.com/mcp
+fx opens your browser to complete the OAuth flow. To sign in again later, run
+/mcp login notion
+.
+JSON configuration
+Add Notion MCP to
+~/.fx/mcp.json
+:
+{
+"mcpServers"
+: {
+"notion"
+: {
+"type"
+:
+"http"
+,
+"url"
+:
+"https://mcp.notion.com/mcp"
+}
+}
+}
+A running fx session picks up the change on your next prompt or
+/mcp
+command. Then run
+/mcp login notion
+.
+Hermes
+Hermes is a coding agent from Nous Research that can be extended with MCP servers. See the
+Hermes MCP documentation
+for more details.
+1
+Add the Notion server to
+~/.hermes/config.yaml
+:
+mcp_servers
+:
+notion
+:
+url
+:
+"https://mcp.notion.com/mcp"
+auth
+:
+oauth
+2
+Authenticate by running:
+hermes
+mcp
+login
+notion
+Complete the OAuth flow to connect your Notion workspace.
+Global configuration
+The
+~/.hermes/config.yaml
+configuration above applies to all projects for the current Hermes profile. See the
+Hermes configuration documentation
+for more details.
+Devin
+Devin is an AI software engineering agent that can connect to custom MCP servers. See the
+Devin MCP documentation
+for more details.
+1
+In Devin, go to
+Settings
+→
+Connections
+→
+MCP servers
+, then select
+Add a custom MCP
+.
+2
+Enter
+Notion
+as the server name, select
+HTTP
+as the transport, and set the server URL to:
+https://mcp.notion.com/mcp
+3
+Select
+OAuth
+as the authentication method. Choose
+Personal
+access for an individual connection, or
+Organization
+access to share the connection with your organization.
+4
+Save the server, then complete the OAuth flow when Devin prompts you.
+With
+Organization
+access, members share one authenticated connection. Use a Notion service account rather than a personal account, and have someone with the
+Manage MCP Servers
+permission complete the OAuth flow. With
+Personal
+access, each member authenticates their own Notion account.
+Pi
+Pi is an open-source, terminal-based coding agent. It uses the third-party
+Pi MCP Adapter
+to connect to MCP servers.
+1
+Install the adapter and restart Pi:
+pi
+install
+npm:pi-mcp-adapter
+2
+In Pi, run
+/mcp setup
+, then choose
+Notion
+to add the server.
+3
+Authenticate by running
+/mcp-auth notion
+and completing the OAuth flow to connect your Notion workspace.
+Global and team configuration
+To use Notion in every Pi project, add this configuration to
+~/.config/mcp/mcp.json
+. To share it with a team, commit the same configuration in a project-root
+.mcp.json
+; each teammate then completes the OAuth flow locally.
+{
+"mcpServers"
+: {
+"notion"
+: {
+"url"
+:
+"https://mcp.notion.com/mcp"
+,
+"auth"
+:
+"oauth"
+}
+}
+}
+VS Code (GitHub Copilot)
+Visual Studio Code supports MCP servers in its agent customization experience. See the
+VS Code MCP documentation
+for more details.
+1
+Create a
+.vscode/mcp.json
+file in your workspace:
+{
+"servers"
+: {
+"notion"
+: {
+"type"
+:
+"http"
+,
+"url"
+:
+"https://mcp.notion.com/mcp"
+}
+}
+}
+2
+Open the Command Palette (
+Cmd+Shift+P
+/
+Ctrl+Shift+P
+) and run
+MCP: List Servers
+3
+Start the Notion server and complete the OAuth flow when prompted
+User-level configuration
+To configure Notion MCP across all workspaces, run
+MCP: Open User Configuration
+from the Command Palette and add the server configuration there.
+Antigravity
+Antigravity supports MCP servers across its products. See the
+Antigravity MCP documentation
+for more details.
+We recommend connecting to Notion MCP as a custom server rather than using the pre-configured “Notion” connector in the Antigravity MCP gallery, which uses the deprecated
+notion-mcp-server
+package.
+1
+Follow the
+Antigravity instructions for connecting custom MCP servers
+and add the following to your
+mcp_config.json
+:
+{
+"mcpServers"
+: {
+"notion"
+: {
+"serverUrl"
+:
+"https://mcp.notion.com/mcp"
+}
+}
+}
+2
+Save the configuration. Antigravity will prompt you to complete the OAuth flow to connect your Notion workspace.
+Other MCP clients
+Add Notion as a remote MCP server with the Streamable HTTP transport and the URL
+https://mcp.notion.com/mcp
+.
+Migrate from the legacy SSE endpoint
+Notion will retire the legacy HTTP with Server-Sent Events (SSE) endpoint,
+https://mcp.notion.com/sse
+, on
+February 23, 2027
+. Update your client before that date.
+In your client’s Notion server settings, change the transport from SSE to Streamable HTTP and replace the URL with
+https://mcp.notion.com/mcp
+. Save the settings, sign in again if prompted, and check that the client lists Notion tools. If your client only offers SSE, update it to a version that supports Streamable HTTP.
+JSON configuration
+If your client accepts a JSON configuration, start with Streamable HTTP:
+Streamable HTTP
+STDIO (via mcp-remote)
+{
+"mcpServers"
+: {
+"notion"
+: {
+"url"
+:
+"https://mcp.notion.com/mcp"
+}
+}
+}
+{
+"mcpServers"
+: {
+"notion"
+: {
+"command"
+:
+"npx"
+,
+"args"
+: [
+"-y"
+,
+"mcp-remote"
+,
+"https://mcp.notion.com/mcp"
+]
+}
+}
+}
+Use the STDIO configuration if your client doesn’t support remote HTTP connections.
+Troubleshooting
+An enterprise policy blocks the connection
+An admin in your organization may restrict adding MCP servers. If you see an enterprise policy error, ask your admin whether Notion MCP is allowed in your AI assistant. Notion workspace owners can also manage access through
+admin controls
+.
+My MCP client doesn't support remote MCP servers
+Some MCP clients only support local stdio servers. You can still connect to Notion MCP using the
+mcp-remote
+bridge:
+{
+"mcpServers"
+: {
+"notion"
+: {
+"command"
+:
+"npx"
+,
+"args"
+: [
+"-y"
+,
+"mcp-remote"
+,
+"https://mcp.notion.com/mcp"
+]
+}
+}
+}
+As a last resort, you can run our
+open-source MCP server
+locally, though this package is no longer actively maintained.
+Authentication issues
+Complete the OAuth flow when prompted.
+Disconnect and reconnect the client. Look for
+Clear authentication
+or
+Disconnect
+in its MCP settings.
+Check your permissions in the Notion workspace that you’re trying to access.
+My MCP client isn't listed here
+See
+Other MCP clients
+for the Notion MCP endpoints and JSON configuration examples. If the client doesn’t support MCP, contact its developer.
+FAQs
+Can I use Notion MCP without interactive authorization?
+Yes, on Business and Enterprise plans. A workspace owner can create an MCP token with
+New MCP token
+in the Developer portal. The MCP client sends the token as a bearer token to
+https://mcp.notion.com/mcp
+, with no browser sign-in.
+Enterprise workspaces that use SAML SSO can also use
+enterprise-managed authorization
+, where the company’s identity provider grants access without a consent screen.
+Which Notion plans can use Notion MCP?
+Notion MCP works on every plan. Some features depend on the workspace’s plan:
+MCP tokens
+: Business and Enterprise. Only workspace owners can create them.
+Enterprise-managed authorization
+: Enterprise, with SAML SSO.
+Connected-source search
+with
+notion-connector-search
+: Business or Enterprise with Notion AI.
+notion-search
+searches Notion on every plan.
+Database queries
+with
+notion-query-data-sources
+: querying a saved view works on every plan. SQL queries are unlimited on Business or Enterprise with Notion AI. Other plans get a limited number of SQL queries on one data source at a time.
+Some search filters
+, such as last edited by and last edited date: Business and Enterprise. On other plans these filters are dropped, and the result says so.
+Request limits
+: higher on Business and Enterprise. See
+rate limits
+.
+Can workspace guests use Notion MCP?
+No. Only workspace members can connect Notion MCP. A guest who tries to connect sees a message that guests can’t connect, and Notion refuses the authorization.
+Does Notion MCP support file uploads?
+Yes. Use the
+notion-create-file-upload
+tool
+to upload images and other files up to 20 MiB. Workspace file-size limits still apply.
+The tool returns a short-lived upload URL and the headers and form field that the MCP client must use to send the file. After the upload succeeds, pass the response’s
+suggested_markdown
+directly to
+notion-create-pages
+or
+notion-update-page
+, or include it on a separate line in
+notion-create-comment
+markdown to attach the file. For larger files, use the
+file upload API
+.
+What's the difference between Notion MCP and the open-source server?
+Notion MCP
+(
+https://mcp.notion.com/mcp
+) is our hosted, actively maintained server. It supports OAuth authorization and MCP tokens, and requires no infrastructure setup.
+The
+open-source server
+(
+notion-mcp-server
+) is no longer actively maintained. It authenticates with an integration token and requires you to manage your own connection and deployment.
+For most users, we recommend Notion MCP.
+I'm building my own MCP client
+If you’re integrating Notion MCP into your own application, see
+Build an MCP client for Notion
+for OAuth
+and connection requirements.

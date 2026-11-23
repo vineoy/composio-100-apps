@@ -1,0 +1,57 @@
+URL: https://grain.com/release-note/06-18-2025
+FETCHED: 2026-11-23T22:50:43.594047
+VIA: direct
+
+Official Grain MCP Server | Grain
+Official Grain MCP Server
+Announced:
+June 18, 2025
+Mike Adams
+‍
+Grain's official MCP server is available now for all users! 🎉
+‍
+With Grain's new MCP server you can securely access your meetings, notes, transcripts, deals, & coaching scorecard data natively using Anthropic's new Claude Integrations (ChatGPT coming soon), or using
+mcp-remote
+in Cursor, Windsurf and other clients.
+‍
+In addition to being able to ask any prompt in Cluade with Grain data, the server includes built-in MCP Prompts to run one-click reports like:
+📣 Weekly "Voice of the Customer" reports to track sentiment & requests
+📊 Pipeline IQ analysis to identify high opportunity & at-risk deals
+🌶️ SPICED/MEDDICC reports to deeply understand a deal across meetings
+🗣️ Sales Skill Scorecards to eval and track our team's performance over time
+Check the demo and
+quick-start guide
+to get set up in less than 60 seconds.
+Best,
+Mike
+‍
+60 Second Set-up Instructions
+‍
+Native Integration Details:
+Integration Name:
+Grain
+‍
+Integration URL:
+https://api.grain.com/_/mcp
+‍
+Mangual Config via
+mcp-remote
+:
+{ "grain": { "command": "npx", "args": ["-y", "mcp-remote", "https://api.grain.com/_/mcp"] } }
+‍
+Start today, for free.
+Get Grain
+On this page
+Link
+Try Grain today. It’s free forever.
+Capture every meeting. Enrich your transcripts. Feed your AI.
+Transcribe and summarize meetings, no bots required.
+14-day free trial
+Free and paid seats
+Cancel anytime
+Get started free
+Book a demo
+Try for free
+Learn more
+Start a 14-day free Trial
+97% of teams stay on Grain after 12 months.

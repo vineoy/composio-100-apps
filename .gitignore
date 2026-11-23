@@ -10,3 +10,8 @@ venv/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# scratch / run logs
+data/*.log
+scratch_*.py
+*.tmp

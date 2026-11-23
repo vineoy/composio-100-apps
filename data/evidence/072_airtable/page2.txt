@@ -1,0 +1,224 @@
+URL: https://support.airtable.com/articles/9897799762-using-the-airtable-mcp-server
+FETCHED: 2026-11-23T17:49:38.497705
+VIA: direct
+
+Using the Airtable MCP server | Airtable Help Center
+Contact support
+Sign up for free
+Using the Airtable MCP server
+Last updated 13 days ago
+Plan availability
+All plans
+Permissions
+Your MCP permissions mirror the same
+permission level(s)
+that you have have been granted in Airtable.
+Owner
+,
+Creator
+, or
+Editor
+- Can set up OAuth integrations and manage MCP access. Can read and update records they have permission to access.
+Additionally, workspace owners or creators can create new bases via MCP. Note that base-level creator permissions will not be able to create a new base.
+Commenter
+or
+Read-only
+- Can read data via MCP for bases they have access
+Platform(s)
+Works with AI assistants that support Model Context Protocol (Claude, ChatGPT, and other MCP-compatible tools)
+Airtable’s MCP server lets you connect AI tools directly to your Airtable bases. This integration allows you to ask questions about your data, create and update records, and analyze information—all through natural conversation with AI tools like Claude, ChatGPT, Cursor, and more.
+Setup instructions, client quickstart guides, and full technical documentation are available at
+Airtable developer docs: MCP server overview
+. Start there to connect Claude, ChatGPT, Claude Code, Cursor, or any other MCP-compatible tool.
+What is Model Context Protocol (MCP)?
+Model Context Protocol (MCP) is an open standard that allows AI tools to securely connect to external data sources. With MCP, AI tools can query your Airtable data, perform actions on your behalf, and present structured information—all while respecting your existing permissions and security settings.
+What you can do with MCP?
+The Airtable MCP Server enables several types of interactions between your AI tools and your data. Below is a brief list of capabilities, but you can
+find more information in the developer docs here
+.
+Search and analyze data
+- "Show me all customers from our CRM base who haven't been contacted in the last 30 days."
+Create records
+- "Add these 5 new project tasks to my 'Project Tracker' base."
+Update existing records
+- "Update the status of task #123 to 'Complete'."
+Create bases
+- "Create a new base called 'Q3 Campaign Tracker' in my Marketing workspace."
+Access interface data
+- "Show me the records from the 'Q1 Pipeline' page." (This works even with interface-only permissions, on supported page layouts)
+Create interfaces and interface pages
+- "Create an interface page to track my open tasks."
+Read and edit record detail pages
+- "Add the Owner and Due date fields to the record detail page on my 'Q1 Pipeline' page, and group them under 'Ownership'."
+Create and edit custom elements
+- "Build me a modern, sleek visual read out of the weekly data for our team's sprints from the 'Sprint' table."
+Build forms
+- "Create one form to intake feedback from an internal audience and another one from an external audience in the 'Product feedback' table."
+Submit forms on your behalf
+- "I found a bug in our software. I've attached screenshots and several logs of the issue, use that to file the request on my behalf to this form: {Insert a link to the Airtable form here}."
+Work with automations
+- “What automations are configured in my 'Project Tracker' base?”
+MCP prerequisites
+Before setting up the Airtable MCP Server, you'll need:
+An MCP-enabled Host (Claude, ChatGPT, Cursor, etc)
+Data stored in Airtable bases
+Permission to use third-party integrations in your Airtable organization (if you don’t have permission, an Airtable admin at your organization may need to allow-list a new integration)
+Tips for optimal MCP usage
+Get the most out of your MCP integration with these tips:
+Be specific
+: When asking about data, mention the base name or describe what you're looking for clearly
+Use natural language
+: You don't need to know field names or table IDs—describe what you want in plain English. Sometimes you may want to describe the base in more detail before asking for data from a table.
+Check permissions
+: If you can't access certain data via MCP, verify that you have the appropriate permissions in Airtable.
+Think about what data you’re giving your AI tool
+: Your tool will be able to read and make edits to your Airtable data on your behalf. Make sure you trust the tools you’re using or any other data sources you connect to.
+Setting up a quick MCP connection
+All setup paths—pre-built connectors, plugins, manual OAuth configuration, and personal access tokens—are documented in the developer docs:
+MCP server overview and setup
+Claude quickstart steps
+Claude Code quickstart steps
+ChatGPT quickstart steps
+Before setting up, you'll need an MCP-enabled AI tool, data stored in Airtable bases, and permission to use third-party integrations in your Airtable organization. If you don't have permission, an Airtable admin may need to allowlist the integration—
+see the FAQs below
+.
+Managing your MCP integration
+After setup, you can control which bases your AI assistant can access:
+Go to your
+third-party integrations page
+.
+Alternatively, click your user profile in Airtable, then click
+Integrations
+and
+Third-party integrations
+.
+Select your MCP integration.
+Add or remove bases and apps as needed. You can also add apps where you have interface-only access.
+Limitations and dependencies
+Keep these limitations in mind while using the MCP Server:
+Rate limits
+: MCP server calls are subject to standard
+Airtable API rate limits
+.
+Batch size
+: Creating records is limited to 10 records per request.
+Change policy
+: Tool names, behaviors, and capabilities may change
+Permission requirements
+: The MCP server respects your existing Airtable permissions—you can only access data you normally have permission to view or modify.
+Third-party integrations
+: If you are an enterprise user and your admin has enabled restrictions on third-party integrations, they'll need to allowlist the MCP integration.
+Automation activation
+: MCP can create and update automation drafts, but turning an automation on (deploy) is done in the Airtable UI.
+Automations with Script actions
+: MCP can create and update automation drafts, but automations containing a Script action can't be created or edited via MCP. You will need to add or modify Script actions directly in the Airtable UI.
+Interface filters
+: MCP can't add filters to an Interface (for example, a Current User filter). You will need to configure Interface filters directly in Interface Designer.
+Editing existing Interfaces
+: Some page types, including inbox and legacy layouts, can only be edited in Interface Designer by a user, manually.
+MCP can edit pages in an existing Interface directly. It can change settings on grid, list, kanban, calendar, gallery and timeline pages, and it can edit dashboards, standalone forms and record detail pages.
+On record detail pages it can add or remove fields, add groups, change the title field and how fields are displayed, and make the page read-only.
+To make bigger structural changes to an interface page, such as changing its type, replace its layout through MCP or use Interface Designer.
+Interface page layouts
+: The page-read tools support most, but not all, interface page layouts. If a page's layout isn't supported yet, the request fails, and your AI assistant may report that no matching records were found rather than that the page type isn't supported.
+Ask for a record list or grid page sourced from the same data, or ask a base Owner or Creator to grant you read-only base access so your assistant can use the table and view tools instead.
+Troubleshooting MCP connection problems
+If your AI tool can't connect to the Airtable MCP server, work through the checks below before contacting support.
+Your client reports "authentication required" and lists no tools
+Your client reached the server but hasn't finished the OAuth login. Run your client's MCP login command and complete the Airtable authorization in your browser. If the authorization page returns an error instead, see the next section.
+Authorization fails with "
+invalid client_id or mismatched redirect_uri
+"
+The full error reads: "
+This third-party app failed to properly construct a request to Airtable: invalid client_id or mismatched redirect_uri
+."
+Some MCP clients register themselves with Airtable using Client ID Metadata Documents (CIMD) rather than dynamic client registration, and that path can be rejected at authorization. Airtable's OAuth metadata advertises a dynamic client registration endpoint, so telling your client to use dynamic client registration resolves the error.
+In Codex CLI, force dynamic client registration when you log in:
+codex mcp login airtable --oauth-client-registration dcr
+In other clients, look for an equivalent OAuth setting that selects dynamic client registration — sometimes labeled DCR — as the registration method. If your client doesn't expose that option, connect with a personal access token instead; see the
+MCP server overview
+in the developer docs.
+This workaround was reported against Codex CLI 0.166.0 on macOS. Other clients and operating systems may name the setting differently.
+Your client isn't one of the documented quickstarts
+The developer docs carry step-by-step quickstarts for a few clients, but any tool that supports remote MCP servers over HTTP can connect. Point it at the server URL
+https://mcp.airtable.com/mcp
+and choose OAuth as the authentication method, then follow the error guidance above if authorization fails.
+Your admin hasn't allowlisted the integration
+If your organization restricts third-party integrations, the MCP integration must be allowlisted before you can connect. See "How can admins enable a blocked MCP integration?" in the FAQs below.
+If the connection still fails after these steps, see
+Troubleshooting disconnected OAuth integrations in Airtable
+.
+FAQs
+Can I use MCP with any base I have access to?
+If you have base-level access, you can use MCP to access the data stored within that base. The MCP server respects your existing Airtable permissions. If you have read-only or comment-only access to a base, you'll be able to read that data via MCP, but you won't be able to create or update records.
+What AI assistants work with Airtable's MCP Server?
+Any AI assistant that supports the Model Context Protocol can connect to Airtable's MCP Server. This includes Claude, ChatGPT, and other MCP-compatible tools. Check your AI assistant's documentation to confirm MCP support.
+How do I revoke access if I no longer want my AI assistant to access my bases?
+Navigate to your user profile > Integrations > Third-party Integrations, find the MCP integration, and either remove specific bases or delete the integration entirely.
+Does using MCP count against my Airtable limits?
+MCP uses our public API under the hood and will count against any existing API rate limits. Any records created using MCP will count against existing base limits.
+Can I use MCP to access Airtable Interfaces?
+Yes, for supported page layouts. If you have interface-only access to a base, you can use MCP to discover your interface pages (
+list_pages_for_base
+), list records shown on a page (
+list_records_for_page
+), and drill into record details (
+get_record_for_page
+). The data returned respects the same permissions as your interface—you'll only see data that your interface pages make available to you. Not every interface page layout is supported yet. If a page's layout isn't supported, the request fails and your assistant may say that no matching records were found. See "
+Limitations and dependencies
+" above.
+What happens if I try to update a field I don't have permission to modify?
+The MCP server will return an error, just as the Airtable API would. Your AI assistant should communicate this limitation to you.
+Are there additional costs for using MCP?
+No. The MCP integration is currently included with your current Airtable plan. There are no additional Airtable charges for MCP usage, but existing API rate limits remain.
+How can admins enable a blocked MCP integration?
+For Airtable admins to enable a blocked integration:
+Navigate to Admin Panel > Settings > Integrations & development > Third party integration allowlist.
+Click
+Allow integration
+.
+Enter the client ID provided by your user.
+Click
+Save
+.
+Can I create new bases using MCP?
+Yes. You can use the
+create_base
+tool to create a new base in any workspace where you have Creator-level permissions. You can optionally define tables and fields during creation. Use
+list_workspaces
+first to find the workspace ID where you want to create the base.
+Can the Airtable MCP connect to development apps (part of
+the managed apps and components feature
+) and update those apps in the same way as regular Airtable bases?
+No. Calls to a development base will return a 403 permissions error. However, API/MCP calls can be made to bases where a managed app or component has been installed (i.e., the child/production bases). So the restriction is specifically on the development base itself, not on installed instances.
+How do I connect Claude Code to Airtable?
+The recommended approach is to run
+claude mcp add --transport http airtable https://mcp.airtable.com/mcp
+in your terminal, then run
+/mcp
+inside Claude Code to authenticate with your Airtable account through your browser. Alternatively, you can connect using a personal access token if you prefer. See
+Airtable developer docs: MCP server overview
+for instructions.
+Who at my organization can enable third-party integrations or MCP, and can Airtable tell me who my admin is?
+Allowlisting a third-party integration is handled by an admin at your own organization. Typically that person is a super admin, org unit admin, or an integration admin with access to the “Settings → Integrations & development” in the admin panel. For the exact steps, see "How can admins enable a blocked MCP integration?" above.
+For privacy and security reasons, Airtable Support does not share the names or contact details of admins within an enterprise account. To find the right person, reach out to your internal IT team or whoever manages your organization's Airtable account. If your first contact isn't able to make an organization-wide decision, they can usually point you to the person who can.
+I have Editor permissions but can only create an "Interface only" token. Why?
+If you are only able to create "Interface only" tokens, that usually means you have Editor access to an interface, not to the underlying base. Interface access and base access are separate in Airtable, and full-access tokens — including the kind needed to connect an MCP client like Claude in edit mode — require base-level access.
+To resolve it, ask a base owner, creator, or an admin in your organization to grant you Editor (or higher) access to the base itself, not just the interface. Base access is shared through a base invite link, which works differently from interface sharing — see Creating Airtable base share links. Once you have base-level access, the full-access token option will become available.
+How do I limit write access when setting up an MCP connection?
+For a read-only connection, so your AI tool can view data but can't create, update, or delete records, include only these scopes:
+data.records:read
+schema.bases:read
+data.recordComments:read
+workspacesAndBases:read
+Enterprise admins can use a service account for this setup. See
+Airtable developer docs: MCP server overview
+.
+Can I create or edit automations using MCP?
+Yes. You can list and inspect automations, create draft automations, update draft configuration, and delete inactive automations. New and updated automations are saved as drafts—open the automation in Airtable to review and turn it on. To delete an automation that is currently on, turn it off in Airtable first.
+Related Articles
+Using Airtable AI in fields
+AI Field agent - Build prototype
+Using Omni AI in Airtable
+Using Airtable AI in Slack
+AI-generated interface elements in Airtable

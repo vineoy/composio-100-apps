@@ -1,0 +1,738 @@
+URL: https://higgsfield.ai/mcp
+FETCHED: 2026-11-23T22:47:22.427516
+VIA: direct
+
+Higgsfield MCP | AI Image & Video Generation for Any Agent
+ChatGPT
+Claude
+Claude Code
+Telegram
+CLI
+Other
+How to connect?
+Connect to Claude
+Connect to ChatGPT
+Generate
+Images & Videos
+in
+Claude with
+Higgsfield
+Add Higgsfield to Claude
+How to connect?
+GPU
+New
+Genjutsu
+New
+Short Drama
+New
+Generate video
+Generate image
+Cloud computer with GPU
+@Higgsfield
+Help me launch a cloud computer for rendering, creative apps or running my own models and LoRAs. Ask what I want to do, recommend the software and hardware, and show the price before starting
+Try in Claude
+Explore GPUs
+Genjutsu
+@Higgsfield
+Use Genjutsu to remake my reference video with my own characters, locations and products while preserving the original motion, camera movement and timing. Ask me to upload my reference video and images before starting.
+Try in Claude
+Copy prompt
+Short Drama
+Use
+@Higgsfield
+to run /short-drama and turn my story into a short drama episode with a consistent cast, locations, and visual style, and dialogue performed on screen. Keep my characters and plot recognizable from scene to scene. Ask me what I have before starting: a script, an idea, or nothing yet. Show me the plan and its price for approval before generating anything.
+Try in Claude
+Copy prompt
+Generate a video
+@Higgsfield
+Make a 14-second video of a young woman with dark hair in a pixie cut, wearing a green crop top and a grey midi skirt. She walks in slow motion through a busy vintage office. The camera tracks alongside her as papers fly through the air. Dim, green-tinted lighting creates a moody, cinematic atmosphere. She stops at a desk and answers a ringing black rotary phone with a serious expression.
+Try in Claude
+Copy prompt
+Seedance 2.5
+Google Omni Flash
+Kling 3.0
+Generate an image
+@Higgsfield
+Create a fashion editorial photo of a young woman standing between pink architectural frames against lime-green walls, her hands resting on the vertical beams. She wears a sculptural ivory gown with floral ruffles, pearl detailing, and a layered skirt, her black hair styled into two exceptionally long braids with a flower beside her temple. Use soft studio lighting, saturated colors, and the natural grain of 35mm film.
+Try in Claude
+Copy prompt
+Nano Banana Pro
+GPT-Image 2.5
+Seedream 5.0
+What’s possible with Higgsfield MCP
+Popular
+For Blender
+Video
+Games
+Sound
+Your browser does not support the video.
+Model and render in Blender with Claude
+3D modeling
+Blender
+Your browser does not support the video.
+Render Houdini simulations
+3D simulation
+Houdini
+Your browser does not support the video.
+Render Blender animations with Claude
+Video
+Blender
+Your browser does not support the video.
+Render a city in Unreal Engine
+3D modeling
+Unreal Engine
+Your browser does not support the video.
+Simulate flower growth in Houdini
+3D simulation
+Houdini
+Your browser does not support the video.
+Build a city in Blender with Claude
+3D modeling
+Blender
+One-click features for Claude
+38
+Popular
+8
+Short Drama
+New
+Turn your script into a series worth bingeing. Build your cast, shape each episode, and bring every scene to life.
+/
+short-drama
+Production
+Try now
+Learn more
+Recreate aura edits
+New
+Turn your footage into an aura edit, or recreate a reference with your own subject, pacing, transitions, and visual effects.
+/
+katana
+Production
+Motion Design
+Try now
+Learn more
+Product review UGC
+Create a creator-style product review from your product brief and reference images.
+/
+ugc-flow
+UGC
+Try now
+Learn more
+Ad Recreator
+Turn a reference video’s storytelling and sales structure into an original video ad for your product.
+/
+marketing-adapt-video
+Paid Ads
+Try now
+Learn more
+Ad Strategist
+Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers.
+/
+marketing-research-to-ads
+Paid Ads
+Try now
+Learn more
+Hook Multiplier
+Give one video multiple opening hooks. Get complete edited versions ready to test different ways of grabbing attention.
+/
+marketing-hook-variants
+Paid Ads
+Try now
+Learn more
+Editorial Motion Graphics
+Explain a story using editorial motion graphics and mixed visual media.
+/
+vox-mixed-media
+Marketing
+Faceless
+Try now
+Learn more
+Stickman cartoon
+Turn a story or concept into an animated explainer with simple stickman characters.
+/
+stickman-explainer
+Marketing
+Faceless
+Try now
+Learn more
+Paid Ads
+8
+Ad Localizer
+Translate and adapt your ads for new languages and markets. Keep your brand’s message consistent while making the copy feel natural.
+/
+marketing-localize-ads
+Paid Ads
+Try now
+Learn more
+Ad Recreator
+Turn a reference video’s storytelling and sales structure into an original video ad for your product.
+/
+marketing-adapt-video
+Paid Ads
+Try now
+Learn more
+Ad Resizer
+Adapt your static ads for different placements and aspect ratios. Adjust the layout to keep your product and message in focus.
+/
+marketing-resize-ads
+Paid Ads
+Try now
+Learn more
+Ad Strategist
+Turn product and competitor research into static ads tailored to your market. Explore different angles grounded in what your product offers.
+/
+marketing-research-to-ads
+Paid Ads
+Try now
+Learn more
+Campaign Analyst
+Analyze campaign results to find what needs improvement. Get practical recommendations and a clear plan for what to test next.
+/
+marketing-campaign-manager
+Paid Ads
+Try now
+Learn more
+Customer Voice Ads
+Create static ads from real customer feedback. Build your message around the needs, concerns, and language of your audience.
+/
+marketing-feedback-to-ads
+Paid Ads
+Try now
+Learn more
+Headline Multiplier
+Turn one static ad into multiple headline variations. Keep the visuals consistent so you can test different messages.
+/
+marketing-headline-variants
+Paid Ads
+Try now
+Learn more
+Hook Multiplier
+Give one video multiple opening hooks. Get complete edited versions ready to test different ways of grabbing attention.
+/
+marketing-hook-variants
+Paid Ads
+Try now
+Learn more
+Motion Design
+8
+Recreate aura edits
+New
+Turn your footage into an aura edit, or recreate a reference with your own subject, pacing, transitions, and visual effects.
+/
+katana
+Production
+Motion Design
+Try now
+Learn more
+Illustration Animation in After Effects
+Bring illustrated characters to life in After Effects.
+/
+illustration-animation
+Motion Design
+Try now
+Learn more
+Localization Motion in After Effects
+Adapt animated designs for multiple languages in After Effects.
+/
+localization-motion
+Motion Design
+Try now
+Learn more
+Motion Design in After Effects
+Create and refine editable motion design in After Effects.
+/
+use-after-effects
+Motion Design
+Try now
+Learn more
+Paper Collage in After Effects
+Turn paper cutouts into editable motion in After Effects.
+/
+paper-collage
+Motion Design
+Try now
+Learn more
+Presentation Animation in After Effects
+Turn presentation slides into editable motion in After Effects.
+/
+presentation-animation
+Motion Design
+Try now
+Learn more
+SaaS Animation in After Effects
+Bring SaaS interfaces and product stories to life in After Effects.
+/
+saas-animation
+Motion Design
+Try now
+Learn more
+Whiteboard Animation in After Effects
+Turn whiteboard ideas into editable animation in After Effects.
+/
+whiteboard-animation
+Motion Design
+Try now
+Learn more
+Marketing
+3
+Editorial Motion Graphics
+Explain a story using editorial motion graphics and mixed visual media.
+/
+vox-mixed-media
+Marketing
+Faceless
+Try now
+Learn more
+Stickman cartoon
+Turn a story or concept into an animated explainer with simple stickman characters.
+/
+stickman-explainer
+Marketing
+Faceless
+Try now
+Learn more
+Physical UGC video
+Create a creator-style tutorial that demonstrates how a physical product works.
+/
+physical-ugc-skill
+Marketing
+UGC
+Try now
+Learn more
+Production
+13
+Short Drama
+New
+Turn your script into a series worth bingeing. Build your cast, shape each episode, and bring every scene to life.
+/
+short-drama
+Production
+Try now
+Learn more
+Recreate aura edits
+New
+Turn your footage into an aura edit, or recreate a reference with your own subject, pacing, transitions, and visual effects.
+/
+katana
+Production
+Motion Design
+Try now
+Learn more
+Simulate destruction in Blender
+Create cinematic destruction in Blender with fractured structures, simulated debris, dust, and editable scenes.
+/
+Destruction-Studio
+Production
+Try now
+Learn more
+Animate object assembly in Blender
+Animate objects assembling in Blender with coordinated parts, clear camera staging, and an editable final scene.
+/
+Exploded-view
+Production
+Try now
+Learn more
+Build 3D scenes in Blender
+Build editable Blender scenes from characters, architecture, and props, with room to refine poses and camera angles.
+/
+Scene-Builder
+Production
+Try now
+Learn more
+Create cartoon materials in Blender
+Create stylized Blender materials with toon shading, expressive outlines, and adjustable textures.
+/
+Cartoon-shaders
+Production
+Try now
+Learn more
+Organize footage in Premiere Pro
+Organize footage, synchronize sound, and prepare editable sequences in Adobe Premiere Pro.
+/
+Project-sorter
+Production
+Try now
+Learn more
+Create VFX composites in After Effects
+Combine footage and visual layers into editable VFX shots in After Effects, with matched lighting, depth, and grain.
+/
+Shot-Composer
+Production
+Try now
+Learn more
+Remove unwanted objects in After Effects
+Clean up unwanted elements in After Effects while preserving the shot’s movement, texture, and editable layers.
+/
+Shot-Cleanup
+Production
+Try now
+Learn more
+Convert images to vectors in Illustrator
+Turn raster illustrations into editable Illustrator artwork with organized paths, groups, and layers.
+/
+Vectorize
+Production
+Try now
+Learn more
+Clean up images in Photoshop
+Refine generated locations in Photoshop by fixing textures, removing unwanted objects, and preserving editable masks.
+/
+Image-fixer
+Production
+Try now
+Learn more
+Create visual effects in TouchDesigner
+Build visual effects for images and video in TouchDesigner, then preview, refine, and export the result.
+/
+use-touchdesigner
+Production
+Try now
+Learn more
+Color grade footage in DaVinci Resolve
+Grade footage in DaVinci Resolve Studio with balanced shots, natural skin tones, and an editable node structure.
+/
+color-grading
+Production
+Try now
+Learn more
+UGC
+4
+Product review UGC
+Create a creator-style product review from your product brief and reference images.
+/
+ugc-flow
+UGC
+Try now
+Learn more
+Physical UGC video
+Create a creator-style tutorial that demonstrates how a physical product works.
+/
+physical-ugc-skill
+Marketing
+UGC
+Try now
+Learn more
+Unboxing UGC
+Create a creator-style unboxing video with a product reveal and close-up details.
+/
+unboxing-ugc-skill
+UGC
+Try now
+Learn more
+Try-on UGC
+Create a creator-style try-on video that shows how a product looks and fits.
+/
+try-on-ugc-skill
+UGC
+Try now
+Learn more
+Faceless
+6
+Editorial Motion Graphics
+Explain a story using editorial motion graphics and mixed visual media.
+/
+vox-mixed-media
+Marketing
+Faceless
+Try now
+Learn more
+Stickman cartoon
+Turn a story or concept into an animated explainer with simple stickman characters.
+/
+stickman-explainer
+Marketing
+Faceless
+Try now
+Learn more
+Paper Diorama
+Tell a story through layered paper-like scenes and cutout characters.
+/
+faceless-paper-diorama
+Faceless
+Try now
+Learn more
+Pastel Flat 2D
+Create a faceless explainer with soft pastel colors and simple flat illustrations.
+/
+faceless-pastel-flat-2d
+Faceless
+Try now
+Learn more
+Hand Drawn
+Explain an idea through hand-drawn illustrations and animated scenes.
+/
+faceless-hand-drawn
+Faceless
+Try now
+Learn more
+Mannequin
+Tell a story with stylized mannequin figures instead of an on-camera presenter.
+/
+faceless-mannequin
+Faceless
+Try now
+Learn more
+For After Effects
+9
+Illustration Animation in After Effects
+Bring illustrated characters to life in After Effects.
+/
+illustration-animation
+Motion Design
+Try now
+Learn more
+Localization Motion in After Effects
+Adapt animated designs for multiple languages in After Effects.
+/
+localization-motion
+Motion Design
+Try now
+Learn more
+Motion Design in After Effects
+Create and refine editable motion design in After Effects.
+/
+use-after-effects
+Motion Design
+Try now
+Learn more
+Paper Collage in After Effects
+Turn paper cutouts into editable motion in After Effects.
+/
+paper-collage
+Motion Design
+Try now
+Learn more
+Presentation Animation in After Effects
+Turn presentation slides into editable motion in After Effects.
+/
+presentation-animation
+Motion Design
+Try now
+Learn more
+SaaS Animation in After Effects
+Bring SaaS interfaces and product stories to life in After Effects.
+/
+saas-animation
+Motion Design
+Try now
+Learn more
+Whiteboard Animation in After Effects
+Turn whiteboard ideas into editable animation in After Effects.
+/
+whiteboard-animation
+Motion Design
+Try now
+Learn more
+Create VFX composites in After Effects
+Combine footage and visual layers into editable VFX shots in After Effects, with matched lighting, depth, and grain.
+/
+Shot-Composer
+Production
+Try now
+Learn more
+Remove unwanted objects in After Effects
+Clean up unwanted elements in After Effects while preserving the shot’s movement, texture, and editable layers.
+/
+Shot-Cleanup
+Production
+Try now
+Learn more
+For Blender
+4
+Simulate destruction in Blender
+Create cinematic destruction in Blender with fractured structures, simulated debris, dust, and editable scenes.
+/
+Destruction-Studio
+Production
+Try now
+Learn more
+Animate object assembly in Blender
+Animate objects assembling in Blender with coordinated parts, clear camera staging, and an editable final scene.
+/
+Exploded-view
+Production
+Try now
+Learn more
+Build 3D scenes in Blender
+Build editable Blender scenes from characters, architecture, and props, with room to refine poses and camera angles.
+/
+Scene-Builder
+Production
+Try now
+Learn more
+Create cartoon materials in Blender
+Create stylized Blender materials with toon shading, expressive outlines, and adjustable textures.
+/
+Cartoon-shaders
+Production
+Try now
+Learn more
+Slash commands
+42
+/
+short-drama
+Turn a script into a bingeable series
+Try in Claude
+/
+marketing-adapt-video
+Turn a reference ad into your own ad
+Try in Claude
+/
+vox-mixed-media
+Editorial motion graphics explainer
+Try in Claude
+/
+content-factory
+UGC series, ready to post
+Try in Claude
+/
+katana
+Recreate aura edits from your footage
+Try in Claude
+/
+marketing-research-to-ads
+Turn product research into static ads
+Try in Claude
+/
+stickman-explainer
+Animated stickman explainer
+Try in Claude
+/
+upscale
+Upscale an image or video up to 4K
+Try in Claude
+/
+ugc-flow
+Creator-style product review from a brief
+Try in Claude
+/
+marketing-hook-variants
+One video, several opening hooks
+Try in Claude
+/
+drama-ads
+Turn a product into a short drama ad
+Try in Claude
+/
+help
+List every skill
+Try in Claude
+/
+marketing-localize-ads
+Adapt ads for new languages and markets
+Try in Claude
+/
+marketing-resize-ads
+Refit static ads for every placement
+Try in Claude
+/
+marketing-headline-variants
+One static ad, several headlines to test
+Try in Claude
+/
+marketing-feedback-to-ads
+Static ads built from customer feedback
+Try in Claude
+/
+marketing-campaign-manager
+Find what to fix and what to test next
+Try in Claude
+/
+physical-ugc-skill
+Creator-style tutorial for a physical product
+Try in Claude
+/
+unboxing-ugc-skill
+Creator-style unboxing with a product reveal
+Try in Claude
+/
+try-on-ugc-skill
+Creator-style try-on that shows the fit
+Try in Claude
+/
+faceless-paper-diorama
+A story told in layered paper scenes
+Try in Claude
+/
+faceless-pastel-flat-2d
+Soft pastel flat 2D explainer
+Try in Claude
+/
+faceless-hand-drawn
+Hand-drawn illustrated explainer
+Try in Claude
+/
+faceless-mannequin
+A story told with stylized mannequins
+Try in Claude
+/
+use-after-effects
+Editable motion design in After Effects
+Try in Claude
+/
+illustration-animation
+Animate illustrated characters in After Effects
+Try in Claude
+/
+localization-motion
+Localize animated designs in After Effects
+Try in Claude
+/
+paper-collage
+Paper-cutout motion in After Effects
+Try in Claude
+/
+presentation-animation
+Animate presentation slides in After Effects
+Try in Claude
+/
+saas-animation
+Animate SaaS interfaces in After Effects
+Try in Claude
+/
+whiteboard-animation
+Whiteboard explainers in After Effects
+Try in Claude
+/
+Shot-Composer
+Composite VFX shots in After Effects
+Try in Claude
+/
+Shot-Cleanup
+Remove unwanted objects in After Effects
+Try in Claude
+/
+Destruction-Studio
+Simulate destruction in Blender
+Try in Claude
+/
+Exploded-view
+Animate object assembly in Blender
+Try in Claude
+/
+Scene-Builder
+Build editable 3D scenes in Blender
+Try in Claude
+/
+Cartoon-shaders
+Toon materials and outlines in Blender
+Try in Claude
+/
+Project-sorter
+Organize footage in Premiere Pro
+Try in Claude
+/
+Image-fixer
+Clean up generated images in Photoshop
+Try in Claude
+/
+Vectorize
+Turn images into Illustrator vectors
+Try in Claude
+/
+use-touchdesigner
+Build visual effects in TouchDesigner
+Try in Claude
+/
+color-grading
+Color grade footage in DaVinci Resolve
+Try in Claude

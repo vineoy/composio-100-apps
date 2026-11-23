@@ -1,0 +1,77 @@
+{
+ "app": "Waterfall.io",
+ "queries": [
+  "Waterfall.io API authentication documentation",
+  "Waterfall.io MCP server",
+  "Waterfall.io API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.waterfall.io/v1/authentication",
+  "https://docs.wpwaterfall.com/mcp/overview",
+  "https://docs.wpwaterfall.com/mcp/tools",
+  "https://docs.waterfall.io/v1/api-keys-overview"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Waterfall.io API Documentation",
+   "href": "https://docs.waterfall.io/v1/authentication"
+  },
+  {
+   "title": "Waterfall - API Documentation",
+   "href": "https://apidocs.waterfall.com/#!/v2/authenticate"
+  },
+  {
+   "title": "Waterfall API introduction - Waterfall.io API Documentation",
+   "href": "https://docs.waterfall.io/v1/introduction"
+  },
+  {
+   "title": "Docs | Waterfall | Waterfall",
+   "href": "https://getwaterfall.org/docs/"
+  },
+  {
+   "title": "Waterfall.io | One B2B data solution to connect them all",
+   "href": "https://www.waterfall.io/"
+  },
+  {
+   "title": "MCP server - WP Waterfall Docs",
+   "href": "https://docs.wpwaterfall.com/mcp/overview"
+  },
+  {
+   "title": "MCP tools reference - WP Waterfall Docs",
+   "href": "https://docs.wpwaterfall.com/mcp/tools"
+  },
+  {
+   "title": "MCP servers - Waterfall Lead Enrichment | Workato docs",
+   "href": "https://docs.workato.com/mcp/prebuilt-mcps/waterfall-lead-enrichment-mcp-server.html"
+  },
+  {
+   "title": "Developer API - WaterfallHikes MCP Server",
+   "href": "https://waterfallhikes.com/developers"
+  },
+  {
+   "title": "Mcp | MCP Servers - claudemarketplaces.com",
+   "href": "https://claudemarketplaces.com/mcp/io.github.waterfallbridge/mcp"
+  },
+  {
+   "title": "Pricing | How Waterfall.io pricing works",
+   "href": "https://www.waterfall.io/pricing"
+  },
+  {
+   "title": "Waterfall API FAQ - Waterfall.io API Documentation",
+   "href": "https://docs.waterfall.io/v1/faq"
+  },
+  {
+   "title": "API Keys Management - Waterfall.io API Documentation",
+   "href": "https://docs.waterfall.io/v1/api-keys-overview"
+  },
+  {
+   "title": "Docs | Waterfall | Waterfall",
+   "href": "https://getwaterfall.org/docs/"
+  },
+  {
+   "title": "Waterfall.io | One B2B data solution to connect them all",
+   "href": "https://www.waterfall.io/"
+  }
+ ],
+ "fetched_at": "2026-11-23T20:12:05.500581"
+}

@@ -1,0 +1,121 @@
+URL: https://airtable.com/developers/agents/mcp/getting-started
+FETCHED: 2026-11-23T17:49:38.498786
+VIA: direct
+
+MCP server overview - Airtable Developers
+MCP server overview
+Copy page
+Copy page as markdown
+Open markdown
+Airtable's MCP server lets you connect AI tools directly to your Airtable bases. This integration allows you to ask questions about your data, create and update records, build and manage automations, and analyze information—all through natural conversation with AI tools like Claude, ChatGPT, Cursor, and more. The server is available to all users on all plans.
+Airtable's MCP server
+Model Context Protocol (MCP) is an open standard that allows AI tools to securely connect to external data sources. Using Airtable's MCP server, AI tools can query your Airtable data, perform actions on your behalf, and present structured information—all while respecting your existing permissions and security settings.
+Base Owner and Creator
+Can manipulate base schema and change records
+Base Editor
+Will only be able to change and update records
+Interface only users
+Will only be able to interact with pages and data exposed in those Interfaces.
+Common clients
+The following tools have a pre-built connector to Airtable and can be connected in a single step.
+Client
+Quickstart guide
+Plugin support
+Client docs
+Claude
+Claude quickstart
+Add connector
+Claude Code
+Claude Code quickstart
+Install plugin
+ChatGPT
+ChatGPT quickstart
+Add Airtable app
+Google Gemini
+Google Gemini quickstart
+Open Gemini apps
+Gemini Enterprise
+Gemini Enterprise admin setup
+If you want to connect to the MCP server from a different MCP client, you can follow the instructions on the
+Other clients
+page.
+Using the server
+Once you've connected, you will be able to query the data stored in Airtable or start building new bases.
+Be specific when possible:
+make it clear what base contains the information you're looking for.
+It's normal for your AI tool to use discovery tools:
+it may have to list all your bases, explore your base schema, and inspect records before it can give you an answer to your task.
+Create skills or memories:
+if you find yourself repeating common workflows, encoding that workflow in a skill is a good way to set your agent up for success.
+Use natural language:
+you don't need to know field names or table IDs—describe what you want in plain English. Sometimes you may want to describe the base in more detail before asking for data from a table.
+Check permissions:
+if you can't access certain data via MCP, verify that you have the appropriate permissions in Airtable.
+Think about what data you're giving your AI tool:
+your tool will be able to read and make edits to your Airtable data on your behalf. Make sure you trust the tools you're using or any other data sources you connect to.
+What tools does the MCP server provide
+You can search our tool documentation for detailed tool information. At a high level the server can do the following.
+Scenarios
+Example tools
+Create and discover bases
+Search bases by name
+List all bases you've allowed
+Modify base schema
+Create tables
+Modify tables
+Create fields in tables
+Create advanced fields
+Build and publish interfaces
+Read, create, and modify records
+Read page structure and data from Interfaces
+Create records
+Modify records
+Create comments
+Fill out and submit forms
+Get a form's fields and requirements
+Submit a form on your behalf
+Create and manage automations
+List automations in a base
+Get automation configuration
+Create and update automations
+Delete automations that are off
+Authentication
+Our MCP server supports two authentication methods: OAuth (recommended for end-user connections) and Personal Access Tokens (PATs, recommended for CLI, scripts, and server-side setups).
+OAuth is the fastest path for connecting through most known clients. After installing the MCP server, complete a one-click OAuth flow before getting started. During authorization, you can choose exactly which bases, apps, and workspaces to connect to. You can manage and update the connection permissions any time from
+https://airtable.com/?integrations=thirdParty
+. Our server supports Dynamic Client Registration (DCR).
+OAuth
+Some organizations may want to manually create and approve an OAuth app. Admins can approve this specific app in the admin panel if they don't want to use DCR.
+1
+Follow the Airtable OAuth application setup flow to register an OAuth client. Your tool should supply the redirect URI required to create the app.
+2
+Create the app with the following scopes:
+data.records:read
+data.records:write
+schema.bases:read
+schema.bases:write
+data.recordComments:read
+data.recordComments:write
+workspacesAndBases:read
+3
+Copy your client ID (and, optionally, client secret).
+4
+In your AI assistant's MCP configuration, enter:
+Server URL:
+https://mcp.airtable.com/mcp
+Client ID:
+[Your client ID]
+5
+Complete the OAuth flow in your AI tool. Once authorized, the tool can call the MCP server on your behalf.
+Personal access tokens
+Personal Access Tokens give you precise, persistent control over what the MCP server can access. To use a PAT, create one in your Airtable account with the following scopes (or limit scopes if you want more granular control over what the agent can do):
+data.records:read
+data.records:write
+schema.bases:read
+schema.bases:write
+data.recordComments:read
+data.recordComments:write
+workspacesAndBases:read
+PATs are well-suited for setups where you want consistent, predictable access boundaries across multiple sessions or agents. You can create and manage PATs and their permissions at
+https://airtable.com/create/tokens
+.

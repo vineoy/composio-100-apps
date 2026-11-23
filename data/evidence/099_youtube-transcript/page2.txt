@@ -1,0 +1,377 @@
+URL: https://yttranscript.ai/api-docs
+FETCHED: 2026-11-23T22:49:22.886785
+VIA: direct
+
+API Documentation - YouTube Transcript API | YTTranscript.AI
+REST API v1
+YouTube Transcript API
+Programmatically retrieve transcripts and channel data from YouTube videos. Integrate with your apps, automations, and workflows.
+Get API Key
+View Plans
+Quick Start
+Get your first transcript in 3 steps:
+1
+Get an API key
+Subscribe to a paid plan
+, then go to your
+Profile
+and create an API key.
+2
+Make your first request
+Send a POST request with your video IDs. Your key goes in the Authorization header.
+3
+Parse the response
+Each transcript returns as an array of timestamped segments with text, offset, and duration.
+Minimal Example
+curl
+Node
+Python
+curl -X POST https://yttranscript.ai/api/v1/transcripts \
+  -H "Authorization: Bearer ytk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"ids": ["dQw4w9WgXcQ"]}'
+Copy
+Authentication
+All API requests require authentication via an API key. Include your key in the
+Authorization
+header using the
+Bearer
+scheme.
+Authorization: Bearer ytk_YOUR_API_KEY
+How to get your API key:
+Sign up or log in to your account
+Subscribe to a
+paid plan
+(Plus, Pro, or Enterprise)
+Go to your
+Profile page
+Click "Create Key" in the API Keys section
+Copy and save your key — it's only shown once
+Security:
+Keep your API key secret. Never expose it in client-side code, public repos, or browser requests. Use environment variables and server-side code only.
+Transcripts
+POST
+/api/v1/transcripts
+Retrieve transcripts for one or more YouTube videos in a single request. Supply an array of video IDs (up to 50 per request). Each successful transcript counts as 1 usage credit.
+Headers
+Authorization
+string
+required
+Your API key:
+Bearer ytk_...
+Content-Type
+string
+required
+Must be
+application/json
+Body Parameters
+ids
+string[]
+required
+Array of YouTube video IDs (11-character IDs). Maximum
+50
+per request.
+lang
+string
+optional
+Preferred transcript language code (e.g.
+en
+,
+es
+,
+ja
+). Defaults to
+auto
+(best available).
+translateTo
+string
+optional
+Translate the transcript to this language code. YouTube's built-in translation is used when available.
+Example — Multiple Videos
+curl
+Node
+Python
+curl -X POST https://yttranscript.ai/api/v1/transcripts \
+  -H "Authorization: Bearer ytk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": ["dQw4w9WgXcQ", "jNQXAC9IVRw"],
+    "lang": "en"
+  }'
+Copy
+Example Response
+{
+  "success": true,
+  "count": 2,
+  "total": 2,
+  "usage": { "used": 15, "limit": 1000 },
+  "data": [
+    {
+      "videoId": "dQw4w9WgXcQ",
+      "title": "Rick Astley - Never Gonna Give You Up",
+      "lang": "en",
+      "availableLangs": ["en", "es", "fr", "de", "ja"],
+      "transcript": [
+        {
+          "text": "We're no strangers to love",
+          "offset": 18.0,
+          "duration": 3.44
+        },
+        {
+          "text": "You know the rules and so do I",
+          "offset": 22.32,
+          "duration": 3.38
+        }
+      ]
+    },
+    {
+      "videoId": "jNQXAC9IVRw",
+      "title": "Me at the zoo",
+      "lang": "en",
+      "transcript": [...]
+    }
+  ]
+}
+Transcript Segment Format
+Field
+Type
+Description
+text
+string
+The transcript text for this segment
+offset
+number
+Start time in seconds from the beginning of the video
+duration
+number
+Duration of this segment in seconds
+Translation
+Use the
+translateTo
+parameter to get transcripts translated into a different language. This uses YouTube's built-in translation when available.
+Example — Translate to Spanish
+curl
+Node
+Python
+curl -X POST https://yttranscript.ai/api/v1/transcripts \
+  -H "Authorization: Bearer ytk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": ["dQw4w9WgXcQ"],
+    "translateTo": "es"
+  }'
+Copy
+Supported Language Codes
+en
+English
+es
+Spanish
+fr
+French
+de
+German
+pt
+Portuguese
+it
+Italian
+ja
+Japanese
+ko
+Korean
+zh
+Chinese
+ru
+Russian
+ar
+Arabic
+hi
+Hindi
+tr
+Turkish
+nl
+Dutch
+pl
+Polish
+sv
+Swedish
+and many more...
+Channels
+Plus+
+POST
+/api/v1/channels
+Retrieve channel metadata and uploads playlist IDs. Useful for discovering all videos from a channel, then fetching their transcripts. Requires
+Plus
+plan or higher.
+Body Parameters
+ids
+string[]
+required
+Array of YouTube channel IDs (start with
+UC...
+). Limited to
+5
+on Plus,
+50
+on Pro/Enterprise.
+includePlaylistData
+boolean
+optional
+When
+true
+, returns the uploads playlist ID for each channel.
+Example Request
+curl
+Node
+Python
+curl -X POST https://yttranscript.ai/api/v1/channels \
+  -H "Authorization: Bearer ytk_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "ids": ["UC_x5XG1OV2P6uZZ5FSM9Ttw"],
+    "includePlaylistData": true
+  }'
+Copy
+Example Response
+{
+  "success": true,
+  "count": 1,
+  "total": 1,
+  "data": [
+    {
+      "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "title": "Google for Developers",
+      "description": "Subscribe to join a community of creative developers...",
+      "thumbnail": "https://yt3.ggpht.com/...",
+      "uploadsPlaylistId": "UU_x5XG1OV2P6uZZ5FSM9Ttw"
+    }
+  ]
+}
+Rate Limits
+API requests are rate-limited per API key. When you exceed the limit, the API returns a
+429
+status with a
+Retry-After
+header.
+Plan
+Per Minute
+Per Day
+Monthly Quota
+Free
+No API access
+Plus ($9/mo)
+20 requests
+1,000 requests
+1,000 transcripts
+Pro ($22/mo)
+60 requests
+5,000 requests
+3,000 transcripts
+Enterprise
+120 requests
+20,000 requests
+10,000 transcripts
+Tip:
+Check the
+X-Usage-Used
+and
+X-Usage-Limit
+response headers to track your quota in real-time.
+Usage Quotas
+Each successful transcript extraction counts as 1 usage credit against your monthly quota. Failed requests (invalid video ID, transcript unavailable) are
+not
+counted. Quotas reset on the 1st of each month at midnight UTC.
+What counts as usage:
+Each video ID that returns a successful transcript = 1 credit
+Batch request with 10 video IDs = up to 10 credits (only successful ones count)
+Failed extractions (video not found, no captions) = 0 credits
+Rate-limited requests = 0 credits
+Error Handling
+Implement proper error handling with retries for rate limits. All error responses include a descriptive message.
+Example — Error Handling with Retry
+Node
+Python
+curl
+async function getTranscript(videoId) {
+  const res = await fetch("https://yttranscript.ai/api/v1/transcripts", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer ytk_YOUR_API_KEY",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ids: [videoId] }),
+  });
+
+  if (res.status === 429) {
+    const retryAfter = res.headers.get("Retry-After") || "60";
+    console.log(`Rate limited. Retry after ${retryAfter}s`);
+    return null;
+  }
+
+  if (res.status === 401) {
+    console.error("Invalid API key");
+    return null;
+  }
+
+  if (!res.ok) {
+    const err = await res.json();
+    console.error("API error:", err.error);
+    return null;
+  }
+
+  const { data } = await res.json();
+  return data[0];
+}
+Copy
+Error Response Format
+{
+  "error": "Monthly transcript limit reached (1000/1000). Upgrade your plan for more.",
+  "usage": { "used": 1000, "limit": 1000 }
+}
+Status Codes
+200
+Success — transcript data returned
+400
+Bad request — invalid parameters (missing ids, too many IDs, etc.)
+401
+Unauthorized — missing, invalid, or revoked API key
+403
+Forbidden — monthly quota exceeded or plan doesn't support this endpoint
+429
+Rate limited — too many requests. Check the Retry-After header
+500
+Server error — something went wrong on our end
+Automation Tools
+Pre-built templates for popular automation platforms. Import and start extracting transcripts in minutes.
+n8n Workflow
+Import into your n8n instance
+Automate transcript extraction with n8n. Trigger on new videos, process in bulk, save to Google Sheets, and more.
+Coming Soon
+Make (Integromat)
+Import into your Make scenario
+Build visual automation scenarios with Make. Connect to 1000+ apps and automate your transcript workflows.
+Coming Soon
+Zapier
+Use with Zapier webhooks
+Use our API with Zapier's webhook action to connect transcript extraction to your existing Zaps.
+Coming Soon
+Google Sheets
+Apps Script integration
+Use Google Apps Script to pull transcripts directly into your spreadsheets for analysis.
+Coming Soon
+Terms of Use
+By using the YouTube Transcript API you agree to our
+Terms of Service
+and
+Privacy Policy
+. API access is subject to rate limits and fair-use policies. We reserve the right to revoke API tokens found in violation. Transcripts are sourced from YouTube and may be subject to YouTube's own terms and copyright policies.
+Need Help?
+Check our
+support page
+or email us if you have questions about the API.
+©
+2026
+YTTranscript.AI. All rights reserved.
+Made with
+♥
+by
+Active Software

@@ -1,0 +1,41 @@
+URL: https://pitchbook.com/help/PitchBook-api
+FETCHED: 2026-11-23T22:39:45.233167
+VIA: direct
+
+Help: PitchBook API - PitchBook
+PitchBook API and Data Feed
+Help: PitchBook API
+Find information about PitchBook’s API solution and discover how it can meet your business needs. Our API is a separate offering from the PitchBook Platform that requires a standalone contract agreement.
+Overview
+PitchBook’s API solution allows you to call specific PitchBook data into your internal business systems on demand. This flexible solution means you have access to PitchBook’s expansive database. It’s the ideal integration for CRM enrichment, allowing you to extract data on an ad-hoc basis that meets the needs of your organization.
+You can explore a specific entity and retrieve valuable data, and the API solution enables you to apply specific criteria, such as location and industry, to drill down into the businesses you discover.
+Use cases
+The API is a good solution if:
+Your scope and data points are subject to change frequently.
+You require a near-instant population of data.
+You perform ad-hoc research.
+You want to see past and present financial data.
+RESTful API is a system requirement.
+How the API works
+Accessing the API
+The PitchBook API is a RESTful implementation that most HTTP clients can easily access in your chosen language or via a web browser. Every call will use the same base URL:
+https://api.pitchbook.com
+Available data points
+The API solution offers a variety of relational endpoints, including financing details, deal stock information, as well as AI-powered VC exit predictor data. See the full list from our
+API Endpoints Overview document.
+Create your API connection
+To start your API connection, you will need to send a request directly to our Direct Data team
+through this link.
+Or if you’re a PitchBook client, you can also head to the Plugins & Apps section from the My PitchBook section of the left-hand sidebar on the PitchBook Platform and choose PitchBook API.
+From this section on the platform, you can test specific endpoints. This section on PitchBook also allows you to reach out to our Direct Data team to request access to the API.
+Next steps
+Our team will work with you to understand the insights and data you’re looking for and help you establish the API connection through an API key or authentication token. Available data for each entity type is packaged across several endpoints so you can map the data to your desired format and structure.
+Experience the PitchBook Platform firsthand
+Discover how PitchBook’s leading tools and capabilities can strengthen your due diligence workflows.
+Tour the platform
+PitchBook API and Data Feed
+Overview
+Access PitchBook.
+Act confidently.
+Email
+Request a free trial

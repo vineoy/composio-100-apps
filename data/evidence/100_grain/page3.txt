@@ -1,0 +1,119 @@
+URL: https://support.grain.com/en/articles/14811968-grain-mcp
+FETCHED: 2026-11-23T22:50:43.591534
+VIA: direct
+
+Grain MCP | Grain
+Skip to main content
+Grain MCP
+Connect Grain to Claude or ChatGPT and query your meeting data with natural language.
+Updated in the last 15 minutes
+Table of contents
+Grain's MCP (Model Context Protocol) server gives AI assistants direct access to your meetings, transcripts, AI notes, and workspace data. Ask questions, generate reports, create clips, and organize recordings, all from your AI chat interface.
+For technical setup and the full tool reference, see the
+Grain MCP developer docs
+.
+​
+Set up with Claude
+Step 1: Add the
+Claude Connector
+integration
+In Claude, go to ’Customize’ → ‘Connectors’
+Click '+' to search for connectors
+Search for ‘Grain’
+Select & connect Grain
+You’ll be redirected to Grain to approve the connection
+Step 2: Verify
+From a new Claude chat, send this test prompt:
+Tell me about my most recent Grain meeting
+If the MCP doesn’t work as expected, click '+' and confirm 'Grain' appears under 'Connectors' before trying again.
+Set up with ChatGPT
+Step 1: Add the
+ChatGPT App
+integration
+Go to 'Apps' and search for 'Grain'
+Select 'Grain' and click 'Connect'
+Sign in and approve ChatGPT access to your Grain account data
+Step 2: Verify
+From a new ChatGPT chat, send the following test prompt:
+Tell me about my most recent Grain meeting
+If the MCP doesn’t work properly, click '+' and select Grain as a source before trying again.
+Set up with Cursor
+Click the link below to install with a single command:
+Set up Grain in Cursor →
+What the Grain MCP can do
+All plans
+Search meetings by company, person, date range, or topic
+Get transcripts and AI-generated notes for any meeting
+Retrieve action items from a meeting
+Access your private notes on a recording
+Create clips from any meeting
+Tag meetings to organize your workspace
+Create and manage playlists and stories
+Business & Enterprise plans
+Get AI-generated sales coaching insights and scorecards
+Access deal intelligence via HubSpot integration
+Get Grain's Company Memory for context about the companies you work with across all your meetings
+Share or unshare meetings with your teams or the whole workspace
+For the full tool list and parameters, see
+Available MCP Tools
+.
+Example prompts
+Meeting research
+"Show me all action items I'm responsible for from the past 7 days."
+"Who from Acme Corp have we met with and what topics did we cover?"
+"What objections came up in external sales calls this week?"
+Content creation
+"Clip the section where the client talks about their timeline."
+"Tag all meetings from last week with external participants as #client-calls."
+"Create a playlist called 'Onboarding Best Practices' and add my last five training calls."
+Pre-built reports
+Grain provides structured report prompts accessible in Claude via ’+’ → ‘Connectors’ → ‘Add from Grain’. These chain multiple steps into full reports.
+Report
+Best for
+Plan required
+Voice of Customer Insights
+Product priorities, market trends
+Any plan
+Recently Active Accounts Health
+Portfolio triage, churn risk
+Any plan
+Customer Health by Account
+Renewal planning, expansion
+Any plan
+SPICED Opportunity Matrix (Account)
+Retention strategy, QBR prep
+Any plan
+Deal Pipeline Intelligence
+Portfolio overview, forecasting
+Business or Enterprise
+Health Report by Deal
+Deal strategy, next steps
+Business or Enterprise
+SPICED Opportunity Matrix (Deal)
+Deal qualification
+Business or Enterprise
+MEDDICC Diagnosis
+Enterprise deal qualification
+Business or Enterprise
+Sales Team Performance & Coaching
+Training priorities, performance trends
+Business or Enterprise
+FAQ
+Is my data safe?
+Grain's MCP server uses OAuth and HTTPS. Developers can also connect with a personal access token; see the
+developer docs
+. Your data stays in your Grain account and is processed temporarily by AI to answer your questions. View your connected AI client's privacy policy for more information about data handling.
+What data can the MCP access?
+Only data you already have access to in Grain — meetings you attended, contacts, AI notes, transcripts, and deal info (with HubSpot connected). It cannot access meetings you weren't part of.
+Can I control which capabilities my AI client uses?
+Yes. In Claude’s ‘Connectors’ menu you can toggle individual Grain tools on or off. ChatGPT offers a similar feature, allowing you to specify when ChatGPT should ask for permission to use an MCP tool.
+Next up:
+API
+Did this answer your question?
+Disappointed Reaction
+😞
+Neutral Reaction
+😐
+Smiley Reaction
+😃
+Table of contents

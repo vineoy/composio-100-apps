@@ -3528,5 +3528,2777 @@
    "seconds": 22.0,
    "at": "2026-11-23T17:34:45.547791"
   }
+ },
+ {
+  "description": "Firecrawl provides programmatic access to web data, enabling scraping, crawling, searching, and AI-powered extraction and interaction with webpages.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "API keys are used with a Bearer token. OAuth2 is available for users to connect their own Firecrawl accounts to third-party apps. Keyless access is available for some endpoints with limits.",
+  "access": "free_self_serve",
+  "access_notes": "Keyless access is available for some endpoints (scrape, search, parse) with daily limits. Full access requires an API key, obtainable from the Firecrawl dashboard, which is tied to a plan with rate limits.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The API has v1 and v2 versions, with a base URL of https://api.firecrawl.dev.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.firecrawl.dev/v2/mcp-oauth",
+   "notes": "Official MCP server available for OAuth and API key authentication, with a local server option."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "description",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.firecrawl.dev/mcp-server/local"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.firecrawl.dev/api-reference/v2-introduction"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.firecrawl.dev/mcp-server"
+   }
+  ],
+  "confidence": "high",
+  "id": 56,
+  "name": "Firecrawl",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "firecrawl",
+   "name": "Firecrawl"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-2.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\056_firecrawl",
+   "seconds": 51.3,
+   "at": "2026-11-23T17:35:36.866375"
+  }
+ },
+ {
+  "description": "A data platform providing proxy networks, web scraping, and SERP APIs for accessing public web data.",
+  "auth_methods": [
+   "API key",
+   "Basic"
+  ],
+  "auth_notes": "API keys are used for general API access; proxy protocol uses username:password authentication.",
+  "access": "free_self_serve",
+  "access_notes": "Includes a free tier of 5,000 requests per month for the MCP server and general API access.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Provides RESTful API endpoints for proxy management, web scraping, and SERP data.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.brightdata.com/products/mcp-server/overview",
+   "notes": "Bright Data provides an official MCP server for AI agents to access web data."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Bright Data provides API key and proxy username/password authentication.",
+    "url": "https://docs.brightdata.com/api-reference/authentication"
+   },
+   {
+    "claim": "Bright Data offers a free tier of 5,000 requests per month.",
+    "url": "https://docs.brightdata.com/products/mcp-server/overview"
+   },
+   {
+    "claim": "Bright Data provides an official MCP server.",
+    "url": "https://docs.brightdata.com/products/mcp-server/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 57,
+  "name": "Bright Data",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "brightdata",
+   "name": "Bright Data"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\057_bright-data",
+   "seconds": 28.2,
+   "at": "2026-11-23T17:36:05.034270"
+  }
+ },
+ {
+  "description": "An OSINT tool for searching social media accounts associated with a given username across 400+ platforms.",
+  "auth_methods": [
+   "unknown"
+  ],
+  "auth_notes": "unknown",
+  "access": "free_self_serve",
+  "access_notes": "Self-hosted open-source project, requires local installation.",
+  "api_type": "other: Model Context Protocol",
+  "api_breadth": "narrow",
+  "api_notes": "Uses Model Context Protocol (MCP) with a single `search_username` tool.",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/Burnsedia/sherlock-mcp",
+   "notes": "Community-developed server for the Sherlock OSINT tool."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "access",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://github.com/Burnsedia/sherlock-mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 58,
+  "name": "Sherlock",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-2.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\058_sherlock",
+   "seconds": 21.1,
+   "at": "2026-11-23T17:36:26.138167"
+  }
+ },
+ {
+  "description": "Waterfall.io provides an API and an official MCP server for managing WordPress sites, environments, domains, and related settings.",
+  "auth_methods": [
+   "API key",
+   "OAuth2"
+  ],
+  "auth_notes": "API key for direct API requests; OAuth2 for AI assistant access via the official MCP server.",
+  "access": "paid_plan",
+  "access_notes": "API access and MCP server access require a paid subscription.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "REST API with over 300 tools/endpoints, including v1 and v2 versions.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.wpwaterfall.com",
+   "notes": "Official MCP server supports AI assistants like Claude, Cursor, ChatGPT with 331 tools via OAuth sign-in."
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "paid_plan"
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "description",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "description",
+    "url": "https://docs.wpwaterfall.com/mcp/tools"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.wpwaterfall.com/mcp/tools"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://docs.wpwaterfall.com/mcp/tools"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.wpwaterfall.com/mcp/tools"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.waterfall.io/v1/authentication"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.wpwaterfall.com/mcp/overview"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.wpwaterfall.com/mcp/tools"
+   }
+  ],
+  "confidence": "high",
+  "id": 59,
+  "name": "Waterfall.io",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-2.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\059_waterfall-io",
+   "seconds": 23.4,
+   "at": "2026-11-23T20:12:23.214898"
+  }
+ },
+ {
+  "description": "Clay is a data enrichment and workflow automation platform that allows users to build lists and integrate with external APIs.",
+  "auth_methods": [
+   "API key",
+   "Bearer token",
+   "JWT"
+  ],
+  "auth_notes": "Public API uses a 'clay-api-key' header. HTTP API integrations support static headers (API keys/Bearer tokens) or dynamic JWT authentication.",
+  "access": "free_self_serve",
+  "access_notes": "Users can sign up and generate API keys via the CLI or dashboard.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "The public API documentation is minimal; the platform primarily focuses on enabling users to call external APIs via its 'HTTP API' feature.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://university.clay.com/docs/http-api-integration-overview",
+   "notes": "Clay provides an official MCP server for ChatGPT integration."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Public API uses clay-api-key header",
+    "url": "https://developers.clay.com/public-api/authentication"
+   },
+   {
+    "claim": "HTTP API supports static headers and JWT authentication",
+    "url": "https://university.clay.com/docs/http-api-with-jwt-authentication-integration-overview"
+   },
+   {
+    "claim": "Official Clay MCP for ChatGPT exists",
+    "url": "https://university.clay.com/docs/http-api-integration-overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 60,
+  "name": "Clay",
+  "category": "Data, SEO and Scraping",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "clay",
+   "name": "Clay"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\060_clay",
+   "seconds": 43.9,
+   "at": "2026-11-23T17:37:56.485349"
+  }
+ },
+ {
+  "description": "A platform for software development and version control that provides a comprehensive REST API for automation and integration.",
+  "auth_methods": [
+   "Bearer token",
+   "Basic",
+   "JWT"
+  ],
+  "auth_notes": "Supports personal access tokens (fine-grained or classic), GitHub App tokens, and OAuth tokens. Basic auth is used for app-to-app communication using client ID/secret.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and obtain API credentials; usage is subject to rate limits.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "The REST API documentation lists over 200 endpoints in the initial view, covering a vast range of repository, user, and organization management tasks.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server",
+   "notes": "GitHub provides and maintains an official MCP server for integrating AI capabilities."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "API access is free and self-serve via tokens",
+    "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api"
+   },
+   {
+    "claim": "API breadth is very broad (200+ endpoints)",
+    "url": "https://docs.github.com/en/rest"
+   },
+   {
+    "claim": "Official MCP server exists",
+    "url": "https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server"
+   }
+  ],
+  "confidence": "high",
+  "id": 61,
+  "name": "GitHub",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "github",
+   "name": "GitHub"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\061_github",
+   "seconds": 31.3,
+   "at": "2026-11-23T17:38:27.804668"
+  }
+ },
+ {
+  "description": "Vercel is a cloud platform for serverless deployment and infrastructure management.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "Uses Bearer tokens for REST API authentication; supports OAuth2 for social sign-in integrations.",
+  "access": "free_self_serve",
+  "access_notes": "Access tokens can be created and managed in account settings for any user.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "The REST API includes over 40 categories of endpoints covering deployments, projects, domains, and infrastructure.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No official or community MCP server mentioned in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Vercel Access Tokens are required to authenticate and use the Vercel API.",
+    "url": "https://vercel.com/docs/rest-api"
+   },
+   {
+    "claim": "The API is exposed as an HTTP/1 and HTTP/2 service over SSL and follows the REST architecture.",
+    "url": "https://vercel.com/docs/rest-api"
+   },
+   {
+    "claim": "The API includes over 40 categories of endpoints.",
+    "url": "https://vercel.com/docs/rest-api"
+   },
+   {
+    "claim": "Vercel authentication lets your users sign in with their Vercel account.",
+    "url": "https://user-documentation.vercel.app/database-and-apis/auth/providers/vercel.html"
+   }
+  ],
+  "confidence": "high",
+  "id": 62,
+  "name": "Vercel",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "vercel",
+   "name": "Vercel"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\062_vercel",
+   "seconds": 46.2,
+   "at": "2026-11-23T17:39:14.025121"
+  }
+ },
+ {
+  "description": "A cloud platform for web development that provides hosting, serverless functions, and CI/CD for modern web projects.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "Uses OAuth2 for public integrations; Personal Access Tokens (PATs) for manual authentication.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and generate personal access tokens or register OAuth applications.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Provides endpoints for site management, deployments, DNS, and form submissions.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "Netlify provides documentation on how to build and host your own MCP servers on their platform, but does not provide an official MCP server for their own API."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Netlify uses OAuth2 for authentication and supports personal access tokens.",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   },
+   {
+    "claim": "Netlify provides a REST API for managing sites, deploys, and other platform features.",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+   },
+   {
+    "claim": "Netlify provides guides on building MCP servers to host on their platform.",
+    "url": "https://developers.netlify.com/guides/write-mcps-on-netlify/"
+   }
+  ],
+  "confidence": "high",
+  "id": 63,
+  "name": "Netlify",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "netlify_mcp",
+   "name": "Netlify MCP",
+   "fuzzy": true
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\063_netlify",
+   "seconds": 30.2,
+   "at": "2026-11-23T17:39:44.243154"
+  }
+ },
+ {
+  "description": "Cloudflare provides a global network platform for security, performance, and reliability, offering APIs for managing DNS, zones, accounts, and storage.",
+  "auth_methods": [
+   "Bearer token",
+   "API key"
+  ],
+  "auth_notes": "Uses API tokens (Bearer) or Global API keys for specific legacy/admin operations.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and create API tokens via the dashboard.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "Extensive REST API covering accounts, zones, billing, R2 storage, and security settings.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No official or community MCP server mentioned in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "API tokens can be created via the dashboard for free.",
+    "url": "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/"
+   },
+   {
+    "claim": "Broad range of endpoints covering accounts, zones, and billing.",
+    "url": "https://developers.cloudflare.com/api/"
+   },
+   {
+    "claim": "API uses Bearer token authentication.",
+    "url": "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/"
+   }
+  ],
+  "confidence": "high",
+  "id": 64,
+  "name": "Cloudflare",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "cloudflare",
+   "name": "Cloudflare"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\064_cloudflare",
+   "seconds": 46.2,
+   "at": "2026-11-23T17:40:30.422779"
+  }
+ },
+ {
+  "description": "Supabase is a backend-as-a-service platform providing a Postgres database, authentication, real-time subscriptions, storage, and edge functions.",
+  "auth_methods": [
+   "API key",
+   "JWT"
+  ],
+  "auth_notes": "Uses API keys for REST API access and JWTs for user-level authentication and authorization via Row Level Security.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up for a free developer tier project.",
+  "api_type": "both",
+  "api_breadth": "moderate",
+  "api_notes": "Provides auto-generated REST and GraphQL APIs based on the database schema, plus a Management API for project administration.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.supabase.com/mcp",
+   "notes": "Supabase provides an official MCP server for interacting with projects, databases, and management tasks."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Supabase provides a full Postgres database, Auth, Storage, and Realtime functionality.",
+    "url": "https://supabase.com/docs"
+   },
+   {
+    "claim": "Supabase auto-generates a REST API from your database schema.",
+    "url": "https://supabase.com/docs/guides/api"
+   },
+   {
+    "claim": "Supabase Auth uses JSON Web Tokens (JWTs) for authentication.",
+    "url": "https://supabase.com/docs/guides/auth"
+   },
+   {
+    "claim": "The Supabase MCP server is an official tool for connecting LLMs to Supabase projects.",
+    "url": "https://supabase.com/docs/guides/ai-tools/mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 65,
+  "name": "Supabase",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "supabase",
+   "name": "Supabase"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\065_supabase",
+   "seconds": 46.8,
+   "at": "2026-11-23T17:41:17.222987"
+  }
+ },
+ {
+  "description": "Neo4j is a graph database management system that allows for storing, querying, and managing highly connected data using the Cypher query language.",
+  "auth_methods": [
+   "other: Basic",
+   "other: Bearer token"
+  ],
+  "auth_notes": "Authentication is handled via the database connection, typically using basic auth or bearer tokens depending on the deployment (Aura or self-managed).",
+  "access": "free_self_serve",
+  "access_notes": "Neo4j offers free self-serve options including local installations and free tiers for Aura cloud instances.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Provides a transactional HTTP API for executing Cypher queries; older REST API is deprecated.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://neo4j.com/docs/mcp/current/",
+   "notes": "Neo4j provides an official MCP server implementation to bridge MCP-compatible clients with Neo4j instances."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Neo4j offers free self-serve options including local installations and free tiers for Aura cloud instances.",
+    "url": "https://neo4j.com/docs/http-api/current/"
+   },
+   {
+    "claim": "Neo4j provides an official MCP server implementation.",
+    "url": "https://neo4j.com/docs/mcp/current/"
+   },
+   {
+    "claim": "Provides a transactional HTTP API for executing Cypher queries.",
+    "url": "https://neo4j.com/docs/http-api/current/"
+   }
+  ],
+  "confidence": "high",
+  "id": 66,
+  "name": "Neo4j",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "neo4j",
+   "name": "Neo4J"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 3,
+   "evidence_dir": "data\\evidence\\066_neo4j",
+   "seconds": 29.6,
+   "at": "2026-11-23T17:41:46.805162"
+  }
+ },
+ {
+  "description": "A cloud-based data platform that provides data storage, processing, and analytics solutions.",
+  "auth_methods": [
+   "JWT",
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "Supports key-pair authentication (JWT), OAuth, programmatic access tokens (PAT), and workload identity federation.",
+  "access": "trial_self_serve",
+  "access_notes": "Snowflake offers a free trial for self-serve access to the platform.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "The documentation covers REST API authentication and interaction with database resources.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No official or community MCP server mentioned in the provided documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Supports key-pair authentication (JWT), OAuth, programmatic access tokens (PAT), and workload identity federation.",
+    "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/authentication"
+   },
+   {
+    "claim": "REST API usage for database operations.",
+    "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/authentication"
+   }
+  ],
+  "confidence": "high",
+  "id": 67,
+  "name": "Snowflake",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "snowflake",
+   "name": "Snowflake"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\067_snowflake",
+   "seconds": 37.1,
+   "at": "2026-11-23T17:42:23.921195"
+  }
+ },
+ {
+  "description": "A cloud-based database platform providing an Administration API for managing clusters and infrastructure, and an MCP server for data and administrative operations.",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "Service accounts (OAuth 2.0) are recommended; API keys (HTTP Digest Authentication) are considered legacy.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up for an Atlas account and obtain API credentials.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The Atlas Administration API provides endpoints for managing projects, users, and clusters.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://www.mongodb.com/docs/mcp-server/overview/",
+   "notes": "MongoDB provides an official MCP server with both local and managed deployment options."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "The Atlas Administration API allows programmatic management of clusters and objects.",
+    "url": "https://www.mongodb.com/docs/atlas/api/"
+   },
+   {
+    "claim": "Authentication methods include Service account access tokens (OAuth 2.0) and API keys (HTTP Digest Authentication).",
+    "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/"
+   },
+   {
+    "claim": "MongoDB offers an official MCP server implementation.",
+    "url": "https://www.mongodb.com/docs/mcp-server/overview/"
+   }
+  ],
+  "confidence": "high",
+  "id": 68,
+  "name": "MongoDB Atlas",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "mongodb",
+   "name": "MongoDB"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\068_mongodb-atlas",
+   "seconds": 69.4,
+   "at": "2026-11-23T17:43:33.373702"
+  }
+ },
+ {
+  "description": "A monitoring and security platform for cloud-scale applications, providing observability, metrics, logs, and APM.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "Uses DD-API-KEY and DD-APPLICATION-KEY headers for authentication.",
+  "access": "trial_self_serve",
+  "access_notes": "Self-serve sign-up available with a trial period; full access requires a paid subscription.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "Extensive REST API covering nearly all platform features including metrics, logs, monitors, dashboards, and security.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.datadoghq.com/mcp_server/",
+   "notes": "Datadog provides an official MCP server implementation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "The Datadog API is an HTTP REST API.",
+    "url": "https://docs.datadoghq.com/api/latest"
+   },
+   {
+    "claim": "Authenticate to the API with an API key using the header DD-API-KEY. For some endpoints, you also need an Application key.",
+    "url": "https://docs.datadoghq.com/api/latest"
+   },
+   {
+    "claim": "Datadog provides an official MCP server.",
+    "url": "https://docs.datadoghq.com/mcp_server/"
+   }
+  ],
+  "confidence": "high",
+  "id": 69,
+  "name": "Datadog",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "datadog",
+   "name": "Datadog"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\069_datadog",
+   "seconds": 75.9,
+   "at": "2026-11-23T17:44:49.271877"
+  }
+ },
+ {
+  "description": "Sentry is a platform for application monitoring, error tracking, and performance management.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "Supports personal/internal integration tokens (Bearer) and OAuth2 (authorization code grant and device authorization flow).",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up for a Sentry account and create internal integrations or OAuth applications.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "The API covers a wide range of resources including organizations, teams, projects, issues, releases, and performance data.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "Sentry provides monitoring tools for MCP implementations, but does not provide an MCP server for its own API."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Sentry provides a web API for programmatic access to resources.",
+    "url": "https://docs.sentry.io/api/"
+   },
+   {
+    "claim": "Supports Bearer tokens via internal integrations and OAuth2.",
+    "url": "https://docs.sentry.io/api/auth/"
+   },
+   {
+    "claim": "Sentry provides monitoring tools for MCP, not an MCP server for its API.",
+    "url": "https://docs.sentry.io/product/mcp-servers/"
+   }
+  ],
+  "confidence": "high",
+  "id": 70,
+  "name": "Sentry",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "sentry",
+   "name": "Sentry"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\070_sentry",
+   "seconds": 49.6,
+   "at": "2026-11-23T17:45:38.861229"
+  }
+ },
+ {
+  "description": "A productivity and project management platform that provides an API for managing pages, databases, and workspace content.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "Supports OAuth 2.0 for public integrations, and internal connection tokens or personal access tokens (PATs) for private/scripted use.",
+  "access": "free_self_serve",
+  "access_notes": "Developers can create connections and access the API via the Developer portal without a paid plan.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Provides endpoints for pages, databases, users, and blocks; documentation index suggests a moderate scope.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.notion.com/mcp",
+   "notes": "Notion provides an official MCP server for connecting AI assistants to Notion workspaces."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Supports OAuth 2.0, internal connection tokens, and personal access tokens.",
+    "url": "https://developers.notion.com/guides/authorization/overview"
+   },
+   {
+    "claim": "Developers can create connections in the Developer portal.",
+    "url": "https://developers.notion.com/guides/authorization/overview"
+   },
+   {
+    "claim": "Notion provides an official MCP server.",
+    "url": "https://developers.notion.com/guides/mcp/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 71,
+  "name": "Notion",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "notion",
+   "name": "Notion"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\071_notion",
+   "seconds": 191.1,
+   "at": "2026-11-23T17:48:49.995191"
+  }
+ },
+ {
+  "description": "A cloud-based platform for building collaborative, relational databases and custom business applications.",
+  "auth_methods": [
+   "OAuth2",
+   "other: Personal Access Tokens"
+  ],
+  "auth_notes": "OAuth2 is recommended for end-user connections; Personal Access Tokens (PATs) are recommended for CLI, scripts, and server-side setups.",
+  "access": "free_self_serve",
+  "access_notes": "The MCP server is available to all users on all plans at no added cost.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "The API supports comprehensive management of bases, tables, fields, records, automations, and interfaces.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.airtable.com/mcp",
+   "notes": "Airtable maintains its own official MCP server and skills library."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "The MCP server is available to all users on all plans.",
+    "url": "https://airtable.com/developers/agents/mcp/getting-started"
+   },
+   {
+    "claim": "Airtable maintains its own official MCP server and skills library.",
+    "url": "https://www.airtable.com/articles/mcp-server-interfaces-automations"
+   },
+   {
+    "claim": "The MCP server supports OAuth and Personal Access Tokens.",
+    "url": "https://airtable.com/developers/agents/mcp/getting-started"
+   },
+   {
+    "claim": "The API supports creation of tables, interfaces, and automations.",
+    "url": "https://www.airtable.com/articles/mcp-server-interfaces-automations"
+   }
+  ],
+  "confidence": "high",
+  "id": 72,
+  "name": "Airtable",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "airtable",
+   "name": "Airtable"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.1-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\072_airtable",
+   "seconds": 75.0,
+   "at": "2026-11-23T17:50:05.039573"
+  }
+ },
+ {
+  "description": "Linear is a software project management and issue tracking tool.",
+  "auth_methods": [
+   "OAuth2",
+   "API key",
+   "Bearer token"
+  ],
+  "auth_notes": "Supports Personal API Keys (sent via Authorization header) and OAuth 2.0 (Authorization Code with PKCE or Client Credentials) using Bearer tokens.",
+  "access": "free_self_serve",
+  "access_notes": "Any Linear workspace member can create personal API keys or register OAuth2 applications within workspace settings.",
+  "api_type": "GraphQL",
+  "api_breadth": "unknown",
+  "api_notes": "Linear exposes a single GraphQL endpoint (https://api.linear.app/graphql) covering workspace resources like issues, comments, teams, projects, and users.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.linear.app/mcp",
+   "notes": "Linear provides an officially hosted remote MCP server supporting Streamable HTTP at https://mcp.linear.app/mcp (read-write) and /readonly endpoints."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Linear public API is built using GraphQL at https://api.linear.app/graphql and supports personal API keys and OAuth2.",
+    "url": "https://linear.app/developers/graphql"
+   },
+   {
+    "claim": "Linear OAuth 2.0 supports Authorization Code with PKCE and Client Credentials grants using Bearer tokens.",
+    "url": "https://linear.app/developers/oauth-2-0-authentication"
+   },
+   {
+    "claim": "Linear provides an official remote MCP server centrally hosted at https://mcp.linear.app/mcp.",
+    "url": "https://linear.app/docs/mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 73,
+  "name": "Linear",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "linear",
+   "name": "Linear"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\073_linear",
+   "seconds": 37.9,
+   "at": "2026-11-23T20:13:01.073153"
+  }
+ },
+ {
+  "description": "Jira is a cloud‑based project management and issue tracking platform.",
+  "auth_methods": [
+   "Basic",
+   "OAuth2"
+  ],
+  "auth_notes": "Basic auth uses an Atlassian account email and API token; OAuth2 is used for Forge/Connect apps.",
+  "access": "free_self_serve",
+  "access_notes": "API tokens can be generated for any Atlassian Cloud account without a paid plan.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "The REST API exposes many endpoints (issues, projects, search, etc.) but the exact count is not specified in the docs.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://github.com/atlassian/atlassian-mcp-server",
+   "notes": "Official MCP server repository provides a bridge for Jira and other Atlassian products."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/atlassian/atlassian-mcp-server"
+   }
+  ],
+  "confidence": "high",
+  "id": 74,
+  "name": "Jira",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "jira",
+   "name": "Jira"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\074_jira",
+   "seconds": 41.3,
+   "at": "2026-11-23T22:28:19.745788"
+  }
+ },
+ {
+  "description": "A productivity and project management platform providing a RESTful API and MCP server for accessing the Asana Work Graph.",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token",
+   "other: Personal access token",
+   "other: Service Account",
+   "other: OpenID Connect"
+  ],
+  "auth_notes": "Supports Personal Access Tokens (PATs), OAuth, OpenID Connect (OIDC), and Service Accounts (Enterprise tier feature).",
+  "access": "free_self_serve",
+  "access_notes": "PATs can be generated quickly from the developer console to get started.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "RESTful interface accepting JSON or form-encoded content with JSON responses.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.asana.com/v2/mcp",
+   "official": true,
+   "notes": "Asana offers an official Model Context Protocol (MCP) server accessible via https://mcp.asana.com/v2/mcp."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Asana offers a Model Context Protocol (MCP) server",
+    "url": "https://developers.asana.com/docs/using-asanas-mcp-server"
+   },
+   {
+    "claim": "The Asana API is a RESTful interface",
+    "url": "https://developers.asana.com/docs/api-features"
+   },
+   {
+    "claim": "Authentication options include Personal access token, Service Account, OAuth, and OpenID Connect",
+    "url": "https://developers.asana.com/docs/authentication"
+   }
+  ],
+  "confidence": "high",
+  "id": 75,
+  "name": "Asana",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "asana",
+   "name": "Asana"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\075_asana",
+   "seconds": 9.1,
+   "at": "2026-11-23T22:28:28.844678"
+  }
+ },
+ {
+  "description": "A productivity and project management platform that helps teams organize work, track projects, and collaborate.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2",
+   "JWT"
+  ],
+  "auth_notes": "Supports personal V2 API tokens, OAuth 2.0, and JWT signatures for webhook/integration requests.",
+  "access": "free_self_serve",
+  "access_notes": "Users can create a free developer account to obtain an API token and start testing.",
+  "api_type": "GraphQL",
+  "api_breadth": "moderate",
+  "api_notes": "The platform API utilizes GraphQL queries and mutations.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developer.monday.com/api-reference/docs/integrate-with-monday-mcp",
+   "notes": "Monday.com provides a hosted MCP server supporting Streamable HTTP at https://mcp.monday.com/mcp."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Monday.com provides personal V2 API tokens and allows creating a free developer account.",
+    "url": "https://developer.monday.com/api-reference/docs/authentication"
+   },
+   {
+    "claim": "Monday.com handles authentication through personal tokens, OAuth, and request JWT verification.",
+    "url": "https://developer.monday.com/apps/docs/integration-authorization"
+   },
+   {
+    "claim": "Monday.com provides an official hosted MCP server at https://mcp.monday.com/mcp.",
+    "url": "https://developer.monday.com/api-reference/docs/integrate-with-monday-mcp"
+   },
+   {
+    "claim": "Community-built MCP server exists on GitHub as mcp-server-monday.",
+    "url": "https://github.com/Prat011/mcp-server-monday"
+   }
+  ],
+  "confidence": "high",
+  "id": 76,
+  "name": "Monday.com",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "monday",
+   "name": "Monday"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\076_monday-com",
+   "seconds": 8.2,
+   "at": "2026-11-23T20:23:27.382636"
+  }
+ },
+ {
+  "description": "Productivity and project management platform providing tools to manage tasks, docs, and workflows.",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "OAuth2 flow for apps/integrations used by others; personal API tokens for personal use.",
+  "access": "free_self_serve",
+  "access_notes": "The ClickUp API is available on all ClickUp plans.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Public Application Programming Interface with API v2 and v3 endpoints.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.clickup.com/mcp",
+   "notes": "ClickUp's MCP Server is available on all plans, supporting tools for task workflows, reports, time tracking, search, and comments."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods supports OAuth2 and personal API tokens",
+    "url": "https://developer.clickup.com/docs/authentication"
+   },
+   {
+    "claim": "access is free_self_serve across all plans",
+    "url": "https://help.clickup.com/hc/en-us/articles/6303422883095-Create-your-own-app-with-the-ClickUp-API"
+   },
+   {
+    "claim": "existing_mcp offers an official server",
+    "url": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server"
+   }
+  ],
+  "confidence": "high",
+  "id": 77,
+  "name": "ClickUp",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "clickup",
+   "name": "ClickUp"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\077_clickup",
+   "seconds": 31.0,
+   "at": "2026-11-23T22:19:28.833318"
+  }
+ },
+ {
+  "description": "Coda is a collaborative productivity platform that lets users create, share, and automate documents, tables, and workflows.",
+  "auth_methods": [
+   "Bearer token",
+   "API key"
+  ],
+  "auth_notes": "API requests use a Bearer JWT token and an X-API-Key header for authentication.",
+  "access": "free_self_serve",
+  "access_notes": "All users can access the public REST API without a paid plan.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The API exposes dozens of endpoints for docs, tables, rows, permissions, etc.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://coda.io/resources/guides/getting_started_with_coda_mcp",
+   "notes": "Coda provides an official MCP server for AI agents."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.coda.co/payout/integration-guides/getting-started/authentication-and-authorization"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.coda.co/payout/integration-guides/getting-started/authentication-and-authorization"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.superhuman.com/developers/apis/v1"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.superhuman.com/developers/apis/v1"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://coda.io/resources/guides/getting_started_with_coda_mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 78,
+  "name": "Coda",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "coda",
+   "name": "Coda"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\078_coda",
+   "seconds": 75.6,
+   "at": "2026-11-23T22:29:44.494556"
+  }
+ },
+ {
+  "description": "Collaborative work management and project tracking platform for teams to plan, capture, manage, and report on work.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "Each API request requires passing an access token as a Bearer token in the authorization header, or using 3-legged OAuth 2.0 for user consent scenarios.",
+  "access": "paid_plan",
+  "access_notes": "Required plan: Business, Enterprise, or Advanced Work Management for MCP server access; API access tokens can be generated in the Smartsheet UI.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Documentation shows multiple resources like sheets, rows, columns, reports, and users, but total endpoint count is not quantified.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server",
+   "notes": "Smartsheet provides an official Model Context Protocol (MCP) server that connects with AI assistants like Claude, ChatGPT, Cursor, and others."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Each API request requires passing in an access token as the Bearer value in your authorization header.",
+    "url": "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication"
+   },
+   {
+    "claim": "Note that the Smartsheet implementation of OAuth 2.0 is a 3-legged process, which requires human intervention.",
+    "url": "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication"
+   },
+   {
+    "claim": "Required plan: Business, Enterprise, or Advanced Work Management",
+    "url": "https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server"
+   },
+   {
+    "claim": "Interact with your project data in Smartsheet using the Smartsheet MCP server connected to Claude, ChatGPT, and other AI clients.",
+    "url": "https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server"
+   }
+  ],
+  "confidence": "high",
+  "id": 79,
+  "name": "Smartsheet",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "smartsheet",
+   "name": "Smartsheet"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\079_smartsheet",
+   "seconds": 12.3,
+   "at": "2026-11-23T22:29:56.815366"
+  }
+ },
+ {
+  "description": "Harvest time tracking and project management API",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "Supports Personal Access Tokens (Bearer token) or full OAuth2 authentication flow.",
+  "access": "free_self_serve",
+  "access_notes": "Personal Access Tokens can be created directly from the Developers section of Harvest ID to start using the API.",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "Covers clients, company settings, invoices, estimates, expenses, tasks, timesheets, projects, roles, users, reports, paid time off, approvals, notifications, reimbursements, imports, and forecast APIs.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No MCP server mentioned in the documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "The V2 API requires an access token to authenticate requests using Personal Access Tokens or OAuth2.",
+    "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/"
+   },
+   {
+    "claim": "Personal Access Tokens can be accessed by creating a Personal Access Token from the Developers section of Harvest ID.",
+    "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/"
+   },
+   {
+    "claim": "API breadth includes Clients, Company Settings, Invoices, Estimates, Expenses, Tasks, Timesheets, Projects, Roles, Users, Reports, Paid Time Off, Approvals, Notifications, Reimbursements, Imports, and Forecast APIs.",
+    "url": "https://help.getharvest.com/api-v2/"
+   }
+  ],
+  "confidence": "high",
+  "id": 80,
+  "name": "Harvest",
+  "category": "Productivity and Project Management",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "harvest",
+   "name": "Harvest"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\080_harvest",
+   "seconds": 75.6,
+   "at": "2026-11-23T22:31:12.455953"
+  }
+ },
+ {
+  "description": "Stripe provides a comprehensive payment and financial services API for accepting payments, managing subscriptions, and handling payouts.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "Authentication is via secret API keys (basic auth) or bearer token; keys are issued per account.",
+  "access": "free_self_serve",
+  "access_notes": "Test mode keys are free and unrestricted; live mode keys are available after creating a Stripe account.",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "The public API contains hundreds of endpoints across multiple namespaces (v1 and v2).",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No official MCP server is documented."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.stripe.com/api/authentication"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.stripe.com/api/authentication"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.stripe.com/api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.stripe.com/api"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.stripe.com/apis"
+   }
+  ],
+  "confidence": "high",
+  "id": 81,
+  "name": "Stripe",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "stripe",
+   "name": "Stripe"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\081_stripe",
+   "seconds": 71.4,
+   "at": "2026-11-23T22:32:23.861179"
+  }
+ },
+ {
+  "description": "Provides an API for applications to connect with user bank accounts for financial data, payments, and identity verification.",
+  "auth_methods": [
+   "API key",
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "Almost all Plaid API endpoints require a client_id and secret sent in the request body or headers (PLAID-CLIENT-ID and PLAID-SECRET). OAuth tokens are used for specific features like the Dashboard MCP server.",
+  "access": "free_self_serve",
+  "access_notes": "Create an account on the Plaid Dashboard to obtain a live client_id and secret, with Sandbox and Production environments available.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "JSON over HTTP via POST requests.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://plaid.com/docs/resources/mcp/",
+   "notes": "Plaid offers two Model Context Protocol servers: a remote Dashboard MCP server and a local Plaid AI coding toolkit MCP server."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Provides an API for applications to connect with user bank accounts for financial data, payments, and identity verification.",
+    "url": "https://plaid.com/docs/"
+   },
+   {
+    "claim": "Almost all Plaid API endpoints require a client_id and secret.",
+    "url": "https://plaid.com/docs/api/"
+   },
+   {
+    "claim": "Create an account on the Plaid Dashboard to obtain a live client_id and secret.",
+    "url": "https://plaid.com/docs/api/"
+   },
+   {
+    "claim": "Plaid offers two Model Context Protocol (MCP) servers.",
+    "url": "https://plaid.com/docs/resources/mcp/"
+   }
+  ],
+  "confidence": "high",
+  "id": 82,
+  "name": "Plaid",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "plaid",
+   "name": "Plaid"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\082_plaid",
+   "seconds": 19.8,
+   "at": "2026-11-23T22:15:13.616896"
+  }
+ },
+ {
+  "description": "Provides market data, trading, account, and real‑time interfaces for Binance.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "HMAC or asymmetric signing required for private endpoints",
+  "access": "free_self_serve",
+  "access_notes": "API keys can be created in the Binance account dashboard at no cost",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "REST endpoints for market data, trading, account, and WebSocket streams; ~50–80 documented endpoints",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developers.binance.com/en/docs/agent-native/overview",
+   "notes": "MCP server documented under Agent Native"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://developers.binance.info/en/docs/"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://developers.binance.info/en/docs/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developers.binance.com/en/docs/introduction"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developers.binance.com/en/docs/introduction"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developers.binance.com/en/docs/agent-native/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 83,
+  "name": "Binance",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 2,
+   "evidence_dir": "data\\evidence\\083_binance",
+   "seconds": 76.5,
+   "at": "2026-11-23T22:33:40.398109"
+  }
+ },
+ {
+  "description": "Paygent Connect is a fintech platform that lets developers create products, configure plans, and manage users and subscriptions via a REST API.",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "API key is provided once when creating a product and used as a Bearer token for all subsequent requests.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can create a product and obtain an API key without a paid plan or admin approval.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The documented API includes endpoints for products, plan configuration, users, and subscriptions, totaling around 10–15 distinct endpoints.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.withpaygent.com/_mcp/server",
+   "notes": "An official MCP server is published for AI client integration."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.paygent.to/reference/api-reference"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.withpaygent.com/_mcp/server"
+   }
+  ],
+  "confidence": "high",
+  "id": 84,
+  "name": "Paygent Connect",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\084_paygent-connect",
+   "seconds": 46.5,
+   "at": "2026-11-23T22:34:26.888765"
+  }
+ },
+ {
+  "description": "A forensic FX audit engine that detects hidden bank spreads versus mid-market benchmarks on currency transactions.",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "Every request requires a Bearer token in the Authorization header starting with ipx_live_.",
+  "access": "unknown",
+  "access_notes": "The documentation mentions getting an API key and hitting the endpoint, but does not explicitly state whether it is free self-serve or requires a paid plan.",
+  "api_type": "REST",
+  "api_breadth": "narrow",
+  "api_notes": "Features 3 main documented endpoints: audit, rates, and audit/document.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.ipayx.ai/mcp",
+   "notes": "Listed on the official MCP Registry and Glama, with a dedicated MCP server running version 1.4.0."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "A forensic FX audit engine that powers iPayX with Bearer auth and OpenAPI 3.1",
+    "url": "https://www.ipayx.ai/docs/api"
+   },
+   {
+    "claim": "Features 3 endpoints: audit, rates, audit/document",
+    "url": "https://www.ipayx.ai/docs/api"
+   },
+   {
+    "claim": "Official MCP server deployed at mcp.ipayx.ai/mcp",
+    "url": "https://mcp.ipayx.ai/mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 85,
+  "name": "iPayX",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 2,
+   "evidence_dir": "data\\evidence\\085_ipayx",
+   "seconds": 18.7,
+   "at": "2026-11-23T22:34:45.642749"
+  }
+ },
+ {
+  "description": "QuickBooks Online provides a REST API for managing accounting data such as invoices, customers, and financial reports.",
+  "auth_methods": [
+   "OAuth2"
+  ],
+  "auth_notes": "OAuth 2.0 Authorization Code flow with bearer tokens; no API keys or basic auth.",
+  "access": "free_self_serve",
+  "access_notes": "Developers can sign up for a free Intuit Developer account and create an app to obtain client credentials and sandbox companies.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The documented API exposes dozens of entity endpoints (Invoices, Customers, Bills, etc.) and report endpoints, totaling roughly 20‑100 distinct operations.",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/laf-rge/quickbooks-mcp",
+   "notes": "Open‑source MCP server that wraps the QuickBooks REST API for natural‑language queries."
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "OAuth token rotation requires careful handling; no public rate‑limit or quota limits beyond 500/min."
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "access",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/laf-rge/quickbooks-mcp"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://dev.to/zuplo/quickbooks-api-complete-developers-guide-2026-3l77"
+   }
+  ],
+  "confidence": "high",
+  "id": 86,
+  "name": "QuickBooks",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "quickbooks",
+   "name": "QuickBooks"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 2,
+   "evidence_dir": "data\\evidence\\086_quickbooks",
+   "seconds": 59.4,
+   "at": "2026-11-23T22:35:45.098566"
+  }
+ },
+ {
+  "description": "Xero is a cloud accounting platform that exposes a REST API for financial data.",
+  "auth_methods": [
+   "OAuth2"
+  ],
+  "auth_notes": "OAuth2 with user consent and refresh token support.",
+  "access": "partner_gated",
+  "access_notes": "API credentials require the app to be certified by Xero.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The public API offers dozens of endpoints (invoices, bills, contacts, reports, etc.).",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No official or community MCP server is listed."
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "App certification required before production use."
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://developer.xero.com/pricing"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.xero.com/pricing"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer.xero.com/pricing"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developer.xero.com/pricing"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developer.xero.com/pricing"
+   }
+  ],
+  "confidence": "medium",
+  "id": 87,
+  "name": "Xero",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "xero",
+   "name": "Xero"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 3,
+   "evidence_dir": "data\\evidence\\087_xero",
+   "seconds": 49.1,
+   "at": "2026-11-23T22:36:34.238405"
+  }
+ },
+ {
+  "description": "Brex provides corporate cards, expense management, banking, and travel features accessible via developer APIs and an MCP server.",
+  "auth_methods": [
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "Developer API uses user tokens passed via Authorization Bearer header. The MCP server supports OAuth2 with Dynamic Client Registration or API keys.",
+  "access": "admin_approval",
+  "access_notes": "Requires an account admin or card admin to accept the Developer API agreement and generate tokens.",
+  "api_type": "unknown",
+  "api_breadth": "moderate",
+  "api_notes": "Exposes features across spend limits, expenses, fields, payments, team, and transactions.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://api.brex.com/mcp",
+   "notes": "Brex provides an official MCP server hosted at https://api.brex.com/mcp supporting natural language interaction with accounts."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Developer authentication requires an account admin or card admin to generate a user token from the Brex dashboard.",
+    "url": "https://developer.brex.com/guides/authentication"
+   },
+   {
+    "claim": "The Brex MCP server is hosted at https://api.brex.com/mcp and supports OAuth and API keys.",
+    "url": "https://developer.brex.com/docs/mcp"
+   },
+   {
+    "claim": "The Brex API includes Spend limits, Expenses, Fields, Payments, Team, and Transactions APIs.",
+    "url": "https://www.brex.com/support/brex-api"
+   }
+  ],
+  "confidence": "high",
+  "id": 88,
+  "name": "Brex",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "brex",
+   "name": "Brex"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\088_brex",
+   "seconds": 25.6,
+   "at": "2026-11-23T22:36:59.816984"
+  }
+ },
+ {
+  "description": "unknown",
+  "auth_methods": [
+   "unknown"
+  ],
+  "auth_notes": "unknown",
+  "access": "unknown",
+  "access_notes": "unknown",
+  "api_type": "unknown",
+  "api_breadth": "unknown",
+  "api_notes": "unknown",
+  "existing_mcp": {
+   "status": "unknown",
+   "url": "",
+   "notes": "unknown"
+  },
+  "buildability": {
+   "verdict": "unknown",
+   "blocker": ""
+  },
+  "evidence": [],
+  "confidence": "low",
+  "id": 89,
+  "name": "Ramp",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "ramp",
+   "name": "Ramp"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\089_ramp",
+   "seconds": 142.8,
+   "at": "2026-11-23T22:39:22.571572"
+  }
+ },
+ {
+  "description": "Provides on-demand access to PitchBook’s private and public market data via a RESTful API.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "API key or authentication token issued after approval",
+  "access": "partner_gated",
+  "access_notes": "Requires contacting PitchBook’s Direct Data team or having an existing PitchBook license",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "RESTful JSON endpoints; full list not publicly enumerated in docs",
+  "existing_mcp": {
+   "status": "official",
+   "url": "",
+   "notes": "Premium Connector built on MCP server technology"
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "Requires partner approval and API key issuance"
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://pitchbook.com/help/PitchBook-api"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://pitchbook.com/help/PitchBook-api"
+   },
+   {
+    "claim": "access",
+    "url": "https://pitchbook.com/help/PitchBook-api"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://pitchbook.com/help/PitchBook-api"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://pitchbook.com/help/PitchBook-api"
+   }
+  ],
+  "confidence": "medium",
+  "id": 90,
+  "name": "PitchBook",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "pitchbook",
+   "name": "PitchBook"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\090_pitchbook",
+   "seconds": 56.4,
+   "at": "2026-11-23T22:40:19.020274"
+  }
+ },
+ {
+  "description": "Toolkits that let AI agents create, manage, and query notebooks with documents, chat, and content generation.",
+  "auth_methods": [
+   "Bearer token",
+   "JWT"
+  ],
+  "auth_notes": "Google Gemini Notebook uses OAuth2 Bearer tokens; open‑source NotebookLM uses JWT.",
+  "access": "paid_plan",
+  "access_notes": "Requires a Gemini Notebook Enterprise license and Cloud NotebookLM User IAM role.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "≈50 REST endpoints covering notebook, source, chat, search, and content generation.",
+  "existing_mcp": {
+   "status": "community",
+   "url": "https://github.com/moodRobotics/notebooklm-mcp-server",
+   "notes": "Unofficial MCP server that exposes the same API surface."
+  },
+  "buildability": {
+   "verdict": "feasible",
+   "blocker": "Must obtain a Gemini Notebook Enterprise license and IAM role."
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://github.com/future-agi/cookbooks/blob/main/notebooklm/API_DOCUMENTATION.md"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://github.com/moodRobotics/notebooklm-mcp-server"
+   }
+  ],
+  "confidence": "medium",
+  "id": 91,
+  "name": "NotebookLM",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "notebook_lm",
+   "name": "NotebookLM"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\091_notebooklm",
+   "seconds": 58.0,
+   "at": "2026-11-23T22:41:16.994784"
+  }
+ },
+ {
+  "description": "AI-powered meeting transcription, summarization, and action‑item extraction for teams",
+  "auth_methods": [
+   "API key",
+   "OAuth2"
+  ],
+  "auth_notes": "Bearer token API key for Enterprise workspaces; OAuth2 client‑credentials for server‑to‑server integrations",
+  "access": "partner_gated",
+  "access_notes": "Public API is only enabled for Enterprise workspaces; non‑Enterprise users must contact an account manager",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Approximately 10–20 endpoints covering channels, conversations, audio, and webhooks",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.otter.ai/mcp",
+   "notes": "Official MCP server for AI assistants"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "access",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+   }
+  ],
+  "confidence": "high",
+  "id": 92,
+  "name": "Otter AI",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "otter_ai_mcp",
+   "name": "Otter.ai MCP"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\092_otter-ai",
+   "seconds": 89.5,
+   "at": "2026-11-23T22:42:46.466698"
+  }
+ },
+ {
+  "description": "AI-powered meeting recording, transcription, and analytics platform",
+  "auth_methods": [
+   "API key",
+   "Bearer token"
+  ],
+  "auth_notes": "API keys are generated in the Fathom website settings; bearer tokens are used for API key authentication",
+  "access": "free_self_serve",
+  "access_notes": "API keys can be created by any user via the website without a paid plan",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "REST API with documented endpoints for recordings, meetings, and analytics, subject to rate limits",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://api.fathom.ai/mcp",
+   "notes": "Official MCP server provided by Fathom for integration with AI assistants"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "access",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "access_notes",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "api_notes",
+    "url": "https://developers.fathom.ai/api-overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developers.fathom.ai/mcp-docs"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://developers.fathom.ai/api-overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 93,
+  "name": "Fathom",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "fathom",
+   "name": "Fathom"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\093_fathom",
+   "seconds": 77.4,
+   "at": "2026-11-23T22:44:03.875628"
+  }
+ },
+ {
+  "description": "Search scholarly articles and run AI‑driven research threads via a REST API or MCP server",
+  "auth_methods": [
+   "API key",
+   "Bearer token",
+   "OAuth2"
+  ],
+  "auth_notes": "API key in x-api-key header for REST; Bearer token for MCP; OAuth2 for client connectors",
+  "access": "free_self_serve",
+  "access_notes": "Any user can sign up for a free account and generate an API key; paid plans unlock more calls and full‑text features",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "Single search endpoint plus thread‑management endpoints; about 10–20 distinct endpoints documented",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.consensus.app/mcp",
+   "notes": "Hosted MCP server available for all clients"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://docs.consensus.app/api-get-started"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://help.consensus.app/en/articles/16516328-the-consensus-api"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.consensus.app/api-get-started"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://help.consensus.app/en/articles/16516328-the-consensus-api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.consensus.app/api-get-started"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.consensus.app/consensus-mcp"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://help.consensus.app/en/articles/16516328-the-consensus-api"
+   }
+  ],
+  "confidence": "high",
+  "id": 94,
+  "name": "Consensus",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "consensus",
+   "name": "Consensus"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\094_consensus",
+   "seconds": 53.2,
+   "at": "2026-11-23T22:44:57.041451"
+  }
+ },
+ {
+  "description": "AI-powered document parsing, extraction, classification, splitting, and editing for over 30 file types",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "API key is required for all requests and is set via REDUCTO_API_KEY",
+  "access": "free_self_serve",
+  "access_notes": "Users can sign up for a free account and generate an API key immediately",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The public API exposes endpoints such as /parse, /extract, /classify, /split, /edit, /upload, and related batch operations",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.reducto.ai/quickstart",
+   "notes": "MCP server is provided and documented for agent integration"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://docs.reducto.ai/quickstart"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.reducto.ai/quickstart"
+   },
+   {
+    "claim": "access",
+    "url": "https://docs.reducto.ai/quickstart"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.reducto.ai/reference/credit-usage"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.reducto.ai/reference/credit-usage"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.reducto.ai/quickstart"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.reducto.ai/sdk/python/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 95,
+  "name": "Reducto",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\095_reducto",
+   "seconds": 61.7,
+   "at": "2026-11-23T22:45:58.788527"
+  }
+ },
+ {
+  "description": "Devin provides an API and MCP server for session, playbook, knowledge, and repository management, plus enterprise analytics and integration tools.",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "API keys (cog_ prefixed) are used in Authorization headers; service keys are used in request bodies for the Desktop API.",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up for a Devin account and generate API keys for free; enterprise plans unlock additional Desktop API endpoints.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The public API includes endpoints for session, playbook, knowledge, schedule, integration, and analytics management; the Desktop API adds analytics endpoints.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.devin.ai/",
+   "notes": "Official MCP server is documented and requires a Devin API key."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://docs.devin.ai/api-reference/authentication"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.devin.ai/api-reference/authentication"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.devin.ai/api-reference/authentication"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://docs.devin.ai/work-with-devin/devin-mcp"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.devin.ai/work-with-devin/devin-mcp"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://docs.devin.ai/api-reference/authentication"
+   }
+  ],
+  "confidence": "high",
+  "id": 96,
+  "name": "Devin",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "devin_mcp",
+   "name": "Devin MCP"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\096_devin",
+   "seconds": 46.6,
+   "at": "2026-11-23T22:46:45.342095"
+  }
+ },
+ {
+  "description": "One‑click AI image and video generation platform with a unified API and MCP integration for agents",
+  "auth_methods": [
+   "OAuth2"
+  ],
+  "auth_notes": "Login via browser; no API key required for public API",
+  "access": "free_self_serve",
+  "access_notes": "New accounts get free tier with 2 concurrent generations; paid plans unlock higher limits",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Public REST endpoints are documented on the platform; exact count not disclosed",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://higgsfield.ai/mcp",
+   "notes": "MCP server is provided by Higgsfield for agent integration"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "access",
+    "url": "https://open.higgsfield.ai/pricing"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://higgsfield.ai/cli"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://higgsfield.ai/cli"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://higgsfield.ai/mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 97,
+  "name": "higgsfield",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "higgsfield",
+   "name": "Higgsfield"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\097_higgsfield",
+   "seconds": 69.8,
+   "at": "2026-11-23T22:47:55.136510"
+  }
+ },
+ {
+  "description": "Hosted API that validates, renders, generates, repairs, and stores Mermaid diagrams",
+  "auth_methods": [
+   "API key",
+   "OAuth2"
+  ],
+  "auth_notes": "API key for server‑side scripts; OAuth2 for interactive browser logins",
+  "access": "free_self_serve",
+  "access_notes": "Any Mermaid account, including free, gets a monthly credit allowance",
+  "api_type": "REST",
+  "api_breadth": "narrow",
+  "api_notes": "About 7 documented endpoints (validate, render, generate, repair, browse, create, update, share)",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No MCP server is announced"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://mermaid.ai/products/mermaid-api"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://mermaid-api.readthedocs.io/en/latest/authentication.html"
+   },
+   {
+    "claim": "access",
+    "url": "https://mermaid.ai/products/mermaid-api"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://mermaid.ai/products/mermaid-api"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://mermaid.ai/products/mermaid-api"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://mermaid.ai/products/mermaid-api"
+   }
+  ],
+  "confidence": "high",
+  "id": 98,
+  "name": "Mermaid CLI",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "mermaid_chart_mcp",
+   "name": "Mermaid Chart MCP"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\098_mermaid-cli",
+   "seconds": 60.5,
+   "at": "2026-11-23T22:48:55.690981"
+  }
+ },
+ {
+  "description": "Extracts transcripts and metadata from YouTube videos via a REST API",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "API key passed in the Authorization header as a Bearer token",
+  "access": "free_self_serve",
+  "access_notes": "API key available from the dashboard; no paid plan required for basic usage",
+  "api_type": "REST",
+  "api_breadth": "narrow",
+  "api_notes": "13 documented endpoints covering transcripts, video info, search, channel and playlist data",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://transcriptapi.com/docs/",
+   "notes": "MCP integration documented on the main site"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "description",
+    "url": "https://transcriptapi.com/docs/api/"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://transcriptapi.com/docs/api/"
+   },
+   {
+    "claim": "access",
+    "url": "https://transcriptapi.com/docs/api/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://transcriptapi.com/docs/api/"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://transcriptapi.com/docs/api/"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://transcriptapi.com/docs/"
+   }
+  ],
+  "confidence": "high",
+  "id": 99,
+  "name": "YouTube Transcript",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "youtube_transcript",
+   "name": "YouTube Transcript"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\099_youtube-transcript",
+   "seconds": 61.5,
+   "at": "2026-11-23T22:49:57.184919"
+  }
+ },
+ {
+  "description": "AI-powered meeting transcription, summaries, action items, and workspace data platform",
+  "auth_methods": [
+   "OAuth2",
+   "Bearer token"
+  ],
+  "auth_notes": "OAuth 2.1 (Sign in with Grain) or personal access token",
+  "access": "trial_self_serve",
+  "access_notes": "Offers a 14-day free trial and free plan options, with MCP access available on plans",
+  "api_type": "unknown",
+  "api_breadth": "unknown",
+  "api_notes": "Exposes a remote Model Context Protocol (MCP) server with various endpoints/tools",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://developers.grain.com/mcp/",
+   "notes": "Official Grain MCP server connects AI clients like Claude, ChatGPT, and Cursor directly to meeting data, transcripts, notes, and workspace data."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Official Grain MCP server is available for users to access meetings, notes, transcripts, deals, and coaching data.",
+    "url": "https://developers.grain.com/mcp/"
+   },
+   {
+    "claim": "Grain offers a 14-day free trial and free/paid seats.",
+    "url": "https://grain.com/release-note/06-18-2025"
+   },
+   {
+    "claim": "Grain's MCP server uses OAuth and HTTPS, and developers can connect with a personal access token.",
+    "url": "https://support.grain.com/en/articles/14811968-grain-mcp"
+   }
+  ],
+  "confidence": "high",
+  "id": 100,
+  "name": "Grain",
+  "category": "AI, Research and Media-native",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "grain",
+   "name": "Grain"
+  },
+  "_meta": {
+   "pass": 1,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\100_grain",
+   "seconds": 58.7,
+   "at": "2026-11-23T22:50:55.874247"
+  }
  }
 ]

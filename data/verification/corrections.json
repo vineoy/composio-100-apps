@@ -1,20 +1,452 @@
 [
- {"id": 29, "name": "Aircall", "field": "access", "old": "free_self_serve", "new": "trial_self_serve",
+ {
+  "id": 29,
+  "name": "Aircall",
+  "field": "access",
+  "old": "free_self_serve",
+  "new": "trial_self_serve",
   "reason": "Browser deep-check of developer.aircall.io: API error codes reference 'company on trial' limits; Aircall is a paid call-centre product with a trial, not a permanent free tier. Trial accounts can obtain API credentials.",
-  "url": "https://developer.aircall.io/api-references/", "source": "loop_c_browser"},
- {"id": 49, "name": "Amazon Selling Partner", "field": "access", "old": "free_self_serve", "new": "paid_plan",
+  "url": "https://developer.aircall.io/api-references/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 49,
+  "name": "Amazon Selling Partner",
+  "field": "access",
+  "old": "free_self_serve",
+  "new": "paid_plan",
   "reason": "Browser deep-check of Amazon SP-API docs: 'you must have a professional selling account to develop SP-API private seller applications. Individual accounts are not eligible.' → API development requires a paid Professional seller plan.",
-  "url": "https://developer-docs.amazon.com/sp-api/docs/registering-as-a-developer", "source": "loop_c_browser"},
- {"id": 50, "name": "fanbasis", "field": "existing_mcp.status", "old": "official", "new": "none",
+  "url": "https://developer-docs.amazon.com/sp-api/docs/registering-as-a-developer",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "existing_mcp.status",
+  "old": "official",
+  "new": "none",
   "reason": "The cited GitHub repo 'Launch-On-Basis/MCP-TS' is the Basis crypto protocol on BNB Smart Chain — an unrelated project. No fanbasis/Commas MCP server exists.",
-  "url": "https://github.com/Launch-On-Basis/MCP-TS", "source": "loop_c_browser"},
- {"id": 50, "name": "fanbasis", "field": "access", "old": "free_self_serve", "new": "no_public_api",
+  "url": "https://github.com/Launch-On-Basis/MCP-TS",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "access",
+  "old": "free_self_serve",
+  "new": "no_public_api",
   "reason": "Browser check: fanbasis.com rebranded to Commas; docs.fanbasis.com / developers.fanbasis.com / fanbasis.com/api all redirect to the marketing homepage, /api is 404. No documented public API found.",
-  "url": "https://fanbasis.com/", "source": "loop_c_browser"},
- {"id": 50, "name": "fanbasis", "field": "buildability.verdict", "old": "ready", "new": "blocked",
+  "url": "https://fanbasis.com/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "buildability.verdict",
+  "old": "ready",
+  "new": "blocked",
   "reason": "No documented public API; no official MCP (previous hit was an unrelated crypto repo). Cannot build an agent toolkit from public docs today.",
-  "url": "https://fanbasis.com/", "source": "loop_c_browser"},
- {"id": 50, "name": "fanbasis", "field": "auth_methods", "old": "API key,other: private key", "new": "unknown",
+  "url": "https://fanbasis.com/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "auth_methods",
+  "old": "API key,other: private key",
+  "new": "unknown",
   "reason": "Auth methods in the first pass came from the unrelated Basis crypto repo. No fanbasis API docs exist to confirm any auth method.",
-  "url": "https://fanbasis.com/", "source": "loop_c_browser"}
+  "url": "https://fanbasis.com/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 55,
+  "name": "Apify",
+  "field": "existing_mcp.url",
+  "old": "https://agi.apify.com",
+  "new": "https://mcp.apify.com",
+  "reason": "Live Apify docs (docs.apify.com/mcp): 'The Apify's MCP server (mcp.apify.com) allows AI applications and agents to interact with the Apify platform using Model Context Protocol.' Official MCP confirmed; URL corrected.",
+  "url": "https://docs.apify.com/mcp",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 55,
+  "name": "Apify",
+  "field": "auth_methods",
+  "old": "API key,Bearer token,other: x402 protocol,other: Skyfire,other: Machine Payments Protocol (MPP)",
+  "new": "API key, Bearer token",
+  "reason": "x402 / Skyfire / MPP are agentic *payment* protocols (how an agent pays for Actor runs), not authentication methods for the API. Docs show API tokens passed as Bearer. Misclassified fields removed.",
+  "url": "https://docs.apify.com/integrations/api",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "access",
+  "old": "unknown",
+  "new": "free_self_serve",
+  "reason": "Official Zoho pricing page lists APIs (5,000 API calls/day) in the Free edition; developer docs confirm OAuth 2.0 for all API users. First pass only saw the marketing homepage and returned unknown.",
+  "url": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "auth_methods",
+  "old": "other: unknown",
+  "new": "OAuth2",
+  "reason": "Zoho CRM API docs: “The Zoho CRM API uses the OAuth 2.0 protocol for authentication.”",
+  "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "api_type",
+  "old": "unknown",
+  "new": "REST",
+  "reason": "Zoho CRM API v8 is documented as REST/JSON with OAuth 2.0.",
+  "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "api_breadth",
+  "old": "unknown",
+  "new": "broad",
+  "reason": "Full CRM API (modules, records, metadata, workflows) across 5,000 free daily credits.",
+  "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-limits.html",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "buildability.verdict",
+  "old": "unknown",
+  "new": "ready",
+  "reason": "Free self-serve OAuth credentials + documented REST API + official MCP docs. Buildable today.",
+  "url": "https://www.zoho.com/crm/developer/docs/mcp/overview.html",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "buildability.blocker",
+  "old": "The provided documentation does not contain developer API details.",
+  "new": "",
+  "reason": "Blocker was an artefact of incomplete first-pass docs; docs are public.",
+  "url": "https://www.zoho.com/crm/developer/docs/api/v8/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "existing_mcp.status",
+  "old": "unknown",
+  "new": "official",
+  "reason": "Zoho publishes official Zoho CRM MCP servers (pre-built: Data Insights, Data Operations, Module Customization, Workflow Automation).",
+  "url": "https://www.zoho.com/crm/developer/docs/mcp/overview.html",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "field": "confidence",
+  "old": "low",
+  "new": "high",
+  "reason": "All fields re-grounded against official Zoho docs during Loop C.",
+  "url": "https://www.zoho.com/crm/developer/docs/api/v8/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 48,
+  "name": "Gumroad",
+  "field": "existing_mcp.url",
+  "old": "https://gumroad.com",
+  "new": "https://gumroad.com/mcp",
+  "reason": "Official Gumroad MCP page is https://gumroad.com/mcp (with a Claude connector page at /claude); status official confirmed, URL completed.",
+  "url": "https://gumroad.com/mcp",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 52,
+  "name": "SE Ranking",
+  "field": "existing_mcp.url",
+  "old": "",
+  "new": "https://seranking.com/api/integrations/mcp/",
+  "reason": "Vendor-owned page documents the SE Ranking MCP integration; official MCP confirmed and URL filled.",
+  "url": "https://seranking.com/api/integrations/mcp/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 54,
+  "name": "MrScraper",
+  "field": "existing_mcp.url",
+  "old": "",
+  "new": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+  "reason": "Vendor docs document the MrScraper MCP server; official MCP confirmed and URL filled.",
+  "url": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 58,
+  "name": "Sherlock",
+  "field": "api_type",
+  "old": "other: Model Context Protocol",
+  "new": "none",
+  "reason": "Sherlock is an open-source Python CLI with no public HTTP API. MCP is a protocol wrapper a community repo built around the CLI, not an API surface. Corrected api_type to none.",
+  "url": "https://github.com/sherlock-project/sherlock",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 58,
+  "name": "Sherlock",
+  "field": "api_breadth",
+  "old": "narrow",
+  "new": "none",
+  "reason": "No API endpoints; capability is a single CLI command (username search across 400+ sites).",
+  "url": "https://github.com/sherlock-project/sherlock",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 58,
+  "name": "Sherlock",
+  "field": "api_notes",
+  "old": "Uses Model Context Protocol (MCP) with a single `search_username` tool.",
+  "new": "No public API. Open-source Python CLI (`pipx install sherlock-project`). A community MCP server (Burnsedia/sherlock-mcp) wraps the CLI and exposes a single `search_username` tool.",
+  "reason": "Rewritten for accuracy: MCP is a community wrapper, not a first-party API.",
+  "url": "https://github.com/Burnsedia/sherlock-mcp",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 58,
+  "name": "Sherlock",
+  "field": "buildability.verdict",
+  "old": "ready",
+  "new": "feasible",
+  "reason": "Buildable only by wrapping the CLI (subprocess) or reusing the community MCP server; there is no API to call. Feasible, not ready.",
+  "url": "https://github.com/sherlock-project/sherlock",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 58,
+  "name": "Sherlock",
+  "field": "buildability.blocker",
+  "old": "",
+  "new": "No API — CLI-only; build via CLI wrapper or the community MCP server.",
+  "reason": "Adds the actual integration blocker.",
+  "url": "https://github.com/sherlock-project/sherlock",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 8,
+  "name": "Close",
+  "field": "access",
+  "old": "unknown",
+  "new": "trial_self_serve",
+  "reason": "Pricing page: every plan includes API access with no daily request quota; entry plan $9/mo and a 14-day free trial, no free tier. A trial account can obtain API credentials.",
+  "url": "https://close.com/pricing/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 9,
+  "name": "Copper",
+  "field": "access",
+  "old": "unknown",
+  "new": "trial_self_serve",
+  "reason": "Pricing page lists Basic/Professional/Business with 'Try free' (trial), no permanent free plan; API is available on paid/trial accounts.",
+  "url": "https://www.copper.com/pricing",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 11,
+  "name": "Zendesk",
+  "field": "access",
+  "old": "unknown",
+  "new": "trial_self_serve",
+  "reason": "Pricing page: paid plans + free trial; no general free tier. API credentials available during the trial.",
+  "url": "https://www.zendesk.com/pricing/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 17,
+  "name": "Plain",
+  "field": "access",
+  "old": "unknown",
+  "new": "trial_self_serve",
+  "reason": "Pricing page: $45/user/month with a 7-day free trial (no free tier); API is part of the developer platform.",
+  "url": "https://www.plain.com/pricing",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 39,
+  "name": "Threads (Meta)",
+  "field": "api_type",
+  "old": "unknown",
+  "new": "REST",
+  "reason": "Threads API is a REST/Graph-style HTTP API (Meta developer docs), not RPC or GraphQL.",
+  "url": "https://developers.facebook.com/docs/threads",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 50,
+  "name": "fanbasis",
+  "field": "api_type",
+  "old": "unknown",
+  "new": "none",
+  "reason": "No public API exists, so the API type is none (previously unknown).",
+  "url": "https://fanbasis.com/",
+  "source": "loop_c_browser"
+ },
+ {
+  "id": 53,
+  "name": "Ahrefs",
+  "field": "api_type",
+  "old": "unknown",
+  "new": "REST",
+  "reason": "Ahrefs API is a documented REST API (api.ahrefs.com) with JSON responses.",
+  "url": "https://api.ahrefs.com/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 27,
+  "name": "Telegram",
+  "field": "api_type",
+  "old": "other: MTProto / HTTP",
+  "new": "other",
+  "reason": "Normalized to the allowed enum. Telegram offers the HTTP Bot API and the MTProto client API; details remain in api_notes.",
+  "url": "https://core.telegram.org/api",
+  "source": "schema_normalization"
+ },
+ {
+  "id": 3,
+  "name": "Pipedrive",
+  "field": "access",
+  "old": "free_self_serve",
+  "new": "trial_self_serve",
+  "reason": "Pipedrive has no permanent free plan; API is usable via the 14-day trial / developer sandbox. Access notes said so, but the label said free.",
+  "url": "https://www.pipedrive.com/",
+  "source": "self_consistency_check"
+ },
+ {
+  "id": 87,
+  "name": "Xero",
+  "field": "access",
+  "old": "partner_gated",
+  "new": "free_self_serve",
+  "reason": "Xero developer pricing: free Starter plan (demo org) with open APIs; moving to real connections requires app certification, which is a review gate, not a partnership.",
+  "url": "https://developer.xero.com/pricing",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 87,
+  "name": "Xero",
+  "field": "access_notes",
+  "old": "API credentials require the app to be certified by Xero.",
+  "new": "Free Starter developer plan with a demo org and open APIs; production connections / app distribution require Xero app certification.",
+  "reason": "Clarifies the free entry path and the later review gate.",
+  "url": "https://developer.xero.com/pricing",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "description",
+  "old": "unknown",
+  "new": "Ramp is a corporate card and spend-management platform with an API for transactions, cards, users, bills, vendors, and accounting workflows.",
+  "reason": "Docs overview.",
+  "url": "https://docs.ramp.com/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "auth_methods",
+  "old": "unknown",
+  "new": "OAuth2, Basic",
+  "reason": "Ramp uses OAuth 2.0 (client credentials or authorization code); client ID/secret are sent with HTTP Basic auth at the token endpoint.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "access",
+  "old": "unknown",
+  "new": "free_self_serve",
+  "reason": "Free Ramp developer app + sandbox (demo.ramp.com); connecting a real business requires a Ramp admin to approve, but credentials are obtainable self-serve.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "access_notes",
+  "old": "unknown",
+  "new": "Free developer app and sandbox; production connection needs an Admin or Business Owner to approve the app.",
+  "reason": "Docs: who can approve.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "api_type",
+  "old": "unknown",
+  "new": "REST",
+  "reason": "REST developer API with OpenAPI spec.",
+  "url": "https://docs.ramp.com/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "api_breadth",
+  "old": "unknown",
+  "new": "broad",
+  "reason": "Scopes span transactions, cards, users, bills, vendors, accounting and more.",
+  "url": "https://docs.ramp.com/",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "existing_mcp.status",
+  "old": "unknown",
+  "new": "official",
+  "reason": "Ramp documents its own MCP server and CLI.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "buildability.verdict",
+  "old": "unknown",
+  "new": "feasible",
+  "reason": "Documented OAuth2 API and sandbox; production apps need admin approval.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "buildability.blocker",
+  "old": "",
+  "new": "Production app needs a Ramp Admin/Business Owner to approve",
+  "reason": "Who can approve.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ },
+ {
+  "id": 89,
+  "name": "Ramp",
+  "field": "confidence",
+  "old": "low",
+  "new": "high",
+  "reason": "Official docs confirm auth, sandbox, breadth and MCP.",
+  "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+  "source": "loop_c_fetch"
+ }
 ]

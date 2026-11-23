@@ -1,0 +1,77 @@
+{
+ "app": "Cloudflare",
+ "queries": [
+  "Cloudflare API authentication documentation",
+  "Cloudflare MCP server",
+  "Cloudflare API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.cloudflare.com/api/",
+  "https://developers.cloudflare.com/api/",
+  "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+  "https://developers.cloudflare.com/r2/api/tokens/"
+ ],
+ "search_hits": [
+  {
+   "title": "API Reference | Cloudflare API",
+   "href": "https://developers.cloudflare.com/api/"
+  },
+  {
+   "title": "Create API token \u00b7 Cloudflare Fundamentals docs",
+   "href": "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/"
+  },
+  {
+   "title": "Cloudflare API v4 Documentation",
+   "href": "https://cfapi.centminmod.com/"
+  },
+  {
+   "title": "Authentication \u00b7 Cloudflare R2 docs",
+   "href": "https://developers.cloudflare.com/r2/api/tokens/"
+  },
+  {
+   "title": "Make API calls \u00b7 Cloudflare Fundamentals docs",
+   "href": "https://developers.cloudflare.com/fundamentals/api/how-to/make-api-calls/"
+  },
+  {
+   "title": "Cloudflare's own MCP servers \u00b7 Cloudflare Agents docs",
+   "href": "https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/"
+  },
+  {
+   "title": "Build a Remote MCP server \u00b7 Cloudflare Agents docs",
+   "href": "https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/"
+  },
+  {
+   "title": "Build and deploy Remote Model Context Protocol (MCP) servers to Cloudflare",
+   "href": "https://blog.cloudflare.com/remote-model-context-protocol-servers-mcp/"
+  },
+  {
+   "title": "The next generation of MCP | Cloudflare Blog",
+   "href": "https://blog.cloudflare.com/mcp-v2/"
+  },
+  {
+   "title": "What is an MCP client? - Cloudflare",
+   "href": "https://www.cloudflare.com/learning/ai/mcp-client-and-server/"
+  },
+  {
+   "title": "Pricing \u00b7 Cloudflare R2 docs",
+   "href": "https://developers.cloudflare.com/r2/pricing/"
+  },
+  {
+   "title": "Pricing \u00b7 Cloudflare Workers AI docs",
+   "href": "https://developers.cloudflare.com/workers-ai/platform/pricing/"
+  },
+  {
+   "title": "Workers & Pages Pricing | Cloudflare",
+   "href": "https://www.cloudflare.com/plans/developer-platform-pricing/"
+  },
+  {
+   "title": "Pricing - Cloudflare",
+   "href": "https://www.cloudflare.com/plans/"
+  },
+  {
+   "title": "Cloudflare Workers Pricing (Nov 2026): Free Tier & Plans \u00b7 Engineer Foodie",
+   "href": "https://engineerfoodie.in/pricing/cloudflare/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:40:07.877399"
+}

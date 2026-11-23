@@ -1,0 +1,71 @@
+URL: https://usefathom.com/api/v1/authentication
+FETCHED: 2026-11-23T22:43:14.622119
+VIA: direct
+
+Authentication · Fathom Analytics API
+Skip to main content
+Start free trial
+Pricing
+View a live demo
+Sign in
+Features:
+What you can do with Fathom
+How Fathom works
+EU data isolation
+Our data journey
+Security
+Why Fathom Analytics?
+Simple to use
+Privacy-focused
+Cookieless analytics
+Researching website analytics?
+About us
+Website analytics for:
+European companies
+Agencies
+Compare Fathom with:
+Google Analytics
+Matomo
+Cloudflare Web Analytics
+Jetpack Stats
+Resources:
+Our blog
+Help centre
+API documentation
+Changelog
+UTM builder
+Cookie checker
+Compliance
+Status
+API reference
+v1
+v1
+v2
+Coming soon
+Search API documentation
+⌘K
+No matching endpoints or topics.
+Browse API documentation
+API reference
+Authentication
+To connect to our API, you must use the
+Authorization
+header with a bearer token. This can be obtained from your dashboard, under Settings → API. Your API key has complete access to your account (depending on the permissions you set), so please protect it.
+You should also send
+Accept: application/json
+so that errors are returned as JSON.
+cURL
+JavaScript
+PHP
+Laravel
+curl
+"https://api.usefathom.com/v1/account"
+\
+-H
+"Authorization: Bearer YOUR_API_TOKEN"
+\
+-H
+"Accept: application/json"
+Need a hand?
+Tell us what you're trying to do. We're happy to help.
+Contact support

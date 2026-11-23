@@ -1,0 +1,120 @@
+URL: https://help.getharvest.com/api-v2/
+FETCHED: 2026-11-23T22:30:04.411348
+VIA: direct
+
+Harvest API V2 Documentation
+Welcome to the Harvest API v2 Help Center
+This is the
+current
+API V2 documentation. You can still view the
+legacy API V1 documentation
+.
+API Introduction
+Overview
+Postman Collection
+Code Samples
+Supported Time Zones
+Supported Currencies
+Pagination
+See all docs
+Authentication
+Authentication
+See all docs
+Clients API
+Client Contacts
+Clients
+See all docs
+Company Settings
+Company
+See all docs
+Invoices API
+Invoice Messages
+Invoice Payments
+Invoices
+Invoice Item Categories
+See all docs
+Estimates API
+Estimate Messages
+Estimates
+Estimate Item Categories
+See all docs
+Expenses API
+Expenses
+Expense Categories
+See all docs
+Tasks API
+Tasks
+See all docs
+Timesheets API
+Time Entries
+See all docs
+Projects API
+Tags
+Project User Assignments
+Project Task Assignments
+Projects
+See all docs
+Roles API
+Permissions
+Custom Roles
+Roles
+See all docs
+Users API
+User Teammates
+User Billable Rates
+User Cost Rates
+User Project Assignments
+Users
+See all docs
+Reports API
+Saved and Generated Reports
+Report Exports
+Profitability Report
+Detailed Reports
+Expense Reports
+Uninvoiced Report
+Time Reports
+Project Budget Report
+See all docs
+Paid Time Off API
+Work Schedules
+Time Off Requests
+Time Off Policies
+Time Off Balances
+Holiday Calendars
+User Assignments & Allocations
+See all docs
+Approvals API
+Approvals
+See all docs
+Notifications API
+Notifications
+Notification Preferences
+See all docs
+Reimbursements API
+Reimbursements
+See all docs
+Imports API
+Imports
+See all docs
+Integrations API
+Gusto Sync Runs
+Gusto Settings and User Mappings
+See all docs
+Forecast API
+Time Off and Company Holidays
+Scheduled Assignments
+Schedule Export
+Repeating Assignments
+Project Financials
+Planned Expenses
+Placeholders
+Milestones
+Forecast Settings
+Forecast API Overview
+Board Window
+Board Projects
+Availability Heatmap
+See all docs
+Still have questions? We’re happy to help!
+Contact Us

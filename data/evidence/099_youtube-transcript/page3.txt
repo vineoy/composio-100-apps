@@ -1,0 +1,1871 @@
+URL: https://www.youtubetranscript.dev/api-docs
+FETCHED: 2026-11-23T22:49:22.887789
+VIA: direct
+
+V2
+API Keys
+Copy for Claude / ChatGPT
+V2 is the streamlined, user-owned transcript model. It prioritizes fast cache hits, consistent responses, and no surprise translations unless you request a language.
+Base URL
+https://www.youtubetranscript.dev/api/v2
+What you can do
+Transcribe a video
+Paste a YouTube link or video ID and get the transcript back, usually in seconds.
+POST
+/transcribe
+Transcribe many videos
+Send up to 3,000 videos in one request and get notified when they're done.
+POST
+/batch
+Playlists & channels
+Turn a playlist or channel into its list of videos, ready to transcribe.
+POST
+/playlists/resolve
+Your own audio & video
+Upload a file and transcribe it with speech-to-text.
+POST
+/uploads
+Manage transcripts
+List, fetch, translate or delete the transcripts you own.
+GET
+/transcripts
+Track long jobs
+Check on speech-to-text jobs, or get a webhook when they finish.
+GET
+/jobs/{job_id}
+New: one
+mode
+parameter for every transcript source
+Choose
+auto
+,
+captions_only
+,
+human_captions_only
+,
+speech_to_text_only
+instead of combining
+source
+and
+allow_asr
+. Existing requests keep working exactly as before.
+See how it works
+OpenAPI 3.0: V2 (recommended)
+Copy
+YAML
+View
+Transcribe a video
+Transcribe a single YouTube video. Returns immediately for caption-based videos. With mode=auto it falls back to ASR (async) when captions are unavailable: you get status processing and a job_id to poll at /api/v2/jobs/{job_id}, or the result is POSTed to webhook_url if you set one. Responses include the mode the request ran with.
+POST
+/api/v2/transcribe
+Copy for AI
+Try it
+Parameters
+video
+string
+required
+YouTube URL or 11-character video ID. Required unless upload_id is set.
+upload_id
+string
+Transcribe an uploaded media file instead of a YouTube video (see /uploads). Forces the ASR path (mode must be omitted or speech_to_text_only); webhook_url required. The upload id is returned as video_id in results.
+mode
+auto | captions_only | human_captions_only | speech_to_text_only
+Where the transcript comes from (recommended). auto: captions first, speech-to-text (ASR) only if the video has none. captions_only: any captions, never ASR. human_captions_only: human-made captions only. speech_to_text_only: always transcribe the audio. auto and speech_to_text_only can charge ASR credits. Replaces source + allow_asr; cannot be combined with them. Note: mode=auto is not the same as legacy source=auto (captions only, which is mode=captions_only). When omitted, your account default from the API Dashboard applies: auto for accounts created from October 2026, captions_only for older accounts unless changed. ASR modes work without webhook_url: poll the returned job_id.
+language
+ISO 639-1
+Preferred transcript language (e.g. en). If unavailable, captions in another language may be returned: transcript.language reports the actual language.
+source
+auto | manual | asr
+Legacy, still supported: use mode instead. Default: auto. asr transcribes the audio (async, requires webhook_url).
+allow_asr
+boolean
+Legacy, still supported: use mode=auto instead. Falls back to ASR if captions fail.
+format
+object
+{ timestamp, paragraphs, words }: include extra structure in the transcript.
+webhook_url
+uri
+When set, ASR results are POSTed to your URL. Optional with mode (poll the job_id instead); required for legacy source=asr. Ignored by captions_only and human_captions_only, which never use ASR.
+asr_options
+object
+Rich ASR config: language (+ codeSwitching, medicalMode, keyTerms), translateTo, speaker diarization (speakerLabels, speakerId + type/known values, multichannel, exact or min/max expected speakers), speech understanding (topics, summary, moderation, PII, profanity, sentiment), and formatting (punctuation, text formatting, filler words, custom date/phone/email patterns). Billable add-ons increase cost: preview with /transcribe/estimate. See the AsrOptions schema in the OpenAPI spec.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/transcribe \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "video": "dQw4w9WgXcQ",
+    "mode": "auto",
+    "language": "en",
+    "format": { "timestamp": true, "paragraphs": true }
+  }'
+Response (200)
+{
+  "request_id": "req_abc123",
+  "status": "completed",
+  "data": {
+    "video_id": "dQw4w9WgXcQ",
+    "video_title": "Example video",
+    "transcript": {
+      "text": "Welcome to this tutorial...",
+      "language": "en",
+      "source": "auto",
+      "segments": [
+        { "text": "Welcome to this tutorial.", "start": 0, "end": 2500 }
+      ]
+    }
+  },
+  "credits_used": 1,
+  "mode": "auto"
+}
+Transcribe an Instagram Reel
+Transcribe an Instagram Reel. Uses the Reel's captions when it has them, otherwise transcribes its audio (about 15 to 20 seconds). The transcript is saved like a YouTube one with video_id instagram_<code>: read it with GET /api/v2/transcripts/{video_id} and file it in folders. Transcribing a Reel you already have is free.
+POST
+/api/v2/social/transcribe
+1 credit with captions; otherwise 1 credit per 2 minutes of audio (minimum 1). Refunded if it fails.
+Copy for AI
+Try it
+Parameters
+url
+string
+required
+Instagram Reel or video post link, e.g. https://www.instagram.com/reel/C9xYz12AbCd/
+language
+ISO 639-1
+Preferred transcript language.
+cURL
+curl -X POST https://www.youtubetranscript.dev/api/v2/social/transcribe \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "url": "https://www.instagram.com/reel/C9xYz12AbCd/" }'
+Response (200)
+{
+  "request_id": "5b0e1c2d-3f4a-4b5c-8d6e-7f8a9b0c1d2e",
+  "transcript": {
+    "id": "2c3d4e5f-6a7b-4c8d-9e0f-1a2b3c4d5e6f",
+    "video_id": "instagram_C9xYz12AbCd",
+    "language": "en",
+    "source_kind": "auto"
+  },
+  "credits_used": 1,
+  "cached": false
+}
+Estimate cost
+Dry-run credit estimate. Returns the ASR base cost plus any add-on surcharge for the requested asr_options without creating a job or charging credits.
+POST
+/api/v2/transcribe/estimate
+Copy for AI
+Try it
+Parameters
+video
+string
+required
+YouTube URL or 11-character video ID.
+mode
+auto | captions_only | human_captions_only | speech_to_text_only
+Same values as /transcribe. Use speech_to_text_only (or auto) to preview the ASR cost.
+source
+auto | manual | asr
+Legacy, still supported: use mode instead. Defaults to asr for cost preview.
+asr_options
+object
+Same shape as /transcribe. Add-on charges are prorated by duration.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/transcribe/estimate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "video": "dQw4w9WgXcQ",
+    "mode": "speech_to_text_only",
+    "asr_options": {
+      "speakerLabels": true,
+      "summarization": true,
+      "translateTo": "es"
+    }
+  }'
+Response (200)
+{
+  "request_id": "req_abc123",
+  "video_id": "dQw4w9WgXcQ",
+  "source": "asr",
+  "mode": "speech_to_text_only",
+  "duration_seconds": 213,
+  "duration_minutes": 4,
+  "max_duration_minutes": 480,
+  "exceeds_max_duration": false,
+  "base_credits": 3,
+  "addon_credits": 2,
+  "estimated_credits": 5
+}
+Check job status
+Poll a single transcription job. Use this for ASR jobs returned from /transcribe. Returns 202 while running and 200 when complete. Completed ASR jobs include asr_intelligence (summary, topics, sentiment, etc.) when those options were enabled. With speaker labels on (asr_options.speakerLabels or speakerId), every segment carries a speaker field ("A", "B", ... or a name or role with speakerId), and so does every word when you add include_words=true. There is no separate speakers or utterances object.
+GET
+/api/v2/jobs/
+{job_id}
+Copy for AI
+Try it
+Parameters
+job_id
+path
+required
+Identifier returned in the original transcribe response.
+include_segments
+boolean
+Include segment-level timestamps in the transcript payload.
+include_paragraphs
+boolean
+Include paragraph groupings.
+include_words
+boolean
+Include word-level timestamps (ASR only). Each word carries a speaker field when speaker labels were on.
+cURL
+Node
+Python
+curl -X GET https://www.youtubetranscript.dev/api/v2/jobs/JOB_ID \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200, speaker labels on)
+{
+  "request_id": "req_abc123",
+  "status": "completed",
+  "data": {
+    "video_id": "dQw4w9WgXcQ",
+    "transcript": {
+      "text": "Welcome to this tutorial...",
+      "language": "en",
+      "source": "asr",
+      "segments": [
+        { "text": "Welcome to this tutorial.", "start": 0, "end": 2500, "speaker": "A" },
+        { "text": "Thanks for having me.", "start": 2600, "end": 4100, "speaker": "B" }
+      ]
+    }
+  },
+  "credits_used": 6
+}
+Upload a file
+Register an audio/video file upload and get a signed URL. PUT the raw file bytes to signed_url (with the file's Content-Type), finalize via /uploads/{upload_id}/complete, then transcribe with upload_id on /transcribe. Max 2GB and 8 hours per file.
+POST
+/api/v2/uploads
+Copy for AI
+Try it
+Parameters
+filename
+string
+required
+Original filename. The extension is preserved for content sniffing.
+mime_type
+string
+required
+Must start with audio/ or video/ (e.g. audio/mpeg, video/mp4).
+size_bytes
+integer
+required
+File size in bytes. Max 2147483648 (2GB).
+duration_sec
+integer
+required
+Media duration in seconds. Max 28800 (8 hours). Used for the ASR credit estimate.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/uploads \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "filename": "interview.mp3",
+    "mime_type": "audio/mpeg",
+    "size_bytes": 48211234,
+    "duration_sec": 1820
+  }'
+
+# Then PUT the raw file bytes to the returned signed_url:
+curl -X PUT "SIGNED_URL_FROM_RESPONSE" \
+  -H "Content-Type: audio/mpeg" \
+  --data-binary @interview.mp3
+
+# Then finalize:
+curl -X POST https://www.youtubetranscript.dev/api/v2/uploads/UPLOAD_ID/complete \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "upload_id": "up_a1B2c3D4",
+  "bucket": "asr-media",
+  "path": "user-uuid/up_a1B2c3D4/interview.mp3",
+  "token": "eyJhbGciOiJIUzI1NiJ9...",
+  "signed_url": "https://api.youtubetranscript.dev/storage/v1/object/upload/sign/asr-media/...?token=..."
+}
+Finish an upload
+Finalize an upload after the PUT to signed_url succeeds. Verifies the file exists in storage and marks it ready. The upload can then be transcribed by passing upload_id to /transcribe (source="asr", webhook_url required).
+POST
+/api/v2/uploads/
+{upload_id}
+/complete
+Copy for AI
+Try it
+Parameters
+upload_id
+path
+required
+Upload id returned by POST /uploads.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/uploads/up_a1B2c3D4/complete \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "upload_id": "up_a1B2c3D4",
+  "status": "uploaded",
+  "filename": "interview.mp3",
+  "duration_sec": 1820
+}
+Transcribe many videos
+Submit up to 3,000 videos in one request. Returns within 2 seconds; poll the returned poll_url or wait for the webhook.
+POST
+/api/v2/batch
+Copy for AI
+Try it
+Parameters
+video_ids
+string[]
+required
+Up to 3,000 IDs depending on plan. Free = 10, Basic = 500, Pro = 1,500, Business = 3,000.
+language
+ISO 639-1
+Preferred language for every video.
+mode
+auto | captions_only | human_captions_only | speech_to_text_only
+Where the transcript comes from (recommended). auto: captions first, speech-to-text (ASR) only if the video has none. captions_only: any captions, never ASR. human_captions_only: human-made captions only. speech_to_text_only: always transcribe the audio. auto and speech_to_text_only can charge ASR credits. Replaces source + allow_asr; cannot be combined with them. Note: mode=auto is not the same as legacy source=auto (captions only, which is mode=captions_only). For batch, auto and speech_to_text_only require webhook_url. When omitted, your API Dashboard default applies (an ASR default only when webhook_url is set).
+source
+auto | manual | asr
+Legacy, still supported: use mode instead. Default: auto. source=asr requires webhook_url.
+allow_asr
+boolean
+Legacy, still supported: use mode=auto instead. webhook_url is required.
+format
+object
+{ timestamp, paragraphs, words }: applied to every result.
+webhook_url
+uri
+Delivers the completed batch payload. Required for mode=auto or speech_to_text_only (legacy: allow_asr=true or source=asr).
+asr_options
+object
+Rich ASR config applied to every video transcribed via ASR (same shape as /transcribe). Billable add-ons apply per video.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/batch \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "video_ids": ["dQw4w9WgXcQ", "jNQXAC9IVRw"],
+    "mode": "auto",
+    "webhook_url": "https://your-domain.com/webhook",
+    "format": { "timestamp": true }
+  }'
+Response (202)
+{
+  "batch_id": "550e8400-e29b-41d4-a716-446655440000",
+  "status": "processing",
+  "results": [],
+  "summary": { "total": 2, "succeeded": 0, "failed": 0, "processing": 2 },
+  "poll_url": "https://www.youtubetranscript.dev/api/v2/batch/550e8400-e29b-41d4-a716-446655440000",
+  "created_at": "2026-05-15T10:00:00Z"
+}
+Check batch status
+Check the status of a batch. Returns 202 while processing and 200 when results are ready. Stop polling once status is "completed", "partial", or "failed": finished batches never change, and re-fetching one more than 60 times in 24h returns 429 with a Retry-After header.
+GET
+/api/v2/batch/
+{batch_id}
+Copy for AI
+Try it
+Parameters
+batch_id
+path
+required
+Batch identifier returned from POST /batch.
+cURL
+Node
+Python
+curl -X GET https://www.youtubetranscript.dev/api/v2/batch/BATCH_ID \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "batch_id": "550e8400-e29b-41d4-a716-446655440000",
+  "status": "completed",
+  "summary": { "total": 2, "succeeded": 2, "failed": 0, "processing": 0 },
+  "results": [
+    { "request_id": "req_1", "status": "completed", "data": { "video_id": "dQw4w9WgXcQ" } },
+    { "request_id": "req_2", "status": "completed", "data": { "video_id": "jNQXAC9IVRw" } }
+  ],
+  "credits_used": 2,
+  "webhook_delivered": true,
+  "completed_at": "2026-05-15T10:04:00Z"
+}
+List jobs
+List your transcription jobs, newest first. Filter by status and paginate. Use the returned job_id with GET /api/v2/jobs/{job_id} to fetch a transcript.
+GET
+/api/v2/jobs
+Copy for AI
+Try it
+Parameters
+page
+query
+Page number (default 1).
+limit
+query
+Items per page (default 50, max 100).
+status
+query
+completed | processing | failed | requires_asr_confirmation.
+cURL
+Node
+curl "https://www.youtubetranscript.dev/api/v2/jobs?status=processing&limit=25" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "jobs": [
+    {
+      "job_id": "9c2...",
+      "video_id": "dQw4w9WgXcQ",
+      "video_title": "Example video",
+      "language": "en",
+      "source": "asr",
+      "status": "processing",
+      "error": null,
+      "credits_used": 0,
+      "created_at": "2026-07-06T12:00:00Z",
+      "started_at": "2026-07-06T12:00:01Z",
+      "completed_at": null
+    }
+  ],
+  "count": 1,
+  "pagination": { "page": 1, "limit": 25, "total": 1, "totalPages": 1, "hasMore": false }
+}
+List transcripts
+List stored transcripts with search, status, language, and date filters. Metadata only (no full text) unless include_segments=true.
+GET
+/api/v2/transcripts
+Copy for AI
+Try it
+Parameters
+page
+query
+Page number (default 1).
+limit
+query
+Items per page (default 50, max 100).
+search
+query
+Match video id, title, or transcript text.
+status
+query
+Filter by status; omit for succeeded.
+language
+query
+Filter by language code.
+date_from
+query
+ISO date-time lower bound.
+date_to
+query
+ISO date-time upper bound.
+include_segments
+query
+Include segments in each item.
+cURL
+Node
+curl "https://www.youtubetranscript.dev/api/v2/transcripts?page=1&limit=50&status=succeeded" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "history": [
+    {
+      "id": "b1f...",
+      "video_id": "dQw4w9WgXcQ",
+      "video_title": "Example video",
+      "language": "en",
+      "source_kind": "auto",
+      "status": "succeeded",
+      "created_at": "2026-07-06T12:00:00Z",
+      "word_count": 1234,
+      "segment_count": 88,
+      "credits_used": 1
+    }
+  ],
+  "count": 1,
+  "pagination": { "page": 1, "limit": 50, "total": 1, "totalPages": 1, "hasMore": false }
+}
+Get a transcript
+Fetch the best owned transcript for a video, including asr_intelligence (summary, topics, sentiment, etc.), plus summary and mind_map when generated.
+GET
+/api/v2/transcripts/
+{video_id}
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+YouTube 11-character video ID.
+id
+query
+Specific transcript/job id.
+language
+query
+Preferred language version.
+source
+query
+auto | manual | asr.
+include_timestamps
+query
+Include segments (default true).
+cURL
+Node
+curl "https://www.youtubetranscript.dev/api/v2/transcripts/dQw4w9WgXcQ?language=en" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "id": "b1f...",
+  "video_id": "dQw4w9WgXcQ",
+  "language": "en",
+  "text": "Welcome to this tutorial...",
+  "segments": [{ "text": "Welcome to this tutorial.", "start": 0, "end": 2500 }],
+  "has_timestamps": true,
+  "source_kind": "asr",
+  "video_title": "Example video",
+  "summary": null,
+  "mind_map": null,
+  "asr_intelligence": {
+    "summary": "A short overview of the video...",
+    "topics": [{ "text": "Technology", "relevance": 0.92 }],
+    "sentiment": [{ "text": "Great tutorial", "sentiment": "POSITIVE" }]
+  }
+}
+Get themes & keywords
+AI key moments, themes & keywords for a stored transcript: a short TL;DR, the key moments worth finding again (each a short label plus the exact quote, with where it starts and ends), its main themes, and each keyword with the timestamps where it's said. 1 credit per transcript, charged once: calling it again (or GET) is free. Waits up to ~25s; a 202 "processing" means it's paid for and still running, so poll GET. If detection fails the credit is refunded. Transcripts too short to analyse return empty themes for 0 credits. 402 without enough credits.
+POST
+/api/v2/transcripts/
+{video_id}
+/themes
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+YouTube 11-character video ID of a transcript you own.
+id
+query
+Specific transcript/job id.
+language
+query
+Which language version to analyse.
+source
+query
+auto | manual | asr.
+cURL
+Node
+curl -X POST "https://www.youtubetranscript.dev/api/v2/transcripts/dQw4w9WgXcQ/themes?language=en" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "video_id": "dQw4w9WgXcQ",
+  "language": "en",
+  "status": "completed",
+  "credits_used": 1,
+  "credits_remaining": 41,
+  "tldr": "A promise of lifelong loyalty, sung as a list of things he'll never do.",
+  "moments": [
+    {
+      "id": "m1",
+      "theme_id": "t1",
+      "label": "The six promises of the chorus",
+      "quote": "Never gonna give you up, never gonna let you down",
+      "color_hex": "#0d9488",
+      "start": 43000,
+      "end": 47500,
+      "segment_start": 4,
+      "segment_end": 5
+    }
+  ],
+  "themes": [
+    {
+      "id": "t1",
+      "name": "Commitment",
+      "summary": "Promises never to leave or let the listener down.",
+      "color": "teal",
+      "color_hex": "#0d9488",
+      "share": 0.62,
+      "mention_count": 18,
+      "moment_count": 3,
+      "keywords": [
+        {
+          "id": "k1",
+          "term": "never gonna give you up",
+          "aliases": [],
+          "definition": "The song's central promise.",
+          "mention_count": 6,
+          "mentions": [{ "segment_index": 4, "start": 43000 }]
+        }
+      ]
+    }
+  ]
+}
+Read unlocked themes
+Read key moments, themes & keywords you've already unlocked. Never charges and never starts the AI: returns status "locked" (with credits_required) until you POST, then "completed" with the same body as POST, or 202 "processing" while detection is still running.
+GET
+/api/v2/transcripts/
+{video_id}
+/themes
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+YouTube 11-character video ID of a transcript you own.
+id
+query
+Specific transcript/job id.
+language
+query
+Which language version to analyse.
+source
+query
+auto | manual | asr.
+cURL
+Node
+curl "https://www.youtubetranscript.dev/api/v2/transcripts/dQw4w9WgXcQ/themes?language=en" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200, not unlocked yet)
+{
+  "video_id": "dQw4w9WgXcQ",
+  "language": "en",
+  "status": "locked",
+  "credits_required": 1
+}
+Translate a transcript
+Translate an owned transcript into a target language using YouTube captions or the AI provider. Returns free if you already own the translation.
+POST
+/api/v2/transcripts/
+{video_id}
+/translate
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+YouTube 11-character video ID.
+target_language
+ISO 639-1
+required
+Language to translate into.
+source_language
+ISO 639-1
+Source transcript language to translate from.
+provider
+ai | youtube
+Translation provider.
+allow_ai_fallback
+boolean
+Fall back to AI when YouTube has no translation.
+cURL
+Node
+curl -X POST "https://www.youtubetranscript.dev/api/v2/transcripts/dQw4w9WgXcQ/translate" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "target_language": "es", "provider": "ai" }'
+Response (200)
+{
+  "success": true,
+  "message": "Translation completed",
+  "language": "es",
+  "credits_used": 4,
+  "provider_used": "ai"
+}
+Available languages
+List the languages you already own for a video plus the YouTube translation targets available for it.
+GET
+/api/v2/transcripts/
+{video_id}
+/languages
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+YouTube 11-character video ID.
+include_youtube_default
+query
+Include YouTube translation targets (default true).
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/transcripts/dQw4w9WgXcQ/languages" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "video_id": "dQw4w9WgXcQ",
+  "languages": ["en", "es"],
+  "youtube_translation_languages": ["fr", "de", "ja"]
+}
+Delete a transcript
+Delete owned transcript(s) for a video. Optional language/source query params narrow the deletion; otherwise every language/source is removed. Also deletes bulk by id via POST /api/v2/transcripts/bulk-delete.
+DELETE
+/api/v2/transcripts/
+{video_id}
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+YouTube 11-character video ID.
+language
+query
+Only delete this language.
+source
+query
+Only delete this source (auto | manual | asr).
+cURL
+Node
+curl -X DELETE "https://www.youtubetranscript.dev/api/v2/transcripts/dQw4w9WgXcQ" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "success": true,
+  "deleted": 2,
+  "message": "Successfully deleted 2 transcripts"
+}
+List folders
+List your folders, alphabetically, with how many videos each holds. Folders are flat and work like tags: one video can be in many folders.
+GET
+/api/v2/folders
+Free: no credits
+Copy for AI
+Try it
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/folders" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "folders": [
+    {
+      "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+      "name": "Competitor research",
+      "video_count": 12,
+      "created_at": "2026-10-29T09:14:02Z",
+      "updated_at": "2026-10-29T09:14:02Z"
+    }
+  ]
+}
+Create a folder
+Create a folder. Names are unique per account, ignoring case (409 if you already have one with that name). Up to 200 folders.
+POST
+/api/v2/folders
+Free: no credits
+Copy for AI
+Try it
+Parameters
+name
+string
+required
+1 to 80 characters.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/folders \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "Competitor research" }'
+Response (201)
+{
+  "folder": {
+    "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+    "name": "Competitor research",
+    "video_count": 0,
+    "created_at": "2026-10-29T09:14:02Z",
+    "updated_at": "2026-10-29T09:14:02Z"
+  }
+}
+Rename a folder
+Rename a folder. GET the same path returns one folder.
+PATCH
+/api/v2/folders/
+{folder_id}
+Free: no credits
+Copy for AI
+Try it
+Parameters
+folder_id
+path
+required
+The folder's id.
+name
+string
+required
+1 to 80 characters.
+cURL
+curl -X PATCH https://www.youtubetranscript.dev/api/v2/folders/{folder_id} \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "Competitors 2026" }'
+Response (200)
+{
+  "folder": { "id": "7c9e6679-...", "name": "Competitors 2026", "video_count": 12, "created_at": "...", "updated_at": "..." }
+}
+Delete a folder
+Delete a folder. Only the folder goes: its videos, transcripts and outputs stay in your account.
+DELETE
+/api/v2/folders/
+{folder_id}
+Free: no credits
+Copy for AI
+Try it
+Parameters
+folder_id
+path
+required
+The folder's id.
+cURL
+curl -X DELETE https://www.youtubetranscript.dev/api/v2/folders/{folder_id} \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{ "deleted": true }
+Add videos to a folder
+Add videos you've transcribed to a folder. Videos already in it are skipped; ids you have no transcript for come back in not_found. Every language and output of a video comes with it.
+POST
+/api/v2/folders/
+{folder_id}
+/videos
+Free: no credits
+Copy for AI
+Try it
+Parameters
+folder_id
+path
+required
+The folder's id.
+video_ids
+string[]
+required
+Up to 100 video ids: YouTube ids, upload ids (upl_...) or Instagram ids (instagram_...).
+cURL
+Node
+curl -X POST https://www.youtubetranscript.dev/api/v2/folders/{folder_id}/videos \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "video_ids": ["dQw4w9WgXcQ", "jNQXAC9IVRw"] }'
+Response (200)
+{
+  "added": ["dQw4w9WgXcQ"],
+  "already_in_folder": ["jNQXAC9IVRw"],
+  "not_found": []
+}
+Remove videos from a folder
+Take videos out of a folder. Their transcripts are not touched. GET the same path lists the folder's videos, like GET /api/v2/videos?folder_id=.
+DELETE
+/api/v2/folders/
+{folder_id}
+/videos
+Free: no credits
+Copy for AI
+Try it
+Parameters
+folder_id
+path
+required
+The folder's id.
+video_ids
+string[]
+required
+Up to 100 video ids.
+cURL
+curl -X DELETE https://www.youtubetranscript.dev/api/v2/folders/{folder_id}/videos \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "video_ids": ["dQw4w9WgXcQ"] }'
+Response (200)
+{ "removed": ["dQw4w9WgXcQ"] }
+List your videos
+List your videos, one entry per video (its newest transcript), newest first, with the folders it's in and the outputs you've already made (summary, themes, mind_map, flashcards, notes, quiz, case_study), each with its languages.
+GET
+/api/v2/videos
+Free: no credits
+Copy for AI
+Try it
+Parameters
+folder_id
+query
+Only this folder's videos.
+unfiled
+query
+true: only videos in no folder.
+channel
+query
+Only this channel's videos (a channel_name from GET /api/v2/videos/channels).
+sort
+query
+recent (default), oldest, longest, shortest or title.
+search
+query
+Title contains, or an exact video id.
+page
+query
+1-based. Default 1.
+limit
+query
+1 to 100. Default 50.
+cURL
+# Every video, newest first
+curl "https://www.youtubetranscript.dev/api/v2/videos?limit=50" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# Only one folder's videos
+curl "https://www.youtubetranscript.dev/api/v2/videos?folder_id={folder_id}" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# One channel's videos, longest first
+curl "https://www.youtubetranscript.dev/api/v2/videos?channel=TED&sort=longest" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# Videos that aren't in any folder yet
+curl "https://www.youtubetranscript.dev/api/v2/videos?unfiled=true" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "videos": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "transcript": { "id": "0b6f...", "language": "en", "source_kind": "manual" },
+      "title": "Example video",
+      "duration_seconds": 212,
+      "channel_name": "Example Channel",
+      "last_transcribed_at": "2026-10-28T18:02:11Z",
+      "folder_ids": ["7c9e6679-7425-40de-944b-e07fc1f90ae7"],
+      "outputs": {
+        "summary": ["en"],
+        "flashcards": ["en"],
+        "mind_map": ["en", "es"]
+      }
+    }
+  ],
+  "pagination": { "page": 1, "limit": 50, "total": 1, "total_pages": 1, "has_more": false }
+}
+List your channels
+The channels your videos come from, most videos first, for filtering GET /api/v2/videos?channel=.
+GET
+/api/v2/videos/channels
+Free: no credits
+Copy for AI
+Try it
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/videos/channels" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "channels": [
+    { "channel_name": "TED", "video_count": 14 },
+    { "channel_name": "Starter Story", "video_count": 9 }
+  ]
+}
+Set a video's folders
+Put one video in exactly these folders, adding and removing as needed ([] takes it out of all of them). GET the same path returns its folder_ids.
+PUT
+/api/v2/videos/
+{video_id}
+/folders
+Free: no credits
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+A video you have a transcript of.
+folder_ids
+string[]
+required
+Your folder ids.
+cURL
+curl -X PUT https://www.youtubetranscript.dev/api/v2/videos/dQw4w9WgXcQ/folders \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "folder_ids": ["7c9e6679-7425-40de-944b-e07fc1f90ae7"] }'
+Response (200)
+{
+  "video_id": "dQw4w9WgXcQ",
+  "folder_ids": ["7c9e6679-7425-40de-944b-e07fc1f90ae7"]
+}
+Suggest videos for a folder
+Videos you've transcribed that look like they belong in this folder, picked by AI from their titles (up to 20, best first). Add them with POST /api/v2/folders/{folder_id}/videos.
+GET
+/api/v2/folders/
+{folder_id}
+/suggestions
+Free: no credits
+Copy for AI
+Try it
+Parameters
+folder_id
+path
+required
+One of your folders.
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/folders/7c9e6679-7425-40de-944b-e07fc1f90ae7/suggestions" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "folder_id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "videos": [
+    { "video_id": "dQw4w9WgXcQ", "title": "Keyword research for beginners", "channel_name": "Backlinko", "duration_seconds": 912 }
+  ]
+}
+Suggest folders for a video
+Which of your folders a video fits (up to 3), picked by AI from its title, and a name for a new folder when none fits well (new_folder, or null).
+GET
+/api/v2/videos/
+{video_id}
+/folder-suggestions
+Free: no credits
+Copy for AI
+Try it
+Parameters
+video_id
+path
+required
+A video you have a transcript of.
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/videos/dQw4w9WgXcQ/folder-suggestions" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "video_id": "dQw4w9WgXcQ",
+  "folders": [{ "id": "7c9e6679-7425-40de-944b-e07fc1f90ae7", "name": "SEO Hacks" }],
+  "new_folder": null
+}
+Search your transcripts
+Find every mention of your keywords across the transcripts you've saved, with timestamps and a snippet around each one. Plain text match (no AI). A transcript matches when it mentions any keyword. Results are sorted by most mentions, then newest.
+POST
+/api/v2/library/search
+Free: no credits
+Copy for AI
+Try it
+Parameters
+keywords
+string[]
+required
+Words or phrases to find (up to 50). Required unless keyword_set_id is set.
+keyword_set_id
+string
+Use a saved keyword set's keywords instead of keywords.
+exclude
+string[]
+Leave out transcripts that mention any of these.
+whole_word
+boolean
+Match whole words only (default true). Languages written without spaces, like Chinese or Japanese, always match as written.
+video_ids
+string[]
+Search only these videos (up to 500). Default: your 1,000 most recent transcripts.
+limit
+integer
+Transcripts to return, up to 100 (default 50).
+cURL
+curl -X POST https://www.youtubetranscript.dev/api/v2/library/search \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "keywords": ["MRR", "churn"], "exclude": ["sponsor"], "whole_word": true }'
+Response (200)
+{
+  "keywords": ["MRR", "churn"],
+  "scanned": 412,
+  "results": [
+    {
+      "transcript_id": "3f2b7c1e-8a4d-4f7e-9c11-2d5e6f7a8b9c",
+      "video_id": "dQw4w9WgXcQ",
+      "title": "I quit my job to build this micro-SaaS",
+      "channel_id": "UCxRw2DkbN2qY3Rr1oQ4uWzQ",
+      "channel_name": "Starter Story",
+      "language": "en",
+      "created_at": "2026-10-25T14:02:11Z",
+      "word_count": 6120,
+      "duration_seconds": 2140,
+      "total_matches": 3,
+      "counts": { "MRR": 2, "churn": 1 },
+      "matches": [
+        { "keyword": "MRR", "start": 184.2, "snippet": "…we crossed $31,500 MRR last month…" }
+      ]
+    }
+  ]
+}
+Suggest translations
+The same keywords in other languages, so a search also finds videos spoken in them (search matches words as written). Suggestions only: add the terms you want to keywords.
+POST
+/api/v2/library/keywords/suggest
+Free: no credits
+Copy for AI
+Try it
+Parameters
+keywords
+string[]
+required
+The keywords to translate.
+languages
+string[]
+Up to 8 ISO 639-1 codes. Default: the languages your transcripts are in.
+cURL
+curl -X POST https://www.youtubetranscript.dev/api/v2/library/keywords/suggest \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "keywords": ["pricing"], "languages": ["es", "de"] }'
+Response (200)
+{
+  "detected_language": "en",
+  "languages": ["es", "de"],
+  "suggestions": [
+    { "language": "es", "name": "Spanish", "keywords": [{ "source": "pricing", "terms": ["precios", "precio"] }] },
+    { "language": "de", "name": "German", "keywords": [{ "source": "pricing", "terms": ["Preisgestaltung", "Preise"] }] }
+  ]
+}
+List keyword sets
+Your saved keyword sets, most recently changed first.
+GET
+/api/v2/library/keyword-sets
+Free: no credits
+Copy for AI
+Try it
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/library/keyword-sets" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "keyword_sets": [
+    {
+      "id": "8b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e",
+      "name": "SaaS metrics",
+      "keywords": ["MRR", "ARR", "churn"],
+      "created_at": "2026-10-30T09:12:00Z",
+      "updated_at": "2026-10-31T10:00:00Z"
+    }
+  ]
+}
+Save a keyword set
+Save a list of keywords under a name, to search with again (keyword_set_id).
+POST
+/api/v2/library/keyword-sets
+Free: no credits
+Copy for AI
+Try it
+Parameters
+name
+string
+required
+The set's name.
+keywords
+string[]
+required
+Words or phrases (up to 50).
+cURL
+curl -X POST https://www.youtubetranscript.dev/api/v2/library/keyword-sets \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "SaaS metrics", "keywords": ["MRR", "ARR", "churn"] }'
+Response (201)
+{
+  "keyword_set": {
+    "id": "8b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e",
+    "name": "SaaS metrics",
+    "keywords": ["MRR", "ARR", "churn"],
+    "created_at": "2026-10-31T10:00:00Z",
+    "updated_at": "2026-10-31T10:00:00Z"
+  }
+}
+Update a keyword set
+Rename a keyword set or replace its keywords.
+PATCH
+/api/v2/library/keyword-sets/
+{set_id}
+Free: no credits
+Copy for AI
+Try it
+Parameters
+set_id
+path
+required
+One of your keyword sets.
+name
+string
+New name.
+keywords
+string[]
+The new full list of keywords.
+cURL
+curl -X PATCH https://www.youtubetranscript.dev/api/v2/library/keyword-sets/8b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "keywords": ["MRR", "ARR", "churn", "LTV"] }'
+Response (200)
+{
+  "keyword_set": {
+    "id": "8b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e",
+    "name": "SaaS metrics",
+    "keywords": ["MRR", "ARR", "churn"],
+    "created_at": "2026-10-31T10:00:00Z",
+    "updated_at": "2026-10-31T10:00:00Z"
+  }
+}
+Delete a keyword set
+Delete a keyword set.
+DELETE
+/api/v2/library/keyword-sets/
+{set_id}
+Free: no credits
+Copy for AI
+Try it
+Parameters
+set_id
+path
+required
+One of your keyword sets.
+cURL
+curl -X DELETE https://www.youtubetranscript.dev/api/v2/library/keyword-sets/8b1c2d3e-4f5a-4b6c-8d7e-9f0a1b2c3d4e \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{ "deleted": true }
+List a playlist's videos
+Resolve a YouTube playlist by URL or ID into its video list (metadata only). Pair the returned video_id values with /api/v2/batch to transcribe them.
+POST
+/api/v2/playlists/resolve
+Paid plans
+Copy for AI
+Try it
+Parameters
+playlist_url
+string
+Playlist URL. One of playlist_url or playlist_id is required.
+playlist_id
+string
+Playlist ID (the list= value).
+limit
+integer
+Max videos returned (1-100).
+cURL
+Node
+curl -X POST https://www.youtubetranscript.dev/api/v2/playlists/resolve \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "playlist_url": "https://www.youtube.com/playlist?list=PLxxxx", "limit": 100 }'
+Response (200)
+{
+  "playlist_id": "PLxxxx",
+  "title": "My playlist",
+  "total": 42,
+  "truncated": false,
+  "items": [
+    { "video_id": "dQw4w9WgXcQ", "title": "Example video" }
+  ]
+}
+Playlist job status
+Fetch a playlist batch and per-video transcription job status. For overall batch progress, poll GET /api/v2/batch/{batch_id}.
+GET
+/api/v2/playlists/
+{playlist_id}
+Copy for AI
+Try it
+Parameters
+playlist_id
+path
+required
+Batch ID returned from /playlists/resolve.
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/playlists/{playlist_batch_id}" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "playlist": { "id": "3f1...", "playlist_id": "PLxxxx", "title": "My playlist" },
+  "videos": [
+    { "video_id": "dQw4w9WgXcQ", "video_title": "Example video", "status": "succeeded" }
+  ]
+}
+Recent playlist jobs
+List recent playlist batches for the authenticated user.
+GET
+/api/v2/playlists/history
+Copy for AI
+Try it
+cURL
+curl "https://www.youtubetranscript.dev/api/v2/playlists/history" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "history": [
+    { "id": "3f1...", "playlist_id": "PLxxxx", "title": "My playlist", "total_videos": 42 }
+  ],
+  "count": 1
+}
+List a channel's videos
+Fetch the uploads of a YouTube channel by URL, channel ID, or @handle. Returns video metadata only: pair the returned video_id values with /api/v2/batch to transcribe them.
+POST
+/api/v2/channels/resolve
+Paid plans
+Copy for AI
+Try it
+Parameters
+channel_url
+string
+required
+YouTube channel URL, channel ID, or @handle. One of channel_url, channel_id, or handle must be provided. Handles are the public ID without the @ (for https://www.youtube.com/@jawed, the ID is jawed).
+limit
+integer
+Maximum uploads returned. Defaults to the plan maximum.
+Per-request cap: Basic 500 videos · Pro 1,500 videos · Business 3,000 videos. Monthly job cap: Basic 3 · Pro 8 · Business unlimited.
+Rate limit
+Plan-based: Free 1 req/s · Basic 25 req/s · Pro 50 req/s · Business 100 req/s. Exceeding the limit returns 429 with a Retry-After header.
+cURL
+Node
+Python
+curl -X POST https://www.youtubetranscript.dev/api/v2/channels/resolve \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "handle": "@youtube",
+    "limit": 50
+  }'
+Response (200)
+{
+  "channel_id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+  "channel_title": "YouTube",
+  "subscriber_count": 42000000,
+  "video_count": 1200,
+  "total": 1,
+  "truncated": false,
+  "items": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "Latest upload",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "published_at": "2026-05-01T12:00:00Z",
+      "duration_seconds": 420
+    }
+  ]
+}
+Channel job status
+Fetch a channel batch and the per-video transcription job status. For overall batch status (counts + progress), poll GET /api/v2/batch/{batch_id} instead: use this endpoint when you also need each video's individual job state.
+GET
+/api/v2/channels/
+{channel_id}
+Copy for AI
+Try it
+Parameters
+channel_id
+path
+required
+Batch ID returned from /channels/resolve.
+cURL
+Node
+Python
+curl -X GET https://www.youtubetranscript.dev/api/v2/channels/CHANNEL_BATCH_ID \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "channel": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "channel_id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+    "channel_title": "YouTube",
+    "total_videos": 2,
+    "completed_count": 1,
+    "failed_count": 0,
+    "status": "processing",
+    "created_at": "2026-05-15T10:00:00Z"
+  },
+  "videos": [
+    {
+      "id": "job_123",
+      "video_id": "dQw4w9WgXcQ",
+      "video_title": "Latest upload",
+      "status": "succeeded",
+      "created_at": "2026-05-15T10:00:00Z",
+      "finished_at": "2026-05-15T10:00:10Z"
+    }
+  ]
+}
+Recent channel jobs
+List recent channel batches for the authenticated user.
+GET
+/api/v2/channels/history
+Copy for AI
+Try it
+Parameters
+limit
+query
+Max items (default 50, max 100).
+cURL
+Node
+Python
+curl -X GET "https://www.youtubetranscript.dev/api/v2/channels/history?limit=50" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "history": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "channel_id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "channel_title": "YouTube",
+      "total_videos": 25,
+      "completed_count": 25,
+      "failed_count": 0,
+      "status": "completed",
+      "created_at": "2026-05-15T10:00:00Z",
+      "completed_at": "2026-05-15T10:12:00Z"
+    }
+  ],
+  "count": 1
+}
+api-docs.docs.nav.endpoints.recommendations-videos
+Newest uploads from the channels you transcribe most, excluding videos you have already transcribed. Results are interleaved across channels, newest first. Free: no credits are charged. Pass the returned url or video_id to /api/v2/transcribe or /api/v2/batch.
+GET
+/api/v2/recommendations/videos
+Copy for AI
+Try it
+Parameters
+limit
+query
+Max videos returned (default 6, max 30).
+channels
+query
+How many of your top channels to draw from (default 3, max 10).
+cURL
+Node
+Python
+curl -X GET "https://www.youtubetranscript.dev/api/v2/recommendations/videos?limit=6" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "recommendations": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "Latest upload",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "thumbnail_url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+      "published_at": "2026-10-17T15:00:00Z",
+      "duration_seconds": 1089,
+      "channel_id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "channel_title": "YouTube"
+    }
+  ],
+  "channels": [
+    {
+      "channel_id": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "channel_title": "YouTube",
+      "transcribed_count": 12
+    }
+  ],
+  "count": 1
+}
+Search videos
+Search YouTube videos by keyword, ranked by relevance like YouTube's own search (not filtered by exact words). Live streams are included with type "live". Pass a result's url to /api/v2/transcribe to get its transcript. 1 credit per request, including each next page. Refunded if the search fails.
+GET
+/api/v2/search/videos
+Copy for AI
+Try it
+Parameters
+q
+query
+required
+Search text, up to 200 characters.
+duration
+query
+Video length: under_3_min, 3_to_20_min or over_20_min.
+upload_date
+query
+Only results uploaded within: today, this_week, this_month or this_year.
+sort_by
+query
+relevance (default) or popular.
+region
+query
+Two-letter country code to localize results, e.g. US.
+page_token
+query
+The next_page_token from a previous response, to get the next page. null means there are no more results.
+Rate limit
+Plan-based: Free 1 req/s · Basic 25 req/s · Pro 50 req/s · Business 100 req/s. Exceeding the limit returns 429 with a Retry-After header.
+cURL
+Node
+Python
+curl "https://www.youtubetranscript.dev/api/v2/search/videos?q=python%20tutorial&duration=over_20_min" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "request_id": "6f1c2a9e-4b7d-4f2a-9c1e-2d3b4a5c6d7e",
+  "type": "videos",
+  "query": "python tutorial",
+  "results": [
+    {
+      "type": "video",
+      "video_id": "kqtD5dpn9C8",
+      "url": "https://www.youtube.com/watch?v=kqtD5dpn9C8",
+      "title": "Python for Beginners - Learn Coding with Python in 1 Hour",
+      "thumbnail": "https://i.ytimg.com/vi/kqtD5dpn9C8/hq720.jpg",
+      "channel": {
+        "channel_id": "UCWv7vMbMWH4-V0ZXdmDpPBA",
+        "title": "Programming with Mosh",
+        "handle": "programmingwithmosh",
+        "url": "https://www.youtube.com/@programmingwithmosh",
+        "thumbnail": "https://yt3.ggpht.com/..."
+      },
+      "view_count": 25574982,
+      "view_count_text": "25,574,982 views",
+      "published_at": null,
+      "published_text": "6 years ago",
+      "duration_seconds": 3606,
+      "duration_text": "1:00:06",
+      "badges": []
+    }
+  ],
+  "next_page_token": "cDA6RWdJUUFV...",
+  "credits_used": 1,
+  "credits_remaining": 4602
+}
+Search Shorts
+Search YouTube Shorts by keyword, ranked by relevance like YouTube's own search (not filtered by exact words). 1 credit per request, including each next page. Refunded if the search fails.
+GET
+/api/v2/search/shorts
+Copy for AI
+Try it
+Parameters
+q
+query
+required
+Search text, up to 200 characters.
+upload_date
+query
+Only results uploaded within: today, this_week, this_month or this_year.
+sort_by
+query
+relevance (default) or popular.
+region
+query
+Two-letter country code to localize results, e.g. US.
+page_token
+query
+The next_page_token from a previous response, to get the next page. null means there are no more results.
+Rate limit
+Plan-based: Free 1 req/s · Basic 25 req/s · Pro 50 req/s · Business 100 req/s. Exceeding the limit returns 429 with a Retry-After header.
+cURL
+Node
+Python
+curl "https://www.youtubetranscript.dev/api/v2/search/shorts?q=python%20tips" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "request_id": "0b8e7d6c-5a4f-4e3d-8c2b-1a0f9e8d7c6b",
+  "type": "shorts",
+  "query": "python tips",
+  "results": [
+    {
+      "type": "short",
+      "video_id": "gbYLsUngzLc",
+      "url": "https://www.youtube.com/watch?v=gbYLsUngzLc",
+      "title": "Top 10 Most Important Python Functions You Must Know!",
+      "thumbnail": "https://i.ytimg.com/vi/gbYLsUngzLc/oar2.jpg",
+      "channel": null,
+      "view_count": 1200000,
+      "view_count_text": "1.2M views",
+      "published_at": null,
+      "published_text": null,
+      "duration_seconds": null,
+      "duration_text": null,
+      "badges": []
+    }
+  ],
+  "next_page_token": "cDA6RWdJUUNR...",
+  "credits_used": 1,
+  "credits_remaining": 4601
+}
+Search channels
+Search YouTube channels by keyword. Pass a result's url to /api/v2/channels/resolve to list its videos. 1 credit per request, including each next page. Refunded if the search fails.
+GET
+/api/v2/search/channels
+Copy for AI
+Try it
+Parameters
+q
+query
+required
+Search text, up to 200 characters.
+upload_date
+query
+Only results uploaded within: today, this_week, this_month or this_year.
+sort_by
+query
+relevance (default) or popular.
+region
+query
+Two-letter country code to localize results, e.g. US.
+page_token
+query
+The next_page_token from a previous response, to get the next page. null means there are no more results.
+Rate limit
+Plan-based: Free 1 req/s · Basic 25 req/s · Pro 50 req/s · Business 100 req/s. Exceeding the limit returns 429 with a Retry-After header.
+cURL
+Node
+Python
+curl "https://www.youtubetranscript.dev/api/v2/search/channels?q=python" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "request_id": "9a8b7c6d-5e4f-4a3b-2c1d-0e9f8a7b6c5d",
+  "type": "channels",
+  "query": "python",
+  "results": [
+    {
+      "type": "channel",
+      "channel_id": "UCKQdc0-Targ4nDIAUrlfKiA",
+      "url": "https://www.youtube.com/@PythonSimplified",
+      "title": "Python Simplified",
+      "handle": "PythonSimplified",
+      "description": "Hi everyone! My name is Mariya and I'm a software developer...",
+      "thumbnail": "https://yt3.googleusercontent.com/...",
+      "subscriber_count": 286000,
+      "subscriber_count_text": "286K",
+      "badges": ["Verified"]
+    }
+  ],
+  "next_page_token": "cDA6RWdJUUFn...",
+  "credits_used": 1,
+  "credits_remaining": 4600
+}
+Search playlists
+Search YouTube playlists by keyword. Pass a result's url to /api/v2/playlists/resolve to list its videos. 1 credit per request, including each next page. Refunded if the search fails.
+GET
+/api/v2/search/playlists
+Copy for AI
+Try it
+Parameters
+q
+query
+required
+Search text, up to 200 characters.
+upload_date
+query
+Only results uploaded within: today, this_week, this_month or this_year.
+sort_by
+query
+relevance (default) or popular.
+region
+query
+Two-letter country code to localize results, e.g. US.
+page_token
+query
+The next_page_token from a previous response, to get the next page. null means there are no more results.
+Rate limit
+Plan-based: Free 1 req/s · Basic 25 req/s · Pro 50 req/s · Business 100 req/s. Exceeding the limit returns 429 with a Retry-After header.
+cURL
+Node
+Python
+curl "https://www.youtubetranscript.dev/api/v2/search/playlists?q=python%20course" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response (200)
+{
+  "request_id": "1c2d3e4f-5a6b-4c7d-8e9f-0a1b2c3d4e5f",
+  "type": "playlists",
+  "query": "python course",
+  "results": [
+    {
+      "type": "playlist",
+      "playlist_id": "PLsyeobzWxl7omDoEYrrf3oXvXxa6MPgek",
+      "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7omDoEYrrf3oXvXxa6MPgek",
+      "title": "Python Tutorial | Complete Python Course (Beginner to Advanced)",
+      "thumbnail": "https://i.ytimg.com/vi/YZkyL-f-YXY/hq720.jpg",
+      "video_count": 54,
+      "first_video_id": "YZkyL-f-YXY",
+      "channel": {
+        "channel_id": "UC59K-uG2A5ogwIrHw4bmlEg",
+        "title": "Telusko",
+        "handle": "Telusko",
+        "url": "https://www.youtube.com/@Telusko",
+        "thumbnail": null
+      }
+    }
+  ],
+  "next_page_token": "cDA6RWdJUUF3...",
+  "credits_used": 1,
+  "credits_remaining": 4599
+}
+Get video details
+Details for up to 50 videos you already have IDs or links for, without transcripts: title, channel, the full description (never cut), publish date, duration in seconds, views and thumbnail. 1 credit per 10 videos found, rounded up; videos we can't find (not_found) and inputs that aren't YouTube links (invalid) are free. Transcripts carry the same fields as data.video at no extra cost.
+POST
+/api/v2/videos/metadata
+Copy for AI
+Try it
+Parameters
+video_ids
+string[]
+required
+Up to 50 YouTube video IDs or links (watch, youtu.be, Shorts, live). Duplicates are counted once.
+Rate limit
+Plan-based: Free 1 req/s · Basic 25 req/s · Pro 50 req/s · Business 100 req/s. Exceeding the limit returns 429 with a Retry-After header.
+cURL
+Node
+Python
+curl -X POST "https://www.youtubetranscript.dev/api/v2/videos/metadata" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"video_ids": ["dQw4w9WgXcQ", "https://youtu.be/kqtD5dpn9C8"]}'
+Response (200)
+{
+  "request_id": "0b6c1f7e-2d4a-4c9b-8e3f-5a6b7c8d9e0f",
+  "videos": [
+    {
+      "video_id": "dQw4w9WgXcQ",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video)",
+      "channel_name": "Rick Astley",
+      "channel_id": "UCuAXFkgsw1L7xaCfnd5JJOw",
+      "description": "The official video for “Never Gonna Give You Up” by Rick Astley. ...(full text, never cut)",
+      "published_at": "2009-10-25T06:57:33.000Z",
+      "duration_seconds": 213,
+      "view_count": 1700000000,
+      "thumbnail_url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+    }
+  ],
+  "not_found": ["kqtD5dpn9C8"],
+  "invalid": [],
+  "credits_used": 1,
+  "credits_remaining": 1199
+}
+MCP server
+Claude · Cursor
+Repo
+Add the YouTube Transcript MCP server to Claude Desktop, Cursor, or any MCP-compatible client. Adds tools to transcribe videos, fetch existing transcripts, and check usage.
+Install & Configure
+Claude CLI
+JSON
+claude mcp add --transport http youtubetranscript https://mcp.youtubetranscript.dev --header "x-api-token: YOUR_API_KEY"
+Node SDK
+npm
+npm
+First-class TypeScript types, retries, pagination helpers, and webhook signature verification.
+Install & use
+Install
+Node
+npm install youtube-transcript-api
+Python SDK
+PyPI
+PyPI
+Sync + async clients, type stubs, and helpers for batch and webhook flows.
+Install & use
+Install
+Python
+pip install youtubetranscriptdevapi
+Custom GPT
+ChatGPT
+Open in ChatGPT
+Drop our custom GPT into ChatGPT to summarize, quote, translate, or query any YouTube video using natural language. Backed by /api/v2/gpt/* under the hood.
+·
+OAuth sign-in: no API key in chat
+·
+ASR fallback for missing captions
+·
+Quote with timestamps and source links
+·
+10 free credits a month on every account
+Make.com & n8n
+No-code
+Browse templates
+Import the template (or copy the snippet) to add transcription to existing automations: Notion, Sheets, Slack, Airtable, Zapier-style flows.
+Make.com module
+Module: HTTP > Make a request
+- URL: https://www.youtubetranscript.dev/api/v2/transcribe
+- Method: POST
+- Headers:
+    Authorization: Bearer {{connection.api_key}}
+    Content-Type: application/json
+- Body type: Raw / JSON
+- Request content:
+    {
+      "video": "{{1.video_url}}",
+      "format": { "timestamp": true }
+    }
+n8n HTTP node
+{
+  "name": "Transcribe Video",
+  "type": "n8n-nodes-base.httpRequest",
+  "parameters": {
+    "method": "POST",
+    "url": "https://www.youtubetranscript.dev/api/v2/transcribe",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={ \"video\": $json.video_url }"
+  }
+}
+Postman / OpenAPI
+One-click
+Postman collection
+Import the OpenAPI spec into Postman, Insomnia, or any tool that speaks OpenAPI 3.
+Download V2 YAML
+Download V2 JSON
+HTTP Status
+Error Code
+Description
+400
+invalid_request
+Invalid JSON or missing required fields
+401
+invalid_api_key
+Missing or invalid API key
+402
+payment_required
+Insufficient credits
+404
+no_captions
+No captions available and ASR not used
+429
+rate_limit_exceeded
+Too many requests, check Retry-After
+500
+internal_error
+Server error, retry with backoff
+Plan
+Requests
+Batch size
+Free
+1 req/s
+10 videos
+Lite
+5 req/s
+100 videos
+Basic
+25 req/s
+500 videos
+Pro
+50 req/s
+1,500 videos
+Business
+100 req/s
+3,000 videos
+Email
+support@youtubetranscript.dev
+Status
+Uptime & incidents
+RELATED RESOURCES
+How to Extract Transcripts
+Step-by-step guide to extracting YouTube transcripts
+Bulk Transcript Processing
+Process playlists and channels via the API
+youtube-transcript-api in Python
+How to use the open-source library, why it gets IpBlocked on servers, and what to use instead
+YouTube Transcript API
+Extract transcripts programmatically with our REST API
+Automation Templates
+Make.com and n8n starter workflows for the V2 API
+Pricing Plans
+Free, Basic, Pro, and Business plans
+API Documentation - YouTube Transcript API | Creator Research

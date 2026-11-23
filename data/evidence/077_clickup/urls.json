@@ -1,0 +1,77 @@
+{
+ "app": "ClickUp",
+ "queries": [
+  "ClickUp API authentication documentation",
+  "ClickUp MCP server",
+  "ClickUp API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.clickup.com/docs/authentication",
+  "https://developer.clickup.com/docs/Getting%20Started",
+  "https://help.clickup.com/hc/en-us/articles/6303422883095-Create-your-own-app-with-the-ClickUp-API",
+  "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - ClickUp API Documentation",
+   "href": "https://developer.clickup.com/docs/authentication"
+  },
+  {
+   "title": "Get Started with the ClickUp API",
+   "href": "https://developer.clickup.com/docs/Getting%20Started"
+  },
+  {
+   "title": "API - ClickUp Help",
+   "href": "https://help.clickup.com/hc/en-us/sections/6131847925911-API"
+  },
+  {
+   "title": "ClickUp API Documentation: A Practical Walkthrough",
+   "href": "https://ones.com/blog/navigating-the-clickup-api-documentation-a-practical-walkthrough/"
+  },
+  {
+   "title": "Create your own app with the ClickUp API",
+   "href": "https://help.clickup.com/hc/en-us/articles/6303422883095-Create-your-own-app-with-the-ClickUp-API"
+  },
+  {
+   "title": "ClickUp's MCP Server",
+   "href": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server"
+  },
+  {
+   "title": "How to Use the ClickUp MCP Server: 2026 Setup Guide",
+   "href": "https://clickup.com/blog/how-to-use-clickup-mcp-server/"
+  },
+  {
+   "title": "MCP Server Setup Instructions - developer.clickup.com",
+   "href": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server-1"
+  },
+  {
+   "title": "Connect an MCP server to your Workspace - ClickUp Help",
+   "href": "https://help.clickup.com/hc/en-us/articles/38503227973655-Connect-an-MCP-server-to-your-Workspace"
+  },
+  {
+   "title": "ClickUp MCP - ClickUp Help",
+   "href": "https://help.clickup.com/hc/en-us/sections/37731627018647-ClickUp-MCP"
+  },
+  {
+   "title": "API availability by Plan - developer.clickup.com",
+   "href": "https://developer.clickup.com/docs/apis-available-by-plan"
+  },
+  {
+   "title": "Rate Limits - developer.clickup.com",
+   "href": "https://developer.clickup.com/docs/rate-limits"
+  },
+  {
+   "title": "ClickUp Pricing and Plans",
+   "href": "https://clickup.com/pricing?agency_tier=elite"
+  },
+  {
+   "title": "Clickup Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/clickup/clickup-plans-pricing/"
+  },
+  {
+   "title": "Pricing per user role and plan - ClickUp Help",
+   "href": "https://help.clickup.com/hc/en-us/articles/6303244318999-Pricing-per-user-role-and-plan"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:19:02.233246"
+}

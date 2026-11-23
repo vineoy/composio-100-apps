@@ -1,5 +1,5 @@
 URL: https://github.com/Ecwid/ecwid-api-docs/blob/master/includes/_authentication.md
-FETCHED: 2026-11-23T17:28:26.630427
+FETCHED: 2026-11-23T17:43:16.345979
 VIA: direct
 
 ecwid-api-docs/includes/_authentication.md at master · Ecwid/ecwid-api-docs · GitHub

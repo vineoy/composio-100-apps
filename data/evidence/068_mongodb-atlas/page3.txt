@@ -1,0 +1,45 @@
+URL: https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/authentication
+FETCHED: 2026-11-23T17:43:11.535634
+VIA: direct
+
+Authentication | Atlas Admin API v2 documentation
+For AI agents: a documentation index is available at
+https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/llms.txt
+.
+  Markdown versions of each page are available by sending an
+Accept: text/markdown
+header,
+  or by appending
+.md
+to the page URL.
+Search in all APIs
+AI assistant
+Back to search
+New conversation
+Show more
+Use
+to navigate results,
+ENTER
+to select one,
+ESC
+to close
+Type in any word to easily find the endpoint, property or group of operations you are looking for.
+Authentication
+The API accepts 2 different authentication methods:
+Digest auth (http)
+Service accounts (oauth2)
+Digest auth (http)
+Send a digest token
+      
+      in the
+Authorization
+HTTP header
+      to authenticate with the API.
+Service accounts (oauth2)
+Learn more about
+Service Accounts
+.
+Flow type
+clientCredentials
+Token URL
+https://cloud.mongodb.com/api/oauth/token

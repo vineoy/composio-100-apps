@@ -1,0 +1,77 @@
+{
+ "app": "Mermaid CLI",
+ "queries": [
+  "Mermaid CLI API authentication documentation",
+  "Mermaid CLI MCP server",
+  "Mermaid CLI API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://mermaid-api.readthedocs.io/en/latest/authentication.html",
+  "https://mermaid.ai/products/mermaid-api",
+  "https://www.mermaideditor.io/use-cases/api-documentation",
+  "https://mermaid.ai/pricing"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication \u2014 MERMAID API documentation",
+   "href": "https://mermaid-api.readthedocs.io/en/latest/authentication.html"
+  },
+  {
+   "title": "Mermaid API reference",
+   "href": "https://api.mermaid.ai/v1/docs"
+  },
+  {
+   "title": "Using the API \u2014 MERMAID API documentation - Read the Docs",
+   "href": "https://mermaid-api.readthedocs.io/en/latest/getting_started.html"
+  },
+  {
+   "title": "Mermaid API",
+   "href": "https://mermaid.ai/products/mermaid-api"
+  },
+  {
+   "title": "API Documentation Diagrams with Mermaid | Mermaid Editor",
+   "href": "https://www.mermaideditor.io/use-cases/api-documentation"
+  },
+  {
+   "title": "mermaid.live https://mermaid.live",
+   "href": "https://mermaid.live/"
+  },
+  {
+   "title": "js.org https://mermaid.js.org",
+   "href": "https://mermaid.js.org/"
+  },
+  {
+   "title": "mermaideditor.io https://www.mermaideditor.io",
+   "href": "https://www.mermaideditor.io/"
+  },
+  {
+   "title": "mermaid.ai https://mermaid.ai",
+   "href": "https://mermaid.ai/"
+  },
+  {
+   "title": "mermaidviewer.com https://mermaidviewer.com",
+   "href": "https://mermaidviewer.com/"
+  },
+  {
+   "title": "Mermaid Pricing: Plans for Individuals & Teams",
+   "href": "https://mermaid.ai/pricing/"
+  },
+  {
+   "title": "Pricing \u2014 Free & Pro Plans | Mermaid Editor",
+   "href": "https://www.mermaideditor.io/pricing"
+  },
+  {
+   "title": "Mermaid Pricing 2026: Plans, Hidden Costs & Alternatives",
+   "href": "https://toolradar.com/tools/mermaid/pricing"
+  },
+  {
+   "title": "Pricing \u2014 Pro & Credits | Mermaid Online",
+   "href": "https://mermaidonline.org/pricing"
+  },
+  {
+   "title": "Mermaid API",
+   "href": "https://mermaid.ai/products/mermaid-api"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:48:23.746234"
+}

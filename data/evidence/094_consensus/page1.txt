@@ -1,0 +1,196 @@
+URL: https://help.consensus.app/en/articles/16516328-the-consensus-api
+FETCHED: 2026-11-23T22:44:23.105254
+VIA: direct
+
+The Consensus API | The Consensus Help Center
+Skip to main content
+The Consensus API
+Written by
+Allison Elechko
+October 12, 2026
+Table of contents
+The Consensus API lets you integrate Consensus search directly into your own applications, tools, and workflows. Use it to programmatically search academic research and retrieve relevant papers without needing to run each search manually in Consensus.
+API access is available directly from your Consensus account. Your API usage and Consensus MCP usage share the same monthly pool of calls. The number of calls included each month depends on your subscription tier.
+For full technical documentation, endpoints, parameters, and response details, read our
+API docs here
+.
+How to create an API key
+You can create and manage API keys from the API & MCP Dashboard.
+Click your profile icon (bottom-left corner)
+Select
+API & MCP Dashboard
+Open the '
+Keys and Clients
+' tab
+Click '
+New key
+'
+Give your API key a name so you can identify what you're using it for
+Create the key and copy it somewhere secure
+Your full API key is only shown once. Make sure you copy it when you create it.
+If you lose an API key, you won't be able to view it again. Instead, revoke the existing key and create a new one.
+Make your first API request
+Once you've created an API key, you can use it to authenticate requests to the Consensus API.
+To make a search request, you'll need three things:
+The Consensus search endpoint:
+https://api.consensus.app/v1/search
+Your API key, passed in the
+x-api-key
+request header
+A
+query
+parameter containing what you want to search for
+For example, if you want to search for research on whether creatine improves muscle strength, your request would send that question as the
+query
+to the Consensus search endpoint.
+If you're using a tool such as Postman, a programming language, or another application to make the request, add your Consensus API key as an
+x-api-key
+header.
+The API also supports filters that can help narrow your research, including publication date, study type, sample size, citation count, journal, academic field, country, open-access status, and more.
+For request examples and a full list of available parameters and responses, see the
+Consensus API Reference
+.
+Use the API to create and manage Threads
+In addition to standard paper search, the Consensus API can create and manage Threads.
+Threads are useful for more in-depth research tasks that require multi-step analysis, synthesis, and follow-up questions. Instead of only retrieving a list of papers, a Thread can generate a cited research answer with supporting papers and passages.
+With the Threads API, you can:
+Start a new Thread
+Poll a Thread until the response is ready
+Add a follow-up question to an existing Thread
+List historical Threads from your Consensus account
+Threads created through the API will also appear in your Consensus account. You can open them later in Consensus and continue working with them in the main interface.
+Thread usage is variable and counts toward your monthly API/MCP usage. A standard paper search typically uses fewer calls, while Threads may use more depending on the research mode, number of papers, and amount of work required.
+For implementation details and endpoint examples, see the Threads API documentation:
+https://docs.consensus.app/api-quickstart-threads
+Search and retrieve full text
+Consensus can use available full text, not just titles and abstracts, to help retrieve relevant papers.
+Paid users can also add
+include_full_text_chunks=true
+to a search request to return relevant passages from eligible open-access papers:
+Up to 3 passages per paper
+Up to 60 passages per request
+Each passage includes the section of the paper it came from
+If no eligible passage is available, full_text_chunks returns null
+Full-text retrieval is used when available on all plans. Returning full-text excerpts is available on Pro, Deep, Teams, and Enterprise plans.
+For request examples, full-text details, filters, and all available parameters, see the
+Consensus API documentation
+.
+How calls are counted
+API searches return up to 20 papers by default. You can use the
+page_size
+parameter to request more papers per page.
+Each call covers up to 100 papers:
+1-100 papers = 1 call
+101-200 papers = 2 calls
+201-300 papers = 3 calls
+And so on, with each additional 100 papers counting as another call
+More advanced actions, such as creating a Consensus Thread, running a Pro or Deep Thread, or adding follow-up questions to a Thread, may use more calls depending on the amount of work required.
+Thread usage is variable because Consensus may run multiple research steps, search across more papers, read and synthesize results, and generate a cited response.
+You can view your usage from your
+profile >
+API & MCP Dashboard
+. The
+Usage
+tab shows activity by platform and tool, including searches, created Threads, Pro Threads, and Deep Threads.
+API and MCP usage limits
+API and MCP usage share one monthly pool of calls.
+Plan
+Included calls per month
+Maximum calls with additional usage ($0.05/call)
+Free
+30
+30 (no additional usage)
+Pro
+500
+1,000
+Team
+500
+1,000
+Enterprise
+500
+1,000
+Deep
+2,000
+10,000
+Additional usage costs $0.05 per call
+after you've used the calls included in your plan.
+Your usage resets on the 1st of each month.
+How to view your API and MCP usage
+To see your current usage:
+Click your profile icon in the bottom-left corner
+Select
+API & MCP Dashboard
+At the top of the dashboard, you'll see:
+Your current usage
+Any amount due for additional usage
+Your current plan and reset date
+The usage bar shows both the number of calls included in your plan and your total monthly call limit.
+The usage graph shows how your calls are split between API and MCP. You can view your usage for the last 7 days, last 30 days, or your current billing period.
+How to manage your API keys and MCP clients
+The
+Keys and Clients
+tab is where you manage both your API keys and MCP connections.
+API keys
+: you can create and revoke API keys
+MCP clients:
+you can connect Consensus to supported clients such as ChatGPT or Claude. If you've already connected a client, you'll see it here.
+How to enable additional usage
+Additional usage lets paid users continue making API and MCP calls after using all of the calls included in their plan.
+Additional usage is turned off by default.
+To enable it:
+Open the
+API & MCP Dashboard
+Select the settings control in the upper-right corner
+Under API & MCP settings, turn on Enable additional usage
+Save your changes
+Once enabled, calls beyond your plan's included amount are billed at $0.05 per call, up to your plan's maximum monthly call limit.
+You can turn additional usage off at any time. If you turn it off after you've already exceeded your included calls, you won't be able to make any more API or MCP calls until your usage resets. You'll still be billed for any additional calls made before you turned additional usage off.
+Free users cannot enable additional usage. To access additional usage, upgrade to a
+paid plan
+.
+Common API errors
+API Error message
+Cause
+Fix
+401 -
+Invalid authentication credentials
+The API key is incorrect, revoked, or isn't being sent using the required header.
+Confirm you're using the correct API key in the
+x-api-key
+header. If you've lost the key, revoke it in the API & MCP Dashboard and create a new one.
+402 - Billing past due
+Your subscription is past due, usually because a payment failed. API and MCP calls are paused until the billing issue is resolved.
+Update your payment method and resolve the outstanding payment to restore access.
+429 -
+You've used all included {30, 500, 2,000, etc.} searches this month. Resets on {date}.
+You've used all of the API/MCP calls included in your plan.
+Paid users can enable additional usage from the API & MCP Dashboard, if they haven't reached their plan's maximum monthly call limit. Otherwise, wait until the reset date shown in the error message.
+429 -
+Too many requests
+Requests are being sent faster than the current rate limit of one request per second.
+Slow down your requests and try again.
+Keep your API key secure
+Treat your API key like a password.
+Don't share it publicly or include it in publicly accessible client-side code, public repositories, screenshots, or other places where someone else could access it.
+If you believe a key has been exposed, revoke it from the API & MCP Dashboard and create a new one.
+You can manage your API keys, monitor API and MCP usage, review billing, and change your additional usage settings at any time from the API & MCP Dashboard.
+FAQs
+Where can I see my API/MCP billing history?
+Go to the API & MCP Dashboard, then click the Billing History tab.
+Do API and MCP have separate usage limits?
+No, your monthly usage limit is shared across API and MCP.
+What happens if I lose my API key?
+You won't be able to view the key again. Revoke the lost key and create a new one from the 'Keys and Clients' tab.
+Related Articles
+Consensus in ChatGPT
+Consensus Product Changelog
+How to Use Consensus in Microsoft 365 Copilot
+How to Connect Consensus to Other AI Tools
+Did this answer your question?
+Disappointed Reaction
+😞
+Neutral Reaction
+😐
+Smiley Reaction
+😃
+Table of contents

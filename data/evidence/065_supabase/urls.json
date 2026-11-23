@@ -1,0 +1,77 @@
+{
+ "app": "Supabase",
+ "queries": [
+  "Supabase API authentication documentation",
+  "Supabase MCP server",
+  "Supabase API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://supabase.com/docs",
+  "https://supabase.com/docs/guides/auth",
+  "https://supabase.com/docs/guides/api",
+  "https://supabase.com/docs/guides/ai-tools/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Auth - Supabase Docs",
+   "href": "https://supabase.com/docs/guides/auth"
+  },
+  {
+   "title": "Data REST API - Supabase Docs",
+   "href": "https://supabase.com/docs/guides/api"
+  },
+  {
+   "title": "Supabase Docs",
+   "href": "https://docs.supabase.com/"
+  },
+  {
+   "title": "Supabase API (v1)",
+   "href": "https://api.supabase.com/api/v1"
+  },
+  {
+   "title": "Supabase API (Experimental)",
+   "href": "https://api.supabase.com/api/v0"
+  },
+  {
+   "title": "Supabase MCP Server | Supabase Docs",
+   "href": "https://supabase.com/docs/guides/ai-tools/mcp"
+  },
+  {
+   "title": "MCP Server | Supabase Features",
+   "href": "https://supabase.com/features/mcp-server"
+  },
+  {
+   "title": "GitHub - Niell007/supabase-mcp-server",
+   "href": "https://github.com/Niell007/supabase-mcp-server"
+  },
+  {
+   "title": "@supabase/mcp-server-supabase - npm",
+   "href": "https://www.npmjs.com/package/@supabase/mcp-server-supabase"
+  },
+  {
+   "title": "Supabase MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/0xTrxz/supabase-mcp"
+  },
+  {
+   "title": "Pricing & Fees | Supabase",
+   "href": "https://supabase.com/pricing"
+  },
+  {
+   "title": "Supabase Pricing 2026: Free Tier Limits & Real Costs",
+   "href": "https://designrevision.com/blog/supabase-pricing"
+  },
+  {
+   "title": "Supabase Pricing in 2026: What the Free Tier Actually Gets You - Cotera",
+   "href": "https://cotera.co/articles/supabase-pricing-guide"
+  },
+  {
+   "title": "Supabase Pricing 2026: Free vs Pro ($25) vs Team ($599)",
+   "href": "https://www.nocode.mba/articles/supabase-pricing"
+  },
+  {
+   "title": "Supabase Pricing 2026: Free Tier Limits & Costs - CatDoes",
+   "href": "https://catdoes.com/blog/supabase-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:40:34.299407"
+}

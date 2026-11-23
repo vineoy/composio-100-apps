@@ -1,0 +1,77 @@
+{
+ "app": "Netlify",
+ "queries": [
+  "Netlify API authentication documentation",
+  "Netlify MCP server",
+  "Netlify API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/",
+  "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/",
+  "https://developers.netlify.com/tag/api/",
+  "https://developers.netlify.com/guides/write-mcps-on-netlify/"
+ ],
+ "search_hits": [
+  {
+   "title": "Get started with the Netlify API",
+   "href": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+  },
+  {
+   "title": "Netlify API documentation",
+   "href": "https://open-api.netlify.com/"
+  },
+  {
+   "title": "Netlify Documentation | Netlify Docs",
+   "href": "https://docs.netlify.com/"
+  },
+  {
+   "title": "Netlify API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/353/netlify"
+  },
+  {
+   "title": "Netlify API Guides | Netlify Developers",
+   "href": "https://developers.netlify.com/tag/api/"
+  },
+  {
+   "title": "Agent setup overview | Netlify Docs",
+   "href": "https://docs.netlify.com/build/build-with-ai/agent-setup-guides/agent-setup-overview/"
+  },
+  {
+   "title": "GitHub - netlify/netlify-mcp: Netlify's Official MCP server",
+   "href": "https://github.com/netlify/netlify-mcp"
+  },
+  {
+   "title": "Building MCPs with Netlify | Netlify Developers",
+   "href": "https://developers.netlify.com/guides/write-mcps-on-netlify/"
+  },
+  {
+   "title": "The Netlify MCP Server lets agents deploy your code",
+   "href": "https://www.netlify.com/blog/netlify-mcp-server-ai-agents-deploy-your-code/"
+  },
+  {
+   "title": "Netlify",
+   "href": "https://www.netlify.com/knowledge-base/how-to-build-and-deploy-an-mcp-server-on-netlify.md"
+  },
+  {
+   "title": "Pricing and Plans | Netlify",
+   "href": "https://www.netlify.com/pricing/"
+  },
+  {
+   "title": "Pro vs Free Plan Comparison | Netlify",
+   "href": "https://www.netlify.com/pricing/pro-vs-free/"
+  },
+  {
+   "title": "Pricing | Netlify",
+   "href": "https://app.netlify.com/pricing"
+  },
+  {
+   "title": "Credit-based pricing plans | Netlify Docs",
+   "href": "https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/"
+  },
+  {
+   "title": "Netlify Pricing for Freelance Developers (2026): Free Tier Limits ...",
+   "href": "https://yangworks.dev/guides/netlify-pricing-for-freelance-developers"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:39:20.823052"
+}

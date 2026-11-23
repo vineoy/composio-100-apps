@@ -1,0 +1,304 @@
+URL: https://docs.devin.ai/work-with-devin/devin-mcp
+FETCHED: 2026-11-23T22:46:09.124582
+VIA: direct
+
+Devin MCP - Devin Docs
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Assistant
+Responses are generated using AI and may contain mistakes.
+The Devin MCP server provides programmatic access to Devin’s platform capabilities for both private and public repositories. Beyond repository documentation and search, it gives any MCP-compatible AI agent or IDE full access to session management, playbooks, knowledge, and scheduling.
+Any Devin session or MCP-compatible client can create sessions, manage playbooks and knowledge, set up schedules, and more. See
+Advanced Capabilities
+for details on what Devin can do.
+What is MCP?
+The
+Model Context Protocol
+(MCP) is an open standard that enables AI apps to securely connect to MCP-compatible data sources and tools. You can think of MCP like a USB-C port for AI applications — a standardized way to connect AI apps to different services.
+Devin MCP Server
+The Devin MCP server is an authenticated service that provides access to both public and private repositories, plus full platform management capabilities.
+Base Server URL:
+https://mcp.devin.ai/
+Authentication Required
+To use the Devin MCP server, you need a Devin API key:
+Sign up for a Devin account at
+Devin.ai
+Generate an API key from your
+account settings
+Include the API key in your MCP client configuration
+The MCP server supports the same authentication methods as the
+Devin API
+:
+Token type
+Prefix
+Org resolution
+Org-scoped service user key
+cog_
+Automatic — org_id is resolved from the service user
+Enterprise service user key
+cog_
+Requires
+X-Org-Id
+header (see below)
+Personal access token
+cog_
+Requires
+X-Org-Id
+header (see below)
+Legacy API keys (
+apk_
+/
+apk_user_
+prefix) only work with the repository documentation tools (
+read_wiki_structure
+,
+read_wiki_contents
+,
+ask_wiki_question
+,
+list_wiki_repos
+). The session, playbook, knowledge, schedule, and integration tools reject them because they cannot be resolved to an organization. Use a
+service user API key
+for those.
+Enterprise accounts:
+X-Org-Id
+header
+Enterprise service user keys and PATs are scoped to the account level, not a specific organization. Since the MCP tools operate on organization-level resources (sessions, playbooks, knowledge, etc.), you must tell the server which organization to target by passing the
+X-Org-Id
+header:
+{
+"mcpServers"
+: {
+"devin"
+: {
+"serverUrl"
+:
+"https://mcp.devin.ai/mcp"
+,
+"headers"
+: {
+"Authorization"
+:
+"Bearer <API_KEY>"
+,
+"X-Org-Id"
+:
+"<YOUR_ORG_ID>"
+}
+}
+}
+}
+Find your organization ID at the top of the
+Settings > Devin API
+page.
+Org-scoped service user keys do not need this header — the organization is resolved automatically.
+Available Tools
+Repository Documentation
+These tools let you explore and query documentation for any GitHub repository (public or private with authentication):
+Tool
+Description
+read_wiki_structure
+Get a list of documentation topics for a GitHub repository
+read_wiki_contents
+View full documentation about a GitHub repository
+ask_wiki_question
+Ask any question about one or more repositories (up to 10) and get an answer grounded in their DeepWiki
+list_wiki_repos
+List the repositories that have a DeepWiki index and can be queried with your Devin account
+generate_wiki
+Generate (or regenerate) the DeepWiki for a connected repository and wait for it to complete
+ask_wiki_question
+and
+list_wiki_repos
+were previously named
+ask_question
+and
+list_available_repos
+. The old names are still accepted for existing integrations but are no longer advertised in the server’s tool list.
+Session Management
+Create, search, inspect, and control Devin sessions programmatically:
+Tool
+Description
+devin_session_create
+Create one or more Devin sessions. Each session can have a prompt, title, playbook, tags, and ACU limit
+devin_session_search
+Search and filter sessions by tags, playbook, origin, schedule, user, or creation/update time
+devin_session_interact
+Interact with a session — get status, send messages, sleep, terminate, archive, read messages and attachments, or manage tags
+devin_session_events
+Inspect events within a session — list summaries, fetch full event details, or search event contents by text
+devin_session_gather
+Wait for multiple sessions to reach a settled state (finished, errored, sleeping, or waiting) before returning. Useful after creating parallel sessions instead of polling in a loop
+Playbook Management
+Create and manage playbooks that standardize how Devin performs tasks:
+Tool
+Description
+devin_playbook_manage
+List, get, create, update, or delete playbooks. Supports automation macros (e.g.
+!my_macro
+)
+Knowledge Management
+Maintain your organization’s knowledge base that Devin uses for context:
+Tool
+Description
+devin_knowledge_manage
+Full CRUD for knowledge notes — list, get, create, update, delete, browse folder structure. Also manage knowledge suggestions — list, view, and dismiss pending suggestions. Supports filtering by repo, folder, and search queries
+Schedule Management
+Set up recurring or one-time scheduled Devin sessions:
+Tool
+Description
+devin_schedule_manage
+List, get, create, update, or delete schedules. Supports cron expressions for recurring schedules, one-time scheduling, notification preferences, and agent selection
+Integration Management
+View and manage your organization’s native integrations and MCP servers:
+Tool
+Description
+devin_list_integrations
+List all native integrations (e.g. GitHub, Jira, Slack) and MCP servers with their install status and settings URLs. Filter by installed, not installed, or all (the legacy name
+list_integrations
+is still accepted)
+devin_mcp_server_manage
+Install (from the marketplace or a custom configuration), update, enable, disable, or delete your organization’s MCP servers
+Automations, Reviews, and Code Scans
+Operate other Devin products from the same server:
+Tool
+Description
+devin_automation_manage
+List, get, create, update, delete, validate, or run
+automations
+. Call it with
+action="schemas"
+first to get the supported trigger and action shapes
+devin_review_manage
+Trigger a
+Devin Review
+for a pull request, poll its status, and fetch a completed review’s findings
+devin_code_scan_manage
+Manage
+code scans
+: list and create scan profiles, start scans, and list or remediate findings. Requires code scanning to be enabled for the organization
+Organization Utilities
+Tool
+Description
+devin_user_list
+List the organization’s users (ID, email, name, and optionally roles)
+devin_find_setting
+Find a Devin webapp setting and get a deep-link URL to it
+Wire Protocols
+The Devin MCP server supports Streamable HTTP:
+URL:
+https://mcp.devin.ai/mcp
+Works with HTTP-compatible clients
+Recommended for all integrations
+The legacy SSE (
+/sse
+) endpoint has been deprecated. Use the
+/mcp
+endpoint instead.
+Key Differences from DeepWiki MCP
+Feature
+DeepWiki MCP
+Devin MCP
+Authentication
+None required
+API key required
+Repository Access
+Public repositories only
+Public and private repositories
+Platform Management
+Not available
+Sessions, playbooks, knowledge, schedules, integrations, automations, reviews, code scans
+Base URL
+https://mcp.deepwiki.com/
+https://mcp.devin.ai/
+Cost
+Free
+Requires Devin account
+Setup Instructions
+The field name for the server URL depends on the client: Devin Desktop accepts either
+serverUrl
+or
+url
+, while most other clients only accept the standard
+url
+field. Using a field name your client does not recognize causes the MCP server to be silently ignored.
+Use a personal access token or a service user key as
+<API_KEY>
+.
+X-Org-Id
+selects the organization the tools act in; find your organization ID at the top of the
+Settings > Devin API
+page. You can leave the header out with an org-scoped service user key.
+For Devin Desktop:
+{
+"mcpServers"
+: {
+"devin"
+: {
+"serverUrl"
+:
+"https://mcp.devin.ai/mcp"
+,
+"headers"
+: {
+"Authorization"
+:
+"Bearer <API_KEY>"
+,
+"X-Org-Id"
+:
+"<YOUR_ORG_ID>"
+}
+}
+}
+}
+For most other clients (e.g. Cursor):
+{
+"mcpServers"
+: {
+"devin"
+: {
+"url"
+:
+"https://mcp.devin.ai/mcp"
+,
+"headers"
+: {
+"Authorization"
+:
+"Bearer <API_KEY>"
+,
+"X-Org-Id"
+:
+"<YOUR_ORG_ID>"
+}
+}
+}
+}
+For Claude Code:
+claude
+mcp
+add
+-s
+user
+-t
+http
+devin
+https://mcp.devin.ai/mcp
+-H
+"Authorization: Bearer <API_KEY>"
+-H
+"X-Org-Id: <YOUR_ORG_ID>"
+Related Resources
+Advanced Capabilities
+— Overview of Devin’s advanced features
+Devin’s MCP Marketplace
+Connecting remote MCP servers to Claude
+OpenAI’s docs for using MCP servers
+DeepWiki MCP
+— For public repositories only
+DeepWiki
+Ask Devin

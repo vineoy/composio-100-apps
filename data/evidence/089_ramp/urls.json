@@ -1,0 +1,77 @@
+{
+ "app": "Ramp",
+ "queries": [
+  "Ramp API authentication documentation",
+  "Ramp MCP server",
+  "Ramp API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.ramp.com/developer-api/v1/introduction",
+  "https://docs.ramp.com/developer-api/v1/overview/getting-started",
+  "https://docs.ramp.com/developer-api/v1/ramp-mcp",
+  "https://ramp.com/developer-tools"
+ ],
+ "search_hits": [
+  {
+   "title": "Welcome \u2014 Ramp API docs",
+   "href": "https://docs.ramp.com/developer-api/v1/introduction"
+  },
+  {
+   "title": "Ramp API Documentation",
+   "href": "https://docs.ramp.com/developer-api/v1/overview/getting-started"
+  },
+  {
+   "title": "API Documentation | Ramp.app | Ramp.app",
+   "href": "https://ramp.app/en/api-docs"
+  },
+  {
+   "title": "Developer Platform - ramp.com",
+   "href": "https://ramp.com/developer-tools"
+  },
+  {
+   "title": "Authentication & Security - Ramp",
+   "href": "https://ramp.sh/docs/authentication"
+  },
+  {
+   "title": "Ramp MCP \u2014 Ramp API docs",
+   "href": "https://docs.ramp.com/developer-api/v1/ramp-mcp"
+  },
+  {
+   "title": "GitHub - ramp-public/ramp_mcp: ramp_mcp \u00b7 GitHub",
+   "href": "https://github.com/ramp-public/ramp_mcp"
+  },
+  {
+   "title": "Building Ramp's MCP server \u2014 Ramp Builders Blog",
+   "href": "https://builders.ramp.com/post/ramp-mcp"
+  },
+  {
+   "title": "GitHub - NickyHeC/ramp-mcp: MCP server for reading ...",
+   "href": "https://github.com/NickyHeC/ramp-mcp"
+  },
+  {
+   "title": "Official Ramp MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/ramp-public/ramp-mcp"
+  },
+  {
+   "title": "Welcome \u2014 Ramp API docs",
+   "href": "https://docs.ramp.com/developer-api/v1/introduction"
+  },
+  {
+   "title": "Ramp Pricing and Plans",
+   "href": "https://ramp.com/pricing"
+  },
+  {
+   "title": "Developer Platform - ramp.com",
+   "href": "https://ramp.com/developer-tools"
+  },
+  {
+   "title": "Ramp API \u2014 Docs, Pricing & OpenAPI | APIs.io",
+   "href": "https://apis.io/providers/ramp/"
+  },
+  {
+   "title": "Ramp Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/ramp/ramp-plans-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:37:13.001340"
+}

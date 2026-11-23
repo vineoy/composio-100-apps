@@ -1,31 +1,207 @@
 [
- {"id": 10, "name": "DealCloud", "checks": [
-   {"field": "existing_mcp.status", "claimed": "official", "browser_verified": true,
+ {
+  "id": 10,
+  "name": "DealCloud",
+  "checks": [
+   {
+    "field": "existing_mcp.status",
+    "claimed": "official",
+    "browser_verified": true,
     "url": "https://api.docs.dealcloud.com/mcp",
-    "note": "Live 'DealCloud MCP Server' docs with Getting Started / AI Clients / Authentication / Available Tools — official confirmed."},
-   {"field": "access", "claimed": "paid_plan", "browser_verified": true,
+    "note": "Live 'DealCloud MCP Server' docs with Getting Started / AI Clients / Authentication / Available Tools — official confirmed."
+   },
+   {
+    "field": "access",
+    "claimed": "paid_plan",
+    "browser_verified": true,
     "url": "https://api.docs.dealcloud.com/docs",
-    "note": "API is for DealCloud clients (Intapp enterprise CRM); no free public tier. Paid-plan reading stands."}]},
- {"id": 15, "name": "Pylon", "checks": [
-   {"field": "access", "claimed": "admin_approval", "browser_verified": true,
+    "note": "API is for DealCloud clients (Intapp enterprise CRM); no free public tier. Paid-plan reading stands."
+   }
+  ]
+ },
+ {
+  "id": 15,
+  "name": "Pylon",
+  "checks": [
+   {
+    "field": "access",
+    "claimed": "admin_approval",
+    "browser_verified": true,
     "url": "https://docs.usepylon.com/pylon-docs/developer/api",
-    "note": "Docs state 'Only Admin users can create API tokens' — admin approval confirmed."},
-   {"field": "auth_methods", "claimed": "Bearer token, API key, OAuth2", "browser_verified": true,
+    "note": "Docs state 'Only Admin users can create API tokens' — admin approval confirmed."
+   },
+   {
+    "field": "auth_methods",
+    "claimed": "Bearer token, API key, OAuth2",
+    "browser_verified": true,
     "url": "https://docs.usepylon.com/pylon-docs/developer/api",
-    "note": "API tokens (Bearer) documented; OAuth2 from authentication page."}]},
- {"id": 20, "name": "Gladly", "checks": [
-   {"field": "auth_methods", "claimed": "Basic", "browser_verified": true,
+    "note": "API tokens (Bearer) documented; OAuth2 from authentication page."
+   }
+  ]
+ },
+ {
+  "id": 20,
+  "name": "Gladly",
+  "checks": [
+   {
+    "field": "auth_methods",
+    "claimed": "Basic",
+    "browser_verified": true,
     "url": "https://developer.gladly.com/rest/",
-    "note": "Docs: 'Gladly API uses token-based Basic Authentication' (email + API token via Authorization header)."},
-   {"field": "access", "claimed": "admin_approval", "browser_verified": true,
+    "note": "Docs: 'Gladly API uses token-based Basic Authentication' (email + API token via Authorization header)."
+   },
+   {
+    "field": "access",
+    "claimed": "admin_approval",
+    "browser_verified": true,
     "url": "https://developer.gladly.com/rest/",
-    "note": "Docs: 'Gladly Administrators can set API permissions on an agent-by-agent basis' — admin approval confirmed."}]},
- {"id": 38, "name": "Pinterest", "checks": [
-   {"field": "access", "claimed": "admin_approval", "browser_verified": true,
+    "note": "Docs: 'Gladly Administrators can set API permissions on an agent-by-agent basis' — admin approval confirmed."
+   }
+  ]
+ },
+ {
+  "id": 38,
+  "name": "Pinterest",
+  "checks": [
+   {
+    "field": "access",
+    "claimed": "admin_approval",
+    "browser_verified": true,
     "url": "https://developers.pinterest.com/docs/getting-started/connect-app/",
-    "note": "Evidence notes Trial access requires review; Standard access requires further review + video demo — review-gated confirmed."}]},
- {"id": 37, "name": "systeme.io", "checks": [
-   {"field": "auth_methods", "claimed": "API key", "browser_verified": true,
+    "note": "Evidence notes Trial access requires review; Standard access requires further review + video demo — review-gated confirmed."
+   }
+  ]
+ },
+ {
+  "id": 37,
+  "name": "systeme.io",
+  "checks": [
+   {
+    "field": "auth_methods",
+    "claimed": "API key",
+    "browser_verified": true,
     "url": "https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api",
-    "note": "Official help article documents API key generation; keys available on any plan incl. free."}]}
+    "note": "Official help article documents API key generation; keys available on any plan incl. free."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Attio",
+  "checks": [
+   {
+    "field": "auth_methods",
+    "claimed": "OAuth2, API key, Bearer token, Basic",
+    "browser_verified": true,
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "note": "Docs: access tokens via OAuth 2.0 or workspace API key; “We also support HTTP Basic Authentication, where the username is the token and the password is left blank.” Loop A had flagged Basic as ungrounded — a false positive; the browser check confirmed it."
+   },
+   {
+    "field": "existing_mcp.status",
+    "claimed": "official",
+    "browser_verified": true,
+    "url": "https://mcp.attio.com/mcp",
+    "note": "Hosted endpoint https://mcp.attio.com/mcp responds, and docs.attio.com/mcp/overview documents the Attio MCP."
+   }
+  ]
+ },
+ {
+  "id": 55,
+  "name": "Apify",
+  "checks": [
+   {
+    "field": "existing_mcp.status",
+    "claimed": "official",
+    "browser_verified": true,
+    "url": "https://docs.apify.com/mcp",
+    "note": "Docs: “The Apify’s MCP server (mcp.apify.com)… using Model Context Protocol.” Official confirmed, but the cited URL was wrong (agi.apify.com) — corrected to mcp.apify.com."
+   },
+   {
+    "field": "auth_methods",
+    "claimed": "API key, Bearer token, x402, Skyfire, MPP",
+    "browser_verified": false,
+    "url": "https://docs.apify.com/integrations/api",
+    "note": "x402/Skyfire/MPP are agentic payment protocols, not authentication. Row corrected to API key + Bearer token."
+   }
+  ]
+ },
+ {
+  "id": 7,
+  "name": "Zoho CRM",
+  "checks": [
+   {
+    "field": "access",
+    "claimed": "unknown",
+    "browser_verified": false,
+    "url": "https://www.zoho.com/en-us/crm/zohocrm-pricing.html",
+    "note": "Pricing page lists “APIs — 5000 API calls/day” in the Free (3-user) edition. First pass missed it (only fetched the homepage) — false “unknown” corrected to free_self_serve."
+   },
+   {
+    "field": "auth_methods",
+    "claimed": "other: unknown",
+    "browser_verified": false,
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+    "note": "Docs: “The Zoho CRM API uses the OAuth 2.0 protocol for authentication.”"
+   },
+   {
+    "field": "existing_mcp.status",
+    "claimed": "unknown",
+    "browser_verified": false,
+    "url": "https://www.zoho.com/crm/developer/docs/mcp/overview.html",
+    "note": "Zoho publishes official CRM MCP servers (Data Insights, Data Operations, Module Customization, Workflow Automation)."
+   }
+  ]
+ },
+ {
+  "id": 48,
+  "name": "Gumroad",
+  "checks": [
+   {
+    "field": "existing_mcp.url",
+    "claimed": "gumroad.com",
+    "browser_verified": true,
+    "url": "https://gumroad.com/mcp",
+    "note": "Official Gumroad MCP page confirmed at gumroad.com/mcp; URL completed."
+   }
+  ]
+ },
+ {
+  "id": 52,
+  "name": "SE Ranking",
+  "checks": [
+   {
+    "field": "existing_mcp.status",
+    "claimed": "official",
+    "browser_verified": true,
+    "url": "https://seranking.com/api/integrations/mcp/",
+    "note": "Vendor-owned MCP integration page confirmed; URL was empty, filled."
+   }
+  ]
+ },
+ {
+  "id": 54,
+  "name": "MrScraper",
+  "checks": [
+   {
+    "field": "existing_mcp.status",
+    "claimed": "official",
+    "browser_verified": true,
+    "url": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+    "note": "Vendor docs MCP server page confirmed; URL was empty, filled."
+   }
+  ]
+ },
+ {
+  "id": 58,
+  "name": "Sherlock",
+  "checks": [
+   {
+    "field": "api_type",
+    "claimed": "other: Model Context Protocol",
+    "browser_verified": false,
+    "url": "https://github.com/sherlock-project/sherlock",
+    "note": "Sherlock is a CLI (11.6k-star repo, Python CLI). No HTTP API; MCP is a community wrapper. api_type corrected to none and verdict to feasible."
+   }
+  ]
+ }
 ]

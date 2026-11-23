@@ -1,0 +1,77 @@
+{
+ "app": "Grain",
+ "queries": [
+  "Grain API authentication documentation",
+  "Grain MCP server",
+  "Grain API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.grain.com/mcp/",
+  "https://docs.grainledger.com/mcp-server",
+  "https://support.grain.com/en/articles/14811968-grain-mcp",
+  "https://grain.com/release-note/06-18-2025"
+ ],
+ "search_hits": [
+  {
+   "title": "wikipedia.org https://en.wikipedia.org \u203a wiki \u203a Grain",
+   "href": "https://en.wikipedia.org/wiki/Grain"
+  },
+  {
+   "title": "webstaurantstore.com https://www.webstaurantstore.com \u203a guide \u203a types-of-grains.html",
+   "href": "https://www.webstaurantstore.com/guide/1014/types-of-grains.html?msockid=07f30d4473ef6fdf348f155e72756ea7"
+  },
+  {
+   "title": "igrain.in https://www.igrain.in",
+   "href": "https://www.igrain.in/"
+  },
+  {
+   "title": "grain.com https://grain.com",
+   "href": "https://grain.com/"
+  },
+  {
+   "title": "flipkart.com https://www.flipkart.com \u203a food-products \u203a grain \u203a pr",
+   "href": "https://www.flipkart.com/food-products/grain/pr?sid=eat,znz"
+  },
+  {
+   "title": "Official Grain MCP Server",
+   "href": "https://grain.com/release-note/06-18-2025"
+  },
+  {
+   "title": "Grain MCP | Grain",
+   "href": "https://support.grain.com/en/articles/14811968-grain-mcp"
+  },
+  {
+   "title": "Official Grain MCP Server: Quick Start Guide \u2014 Grain Developers",
+   "href": "https://developers.grain.com/mcp/overview.html"
+  },
+  {
+   "title": "MCP (Model Context Protocol) - Grain API",
+   "href": "https://docs.grainledger.com/mcp-server"
+  },
+  {
+   "title": "Official Grain MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/grain-mcp"
+  },
+  {
+   "title": "wikipedia.org https://en.wikipedia.org \u203a wiki \u203a Grain",
+   "href": "https://en.wikipedia.org/wiki/Grain"
+  },
+  {
+   "title": "webstaurantstore.com https://www.webstaurantstore.com \u203a guide \u203a types-of-grains.html",
+   "href": "https://www.webstaurantstore.com/guide/1014/types-of-grains.html?msockid=25e29116811b628e1ac0890c807863bc"
+  },
+  {
+   "title": "igrain.in https://www.igrain.in",
+   "href": "https://www.igrain.in/"
+  },
+  {
+   "title": "grain.com https://grain.com",
+   "href": "https://grain.com/"
+  },
+  {
+   "title": "flipkart.com https://www.flipkart.com \u203a food-products \u203a grain \u203a pr",
+   "href": "https://www.flipkart.com/food-products/grain/pr?sid=eat,znz"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:50:43.595953"
+}

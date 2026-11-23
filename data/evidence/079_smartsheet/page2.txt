@@ -1,0 +1,110 @@
+URL: https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server
+FETCHED: 2026-11-23T22:29:52.527661
+VIA: direct
+
+Smartsheet MCP server introduction
+Skip to content
+AI & MCP
+Introduction
+Quickstart
+Install the MCP server
+CLI Agent Power Tools
+MCP server tools
+MCP server toolsets
+Load server-side skills
+Changelog
+Last updated
+4 weeks ago
+Smartsheet MCP server introduction
+Copy
+Copy for LLM
+Copy page as Markdown for LLMs
+View as Markdown
+Open this page as Markdown
+Open in ChatGPT
+Get insights from ChatGPT
+Open in Claude
+Get insights from Claude
+Connect to Cursor
+Install MCP server on Cursor
+Connect to VS Code
+Install MCP server on VS Code
+Interact with your project data in Smartsheet using the Smartsheet MCP server connected to Claude, ChatGPT, and other AI clients. Once connected, you can use natural language to read, analyze, and manage Smartsheet data to complement how you make decisions and get work done.
+Required plan:
+Business, Enterprise, or Advanced Work Management
+🚀 What's new!
+MCP Connectors for ChatGPT, Microsoft 365 Copilot, Gemini Enterprise Plus, and Amazon Quick:
+Work with your Smartsheet projects in
+ChatGPT
+,
+Microsoft 365 Copilot
+(plus configuration
+video
+),
+Gemini Enterprise Plus
+, and
+Amazon Quick
+.
+CLI Agent Power Tools available!:
+Use these open-source sub-agents locally to scan for bottlenecks and risks, clone project sheets, reassign tasks, and prepare for stand-ups and status communication. Check out the
+CLI Agent Power Tools overview
+.
+Automated workflow management tools:
+Create, enable/disable, and list your sheet workflow automations. Learn more at
+Automated workflows
+.
+Scenario planning tools:
+Experiment with project plan variations, mitigate risks, and increase project velocity right from within you favorite AI assistant. Refer to
+Scenario planning
+for details.
+Plan management tools:
+List a user's plans, query user seat usage and activity, and get license usage snapshots for plans. Check out the details at
+User plans
+.
+Portfolio tools:
+Create and manage portfolios, including templates and projects. Learn more at
+Portfolios
+.
+Ready to dive in? Start here
+Our
+Quickstart
+walks you through connecting the Smartsheet MCP server as an interactive companion in Claude Code. (These connection principles work across MCP-compatible AI clients.)
+Why use the MCP server?
+The Smartsheet MCP server bridges the gap between Smartsheet and AI models, allowing you to:
+Access Smartsheet data in real time
+Apply AI reasoning with Smartsheet's project and data management features
+Integrate with popular AI platforms including ChatGPT, Claude, Cursor, Microsoft 365 Copilot, and Gemini Enterprise Plus, or custom AI clients.
+Automate complex tasks that require both data analysis and decision-making
+Instead of manually copying data into an AI or writing custom API integrations, you can connect Smartsheet to AI clients to query projects, transform data, and trigger actions.
+How it works
+The MCP server exposes Smartsheet capabilities as tools that AI models can invoke. When you integrate Smartsheet with an AI client:
+The AI client can access (with your consent) predefined tools to summarize sheets, create rows, update data, and more.
+The client determines which tools are needed to solve your requests.
+The MCP server executes the request and returns structured data.
+The AI client processes the results and provides a response.
+This enables natural interactions like:
+"Show me all overdue tasks from the Marketing sheet and create a summary report"
+or
+"Update all project statuses based on the latest timeline changes."
+Getting started
+Dive into the following articles to connect your AI clients to the MCP server and familiarize yourself with the server's tools.
+Quickstart
+walks you through connecting the Smartsheet MCP server as an interactive companion in Claude Code. Query sheet structure, examine data patterns, and gather the information you need to write effective API code for sheet updates. (These connection principles work across MCP-compatible AI clients.)
+Install the Smartsheet MCP server
+has step-by-step instructions for connecting the Smartsheet MCP server to an AI client you use.
+Create a workspace with AI
+demonstrates creating a populated workspace based on the description of the work you're doing.
+Smartsheet MCP prompt library
+provides over one hundred example prompts, including prompts for onboarding to projects, detecting risks, auditing data, and comparing scenarios.
+For a deeper dive into the MCP server capabilities, check out
+Smartsheet MCP server tools
+.
+Was this helpful?
+Quickstart
+Next page
+On this page
+🚀 What's new!
+Why use the MCP server?
+How it works
+Getting started
+Ask AI

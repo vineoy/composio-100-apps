@@ -1,0 +1,60 @@
+URL: https://linearcli.com/authentication
+FETCHED: 2026-11-23T20:12:29.236973
+VIA: direct
+
+Linear CLI Authentication & API Key Setup
+Skip to main content
+Your API key stays with you
+Never paste your key into this website, a public
+                    message, source code or a shared screenshot.
+1
+Prepare your credentials
+Create a personal API key
+Open Linear in your browser and follow this
+                        path inside your account:
+Settings
+Account
+Security
+Personal API keys
+Select
+Create key
+.
+Give the key a clear label such as
+CLI
+.
+Copy the generated key and keep it private.
+Personal API keys require Linear member access
+                        and are not available to guest accounts.
+2
+Connect your workspace
+Run the authentication command
+Run the following command in your terminal.
+                        Linear CLI will then ask for the personal API
+                        key you created.
+$
+linear auth login
+Copy
+Terminal prompt
+Enter your Linear API key: ***
+Paste the key here in your terminal—not
+                            on this website.
+The recommended login method stores the key
+                        in the native system keyring: macOS Keychain,
+                        Windows Credential Manager or Linux libsecret.
+3
+Confirm the connection
+Verify the authenticated workspace
+Use this command to display the current
+                        authenticated user and Linear workspace.
+$
+linear auth whoami
+Copy
+If your user and workspace appear,
+Linear CLI authentication is working.
+Authentication complete
+Connect your project next
+Configure the repository where you plan to use
+                    Linear CLI.
+Continue to configuration
+LinearCli.com is an independent documentation reference.
+            It does not request, receive or store Linear API keys.

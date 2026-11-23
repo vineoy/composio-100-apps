@@ -1,0 +1,219 @@
+URL: https://harvestdocs.greenhouse.io/docs/authentication
+FETCHED: 2026-11-23T22:30:04.412766
+VIA: direct
+
+Authentication
+For AI agents: the docs index is at https://harvestdocs.greenhouse.io/llms.txt. Append .md to any documentation page URL to get its markdown version.
+Quick start
+Identify your integration type:
+Partner integrations
+: Use the Authorization Code flow (see the
+partner OAuth guide
+).
+Custom integrations
+: Use the Client Credentials flow (steps below).
+Generate an access token.
+Call Harvest v3 endpoints with
+Authorization: Bearer ACCESS_TOKEN
+.
+Authentication methods by integration type
+Integration type
+Auth method
+When to use
+Partner integrations
+OAuth 2.0 Authorization Code Grant
+For Greenhouse partners integrating with mutual customers
+Custom integrations
+OAuth 2.0 Client Credentials
+For a customer-built integration used only within their own Greenhouse account
+Note:
+During the v1/v2 → v3 transition period, you may also be able to generate a JWT access token for v3 using existing credentials. See the
+Transition period: v1/v2 to v3
+section below.
+Custom integrations: OAuth 2.0 Client Credentials (step-by-step)
+Step 1: Create Harvest v3 OAuth credentials
+In Greenhouse, open
+API Credentials
+.
+Click
+Create new API credentials
+.
+Select
+Harvest V3 (OAuth)
+.
+Save the credential, then configure the scopes your integration needs.
+You’ll receive a
+Client ID
+and a
+Client Secret
+. Keep your Client Secret confidential.
+Note: When generating a client credential, an integration service user (ISU) is automatically generated and associated with these credentials. If you would like to associate requests with a different user, please use the
+sub
+param when generating the token in step 2.
+Step 2: Generate an access token
+Make a server-to-server
+POST
+request to the token endpoint.
+Endpoint:
+https://auth.greenhouse.io/token
+(
+API reference
+)
+Authentication:
+HTTP Basic using
+CLIENT_ID:CLIENT_SECRET
+Body format:
+application/x-www-form-urlencoded
+Body parameters (URL-encoded):
+grant_type=client_credentials
+sub=USER_ID
+(a Greenhouse
+user_id
+to identify the authorizing user)
+About
+sub
+:
+sub
+should be the
+numeric
+user_id
+of a user in the Greenhouse account.
+If you do not provide a
+sub
+the user associated with the request will be the ISU attached to the credentials in
+Step 1: Create Harvest v3 OAuth credentials
+If you’re not sure what a user’s
+user_id
+is, open the user in the Greenhouse UI and use the numeric id from the URL.
+Use a user with the permissions your integration needs. For example,
+all list endpoints require authorization by a Site Admin
+. For partners see partner docs for details:
+Step 7: Access the Harvest V3 API
+.
+Example request (
+curl
+):
+Bash
+curl --location 'https://auth.greenhouse.io/token' \
+  --user 'CLIENT_ID:CLIENT_SECRET' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data 'grant_type=client_credentials&sub=USER_ID'
+Example response:
+JSON
+{
+  "token_type": "Bearer",
+  "access_token": "received_access_token_string...",
+  "expires_in": `integer_seconds_until_expiry...`
+}
+Step 3: Call the Harvest v3 API
+Use the returned token in the
+Authorization
+header:
+HTTP
+Authorization: Bearer ACCESS_TOKEN
+Example request:
+Bash
+curl --location 'https://harvest.greenhouse.io/v3/job_posts' \
+  --header 'Authorization: Bearer ACCESS_TOKEN'
+Step 4: Renew tokens
+Access tokens expire. When you receive
+401 Unauthorized
+(or before expiration), request a new token by repeating Step 2.
+Partner integrations: OAuth 2.0 Authorization Code Grant (summary)
+Partner integrations must use the OAuth 2.0 Authorization Code flow.
+Full guide:
+Integrating as a Greenhouse Harvest Partner (OAuth 2.0 Auth Code Grant Guide)
+MCP and other dynamically registered clients
+AI tools and other clients that connect through the Greenhouse MCP server obtain a
+client_id
+with OAuth 2.0 Dynamic Client Registration (RFC 7591) at
+POST https://auth.greenhouse.io/register
+, then authorize with the Authorization Code flow and PKCE.
+Registration always issues a public client:
+The response carries token_endpoint_auth_method: "none" and no client_secret, whatever token_endpoint_auth_method the request asked for.
+Use the method from the registration response. Do not expect, store, or send a client secret.
+Every authorization request must carry a PKCE code_challenge with code_challenge_method=S256.
+The
+token_endpoint_auth_methods_supported
+list in the discovery document
+/.well-known/oauth-authorization-server
+describes the token endpoint for every kind of client, including pre-registered partner and custom integrations. It does not mean a dynamically registered client can obtain a secret.
+Transition period: v1/v2 to v3
+During the deprecation period, Greenhouse will support existing API credentials with the following methods:
+Harvest v1/v2:
+Basic authentication remains available.
+Harvest v3:
+Requires Bearer Authorization over HTTPS, using a valid JWT access token.
+Important:
+The token endpoints are different.
+OAuth (custom integrations / partners):
+https://auth.greenhouse.io/token
+Transition endpoint (generate access_token):
+https://harvest.greenhouse.io/auth/token
+Header examples:
+HTTP
+# v1/v2 (Basic)
+Authorization: Basic BASE64_ENCODED_CREDENTIALS
+
+# v3 (Bearer)
+Authorization: Bearer ACCESS_TOKEN
+Generating a JWT access token for v3 (during transition)
+To generate a JWT access token for Harvest v3 during the transition period:
+Obtain a Harvest API credential.
+Use the
+POST: generate access_token
+endpoint:
+API reference
+Use the returned token as a Bearer token for
+/v3
+requests.
+Example request (
+curl
+):
+Bash
+curl --location 'https://harvest.greenhouse.io/auth/token' \
+  --user 'V1_V2_HARVEST_API_KEY:'
+Then, copy
+access_token
+from the response and use it as your Bearer token.
+HTTP
+Authorization: Bearer ACCESS_TOKEN
+Important:
+After v1 and v2 endpoints are deprecated,
+OAuth will be the only supported authentication method
+for the Harvest API. Transition early to avoid disruptions.
+Managing credentials (scopes, rotation, storage)
+Scopes
+Custom integrations:
+After creating
+Harvest V3 (OAuth)
+credentials, you can manage scopes in Greenhouse.
+Partners:
+Scope changes must be requested through Greenhouse Partner Support. See
+Handling scope changes
+.
+Secret rotation
+When editing an API Credential, you can manually rotate secrets. After rotation:
+Old secrets are available for up to 1 week.
+You can delete the old secret ahead of the scheduled deletion if desired.
+Secure storage
+Store client secrets and tokens securely (server-side).
+Never store tokens/secrets in client-side code.
+Troubleshooting
+401 Unauthorized
+Token expired/invalid. Generate a new token (custom integrations) or refresh it (partners; see
+Step 6: Maintain Access (Refreshing the Access Token)
+).
+403 Forbidden
+The authorizing user may not have the required Greenhouse permissions.
+Some endpoints (including all list endpoints) require a Site Admin authorizing user. See
+Step 7: Access the Harvest V3 API
+.
+Updated
+25 days ago
+What’s Next
+Integrating as a Greenhouse Harvest Partner (OAuth 2.0 Auth Code Grant Guide)
+Handling scope changes
+Did this page help you?
+Yes
+No

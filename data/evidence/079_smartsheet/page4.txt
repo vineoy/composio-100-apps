@@ -1,0 +1,65 @@
+URL: https://help.smartsheet.com/articles/2483670-smartsheet-mcp-server
+FETCHED: 2026-11-23T22:29:52.532344
+VIA: direct
+
+Smartsheet MCP Server overview | Smartsheet Learning Center
+Skip to main content
+To learn more about Smartsheet Regions,
+click here
+.
+
+USM Content
+User model
+Legacy model
+Info
+Smartsheet MCP Server overview
+The Smartsheet Model Context Protocol (MCP) Server enables you to manage projects and Smartsheet data from within Smart Assist and AI assistants, such as Claude, ChatGPT, Microsoft 365 Copilot, Gemini Enterprise Plus, Cursor, and others.
+USM Content
+Smart Assist
+requires a Pro, Business, Enterprise, or Advanced Work Management plan.
+MCP-enabled AI tools
+require a Business, Enterprise, or Advanced Work Management plan.
+When you're in Smartsheet using Smart Assist or working in an external AI tool (AI tool) connected to the Smartsheet MCP Server, you can use natural language to automate tasks, manage project data, and collaborate more efficiently.
+The
+Model Context Protocol (MCP)
+is an open standard that enables AI systems to safely connect to external data sources and tools. It’s like a secure bridge between AI and your business applications–in this case, Smartsheet. Instead of manually copying data between Smartsheet and AI or performing repetitive tasks, MCP allows AI to interact directly with Smartsheet.
+Get started with the Smartsheet MCP Server
+Here are some of the ways you can get started using Smartsheet with AI:
+To open
+Smart Assist
+, visit
+Home
+. Alternatively, if you're in a sheet (in Table, Gantt, Board, or Timeline view) or a report (in Timeline view), select the AI sparkle icon
+located at the top-right corner of the screen.
+Access Smartsheet using a Smartsheet MCP Server Connector in one of these AI assistants:
+Amazon Quick
+ChatGPT
+Claude
+Gemini Enterprise Plus
+Microsoft 365 Copilot
+Want to use a different AI tool?
+Install the Smartsheet MCP Server
+in an MCP-compliant AI tool, like Cursor, Codex, Gemini CLI, and others.
+Go to the
+Smartsheet MCP prompt library
+for 100+ examples of gaining insight and taking action with natural language.
+To set up Smartsheet MCP as a coding tool, go to
+Quickstart
+. It demonstrates Claude Code setup and querying AI to get your sheet structure, so you can code sheet updates. (These connection principles work across MCP-compatible AI tools.)
+If you want to explore the MCP server’s capabilities, check out the
+Smartsheet MCP Server tools
+.
+Enjoy getting valuable data insights, automating business processes, and more using the Smartsheet MCP Server in Smart Assist and your favorite AI tools.
+Related Content
+Smartsheet MCP prompt library
+AI Features
+Community
+USM Content
+Get help from fellow users
+Share your feature requests
+Connect with industry peers
+Was this article helpful?
+Yes
+No
+Also in this category
+AI capabilities

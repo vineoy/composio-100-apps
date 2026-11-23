@@ -1,0 +1,193 @@
+URL: https://www.ipayx.ai/docs/api
+FETCHED: 2026-11-23T22:34:43.468345
+VIA: jina-reader
+
+Title: FX Audit API Docs · iPayX Protocol
+
+URL Source: https://www.ipayx.ai/docs/api
+
+Markdown Content:
+REST API · v1
+
+The forensic FX audit engine that powers iPayX. Detect hidden bank spreads vs mid-market benchmark on any currency transaction. Bearer auth, OpenAPI 3.1, signed webhooks.
+
+3 endpoints
+
+audit · rates · audit/document
+
+Signed webhooks
+
+HMAC-SHA256 · audit.completed
+
+Marketplace ready
+
+Zapier · n8n · MCP
+
+## Authentication
+
+Every request requires a Bearer token in the `Authorization` header. Keys start with `ipx_live_`.
+
+HTTP
+
+`Authorization: Bearer ipx_live_xxxxxxxxxxxx`
+
+## Base URL
+
+URL
+
+`https://hvujzsdwcoweirroubeh.supabase.co/functions/v1/fx-public-api-v1`
+
+POST
+
+## /audit
+
+Run a forensic audit on a single transaction. Returns a 0–10 score, hidden spread vs mid-market, and estimated loss.
+
+bash
+
+```
+curl -X POST https://hvujzsdwcoweirroubeh.supabase.co/functions/v1/fx-public-api-v1/audit \
+  -H "Authorization: Bearer ipx_live_YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amount": 50000,
+    "currency_from": "USD",
+    "currency_to": "EUR",
+    "bank_rate": 0.91
+  }'
+```
+
+### Response
+
+json
+
+```
+{
+  "score_1_to_10": 4,
+  "score_rating": "poor",
+  "hidden_spread_pct": 1.85,
+  "estimated_loss": 925.50,
+  "mid_market_rate": 0.927,
+  "bank_rate": 0.91,
+  "currency_pair": "USD/EUR",
+  "commentary": "A 1.85% spread on USD/EUR is significantly above market benchmarks...",
+  "api_version": "v1"
+}
+```
+
+GET
+
+## /rates
+
+Live mid-market rates from Twelve Data. Pass `base` (default USD) and optionally `quote` for a single pair.
+
+bash
+
+```
+curl "https://hvujzsdwcoweirroubeh.supabase.co/functions/v1/fx-public-api-v1/rates?base=USD&quote=EUR" \
+  -H "Authorization: Bearer ipx_live_YOUR_KEY"
+```
+
+POST
+
+## /audit/document
+
+Audit a batch of parsed transactions (e.g. exported from QuickBooks, Xero, Sage, or your CSV). Returns weighted-average spread and per-row breakdown.
+
+bash
+
+```
+curl -X POST https://hvujzsdwcoweirroubeh.supabase.co/functions/v1/fx-public-api-v1/audit/document \
+  -H "Authorization: Bearer ipx_live_YOUR_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "rows": [
+      {
+        "date": "2026-04-15",
+        "sourceCurrency": "USD",
+        "targetCurrency": "EUR",
+        "amountSource": 10000,
+        "amountTarget": 9050
+      }
+    ]
+  }'
+```
+
+## Webhooks
+
+Subscribe to `audit.completed` events to power Zapier triggers, n8n workflows, or your own Slack alerts. Every payload is signed with HMAC-SHA256.
+
+### Verifying signatures (Node.js)
+
+javascript
+
+```
+import crypto from "node:crypto";
+
+function verifySignature(rawBody, signature, secret) {
+  const expected = "sha256=" + crypto
+    .createHmac("sha256", secret)
+    .update(rawBody)
+    .digest("hex");
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expected),
+  );
+}
+
+// In your Express/Next.js handler:
+app.post("/webhook", express.raw({ type: "application/json" }), (req, res) => {
+  const sig = req.headers["x-ipayx-signature"];
+  if (!verifySignature(req.body, sig, process.env.IPAYX_WEBHOOK_SECRET)) {
+    return res.status(401).send("invalid signature");
+  }
+  const event = JSON.parse(req.body);
+  console.log("Audit completed:", event.data);
+  res.status(200).send("ok");
+});
+```
+
+## Marketplaces
+
+iPayX is available — or coming soon — on the platforms your team already uses.
+
+Zapier
+
+In review
+
+Trigger: New FX Audit · Actions: Run FX Audit, Audit Document
+
+n8n Community
+
+Templates available
+
+Self-host workflow templates · QuickBooks International Bills · CRM Deal Enrichment
+
+MCP Directories
+
+Live
+
+Listed on the official MCP Registry and Glama
+
+QuickBooks · Stripe
+
+Coming Q3 2026
+
+OAuth2 apps, payout audits, international bill enrichment
+
+## Error codes
+
+| Status | Code | Meaning |
+| --- | --- | --- |
+| 400 | validation_error | Missing or invalid request fields |
+| 401 | invalid_api_key | Missing, malformed, or revoked API key |
+| 404 | not_found | Endpoint does not exist |
+| 429 | rate_limit_exceeded | Too many requests in the last 60 seconds |
+| 502 | rate_unavailable | Upstream rate provider unavailable |
+| 500 | internal_error | Unexpected server error |
+
+### Ready to ship?
+
+Get your API key, hit `/audit`, and start exposing hidden bank spreads in your product.
+
+iPayX uses cookies to improve your experience.

@@ -1,0 +1,899 @@
+{
+ "stats": {
+  "apps_compared": 29,
+  "field_agreement_rate": {
+   "auth_methods": 0.31,
+   "access": 0.793,
+   "api_type": 0.897,
+   "api_breadth": 0.345,
+   "existing_mcp.status": 0.759,
+   "buildability.verdict": 0.897
+  },
+  "full_agreement": 1,
+  "disputed_or_flagged": 28
+ },
+ "disputes": [
+  {
+   "id": 1,
+   "name": "Salesforce",
+   "disputes": [
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 3,
+   "name": "Pipedrive",
+   "disputes": [
+    {
+     "field": "api_breadth",
+     "pass1": "broad",
+     "pass2": "moderate",
+     "final": "broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:api key"
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Attio",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "unknown",
+     "pass2": "very_broad",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:basic"
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "other: unknown"
+     ],
+     "pass2": [
+      "unknown"
+     ],
+     "final": [
+      "other: unknown"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "unknown",
+     "pass2": "free_self_serve",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "buildability.verdict",
+     "pass1": "unknown",
+     "pass2": "feasible",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:other: unknown"
+   ]
+  },
+  {
+   "id": 20,
+   "name": "Gladly",
+   "disputes": [
+    {
+     "field": "access",
+     "pass1": "admin_approval",
+     "pass2": "paid_plan",
+     "final": "admin_approval",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "broad",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 26,
+   "name": "Discord",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "final": [
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "broad",
+     "pass2": "very_broad",
+     "final": "broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 27,
+   "name": "Telegram",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "other: api id and hash"
+     ],
+     "pass2": [
+      "api key"
+     ],
+     "final": [
+      "other: api id and hash"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_type",
+     "pass1": "other: MTProto / HTTP",
+     "pass2": "both",
+     "final": "other: MTProto / HTTP",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "very_broad",
+     "pass2": "moderate",
+     "final": "very_broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "schema:api_type=other: MTProto / HTTP",
+    "auth_ungrounded:other: api id and hash"
+   ]
+  },
+  {
+   "id": 40,
+   "name": "SendGrid",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "basic",
+      "token"
+     ],
+     "final": [
+      "api key",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "unknown",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 41,
+   "name": "Shopify",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "oauth2"
+     ],
+     "pass2": [
+      "api key"
+     ],
+     "final": [
+      "oauth2"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "very_broad",
+     "pass2": "unknown",
+     "final": "very_broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:oauth2"
+   ]
+  },
+  {
+   "id": 42,
+   "name": "WooCommerce",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "basic",
+      "other: application password"
+     ],
+     "pass2": [
+      "api key",
+      "basic"
+     ],
+     "final": [
+      "api key",
+      "basic",
+      "other: application password"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:other: application password",
+    "auth_ungrounded:basic"
+   ]
+  },
+  {
+   "id": 43,
+   "name": "BigCommerce",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "jwt",
+      "oauth2"
+     ],
+     "pass2": [
+      "oauth2"
+     ],
+     "final": [
+      "jwt",
+      "oauth2"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "very_broad",
+     "pass2": "moderate",
+     "final": "very_broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 49,
+   "name": "Amazon Selling Partner",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "oauth2"
+     ],
+     "final": [
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "very_broad",
+     "pass2": "broad",
+     "final": "very_broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "uncited_url:none",
+    "auth_ungrounded:oauth2"
+   ]
+  },
+  {
+   "id": 50,
+   "name": "fanbasis",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "other: private key"
+     ],
+     "pass2": [],
+     "final": [
+      "api key",
+      "other: private key"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "free_self_serve",
+     "pass2": "unknown",
+     "final": "free_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "broad",
+     "pass2": "unknown",
+     "final": "broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "official",
+     "pass2": "unknown",
+     "final": "official",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "buildability.verdict",
+     "pass1": "ready",
+     "pass2": "unknown",
+     "final": "ready",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:other: private key"
+   ]
+  },
+  {
+   "id": 54,
+   "name": "MrScraper",
+   "disputes": [
+    {
+     "field": "access",
+     "pass1": "paid_plan",
+     "pass2": "free_self_serve",
+     "final": "paid_plan",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "official",
+     "pass2": "unknown",
+     "final": "official",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:api key"
+   ]
+  },
+  {
+   "id": 55,
+   "name": "Apify",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "other: machine payments protocol (mpp)",
+      "other: skyfire",
+      "other: x402 protocol",
+      "token"
+     ],
+     "pass2": [
+      "token"
+     ],
+     "final": [
+      "api key",
+      "other: machine payments protocol (mpp)",
+      "other: skyfire",
+      "other: x402 protocol",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "broad",
+     "pass2": "moderate",
+     "final": "broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "official",
+     "pass2": "none",
+     "final": "official",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:other: skyfire",
+    "auth_ungrounded:other: machine payments protocol (mpp)",
+    "auth_ungrounded:other: x402 protocol",
+    "mcp_ungrounded"
+   ]
+  },
+  {
+   "id": 56,
+   "name": "Firecrawl",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "token"
+     ],
+     "final": [
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "free_self_serve",
+     "pass2": "unknown",
+     "final": "free_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "unknown",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 57,
+   "name": "Bright Data",
+   "disputes": [],
+   "flags": [
+    "auth_ungrounded:basic"
+   ]
+  },
+  {
+   "id": 58,
+   "name": "Sherlock",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "unknown"
+     ],
+     "pass2": [
+      "api key"
+     ],
+     "final": [
+      "unknown"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_type",
+     "pass1": "other: Model Context Protocol",
+     "pass2": "REST",
+     "final": "other: Model Context Protocol",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "narrow",
+     "pass2": "unknown",
+     "final": "narrow",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "schema:api_type=other: Model Context Protocol",
+    "auth_ungrounded:unknown"
+   ]
+  },
+  {
+   "id": 62,
+   "name": "Vercel",
+   "disputes": [],
+   "flags": [
+    "auth_ungrounded:oauth2"
+   ]
+  },
+  {
+   "id": 66,
+   "name": "Neo4j",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "basic",
+      "token"
+     ],
+     "pass2": [
+      "basic"
+     ],
+     "final": [
+      "basic",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:basic"
+   ]
+  },
+  {
+   "id": 71,
+   "name": "Notion",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "final": [
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "unknown",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 75,
+   "name": "Asana",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "oauth2",
+      "other: openid connect",
+      "other: service account",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2",
+      "other: openid connect"
+     ],
+     "final": [
+      "oauth2",
+      "other: openid connect",
+      "other: service account",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "unknown",
+     "pass2": "moderate",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:other: service account",
+    "auth_ungrounded:other: openid connect"
+   ]
+  },
+  {
+   "id": 81,
+   "name": "Stripe",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key"
+     ],
+     "pass2": [
+      "api key",
+      "basic",
+      "oauth2",
+      "other: workload identity federation",
+      "token"
+     ],
+     "final": [
+      "api key"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 83,
+   "name": "Binance",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key"
+     ],
+     "pass2": [
+      "api key",
+      "other: hmac-based request signing, rsa, ed25519, session-based"
+     ],
+     "final": [
+      "api key"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_type",
+     "pass1": "REST",
+     "pass2": "both",
+     "final": "REST",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "very_broad",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "uncited_url:https://developers.binance.com/en/docs/agent-native/overview"
+   ]
+  },
+  {
+   "id": 84,
+   "name": "Paygent Connect",
+   "disputes": [
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "narrow",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "uncited_url:https://docs.withpaygent.com/_mcp/server"
+   ]
+  },
+  {
+   "id": 89,
+   "name": "Ramp",
+   "disputes": [
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "official",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:unknown"
+   ]
+  },
+  {
+   "id": 92,
+   "name": "Otter AI",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2"
+     ],
+     "pass2": [
+      "token"
+     ],
+     "final": [
+      "api key",
+      "oauth2"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "partner_gated",
+     "pass2": "paid_plan",
+     "final": "partner_gated",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "narrow",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "buildability.verdict",
+     "pass1": "ready",
+     "pass2": "feasible",
+     "final": "ready",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 97,
+   "name": "higgsfield",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "oauth2"
+     ],
+     "pass2": [
+      "api key"
+     ],
+     "final": [
+      "oauth2"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "unknown",
+     "pass2": "moderate",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": [
+    "auth_ungrounded:oauth2"
+   ]
+  }
+ ]
+}

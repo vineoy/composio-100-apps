@@ -4,10 +4,6 @@
   "name": "Salesforce"
  },
  {
-  "id": 2,
-  "name": "HubSpot"
- },
- {
   "id": 3,
   "name": "Pipedrive"
  },
@@ -16,47 +12,51 @@
   "name": "Attio"
  },
  {
-  "id": 5,
-  "name": "Twenty"
- },
- {
-  "id": 6,
-  "name": "Podio"
- },
- {
   "id": 7,
   "name": "Zoho CRM"
  },
  {
-  "id": 8,
-  "name": "Close"
+  "id": 20,
+  "name": "Gladly"
  },
  {
-  "id": 9,
-  "name": "Copper"
+  "id": 26,
+  "name": "Discord"
  },
  {
-  "id": 10,
-  "name": "DealCloud"
+  "id": 27,
+  "name": "Telegram"
  },
  {
-  "id": 11,
-  "name": "Zendesk"
- },
- {
-  "id": 21,
-  "name": "Slack"
- },
- {
-  "id": 31,
-  "name": "Google Ads"
+  "id": 40,
+  "name": "SendGrid"
  },
  {
   "id": 41,
   "name": "Shopify"
  },
  {
-  "id": 51,
-  "name": "DataForSEO"
+  "id": 42,
+  "name": "WooCommerce"
+ },
+ {
+  "id": 54,
+  "name": "MrScraper"
+ },
+ {
+  "id": 66,
+  "name": "Neo4j"
+ },
+ {
+  "id": 74,
+  "name": "Jira"
+ },
+ {
+  "id": 81,
+  "name": "Stripe"
+ },
+ {
+  "id": 92,
+  "name": "Otter AI"
  }
 ]

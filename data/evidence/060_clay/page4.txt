@@ -1,0 +1,245 @@
+URL: https://university.clay.com/docs/http-api-with-jwt-authentication-integration-overview
+FETCHED: 2026-11-23T17:37:17.155091
+VIA: direct
+
+HTTP API with JWT authentication - Clay Docs
+Skip to main
+Review your year with Clay on Clayback.clay.com
+University home page
+Search University or ask AI. Learn your way.
+⌘
+K
+​
+Open workspace
+Log in
+Sign up
+All docs
+/
+Getting started
+/
+HTTP API with JWT authentication
+HTTP API with JWT authentication
+Use HTTP API connections authenticated securely with JWT tokens.
+Overview
+The
+HTTP API with JWT Authentication
+action connects Clay to APIs that issue short-lived JWT tokens as part of their authentication flow. Before making API calls, Clay authenticates to your provider's token endpoint using stored credentials, then automatically injects the resulting JWT into each request's authorization header.
+Note:
+For general information on HTTP methods, endpoint setup, request bodies, and response handling, see the
+HTTP API guide
+.
+What is JWT authentication?
+JWT (JSON Web Token) authentication is a two-step process:
+Token fetch
+— Clay calls your API's token endpoint (e.g.,
+https://api.example.com/oauth/token
+) using the username and password stored in your JWT account, and receives a JWT in response.
+Authenticated request
+— Clay attaches the JWT as a header (e.g.,
+Authorization: Bearer <token>
+) on every API call made by the enrichment.
+The token is automatically refreshed approximately every 55 minutes, so you don't need to manage token expiry manually.
+How JWT authentication differs from standard HTTP API
+Use this table to decide which action to use:
+HTTP API
+HTTP API with JWT Authentication
+Auth flow
+Direct — pre-stored headers sent with every request
+Two-step — token fetch, then API call
+Account required?
+Optional
+Required
+What the account stores
+Header key-value pairs (e.g., API keys, permanent bearer tokens)
+Username, password, and token endpoint URL
+Token expiry handled?
+N/A
+Auto-refreshed every ~55 minutes
+‍
+Use
+standard HTTP API
+when the API accepts static credentials (an API key, a permanent bearer token). Use
+HTTP API with JWT Authentication
+when the API issues a dynamically generated JWT — common in enterprise APIs like Gong and
+Snov.io
+.
+Setting up your JWT account
+Before adding the enrichment, you'll need to connect a JWT account to store your credentials at the workspace level. This account can be reused across any enrichment column that calls the same API.
+Note:
+Have your API provider's authentication documentation open before completing these steps. You'll need the token endpoint URL and the correct format for credentials (some APIs use
+client_id
+and
+client_secret
+rather than traditional username/password).
+‍
+Navigate to
+Settings
+→
+Connections
+.
+Search for and select
+HTTP API JWT Auth
+.
+Click
++ Add account
+.
+Enter the following details:
+Username
+— your API username or client ID.
+Password
+— your API password or client secret.
+JWT Token Endpoint
+— the URL Clay will call to obtain the JWT (e.g.,
+https://api.example.com/oauth/token
+).
+Give the account a recognizable name (e.g.,
+Gong JWT
+) and click
+Save
+.
+Enriching data with HTTP API with JWT Authentication
+Open your Clay table.
+Click
+Add enrichment
+.
+Search for and select
+HTTP API with JWT Authentication
+.
+In the
+Account
+dropdown, select your saved JWT account.
+If you haven't connected one yet, click
++ Add account
+and complete the steps above.
+Configure the JWT-specific inputs (see below), then fill in the standard HTTP request fields for your API call.
+Action
+HTTP API with JWT Authentication
+Sends HTTP requests authenticated with a dynamically fetched JWT token to any API endpoint.
+JWT auth fields — Required:
+Location of JWT token in auth response
+— The key name (using dot-notation) that identifies where the JWT appears in the token endpoint's JSON response. For example:
+access_token
+,
+jwt
+, or
+data.token
+. Check your API's documentation or test the token endpoint directly to confirm the exact path.
+JWT auth fields — Optional:
+Token type
+— The prefix added before the token value in the authorization header. Defaults to
+Bearer
+. Change this only if the API expects a different token type prefix (e.g.,
+Token
+).
+Auth header name
+— The name of the HTTP header Clay sets on each API request. Defaults to
+Authorization
+. Change this only if the API expects a non-standard header name (e.g.,
+X-Auth-Token
+).
+Standard HTTP request fields:
+For all remaining request configuration — HTTP method, endpoint URL, query parameters, request body, headers, response filtering, retry settings, and redirect handling — see the
+HTTP API guide
+. All options work identically between the two actions.
+Run settings
+Auto-update
+— Re-runs the enrichment automatically when a referenced column value changes. Enable this if you're mapping dynamic values (such as a record ID) into the endpoint URL or request body.
+Only run if
+— Add a conditional formula to skip rows that don't meet a specified condition. See
+conditional formulas
+.
+FAQs
+How is this different from standard HTTP API?
+Standard HTTP API attaches static, pre-stored headers (like an API key or a permanent bearer token) directly to each request. HTTP API with JWT Authentication first calls your API's token endpoint to obtain a fresh JWT, then uses that JWT for requests. This two-step flow is required by APIs that use short-lived tokens as part of their security model.
+When does my JWT token refresh?
+Clay automatically refreshes the token approximately every 55 minutes. No manual action is needed when a token expires.
+What if the token is nested inside the response JSON?
+Use dot-notation in the
+Location of JWT token in auth response
+field. For example, if the token endpoint returns
+{"data": {"access_token": "eyJ..."}}
+, enter
+data.access_token
+.
+Do I need a separate JWT account for each API I connect to?
+Yes — each API has its own token endpoint and credentials, so a separate account is needed per API. Once created, however, an account can be reused across multiple enrichment columns within your workspace without re-entering credentials.
+What if I update my JWT account credentials?
+Editing a saved JWT account will affect every enrichment column across your workspace that uses it. If you update the token endpoint or credentials, rerun any affected columns to confirm they're still returning results.
+What happens if I enter the wrong token location?
+The enrichment will fail with the message
+Please fill out your auth fields.
+If you see this error, double-check the
+Location of JWT token in auth response
+field against the actual JSON structure returned by your token endpoint.
+Table of contents
+TOC Heading
+TOC Heading
+Plan
+Explore other docs
+Gen AI
+Clay MCP in ChatGPT
+Connect the Clay MCP to ChatGPT, sign in to your workspace, and see what you can build and run from a chat on your plan.
+View article
+View article
+View article
+Settings & admin
+Best practices before a member leaves your workspace
+Audit admin access, billing, connections, automated work, and sequencer senders before you remove a member from your workspace.
+View article
+View article
+View article
+Getting started
+Enhanced matching
+Enhanced matching is Clay's hashed email enrichment: it finds the personal email identifiers ad platforms recognize, so more of your audience matches when you sync it.
+View article
+View article
+View article
+Signals & triggers
+Ad lead form triggers
+Send LinkedIn and Meta lead generation submissions into a Clay workflow, so each new lead is qualified, routed, or written to Audiences automatically.
+View article
+View article
+View article
+Export
+Credit refunds
+Learn when Clay refunds Actions and Data Credits, and which actions refund when a provider returns no data.
+View article
+View article
+View article
+Enrich
+Definitive Healthcare integration
+Find US hospitals in Clay and enrich them with executives, physicians, networks, payor mix, technology, and financial metrics.
+View article
+View article
+View article
+Enrich
+Reusing saved enrichment data
+Keep the data your enrichments return so later runs can reuse it instead of paying for the same answer twice.
+View article
+View article
+View article
+Other popular resources
+Experts
+Find a Clay Expert
+Explore our network of Clay experts and agencies.
+View experts
+View experts
+View experts
+Community
+Join our slack community
+Find help in our slack community, and support channels.
+Go to slack
+Go to slack
+Go to slack
+Cohorts
+Join a cohort, learn Clay fast!
+The faster way to master Clay. Sign in if you're enrolled in a cohort (current or past) or apply!
+Learn more about cohorts
+Learn more about cohorts
+Learn more about cohorts
+Talents
+Hire GTME Talent
+Find and connect with GTM talent who've demonstrated expertise in building advanced workflows
+Explore GTME talents
+Explore GTME talents
+Explore GTME talents

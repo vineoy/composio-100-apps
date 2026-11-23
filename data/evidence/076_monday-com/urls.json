@@ -1,0 +1,77 @@
+{
+ "app": "Monday.com",
+ "queries": [
+  "Monday.com API authentication documentation",
+  "Monday.com MCP server",
+  "Monday.com API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.monday.com/api-reference/docs/authentication",
+  "https://developer.monday.com/apps/docs/integration-authorization",
+  "https://developer.monday.com/api-reference/docs/integrate-with-monday-mcp",
+  "https://github.com/Prat011/mcp-server-monday"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - monday.com Platform API",
+   "href": "https://developer.monday.com/api-reference/docs/authentication"
+  },
+  {
+   "title": "Authentication - Apps Framework",
+   "href": "https://developer.monday.com/apps/docs/integration-authorization"
+  },
+  {
+   "title": "Monday API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/1556/monday"
+  },
+  {
+   "title": "API - Support - monday.com",
+   "href": "https://support.monday.com/hc/en-us/sections/360003537260-API"
+  },
+  {
+   "title": "Does monday.com have an API? - Support",
+   "href": "https://support.monday.com/hc/en-us/articles/360005144659-Does-monday-com-have-an-API"
+  },
+  {
+   "title": "monday MCP: Connect AI assistants to your account",
+   "href": "https://monday.com/w/mcp"
+  },
+  {
+   "title": "Integrate with the monday MCP server",
+   "href": "https://developer.monday.com/api-reference/docs/integrate-with-monday-mcp"
+  },
+  {
+   "title": "Get started with monday MCP - Support",
+   "href": "https://support.monday.com/hc/en-us/articles/28588158981266-Get-started-with-monday-MCP"
+  },
+  {
+   "title": "Monday.com MCP server - GitHub",
+   "href": "https://github.com/Prat011/mcp-server-monday"
+  },
+  {
+   "title": "MCP servers - developer.monday.com",
+   "href": "https://developer.monday.com/apps/docs/mcp-servers"
+  },
+  {
+   "title": "Plans and pricing - Apps Framework",
+   "href": "https://developer.monday.com/apps/docs/plans-and-pricing"
+  },
+  {
+   "title": "monday.com pricing and plans",
+   "href": "https://monday.com/pricing"
+  },
+  {
+   "title": "monday dev pricing: unlimited boards, no add-ons",
+   "href": "https://monday.com/dev/pricing"
+  },
+  {
+   "title": "Developer Sandbox Account",
+   "href": "https://developer.monday.com/api-reference/docs/developer-sandbox"
+  },
+  {
+   "title": "Plans and pricing for monday.com - Support",
+   "href": "https://support.monday.com/hc/en-us/articles/4405633151634-Plans-and-pricing-for-monday-com"
+  }
+ ],
+ "fetched_at": "2026-11-23T20:23:23.716013"
+}

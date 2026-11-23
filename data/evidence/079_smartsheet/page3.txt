@@ -1,0 +1,107 @@
+URL: https://developers.smartsheet.com/ai-mcp/smartsheet/install-the-smartsheet-mcp-server
+FETCHED: 2026-11-23T22:29:52.530765
+VIA: direct
+
+Install the Smartsheet MCP server
+Skip to content
+AI & MCP
+Introduction
+Quickstart
+Install the MCP server
+Connect Claude Code
+Connect Codex
+Connect Cursor
+Connect Gemini CLI
+Manually configure the MCP server
+CLI Agent Power Tools
+MCP server tools
+MCP server toolsets
+Load server-side skills
+Changelog
+Last updated
+2 weeks ago
+Install the Smartsheet MCP server
+Copy
+Copy for LLM
+Copy page as Markdown for LLMs
+View as Markdown
+Open this page as Markdown
+Open in ChatGPT
+Get insights from ChatGPT
+Open in Claude
+Get insights from Claude
+Connect to Cursor
+Install MCP server on Cursor
+Connect to VS Code
+Install MCP server on VS Code
+You can connect various AI assistants to the Smartsheet Model Context Protocol (MCP) server. Connected to the Smartsheet MCP server, you can interact with your Smartsheet data using natural language.
+Required plan:
+Business, Enterprise, or Advanced Work Management
+This article:
+Defines connection prerequisites
+Provides an overview of the installation steps
+Links to setup instructions for various AI assistants
+Start with considering what's required.
+Prerequisites
+Here's what a Smartsheet MCP server connection requires:
+Network access to a Smartsheet production server environment
+Valid Smartsheet API token, unless you're connecting an AI tool that supports Smartsheet's OAuth, such as ChatGPT (web or mobile), Claude AI, Claude Desktop, Gemini Enterprise Plus, or Microsoft 365 Copilot.
+To create an API token, refer to the
+Get started
+article.
+URL for the MCP server production environment in your target region. Refer to the table below.
+Region URLs
+Region
+Environment
+MCP server URL
+United States
+US production
+https://mcp.smartsheet.com
+Europe
+EU production
+https://mcp.smartsheet.eu
+Australia
+AU production
+https://mcp.smartsheet.au
+Connect to the MCP server
+Here are links to various AI assistant setup instructions.
+AI Assistant
+Instructions
+Amazon Quick
+Instructions
+ChatGPT and ChatGPT mobile app
+Instructions
+Claude and Claude Desktop
+Instructions
+Claude Code
+Instructions
+Codex
+Instructions
+Cursor
+Instructions
+Gemini CLI
+Instructions
+Gemini Enterprise Plus
+Instructions
+Microsoft 365 Copilot
+Instructions
+If you want to connect a custom, MCP-compliant assistant to the Smartsheet MCP server, refer to
+Manually configure the MCP Server
+What's next?
+Once you're connected to the MCP server, you can:
+Check out the example prompts described in
+Smartsheet MCP prompt library
+.
+Learn more about the MCP server's capabilities at
+Smartsheet MCP server tools
+.
+Was this helpful?
+Quickstart
+Previous page
+Connect Claude Code
+Next page
+On this page
+Prerequisites
+Connect to the MCP server
+What's next?
+Ask AI

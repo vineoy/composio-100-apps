@@ -1,0 +1,392 @@
+[
+ {
+  "id": 1,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 3,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "wrong",
+    "fix": "trial_self_serve"
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 4,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 7,
+  "fields": {
+   "auth_methods": {
+    "mark": "wrong",
+    "fix": "OAuth2"
+   },
+   "access": {
+    "mark": "wrong",
+    "fix": "free_self_serve"
+   },
+   "api_type": {
+    "mark": "wrong",
+    "fix": "REST"
+   },
+   "existing_mcp.status": {
+    "mark": "wrong",
+    "fix": "official"
+   },
+   "buildability.verdict": {
+    "mark": "wrong",
+    "fix": "ready"
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 20,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 26,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 27,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "wrong",
+    "fix": "other"
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 40,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 41,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 42,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 54,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 66,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 74,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 81,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ },
+ {
+  "id": 92,
+  "fields": {
+   "auth_methods": {
+    "mark": "right",
+    "fix": ""
+   },
+   "access": {
+    "mark": "right",
+    "fix": ""
+   },
+   "api_type": {
+    "mark": "right",
+    "fix": ""
+   },
+   "existing_mcp.status": {
+    "mark": "right",
+    "fix": ""
+   },
+   "buildability.verdict": {
+    "mark": "right",
+    "fix": ""
+   }
+  },
+  "corrections": ""
+ }
+]

@@ -1,0 +1,3489 @@
+URL: https://docs.paygent.to/reference/api-reference
+FETCHED: 2026-11-23T22:33:45.274648
+VIA: direct
+
+Backend API Reference - Paygent Documentation
+Skip to content
+Backend API Reference
+The Paygent backend exposes a small REST API. The SDK uses it. You also call it directly to manage plans, users, and subscriptions.
+Base URL:
+https://api.paygent.to/api/v1
+Authentication:
+Bearer token in
+Authorization: Bearer pg_live_...
+header. The product creation endpoint (
+POST /products
+) is the only exception — it's how you mint the first key.
+Content type:
+application/json
+for all request and response bodies.
+Products
+POST /products
+Create a new product (tenant). Returns the API key — exactly once.
+No authentication required.
+Python
+curl
+TypeScript
+import
+httpx
+r
+=
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/products"
+,
+json
+=
+{
+"name"
+:
+"MyAgent"
+,
+"contact_name"
+:
+"Jane Developer"
+,
+"contact_email"
+:
+"jane@example.com"
+,
+},
+)
+r
+.
+raise_for_status
+()
+print
+(
+r
+.
+json
+())
+curl
+-X
+POST
+https://api.paygent.to/api/v1/products
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"name": "MyAgent",
+"contact_name": "Jane Developer",
+"contact_email": "jane@example.com"
+}'
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/products"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+"Content-Type"
+:
+"application/json"
+},
+body
+:
+JSON.stringify
+({
+name
+:
+"MyAgent"
+,
+contact_name
+:
+"Jane Developer"
+,
+contact_email
+:
+"jane@example.com"
+,
+}),
+});
+const
+data
+=
+await
+res
+.
+json
+();
+// includes `api_key` — store it now, shown once
+Request body:
+{
+"name"
+:
+"MyAgent"
+,
+"contact_name"
+:
+"Jane Developer"
+,
+"contact_email"
+:
+"jane@example.com"
+}
+Field
+Type
+Required
+name
+string (1–255)
+yes
+contact_name
+string | null
+no
+contact_email
+string | null
+no
+Response (201):
+{
+"id"
+:
+"550e8400-e29b-41d4-a716-446655440000"
+,
+"name"
+:
+"MyAgent"
+,
+"slug"
+:
+"myagent"
+,
+"contact_name"
+:
+"Jane Developer"
+,
+"contact_email"
+:
+"jane@example.com"
+,
+"created_at"
+:
+"2026-05-06T12:00:00Z"
+,
+"api_key"
+:
+"pg_live_AbCd1234..."
+}
+api_key
+is returned
+only on creation
+. Store it before discarding the response.
+GET /products
+List products for the authenticated key.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+get
+(
+"https://api.paygent.to/api/v1/products"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+)
+print
+(
+r
+.
+json
+())
+curl
+https://api.paygent.to/api/v1/products
+\
+-H
+"Authorization: Bearer pg_live_..."
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/products"
+,
+{
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+},
+});
+const
+data
+=
+await
+res
+.
+json
+();
+Response (200):
+[
+{
+"id"
+:
+"550e8400-e29b-41d4-a716-446655440000"
+,
+"name"
+:
+"MyAgent"
+,
+"slug"
+:
+"myagent"
+,
+"contact_name"
+:
+"Jane Developer"
+,
+"contact_email"
+:
+"jane@example.com"
+,
+"created_at"
+:
+"2026-05-06T12:00:00Z"
+}
+]
+API keys are
+not
+included.
+Config
+POST /config/plans
+Create plan configurations.
+Python
+curl
+TypeScript
+body
+=
+{
+"soft_gate_at"
+:
+0.80
+,
+"hard_gate_at"
+:
+1.00
+,
+"plans"
+:
+[
+{
+"name"
+:
+"pro"
+,
+"max_spend_per_period"
+:
+49.00
+,
+"max_spend_per_session"
+:
+5.00
+,
+"session_timeout_minutes"
+:
+30.0
+,
+"model_limits"
+:
+{
+"gpt-4o"
+:
+{
+"max_tokens_per_period"
+:
+50000
+},
+},
+"cost_rates"
+:
+{
+"gpt-4o"
+:
+{
+"input"
+:
+0.0025
+,
+"output"
+:
+0.010
+},
+},
+"default_cost_rate"
+:
+{
+"input"
+:
+0.001
+,
+"output"
+:
+0.003
+},
+"tool_costs"
+:
+{
+"search"
+:
+0.05
+},
+"default_tool_cost"
+:
+0.02
+,
+"pre_call_estimate"
+:
+False
+,
+"pre_call_buffer_tokens"
+:
+4096
+,
+},
+],
+}
+r
+=
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/config/plans"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+body
+,
+)
+r
+.
+raise_for_status
+()
+curl
+-X
+POST
+https://api.paygent.to/api/v1/config/plans
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+@plans.json
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/config/plans"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+({
+soft_gate_at
+:
+0.8
+,
+hard_gate_at
+:
+1.0
+,
+plans
+:
+[
+{
+name
+:
+"pro"
+,
+max_spend_per_period
+:
+49.0
+,
+max_spend_per_session
+:
+5.0
+,
+model_limits
+:
+{
+"gpt-4o"
+:
+{
+max_tokens_per_period
+:
+50000
+}
+},
+cost_rates
+:
+{
+"gpt-4o"
+:
+{
+input
+:
+0.0025
+,
+output
+:
+0.01
+}
+},
+},
+],
+}),
+});
+Request body:
+{
+"soft_gate_at"
+:
+0.80
+,
+"hard_gate_at"
+:
+1.00
+,
+"plans"
+:
+[
+{
+"name"
+:
+"pro"
+,
+"max_spend_per_period"
+:
+49.00
+,
+"max_spend_per_session"
+:
+5.00
+,
+"session_timeout_minutes"
+:
+30.0
+,
+"model_limits"
+:
+{
+"gpt-4o"
+:
+{
+"max_tokens_per_period"
+:
+50000
+}
+},
+"cost_rates"
+:
+{
+"gpt-4o"
+:
+{
+"input"
+:
+0.0025
+,
+"output"
+:
+0.010
+}
+},
+"default_cost_rate"
+:
+{
+"input"
+:
+0.001
+,
+"output"
+:
+0.003
+},
+"tool_costs"
+:
+{
+"search"
+:
+0.05
+},
+"default_tool_cost"
+:
+0.02
+,
+"pre_call_estimate"
+:
+false
+,
+"pre_call_buffer_tokens"
+:
+4096
+}
+]
+}
+Top-level fields:
+Field
+Type
+Default
+Description
+soft_gate_at
+float (0–1)
+0.80
+Percentage of limit at which the soft gate fires. Applied to all plans unless overridden per plan.
+hard_gate_at
+float (0–1)
+1.00
+Percentage of limit at which the hard gate fires and blocks the call.
+plans
+array
+required
+List of plan objects (see below).
+Plan fields (each item in
+plans
+):
+Field
+Type
+Required
+Default
+Description
+name
+string
+yes
+—
+Unique plan name (e.g.
+free
+,
+pro
+). Used as the identifier when assigning users.
+max_spend_per_period
+float
+no
+inf
+Maximum dollars a user can spend in a billing period.
+null
+or omitted = unlimited.
+max_spend_per_session
+float
+no
+inf
+Maximum dollars per session window.
+session_timeout_minutes
+float
+no
+30.0
+Duration of a session window in minutes. After expiry,
+session_cost
+resets and
+session_id
+rotates.
+soft_gate_at
+float
+no
+top-level value
+Override the top-level soft gate threshold for this plan.
+hard_gate_at
+float
+no
+top-level value
+Override the top-level hard gate threshold for this plan.
+model_limits
+object
+no
+{}
+Per-model token limits. Keys are model names, values are
+{"max_tokens_per_period": int}
+. Models not listed are unlimited.
+cost_rates
+object
+no
+{}
+Per-model cost rates. Keys are model names, values are
+{"input": float, "output": float}
+— cost per 1K tokens.
+default_cost_rate
+object | null
+no
+null
+Fallback cost rate for models not in
+cost_rates
+. Format:
+{"input": float, "output": float}
+.
+tool_costs
+object
+no
+{}
+Per-tool flat costs. Keys are tool names, values are cost per call.
+default_tool_cost
+float
+no
+0.02
+Fallback cost for tools not in
+tool_costs
+.
+pre_call_estimate
+bool
+no
+false
+If
+true
+, the SDK estimates cost before the call and reserves it against the limit (concurrency-safe).
+pre_call_buffer_tokens
+int
+no
+4096
+Token buffer used for pre-call estimation when
+pre_call_estimate
+is
+true
+.
+See
+Configure your first plan
+for design guidance and common patterns.
+Response (201):
+{
+"plans"
+:
+[
+{
+"id"
+:
+"abc-uuid"
+,
+"name"
+:
+"pro"
+,
+"max_spend_per_period"
+:
+49.00
+,
+"max_spend_per_session"
+:
+5.00
+,
+"soft_gate_at"
+:
+0.80
+,
+"hard_gate_at"
+:
+1.00
+,
+"cost_rates"
+:
+{
+...
+},
+"default_cost_rate"
+:
+{
+...
+},
+"tool_costs"
+:
+{
+...
+},
+"default_tool_cost"
+:
+0.02
+,
+"model_limits"
+:
+{
+...
+},
+"session_timeout_minutes"
+:
+30.0
+,
+"pre_call_estimate"
+:
+false
+,
+"pre_call_buffer_tokens"
+:
+4096
+,
+"created_at"
+:
+"..."
+,
+"updated_at"
+:
+"..."
+}
+],
+"duplicates"
+:
+[]
+}
+duplicates
+lists names that already exist for this product (skipped, not updated). Use
+PATCH
+to modify existing plans.
+Errors:
+409 Conflict
+if every plan in the request was a duplicate.
+GET /config/plans
+List all plans for this product.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+get
+(
+"https://api.paygent.to/api/v1/config/plans"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+)
+print
+(
+r
+.
+json
+())
+curl
+https://api.paygent.to/api/v1/config/plans
+\
+-H
+"Authorization: Bearer pg_live_..."
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/config/plans"
+,
+{
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+},
+});
+const
+data
+=
+await
+res
+.
+json
+();
+Response (200):
+{
+"plans"
+:
+[
+{
+"id"
+:
+"..."
+,
+"name"
+:
+"free"
+,
+...
+},
+{
+"id"
+:
+"..."
+,
+"name"
+:
+"pro"
+,
+...
+}
+]
+}
+Same
+PlanResponse
+shape as
+POST /config/plans
+.
+PATCH /config/plans/{plan_id}
+Partial update of a single plan. Only fields in the body are changed.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+patch
+(
+f
+"https://api.paygent.to/api/v1/config/plans/
+{
+plan_id
+}
+"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+{
+"max_spend_per_period"
+:
+79.00
+,
+"model_limits"
+:
+{
+"gpt-4o"
+:
+{
+"max_tokens_per_period"
+:
+80000
+},
+},
+},
+)
+r
+.
+raise_for_status
+()
+curl
+-X
+PATCH
+https://api.paygent.to/api/v1/config/plans/
+$PLAN_ID
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{"max_spend_per_period": 79.00}'
+const
+res
+=
+await
+fetch
+(
+`https://api.paygent.to/api/v1/config/plans/
+${
+planId
+}
+`
+,
+{
+method
+:
+"PATCH"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+({
+max_spend_per_period
+:
+79.0
+,
+model_limits
+:
+{
+"gpt-4o"
+:
+{
+max_tokens_per_period
+:
+80000
+}
+},
+}),
+},
+);
+Request body:
+any subset of the plan fields listed under
+POST /config/plans
+. Only the fields you include are updated; everything else stays unchanged.
+Response (200):
+the full updated plan object (same shape as items in the
+POST /config/plans
+response).
+Errors:
+404 Not Found
+if no plan with that id exists for this product.
+Users
+POST /users
+Create a user.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/users"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+{
+"external_user_id"
+:
+"user_123"
+,
+"name"
+:
+"Alice"
+,
+},
+)
+r
+.
+raise_for_status
+()
+curl
+-X
+POST
+https://api.paygent.to/api/v1/users
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{"external_user_id": "user_123", "name": "Alice"}'
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/users"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+({
+external_user_id
+:
+"user_123"
+,
+name
+:
+"Alice"
+}),
+});
+Request body:
+Field
+Type
+Required
+external_user_id
+string (1–255)
+yes
+name
+string | null
+no
+Response (201):
+{
+"id"
+:
+"550e8400-e29b-41d4-a716-446655440000"
+,
+"external_user_id"
+:
+"user_123"
+,
+"name"
+:
+"Alice"
+,
+"plan_name"
+:
+null
+,
+"stripe_subscription_id"
+:
+null
+,
+"created_at"
+:
+"2026-05-06T12:00:00Z"
+,
+"updated_at"
+:
+"2026-05-06T12:00:00Z"
+}
+Errors:
+409 Conflict
+if
+external_user_id
+already exists for this product.
+POST /users/{user_id}/subscription
+Update a user's plan. Call this after your own checkout flow succeeds.
+user_id
+here is the
+external_user_id
+.
+Python
+curl
+TypeScript
+from
+datetime
+import
+datetime
+,
+timedelta
+,
+timezone
+r
+=
+httpx
+.
+post
+(
+f
+"https://api.paygent.to/api/v1/users/user_123/subscription"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+{
+"plan_id"
+:
+"pro-plan-uuid"
+,
+"stripe_subscription_id"
+:
+"sub_1OabCDeFghIJ"
+,
+"period_start"
+:
+datetime
+.
+now
+(
+timezone
+.
+utc
+)
+.
+isoformat
+(),
+"period_end"
+:
+(
+datetime
+.
+now
+(
+timezone
+.
+utc
+)
++
+timedelta
+(
+days
+=
+30
+))
+.
+isoformat
+(),
+},
+)
+r
+.
+raise_for_status
+()
+curl
+-X
+POST
+https://api.paygent.to/api/v1/users/user_123/subscription
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"plan_id": "pro-plan-uuid",
+"period_start": "2026-05-01T00:00:00Z",
+"period_end": "2026-06-01T00:00:00Z"
+}'
+const
+now
+=
+new
+Date
+();
+const
+periodEnd
+=
+new
+Date
+(
+now
+.
+getTime
+()
++
+30
+*
+24
+*
+60
+*
+60
+*
+1000
+);
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/users/user_123/subscription"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+({
+plan_id
+:
+"pro-plan-uuid"
+,
+stripe_subscription_id
+:
+"sub_1OabCDeFghIJ"
+,
+period_start
+:
+now.toISOString
+(),
+period_end
+:
+periodEnd.toISOString
+(),
+}),
+},
+);
+Request body:
+Field
+Type
+Required
+plan_id
+UUID
+yes
+stripe_subscription_id
+string | null
+no
+period_start
+ISO datetime | null
+conditional
+period_end
+ISO datetime | null
+conditional
+period_start
+and
+period_end
+are
+required
+when the assigned plan has a finite
+max_spend_per_period
+.
+Response (200):
+updated
+UserResponse
+with
+plan_name
+populated.
+Errors:
+400 Bad Request
+— period dates missing or invalid window
+404 Not Found
+— user or plan doesn't exist
+GET /users/{user_id}/session
+SDK's session-bootstrap endpoint. Returns plan config, current usage, and billing period for the user. Most apps don't call this directly — the SDK does.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+get
+(
+f
+"https://api.paygent.to/api/v1/users/user_123/session"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+)
+print
+(
+r
+.
+json
+())
+curl
+https://api.paygent.to/api/v1/users/user_123/session
+\
+-H
+"Authorization: Bearer pg_live_..."
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/users/user_123/session"
+,
+{
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+}
+},
+);
+const
+data
+=
+await
+res
+.
+json
+();
+Response (200):
+{
+"user_id"
+:
+"user_123"
+,
+"paygent_user_id"
+:
+"550e8400-e29b-41d4-a716-446655440000"
+,
+"plan"
+:
+"pro"
+,
+"sdk_enabled"
+:
+true
+,
+"plan_config"
+:
+{
+"max_spend_per_period"
+:
+49.00
+,
+"max_spend_per_session"
+:
+5.00
+,
+"soft_gate_at"
+:
+0.80
+,
+"hard_gate_at"
+:
+1.00
+,
+"model_limits"
+:
+{
+...
+},
+"cost_rates"
+:
+{
+...
+}
+},
+"current_usage"
+:
+{
+"period_cost"
+:
+23.47
+,
+"period_tokens_total"
+:
+51720
+,
+"period_tokens_by_model"
+:
+{
+...
+},
+"period_cost_by_model"
+:
+{
+...
+}
+},
+"billing_period"
+:
+{
+"start"
+:
+"2026-05-01T00:00:00Z"
+,
+"end"
+:
+"2026-06-01T00:00:00Z"
+}
+}
+paygent_user_id
+is the backend's UUID for the user. The SDK stores it on disk and uses it to detect "user deleted and re-created" scenarios.
+Errors:
+404 Not Found
+if user doesn't exist.
+GET /users/{user_id}/usage
+Detailed usage data for a user.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+get
+(
+f
+"https://api.paygent.to/api/v1/users/user_123/usage"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+params
+=
+{
+"period"
+:
+"current_period"
+,
+"breakdown"
+:
+"model"
+},
+)
+print
+(
+r
+.
+json
+())
+curl
+"https://api.paygent.to/api/v1/users/user_123/usage?period=current_period"
+\
+-H
+"Authorization: Bearer pg_live_..."
+const
+params
+=
+new
+URLSearchParams
+({
+period
+:
+"current_period"
+,
+breakdown
+:
+"model"
+});
+const
+res
+=
+await
+fetch
+(
+`https://api.paygent.to/api/v1/users/user_123/usage?
+${
+params
+}
+`
+,
+{
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+}
+},
+);
+const
+data
+=
+await
+res
+.
+json
+();
+Query parameters:
+Param
+Default
+Values
+period
+current_period
+current_period
+,
+current_month
+,
+YYYY-MM
+breakdown
+model
+model
+Response (200):
+{
+"user_id"
+:
+"user_123"
+,
+"period"
+:
+"current_period"
+,
+"total_cost"
+:
+23.47
+,
+"total_tokens"
+:
+51720
+,
+"tokens_by_model"
+:
+{
+"gpt-4o"
+:
+31200
+,
+"gpt-4o-mini"
+:
+12100
+},
+"cost_by_model"
+:
+{
+"gpt-4o"
+:
+18.20
+,
+"gpt-4o-mini"
+:
+0.95
+},
+"tool_calls_count"
+:
+14
+}
+Errors:
+404 Not Found
+if user doesn't exist.
+Events
+POST /events/batch
+Ingest a batch of usage events from the SDK. The SDK calls this in the background; you typically don't call it directly. The endpoint is
+idempotent
+— duplicate
+id
+s are silently counted as duplicates rather than rejected.
+Python
+curl
+TypeScript
+events
+=
+[
+{
+"id"
+:
+"abc-1234"
+,
+"user_id"
+:
+"user_123"
+,
+"session_id"
+:
+"sess-9876"
+,
+"timestamp"
+:
+"2026-05-06T14:32:18Z"
+,
+"model"
+:
+"gpt-4o-mini"
+,
+"input_tokens"
+:
+100
+,
+"output_tokens"
+:
+50
+,
+"total_tokens"
+:
+150
+,
+"cost_tokens"
+:
+0.000045
+,
+"cost_total"
+:
+0.000045
+,
+},
+]
+r
+=
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/events/batch"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+events
+,
+)
+print
+(
+r
+.
+json
+())
+curl
+-X
+POST
+https://api.paygent.to/api/v1/events/batch
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'[{"id": "...", "user_id": "user_123", ...}]'
+const
+events
+=
+[
+{
+id
+:
+"abc-1234"
+,
+user_id
+:
+"user_123"
+,
+session_id
+:
+"sess-9876"
+,
+timestamp
+:
+new
+Date
+().
+toISOString
+(),
+model
+:
+"gpt-4o-mini"
+,
+input_tokens
+:
+100
+,
+output_tokens
+:
+50
+,
+total_tokens
+:
+150
+,
+cost_tokens
+:
+0.000045
+,
+cost_total
+:
+0.000045
+,
+},
+];
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/events/batch"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+(
+events
+),
+});
+const
+data
+=
+await
+res
+.
+json
+();
+// { accepted, duplicates }
+Request body:
+JSON array (not wrapped in an object) of
+UsageEventSchema
+:
+Field
+Type
+Required
+id
+string (UUID)
+yes — idempotency key
+user_id
+string
+yes
+session_id
+string | null
+no
+timestamp
+ISO datetime
+yes
+model
+string | null
+no
+input_tokens
+int
+default 0
+output_tokens
+int
+default 0
+total_tokens
+int
+default 0
+tool_calls
+array of strings
+default
+[]
+cost_tokens
+float
+default 0.0
+cost_tools
+float
+default 0.0
+cost_total
+float
+default 0.0
+metadata
+dict
+default
+{}
+Response (200):
+{
+"accepted"
+:
+8
+,
+"duplicates"
+:
+2
+}
+Gate events (audit trail)
+POST /gate-events/batch
+Ingest soft-/hard-gate decisions from the SDK. Used by the SDK's background sync; rarely called directly. Idempotent.
+Python
+curl
+TypeScript
+gate_events
+=
+[
+{
+"id"
+:
+"abc-1234"
+,
+"user_id"
+:
+"user_123"
+,
+"timestamp"
+:
+"2026-05-06T14:32:18Z"
+,
+"status"
+:
+"hard_gate"
+,
+"gate_reason"
+:
+"total_spend"
+,
+"usage_pct"
+:
+1.02
+,
+"current_value"
+:
+49.91
+,
+"limit_value"
+:
+49.00
+,
+"blocked"
+:
+True
+,
+"message"
+:
+"Spend limit reached"
+,
+},
+]
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/gate-events/batch"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+gate_events
+,
+)
+curl
+-X
+POST
+https://api.paygent.to/api/v1/gate-events/batch
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'[{"id": "...", "user_id": "user_123", ...}]'
+const
+gateEvents
+=
+[
+{
+id
+:
+"abc-1234"
+,
+user_id
+:
+"user_123"
+,
+timestamp
+:
+new
+Date
+().
+toISOString
+(),
+status
+:
+"hard_gate"
+,
+gate_reason
+:
+"total_spend"
+,
+usage_pct
+:
+1.02
+,
+current_value
+:
+49.91
+,
+limit_value
+:
+49.0
+,
+blocked
+:
+true
+,
+message
+:
+"Spend limit reached"
+,
+},
+];
+await
+fetch
+(
+"https://api.paygent.to/api/v1/gate-events/batch"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+(
+gateEvents
+),
+});
+Request body:
+array of
+GateEventSchema
+:
+Field
+Type
+Required
+id
+UUID string
+yes
+user_id
+string
+yes
+paygent_user_id
+string | null
+no
+session_id
+string | null
+no
+timestamp
+ISO datetime
+yes
+status
+soft_gate
+|
+hard_gate
+yes
+gate_reason
+string
+yes —
+total_spend
+,
+session_spend
+, or
+model_limit:<model>
+usage_pct
+float
+yes
+current_value
+float
+yes
+limit_value
+float
+yes
+model
+string | null
+no
+blocked
+bool
+default false
+message
+string | null
+no
+metadata
+dict
+default
+{}
+Response (200):
+{
+"accepted"
+:
+5
+,
+"duplicates"
+:
+0
+}
+GET /users/{user_id}/gate-events
+Query gate events for a single user. Newest-first, cursor-paginated.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+get
+(
+f
+"https://api.paygent.to/api/v1/users/user_123/gate-events"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+params
+=
+{
+"status"
+:
+"hard_gate"
+,
+"blocked_only"
+:
+"true"
+,
+"since"
+:
+"2026-05-01T00:00:00Z"
+,
+"limit"
+:
+100
+,
+},
+)
+print
+(
+r
+.
+json
+())
+curl
+"https://api.paygent.to/api/v1/users/user_123/gate-events?status=hard_gate&blocked_only=true&limit=100"
+\
+-H
+"Authorization: Bearer pg_live_..."
+const
+params
+=
+new
+URLSearchParams
+({
+status
+:
+"hard_gate"
+,
+blocked_only
+:
+"true"
+,
+limit
+:
+"100"
+,
+});
+const
+res
+=
+await
+fetch
+(
+`https://api.paygent.to/api/v1/users/user_123/gate-events?
+${
+params
+}
+`
+,
+{
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+}
+},
+);
+const
+data
+=
+await
+res
+.
+json
+();
+Query parameters:
+Param
+Type
+Default
+Description
+status
+string
+—
+soft_gate
+or
+hard_gate
+.
+gate_reason
+string
+—
+total_spend
+,
+session_spend
+,
+model_limit:<model>
+.
+blocked_only
+bool
+false
+Only events that actually blocked (
+blocked=true
+).
+since
+ISO datetime
+—
+Inclusive lower bound.
+until
+ISO datetime
+—
+Exclusive upper bound.
+cursor
+string
+—
+From previous response's
+next_cursor
+.
+limit
+int (1–500)
+100
+Page size.
+Response (200):
+{
+"user_id"
+:
+"user_123"
+,
+"events"
+:
+[
+{
+"id"
+:
+"abc-1234"
+,
+"user_id"
+:
+"user_123"
+,
+"session_id"
+:
+"sess-9876"
+,
+"timestamp"
+:
+"2026-05-06T14:32:18Z"
+,
+"status"
+:
+"hard_gate"
+,
+"gate_reason"
+:
+"total_spend"
+,
+"usage_pct"
+:
+1.02
+,
+"current_value"
+:
+49.91
+,
+"limit_value"
+:
+49.00
+,
+"model"
+:
+"gpt-4o"
+,
+"blocked"
+:
+true
+,
+"message"
+:
+"Spend limit reached"
+}
+],
+"next_cursor"
+:
+"eyJpZCI6ImFiYy0xMjM0In0="
+}
+next_cursor
+is non-null when more pages exist. Pass it as
+cursor
+on the next call.
+Webhooks
+POST /webhooks/endpoints
+Create a webhook endpoint. Returns the signing secret — shown only once.
+curl
+Python
+TypeScript
+curl
+-X
+POST
+https://api.paygent.to/api/v1/webhooks/endpoints
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"url": "https://your-app.com/webhooks/paygent",
+"subscribed_events": ["gate_event.hard_gate", "usage.threshold.80"],
+"description": "Production alerting"
+}'
+r
+=
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/webhooks/endpoints"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+{
+"url"
+:
+"https://your-app.com/webhooks/paygent"
+,
+"subscribed_events"
+:
+[
+"gate_event.hard_gate"
+,
+"usage.threshold.80"
+],
+"description"
+:
+"Production alerting"
+,
+},
+)
+secret
+=
+r
+.
+json
+()[
+"secret"
+]
+# store this — shown only once
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/webhooks/endpoints"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+({
+url
+:
+"https://your-app.com/webhooks/paygent"
+,
+subscribed_events
+:
+[
+"gate_event.hard_gate"
+,
+"usage.threshold.80"
+],
+description
+:
+"Production alerting"
+,
+}),
+});
+const
+data
+=
+await
+res
+.
+json
+();
+// includes `secret` — store it now
+Request body:
+Field
+Type
+Required
+Description
+url
+string (URL)
+yes
+Your HTTPS endpoint.
+subscribed_events
+array of strings
+yes
+Event types to receive. See
+Webhooks → Event types
+.
+description
+string | null
+no
+Human-readable label.
+Response (201):
+{
+"id"
+:
+"550e8400-..."
+,
+"url"
+:
+"https://your-app.com/webhooks/paygent"
+,
+"secret"
+:
+"whsec_a1b2c3d4..."
+,
+"subscribed_events"
+:
+[
+"gate_event.hard_gate"
+,
+"usage.threshold.80"
+],
+"description"
+:
+"Production alerting"
+,
+"enabled"
+:
+true
+,
+"created_at"
+:
+"2026-06-22T14:00:00Z"
+}
+secret
+is returned
+only on creation
+. Store it before discarding the response.
+GET /webhooks/endpoints
+List all webhook endpoints. Secrets are masked.
+curl
+Python
+curl
+https://api.paygent.to/api/v1/webhooks/endpoints
+\
+-H
+"Authorization: Bearer pg_live_..."
+r
+=
+httpx
+.
+get
+(
+"https://api.paygent.to/api/v1/webhooks/endpoints"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+)
+Response (200):
+array of endpoint objects (same shape as creation response, without
+secret
+).
+GET /webhooks/endpoints/{id}/secret
+Reveal the signing secret for an endpoint.
+curl
+https://api.paygent.to/api/v1/webhooks/endpoints/
+$ENDPOINT_ID
+/secret
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"secret"
+:
+"whsec_a1b2c3d4..."
+}
+PATCH /webhooks/endpoints/{id}
+Update URL, subscribed events, enabled status, or description.
+curl
+Python
+curl
+-X
+PATCH
+https://api.paygent.to/api/v1/webhooks/endpoints/
+$ENDPOINT_ID
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{"enabled": false}'
+httpx
+.
+patch
+(
+f
+"https://api.paygent.to/api/v1/webhooks/endpoints/
+{
+endpoint_id
+}
+"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+{
+"enabled"
+:
+False
+},
+)
+Request body:
+any subset of
+url
+,
+subscribed_events
+,
+description
+,
+enabled
+.
+Response (200):
+the full updated endpoint object.
+DELETE /webhooks/endpoints/{id}
+Delete an endpoint and cascade its delivery log.
+curl
+-X
+DELETE
+https://api.paygent.to/api/v1/webhooks/endpoints/
+$ENDPOINT_ID
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response:
+204 No Content
+.
+POST /webhooks/endpoints/{id}/rotate-secret
+Generate a new signing secret, invalidating the old one.
+curl
+-X
+POST
+https://api.paygent.to/api/v1/webhooks/endpoints/
+$ENDPOINT_ID
+/rotate-secret
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"secret"
+:
+"whsec_newSecret..."
+}
+POST /webhooks/endpoints/{id}/test
+Send a synthetic test event synchronously. Returns the delivery result.
+curl
+-X
+POST
+https://api.paygent.to/api/v1/webhooks/endpoints/
+$ENDPOINT_ID
+/test
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"success"
+:
+true
+,
+"status_code"
+:
+200
+,
+"response_time_ms"
+:
+142
+}
+GET /webhooks/endpoints/{id}/deliveries
+Query the delivery log for an endpoint. Cursor-paginated, newest first.
+curl
+Python
+curl
+"https://api.paygent.to/api/v1/webhooks/endpoints/
+$ENDPOINT_ID
+/deliveries?limit=50"
+\
+-H
+"Authorization: Bearer pg_live_..."
+r
+=
+httpx
+.
+get
+(
+f
+"https://api.paygent.to/api/v1/webhooks/endpoints/
+{
+endpoint_id
+}
+/deliveries"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+params
+=
+{
+"limit"
+:
+50
+},
+)
+Query parameters:
+Param
+Default
+Description
+limit
+50
+Page size (1–200).
+cursor
+—
+From previous response's
+next_cursor
+.
+status
+—
+success
+,
+failed
+,
+pending
+.
+Response (200):
+{
+"deliveries"
+:
+[
+{
+"id"
+:
+"whdel_..."
+,
+"event_type"
+:
+"gate_event.hard_gate"
+,
+"status"
+:
+"success"
+,
+"status_code"
+:
+200
+,
+"attempt"
+:
+1
+,
+"created_at"
+:
+"2026-06-22T14:30:00Z"
+,
+"completed_at"
+:
+"2026-06-22T14:30:01Z"
+}
+],
+"next_cursor"
+:
+"..."
+}
+Manual Events
+POST /events
+Record a single manual usage event. For server-side recording without the SDK.
+curl
+Python
+TypeScript
+curl
+-X
+POST
+https://api.paygent.to/api/v1/events
+\
+-H
+"Authorization: Bearer pg_live_..."
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{
+"user_id": "user_123",
+"cost": 0.05,
+"description": "Web search via Tavily",
+"model": "web-search",
+"tool_calls": ["tavily_search"]
+}'
+r
+=
+httpx
+.
+post
+(
+"https://api.paygent.to/api/v1/events"
+,
+headers
+=
+{
+"Authorization"
+:
+f
+"Bearer
+{
+api_key
+}
+"
+},
+json
+=
+{
+"user_id"
+:
+"user_123"
+,
+"cost"
+:
+0.05
+,
+"description"
+:
+"Web search via Tavily"
+,
+"model"
+:
+"web-search"
+,
+"tool_calls"
+:
+[
+"tavily_search"
+],
+},
+)
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/events"
+,
+{
+method
+:
+"POST"
+,
+headers
+:
+{
+Authorization
+:
+`Bearer
+${
+apiKey
+}
+`
+,
+"Content-Type"
+:
+"application/json"
+,
+},
+body
+:
+JSON.stringify
+({
+user_id
+:
+"user_123"
+,
+cost
+:
+0.05
+,
+description
+:
+"Web search via Tavily"
+,
+model
+:
+"web-search"
+,
+tool_calls
+:
+[
+"tavily_search"
+],
+}),
+});
+Request body:
+Field
+Type
+Required
+Description
+user_id
+string
+yes
+End-user identifier (
+external_user_id
+).
+cost
+float | null
+no
+Explicit dollar cost. If provided, used as-is.
+model
+string | null
+no
+Model name. Used for cost calculation if
+cost
+is null.
+input_tokens
+int
+default 0
+Input token count.
+output_tokens
+int
+default 0
+Output token count.
+description
+string | null
+no
+Human-readable label.
+tool_calls
+array of strings
+default
+[]
+Tool names invoked.
+metadata
+dict
+default
+{}
+Arbitrary key-value data.
+session_id
+string | null
+no
+Override session ID.
+idempotency_key
+string | null
+no
+Dedupe key. Prevents double-counting on retries.
+Response (201):
+{
+"id"
+:
+"evt_550e8400-..."
+,
+"user_id"
+:
+"user_123"
+,
+"cost"
+:
+0.05
+,
+"model"
+:
+"web-search"
+,
+"source"
+:
+"manual"
+,
+"created_at"
+:
+"2026-06-22T14:30:00Z"
+}
+Idempotent on
+idempotency_key
+— sending the same key twice returns the existing event.
+Analytics
+Dashboard-backing endpoints. Also available to developers for building custom dashboards or integrations.
+GET /analytics/summary
+Total cost, tokens, events, and users for a time window.
+curl
+"https://api.paygent.to/api/v1/analytics/summary?days=30"
+\
+-H
+"Authorization: Bearer pg_live_..."
+Query parameters:
+Param
+Default
+Description
+days
+30
+Number of days to look back.
+Response (200):
+{
+"total_cost"
+:
+1247.83
+,
+"total_tokens"
+:
+24500000
+,
+"total_events"
+:
+18234
+,
+"active_users"
+:
+142
+,
+"period_start"
+:
+"2026-05-23T00:00:00Z"
+,
+"period_end"
+:
+"2026-06-22T00:00:00Z"
+,
+"previous_period"
+:
+{
+"total_cost"
+:
+980.12
+,
+"total_tokens"
+:
+19200000
+,
+"total_events"
+:
+14800
+,
+"active_users"
+:
+128
+}
+}
+GET /analytics/timeseries
+Daily cost and token timeseries.
+curl
+"https://api.paygent.to/api/v1/analytics/timeseries?days=30"
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"data"
+:
+[
+{
+"date"
+:
+"2026-06-22"
+,
+"cost"
+:
+42.15
+,
+"tokens"
+:
+820000
+,
+"events"
+:
+612
+},
+{
+"date"
+:
+"2026-06-21"
+,
+"cost"
+:
+38.90
+,
+"tokens"
+:
+760000
+,
+"events"
+:
+580
+}
+]
+}
+GET /analytics/gate-timeseries
+Daily gate event counts (soft and hard).
+curl
+"https://api.paygent.to/api/v1/analytics/gate-timeseries?days=30"
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"data"
+:
+[
+{
+"date"
+:
+"2026-06-22"
+,
+"soft_gates"
+:
+12
+,
+"hard_gates"
+:
+3
+},
+{
+"date"
+:
+"2026-06-21"
+,
+"soft_gates"
+:
+8
+,
+"hard_gates"
+:
+1
+}
+]
+}
+GET /analytics/breakdown
+Cost and tokens broken down by model.
+curl
+"https://api.paygent.to/api/v1/analytics/breakdown?days=30"
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"models"
+:
+[
+{
+"model"
+:
+"gpt-4o"
+,
+"cost"
+:
+820.50
+,
+"tokens"
+:
+8200000
+,
+"pct"
+:
+65.7
+},
+{
+"model"
+:
+"gpt-4o-mini"
+,
+"cost"
+:
+127.33
+,
+"tokens"
+:
+12800000
+,
+"pct"
+:
+10.2
+},
+{
+"model"
+:
+"claude-sonnet"
+,
+"cost"
+:
+300.00
+,
+"tokens"
+:
+3500000
+,
+"pct"
+:
+24.1
+}
+]
+}
+GET /analytics/top-users
+Top N users by cost.
+curl
+"https://api.paygent.to/api/v1/analytics/top-users?days=30&limit=10"
+\
+-H
+"Authorization: Bearer pg_live_..."
+Query parameters:
+Param
+Default
+Description
+days
+30
+Lookback window.
+limit
+10
+Number of users to return (1–100).
+Response (200):
+{
+"users"
+:
+[
+{
+"user_id"
+:
+"user_456"
+,
+"cost"
+:
+89.23
+,
+"tokens"
+:
+1240000
+,
+"events"
+:
+342
+},
+{
+"user_id"
+:
+"user_123"
+,
+"cost"
+:
+67.80
+,
+"tokens"
+:
+980000
+,
+"events"
+:
+289
+}
+]
+}
+GET /analytics/plan-subscribers
+User count per plan.
+curl
+"https://api.paygent.to/api/v1/analytics/plan-subscribers"
+\
+-H
+"Authorization: Bearer pg_live_..."
+Response (200):
+{
+"plans"
+:
+[
+{
+"plan_name"
+:
+"free"
+,
+"subscriber_count"
+:
+89
+},
+{
+"plan_name"
+:
+"pro"
+,
+"subscriber_count"
+:
+42
+},
+{
+"plan_name"
+:
+"enterprise"
+,
+"subscriber_count"
+:
+11
+}
+]
+}
+Health
+GET /health
+Liveness check.
+No authentication required.
+Python
+curl
+TypeScript
+r
+=
+httpx
+.
+get
+(
+"https://api.paygent.to/api/v1/health"
+)
+print
+(
+r
+.
+json
+())
+curl
+https://api.paygent.to/api/v1/health
+const
+res
+=
+await
+fetch
+(
+"https://api.paygent.to/api/v1/health"
+);
+const
+data
+=
+await
+res
+.
+json
+();
+// { status: "ok" }
+Response (200):
+{
+"status"
+:
+"ok"
+,
+"database"
+:
+"connected"
+}
+status
+is
+degraded
+if the database isn't reachable.
+Error responses
+All errors follow FastAPI's default shape:
+{
+"detail"
+:
+"User 'user_123' not found."
+}
+Common status codes:
+Code
+When
+400 Bad Request
+Invalid request body or query params
+401 Unauthorized
+Missing or invalid
+Authorization
+header
+403 Forbidden
+API key doesn't grant access to this resource
+404 Not Found
+User / plan / product doesn't exist
+409 Conflict
+Resource already exists (e.g. duplicate
+external_user_id
+)
+422 Unprocessable Entity
+Body validation failed (Pydantic errors include a list of issues)
+500 Internal Server Error
+Backend bug or transient failure
+Next steps
+SDK Reference
+— the Python SDK calls these endpoints for you
+Configure your first plan
+— designing the plan bodies
+Assign users to plans
+— the user/subscription flow in practice
+Back to top

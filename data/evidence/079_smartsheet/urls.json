@@ -1,0 +1,77 @@
+{
+ "app": "Smartsheet",
+ "queries": [
+  "Smartsheet API authentication documentation",
+  "Smartsheet MCP server",
+  "Smartsheet API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication",
+  "https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server",
+  "https://developers.smartsheet.com/ai-mcp/smartsheet/install-the-smartsheet-mcp-server",
+  "https://help.smartsheet.com/articles/2483670-smartsheet-mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - developers.smartsheet.com",
+   "href": "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication"
+  },
+  {
+   "title": "Smartsheet Developers & API",
+   "href": "https://developers.smartsheet.com/"
+  },
+  {
+   "title": "Authentication Mastery with Smartsheet API",
+   "href": "https://www.smartsheet.com/content-center/managing-work/it-management/authentication-mastery-smartsheet-api"
+  },
+  {
+   "title": "Smartsheet API - Documentation, Review & Integration Guide",
+   "href": "https://public-api.org/api/136/smartsheet"
+  },
+  {
+   "title": "Smartsheet - Official API and SDK Documentation",
+   "href": "https://smartsheet.redoc.ly/"
+  },
+  {
+   "title": "Smartsheet MCP server introduction",
+   "href": "https://developers.smartsheet.com/ai-mcp/smartsheet/mcp-server"
+  },
+  {
+   "title": "Install the Smartsheet MCP server",
+   "href": "https://developers.smartsheet.com/ai-mcp/smartsheet/install-the-smartsheet-mcp-server"
+  },
+  {
+   "title": "Smartsheet MCP Server overview - Smartsheet Learning Center",
+   "href": "https://help.smartsheet.com/articles/2483670-smartsheet-mcp-server"
+  },
+  {
+   "title": "Smartsheet MCP Server now generally available!",
+   "href": "https://www.smartsheet.com/content-center/smartsheet-mcp-server-now-generally-available"
+  },
+  {
+   "title": "Real-world agentic workflows you can build with the Smartsheet MCP ...",
+   "href": "https://www.smartsheet.com/content-center/product-insights/smartsheet-tips/build-agentic-workflows-smartsheet-mcp"
+  },
+  {
+   "title": "Smartsheet Developers & API",
+   "href": "https://developers.smartsheet.com/"
+  },
+  {
+   "title": "Smartsheet Pricing",
+   "href": "https://www.smartsheet.com/pricing"
+  },
+  {
+   "title": "Smartsheet API introduction",
+   "href": "https://developers.smartsheet.com/api/smartsheet/introduction"
+  },
+  {
+   "title": "Free plan details - Smartsheet Learning Center",
+   "href": "https://help.smartsheet.com/articles/2482687-free-plan"
+  },
+  {
+   "title": "Smartsheet API: Features, Pricing & Auth Tokens - Apidog Blog",
+   "href": "https://apidog.com/blog/smartsheet-api-guide/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:29:52.534550"
+}

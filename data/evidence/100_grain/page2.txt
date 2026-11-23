@@ -1,0 +1,187 @@
+URL: https://docs.grainledger.com/mcp-server
+FETCHED: 2026-11-23T22:50:43.589131
+VIA: direct
+
+MCP (Model Context Protocol) - Grain API
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Overview
+Grain exposes a
+read-only
+remote MCP server for AI agents and connector platforms, including ChatGPT, Claude, Cursor, and other MCP clients. MCP uses the same Grain OAuth identity and organization permissions as the REST API.
+MCP access is included on Growth and Scale. The organization you query must have an active paid subscription.
+Item
+Value
+MCP endpoint
+https://api.grainledger.com/mcp
+Transport
+Streamable HTTP
+Auth
+OAuth 2.1 (Sign in with Grain)
+Access mode
+Read-only tools only, with structured JSON results
+Org scoping
+Per tool call via
+organizationId
+Authentication flow
+MCP client discovers protected resource metadata from Grain.
+Client completes OAuth 2.1 authorization code + PKCE with the Grain authorization server.
+Grain issues a Supabase OAuth access token for the signed-in user.
+Client calls MCP tools with
+Authorization: Bearer <access_token>
+.
+For data tools, pass
+organizationId
+from
+list_organizations
+.
+Protected resource metadata
+GET
+https://api.grainledger.com/.well-known/oauth-protected-resource
+Returns OAuth Protected Resource Metadata (RFC 9728) with:
+resource
+:
+https://api.grainledger.com/mcp
+authorization_servers
+: Grain OAuth issuer
+Unauthenticated MCP requests receive
+401
+with:
+WWW-Authenticate
+:
+Bearer resource_metadata="https://api.grainledger.com/.well-known/oauth-protected-resource"
+See
+Authentication
+for OAuth endpoints and consent.
+Organization scoping
+MCP access tokens identify the signed-in user. Every data tool also requires
+organizationId
+so Grain knows which church’s data to read:
+Call
+list_organizations
+to get church IDs the user belongs to.
+Pass
+organizationId
+on subsequent tool calls.
+Permissions follow the user’s role in that organization (same as the REST API).
+Optional: call
+get_my_permissions
+to inspect allowed actions before querying data.
+Available tools (read-only)
+Tool
+Description
+list_organizations
+Churches the user can access
+get_my_permissions
+User permissions in one organization
+list_transactions
+/
+get_transaction
+Minimized bank transaction data
+list_bills
+/
+get_bill
+Minimized vendor bills and payment summaries
+list_donors
+/
+get_donor
+Donors; contact PII is opt-in on detail calls
+list_contributions
+/
+get_contribution
+Contributions without processor metadata
+list_pledges
+/
+get_pledge
+Pledges and progress
+list_households
+/
+get_household
+Households; member contact PII is opt-in
+list_accounts
+Chart of accounts
+list_funds
+Fund summaries
+list_vendors
+Vendors without contact, bank, or tax identifiers
+list_journal_entries
+Journal entry summaries and posting status
+list_budgets
+Accessible budgets and IDs for budget reporting
+get_financial_overview
+Customer-ready period summary with comparison, transfers, balance sheet, funds, budget, reconciliation, and warnings
+get_statement_of_activities
+Statement of Activities for a period
+get_balance_sheet
+Balance Sheet with validation warnings
+get_fund_balance_report
+Fund balances, including cash-only view
+get_trial_balance
+Trial balance and balance validation
+get_general_ledger
+Account-scoped general ledger activity
+get_budget_vs_actual
+Budget-versus-actual reporting
+get_reconciliation_status
+Reconcilable accounts and in-progress work
+All tools are annotated
+readOnlyHint: true
+and return
+structuredContent
+validated against an output schema. JSON text is included for compatibility. Write operations are not exposed through MCP.
+For broad prompts such as “Give me last month’s financial picture,” start with
+get_financial_overview
+. It separates interfund transfers from operating results, compares with the previous period or prior year, rounds currency amounts to cents, and surfaces accounting-quality warnings. Use the detailed report tools for follow-up questions.
+List tools intentionally return summary DTOs rather than Grain’s internal database or UI models. Billing identifiers, integration metadata, provider payloads, and unrelated PII are excluded. Organization permissions still apply on every tool call.
+Connect in Cursor
+Install Grain in Cursor with one click, or add the configuration manually.
+Add to Cursor
+Install Grain’s remote MCP server in Cursor.
+Manual configuration:
+{
+"mcpServers"
+: {
+"grain"
+: {
+"url"
+:
+"https://api.grainledger.com/mcp"
+}
+}
+}
+Cursor will prompt you to complete Sign in with Grain when it connects to the production MCP endpoint.
+Connect in ChatGPT
+In ChatGPT, add Grain as a connector when it is available to your workspace. Use the MCP URL
+https://api.grainledger.com/mcp
+and complete the Sign in with Grain flow when prompted.
+Revoking access
+Users approve access on the Grain OAuth consent screen. To revoke:
+Sign in to Grain at
+https://app.grainledger.com
+Remove the connected application from your account (OAuth connected apps)
+Or deny future authorization requests from that client
+Example prompts
+After connecting an MCP client, these prompts are useful smoke tests:
+“List my Grain organizations”
+“What permissions do I have in organization
+{orgId}
+?”
+“Show the 10 most recent transactions for organization
+{orgId}
+”
+“List open bills for organization
+{orgId}
+”
+Expected behavior: read-only structured JSON results. If the user’s role lacks the required permission, Grain returns a stable permission error. Invalid dates should be corrected to
+YYYY-MM-DD
+.
+Related
+Authentication
+— OAuth 2.1 and Bearer tokens
+Organizations
+— Organization IDs and membership
+Last modified on
+September 15, 2026

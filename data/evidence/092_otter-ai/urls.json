@@ -1,0 +1,77 @@
+{
+ "app": "Otter AI",
+ "queries": [
+  "Otter AI API authentication documentation",
+  "Otter AI MCP server",
+  "Otter AI API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API",
+  "https://docs.connect.tryotter.com/guides/core-concepts/authentication/",
+  "https://api.otterwaiver.com/docs/authentication/",
+  "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server"
+ ],
+ "search_hits": [
+  {
+   "title": "Otter.ai Public API \u2013 Help Center",
+   "href": "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API"
+  },
+  {
+   "title": "Authentication | Otter API Docs",
+   "href": "https://docs.connect.tryotter.com/guides/core-concepts/authentication/"
+  },
+  {
+   "title": "Authentication | Otter API Docs",
+   "href": "https://connect.tryotter.com/docs/guides-authentication/"
+  },
+  {
+   "title": "API Documentation \u2013 Otter Help Center",
+   "href": "https://helpdesk.tryotter.com/hc/en-us/articles/22694653065107-API-Documentation"
+  },
+  {
+   "title": "Authentication - OtterSign API Documentation",
+   "href": "https://api.otterwaiver.com/docs/authentication/"
+  },
+  {
+   "title": "Otter ai Alternative - Otter ai < Fireflies",
+   "href": "https://www.bing.com/aclick?ld=e8ixh_TtQIr0r2f9dvluBpwjVUCUxDcDh_GqFCHu0B1O3wGv2uzOnjLhr9hheAL4-nrKjghQ-l9zlet_Z2T4m-xo0S712MaMSh52Vp5IYHulZafS4BcFnZeJojE8H5nMmimNG_fsldPAmEqETq-Sf94nIUrmmLBmlshKwHas0koDhjNn1yigIdTCeS-4Nw9jNuNcC8i-QT58Eko843-3nyFcv0qb0&u=aHR0cHMlM2ElMmYlMmZmaXJlZmxpZXMuYWklMmZmaXJlZmxpZXMtdnMtb3R0ZXIlM2YlMjZ1dG1fc291cmNlJTNkYmluZyUyNnV0bV9tZWRpdW0lM2RjcGMlMjZ1dG1fY2FtcGFpZ24lM2RVU19TZWFyY2hfQ29tcGV0aXRvciUyNnV0bV9jYW1wYWlnbl9pZCUzZDU2OTg0MTQzOSUyNnV0bV9hZF9ncm91cF9pZCUzZDExODE5NzY4NzQ5MzQ2MDElMjZ1dG1fYWRfaWQlM2Q3Mzg3Mzc2NDY3NTk3MCUyNnV0bV90ZXJtJTNkb3R0ZXIlMjUyMGFpJTI2dXRtX21hdGNoX3R5cGUlM2RwJTI2dXRtX25ldHdvcmslM2RvJTI2bXNjbGtpZCUzZDQ2YjhmZDM0ZmFlZTE4MjFlNzllOTYzMDg5MjExZGVj&rlid=46b8fd34faee1821e79e963089211dec"
+  },
+  {
+   "title": "Otter MCP Server \u2013 Help Center - help.otter.ai",
+   "href": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server"
+  },
+  {
+   "title": "Otter for Enterprise: Connect AI-to-AI with Otter\u2019s MCP",
+   "href": "https://otter.ai/blog/otter-for-enterprise-connect-ai-to-ai-with-otters-mcp"
+  },
+  {
+   "title": "OtterlyAI MCP Server: AI Search Visibility Data in Claude ...",
+   "href": "https://otterly.ai/features/mcp"
+  },
+  {
+   "title": "OttersPlay MCP Server for AI Assistants | OttersPlay",
+   "href": "https://ottersplay.com/mcp-server"
+  },
+  {
+   "title": "meegames.com https://www.meegames.com \u203a en \u203a game",
+   "href": "https://www.meegames.com/en/game/2653-subway-surfers-classic.html"
+  },
+  {
+   "title": "rocketgames.io https://www.rocketgames.io \u203a game \u203a subway-surfers",
+   "href": "https://www.rocketgames.io/game/subway-surfers"
+  },
+  {
+   "title": "madkidgames.com https://www.madkidgames.com \u203a game \u203a subway-surfers",
+   "href": "https://www.madkidgames.com/game/subway-surfers"
+  },
+  {
+   "title": "subwaygames.io https://subwaygames.io \u203a subway-surfers",
+   "href": "https://subwaygames.io/subway-surfers"
+  },
+  {
+   "title": "google.com https://play.google.com \u203a store \u203a apps \u203a details",
+   "href": "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en-GB"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:42:10.162539"
+}

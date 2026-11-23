@@ -1,5 +1,5 @@
 URL: https://github.com/Contrite42/gumroad-mcp-server
-FETCHED: 2026-11-23T17:29:13.868496
+FETCHED: 2026-11-23T17:44:51.687638
 VIA: direct
 
 GitHub - Contrite42/gumroad-mcp-server: MCP server for the Gumroad API. Drive your store from Claude Desktop or Cursor. Single-file TypeScript. MIT. · GitHub

@@ -1,0 +1,77 @@
+{
+ "app": "Reducto",
+ "queries": [
+  "Reducto API authentication documentation",
+  "Reducto MCP server",
+  "Reducto API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.reducto.ai/reference/credit-usage",
+  "https://docs.reducto.ai/sdk/python/overview",
+  "https://docs.reducto.ai/quickstart",
+  "https://reducto.ai/developers"
+ ],
+ "search_hits": [
+  {
+   "title": "Python SDK Overview | Reducto Documentation",
+   "href": "https://docs.reducto.ai/sdk/python/overview"
+  },
+  {
+   "title": "API Quickstart | Reducto Documentation",
+   "href": "https://docs.reducto.ai/quickstart"
+  },
+  {
+   "title": "Developers | Reducto \u2014 The Agentic Document Platform API",
+   "href": "https://reducto.ai/developers"
+  },
+  {
+   "title": "Reducto API - Docs, SDKs & Integration",
+   "href": "https://apitracker.io/a/reducto"
+  },
+  {
+   "title": "Reducto API Authentication | APIs.io",
+   "href": "https://apis.io/security/reducto/reducto-authentication/"
+  },
+  {
+   "title": "zhihu.com https://www.zhihu.com \u203a question",
+   "href": "https://www.zhihu.com/question/620217197"
+  },
+  {
+   "title": "zhihu.com https://www.zhihu.com \u203a question",
+   "href": "https://www.zhihu.com/question/402438743?write"
+  },
+  {
+   "title": "india.com https://www.india.com \u203a entertainment \u203a xxx-the-return-of-xander-cage-actor \u2026",
+   "href": "https://www.india.com/entertainment/xxx-the-return-of-xander-cage-actor-vin-diesel-is-crushing-over-deepika-padukone-this-statement-is-proof-1756703/"
+  },
+  {
+   "title": "india.com https://www.india.com \u203a topic \u203a mom \u203a videos",
+   "href": "https://www.india.com/topic/mom/videos/"
+  },
+  {
+   "title": "zhihu.com https://www.zhihu.com \u203a question",
+   "href": "https://www.zhihu.com/question/53005022"
+  },
+  {
+   "title": "Reducto Pricing | Agentic document platform for parsing and ...",
+   "href": "https://reducto.ai/pricing"
+  },
+  {
+   "title": "Reducto API pricing | Open API Pricing",
+   "href": "https://openapipricing.com/docai/reducto"
+  },
+  {
+   "title": "Reducto Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/reducto/reducto-plans-pricing/"
+  },
+  {
+   "title": "Usage and Pricing | Reducto Documentation",
+   "href": "https://docs.reducto.ai/reference/credit-usage"
+  },
+  {
+   "title": "Developers | Reducto \u2014 The Agentic Document Platform API",
+   "href": "https://reducto.ai/developers"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:45:25.905490"
+}

@@ -1,0 +1,1274 @@
+URL: https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API
+FETCHED: 2026-11-23T22:42:10.149861
+VIA: direct
+
+Otter.ai Public API – Help Center
+Skip to main content
+Articles in this section
+HIPAA | Otter.ai
+Otter HubSpot for Enterprise
+Otter Salesforce for Enterprise
+Add videos to your conversation
+Connect Jira to Otter.ai
+CRM Integration: Sync Insights to Custom Fields
+Directory Sync | SCIM
+Export to Google Drive
+Export to Microsoft OneDrive
+Export to Microsoft SharePoint
+See more
+Otter.ai’s Public API provides programmatic access to retrieve channels, conversations, transcripts, audio, action items, insights, outlines, and workspace details from your Otter account.
+Getting Started:
+Otter's Public API is available for all Enterprise workspaces. If you do not see this feature for your workspace, contact your Otter account manager.
+API Fundamentals
+Essential information for authenticating, paging through results, and understanding usage limits.
+Authentication
+Create and manage your API keys
+All API requests require authentication using Bearer token authentication. Follow the steps below to create your
+API key.
+Go to
+Integrations → Developer
+.
+Click
+Create key.
+Click
+Copy
+and store the API key in a safe place.
+Note:
+This is only visible once. Make sure you copy the API key in this pop-up. If you forget to copy, follow steps 1-3 to create another key.
+The API key can now be used. Follow steps 1-4 to create another API key.
+Note
+: There is a limit of 2 API keys per user.
+Using your API key:
+Include your API key in the Authorization header for every request:
+Authorization: Bearer YOUR_API_KEY
+✅ Security best practices:
+Never share your API key publicly or commit it to version control
+Store API keys securely using environment variables or secrets management
+Rotate API keys periodically
+Rate Limits
+Enterprise plan users are currently limited to 10 requests / second. If you exceed your rate limit, you'll receive a
+429 Too Many Requests
+response.
+Pagination
+List endpoints use cursor-based pagination for efficient data retrieval.
+Pagination Response
+{
+  "meta": {
+    "retrieved_at": "2025-07-31T12:00:00Z",
+    "has_more": true,
+    "next_cursor": "next_cursor_position"
+  },
+  "data": [ /* array of results */ ]
+}
+Meta Fields:
+Field
+Type
+Description
+retrieved_at
+string
+Timestamp when data was retrieved (ISO 8601 format)
+has_more
+boolean
+Whether more pages are available
+next_cursor
+string (optional)
+Cursor for the next page
+Usage
+To retrieve the next page, use the
+next_cursor
+value in your next request's
+cursor
+query parameter:
+GET /conversations?cursor=next_cursor_position&limit=20
+Continue paginating until
+has_more
+is
+false
+.
+Webhooks
+Webhooks are the recommended way to build export integrations with Otter. Instead of constantly polling the API to check for new conversations or action items, webhooks push real-time notifications to your application the moment events occur. This makes webhooks ideal for automatically syncing meeting summaries to your CRM, sending action items to project management tools, or triggering custom workflows whenever a transcript is ready. By using webhooks, you'll build more efficient integrations that respond instantly to changes while staying well within API rate limits.
+Learn more:
+Learn how to set up webhooks with our
+workspace webhook documentation
+.
+Endpoints
+Explore the available API endpoints, grouped by type.
+Channel
+Endpoints for retrieving channel data
+A
+Channel
+lets you organize Conversations.
+GET /channels
+GET /channels/{id}/members
+GET /channels
+Use this endpoint to list channels for the authenticated user. Results are returned in alphabetical order by channel name.
+Example Request:
+curl -X GET "https://api.otter.ai/v1/channels" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns a
+ChannelListResponse
+with channel data.
+meta
+: Response metadata, including retrieved_at
+data
+: An array of channel objects
+{
+  "meta": {
+    "retrieved_at": "2025-07-31T12:00:00Z"
+  },
+  "data": [
+    {
+      "id": "channel_id",
+      "name": "backend product meeting",
+      "member_count": 50,
+      "owner": {
+        "id": "user_id",
+        "name": "Jane Doe",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "Jane@test.com"
+      },
+      "discoverability": "private"
+    }
+  ]
+}
+Channel object:
+Field
+Type
+Description
+id
+string
+Unique channel identifier
+name
+string
+Name of the channel
+member_count
+integer
+Number of members in the channel
+owner
+User
+Owner of the channel
+discoverability
+string
+Channel visibility setting, such as
+private
+or
+workspace
+(public)
+Error Response(s):
+Status
+Description
+400
+Invalid request parameters
+GET /channels/{id}/members
+Use this endpoint to list all members in a specific channel. Results are returned in alphabetical order by member name.
+Path Parameter:
+Parameter
+Type
+Required
+Description
+id
+string
+Yes
+Channel ID
+Example Request:
+curl -X GET "https://api.otter.ai/v1/channels/{id}/members" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns a
+ChannelMembersResponse
+containing a list of users in the channel.
+meta:
+Response metadata, including retrieved_at
+data:
+An array of user objects
+{
+  "meta": {
+    "retrieved_at": "2026-04-23T18:57:09Z"
+  },
+  "data": [
+    {
+      "id": "a1B2c3D4e5F6g7H8",
+      "name": "Jane Doe",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane.doe@example.com"
+    },
+    {
+      "id": "h8G7f6E5d4C3b2A1",
+      "name": "John Smith",
+      "first_name": "John",
+      "last_name": "Smith",
+      "email": "john.smith@example.com"
+    },
+    {
+      "id": "z9Y8x7W6v5U4t3S2",
+      "name": "Alex Johnson",
+      "first_name": "Alex",
+      "last_name": "Johnson",
+      "email": "alex.johnson@example.com"
+    }
+  ]
+}
+User Object:
+Field
+Type
+Description
+id
+string
+Unique user identifier
+name
+string
+Full name of the user
+first_name
+string
+User’s first name
+last_name
+string
+User’s last name
+email
+string
+User’s email address
+Error Responses:
+Status
+Description
+400
+Invalid request parameters
+404
+Channel not found
+Conversations
+Endpoints to create, list, and retrieve conversations, including conversation details and audio downloads
+POST /conversations
+GET /conversations
+GET /conversations/{id}
+GET /conversations/{id}/audio
+POST /conversations
+Creates a new conversation from a file. This is useful if you are importing calls into Otter, such as from a Dialer.
+Request Body:
+Field
+Type
+Required
+Description
+file
+string (URL)
+Yes
+URL to the file to process
+name
+string
+No
+Name for the conversation
+Example Request:
+curl -X POST "https://api.otter.ai/v1/conversations" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "file": "https://example.com/file.mp4",
+    "name": "Product Launch Meeting"
+  }'
+Response:
+Returns a
+ConversationCreateResponse
+with status.
+{
+ "status": "success",
+ "completed_at": "2025-12-01 01:00:00Z",
+ "file": "audio.mp3"
+}
+GET /conversations
+Use this endpoint to list conversations for the authenticated user. Results are returned in reverse chronological order (most recent first) and use cursor-based pagination for efficient retrieval. You can optionally include shared conversations or filter results by channel.
+Tip
+: Use
+workspace webhooks
+to receive Conversation data in real-time!
+Query Parameters:
+Parameter
+Type
+Required
+Description
+include_shared
+boolean
+No
+Whether to include conversations shared with the user. Default: false. Automatically set to true if channel_id is provided
+channel_id
+string
+No
+Filter conversations by channel ID. Overrides include_shared
+limit
+integer
+No
+Number of items to return per page. Minimum: 1, Maximum: 20
+cursor
+string
+No
+Cursor for pagination. Use the next_cursor value from the previous response to retrieve the next page
+Example Request:
+curl -X GET "https://api.otter.ai/v1/conversations?include_shared=false&channel_id=&limit=20&cursor=" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns a
+ConversationListResponse
+with conversation data and pagination metadata.
+meta
+: Pagination metadata, including retrieved_at, has_more, and next_cursor
+data
+: An array of conversation objects
+{
+  "meta": {
+    "retrieved_at": "2025-07-31T12:00:00Z",
+    "has_more": true,
+    "next_cursor": "next_cursor_position"
+  },
+  "data": [
+    {
+      "id": "conversation_id",
+      "title": "product launch meeting",
+      "url": "https://otter.ai/u/conversation_id",
+      "owner": {
+        "id": "user_id",
+        "name": "Jane Doe",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "Jane@test.com"
+      },
+      "created_at": "2025-07-31T12:00:00Z",
+      "process_status": {
+        "abstract_summary": null,
+        "action_item": null,
+        "outline": null
+      },
+      "calendar_guests": [
+        {
+          "name": "John Doe",
+          "email": "john@test.com"
+        }
+      ],
+      "shared_emails": [
+        {
+          "email": "hello@example.com",
+          "user": {
+            "id": "user_id",
+            "name": "Jane Doe",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "email": "Jane@test.com"
+          },
+          "permission": "collaborate"
+        }
+      ],
+      "shared_channels": [
+        {
+          "channel": {
+            "id": "channel_id",
+            "name": "backend product meeting",
+            "member_count": 50,
+            "owner": {
+              "id": "user_id",
+              "name": "Jane Doe",
+              "first_name": "Jane",
+              "last_name": "Doe",
+              "email": "Jane@test.com"
+            },
+            "discoverability": "private"
+          },
+          "permission": "collaborate"
+        }
+      ],
+      "abstract_summary": "This meeting discussed the next steps in the project launch",
+      "conf_join_url": "https://zoom.us/j/1234567890"
+    }
+  ]
+}
+Pagination:
+has_more
+: Indicates whether additional results are available
+next_cursor
+: Use this value in the next request to retrieve the next page
+Conversation object:
+Field
+Type
+Description
+id
+string
+Unique conversation identifier
+title
+string
+Title of the conversation
+url
+string
+URL to view the conversation in Otter
+owner
+User
+Owner of the conversation
+created_at
+string
+Timestamp when the conversation was created
+process_status
+object
+Processing status for generated data such as summary, action items, and outline
+calendar_guests
+array
+List of calendar guests associated with the conversation
+shared_emails
+array
+List of users or email addresses the conversation is shared with
+shared_channels
+array
+List of channels the conversation is shared with
+abstract_summary
+string
+Generated summary of the conversation
+conf_join_url
+string
+Conferencing join URL associated with the conversation
+Shared channel object:
+Field
+Type
+Description
+id
+string
+Unique channel identifier
+name
+string
+Name of the channel
+member_count
+integer
+Number of members in the channel
+owner
+User
+Owner of the channel
+discoverability
+string
+Channel visibility setting, such as
+private
+or
+workspace
+(public)
+Error Responses:
+Status
+Description
+400
+Invalid filter or pagination parameters
+404
+Channel not found
+GET /conversations/{id}
+Use this endpoint to get the summary and details of a specific conversation. You can optionally include additional conversation data such as action items, insights, outlines, transcript, or all available relationships.
+Tip
+: Use
+workspace webhooks
+to receive Conversation data in real-time!
+Path Parameters:
+Parameter
+Type
+Required
+Description
+id
+string
+Yes
+Conversation ID
+Query Parameters:
+Parameter
+Type
+Required
+Description
+include
+string
+Yes
+Comma-separated list of additional data to include. Options:
+action_items
+,
+insights
+,
+outline
+,
+transcript
+,
+all
+. If all is specified, all available relationship fields are returned. Example:
+insights,transcript
+Example Request:
+curl -X GET "https://api.otter.ai/v1/conversations/{id}?include=action_items" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns a
+ConversationResponse
+with conversation details and requested relationships.
+meta
+: Response metadata, including retrieved_at
+data
+: The conversation object
+relationships
+: Additional related data returned when requested with the include parameter
+{
+  "meta": {
+    "retrieved_at": "2025-07-31T12:00:00Z"
+  },
+  "data": {
+    "relationships": {
+      "action_items": [
+        {
+          "id": "action_item_id",
+          "text": "Follow up with the sales team",
+          "assignee": {
+            "id": "user_id",
+            "name": "Jane Doe",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "email": "Jane@test.com"
+          },
+          "status": {
+            "completed": true,
+            "created_at": "2025-07-31T12:00:00Z",
+            "last_modified_at": "2025-07-31T12:00:00Z",
+            "completed_at": "2025-07-31T12:00:00Z"
+          }
+        }
+      ],
+      "insights": null,
+      "outline": null,
+      "transcript": null,
+      "custom_prompt": null
+    },
+    "id": "conversation_id",
+    "title": "product launch meeting",
+    "url": "https://otter.ai/u/conversation_id",
+    "owner": {
+      "id": "user_id",
+      "name": "Jane Doe",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "Jane@test.com"
+    },
+    "created_at": "2025-07-31T12:00:00Z",
+    "process_status": {
+      "abstract_summary": null,
+      "action_item": null,
+      "outline": null
+    },
+    "calendar_guests": [
+      {
+        "name": "John Doe",
+        "email": "john@test.com"
+      }
+    ],
+    "shared_emails": [
+      {
+        "email": "hello@example.com",
+        "user": {
+          "id": "user_id",
+          "name": "Jane Doe",
+          "first_name": "Jane",
+          "last_name": "Doe",
+          "email": "Jane@test.com"
+        },
+        "permission": "collaborate"
+      }
+    ],
+    "shared_channels": [
+      {
+        "channel": {
+          "id": "channel_id",
+          "name": "backend product meeting",
+          "member_count": 50,
+          "owner": {
+            "id": "user_id",
+            "name": "Jane Doe",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "email": "Jane@test.com"
+          },
+          "discoverability": "private"
+        },
+        "permission": "collaborate"
+      }
+    ],
+    "abstract_summary": "This meeting discussed the next steps in the project launch",
+    "conf_join_url": "https://zoom.us/j/1234567890"
+  }
+}
+Example Request:
+curl -X GET "https://api.otter.ai/v1/conversations/conversation_id?include=all" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns a
+ConversationResponse
+with conversation details and requested relationships.
+meta
+: Response metadata, including retrieved_at
+data
+: The conversation object
+relationships
+: Additional related data returned when requested with the include parameter
+{
+  "meta": {
+    "retrieved_at": "2025-10-05T12:00:00Z"
+  },
+  "data": {
+    "id": "conversation_id",
+    "title": "Customer Discovery Call – ACME Corp",
+    "url": "https://otter.ai/u/conversation_id",
+    "owner": {
+      "id": "owner_id",
+      "name": "Jane Doe",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "jane.doe@example.com"
+    },
+    "created_at": "2025-10-05T11:55:00Z",
+    "process_status": {
+      "abstract_summary": "finished",
+      "action_item": "finished",
+      "outline": "finished"
+    },
+    "calendar_guests": null,
+    "shared_emails": [],
+    "shared_channels": [
+      {
+        "channel": {
+          "id": "channel_id",
+          "name": "All customer calls",
+          "member_count": 25,
+          "owner": {
+            "id": "channel_owner_id",
+            "name": "John Smith",
+            "first_name": "John",
+            "last_name": "Smith",
+            "email": "john.smith@example.com"
+          },
+          "discoverability": "workspace"
+        },
+        "permission": "collaborate"
+      }
+    ],
+    "abstract_summary": "The team met with ACME Corp to confirm their requirements, discuss pricing options, and align on an evaluation timeline for adopting Otter.ai across their go-to-market team.",
+    "conf_join_url": "https://zoom.us/j/00000000000",
+    "relationships": {
+      "action_items": [
+        {
+          "id": "action_item_id_1",
+          "text": "Send follow-up email with pricing summary and implementation overview.",
+          "assignee": {
+            "id": "owner_id",
+            "name": "Jane Doe",
+            "first_name": "Jane",
+            "last_name": "Doe",
+            "email": "jane.doe@example.com"
+          },
+          "status": null
+        },
+        {
+          "id": "action_item_id_2",
+          "text": "ACME to confirm final user count and preferred contract term.",
+          "assignee": {
+            "id": "customer_contact_id",
+            "name": "Alex Taylor",
+            "first_name": "Alex",
+            "last_name": "Taylor",
+            "email": "alex.taylor@example.com"
+          },
+          "status": null
+        }
+      ],
+      "insights": [
+        {
+          "topic": "Budget",
+          "text": [
+            "ACME has a preliminary budget in place and is comfortable with a per-seat model as long as usage is clear.",
+            "They are open to a flat-rate option if it simplifies internal approvals."
+          ]
+        },
+        {
+          "topic": "Authority",
+          "text": [
+            "Alex Taylor is the main champion, but final approval will come from the VP of Operations.",
+            "Security and procurement teams will review the proposal before signature."
+          ]
+        },
+        {
+          "topic": "Need",
+          "text": [
+            "ACME needs automated call summaries for customer meetings and better visibility into team activity.",
+            "They want to reduce manual note-taking and ensure consistent follow-up on action items."
+          ]
+        },
+        {
+          "topic": "Timeline",
+          "text": [
+            "They aim to complete evaluation this month and go live at the start of next quarter.",
+            "Next internal decision checkpoint is scheduled for next week."
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "section": "Introductions and Context",
+          "text": [
+            "Participants introduced themselves and clarified roles.",
+            "ACME shared context on their current workflow and challenges with manual note-taking."
+          ]
+        },
+        {
+          "section": "Pricing and Rollout Options",
+          "text": [
+            "The team reviewed per-seat and flat-rate pricing options.",
+            "They discussed rollout plans starting with key go-to-market teams and expanding later."
+          ]
+        }
+      ],
+      "transcript": {
+        "content": "Jane Doe  00:00\nThanks everyone for joining today. I’d love to understand how your team handles customer calls and where Otter might help.\n\nAlex Taylor  00:07\nRight now we take notes manually, and we often miss details or lose track of follow-ups after the meeting.\n\nJane Doe  00:14\nThat makes sense. Otter can automatically capture the conversation, generate summaries, and highlight key action items.\n\nAlex Taylor  00:21\nThat would be really valuable for us, especially for onboarding new reps and improving consistency.\n\nJane Doe  00:28\nGreat—I'll send a follow-up with pricing options and a proposed rollout timeline.\n\nAlex Taylor  00:35\nSounds good. We'll review internally and get back to you this week.",
+        "format": "txt"
+      },
+      "custom_prompt": null
+    }
+  }
+}
+Conversation object:
+Field
+Type
+Description
+id
+string
+Unique conversation identifier
+title
+string
+Title of the conversation
+url
+string
+URL to view the conversation in Otter
+owner
+User
+Owner of the conversation
+created_at
+string
+Timestamp when the conversation was created
+process_status
+object
+Processing status for generated data such as summary, action items, and outline
+calendar_guests
+array
+List of calendar guests associated with the conversation
+shared_emails
+array
+List of users or email addresses the conversation is shared with
+shared_channels
+array
+List of channels the conversation is shared with
+abstract_summary
+string
+Generated summary of the conversation
+conf_join_url
+string
+Conferencing join URL associated with the conversation
+relationships
+object
+Additional related data returned when requested with the include parameter
+Shared channel object:
+Field
+Type
+Description
+id
+string
+Unique channel identifier
+name
+string
+Name of the channel
+member_count
+integer
+Number of members in the channel
+owner
+User
+Owner of the channel
+discoverability
+string
+Channel visibility setting, such as
+private
+or
+workspace
+(public)
+Error responses:
+Status
+Description
+404
+Conversation not found
+GET /conversations/{id}/audio
+Use this endpoint to get the MP3 audio download link for a specific conversation.
+Path Parameters:
+Parameter
+Type
+Required
+Description
+id
+string
+Yes
+Conversation ID
+Example Request:
+curl -X GET "https://api.otter.ai/v1/conversations/{id}/audio" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns an AudioResponse containing the MP3 audio download link.
+meta
+: Response metadata, including retrieved_at
+data
+: The audio object
+{
+  "meta": {
+    "retrieved_at": "2025-07-31T12:00:00Z"
+  },
+  "data": {
+    "url": "https://test.com/audio.mp3"
+  }
+}
+Audio Object:
+Field
+Type
+Description
+url
+string
+Download URL for the MP3 audio file
+Error Response:
+Status
+Description
+404
+Conversation not found
+Workspace
+Endpoints to access workspace details, member usage, and workspace analytics
+GET /workspace
+GET /workspace/{id}/analytics
+GET /workspace
+Use this endpoint to get the workspace for the authenticated user. The response includes workspace details such as the workspace ID, name, owner, member count, handle, and type.
+Example Request:
+curl -X GET "https://api.otter.ai/v1/workspace" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Response:
+Returns a WorkspaceGetResponse containing the authenticated user’s workspace details.
+meta
+: Response metadata, including retrieved_at
+data
+: The authenticated user’s workspace object
+{
+  "meta": {
+    "retrieved_at": "2025-07-31T12:00:00Z"
+  },
+  "data": {
+    "id": 42,
+    "name": "workspace name",
+    "owner": {
+      "id": "user_id",
+      "name": "Jane Doe",
+      "first_name": "Jane",
+      "last_name": "Doe",
+      "email": "Jane@test.com"
+    },
+    "member_count": 50,
+    "handle": "otter.ai",
+    "type": "business"
+  }
+}
+Workspace object:
+Field
+Type
+Description
+id
+integer
+Unique workspace identifier
+name
+string
+Name of the workspace
+owner
+User
+Owner of the workspace
+member_count
+integer
+Number of members in the workspace
+handle
+string
+Workspace handle (e.g., domain or identifier like otter.ai)
+type
+string
+Type of workspace (e.g., business)
+Error responses:
+Status
+Description
+404
+User not in a workspace
+GET /workspace/{id}/analytics
+Use this endpoint to retrieve workspace usage analytics for a date range, including total transcribed minutes, conversation counts, current license counts, and per-member usage sorted by name.
+Operation ID:
+getWorkspaceAnalytics
+Base URL:
+https://api.otter.ai/v1
+Path Parameters:
+Parameter
+Type
+Required
+Description
+id
+string
+Yes
+Workspace ID. Use
+GET /workspace
+to retrieve your workspace details, including its ID.
+Query Parameters:
+Parameter
+Type
+Required
+Description
+start_date
+string (date)
+No
+Inclusive start date in
+yyyy-mm-dd
+format. Omit together with
+end_date
+to use the last 30 days. If only
+start_date
+is provided, the end of the range defaults to now.
+end_date
+string (date)
+No
+Inclusive end date in
+yyyy-mm-dd
+format. Cannot be provided without
+start_date
+.
+timezone
+string
+No
+IANA timezone used to interpret dates, such as
+America/Los_Angeles
+. Defaults to the workspace timezone, then
+America/Los_Angeles
+.
+Date range behavior:
+Omit both dates to retrieve analytics for the last 30 days.
+Provide only
+start_date
+to use now as the end of the range.
+Providing only
+end_date
+is invalid.
+When both dates are provided, the range is inclusive, from 00:00:00 on the start date through 23:59:59 on the end date in the resolved timezone.
+Note:
+num_of_minutes
+,
+num_of_conversations
+, and
+members
+are scoped to the resolved report window.
+seats_used
+and
+seats_invoiced
+are current license counts and are not historical values for the report window.
+Example Request:
+curl -X GET "https://api.otter.ai/v1/workspace/{id}/analytics?start_date=2026-09-01&end_date=2026-09-30&timezone=America%2FLos_Angeles" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+Replace
+{id}
+with your workspace ID. This GET request has no request body.
+Response:
+A successful request returns
+200 OK
+with content type
+application/json
+and a
+WorkspaceAnalyticsResponse
+.
+meta
+: Response metadata, including
+retrieved_at
+data
+: The workspace analytics object for the resolved date range
+The following example uses illustrative values.
+{
+  "meta": {
+    "retrieved_at": "2026-10-01T12:00:00Z"
+  },
+  "data": {
+    "start_date": "2026-09-01",
+    "end_date": "2026-09-30",
+    "timezone": "America/Los_Angeles",
+    "num_of_minutes": 120,
+    "num_of_conversations": 4,
+    "seats_used": 1,
+    "seats_invoiced": 5,
+    "members": [
+      {
+        "id": "hashed_user_id",
+        "name": "Jane Doe",
+        "email": "jane@example.com",
+        "status": "Activated",
+        "num_of_conversations": 4,
+        "num_of_minutes": 120,
+        "average_conversations_per_month": 4,
+        "average_minutes_per_conversation": 30,
+        "average_minutes_per_month": 120,
+        "join_date": "2026-08-15",
+        "last_activity_at": "2026-09-30T18:30:00Z",
+        "last_login_at": "2026-09-30T16:00:00Z",
+        "num_of_ai_chats": 2,
+        "num_of_conversations_shared_by_user": 2,
+        "num_of_conversations_shared_with_user": 0,
+        "num_of_conversations_viewed": 4
+      }
+    ]
+  }
+}
+Response fields:
+Field
+Type
+Required
+Description
+meta
+object (CommonMeta)
+Yes
+Response metadata.
+meta.retrieved_at
+string (date-time)
+Yes
+Timestamp when the data was retrieved (ISO 8601 format).
+data
+object (WorkspaceAnalytics)
+Yes
+Workspace analytics for the resolved report window.
+Workspace analytics object:
+Field
+Type
+Required
+Description
+start_date
+string (date)
+Yes
+Resolved inclusive start date of the report window (
+yyyy-mm-dd
+).
+end_date
+string (date)
+Yes
+Resolved inclusive end date of the report window (
+yyyy-mm-dd
+).
+timezone
+string
+Yes
+IANA timezone used to interpret dates. Defaults to the workspace timezone, then
+America/Los_Angeles
+.
+num_of_minutes
+number
+Yes
+Total transcribed minutes for workspace members in the report window.
+num_of_conversations
+number
+Yes
+Total conversations created by workspace members in the report window.
+seats_used
+integer
+Yes
+Current licensed seats in use. Not scoped to the report window.
+seats_invoiced
+integer
+Yes
+Current invoiced seat quantity. Not scoped to the report window.
+members
+array of WorkspaceAnalyticsMember objects
+Yes
+Per-member usage for the report window, sorted by name.
+Workspace analytics member object:
+Field
+Type
+Required
+Description
+id
+string
+Yes
+Opaque hashed user ID.
+name
+string
+Yes
+Member name.
+email
+string (email)
+Yes
+Member email address.
+status
+string
+Yes
+Member status:
+Activated
+,
+Deactivated
+, or
+Pending
+.
+num_of_conversations
+number
+Yes
+Conversations created by this member in the report window.
+num_of_minutes
+number
+Yes
+Minutes transcribed by this member in the report window.
+average_conversations_per_month
+number
+Yes
+Average number of conversations per month.
+average_minutes_per_conversation
+number
+Yes
+Average transcribed minutes per conversation.
+average_minutes_per_month
+number
+Yes
+Average transcribed minutes per month.
+join_date
+string (date) or null
+No
+Member join date in the report timezone, or
+null
+if unknown.
+last_activity_at
+string (date-time) or null
+No
+Most recent conversation creation, conversation view, or annotation timestamp, or
+null
+if none.
+last_login_at
+string (date-time) or null
+No
+Most recent login timestamp, or
+null
+if the member has never logged in.
+num_of_ai_chats
+number or null
+No
+AI chats created by this member in the report window, or
+null
+if unavailable.
+num_of_conversations_shared_by_user
+number or null
+No
+Conversations shared by this member in the report window, or
+null
+if unavailable.
+num_of_conversations_shared_with_user
+number or null
+No
+Conversations shared with this member in the report window, or
+null
+if unavailable.
+num_of_conversations_viewed
+number or null
+No
+Conversations viewed by this member in the report window, or
+null
+if unavailable.
+Error responses:
+Status
+Description
+400 Bad Request
+Invalid date range, timezone, or workspace ID. This includes providing
+end_date
+without
+start_date
+.
+403 Forbidden
+Caller is not a workspace admin.
+404 Not Found
+Workspace not found.
+Errors use content type
+application/json
+and an
+ErrorResponse
+object containing a required
+errors
+array. The response schemas are
+ValidationErrorResponse
+(400),
+ForbiddenErrorResponse
+(403), and
+NotFoundErrorResponse
+(404).
+Error response fields:
+Field
+Type
+Required
+Description
+errors
+array of RequestError objects
+Yes
+Details about the request errors.
+errors[].status
+string
+No
+HTTP error status text.
+errors[].code
+string
+No
+Specific error code defined by Otter.
+errors[].detail
+string
+No
+Description of the error.
+errors[].source
+object (RequestErrorSource)
+No
+Information about the request source. May be
+null
+, as shown in the example below.
+errors[].source.header
+string
+No
+Header information associated with the error.
+errors[].source.parameter
+string
+No
+Request parameter information associated with the error.
+errors[].source.pointer
+string (URI)
+No
+URI identifying the request source associated with the error.
+Example Error Response (403):
+{
+  "errors": [
+    {
+      "status": "Forbidden",
+      "code": "403",
+      "detail": "User has no permission",
+      "source": null
+    }
+  ]
+}
+👉 Best Practices
+Rate Limiting
+Implement appropriate rate limiting in your application to avoid overwhelming the API. Consider implementing exponential backoff for retries.
+Error Handling
+Always check for and handle error responses gracefully. Parse the error details to provide meaningful feedback to users.
+Pagination
+Use cursor-based pagination for large result sets. Don't attempt to retrieve all data in a single request.
+Selective Loading
+Use the
+include
+parameter in conversation endpoints to fetch only the data you need. This reduces response payload size and improves performance.
+Caching
+Cache responses where appropriate to reduce API calls. Consider implementing a caching layer for frequently accessed data.
+Field Selection
+When using the
+include
+parameter, only request the fields you actually need rather than using
+all
+Related to
+api
+Related articles
+Workspace Webhooks
+Does Otter offer an open API?
+Custom Meeting Type Templates
+HIPAA | Otter.ai
+Set a custom Data Retention policy
+Article is closed for comments.
+✨
+On this page
+↑ Back to top
+×
+❮
+❯

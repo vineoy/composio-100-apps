@@ -1,0 +1,218 @@
+URL: https://docs.connect.tryotter.com/guides/core-concepts/authentication/
+FETCHED: 2026-11-23T22:42:10.154532
+VIA: direct
+
+Authentication | Otter API Docs
+Otter Docs
+Guides
+Search
+⌘
+K
+Overview
+Getting started
+Core Concepts
+Otter 101
+Authentication
+Webhooks
+Stores and connections
+Understand rate limits
+API behavior and feature status
+Scenarios
+Integrations
+Authentication
+Copy Markdown
+Open
+How your app proves who it is when calling the Otter API — and how you verify that inbound webhooks really came from Otter.
+There are
+two directions
+:
+Direction
+What you do
+Primary mechanism
+Outbound
+— your app → Otter
+Call REST endpoints
+OAuth 2.0 access token as
+Authorization: Bearer …
+Inbound
+— Otter → your app
+Receive webhooks
+Validate
+X-HMAC-SHA256
+on every request
+Exact token request/response fields live in the
+API reference
+. Code samples for webhook HMAC live in
+Keep webhooks secure
+.
+Application credentials
+Copy Anchor Link
+Create your application through the gated self-service flow in
+PartnerHub
+, or ask your Otter contact for help when that flow is unavailable. After provisioning finishes and you can open the application, select it in
+Developers
+and open
+Keys
+for its OAuth
+Client ID
+and
+client secret
+.
+Use the Client ID shown on Keys, rather than assuming it is interchangeable with an application identifier. Additional credentials have their own Client IDs. Copy a newly issued secret when it is shown; it cannot be retrieved later. Never commit secrets to source control or expose them in a browser, mobile app, or chat.
+Self-service starts with a sandbox application. Check the selected application's environment and store connections before sending traffic; creating an application alone does not grant production readiness or connect a merchant store.
+See
+Quickstart
+for the complete first-call path.
+Calling the Otter API (outbound)
+Copy Anchor Link
+Access tokens
+Copy Anchor Link
+Request an access token from
+POST /v1/auth/token
+using your Client ID and client secret.
+Two common OAuth 2.0 flows:
+Flow
+When to use
+Client credentials
+Server-to-server integration — no end-user login. Most partner integrations start here.
+Authorization code
+A merchant user must authorize your app (for example
+organization onboarding
+). Starts at
+GET /v1/auth/oauth2/authorize
+, then exchange the code at
+/v1/auth/token
+.
+Example shape (client credentials):
+Request an access token
+Copy Text
+curl
+--request
+POST
+'https://partners.tryotter.com/v1/auth/token'
+\
+--header
+'Content-Type: application/x-www-form-urlencoded'
+\
+--data-urlencode
+'scope=ping'
+\
+--data-urlencode
+'grant_type=client_credentials'
+\
+--data-urlencode
+'client_id=[CLIENT_ID]'
+\
+--data-urlencode
+'client_secret=[CLIENT_SECRET]'
+The response includes
+access_token
+,
+token_type
+(
+bearer
+), and
+expires_in
+.
+Access tokens are valid for
+30 days by default
+. Always treat the returned
+expires_in
+value, in seconds, as authoritative and request a new token before
+that value elapses.
+Request headers
+Copy Anchor Link
+On resource calls:
+Authenticated store-scoped request
+Copy Text
+Authorization
+:
+Bearer <access_token>
+X-Store-Id
+:
+<store_id>
+Authorization
+— required on resource endpoints.
+X-Store-Id
+— required on store-scoped endpoints. Send the store identifier
+from
+your system
+that is linked to the authenticated application. See
+Stores and connections
+and
+Quickstart — connect stores
+.
+Scopes
+Copy Anchor Link
+Tokens and applications are limited by
+scopes
+(for example organization or orders scopes). Request only what you need. Missing scope → authorization errors even with a valid token. Scope lists are in the
+API reference
+.
+401 versus 503
+Copy Anchor Link
+401
+— the token is missing, invalid, expired, or revoked. Request a new token before retrying.
+503
+with a
+Retry-After
+header — Otter could not validate the token at that moment because of a temporary internal issue. It says nothing about whether the token is valid. Retry the same request with the same token after the number of seconds in
+Retry-After
+, using backoff if the error repeats.
+Verifying webhooks (inbound)
+Copy Anchor Link
+Otter sends HTTPS
+POST
+events to URLs you register. Each endpoint has a
+secret
+and an optional
+Authorization
+style (Basic, Bearer, legacy HMAC SHA1, or none).
+Always
+validate the
+X-HMAC-SHA256
+header (HMAC-SHA256 of the
+raw
+body with your webhook secret) before trusting the payload — regardless of
+Authorization
+type.
+Do not process webhook bodies without signature validation.
+Deep guide with algorithms and multi-language samples:
+Keep webhooks secure
+. Event model (ack, retries, error callbacks):
+Events and webhooks
+.
+Related
+Copy Anchor Link
+Quickstart
+— first token, store header, webhook registration
+Events and webhooks
+— REST vs webhooks, ack, error callbacks
+Stores and connections
+— pairing and
+X-Store-Id
+Keep webhooks secure
+— HMAC how-to and samples
+Understand rate limits
+Otter 101
+API reference — auth
+Next
+Copy Anchor Link
+Wire client-credentials tokens, then complete
+Events and webhooks
+and
+Keep webhooks secure
+before live traffic.
+How is this guide?
+Good
+Bad
+On this page
+Application credentials
+Calling the Otter API (outbound)
+Access tokens
+Request headers
+Scopes
+401 versus 503
+Verifying webhooks (inbound)
+Related
+Next

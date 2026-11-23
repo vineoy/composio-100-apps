@@ -1,0 +1,77 @@
+{
+ "app": "Vercel",
+ "queries": [
+  "Vercel API authentication documentation",
+  "Vercel MCP server",
+  "Vercel API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://vercel.com/docs/rest-api",
+  "https://vercel.com/docs/rest-api",
+  "https://vercel.com/docs/cli/api",
+  "https://user-documentation.vercel.app/database-and-apis/auth/providers/vercel.html"
+ ],
+ "search_hits": [
+  {
+   "title": "Vercel REST API Reference",
+   "href": "https://vercel.com/docs/rest-api"
+  },
+  {
+   "title": "vercel api",
+   "href": "https://vercel.com/docs/cli/api"
+  },
+  {
+   "title": "Vercel authentication | Documentation",
+   "href": "https://user-documentation.vercel.app/database-and-apis/auth/providers/vercel.html"
+  },
+  {
+   "title": "Authentication and Setup | vercel/sdk | DeepWiki",
+   "href": "https://deepwiki.com/vercel/sdk/5.1-authentication-and-setup"
+  },
+  {
+   "title": "Marketplace Vercel API Reference",
+   "href": "https://blog.vercel.com/docs/integrations/create-integration/marketplace-api/reference/vercel"
+  },
+  {
+   "title": "Use Vercel's MCP server",
+   "href": "https://vercel.com/docs/agent-resources/vercel-mcp"
+  },
+  {
+   "title": "Deploy MCP servers to Vercel",
+   "href": "https://vercel.com/docs/mcp/deploy-mcp-servers-to-vercel"
+  },
+  {
+   "title": "GitHub - vercel/vercel-mcp-overview: Public overview of Vercel's MCP ...",
+   "href": "https://github.com/vercel/vercel-mcp-overview"
+  },
+  {
+   "title": "Vercel MCP Server by Vercel",
+   "href": "https://mcp.services/companies/vercel/vercel-mcp-server"
+  },
+  {
+   "title": "vercel | Cursor MCP Server",
+   "href": "https://cursor.com/marketplace/mcp/vercel"
+  },
+  {
+   "title": "Vercel Hobby Plan",
+   "href": "https://vercel.com/docs/plans/hobby"
+  },
+  {
+   "title": "Pricing on Vercel",
+   "href": "https://vercel.com/docs/pricing"
+  },
+  {
+   "title": "Vercel API - Free Tier, Limits and SDKs - infowebworld.com",
+   "href": "https://www.infowebworld.com/developers/free-apis/development/vercel-api"
+  },
+  {
+   "title": "Vercel Pricing, Free Hobby Tier & How to Get an API Token",
+   "href": "https://apicostcalc.com/vercel.html"
+  },
+  {
+   "title": "Real API Pricing \u00b7 The cost behind the capability",
+   "href": "https://real-api-pricing.vercel.app/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:38:33.197535"
+}

@@ -1,0 +1,94 @@
+URL: https://help.clickup.com/hc/en-us/articles/6303422883095-Create-your-own-app-with-the-ClickUp-API
+FETCHED: 2026-11-23T22:19:02.231530
+VIA: direct
+
+Create your own app with the ClickUp API – ClickUp Help
+Skip to main content
+Search
+Ask me anything
+Want to create an app that integrates with ClickUp? Give your users the ability to sign in using OAuth 2.0!
+Be sure to also check out our
+API documentation
+!
+What you'll need
+The ClickUp API is available on all
+ClickUp plans
+.
+Workspace owners or admins can manage integration settings and create OAuth apps in the Workspace.
+Members and limited members with full edit permissions can use personal API tokens.
+Limited members with view-only permissions cannot access or manage the API.
+OAuth 2 flow
+When you want to develop an application that others can use, you must use an OAuth2 authentication flow.
+With OAuth 2, everyone who uses your app gets assigned an individualized token. Each user can only access the content available to their individual ClickUp user account.
+If you are unfamiliar with OAuth2, Digital Ocean has put together a great
+guide
+that should get you started. We also recommend checking out
+OAuth's website
+for additional details.
+Create an app
+The first step for using OAuth 2 is to create an app in your Workspace. You must be a Workspace owner or admin to manage integration settings.
+To create an app in your Workspace:
+In the upper-left corner, click your Workspace avatar.
+Select
+Settings
+.
+In the All settings sidebar, select
+ClickUp API
+.
+In the upper-right corner of the ClickUp API Settings page, click Create an App.
+Enter your app's name and a redirect URL(s). If you're not sure what to use for your redirect URL, take a look at
+the Redirect URLs guide
+on OAuth's website.
+Click
+Create App
+.
+On the next screen, you'll see that a
+Client ID
+and
+Client Secret
+have been generated.
+Use the
+Client ID
+and
+Client Secret
+in your app to create an OAuth 2 authentication flow.
+Update your redirect URLs
+If you have a new redirect URL, you can update these settings in your ClickUp Workspace at any time:
+In the upper-left corner, click your Workspace avatar.
+Select
+Settings
+.
+In the All settings sidebar, select
+ClickUp API
+.
+Click an existing app to expand its details.
+Update the redirect URL.
+Click
+Save
+.
+View or regenerate your client secret
+To regenerate your client secret:
+In the upper-left corner, click your Workspace avatar.
+Select
+Settings
+.
+In the All settings sidebar, select
+ClickUp API
+.
+Click an existing app to expand its details.
+Click
+Show
+to view your current Client Secret.
+Click
+Regenerate
+to create a new Client Secret.
+Update your app to use the new Client Secret.
+Authorization token types
+Tokens permit you to make API calls and integrate with other applications. You can also use apps like
+Make
+to create integrations without writing code. Tokens are specific to your ClickUp user account.
+Anyone with a ClickUp account can generate a personal token. Personal tokens permit access to every Workspace your account has created or joined. Your personal token gives you the same access that you have through a web browser.
+If you use OAuth2, you can choose to authorize access to specific Workspaces when you first authenticate or when you re-authenticate later.
+Was this article helpful?
+Articles in this section
+Create your own app with the ClickUp API

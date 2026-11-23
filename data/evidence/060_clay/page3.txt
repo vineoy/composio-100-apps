@@ -1,0 +1,52 @@
+URL: https://developers.clay.com/quickstart
+FETCHED: 2026-11-23T17:37:17.151769
+VIA: direct
+
+Quickstart - Clay docs
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+There are two ways to use Clay as a developer: install the agent plugin to build with Clay inside your coding agent, or call the Public API directly from your own applications and services.
+Agent plugin
+The agent plugin gives your coding agent Clay’s skills and the
+clay
+CLI — the fastest way to build with Clay from a coding agent.
+It requires a coding-agent host with a shell — Claude Code, Codex, or Cursor — and doesn’t work in general-purpose chat apps like Claude Desktop, claude.ai, or ChatGPT that can’t run the CLI.
+Copy this into your agent of choice and let it install and set up the plugin for you:
+Set up the Clay plugin by following the steps in
+https://github.com/clay-run/agent-plugins
+This runs the plugin’s
+cli-setup
+skill, which puts
+clay
+on your PATH, signs you in, and verifies the CLI. Sign-in opens a browser to authorize the CLI.
+Agent plugin repository
+Manual install and setup instructions for Claude Code, Codex, and Cursor.
+API
+Use the Public API to call Clay from your own applications and services — backend jobs, internal tools, queues, and product features. Requests authenticate with a Clay API key in the
+clay-api-key
+header.
+API reference
+Endpoint paths, request bodies, response schemas, and an interactive try-it console.
+Get an API key
+You can create an API key three ways:
+Ask your agent to generate one for you after installing the
+agent plugin
+.
+Run
+clay api-keys create --name "<key name>"
+with the
+clay
+CLI. The key is returned once, in the
+apiKey
+field.
+Create one yourself in Clay under
+API and CLI → API keys
+.
+Keep keys server-side. Do not expose them in browser code, mobile apps, public repositories, logs, or analytics tools. See
+Authentication
+for details.
+⌘
+I

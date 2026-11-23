@@ -1,52 +1,56 @@
 {
- "source": "research_v1.json",
- "n": 51,
+ "source": "final.json",
+ "n": 100,
  "categories": [
+  "AI, Research and Media-native",
   "CRM and Sales",
   "Communications and Messaging",
   "Data, SEO and Scraping",
+  "Developer, Infra and Data platforms",
   "Ecommerce",
+  "Finance and Fintech",
   "Marketing, Ads, Email and Social",
+  "Productivity and Project Management",
   "Support and Helpdesk"
  ],
  "auth_distribution": {
-  "OAuth2": 37,
-  "Bearer token": 25,
-  "API key": 21,
-  "Basic": 14,
-  "JWT": 6,
-  "other": 4
+  "OAuth2": 65,
+  "Bearer token": 50,
+  "API key": 43,
+  "Basic": 18,
+  "JWT": 12,
+  "other": 9
  },
  "access_distribution": {
-  "free_self_serve": 31,
-  "trial_self_serve": 3,
-  "paid_plan": 6,
-  "admin_approval": 5,
-  "partner_gated": 1,
-  "no_public_api": 0,
-  "unknown": 5
+  "free_self_serve": 64,
+  "trial_self_serve": 13,
+  "paid_plan": 12,
+  "admin_approval": 6,
+  "partner_gated": 3,
+  "no_public_api": 1,
+  "unknown": 1
  },
  "access_heatmap": {
-  "CRM and Sales": {
-   "free_self_serve": 6,
-   "trial_self_serve": 0,
+  "AI, Research and Media-native": {
+   "free_self_serve": 7,
+   "trial_self_serve": 1,
    "paid_plan": 1,
    "admin_approval": 0,
-   "partner_gated": 0,
+   "partner_gated": 1,
    "no_public_api": 0,
-   "unknown": 3
+   "unknown": 0
   },
-  "Communications and Messaging": {
-   "free_self_serve": 10,
-   "trial_self_serve": 0,
-   "paid_plan": 0,
+  "CRM and Sales": {
+   "free_self_serve": 6,
+   "trial_self_serve": 3,
+   "paid_plan": 1,
    "admin_approval": 0,
    "partner_gated": 0,
    "no_public_api": 0,
    "unknown": 0
   },
-  "Data, SEO and Scraping": {
-   "free_self_serve": 0,
+  "Communications and Messaging": {
+   "free_self_serve": 9,
    "trial_self_serve": 1,
    "paid_plan": 0,
    "admin_approval": 0,
@@ -54,14 +58,41 @@
    "no_public_api": 0,
    "unknown": 0
   },
-  "Ecommerce": {
-   "free_self_serve": 7,
-   "trial_self_serve": 0,
+  "Data, SEO and Scraping": {
+   "free_self_serve": 5,
+   "trial_self_serve": 2,
    "paid_plan": 3,
    "admin_approval": 0,
    "partner_gated": 0,
    "no_public_api": 0,
    "unknown": 0
+  },
+  "Developer, Infra and Data platforms": {
+   "free_self_serve": 8,
+   "trial_self_serve": 2,
+   "paid_plan": 0,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 0
+  },
+  "Ecommerce": {
+   "free_self_serve": 5,
+   "trial_self_serve": 0,
+   "paid_plan": 4,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 1,
+   "unknown": 0
+  },
+  "Finance and Fintech": {
+   "free_self_serve": 7,
+   "trial_self_serve": 0,
+   "paid_plan": 0,
+   "admin_approval": 1,
+   "partner_gated": 1,
+   "no_public_api": 0,
+   "unknown": 1
   },
   "Marketing, Ads, Email and Social": {
    "free_self_serve": 5,
@@ -72,14 +103,23 @@
    "no_public_api": 0,
    "unknown": 0
   },
+  "Productivity and Project Management": {
+   "free_self_serve": 9,
+   "trial_self_serve": 0,
+   "paid_plan": 1,
+   "admin_approval": 0,
+   "partner_gated": 0,
+   "no_public_api": 0,
+   "unknown": 0
+  },
   "Support and Helpdesk": {
    "free_self_serve": 3,
-   "trial_self_serve": 2,
+   "trial_self_serve": 4,
    "paid_plan": 1,
    "admin_approval": 2,
    "partner_gated": 0,
    "no_public_api": 0,
-   "unknown": 2
+   "unknown": 0
   }
  },
  "access_order": [
@@ -92,43 +132,168 @@
   "unknown"
  ],
  "api_type_distribution": {
-  "REST": 42,
-  "both": 3,
-  "unknown": 3,
-  "GraphQL": 2,
-  "other: MTProto / HTTP": 1
+  "REST": 87,
+  "both": 4,
+  "GraphQL": 4,
+  "none": 2,
+  "unknown": 2,
+  "other": 1
  },
  "breadth_distribution": {
-  "broad": 14,
-  "moderate": 12,
-  "very_broad": 12,
-  "unknown": 11,
-  "narrow": 2
+  "moderate": 33,
+  "unknown": 23,
+  "very_broad": 20,
+  "broad": 18,
+  "narrow": 5,
+  "none": 1
  },
  "mcp_distribution": {
-  "official": 27,
-  "none": 11,
-  "unknown": 8,
-  "community": 5
+  "official": 64,
+  "none": 21,
+  "community": 8,
+  "unknown": 7
  },
  "verdict_distribution": {
-  "ready": 43,
-  "feasible": 7,
-  "unknown": 1
+  "ready": 84,
+  "feasible": 15,
+  "blocked": 1
  },
  "confidence_distribution": {
-  "high": 50,
-  "low": 1
+  "high": 73,
+  "medium": 27
  },
  "blocker_buckets": {
   "Admin / app-review approval": 4,
-  "Other": 1,
-  "Paid plan required": 1,
-  "Partner / sales gate": 1
+  "Other": 3,
+  "Paid plan required": 3,
+  "Partner / sales gate": 2,
+  "Complex auth flow": 1
  },
+ "category_summary": [
+  {
+   "category": "AI, Research and Media-native",
+   "n": 10,
+   "free": 7,
+   "trial": 1,
+   "gated": 2,
+   "no_api": 0,
+   "mcp_official": 8,
+   "ready": 9,
+   "easy_wins": 1,
+   "top_auth": "Bearer token"
+  },
+  {
+   "category": "CRM and Sales",
+   "n": 10,
+   "free": 6,
+   "trial": 3,
+   "gated": 1,
+   "no_api": 0,
+   "mcp_official": 5,
+   "ready": 10,
+   "easy_wins": 5,
+   "top_auth": "OAuth2"
+  },
+  {
+   "category": "Communications and Messaging",
+   "n": 10,
+   "free": 9,
+   "trial": 1,
+   "gated": 0,
+   "no_api": 0,
+   "mcp_official": 5,
+   "ready": 10,
+   "easy_wins": 4,
+   "top_auth": "OAuth2"
+  },
+  {
+   "category": "Data, SEO and Scraping",
+   "n": 10,
+   "free": 5,
+   "trial": 2,
+   "gated": 3,
+   "no_api": 0,
+   "mcp_official": 8,
+   "ready": 7,
+   "easy_wins": 1,
+   "top_auth": "API key"
+  },
+  {
+   "category": "Developer, Infra and Data platforms",
+   "n": 10,
+   "free": 8,
+   "trial": 2,
+   "gated": 0,
+   "no_api": 0,
+   "mcp_official": 5,
+   "ready": 10,
+   "easy_wins": 5,
+   "top_auth": "Bearer token"
+  },
+  {
+   "category": "Ecommerce",
+   "n": 10,
+   "free": 5,
+   "trial": 0,
+   "gated": 4,
+   "no_api": 1,
+   "mcp_official": 5,
+   "ready": 7,
+   "easy_wins": 1,
+   "top_auth": "OAuth2"
+  },
+  {
+   "category": "Finance and Fintech",
+   "n": 10,
+   "free": 7,
+   "trial": 0,
+   "gated": 2,
+   "no_api": 0,
+   "mcp_official": 7,
+   "ready": 6,
+   "easy_wins": 3,
+   "top_auth": "OAuth2"
+  },
+  {
+   "category": "Marketing, Ads, Email and Social",
+   "n": 10,
+   "free": 5,
+   "trial": 0,
+   "gated": 5,
+   "no_api": 0,
+   "mcp_official": 4,
+   "ready": 5,
+   "easy_wins": 3,
+   "top_auth": "OAuth2"
+  },
+  {
+   "category": "Productivity and Project Management",
+   "n": 10,
+   "free": 9,
+   "trial": 0,
+   "gated": 1,
+   "no_api": 0,
+   "mcp_official": 9,
+   "ready": 10,
+   "easy_wins": 1,
+   "top_auth": "OAuth2"
+  },
+  {
+   "category": "Support and Helpdesk",
+   "n": 10,
+   "free": 3,
+   "trial": 4,
+   "gated": 3,
+   "no_api": 0,
+   "mcp_official": 8,
+   "ready": 10,
+   "easy_wins": 1,
+   "top_auth": "OAuth2"
+  }
+ ],
  "composio_coverage": {
-  "have": 42,
-  "missing": 9,
+  "have": 84,
+  "missing": 16,
   "missing_apps": [
    {
     "id": 10,
@@ -242,11 +407,95 @@
     "id": 50,
     "name": "fanbasis",
     "category": "Ecommerce",
+    "access": "no_public_api",
+    "verdict": "blocked",
+    "auth": [
+     "other"
+    ],
+    "mcp": "none",
+    "composio": false
+   },
+   {
+    "id": 52,
+    "name": "SE Ranking",
+    "category": "Data, SEO and Scraping",
+    "access": "trial_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 58,
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "access": "free_self_serve",
+    "verdict": "feasible",
+    "auth": [
+     "other"
+    ],
+    "mcp": "community",
+    "composio": false
+   },
+   {
+    "id": 59,
+    "name": "Waterfall.io",
+    "category": "Data, SEO and Scraping",
+    "access": "paid_plan",
+    "verdict": "feasible",
+    "auth": [
+     "API key",
+     "OAuth2"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 83,
+    "name": "Binance",
+    "category": "Finance and Fintech",
     "access": "free_self_serve",
     "verdict": "ready",
     "auth": [
-     "API key",
-     "other"
+     "API key"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 84,
+    "name": "Paygent Connect",
+    "category": "Finance and Fintech",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "Bearer token"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 85,
+    "name": "iPayX",
+    "category": "Finance and Fintech",
+    "access": "unknown",
+    "verdict": "ready",
+    "auth": [
+     "Bearer token"
+    ],
+    "mcp": "official",
+    "composio": false
+   },
+   {
+    "id": 95,
+    "name": "Reducto",
+    "category": "AI, Research and Media-native",
+    "access": "free_self_serve",
+    "verdict": "ready",
+    "auth": [
+     "API key"
     ],
     "mcp": "official",
     "composio": false
@@ -271,7 +520,7 @@
    "id": 3,
    "name": "Pipedrive",
    "category": "CRM and Sales",
-   "access": "free_self_serve",
+   "access": "trial_self_serve",
    "verdict": "ready",
    "auth": [
     "API key",
@@ -287,6 +536,48 @@
    "access": "free_self_serve",
    "verdict": "ready",
    "auth": [
+    "OAuth2"
+   ],
+   "mcp": "unknown",
+   "composio": true
+  },
+  {
+   "id": 8,
+   "name": "Close",
+   "category": "CRM and Sales",
+   "access": "trial_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "Basic",
+    "OAuth2"
+   ],
+   "mcp": "unknown",
+   "composio": true
+  },
+  {
+   "id": 9,
+   "name": "Copper",
+   "category": "CRM and Sales",
+   "access": "trial_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "unknown",
+   "composio": true
+  },
+  {
+   "id": 11,
+   "name": "Zendesk",
+   "category": "Support and Helpdesk",
+   "access": "trial_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Basic",
+    "Bearer token",
     "OAuth2"
    ],
    "mcp": "unknown",
@@ -334,7 +625,7 @@
    "id": 29,
    "name": "Aircall",
    "category": "Communications and Messaging",
-   "access": "free_self_serve",
+   "access": "trial_self_serve",
    "verdict": "ready",
    "auth": [
     "Basic",
@@ -354,6 +645,18 @@
    ],
    "mcp": "none",
    "composio": false
+  },
+  {
+   "id": 39,
+   "name": "Threads (Meta)",
+   "category": "Marketing, Ads, Email and Social",
+   "access": "free_self_serve",
+   "verdict": "feasible",
+   "auth": [
+    "OAuth2"
+   ],
+   "mcp": "community",
+   "composio": true
   },
   {
    "id": 40,
@@ -382,9 +685,21 @@
    "composio": false
   },
   {
-   "id": 49,
-   "name": "Amazon Selling Partner",
-   "category": "Ecommerce",
+   "id": 51,
+   "name": "DataForSEO",
+   "category": "Data, SEO and Scraping",
+   "access": "trial_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Basic"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 62,
+   "name": "Vercel",
+   "category": "Developer, Infra and Data platforms",
    "access": "free_self_serve",
    "verdict": "ready",
    "auth": [
@@ -395,13 +710,116 @@
    "composio": true
   },
   {
-   "id": 51,
-   "name": "DataForSEO",
-   "category": "Data, SEO and Scraping",
+   "id": 63,
+   "name": "Netlify",
+   "category": "Developer, Infra and Data platforms",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 64,
+   "name": "Cloudflare",
+   "category": "Developer, Infra and Data platforms",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "Bearer token"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 67,
+   "name": "Snowflake",
+   "category": "Developer, Infra and Data platforms",
    "access": "trial_self_serve",
    "verdict": "ready",
    "auth": [
-    "Basic"
+    "Bearer token",
+    "JWT",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 70,
+   "name": "Sentry",
+   "category": "Developer, Infra and Data platforms",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 80,
+   "name": "Harvest",
+   "category": "Productivity and Project Management",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 81,
+   "name": "Stripe",
+   "category": "Finance and Fintech",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 86,
+   "name": "QuickBooks",
+   "category": "Finance and Fintech",
+   "access": "free_self_serve",
+   "verdict": "feasible",
+   "auth": [
+    "OAuth2"
+   ],
+   "mcp": "community",
+   "composio": true
+  },
+  {
+   "id": 87,
+   "name": "Xero",
+   "category": "Finance and Fintech",
+   "access": "free_self_serve",
+   "verdict": "feasible",
+   "auth": [
+    "OAuth2"
+   ],
+   "mcp": "none",
+   "composio": true
+  },
+  {
+   "id": 98,
+   "name": "Mermaid CLI",
+   "category": "AI, Research and Media-native",
+   "access": "free_self_serve",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "OAuth2"
    ],
    "mcp": "none",
    "composio": true
@@ -441,8 +859,8 @@
    "access": "admin_approval",
    "verdict": "feasible",
    "auth": [
-    "Bearer token",
-    "OAuth2"
+    "OAuth2",
+    "other"
    ],
    "mcp": "none",
    "composio": true
@@ -484,16 +902,91 @@
    ],
    "mcp": "official",
    "composio": true
+  },
+  {
+   "id": 50,
+   "name": "fanbasis",
+   "category": "Ecommerce",
+   "access": "no_public_api",
+   "verdict": "blocked",
+   "auth": [
+    "other"
+   ],
+   "mcp": "none",
+   "composio": false
+  },
+  {
+   "id": 88,
+   "name": "Brex",
+   "category": "Finance and Fintech",
+   "access": "admin_approval",
+   "verdict": "ready",
+   "auth": [
+    "Bearer token",
+    "OAuth2"
+   ],
+   "mcp": "official",
+   "composio": true
+  },
+  {
+   "id": 90,
+   "name": "PitchBook",
+   "category": "Finance and Fintech",
+   "access": "partner_gated",
+   "verdict": "feasible",
+   "auth": [
+    "API key"
+   ],
+   "mcp": "official",
+   "composio": true
+  },
+  {
+   "id": 92,
+   "name": "Otter AI",
+   "category": "AI, Research and Media-native",
+   "access": "partner_gated",
+   "verdict": "ready",
+   "auth": [
+    "API key",
+    "OAuth2"
+   ],
+   "mcp": "official",
+   "composio": true
   }
  ],
- "no_api": [],
+ "no_api": [
+  {
+   "id": 50,
+   "name": "fanbasis",
+   "category": "Ecommerce",
+   "access": "no_public_api",
+   "verdict": "blocked",
+   "auth": [
+    "other"
+   ],
+   "mcp": "none",
+   "composio": false
+  },
+  {
+   "id": 58,
+   "name": "Sherlock",
+   "category": "Data, SEO and Scraping",
+   "access": "free_self_serve",
+   "verdict": "feasible",
+   "auth": [
+    "other"
+   ],
+   "mcp": "community",
+   "composio": false
+  }
+ ],
  "headlines": [
-  "OAuth2 dominates: 37 of 51 apps (73%) support it; API key is the next most common.",
-  "31 of 51 apps are free self-serve for developers; 12 are gated (paid plan, admin approval, or partner/sales).",
-  "27 apps already ship an official MCP server, 5 have community MCP - the rest is whitespace for agent toolkits.",
+  "OAuth2 dominates: 65 of 100 apps (65%) support it; Bearer token is next.",
+  "64 of 100 apps are free self-serve for developers; 21 are gated (paid plan, admin approval, or partner/sales).",
+  "64 apps already ship an official MCP server, 8 have community MCP - the rest is whitespace for agent toolkits.",
   "Most common blocker: Admin / app-review approval (4 apps).",
-  "12 easy wins: self-serve + documented API + no official MCP yet - build these toolkits first.",
-  "6 apps need outreach or are blocked - business development, not engineering.",
-  "Composio already ships toolkits for 42 of 51; 9 are catalog whitespace."
+  "25 easy wins: self-serve + documented API + no official MCP yet - build these toolkits first.",
+  "10 apps need outreach or are blocked - business development, not engineering.",
+  "Composio already ships toolkits for 84 of 100; 16 are catalog whitespace."
  ]
 }

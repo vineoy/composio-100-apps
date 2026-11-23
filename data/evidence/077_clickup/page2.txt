@@ -1,0 +1,46 @@
+URL: https://developer.clickup.com/docs/Getting%20Started
+FETCHED: 2026-11-23T22:19:02.230885
+VIA: direct
+
+Get Started with the ClickUp API
+For AI agents: the docs index is at https://developer.clickup.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+ClickUp API 2.0
+Build your own custom integrations and ClickUp apps with our public Application Programming Interface (API).
+Explore the ClickUp API
+ClickUp API docs can all be executed against your ClickUp account. Eith provide the UI with your personal API key or login and your credentials will be prefilled.
+The following guides give a quickstart on how to use the ClickUp API and expand on the features available.
+Sample Application
+We've created a sample application that demonstrates how to use the ClickUp API. See
+https://github.com/clickup/clickup-APIv2-demo
+.
+API v2 and v3
+In the API reference section you will find a few individual endpoints that are defined as API v3. We're working on updating the rest of the API to v3 and provide a dedicated guide for API v3.
+In the meantime, please familiarize yourself with the differences between
+API v2 and v3
+.
+Authentication
+To use the ClickUp API, you must authenticate every request.
+For personal use, authenticate with your
+personal API token
+.
+For apps or integrations that other people use, use the
+OAuth flow
+, allowing users to authorize Workspaces for your app.
+Include the token in the
+Authorization
+header of your requests.
+Both methods ensure that you and your users only have access to the information permitted by ClickUp.
+Rate limits
+The ClickUp API enforces request
+rate limits
+per token. Rate limits vary depending on your
+Workspace Plan
+.
+Plan limits
+API endpoints vary depending on your plan.
+Updated
+about 1 year ago
+Did this page help you?
+Yes
+No
+Copy Page

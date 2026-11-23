@@ -1,0 +1,509 @@
+URL: https://docs.datadoghq.com/api
+FETCHED: 2026-11-23T17:44:26.660104
+VIA: direct
+
+Datadog API Reference
+For AI agents: A markdown version of this page is available at
+https://docs.datadoghq.com/api/latest.md
+. A documentation index is available at
+/llms.txt
+.
+Home
+Docs
+API
+/
+Overview
+Authorization Scopes for OAuth Clients
+Rate Limits
+Using the API
+Changelog
+Action Connection
+Actions Datastores
+Agent Health
+Agent Observability
+Agentless Scanning
+AI Gateway
+AI Guard
+Annotations
+Anthropic Usage And Costs Integration
+API Management
+APM
+APM Retention Filters
+APM Trace
+App Builder
+Application Security
+Audit
+Authentication
+AuthN Mappings
+AWS Integration
+AWS Logs Integration
+Azure Integration
+Bits AI
+Bits Security Analyst
+Change Management
+ChatGPT Enterprise Integration
+CI Visibility GitHub Accounts
+CI Visibility Logs
+CI Visibility Pipelines
+CI Visibility Tests
+Claude Compliance Integration
+Cloud Authentication
+Cloud Cost Management
+Cloud Network Monitoring
+Cloudflare Integration
+Code Coverage
+Compliance
+Confluent Cloud
+Container Images
+Containers
+CoreWeave Integration
+CSM Agents
+CSM Coverage Analysis
+CSM Ownership
+CSM Settings
+CSM Threats
+Customer Org
+Dashboard Lists
+Dashboard Secure Embed
+Dashboard Sharing
+Dashboards
+Data Deletion
+Data Observability
+Databricks Integration
+Datasets
+DDSQL
+Delivery Performance
+DEM
+Deployment Gates
+Domain Allowlist
+Downtimes
+Elastic Cloud Integration
+Embeddable Graphs
+End User Device Monitoring
+Entity Integration Configs
+Entity Risk Scores
+Error Tracking
+Events
+Execution Policy
+Experiments
+Fastly Integration
+Feature Flags
+Fleet Automation
+Forms
+GCP Integration
+Google Chat Integration
+Governance Console
+High Availability MultiRegion
+Hosts
+Identity Providers
+Incidents
+Integrations
+IP Allowlist
+IP Ranges
+Jira Integration
+Key Management
+Logs
+Logs Archive Searches
+Logs Archives
+Logs Custom Destinations
+Logs Indexes
+Logs Metrics
+Logs Pipelines
+Logs Restriction Queries
+Metrics
+Microsoft Teams Integration
+Model Lab API
+Monitors
+Nebius Cloud Integration
+Network Device Monitoring
+Notebooks
+OAuth2 Client Public
+Observability Pipelines
+OCI Integration
+Okta Integration
+On-Call
+On-Call Paging
+OpenAI Codex Integration
+Opsgenie Integration
+Org Authorized Clients
+Org Connections
+Org Groups
+Organizations
+PagerDuty Integration
+Powerpack
+Processes
+Product Analytics
+Product Catalog
+Reference Tables
+Report Schedules
+Reporting And Sharing
+Restriction Policies
+Roles
+RUM
+Rum Audience Management
+RUM Config
+RUM Insights
+RUM Managed Archives
+RUM Metrics
+RUM Operations
+RUM Recovery
+RUM Remote Config
+RUM Replay Heatmaps
+RUM Replay Playlists
+RUM Replay Sessions
+RUM Replay Viewership
+RUM Retention Filters
+RUM Retention Quotas
+Rum Teams Ownership
+SCIM
+Scorecards
+Seats
+Security Monitoring
+Sensitive Data Scanner
+Service Accounts
+Service Checks
+Service Definition
+Service Dependencies
+Service Level Objective Corrections
+Service Level Objectives
+ServiceNow Integration
+Slack Integration
+Snapshots
+Snowflake Integration
+Software Catalog
+Spans
+Spans Metrics
+Static Analysis
+Status Pages
+Statuspage Integration
+Stegadography
+Storage Management
+Synthetics
+Tag Rules
+Tags
+Teams
+Temporal Cloud OpenMetrics Integration
+Test Optimization
+Threat Intelligence
+Timeseries Anomaly Investigations
+Twilio Integration
+Usage Metering
+User Authorized Clients
+Users
+Webhooks Integration
+Widgets
+Work Management
+Work Management Attribute
+Work Management Type
+Workflow Automation
+Language
+English
+English
+Français
+日本語
+한국어
+Español
+Datadog site
+US1
+US1
+US3
+US5
+EU
+AP1
+AP2
+UK1
+US1-FED
+US2-FED
+API Reference
+Copy page
+Copied
+The Datadog API is an HTTP REST API. The API uses resource-oriented URLs to call the API, uses status codes to indicate the success or failure of requests, returns JSON from all requests, and uses standard HTTP response codes. Use the Datadog API to access the Datadog platform programmatically.
+Getting started
+Authenticate to the API with an
+API key
+using the header
+DD-API-KEY
+. For some endpoints, you also need an
+Application key
+, which uses the header
+DD-APPLICATION-KEY
+.
+To try out the API
+Note
+: To authenticate to the Datadog API through Postman, add your Datadog API and Application key values to the
+Collection variables
+of the Datadog API collection.
+Using the API
+is a guide to the endpoints.
+Notes
+:
+Add your API and application key values to the
+Variables
+tab of the Datadog API Collection.
+cURL code examples assume usage of BASH and GNU coreutils. On macOS, you can install coreutils with the
+Homebrew package manager
+:
+brew install coreutils
+Client libraries
+By default, the Datadog API Docs show examples in cURL. Select one of our official
+client libraries
+languages in each endpoint to see code examples from that library. To install each library:
+Java
+Python [legacy]
+Python
+Ruby [legacy]
+Ruby
+Go
+TypeScript
+Rust
+Installation
+Maven - Add this dependency to your project's POM:
+Copy
+<dependency>
+<groupId>
+com.datadoghq
+</groupId>
+<artifactId>
+datadog-api-client
+</artifactId>
+<version>
+2.62.0
+</version>
+<scope>
+compile
+</scope>
+</dependency>
+Gradle - Add this dependency to your project's build file:
+Copy
+compile
+"com.datadoghq:datadog-api-client:2.62.0"
+Usage
+Copy
+import
+com.datadog.api.client.ApiClient;
+import
+com.datadog.api.client.ApiException;
+import
+com.datadog.api.client.Configuration;
+import
+com.datadog.api.<VERSION>.client.api.*;
+import
+com.datadog.api.<VERSION>.client.model.*;
+Note
+: Replace
+<VERSION>
+with v1 or v2, depending on which endpoints you want to use.
+Examples
+Maven
+pom.xml
+for running examples:
+Copy
+<project>
+<modelVersion>
+4.0.0
+</modelVersion>
+<groupId>
+com.example
+</groupId>
+<artifactId>
+example
+</artifactId>
+<version>
+1
+</version>
+<dependencies>
+<dependency>
+<groupId>
+com.datadoghq
+</groupId>
+<artifactId>
+datadog-api-client
+</artifactId>
+<version>
+2.62.0
+</version>
+<scope>
+compile
+</scope>
+</dependency>
+</dependencies>
+</project>
+Make sure that
+CLASSPATH
+variable contains all dependencies.
+Copy
+export
+CLASSPATH=$(mvn
+-q
+exec:exec
+-Dexec.executable=echo
+-Dexec.args="%classpath"
+)
+Gradle
+build.gradle
+for running examples:
+Copy
+plugins {
+id
+'java'
+id
+'application'
+}
+repositories {
+jcenter()
+}
+dependencies {
+implementation
+'com.datadoghq:datadog-api-client:2.62.0'
+}
+application {
+mainClassName =
+'Example.java'
+}
+Execute example by running
+gradle run
+command.
+Installation
+Copy
+pip
+install
+datadog
+Usage
+Copy
+import
+datadog
+Installation
+Copy
+pip3 install datadog-api-client
+Usage
+Copy
+import
+datadog_api_client
+Installation
+Copy
+gem
+install
+dogapi
+Usage
+Copy
+require
+'dogapi'
+Installation
+Copy
+gem
+install
+datadog_api_client
+-v
+2.61.0
+Usage
+Copy
+require
+'datadog_api_client'
+Installation
+Copy
+go
+mod
+init
+main
+&& go
+get
+github.com/DataDog/datadog-api-client-go/v2/api/datadog
+Usage
+Copy
+import
+(
+"github.com/DataDog/datadog-api-client-go/v2/api/datadog"
+"github.com/DataDog/datadog-api-client-go/v2/api/datadog<VERSION>"
+)
+Note
+: Replace
+<VERSION>
+with
+V1
+or
+V2
+, depending on which endpoints you want to use.
+Installation
+The package is under
+@datadog/datadog-api-client
+and can be installed through NPM or Yarn:
+Copy
+# NPM
+npm install @datadog/datadog-api-client
+# Yarn
+yarn add @datadog/datadog-api-client
+Usage
+Copy
+import
+{ <VERSION> }
+from
+'datadog-api-client'
+;
+Note
+: Replace
+<VERSION>
+with v1 or v2, depending on which endpoints you want to use.
+Installation
+Run
+cargo add datadog-api-client
+, or add the following to
+Cargo.toml
+under
+[dependencies]
+:
+Copy
+datadog-api-client = "0"
+Usage
+Try the following snippet to validate your Datadog API key:
+Copy
+use
+datadog_api_client::datadog::
+Configuration
+;
+use
+datadog_api_client::datadogV1::api_authentication::
+AuthenticationAPI
+;
+#[tokio::main]
+async
+fn
+main() {
+let
+configuration =
+Configuration
+::new();
+let
+api =
+AuthenticationAPI
+::with_config(configuration);
+let
+resp = api.validate().
+await
+;
+if
+let
+Ok
+(value) = resp {
+println!(
+"
+{
+:#?
+}
+"
+, value);
+}
+else
+{
+println!(
+"
+{
+:#?
+}
+"
+, resp.unwrap_err());
+}
+}
+Or check out the libraries directly:
+Trying to get started with the application instead? Check out Datadog's general
+Getting Started docs
+.

@@ -1,0 +1,77 @@
+{
+ "app": "Jira",
+ "queries": [
+  "Jira API authentication documentation",
+  "Jira MCP server",
+  "Jira API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+  "https://developer.atlassian.com/server/jira/platform/basic-authentication/",
+  "https://ones.com/blog/jira-rest-api-docs-v2-a-workflow-for-issue-lifecycle-automation/",
+  "https://github.com/atlassian/atlassian-mcp-server"
+ ],
+ "search_hits": [
+  {
+   "title": "Basic auth for REST APIs - Atlassian",
+   "href": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/"
+  },
+  {
+   "title": "Basic authentication - Atlassian",
+   "href": "https://developer.atlassian.com/server/jira/platform/basic-authentication/"
+  },
+  {
+   "title": "JIRA Server platform REST API reference",
+   "href": "https://docs.atlassian.com/software/jira/docs/api/REST/8.3.0/"
+  },
+  {
+   "title": "JIRA REST API documentation - Atlassian",
+   "href": "https://docs.atlassian.com/software/jira/docs/api/REST/4.4.5/"
+  },
+  {
+   "title": "Jira REST API Docs v2: Authentication Guide - ones.com",
+   "href": "https://ones.com/blog/jira-rest-api-docs-v2-a-workflow-for-issue-lifecycle-automation/"
+  },
+  {
+   "title": "Atlassian MCP Server - GitHub",
+   "href": "https://github.com/atlassian/atlassian-mcp-server"
+  },
+  {
+   "title": "Get started with the Atlassian MCP server",
+   "href": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
+  },
+  {
+   "title": "atlassian-mcp-server | Official remote MCP server for Atlassian ...",
+   "href": "https://atlassian.github.io/atlassian-mcp-server/"
+  },
+  {
+   "title": "Introducing Atlassian's Remote Model Context Protocol (MCP) Server",
+   "href": "https://www.atlassian.com/blog/confluence/remote-mcp-server"
+  },
+  {
+   "title": "Use Atlassian MCP Server",
+   "href": "https://support.atlassian.com/atlassian-ai-gateway/docs/use-atlassian-mcp-server/"
+  },
+  {
+   "title": "Jira all APIs are free or paid? if paid what are the paiment plans?",
+   "href": "https://community.developer.atlassian.com/t/jira-all-apis-are-free-or-paid-if-paid-what-are-the-paiment-plans/87575"
+  },
+  {
+   "title": "Jira pricing: Free, Standard, Premium, Enterprise | Atlassian",
+   "href": "https://www.atlassian.com/software/jira/pricing"
+  },
+  {
+   "title": "Rate limiting - Atlassian",
+   "href": "https://developer.atlassian.com/cloud/jira/platform/rate-limiting/"
+  },
+  {
+   "title": "Jira API Pricing: Plans, Costs, and Usage Considerations",
+   "href": "https://ones.com/blog/ones-solutions/jira-api-pricing-plans-costs-and-usage-considerations/"
+  },
+  {
+   "title": "Jira pricing: Free, Standard, Premium, Enterprise | Atlassian",
+   "href": "https://www.atlassian.com/software/jira/jira/pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:27:44.532832"
+}

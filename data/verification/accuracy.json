@@ -1,0 +1,182 @@
+{
+ "sample_apps": 15,
+ "method": "Human audit of the agent's FIRST-PASS answers on a stratified 15-app sample. Each field was marked right/wrong/unsure against the real docs. For wrong fields: values already fixed by verification loops count as 'pre-fixed'; otherwise the auditor's documented correction was applied. 'After' counts pre-fixed + auditor-corrected values as correct (auditor correction treated as ground truth); unresolved wrong values stay wrong. Fields the human called right but verification had changed are listed as conflicts, with the verified value kept.",
+ "per_field": {
+  "auth_methods": {
+   "n": 15,
+   "right": 14,
+   "wrong": 1,
+   "unsure": 0,
+   "pre_fixed": 0,
+   "human_fixed": 1,
+   "unresolved": 0,
+   "v1_accuracy": 0.933,
+   "final_accuracy": 1.0
+  },
+  "access": {
+   "n": 15,
+   "right": 13,
+   "wrong": 2,
+   "unsure": 0,
+   "pre_fixed": 0,
+   "human_fixed": 2,
+   "unresolved": 0,
+   "v1_accuracy": 0.867,
+   "final_accuracy": 1.0
+  },
+  "api_type": {
+   "n": 15,
+   "right": 13,
+   "wrong": 2,
+   "unsure": 0,
+   "pre_fixed": 0,
+   "human_fixed": 2,
+   "unresolved": 0,
+   "v1_accuracy": 0.867,
+   "final_accuracy": 1.0
+  },
+  "existing_mcp.status": {
+   "n": 15,
+   "right": 14,
+   "wrong": 1,
+   "unsure": 0,
+   "pre_fixed": 0,
+   "human_fixed": 1,
+   "unresolved": 0,
+   "v1_accuracy": 0.933,
+   "final_accuracy": 1.0
+  },
+  "buildability.verdict": {
+   "n": 15,
+   "right": 14,
+   "wrong": 1,
+   "unsure": 0,
+   "pre_fixed": 0,
+   "human_fixed": 1,
+   "unresolved": 0,
+   "v1_accuracy": 0.933,
+   "final_accuracy": 1.0
+  }
+ },
+ "changed_by_verification_before_audit": 11,
+ "conflicts": [
+  {
+   "id": 27,
+   "name": "Telegram",
+   "field": "auth_methods",
+   "v1": [
+    "other: api id and hash"
+   ],
+   "final": [
+    "other"
+   ],
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
+  },
+  {
+   "id": 42,
+   "name": "WooCommerce",
+   "field": "auth_methods",
+   "v1": [
+    "api key",
+    "basic",
+    "other: application password"
+   ],
+   "final": [
+    "api key",
+    "basic",
+    "other"
+   ],
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
+  },
+  {
+   "id": 66,
+   "name": "Neo4j",
+   "field": "auth_methods",
+   "v1": [
+    "basic",
+    "token"
+   ],
+   "final": [
+    "other"
+   ],
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
+  }
+ ],
+ "misses": [
+  {
+   "id": 3,
+   "name": "Pipedrive",
+   "field": "access",
+   "our_value": "free_self_serve",
+   "correction": "trial_self_serve",
+   "applied": true,
+   "already_fixed_by_loops": false
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "field": "auth_methods",
+   "our_value": [
+    "other: unknown"
+   ],
+   "correction": "OAuth2",
+   "applied": true,
+   "already_fixed_by_loops": false
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "field": "access",
+   "our_value": "unknown",
+   "correction": "free_self_serve",
+   "applied": true,
+   "already_fixed_by_loops": false
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "field": "api_type",
+   "our_value": "unknown",
+   "correction": "REST",
+   "applied": true,
+   "already_fixed_by_loops": false
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "field": "existing_mcp.status",
+   "our_value": "unknown",
+   "correction": "official",
+   "applied": true,
+   "already_fixed_by_loops": false
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "field": "buildability.verdict",
+   "our_value": "unknown",
+   "correction": "ready",
+   "applied": true,
+   "already_fixed_by_loops": false
+  },
+  {
+   "id": 27,
+   "name": "Telegram",
+   "field": "api_type",
+   "our_value": "other: MTProto / HTTP",
+   "correction": "other",
+   "applied": true,
+   "already_fixed_by_loops": false
+  }
+ ],
+ "totals": {
+  "right": 68,
+  "wrong": 7,
+  "unsure": 0,
+  "pre_fixed": 0,
+  "human_fixed": 7,
+  "unresolved": 0
+ },
+ "overall_v1_accuracy": 0.907,
+ "overall_final_accuracy": 1.0
+}

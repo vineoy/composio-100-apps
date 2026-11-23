@@ -1,0 +1,922 @@
+URL: https://docs.reducto.ai/quickstart
+FETCHED: 2026-11-23T22:45:25.902977
+VIA: direct
+
+API Quickstart | Reducto Documentation
+Skip to content
+This page is available in Markdown format. Markdown is recommended for AI
+      consumption. See
+https://docs.reducto.ai/quickstart/index.md
+for this page, or
+https://docs.reducto.ai/llms.txt
+for the full documentation index.
+Search
+documentation
+Ctrl
+K
+Prerequisites
+1
+Create a Reducto account
+Sign up for a free account without leaving the docs.
+Signed in as
+Create account
+Sign in
+2
+Get your API key
+Create a key right here. Give it a name and copy it. It also shows up in Studio under
+API Keys
+.
+docs-quickstart
+Not created
+No key yet
+Reveal
+Create key
+The key fills into the code below. Manage keys in Studio under API Keys.
+Sign in
+to create a key here, or create one in
+Studio
+under API Keys.
+3
+Set your API key as an environment variable
+This allows the SDK to authenticate automatically without hardcoding the key in your code.
+export
+REDUCTO_API_KEY
+=
+"your-api-key"
+$env:REDUCTO_API_KEY
+=
+"your-api-key"
+4
+Install the SDK
+Choose your language and install the Reducto SDK. Python requires 3.8+.
+pip
+install reductoai
+npm
+install reductoai
+go
+get github.com/reductoai/reducto-go-sdk
+What we’re going to parse
+We’ll use a financial statement PDF that contains multiple tables, headers, account summaries, and formatted text. This is the kind of complex document that’s difficult to process manually but straightforward with Reducto.
+View the sample PDF in Studio
+or
+download it directly
+to follow along.
+What we want to extract:
+The portfolio value table with beginning and ending values
+Account information including account numbers and types
+Income summary broken down by tax category
+Top holdings with values and percentages
+By the end of this guide, you’ll have all of this data in structured JSON that you can use in your application. For structured field extraction (e.g., extracting specific account numbers or values into typed fields), see the
+/extract endpoint
+after completing this quickstart.
+Parse the document
+Now write the code that parses the financial statement. Here is what Reducto returns for it.
+from
+pathlib
+import
+Path
+from
+reducto
+import
+Reducto
+client
+=
+Reducto
+()
+upload
+=
+client
+.
+upload
+(
+file
+=
+Path
+(
+"fidelity-example.pdf"
+))
+result
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+print
+(
+f"Processed
+{
+result.usage.num_pages
+}
+pages"
+)
+for
+chunk
+in
+result
+.
+result
+.
+chunks
+:
+print
+(
+chunk
+.
+content
+)
+for
+block
+in
+chunk
+.
+blocks
+:
+if
+block
+.
+type
+==
+"Table"
+:
+print
+(
+f"Found table on page
+{
+block.bbox.page
+}
+"
+)
+import
+fs
+from
+"node:fs"
+;
+import
+Reducto
+from
+"reductoai"
+;
+const
+client
+=
+new
+Reducto
+()
+;
+const
+upload
+=
+await
+client
+.
+upload
+({
+file
+:
+fs
+.
+createReadStream
+(
+"fidelity-example.pdf"
+) })
+;
+const
+result
+=
+await
+client
+.
+parse
+.
+run
+({
+input
+:
+upload
+.
+file_id
+,
+settings
+:
+{
+model
+:
+"r-1"
+} })
+;
+console
+.
+log
+(
+result
+.
+result
+.
+chunks
+[
+0
+]
+.
+content
+)
+;
+What you get back
+{
+"job_id"
+:
+"5df31070-8d98-..."
+,
+"usage"
+:
+{
+"num_pages"
+:
+3
+,
+"credits"
+:
+4.0
+}
+,
+"result"
+:
+{
+"chunks"
+:
+[{
+"content"
+:
+"# *** SAMPLE STATEMENT ***..."
+,
+"blocks"
+:
+[{
+"type"
+:
+"Table"
+,
+"bbox"
+:
+{
+"page"
+:
+1
+,
+"left"
+:
+0.516
+,
+...
+}
+,
+"confidence"
+:
+"high"
+}]
+}]
+}
+,
+"studio_link"
+:
+"https://studio.reducto.ai/..."
+}
+Understanding the response
+Here’s what we got back from parsing our financial statement:
+{
+"job_id"
+:
+"5df31070-8d98-4caa-9a5b-c5c511a03f71"
+,
+"duration"
+:
+11.35
+,
+"usage"
+:
+{
+"num_pages"
+:
+3
+,
+"credits"
+:
+4.0
+}
+,
+"result"
+:
+{
+"chunks"
+:
+[
+{
+"content"
+:
+"# *** SAMPLE STATEMENT ***
+\n
+For informational purposes only
+\n\n
+Fidelity
+\n
+INVESTMENTS
+\n\n
+## Your Portfolio Value:
+\n\n
+$274,222.20
+\n\n
+|                                   | This Period   | Year-to-Date   |
+\n
+|-|-|-|
+\n
+| Beginning Portfolio Value         | $253,221.83   | $232,643.16    |
+\n
+| Additions                         | 59,269.64     | 121,433.55     |..."
+,
+"blocks"
+:
+[
+{
+"type"
+:
+"Title"
+,
+"content"
+:
+"*** SAMPLE STATEMENT ***
+\n
+For informational purposes only"
+,
+"bbox"
+:
+{
+"page"
+:
+1
+,
+"left"
+:
+0.351
+,
+"top"
+:
+0.029
+,
+"width"
+:
+0.296
+,
+"height"
+:
+0.057
+}
+,
+"confidence"
+:
+"high"
+}
+,
+{
+"type"
+:
+"Section Header"
+,
+"content"
+:
+"Your Portfolio Value:"
+,
+"bbox"
+:
+{
+"page"
+:
+1
+,
+"left"
+:
+0.517
+,
+"top"
+:
+0.163
+,
+"width"
+:
+0.153
+,
+"height"
+:
+0.015
+}
+,
+"confidence"
+:
+"high"
+}
+,
+{
+"type"
+:
+"Table"
+,
+"content"
+:
+"|                                   | This Period   | Year-to-Date   |
+\n
+|-|-|-|
+\n
+| Beginning Portfolio Value         | $253,221.83   | $232,643.16    |
+\n
+| Additions                         | 59,269.64     | 121,433.55     |
+\n
+| Subtractions                      | -45,430.74    | -98,912.58     |
+\n
+| Transaction Costs, Fees & Charges | -139.77       | -625.87        |
+\n
+| Change in Investment Value*       | 7,161.47      | 19,058.07      |
+\n
+| Ending Portfolio Value**          | $274,222.20   | $274,222.20    |"
+,
+"bbox"
+:
+{
+"page"
+:
+1
+,
+"left"
+:
+0.516
+,
+"top"
+:
+0.261
+,
+"width"
+:
+0.444
+,
+"height"
+:
+0.158
+}
+,
+"confidence"
+:
+"high"
+}
+]
+}
+]
+}
+,
+"studio_link"
+:
+"https://studio.reducto.ai/job/5df31070-8d98-4caa-9a5b-c5c511a03f71"
+}
+Key fields:
+Field
+What it contains
+job_id
+Unique identifier for this job. Use it to retrieve results later or debug in Studio.
+usage.num_pages
+Number of pages that were processed.
+usage.credits
+Credits consumed by this request.
+chunks
+Logical sections of the document, optimized for feeding into LLMs.
+chunks[].content
+The full text content of this chunk.
+chunks[].blocks
+Individual elements (tables, headers, text) with their types and positions.
+blocks[].type
+What kind of element this is:
+Title
+,
+Table
+,
+Section Header
+,
+Text
+,
+Figure
+, etc.
+blocks[].bbox
+Bounding box with normalized coordinates (0-1) showing where this element appears on the page.
+studio_link
+Direct link to view this job in Reducto Studio for visual debugging.
+Customizing the output
+r-1 needs no extra settings. The options you may want change the shape of the output, not its quality:
+result
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+,
+"page_range"
+:
+{
+"start"
+:
+1
+,
+"end"
+:
+5
+}}
+,
+formatting
+=
+{
+"table_output_format"
+:
+"html"
+}
+,
+retrieval
+=
+{
+"chunking"
+:
+{
+"chunk_mode"
+:
+"variable"
+}}
+,
+)
+formatting.table_output_format
+:
+dynamic
+(default),
+html
+,
+md
+,
+json
+, or
+csv
+.
+retrieval.chunking.chunk_mode
+: split the output into chunks for RAG.
+settings.page_range
+: parse only some pages.
+For word-level bounding boxes, add
+Parse citations
+. See
+Parse options
+for the full list.
+Fastest path for coding agents
+If you are using Claude Code, Codex, Cursor, or another coding agent, start here. This path avoids Studio clicks and extra docs navigation.
+Set
+REDUCTO_API_KEY
+.
+Choose one interface:
+Local file or folder: use the
+Reducto CLI
+.
+Agent tool calling: use the
+Reducto MCP server
+.
+Application code: use the Python, Node.js, Go, or cURL examples below.
+Parse the sample PDF first, then replace the URL or file path with your document.
+pip
+install reducto-cli
+reducto
+login
+curl
+-L -o fidelity-example.pdf https
+:
+//cdn.reducto.ai/samples/fidelity-example.pdf
+reducto
+parse ./fidelity-example.pdf
+from
+reducto
+import
+Reducto
+client
+=
+Reducto
+()
+result
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+"https://cdn.reducto.ai/samples/fidelity-example.pdf"
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+print
+(
+result
+.
+job_id
+)
+print
+(
+result
+.
+result
+.
+chunks
+[
+0
+]
+.
+content
+[
+:
+1000
+])
+import
+Reducto
+from
+"reductoai"
+;
+const
+client
+=
+new
+Reducto
+()
+;
+const
+result
+=
+await
+client
+.
+parse
+.
+run
+({
+input
+:
+"https://cdn.reducto.ai/samples/fidelity-example.pdf"
+,
+settings
+:
+{
+model
+:
+"r-1"
+}
+,
+})
+;
+console
+.
+log
+(
+result
+.
+job_id
+)
+;
+console
+.
+log
+(
+result
+.
+result
+.
+chunks
+[
+0
+]
+.
+content
+.
+slice
+(
+0
+,
+1000
+))
+;
+curl
+-X POST
+"https://platform.reducto.ai/parse"
+\
+-H
+"Authorization: Bearer
+$REDUCTO_API_KEY
+"
+\
+-H
+"Content-Type: application/json"
+\
+-d
+'{"input":"https://cdn.reducto.ai/samples/fidelity-example.pdf","settings":{"model":"r-1"}}'
+Tip
+For MCP, install once with
+uvx mcp-server-reducto --login
+, then ask the agent to call
+parse_document(document_url="https://cdn.reducto.ai/samples/fidelity-example.pdf")
+.
+Add Reducto MCP Server
+1. Authenticate (one-time)
+uvx
+mcp-server-reducto --login
+This opens your browser to approve access. Your API key is saved to
+~/.reducto/config.yaml
+.
+2. Add to your MCP client
+Claude Code:
+claude
+mcp add reducto -- uvx mcp-server-reducto
+Claude Desktop
+: edit
+~/Library/Application Support/Claude/claude_desktop_config.json
+:
+{
+"mcpServers"
+:
+{
+"reducto"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"mcp-server-reducto"
+]
+}
+}
+}
+Cursor
+: edit
+.cursor/mcp.json
+:
+{
+"mcpServers"
+:
+{
+"reducto"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"mcp-server-reducto"
+]
+}
+}
+}
+VS Code
+: edit
+.vscode/mcp.json
+:
+{
+"servers"
+:
+{
+"reducto"
+:
+{
+"command"
+:
+"uvx"
+,
+"args"
+:
+[
+"mcp-server-reducto"
+]
+}
+}
+}
+3. Use it
+The server provides these tools:
+Tool
+What it does
+upload_file
+Upload a local file or URL to Reducto (returns
+reducto://
+URL)
+parse_document
+Parse a document into structured text, tables, figures
+extract_data
+Extract structured JSON from a document using a schema
+split_document
+Segment a document into labeled sections
+classify_document
+Categorize a document type
+edit_document
+Fill forms or modify a PDF/DOCX
+Local files:
+Use
+upload_file
+first, e.g.
+upload_file("./report.pdf")
+, then pass the returned
+reducto://
+URL to other tools.
+Chain operations:
+parse_document
+returns a
+job_id
+. Pass
+jobid://<job_id>
+to
+extract_data
+or
+split_document
+to skip re-parsing.
+What’s next
+Now that you can parse documents, explore the other Reducto endpoints:
+/extract
+Define a JSON schema and extract specific fields from your documents.
+/split
+Divide long documents into sections based on content type.
+/edit
+Fill PDF forms and modify DOCX documents programmatically.
+/parse (async)
+Process documents asynchronously with webhooks for high-volume workloads.
+Troubleshooting
+401 Unauthorized error
+This means your API key is missing or invalid. Check that the
+REDUCTO_API_KEY
+environment variable is set correctly and that the key hasn’t expired in Studio.
+Tables aren't structured correctly
+Try
+formatting.table_output_format
+set to
+"html"
+or
+"json"
+for more structured output. If the table needs custom handling, add a table-scoped prompt to
+enhance.agentic
+, such as
+{"scope": "table", "prompt": "Preserve domain-specific notation such as <0.01, ±, and N/A exactly as written."}
+.
+Content is missing or garbled
+r-1 handles scanned documents and low-quality PDFs natively. If the document is password-protected, pass the password in
+settings.document_password
+. This may also be due to bad metadata polluting the output, in which case, reach out to Reducto support.
+Tip
+Every response includes a
+studio_link
+that opens the job in Reducto Studio. Use it to visually inspect what was extracted and debug any issues.
+esc
+Type to search…
+↑
+↓
+Navigate
+↵
+Open
+esc
+Close
+⌘
+↵
+Ask AI
+↵

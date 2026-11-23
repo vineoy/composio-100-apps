@@ -1,0 +1,77 @@
+{
+ "app": "Sentry",
+ "queries": [
+  "Sentry API authentication documentation",
+  "Sentry MCP server",
+  "Sentry API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.sentry.io/api/",
+  "https://docs.sentry.io/api/auth/",
+  "https://docs.sentry.io/api/",
+  "https://docs.sentry.io/product/mcp-servers/"
+ ],
+ "search_hits": [
+  {
+   "title": "API Authentication - Sentry Docs",
+   "href": "https://docs.sentry.io/api/auth/"
+  },
+  {
+   "title": "API Reference - Sentry Docs",
+   "href": "https://docs.sentry.io/api/"
+  },
+  {
+   "title": "Sentry Documentation",
+   "href": "https://sentryauth.xyz/docs"
+  },
+  {
+   "title": "Authentication | Sentry Interactive Developer Hub",
+   "href": "https://portal.sentryinteractive.com/docs/cloud-api/authentication/"
+  },
+  {
+   "title": "Authentication & API Access | getsentry/toolkit | DeepWiki",
+   "href": "https://deepwiki.com/getsentry/toolkit/4.2-authentication-and-api-access"
+  },
+  {
+   "title": "Sentry MCP",
+   "href": "https://mcp.sentry.dev/"
+  },
+  {
+   "title": "MCP Servers | Sentry Docs",
+   "href": "https://docs.sentry.io/product/mcp-servers/"
+  },
+  {
+   "title": "Set Up MCP Servers | Sentry Docs",
+   "href": "https://docs.sentry.io/product/mcp-servers/getting-started/"
+  },
+  {
+   "title": "GitHub - sentry-official/sentry-mcp \u00b7 GitHub",
+   "href": "https://github.com/sentry-official/sentry-mcp"
+  },
+  {
+   "title": "sentry - Sentry | Remote MCP",
+   "href": "https://www.remote-mcp.com/servers/sentry"
+  },
+  {
+   "title": "#1 Sentry Alternative - Better Stack",
+   "href": "https://www.bing.com/aclick?ld=e8nr0jZrlfo6Xwvicfr_1YMTVUCUxUtN8xkJHuXbCacHceu3TgKcVjaBkj9K4WIDXrISc7CMNht-QESBGWN9kVP2FQ6n5nJwagAWwgZgyweyHY1tlHBY72RMTIyX0LBjoedqqwfQQtcWVS5rKj5UeguWnYSqjw5Xg03itpOKqb-EdKdVdBbRyvYIRWevAxkOg-1cTQqauWPsLA_RoyvC4VdVsPalI&u=aHR0cHMlM2ElMmYlMmZiZXR0ZXJzdGFjay5jb20lMmZlcnJvci10cmFja2luZyUzZnV0bV9tZWRpdW0lM2RjJTI2dXRtX2NhbXBhaWduJTNkYWR3b3JkczYwNTk4OTY1NSUyNnV0bV9zb3VyY2UlM2RiaW5nJTI2dXRtX2NvbnRlbnQlM2QlMjZ1dG1fdGVybSUzZHNlbnRyeSUyNm1zY2xraWQlM2QzYTRlNGQ4Mzg5ODExMTE4YjkzZjI2ODdhN2NlZmE0ZQ&rlid=3a4e4d8389811118b93f2687a7cefa4e"
+  },
+  {
+   "title": "Pricing: Free Developer Plan, Pay as You Grow | Sentry",
+   "href": "https://sentry.io/pricing/"
+  },
+  {
+   "title": "Pricing & Billing - Sentry Docs",
+   "href": "https://docs.sentry.io/pricing/"
+  },
+  {
+   "title": "Is Sentry Free? Developer Plan Limits & Upgrade Triggers (2026)",
+   "href": "https://costbench.com/software/developer-tools/sentry/free-plan/"
+  },
+  {
+   "title": "Sentry Pricing 2026: Plans, Quotas, Seer and Team Totals",
+   "href": "https://www.gleap.ai/blog/sentry-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:45:13.754342"
+}

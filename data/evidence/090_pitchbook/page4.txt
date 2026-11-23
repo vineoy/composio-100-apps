@@ -1,0 +1,76 @@
+URL: https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector
+FETCHED: 2026-11-23T22:39:45.241236
+VIA: direct
+
+Help: Getting started with PitchBook's Premium Connector - PitchBook
+Getting started
+Help: Getting started with PitchBook’s Premium Connector
+This article covers PitchBook Premium Connector, including the functionality and the partner platforms it supports.
+Overview
+As we rely on AI tools to move faster and make smarter decisions, switching between tools to find data can be time-consuming. PitchBook’s Premium Connector solves this by integrating PitchBook data directly into the AI platforms you already use. With secure access, you can query private market insights without disrupting workflow. In this article, learn how our Premium Connector works and which AI platforms we partner with.
+How it works
+The Premium Connector provides a secure link between PitchBook and AI tools. Once connected, you can use your AI tool to access a wide range of PitchBook’s private market data directly. By specifying
+“
+Using PitchBook data as the source
+”
+in your query, you ensure the response includes only PitchBook’s verified proprietary data.
+When a question is sent, the connector translates it into a query that PitchBook can process. It then retrieves the relevant information, formats it, and sends it back to the AI tool. This workflow ensures that data is delivered accurately and only according to the permissions assigned to each user.
+Workflow
+This section outlines the general workflow for using the Premium Connector. While setup may vary slightly across different AI partners, the core process follows these steps:
+Setup
+– AI partners connect securely to PitchBook’s Premium Connector (built on MCP server technology) directly through the partner’s site. There’s no need for local installation or custom integration as the connection is managed in the cloud, allowing quick deployment.
+Authenticate via SSO
+– Only licensed PitchBook users can access the connector. Authentication happens through single sign-on (SSO), ensuring that access is secure and tied to each user’s permissions. Additional application-level safeguards ensure that only approved AI platforms, such as authorized enterprise accounts, can interact with PitchBook data. For instructions on enabling SSO, see
+Getting started with single sign-on (SSO)
+.
+Use
+–
+Once connected, you can query PitchBook data directly within their AI tool. Common use cases include company research, deal sourcing, fundraising analysis, and benchmarking comparable companies.
+Use cases
+The PitchBook team has developed the following use cases to help you navigate Premium Connectors to get the most out of the PitchBook data available.
+PitchBook Premium use cases
+Benefit
+When to use
+Example prompt
+Discover company info
+Streamline your financial research from search to insight. You can retrieve comprehensive PitchBook company data, including a company overview, financials, deal history, key personnel, and investors.
+Researching specific companies for deal sourcing, market intelligence gathering, benchmarking, asset allocation, and business development.
+Using PitchBook data, tell me about Plaid’s funding status, including the most recent investment date, round type, and use of proceeds. Include a list of lenders, active and former investors, and relevant news coverage about previous investment rounds.
+Competitive analysis
+Quickly compare targets to identify opportunities for investments, mergers, acquisitions, and partnerships.
+Comparing financial and performance metrics across multiple companies to find new opportunities, accelerate market mapping, identify acquisition targets, and streamline deal sourcing workflows.
+Using PitchBook data, help me identify investment opportunities by benchmarking companies in the HealthTech wearables market. Provide details on each company’s recent investment history, profitability, liquidity, and growth rates.
+Relationship mapping
+Discover connections between companies, investors, and professionals using Claude to transform PitchBook’s private capital market data into market maps that demonstrate complex relationships within the industry.
+Visualizing the business, investment, and product relationships between companies to inform deal sourcing, supply chain management, strategic partnerships, investor sourcing, and more.
+Using PitchBook data, identify InstaCart investors. Then pull each investor’s portfolio to see other companies in this space, and analyze those VCs’ investors to map the competitive landscape.
+Premium Connector AI Partners
+PitchBook offers an integration using the Premium Connector with the following partners:
+Note
+: To connect and use PitchBook Premium, you will need to have a seat-based, unlimited, or trial PitchBook license and Single Sign-On (SSO) credentials.
+Claude
+ChatGPT
+Microsoft 365 Copilot
+Harvey
+Perplexity
+Hebbia
+North
+Rogo
+Samaya AI
+Model ML
+Semaverse
+Glean
+Farsight
+Helpful links
+To understand how this feature fits into a broader workflow, check out PitchBook Pioneer’s course –
+PitchBook 101
+.
+Experience the PitchBook Platform firsthand
+Discover how PitchBook’s leading tools and capabilities can strengthen your due diligence workflows.
+Tour the platform
+Getting started
+MCP Connectors Premium
+Access PitchBook.
+Act confidently.
+Email
+Request a free trial

@@ -1,5 +1,5 @@
 URL: https://gumroad.com/pricing
-FETCHED: 2026-11-23T17:29:13.867002
+FETCHED: 2026-11-23T17:44:51.686621
 VIA: direct
 
 Gumroad pricing: 10% + 50¢ direct, 30% via Discover

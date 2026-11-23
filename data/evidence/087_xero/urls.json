@@ -1,0 +1,60 @@
+{
+ "app": "Xero",
+ "queries": [
+  "Xero API authentication documentation",
+  "Xero MCP server",
+  "Xero API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://developer.xero.com/pricing",
+  "https://www.xero.com/pricing-plans/",
+  "https://docs.linx.software/reference/plugins/xero/authenticationservice/"
+ ],
+ "search_hits": [
+  {
+   "title": "OAuth 2.0 \u2014 Xero Developer",
+   "href": "https://developer.xero.com/documentation/guides/oauth2/overview/"
+  },
+  {
+   "title": "The standard authorization code flow \u2014 Xero DeveloperXero API Authentication | APIs.ioGitHub - XeroAPI/xero-php-oauth2: Xero PHP SDK for oAuth 2 ...Xero Authentication | Linx DocumentationXero Accounting API - GitHub PagesXero API Guide 2026: Endpoints, OAuth, Limits & Integration ...",
+   "href": "https://developer.xero.com/documentation/guides/oauth2/auth-flow/"
+  },
+  {
+   "title": "Xero API Authentication | APIs.io",
+   "href": "https://apis.io/security/xero/xero-authentication/"
+  },
+  {
+   "title": "Xero Authentication | Linx Documentation",
+   "href": "https://docs.linx.software/reference/plugins/xero/authenticationservice/"
+  },
+  {
+   "title": "Xero Accounting API - GitHub Pages",
+   "href": "https://xeroapi.github.io/Xero-NetStandard/accounting/index.html"
+  },
+  {
+   "title": "Xero MCP Server",
+   "href": "https://grokipedia.com/page/Xero_MCP_Server"
+  },
+  {
+   "title": "Pricing \u2014 Xero Developer",
+   "href": "https://developer.xero.com/pricing"
+  },
+  {
+   "title": "Xero App Store subscriptions pricing \u2014 Xero Developer",
+   "href": "https://developer.xero.com/documentation/xero-app-store/app-partner-guides/xero-app-store-subscriptions-pricing/"
+  },
+  {
+   "title": "Xero API Pricing 2026: Developer Plans and Who Pays",
+   "href": "https://kenomont.com/blog/xero-api-pricing-2026-integrations"
+  },
+  {
+   "title": "Xero API Pricing and the App Partner Program - apideck.com",
+   "href": "https://www.apideck.com/blog/xero-api-pricing-and-the-app-partner-program"
+  },
+  {
+   "title": "Pricing Plans | Xero",
+   "href": "https://www.xero.com/pricing-plans/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:36:03.271137"
+}

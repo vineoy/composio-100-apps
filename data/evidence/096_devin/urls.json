@@ -1,0 +1,77 @@
+{
+ "app": "Devin",
+ "queries": [
+  "Devin API authentication documentation",
+  "Devin MCP server",
+  "Devin API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.devin.ai/api-reference/authentication",
+  "https://docs.devin.ai/desktop/accounts/api-reference/api-introduction",
+  "https://docs.devin.ai/work-with-devin/devin-mcp",
+  "https://docs.devin.ai/cli/extensibility/mcp/configuration"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Devin Docs",
+   "href": "https://docs.devin.ai/api-reference/authentication"
+  },
+  {
+   "title": "API Reference - Devin Docs",
+   "href": "https://docs.devin.ai/desktop/accounts/api-reference/api-introduction"
+  },
+  {
+   "title": "API Documentation | kevinhamza/Devin | DeepWiki",
+   "href": "https://deepwiki.com/kevinhamza/Devin/9-api-documentation"
+  },
+  {
+   "title": "Devin API Authentication - Universal API - mindcloud.co",
+   "href": "https://mindcloud.co/docs/universal/rest/devin/latest/introduction/authentication"
+  },
+  {
+   "title": "Support | Devin",
+   "href": "https://devin.ai/support"
+  },
+  {
+   "title": "Devin MCP - Devin Docs",
+   "href": "https://docs.devin.ai/work-with-devin/devin-mcp"
+  },
+  {
+   "title": "MCP Configuration - Devin Docs",
+   "href": "https://docs.devin.ai/cli/extensibility/mcp/configuration"
+  },
+  {
+   "title": "Devin MCP Server",
+   "href": "https://mcp.devin.ai/"
+  },
+  {
+   "title": "GitHub - ldastey-dev/devin-mcp",
+   "href": "https://github.com/ldastey-dev/devin-mcp"
+  },
+  {
+   "title": "GitHub - desertaxle/devin-mcp: MCP server for delegating ...",
+   "href": "https://github.com/desertaxle/devin-mcp"
+  },
+  {
+   "title": "Plans and Pricing | Devin",
+   "href": "https://devin.ai/pricing"
+  },
+  {
+   "title": "Plans and Usage - Devin Docs",
+   "href": "https://docs.devin.ai/desktop/accounts/usage"
+  },
+  {
+   "title": "Is Devin AI Free? Free Plan Limits & Upgrade Triggers (2026)",
+   "href": "https://costbench.com/software/ai-coding-assistants/devin-ai/free-plan/"
+  },
+  {
+   "title": "Devin Pricing (2026): Plans, Costs & Free Tier | AIToolTier",
+   "href": "https://aitooltier.com/pricing/devin"
+  },
+  {
+   "title": "Devin AI Pricing 2026 | Plans, Cost & Free Tier | Stackpick",
+   "href": "https://stackpick.net/pricing/devin-ai/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:46:09.126989"
+}

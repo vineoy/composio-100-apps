@@ -1,0 +1,169 @@
+URL: https://www.mongodb.com/docs/atlas/api/api-authentication/
+FETCHED: 2026-11-23T17:43:11.533112
+VIA: direct
+
+Atlas Administration API Authentication Methods - Atlas - MongoDB Docs
+For AI agents: a documentation index is available at https://www.mongodb.com/docs/llms.txt — markdown versions of all pages are available by appending .md to any URL path.
+Docs Menu
+Ask MongoDB AI
+Atlas Administration API Authentication Methods
+Copy page
+Important
+We recommend you use service accounts instead of
+API
+keys to authenticate to the Atlas Administration API.
+API
+keys are a legacy authentication method.
+To use the Atlas Administration API to manage your Atlas clusters, you must authenticate your
+API
+requests. The Atlas Administration API accepts the following authentication methods:
+Service account access tokens (
+OAuth 2.0)
+API keys (
+HTTP Digest Authentication)
+To learn how to use service accounts and
+API
+keys to configure programmatic access to your Atlas organizations and projects, see the
+Atlas Administration API Getting Started
+guide.
+The Atlas Administration API doesn't provide access to the data stored in your clusters. To read or write data in a database, you must authenticate to your cluster using the credentials for a
+database
+user
+with the appropriate read or write
+roles
+. You can use the Atlas Administration API to create and manage database users.
+Note
+Many Atlas Administration API endpoint
+URLs
+follow the format of
+/api/atlas/<version>/groups/<GROUP-ID>/
+, where
+<GROUP-ID>
+is your
+project ID
+. For these resources, the service account or
+API
+keys that you use to authenticate the request must be a member of the organization that hosts the project. Otherwise, Atlas responds with a
+401
+error.
+The following sections describe the Atlas Administration API authentication methods:
+Service Accounts Overview
+Service accounts are the recommended method to manage authentication to the Atlas Administration API. Service accounts provide improved security over
+API
+keys by using the industry standard
+OAuth 2.0
+protocol with the
+Client Credentials flow.
+A service account lets you manage permissions and create access tokens that authenticate
+API
+requests. Each service account has a client ID and a
+rotatable secret
+that function as a username and a password for creating access tokens. To learn how to construct an
+API
+request with an access token, see
+Make an
+API
+Request.
+Tip
+Service Account Token Best Practices
+Consider the following best practices when using service account tokens:
+Reuse tokens
+: Service account access tokens have a 1 hour (3600 seconds) lifespan, during which you can reuse the token multiple times. Avoid creating new tokens for every request.
+Generate new tokens when needed
+: While you can't refresh an access token, you can
+generate a new token
+when your current token is close to expiry. This prevents service interruptions and allows you to maintain authorized service account access.
+Revoke unnecessary tokens
+: When you no longer need a token,
+revoke the token's access
+to minimize security risks and ensure that only active tokens have access to your service account.
+Each service account belongs to exactly one organization, and you can grant it access to any number of projects within that organization. To give an organization-level service account access to a project, see
+Grant Existing Service Account Access to a Project.
+Atlas
+roles
+limit which operations a service account can authenticate with its access token. You must assign roles to service accounts as you would for users to ensure that the service account generates access tokens with the necessary permissions for the desired
+API
+calls.
+Important
+If a project-level service account has access to the organization or to other projects, you must have the
+Organization Owner
+role to manage its lifecycle, including rotating or revoking its secrets.
+You can't use a service account or its access token to log into Atlas through the Atlas UI. Service accounts only grant access to the Atlas Administration API, which does not include UI access or access to cluster data. To learn more about the limitations of service accounts, see
+MongoDB Limits and Thresholds.
+API Keys Overview
+Important
+We recommend you use service accounts instead of
+API
+keys to authenticate to the Atlas Administration API.
+API
+keys are a legacy authentication method.
+API keys are a legacy method of authenticating to the Atlas Administration API that uses
+HTTP Digest Authentication.
+API
+keys have two parts: a Public Key and a Private Key. These serve the same function as a username and a password to authenticate
+API
+requests. To learn how to construct an
+API
+request using
+API
+keys, see
+Make an
+API
+Request.
+Atlas hashes the Public Key and Private Key using a unique value called a
+nonce
+. The nonce is only valid for a short amount of time as per the
+HTTP Digest Authentication
+specification. This limited lifespan protects against replay attacks, where an attacker caches a Private Key to use it without time restriction.
+Each pair of
+API
+keys belongs to only one organization, and can grant access to any number of projects in that organization. To give organization-level
+API
+keys access to a project, see
+Grant Existing Service Account Access to a Project.
+Atlas
+roles
+limit which operations
+API
+keys can perform. You must assign roles to
+API
+keys as you would for users to ensure the
+API
+keys have the necessary permissions for the desired
+API
+calls.
+You can't use
+API
+keys to log into
+Atlas
+through the Atlas UI.
+API
+keys only grant access to the Atlas Administration API, which does not include UI access or access to cluster data.
+Next Steps
+To learn how to use and manage service accounts and
+API
+keys, see the following procedures:
+Grant Programmatic Access to an Organization
+Grant Programmatic Access to a Project
+Manage Programmatic Access to an Organization
+Manage Programmatic Access to a Project
+Manage Programmatic Access to Multiple Organizations
+Generate Service Account Token
+Revoke Service Account Token
+Back
+Admin API Overview
+Next
+Rotate Service Account Secrets
+Rate this page
+On this page
+Service Accounts Overview
+API Keys Overview
+Next Steps
+On this page
+Service Accounts Overview
+API Keys Overview
+Next Steps
+Documentation
+Database
+Atlas Agent Engine
+Voyage AI Models

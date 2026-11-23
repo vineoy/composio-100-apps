@@ -1,0 +1,204 @@
+URL: https://developers.binance.com/en/docs/introduction
+FETCHED: 2026-11-23T22:33:04.425690
+VIA: jina-reader
+
+Title: Binance Developer Docs
+
+URL Source: https://developers.binance.com/en/docs/introduction
+
+Published Time: Mon, 23 Nov 2026 09:07:44 GMT
+
+Markdown Content:
+Welcome to the official Binance API documentation.
+
+This portal is the central reference for developers building applications, services, and trading systems that integrate with Binance. It covers the main programmatic interfaces available across Binance products, from market data access and account operations to advanced trading, streaming, and lower-latency integrations.
+
+Whether you are building a simple script, a production backend, or a professional trading system, these docs are designed to help you understand the available interfaces, choose the right integration path, and implement it reliably.
+
+* * *
+
+## How to use this documentation[](https://developers.binance.com/en/docs/introduction#how-to-use-this-documentation)
+
+This documentation is organized into three main areas:
+
+*   **Documentation**  
+Conceptual guides, onboarding content, environment information, and operational guidance.
+
+*   **API Reference**  
+Endpoint definitions, request parameters, payload schemas, and API-specific details.
+
+*   **SDKs & Tools**  
+Official connectors, Postman collections, developer tools, and implementation resources.
+
+If you are new to Binance APIs, start with the documentation guides first. If you already know which product or endpoint you need, you can move directly into the relevant API reference.
+
+* * *
+
+## Choose a starting point[](https://developers.binance.com/en/docs/introduction#choose-a-starting-point)
+
+A good starting point depends on what you are trying to do:
+
+*   **New to Binance APIs**  
+Start with the documentation guides, supported API types, environments, and authentication requirements.
+
+*   **Need endpoint details**  
+Go directly to the API Reference for request parameters, payloads, and endpoint-specific behavior.
+
+*   **Looking for connectors or testing resources**  
+Visit SDKs & Tools for official connectors, Postman collections, developer tools, and implementation resources.
+
+*   **Working on product-specific integrations**  
+Navigate to the relevant product family first, such as Spot, Futures, Wallet, or other supported areas.
+
+* * *
+
+## Start here[](https://developers.binance.com/en/docs/introduction#start-here)
+
+A common onboarding path is:
+
+1.   Review the supported API types and product areas
+2.   Create an API key if your integration requires authenticated access
+3.   Understand authentication, signing, and environment support
+4.   Validate your implementation in a supported non-production environment where available
+5.   Move to production only after confirming product-specific requirements and limits
+
+* * *
+
+## What you can build with Binance APIs[](https://developers.binance.com/en/docs/introduction#what-you-can-build-with-binance-apis)
+
+Using Binance APIs, you can:
+
+*   Access real-time and historical market data
+*   Place, manage, and cancel orders programmatically
+*   Monitor account state, balances, and positions
+*   Consume live updates through WebSocket-based interfaces
+*   Build trading bots, automation, and internal services
+*   Integrate Binance data into dashboards, analytics, and reporting systems
+*   Support lower-latency or institutional workflows with specialized interfaces
+
+The platform supports both lightweight integrations and more advanced, performance-sensitive systems.
+
+* * *
+
+## API types[](https://developers.binance.com/en/docs/introduction#api-types)
+
+Binance provides multiple API styles to support different integration patterns:
+
+*   **REST APIs**  
+Request/response HTTP APIs for market data, trading, account operations, and other product workflows.
+
+*   **WebSocket APIs**  
+Request/response APIs over persistent connections, useful for interactive and stateful workflows.
+
+*   **WebSocket Streams**  
+Push-based real-time streams for market data and user events.
+
+*   **FIX APIs**  
+Session-based APIs designed for advanced and institutional trading workflows.
+
+*   **SBE (Simple Binary Encoding)**  
+Binary-encoded payload formats intended for performance-sensitive environments.
+
+Each API type has different trade-offs in latency, throughput, operational complexity, and client design. Product documentation will indicate when a specific interface is recommended.
+
+* * *
+
+## Authentication and security[](https://developers.binance.com/en/docs/introduction#authentication-and-security)
+
+Many private endpoints require authentication. Depending on the interface and product, Binance supports mechanisms such as:
+
+*   HMAC-based request signing
+*   Asymmetric key authentication, including RSA and Ed25519
+*   Session-based authentication for selected WebSocket and FIX workflows
+
+Authentication requirements are documented in the relevant product sections. During development, use dedicated testnet or demo environments where supported, protect credentials carefully, and review signing requirements before going live.
+
+* * *
+
+## Rate limits and reliability[](https://developers.binance.com/en/docs/introduction#rate-limits-and-reliability)
+
+Binance APIs enforce rate limits and request weights. These limits vary by product and endpoint, and exceeding them may result in throttling or temporary restrictions.
+
+Production integrations should account for:
+
+*   Request weights and endpoint-specific limits
+*   Retry and backoff strategies
+*   Connection health and reconnection handling
+*   Monitoring for API errors and degraded conditions
+
+Always review the relevant product documentation before deploying systems at scale.
+
+* * *
+
+## Environments[](https://developers.binance.com/en/docs/introduction#environments)
+
+Binance provides different environments depending on the product and interface, including:
+
+*   **Production** for live trading and real market data
+*   **Testnet** for supported testing workflows without real funds
+*   **Demo environments** for supported products and scenarios where simulated or non-production access is available
+
+Environment support is not identical across all products. Some products support testnet, some support demo environments, and others may have different non-production availability. Before implementation or rollout, verify which environments are supported for the specific API and product you intend to use.
+
+* * *
+
+## Agent Native[](https://developers.binance.com/en/docs/introduction#agent-native)
+
+Binance APIs are designed to be agent-friendly. Whether you are building autonomous trading bots, AI-powered assistants, or automated workflows, the following resources are available:
+
+*   **llms.txt** — Machine-readable documentation index at [`/llms.txt`](https://developers.binance.com/en/docs/llms.txt) for LLM-based tools and agents
+*   **Agent REST API** — Structured endpoints optimized for programmatic and agent-driven access
+*   **MCP Server** — Model Context Protocol server for seamless integration with AI development tools
+
+For more details, see the [Agent Native overview](https://developers.binance.com/en/docs/agent-native/overview).
+
+* * *
+
+## SDKs, tools, and samples[](https://developers.binance.com/en/docs/introduction#sdks-tools-and-samples)
+
+To help accelerate development, Binance provides supporting resources such as:
+
+*   Official SDKs in supported languages
+*   Developer tools and utilities
+*   Postman collections for exploration and testing
+*   Examples and sample applications for common workflows
+
+These resources can help shorten the path from initial exploration to a working integration.
+
+* * *
+
+## Official and supported interfaces[](https://developers.binance.com/en/docs/introduction#official-and-supported-interfaces)
+
+Interfaces, endpoints, streams, parameters, and payloads documented in this portal are considered officially documented for developer use.
+
+Undocumented behaviors or unofficial interfaces should not be relied upon in production systems. They may change without notice and are outside the scope of supported documentation.
+
+* * *
+
+## Product-specific updates[](https://developers.binance.com/en/docs/introduction#product-specific-updates)
+
+API changes, new features, and breaking updates are typically documented within the relevant product areas. Before deploying or upgrading an integration, review the documentation for the specific product you depend on.
+
+* * *
+
+## Getting help[](https://developers.binance.com/en/docs/introduction#getting-help)
+
+If you need help while integrating:
+
+*   Review the relevant documentation and API reference first
+*   Check available tools, examples, and sample applications
+*   Join the [Binance Developer Community](https://dev.binance.vision/)
+*   Open issues in the relevant GitHub repositories when appropriate
+*   Follow the official Telegram [Binance API announcements channel](https://t.me/binance_api_announcements) for service and API-related updates
+
+* * *
+
+This documentation evolves as Binance products and APIs change. Check back regularly and review product-specific documentation before making production changes.
+
+Was this page helpful?
+
+Last modified on
+
+November 23, 2026
+
+[Changelog](https://developers.binance.com/en/docs/products/spot/CHANGELOG)

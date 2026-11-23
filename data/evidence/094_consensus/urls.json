@@ -1,0 +1,77 @@
+{
+ "app": "Consensus",
+ "queries": [
+  "Consensus API authentication documentation",
+  "Consensus MCP server",
+  "Consensus API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://help.consensus.app/en/articles/16516328-the-consensus-api",
+  "https://docs.consensus.app/api-get-started",
+  "https://docs.consensus.app/consensus-mcp",
+  "https://docs.consensus.app/core-features/mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "How to Access Consensus API Documentation",
+   "href": "https://support.goconsensus.com/consensus-api-documents"
+  },
+  {
+   "title": "The Consensus API | The Consensus Help Center",
+   "href": "https://help.consensus.app/en/articles/16516328-the-consensus-api"
+  },
+  {
+   "title": "Peer-reviewed research, one API call away. - Consensus",
+   "href": "https://consensus.app/home/api/"
+  },
+  {
+   "title": "Get started with Consensus API",
+   "href": "https://docs.consensus.app/api-get-started"
+  },
+  {
+   "title": "Consensus API \u2014 REST",
+   "href": "https://integrations.sh/consensus.app/consensus-api/"
+  },
+  {
+   "title": "Get started with Consensus MCP - Consensus",
+   "href": "https://docs.consensus.app/consensus-mcp"
+  },
+  {
+   "title": "Consensus",
+   "href": "https://consensus.app/home/mcp/"
+  },
+  {
+   "title": "Setting Up the Consensus AI Connect (Consensus MCP Server)",
+   "href": "https://support.goconsensus.com/setting-up-the-consensus-ai-connect-consensus-mcp-server"
+  },
+  {
+   "title": "Use Consensus in ChatGPT, Claude, Copilot, or with the API",
+   "href": "https://docs.consensus.app/core-features/mcp"
+  },
+  {
+   "title": "Consensus MCP Server and REST API | MCP.ai",
+   "href": "https://mcp.ai/consensus/en"
+  },
+  {
+   "title": "Pricing - Consensus: AI Search Engine for Research",
+   "href": "https://consensus.app/pricing/"
+  },
+  {
+   "title": "Subscription Plans | The Consensus Help Center",
+   "href": "https://help.consensus.app/en/articles/10087865-subscription-plans"
+  },
+  {
+   "title": "Peer-reviewed research, one API call away. - Consensus",
+   "href": "https://consensus.app/home/api/"
+  },
+  {
+   "title": "Is Consensus Free? Free Plan Limits & Upgrade Triggers (2026)",
+   "href": "https://costbench.com/software/ai-research-tools/consensus/free-plan/"
+  },
+  {
+   "title": "Consensus App Plans Pricing - apis.io",
+   "href": "https://apis.io/plans/consensus-app/consensus-app-plans-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:44:23.114980"
+}

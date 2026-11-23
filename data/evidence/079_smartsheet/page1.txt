@@ -1,0 +1,166 @@
+URL: https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication
+FETCHED: 2026-11-23T22:29:52.525081
+VIA: direct
+
+Authentication
+Skip to content
+Smartsheet API
+Introduction
+Get started
+Guides
+Basics
+Authentication
+Base URL
+Dates and times
+HTTP and REST
+Pagination
+Pagination - SDK examples
+Resource access levels
+Sheets, rows, columns, and cells
+Query parameters
+Versioning and changes
+Advanced topics
+Best practices
+Reports
+Users
+Webhooks
+Updating code
+Limitations
+Deprecation process
+Additional resources
+Event types
+Webhook event types
+Error codes
+Changelog
+OpenAPI Reference
+Alternate Email addresses
+Attachments
+Automation Rules
+Cell Images
+Cells
+Columns
+Comments
+Contacts
+Cross-sheet References
+Dashboards
+Discussions
+Events
+Favorites
+Folders
+Governance
+Group Members
+Groups
+Home
+Imports
+Proofs
+Reports
+Rows
+Search
+Send via Email
+Server Info
+Sharing
+Sheet Summary
+Sheets
+Tokens
+Update Requests
+Users
+Webhooks
+Workspaces
+Schemas
+Guides
+/
+Basics
+Authentication
+Base URL
+Dates and times
+HTTP and REST
+Pagination
+Pagination - SDK examples
+Resource access levels
+Sheets, rows, columns, and cells
+Query parameters
+Versioning and changes
+/
+Authentication
+Last updated
+9 months ago
+Authentication
+Copy
+Copy for LLM
+Copy page as Markdown for LLMs
+View as Markdown
+Open this page as Markdown
+Open in ChatGPT
+Get insights from ChatGPT
+Open in Claude
+Get insights from Claude
+Connect to Cursor
+Install MCP server on Cursor
+Connect to VS Code
+Install MCP server on VS Code
+The API authenticates using access tokens (API keys). You can
+generate access tokens
+in the Smartsheet UI.
+Important:
+Smartsheet Gov and Smartsheet Regions Europe use separate tokens from Smartsheet.com.
+Each API request requires passing in an access token as the
+Bearer
+value in your authorization header. For example,
+Authorization: Bearer JKlMNOpQ12RStUVwxYZAbcde3F5g6hijklM789
+This article provides best practices to consider when working with the Smartsheet API and any access tokens (API keys), or other sensitive information.
+Authentication Approaches
+When choosing an authentication method, it is important to consider your integration scenario. Is the integration machine-to-machine without user interaction, or do you want user consent and interaction?
+If your scenario involves user consent and interaction,
+it's typically best to use OAuth with Smartsheet. Note that the Smartsheet implementation of OAuth 2.0 is a 3-legged process, which requires human intervention. See
+OAuth Walkthrough
+for details.
+If your scenario is strictly machine-to-machine,
+execute raw token requests over HTTPS. It's a straightforward, secure way to authenticate. See
+Access Token Best Practices
+for details.
+Each scenario requires an HTTP authorization header containing an access token.
+Note
+: In applications and for routine requests, it is best to use a shared account, such as ticket-processor@example.com, rather than your individual work account.
+Warning
+: If an unauthorized user gets a copy of this token, they will be able to access all Smartsheet data that you have access to, both to read and modify on your behalf. You should keep your tokens secure and do not share them with anyone.
+Access Token Best Practices
+You can
+generate access tokens
+in the Smartsheet UI.
+Never commit access tokens (API keys) to accessible version control systems like GitHub or BitBucket. Instead, use one of the following recommended storage options.
+Recommended Storage Options
+Use an app configuration tool suitable for deploying secrets to your app, or
+Use a config file outside of source control, or
+Use environment variables set outside of source control.
+If you have mistakenly deployed API keys to a publicly accessible location such as GitHub, then you should immediately revoke those API keys, revise your application to use a preferred method of key deployment, and then generate new keys.
+Storing in a database
+If you need to store API keys in a database, consider the following protections:
+Restrict access so API keys are only readable by the owner of the object
+Restrict read privileges to the database table
+Make sure your database or the disk the database is on is set to encrypt data at rest
+Note
+: When using any Smartsheet SDK, you can use the environment variable of
+SMARTSHEET_ACCESS_TOKEN
+. If the access token is null on input to the client builder, the SDK will automatically pick up the value of that environment variable.
+Revoking and Regenerating Tokens
+If you've committed code to a repository before implementing these security best practices, here are some steps to secure your API keys.
+For requests with raw tokens:
+Revoke the token
+Create a
+new token
+For OAuth with Smartsheet:
+Work through the
+OAuth Walkthrough
+to regenerate client secrets, auth codes, and tokens.
+Was this helpful?
+Basics
+Previous page
+Base URL
+Next page
+On this page
+Authentication Approaches
+Access Token Best Practices
+Recommended Storage Options
+Storing in a database
+Revoking and Regenerating Tokens
+Ask AI

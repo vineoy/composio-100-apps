@@ -1,0 +1,77 @@
+{
+ "app": "Paygent Connect",
+ "queries": [
+  "Paygent Connect API authentication documentation",
+  "Paygent Connect MCP server",
+  "Paygent Connect API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.paygent.to/reference/api-reference",
+  "https://docs.withpaygent.com/cli/commands/authentication",
+  "https://docs.payaconnect.com/developers/api",
+  "https://docs.withpaygent.com/cli/commands/authentication.md"
+ ],
+ "search_hits": [
+  {
+   "title": "Backend API Reference - Paygent Documentation",
+   "href": "https://docs.paygent.to/reference/api-reference/"
+  },
+  {
+   "title": "Authentication | Paygent Documentation",
+   "href": "https://docs.withpaygent.com/cli/commands/authentication"
+  },
+  {
+   "title": "Paygent Documentation - Paygent Documentation",
+   "href": "https://docs.paygent.to/"
+  },
+  {
+   "title": "Quick Start | Paygent Documentation",
+   "href": "https://docs.withpaygent.com/"
+  },
+  {
+   "title": "API Reference :: Docs",
+   "href": "https://docs.payaconnect.com/developers/api"
+  },
+  {
+   "title": "Paygent MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/paygenthq-ai"
+  },
+  {
+   "title": "Paygent | MCP Servers \u00b7 LobeHub",
+   "href": "https://lobehub.com/mcp/samweiss6-paygent"
+  },
+  {
+   "title": "Paytm MCP Server \u2014 Developer documentation | Paytm Payments Developer Docs",
+   "href": "https://www.paytmpayments.com/docs/mcp-server-overview"
+  },
+  {
+   "title": "@paygent-ai/mcp-server | npm.io",
+   "href": "https://npm.io/package/@paygent-ai/mcp-server"
+  },
+  {
+   "title": "docs.withpaygent.com",
+   "href": "https://docs.withpaygent.com/cli/commands/authentication.md"
+  },
+  {
+   "title": "Pricing \u2014 Paygent | Free, Starter, Pro & Scale Plans",
+   "href": "https://www.paygent.to/pricing"
+  },
+  {
+   "title": "Pricing | Paygent - AI Agent Monetization & Cost Tracking",
+   "href": "https://www.withpaygent.com/pricing"
+  },
+  {
+   "title": "Paygent \u2014 Cost Control for AI Agents | Visibility, Limits & Alerts",
+   "href": "https://www.paygent.to/"
+  },
+  {
+   "title": "Paygent | Merchant Payments and Tapn Tap-to-Pay Solutions",
+   "href": "https://gopaygent.com/"
+  },
+  {
+   "title": "Plans and Usage Events - Paygent Documentation",
+   "href": "https://docs.paygent.to/introduction/plans-and-usage-events/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:33:45.287296"
+}

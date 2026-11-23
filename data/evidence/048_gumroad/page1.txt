@@ -1,5 +1,5 @@
 URL: https://gumroad.com/mcp
-FETCHED: 2026-11-23T17:29:13.864159
+FETCHED: 2026-11-23T17:44:51.684674
 VIA: direct
 
 Gumroad MCP | Sell digital products from your AI assistant

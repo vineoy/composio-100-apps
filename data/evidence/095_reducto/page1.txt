@@ -1,0 +1,132 @@
+URL: https://docs.reducto.ai/reference/credit-usage
+FETCHED: 2026-11-23T22:45:25.897607
+VIA: direct
+
+Usage and Pricing | Reducto Documentation
+Skip to content
+This page is available in Markdown format. Markdown is recommended for AI
+      consumption. See
+https://docs.reducto.ai/reference/credit-usage/index.md
+for this page, or
+https://docs.reducto.ai/llms.txt
+for the full documentation index.
+Search
+documentation
+Ctrl
+K
+Reducto measures usage separately for each product. Your contract and rate card is the source of truth.
+Contracted customers may have negotiated rates that differ from the list prices below.
+These listed prices go into effect on September 1, 2026. You can view the
+migration guide
+and our
+legacy pricing chart
+.
+List pricing
+The following prices apply to standard list-rate accounts. Rates for Growth and Enterprise may vary based on volume.
+Parse Endpoint
+Product
+List price
+Notes
+Parse, r-1
+$10 / 1,000 pages
+Parse, r-1 mini
+$1 / 1,000 pages
+Legacy Parse, Standard Page
+$15 / 1,000 pages
+2x multiplier applies for agentic modes.
+Legacy Parse, Complex Page
+$30 / 1,000 pages
+2x multiplier applies for agentic modes.
+OCR data return,
+embed_pdf_metadata
+, and/or Parse citations
+Included with r-1. $1 / 1,000 pages with r-1 mini.
+r-1 and legacy Parse include OCR at no extra charge. Optional add-on for r-1 mini.
+Prompted blocks and custom regions
+$5 / 1,000 blocks
+Optional add-on for r-1 and r-1 mini.
+Advanced chart agent
+$0.06 per chart
+Reducto charges per chart the agent extracts, on top of the page rate. Reducto does not charge for figures the agent does not extract.
+Batch processing
+Parse (r-1 and r-1 mini) and Extract jobs submitted through the batch queue receive a 20% usage discount. Deep Extract is not eligible for the batch queue or its discount. Batch jobs run asynchronously with a 12-hour completion guarantee. See
+Batch Queue
+.
+Extract Endpoint
+Product
+List price
+Notes
+Extract
+$20 / 1,000 pages
+Dense extractions (over 100 fields/page) may incur a per-field surcharge. No additional parse costs.
+Deep Extract
+$40 / 1,000 pages
+Dense extractions (over 100 fields/page) may incur a per-field surcharge. No additional parse costs.
+Split Endpoint
+Product
+List price
+Notes
+Split
+$20 / 1,000 pages
+No additional parse costs.
+Deep Split
+$40 / 1,000 pages
+Agentic loop for near-perfect accuracy. See
+Deep Split
+. No additional parse costs.
+Classify Endpoint
+Product
+List price
+Notes
+Classify
+$7.50 / 1,000 pages standard
+Standard uses the first five pages by default
+Deep Classify
+$15 / 1,000 pages (alpha pricing)
+model: "accurate"
+. Higher accuracy on hard documents. Uses the first 5 pages by default.
+Edit Endpoint
+Product
+List price
+Notes
+Edit
+$60 / 1,000 pages; $15 / 1,000 fully prefilled pages
+Spreadsheets
+Spreadsheets have no separate price. Reducto converts cells to pages and bills those pages at the per-page rate of the product you use.
+Clustering mode
+Cells per page
+Accurate
+1,000
+Fast
+5,000
+Disabled
+5,000
+r-1 mini does not process spreadsheets.
+Monitoring usage
+Keeping track of how you’re using Reducto is easy. You can:
+View usage over time in the
+Reducto Studio
+usage dashboard.
+Inspect the per-product breakdown for individual jobs.
+Configure usage alerts, either to notify with a dollar amount or credit amount threshold.
+Export usage programmatically with the
+Usage Export API
+.
+Related
+Pricing Migration Guide
+How the move to per-product pricing affects you.
+Legacy Credit Usage
+Credit rates that applied before September 1, 2026.
+esc
+Type to search…
+↑
+↓
+Navigate
+↵
+Open
+esc
+Close
+⌘
+↵
+Ask AI
+↵

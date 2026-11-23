@@ -1,0 +1,77 @@
+{
+ "app": "PitchBook",
+ "queries": [
+  "PitchBook API authentication documentation",
+  "PitchBook MCP server",
+  "PitchBook API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://pitchbook.com/help/PitchBook-api",
+  "https://pitchbook.com/pricing",
+  "https://pitchbook.com/products/direct-access-data/api",
+  "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector"
+ ],
+ "search_hits": [
+  {
+   "title": "Help: PitchBook API",
+   "href": "https://pitchbook.com/help/PitchBook-api"
+  },
+  {
+   "title": "PitchBook API Documentationapi - PitchBookPitchBook API Authentication | APIs.ioPitchBook API - Documentation & IntegrationPitchBook API \u2014 Docs, Endpoints & OpenAPI | APIs.ioPitchBook API Documentation and Python Guide (2026)",
+   "href": "https://documenter.getpostman.com/view/5190535/TzCV1iRc"
+  },
+  {
+   "title": "PitchBook API Authentication | APIs.io",
+   "href": "https://apis.io/security/pitchbook/pitchbook-authentication/"
+  },
+  {
+   "title": "PitchBook API - Documentation & Integration",
+   "href": "https://apitracker.io/a/pitchbook"
+  },
+  {
+   "title": "PitchBook API \u2014 Docs, Endpoints & OpenAPI | APIs.io",
+   "href": "https://apis.io/providers/pitchbook/"
+  },
+  {
+   "title": "Help: Getting started with PitchBook\u2019s Premium Connector",
+   "href": "https://pitchbook.com/help/getting-started-with-pitchbook-premium-connector"
+  },
+  {
+   "title": "PitchBook Premium Connectors - Integrated AI Platforms ...",
+   "href": "https://pitchbook.com/products/premium-connectors"
+  },
+  {
+   "title": "PitchBook Premium connector | Claude by Anthropic",
+   "href": "https://claude.com/marketplace/connectors/pitchbook"
+  },
+  {
+   "title": "PitchBook MCP Server: Tools, Setup & Config",
+   "href": "https://mcp.so/servers/pitchbook"
+  },
+  {
+   "title": "Official PitchBook MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/pitchbook-mcp"
+  },
+  {
+   "title": "PitchBook Pricing: Plans, Cost, and Subscriptions - PitchBook",
+   "href": "https://pitchbook.com/pricing"
+  },
+  {
+   "title": "API: Flexibly call down data on demand - PitchBook",
+   "href": "https://pitchbook.com/products/direct-access-data/api"
+  },
+  {
+   "title": "PitchBook API and Direct Data Pricing in 2026 - app.tamarly.ai",
+   "href": "https://app.tamarly.ai/intelligence/guides/pitchbook-api-cost"
+  },
+  {
+   "title": "PitchBook API: Access, Pricing, and What You Get",
+   "href": "https://investordatarooms.com/pitchbook-api/"
+  },
+  {
+   "title": "PitchBook Pricing 2026: What Buyers Actually Pay",
+   "href": "https://costbench.com/software/financial-data-terminals/pitchbook/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:39:45.249822"
+}

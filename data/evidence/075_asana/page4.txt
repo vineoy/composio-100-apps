@@ -1,0 +1,19 @@
+URL: https://developers.asana.com/docs/mcp-server
+FETCHED: 2026-11-23T22:28:26.026704
+VIA: direct
+
+MCP Server
+For AI agents: the docs index is at https://developers.asana.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+Asana offers a Model Context Protocol (MCP) server, accessible via app integration, which allows AI assistants and other applications to access the Asana Work Graph from beyond the Asana platform. This server provides a way to interact with your Asana workspace through various AI platforms and tools that support MCP.
+To learn more, see:
+Using Asana's MCP Server
+Using Asana's Command MCP Server
+Compatible MCP Clients
+Integrating with Asana's MCP Server
+MCP Tools Reference
+Updated
+about 2 months ago
+Did this page help you?
+Yes
+No
+Copy Page

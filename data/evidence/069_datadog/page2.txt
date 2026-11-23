@@ -1,0 +1,250 @@
+URL: https://docs.datadoghq.com/api/latest/authentication
+FETCHED: 2026-11-23T17:44:26.662427
+VIA: direct
+
+Authentication - Datadog API
+For AI agents: A markdown version of this page is available at
+https://docs.datadoghq.com/api/latest/authentication.md
+. A documentation index is available at
+/llms.txt
+.
+Home
+Docs
+API
+/
+Overview
+Authorization Scopes for OAuth Clients
+Rate Limits
+Using the API
+Changelog
+Action Connection
+Actions Datastores
+Agent Health
+Agent Observability
+Agentless Scanning
+AI Gateway
+AI Guard
+Annotations
+Anthropic Usage And Costs Integration
+API Management
+APM
+APM Retention Filters
+APM Trace
+App Builder
+Application Security
+Audit
+Authentication
+Validate API key
+AuthN Mappings
+AWS Integration
+AWS Logs Integration
+Azure Integration
+Bits AI
+Bits Security Analyst
+Change Management
+ChatGPT Enterprise Integration
+CI Visibility GitHub Accounts
+CI Visibility Logs
+CI Visibility Pipelines
+CI Visibility Tests
+Claude Compliance Integration
+Cloud Authentication
+Cloud Cost Management
+Cloud Network Monitoring
+Cloudflare Integration
+Code Coverage
+Compliance
+Confluent Cloud
+Container Images
+Containers
+CoreWeave Integration
+CSM Agents
+CSM Coverage Analysis
+CSM Ownership
+CSM Settings
+CSM Threats
+Customer Org
+Dashboard Lists
+Dashboard Secure Embed
+Dashboard Sharing
+Dashboards
+Data Deletion
+Data Observability
+Databricks Integration
+Datasets
+DDSQL
+Delivery Performance
+DEM
+Deployment Gates
+Domain Allowlist
+Downtimes
+Elastic Cloud Integration
+Embeddable Graphs
+End User Device Monitoring
+Entity Integration Configs
+Entity Risk Scores
+Error Tracking
+Events
+Execution Policy
+Experiments
+Fastly Integration
+Feature Flags
+Fleet Automation
+Forms
+GCP Integration
+Google Chat Integration
+Governance Console
+High Availability MultiRegion
+Hosts
+Identity Providers
+Incidents
+Integrations
+IP Allowlist
+IP Ranges
+Jira Integration
+Key Management
+Logs
+Logs Archive Searches
+Logs Archives
+Logs Custom Destinations
+Logs Indexes
+Logs Metrics
+Logs Pipelines
+Logs Restriction Queries
+Metrics
+Microsoft Teams Integration
+Model Lab API
+Monitors
+Nebius Cloud Integration
+Network Device Monitoring
+Notebooks
+OAuth2 Client Public
+Observability Pipelines
+OCI Integration
+Okta Integration
+On-Call
+On-Call Paging
+OpenAI Codex Integration
+Opsgenie Integration
+Org Authorized Clients
+Org Connections
+Org Groups
+Organizations
+PagerDuty Integration
+Powerpack
+Processes
+Product Analytics
+Product Catalog
+Reference Tables
+Report Schedules
+Reporting And Sharing
+Restriction Policies
+Roles
+RUM
+Rum Audience Management
+RUM Config
+RUM Insights
+RUM Managed Archives
+RUM Metrics
+RUM Operations
+RUM Recovery
+RUM Remote Config
+RUM Replay Heatmaps
+RUM Replay Playlists
+RUM Replay Sessions
+RUM Replay Viewership
+RUM Retention Filters
+RUM Retention Quotas
+Rum Teams Ownership
+SCIM
+Scorecards
+Seats
+Security Monitoring
+Sensitive Data Scanner
+Service Accounts
+Service Checks
+Service Definition
+Service Dependencies
+Service Level Objective Corrections
+Service Level Objectives
+ServiceNow Integration
+Slack Integration
+Snapshots
+Snowflake Integration
+Software Catalog
+Spans
+Spans Metrics
+Static Analysis
+Status Pages
+Statuspage Integration
+Stegadography
+Storage Management
+Synthetics
+Tag Rules
+Tags
+Teams
+Temporal Cloud OpenMetrics Integration
+Test Optimization
+Threat Intelligence
+Timeseries Anomaly Investigations
+Twilio Integration
+Usage Metering
+User Authorized Clients
+Users
+Webhooks Integration
+Widgets
+Work Management
+Work Management Attribute
+Work Management Type
+Workflow Automation
+Language
+English
+English
+Français
+日本語
+한국어
+Español
+Datadog site
+US1
+US1
+US3
+US5
+EU
+AP1
+AP2
+UK1
+US1-FED
+US2-FED
+Authentication
+Copy page
+Copied
+All requests to Datadog’s API must be authenticated.
+Requests that write data require reporting access and require an
+API key
+.
+Requests that read data require full access and also require an
+application key
+.
+Note:
+All Datadog API clients are configured by default to consume Datadog US site APIs.
+If you are on the Datadog EU site, set the environment variable
+DATADOG_HOST
+to
+https://api.datadoghq.eu
+or override this value directly when creating your client.
+Manage your account’s API and application keys
+in Datadog, and see the
+API and Application Keys page
+in the documentation.
+Validate API key
+→
+GET
+https://api.datadoghq.com/api/v1/validate
+https://api.us3.datadoghq.com/api/v1/validate
+https://api.us5.datadoghq.com/api/v1/validate
+https://api.datadoghq.eu/api/v1/validate
+https://api.ap1.datadoghq.com/api/v1/validate
+https://api.ap2.datadoghq.com/api/v1/validate
+https://api.uk1.datadoghq.com/api/v1/validate
+https://api.ddog-gov.com/api/v1/validate
+https://api.us2.ddog-gov.com/api/v1/validate

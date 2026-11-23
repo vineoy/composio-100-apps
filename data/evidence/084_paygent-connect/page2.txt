@@ -1,0 +1,65 @@
+URL: https://docs.withpaygent.com/cli/commands/authentication
+FETCHED: 2026-11-23T22:33:45.277219
+VIA: direct
+
+Authentication | Paygent Documentation
+For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
+Skip to navigation
+On this page
+paygent login
+paygent whoami
+paygent logout
+Scroll to top
+The CLI talks to two services. Dashboard commands use a browser session; usage-tracking commands use an API key.
+paygent login
+Authenticate and store credentials for this machine.
+paygent
+login
+Opens a browser, signs you in, and saves the credential at mode
+0600
+.
+Flag
+Description
+--token <->
+Read a session token from stdin instead of opening a browser.
+--api-key <->
+Read an API key from stdin, for usage-tracking commands.
+--no-browser
+Print the URL instead of opening it.
+--timeout <dur>
+How long to wait for the browser callback.
+For CI, authenticate without a browser:
+echo
+"
+$PAYGENT_TOKEN
+"
+|
+paygent
+login
+--token
+-
+Usage-tracking commands (
+usage send
+,
+agent ensure
+,
+customer ensure
+) need an API key, never a session token:
+echo
+"
+$PAYGENT_API_KEY
+"
+|
+paygent
+login
+--api-key
+-
+Both credentials can be stored at once. Signing in with an API key does not sign you out of the dashboard.
+paygent whoami
+Show the account the stored credentials belong to.
+paygent
+whoami
+paygent logout
+Remove stored credentials from this machine.
+paygent
+logout

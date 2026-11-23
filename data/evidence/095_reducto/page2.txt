@@ -1,0 +1,740 @@
+URL: https://docs.reducto.ai/sdk/python/overview
+FETCHED: 2026-11-23T22:45:25.899770
+VIA: direct
+
+Python SDK Overview | Reducto Documentation
+Skip to content
+This page is available in Markdown format. Markdown is recommended for AI
+      consumption. See
+https://docs.reducto.ai/sdk/python/overview/index.md
+for this page, or
+https://docs.reducto.ai/llms.txt
+for the full documentation index.
+Search
+documentation
+Ctrl
+K
+The Reducto Python SDK provides a type-safe interface to the Reducto API. It handles authentication, request formatting, and response parsing automatically.
+Quick Start
+from
+pathlib
+import
+Path
+from
+reducto
+import
+Reducto
+# Initialize the client (reads REDUCTO_API_KEY from environment)
+client
+=
+Reducto
+()
+# Upload a document
+upload
+=
+client
+.
+upload
+(
+file
+=
+Path
+(
+"invoice.pdf"
+))
+# Parse the document
+result
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+# Access the extracted content
+for
+chunk
+in
+result
+.
+result
+.
+chunks
+:
+print
+(
+chunk
+.
+content
+)
+Key Features
+Full type hints and IDE autocomplete for all methods and responses using Pydantic models.
+Intuitive method names that match the REST API endpoints.
+Clear exception hierarchy with helpful error messages and status codes.
+Both synchronous and asynchronous clients with the same interface.
+Raw responses, streaming, custom HTTP clients, and per-request options.
+Built-in retry logic with exponential backoff for transient errors.
+Installation
+pip
+install reductoai
+Requires Python 3.9+. Upgrade with
+pip install --upgrade reductoai
+.
+Authentication
+Set your API key as an environment variable:
+export
+REDUCTO_API_KEY
+=
+"your_api_key_here"
+The SDK reads it automatically:
+from
+reducto
+import
+Reducto
+client
+=
+Reducto
+()
+# Reads REDUCTO_API_KEY from environment
+Or pass it explicitly:
+client
+=
+Reducto
+(
+api_key
+=
+"your_api_key_here"
+)
+Get your API key from
+Reducto Studio
+→ API Keys.
+Core Methods
+The SDK provides methods for all Reducto endpoints:
+Upload
+Upload documents to Reducto’s servers before processing:
+upload
+=
+client
+.
+upload
+(
+file
+=
+Path
+(
+"document.pdf"
+))
+# Returns: Upload with file_id and presigned_url fields
+Upload Documentation
+File upload options, size limits, and presigned URLs.
+Parse
+Turn full documents into LLM-ready text, tables, and figures:
+result
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+# Returns: ParseResponse with chunks, blocks, and metadata
+Parse Documentation
+Parse configuration, chunking options, and response structure.
+Extract
+Pull specific fields from documents using JSON schemas:
+result
+=
+client
+.
+extract
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+instructions
+=
+{
+"schema"
+:
+{
+"type"
+:
+"object"
+,
+"properties"
+:
+{
+"invoice_number"
+:
+{
+"type"
+:
+"string"
+}
+,
+"total"
+:
+{
+"type"
+:
+"number"
+}
+}
+}
+}
+,
+parsing
+=
+{
+"settings"
+:
+{
+"model"
+:
+"r-1"
+}}
+,
+)
+Extract Documentation
+Schema design, array extraction, and citations.
+Split
+Divide documents into sections based on content type:
+result
+=
+client
+.
+split
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+split_description
+=
+[
+{
+"name"
+:
+"Introduction"
+,
+"description"
+:
+"The introduction section"
+}
+,
+{
+"name"
+:
+"Methodology"
+,
+"description"
+:
+"The methodology section"
+}
+,
+{
+"name"
+:
+"Results"
+,
+"description"
+:
+"The results section"
+}
+]
+,
+parsing
+=
+{
+"settings"
+:
+{
+"model"
+:
+"r-1"
+}}
+,
+)
+# Returns: SplitResponse with splits array (name, pages, conf: "high" or "low")
+Split Documentation
+Split configuration and section types.
+Edit
+Fill PDF forms and modify DOCX documents:
+result
+=
+client
+.
+edit
+.
+run
+(
+document_url
+=
+upload
+.
+file_id
+,
+edit_instructions
+=
+"Fill name with 'John Doe' and date with '12/25/2024'"
+)
+Edit Documentation
+Form schemas and document modification.
+Pipeline
+Run pre-configured workflows from Reducto Studio:
+result
+=
+client
+.
+pipeline
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+pipeline_id
+=
+"your_pipeline_id"
+# From Reducto Studio
+)
+Pipeline Documentation
+Running studio-configured pipelines.
+Async Client
+The SDK provides an async client with the same interface:
+import
+asyncio
+from
+reducto
+import
+AsyncReducto
+async
+def
+main
+()
+:
+client
+=
+AsyncReducto
+()
+upload
+=
+await
+client
+.
+upload
+(
+file
+=
+Path
+(
+"document.pdf"
+))
+result
+=
+await
+client
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+return
+result
+# Run the async function
+result
+=
+asyncio
+.
+run
+(
+main
+())
+Async Client Guide
+Concurrent processing, rate limiting, and batch operations.
+Response Types
+All SDK methods return strongly-typed response objects. The SDK uses Pydantic models for validation and type safety:
+from
+reducto
+.
+types
+import
+ParseResponse
+result
+:
+ParseResponse
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+# Access typed fields
+print
+(
+result
+.
+job_id
+)
+# str
+print
+(
+result
+.
+usage
+.
+num_pages
+)
+# int
+print
+(
+result
+.
+usage
+.
+credits
+)
+# float
+print
+(
+result
+.
+result
+.
+chunks
+)
+# list[Chunk]
+Error Handling
+The SDK raises specific exceptions for different error conditions:
+from
+reducto
+import
+Reducto
+import
+reducto
+try
+:
+result
+=
+client
+.
+parse
+.
+run
+(
+input
+=
+"invalid-file-id"
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+except
+reducto
+.
+APIConnectionError
+as e
+:
+print
+(
+f"Connection failed:
+{
+e
+}
+"
+)
+print
+(
+e
+.
+__cause__
+)
+# underlying exception
+except
+reducto
+.
+RateLimitError
+as e
+:
+print
+(
+f"Rate limited:
+{
+e
+}
+"
+)
+except
+reducto
+.
+APIStatusError
+as e
+:
+print
+(
+f"API error:
+{
+e.status_code
+}
+-
+{
+e.response
+}
+"
+)
+Error Handling Guide
+Complete error handling reference with all exception types.
+Advanced Features
+Raw Response Access
+Access raw HTTP response data including headers:
+response
+=
+client
+.
+parse
+.
+with_raw_response
+.
+run
+(
+input
+=
+upload
+.
+file_id
+)
+print
+(
+response
+.
+headers
+.
+get
+(
+'X-My-Header'
+))
+parse_result
+=
+response
+.
+parse
+()
+# Get the parsed object
+Streaming Responses
+Stream large responses without loading everything into memory:
+with
+client
+.
+parse
+.
+with_streaming_response
+.
+run
+(
+input
+=
+upload
+.
+file_id
+)
+as response
+:
+for
+line
+in
+response
+.
+iter_lines
+()
+:
+print
+(
+line
+)
+Per-Request Options
+Override client settings for individual requests:
+# Custom timeout for this request
+client
+.
+with_options
+(
+timeout
+=
+30.0
+)
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+# Custom retry settings
+client
+.
+with_options
+(
+max_retries
+=
+5
+)
+.
+parse
+.
+run
+(
+input
+=
+upload
+.
+file_id
+,
+settings
+=
+{
+"model"
+:
+"r-1"
+})
+Custom HTTP Client
+Configure the underlying HTTP client:
+import
+httpx
+from
+reducto
+import
+Reducto
+,
+DefaultHttpxClient
+client
+=
+Reducto
+(
+http_client
+=
+DefaultHttpxClient
+(
+proxy
+=
+"http://my.proxy.com"
+,
+timeout
+=
+httpx
+.
+Timeout
+(
+60.0
+)
+,
+)
+,
+)
+Next Steps
+Get your API key
+Create an API key in
+Reducto Studio
+and set it as
+REDUCTO_API_KEY
+.
+Try the quickstart
+Run your first parse operation with the
+quickstart example
+.
+Explore the methods
+Check out the
+core methods documentation
+for detailed usage.
+esc
+Type to search…
+↑
+↓
+Navigate
+↵
+Open
+esc
+Close
+⌘
+↵
+Ask AI
+↵

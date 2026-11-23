@@ -1,0 +1,195 @@
+URL: https://mermaid.ai/pricing
+FETCHED: 2026-11-23T22:48:23.744349
+VIA: direct
+
+Mermaid Pricing: Plans for Individuals & Teams
+Products
+Solutions
+Pricing
+Community
+Open Source
+Docs
+Contact sales
+Contact sales
+Pricing made for the way you diagram
+Explore different pricing options that scales with your team's needs.
+Basic
+Free
+For getting started and simple diagrams
+3 Diagrams
+Limited diagram size
+Limited AI
+1 team & project creation
+Limited workflow runs
+Get started
+Plus
+$10 per user / month
+Billed Annually
+For individuals who diagram often
+Unlimited diagrams
+Limitless diagram size
+300 AI credits per year
+Get started for free
+Premium
+Most Popular
+$20 per user / month
+Billed Annually
+For advanced users and teams running AI workflows
+500 shared workflow runs per month
+2,000 AI credits per year
+Unlimited free viewer seats
+Unlimited teams & project creation
+Get started
+Enterprise
+Custom
+Billed Annually
+For organizations that need scale and control
+SSO
+Custom contract & invoicing
+IP management
+Dedicated Customer Success Manager (CSM)
+Contact sales
+Made for teams like yours
+— trusted by over 5M people and over
+			200k companies
+Compare plans
+Basic
+Get started
+Plus
+Get started for free
+Premium
+Get started
+Enterprise
+Contact sales
+Usage Limits
+Number of diagrams
+3
+Unlimited
+Unlimited
+Unlimited
+Diagram size
+Limited (60)
+Limitless
+Limitless
+Limitless
+AI credits
+15
+300
+2,000
+Unlimited*
+Workflow runs / month
+15
+15
+500 (shared)
+Custom
+Collaboration & users
+Co-editing & external sharing
+Viewer seats
+-
+-
+Unlimited
+Unlimited
+User consolidation
+-
+-
+-
+Security & support
+SSO
+-
+-
+-
+Customer success manager (CSM)
+-
+-
+-
+Custom contract & invoicing
+-
+-
+-
+IP management
+-
+-
+-
+Compare plans
+Basic
+Get
+Plus
+Get
+Premium
+Start
+Enterprise
+Contact
+Usage Limits
+Number of diagrams
+3
+Unlimited
+Unlimited
+Unlimited
+Diagram size
+Limited (60)
+Limitless
+Limitless
+Limitless
+AI credits
+15
+300
+2,000
+Unlimited*
+Workflow runs / month
+15
+15
+500 (shared)
+Custom
+Collaboration & users
+Co-editing & external sharing
+Viewer seats
+-
+-
+Unlimited
+Unlimited
+User consolidation
+-
+-
+-
+Security & support
+SSO
+-
+-
+-
+Customer success manager (CSM)
+-
+-
+-
+Custom contract & invoicing
+-
+-
+-
+IP management
+-
+-
+-
+FAQ
+Have questions about pricing?
+Contact us for more info
+Can I try Mermaid for free?
+Yes! The Basic plan gives you access to core features so you can start creating diagrams right away. It’s a great way to explore Mermaid before upgrading.
+What’s included in the Plus and Premium plans?
+Plus unlocks unlimited diagrams, limitless diagram size, and 300 AI credits. Premium includes everything in Plus, along with 2,000 AI credits, unlimited viewer seats, and 500 shared workflow runs per month.
+Do you offer a free trial of the Plus and Premium plans?
+Yes – you can start a free trial of Plus or Premium to try advanced features before committing.
+Can I switch plans at any time?
+Absolutely. You can upgrade, downgrade, or cancel your plan whenever you want. Changes are reflected in your next billing cycle.
+Do you offer monthly and annual billing?
+We currently offer annual billing only. Monthly plans are not available at this time.
+What payment methods do you accept?
+We accept all major credit cards. For Enterprise, we also support invoicing and purchase orders.
+What’s included in the Enterprise plan?
+Enterprise includes everything in Premium, plus SSO, dedicated account support, custom contract and invoicing, and easy user consolidation. It’s designed for large teams with compliance needs.
+How do I purchase the Enterprise plan?
+Enterprise plans are customized based on your team’s needs. Contact our sales team to get started.
+Is Mermaid Plus, Premium, or Enterprise required to use Mermaid syntax?
+No. The core Mermaid syntax is always free and open-source. Paid plans add AI features, diagram storage, real-time collaboration, integrations, and security controls.
+Does AI usage cost extra?
+No. AI features are included in all plans, from capped credits to unlimited use. AI prompts from our paid users are never used for training and all data remains private.
+What’s a workflow run?
+A run is one execution of a workflow in Mermaid Flow, start to finish, however it’s triggered. Every plan includes runs: 15 per user each month on Basic and Plus, 500 shared across your organization on Premium, and custom on Enterprise. Runs reset monthly and are separate from AI credits. Workflows don’t count toward your diagram limit.

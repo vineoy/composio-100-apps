@@ -1,0 +1,574 @@
+URL: https://plaid.com/docs/resources/mcp/
+FETCHED: 2026-11-23T22:15:02.197283
+VIA: direct
+
+Resources - MCP Server | Plaid Docs
+Close search modal
+Search the docs
+Ask Bill!
+Ask a question...
+Hi! I'm Bill! You can ask me all about the Plaid API. Try asking questions like:
+Pssst -- I also moonlight as your IDE's research librarian! Plug me in via the
+Plaid MCP Server
+.
+Note:
+Bill isn't perfect. He's just a robot platypus that reads our docs for fun. You should treat his answers with the same healthy skepticism you might treat any other answer on the internet. This chat may be logged for quality and training purposes. Please don't send Bill any PII -- he's scared of intimacy. All chats with Bill are subject to Plaid's
+Privacy Policy.
+Dashboard MCP server
+Connect an LLM application to Plaid Dashboard tools
+Plaid offers two
+Model Context Protocol
+(MCP) servers:
+The
+Dashboard MCP server
+is a remote MCP server hosted by Plaid. It provides Production diagnostics and analytics tools, including tools for debugging Items, reviewing Link conversion data, and checking usage metrics.
+The
+Plaid AI coding toolkit
+includes a local MCP server for development. It runs as a subprocess of an MCP client, such as Claude, Cursor, Codex, VS Code, or Zed, and provides tools for mock data generation, documentation search, Sandbox tokens, and webhook simulation.
+This article covers the Dashboard MCP server. You can connect to it from an MCP client, or you can use it in a model provider's API as a remote MCP server.
+The Dashboard MCP server is under active development. Breaking changes may occur, and Plaid currently provides limited support.
+Connection options
+Requirements
+The Dashboard MCP server works with Production data only. Your team must be approved for Production access with at least one Plaid product to use the MCP server.
+MCP client setup
+Use this option for an MCP client or hosted assistant, such as Claude.ai, ChatGPT, or another client that supports remote MCP server URLs.
+In your client's MCP settings, add the Dashboard MCP server URL:
+Dashboard MCP server URL
+https://api.dashboard.plaid.com/mcp/
+If your client asks for the transport or protocol, choose Streamable HTTP.
+For Claude.ai setup, see
+Claude's custom connector documentation
+.
+API integration with remote MCP
+Use this option when your application calls a model provider API and lets the model call Dashboard MCP tools during that request. This is an API integration with a remote MCP server. OpenAI exposes remote MCP servers as
+mcp
+tools in the Responses API. Anthropic calls this feature the MCP connector in the Messages API.
+For this flow, your backend creates or refreshes a Plaid OAuth token and passes it to the model provider SDK with the Dashboard MCP server URL. The field name depends on the provider. OpenAI uses
+authorization
+; Anthropic uses
+authorization_token
+.
+Your model provider account must have access to remote MCP servers or hosted tools.
+Creating an OAuth token
+To connect to the Dashboard MCP server, first create an OAuth token with the
+mcp:dashboard
+scope and the
+client_credentials
+grant type by calling
+/oauth/token
+.
+Creating an access token
+curl
+-X POST https://production.plaid.com/oauth/token
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"client_id": "${PLAID_CLIENT_ID}",
+"client_secret": "YOUR_PRODUCTION_SECRET",
+"grant_type": "client_credentials",
+"scope": "mcp:dashboard"
+}'
+The response includes an
+access_token
+for Dashboard MCP requests and a
+refresh_token
+for requesting a new access token.
+Passing the MCP server to a model API
+The Dashboard MCP server is available at
+https://api.dashboard.plaid.com/mcp/
+and uses the Streamable HTTP protocol. When you communicate with the MCP server directly, pass the
+access_token
+from the authorization step in an
+Authorization: Bearer <access_token>
+header.
+The connection method depends on the LLM client library. Most provider SDKs expose remote MCP servers as tools that the model can call. See your model provider's documentation, such as
+OpenAI
+or
+Anthropic
+. Use a current version of your model provider's client library.
+The following examples show how to access Link analytics through the Dashboard MCP server using the OpenAI or Anthropic Python client libraries.
+These examples use the following environment variables:
+PLAID_CLIENT_ID
+,
+PLAID_PRODUCTION_SECRET
+, and either
+OPENAI_API_KEY
+or
+ANTHROPIC_API_KEY
+.
+Select group for content switcher
+OpenAI
+Anthropic
+OpenAI Python example
+import
+json
+import
+os
+import
+plaid
+from
+openai
+import
+OpenAI
+from
+plaid
+.
+api
+import
+plaid_api
+from
+plaid
+.
+api_client
+import
+ApiClient
+from
+plaid
+.
+model
+.
+o_auth_grant_type
+import
+OAuthGrantType
+from
+plaid
+.
+model
+.
+o_auth_token_request
+import
+OAuthTokenRequest
+DASHBOARD_MCP_SERVER_URL
+=
+"https://api.dashboard.plaid.com/mcp/"
+def
+get_plaid_client
+(
+)
+:
+configuration
+=
+plaid
+.
+Configuration
+(
+host
+=
+plaid
+.
+Environment
+.
+Production
+,
+api_key
+=
+{
+"clientId"
+:
+os
+.
+environ
+[
+"PLAID_CLIENT_ID"
+]
+,
+"secret"
+:
+os
+.
+environ
+[
+"PLAID_PRODUCTION_SECRET"
+]
+,
+}
+,
+)
+api_client
+=
+ApiClient
+(
+configuration
+)
+return
+plaid_api
+.
+PlaidApi
+(
+api_client
+)
+def
+request_or_refresh_access_token
+(
+)
+:
+# This example creates a new access token each run.
+plaid_client
+=
+get_plaid_client
+(
+)
+oauth_token_request
+=
+OAuthTokenRequest
+(
+grant_type
+=
+OAuthGrantType
+(
+"client_credentials"
+)
+,
+scope
+=
+"mcp:dashboard"
+,
+)
+response
+=
+plaid_client
+.
+oauth_token
+(
+oauth_token_request
+)
+return
+response
+.
+access_token
+def
+main
+(
+)
+-
+>
+None
+:
+"""Retrieve Link analytics through the Dashboard MCP server."""
+client
+=
+OpenAI
+(
+api_key
+=
+os
+.
+environ
+[
+"OPENAI_API_KEY"
+]
+)
+dashboard_token
+=
+request_or_refresh_access_token
+(
+)
+response
+=
+client
+.
+responses
+.
+create
+(
+model
+=
+"gpt-5.5"
+,
+tools
+=
+[
+{
+"type"
+:
+"mcp"
+,
+"server_label"
+:
+"plaid"
+,
+"server_url"
+:
+DASHBOARD_MCP_SERVER_URL
+,
+"require_approval"
+:
+"never"
+,
+"authorization"
+:
+dashboard_token
+,
+}
+]
+,
+input
+=
+(
+"Use the Dashboard MCP server to get Link analytics from "
+"2025-05-01 through 2025-05-08. Return Link opens, "
+"institution selections, and handoffs."
+)
+,
+)
+for
+item
+in
+response
+.
+output
+:
+if
+item
+.
+type
+==
+"mcp_list_tools"
+:
+print
+(
+"\n=== MCP Tools ==="
+)
+for
+tool
+in
+item
+.
+tools
+:
+print
+(
+f" -
+{
+tool
+[
+'name'
+]
+}
+"
+)
+elif
+item
+.
+type
+==
+"mcp_call"
+:
+print
+(
+"\n=== MCP Call ==="
+)
+print
+(
+f"Tool:
+{
+item
+.
+name
+}
+"
+)
+try
+:
+# The arguments field is a JSON string. Parse it for readability.
+args
+=
+json
+.
+loads
+(
+item
+.
+arguments
+)
+except
+(
+TypeError
+,
+json
+.
+JSONDecodeError
+)
+:
+args
+=
+item
+.
+arguments
+print
+(
+"Arguments:"
+)
+print
+(
+json
+.
+dumps
+(
+args
+,
+indent
+=
+2
+)
+)
+elif
+item
+.
+type
+==
+"message"
+:
+print
+(
+"\n=== Assistant Message ==="
+)
+# The content field is a list of ResponseOutputText objects.
+texts
+=
+[
+]
+for
+part
+in
+item
+.
+content
+:
+# Depending on SDK version, `text` may be an attribute or dict key.
+text
+=
+getattr
+(
+part
+,
+"text"
+,
+None
+)
+or
+(
+part
+.
+get
+(
+"text"
+)
+if
+isinstance
+(
+part
+,
+dict
+)
+else
+None
+)
+if
+text
+:
+texts
+.
+append
+(
+text
+)
+print
+(
+"\n"
+.
+join
+(
+texts
+)
+)
+else
+:
+print
+(
+f"\n=== Unhandled output type:
+{
+item
+.
+type
+}
+==="
+)
+print
+(
+item
+)
+if
+__name__
+==
+"__main__"
+:
+main
+(
+)
+Sample output
+=== MCP Tools ===
+- plaid_debug_item
+- plaid_get_link_analytics
+- plaid_get_tools_introduction
+- plaid_get_usages
+- plaid_list_teams
+=== MCP Call ===
+Tool: plaid_list_teams
+Arguments:
+{}
+=== MCP Call ===
+Tool: plaid_get_link_analytics
+Arguments:
+{
+"from_date": "2025-05-01",
+"team_id": "<team_id>",
+"to_date": "2025-05-08"
+}
+=== Assistant Message ===
+From 2025-05-01 through 2025-05-08:
+- Link opens: 58
+- Institution selections: 29
+- Handoffs: 18
+Expired tokens
+Access tokens for the MCP server expire after 15 minutes. If the access token expires, MCP requests fail with a
+401
+status code or a provider-specific authentication error. Create a new token or call
+/oauth/token
+with the
+refresh_token
+.
+Refreshing an access token
+curl
+-X POST https://production.plaid.com/oauth/token
+\
+-H
+'Content-Type: application/json'
+\
+-d
+'{
+"client_id": "${PLAID_CLIENT_ID}",
+"client_secret": "YOUR_PRODUCTION_SECRET",
+"refresh_token": "YOUR_REFRESH_TOKEN",
+"grant_type": "refresh_token"
+}'
+Dashboard MCP tools
+The Dashboard MCP server currently supports the following tools:
+Tool
+Purpose
+plaid_debug_item
+Diagnose a Plaid Item using related metadata.
+plaid_get_link_analytics
+Retrieve Link funnel, conversion, and error metrics.
+plaid_get_tools_introduction
+Get usage guidance for Dashboard MCP tools.
+plaid_get_usages
+Retrieve product usage metrics and API request volumes.
+plaid_list_teams
+List teams available to the OAuth token.
+For more details about the tools provided by the Dashboard MCP server, connect to the server using a tool such as the
+MCP Inspector
+.

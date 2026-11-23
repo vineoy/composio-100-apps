@@ -1,0 +1,188 @@
+URL: https://developer.xero.com/pricing
+FETCHED: 2026-11-23T22:36:03.261000
+VIA: direct
+
+Pricing — Xero Developer
+Skip to main content
+Main content start
+Xero Developer Pricing and Policies
+App Plans
+Plans have been created to enable early innovation and create an accessible entry point for developers just getting started. As your app scales, requiring additional benefits, you can easily move through the plans.
+Starter
+Core
+Plus
+Advanced
+Enterprise
+Connections (maximum)
+5
+50
+1000
+10,000
+No Limit
+Prerequisites
+App Certification
+App Certification
+App Certification
+Prerequisites (continued)
+Security Assessment (initial and annual)
+Security Assessment (initial and annual)
+Payment Method
+Not Applicable
+Required
+Required
+Required
+Required
+Xero App Store
+Not Applicable
+Not Applicable
+Optional
+Optional
+Required
+Benefits by Plan
+Xero continues to invest in our ecosystem and the growth programs, co-marketing opportunities, technical support and benefits that enable you to connect to Xero’s 4.6+ million global subscribers.
+Benefit
+Starter
+Core
+Plus
+Advanced
+Enterprise
+Developer tools and resources
+Developer tools (API explorer, Postman, Insomnia, Linx)
+AI toolkit (Open AI Agentic SDKs, Prompt library, AI enablement videos)
+AI toolkit (Remote MCP server)
+Demo org only
+Developer Dashboard (usage and connections data)
+Standard features
+Open APIs
+Webhooks
+Rate Limits
+1000 per day per org
+5000 per day per org
+5000 per day per org
+5000 per day per org
+5000 per day per org
+Access to App Launcher in Xero navigation
+API Egress Usage Report
+Premium features
+Rapid Sync (first 30 minutes for any connection)
+Not Included
+Not Included
+Journal endpoint (require security assessment and use case approval)
+Not Included
+Not Included
+Not Included
+XPM API (require security assessment and use case approval)
+Not Included
+Not Included
+Not Included
+Bulk connections (require security assessment and use case approval)
+Not Included
+Not Included
+Not Included
+Developer support, engagement and community
+Developer support
+General support
+General support
+General support
+Priority support
+Priority Support
+Developer events (DevDay, Hackathons, Meetups)
+Annual technical consultation (API and onboarding experience optimisation)
+Not Included
+Not Included
+Not Included
+Not Included
+Marketing and growth
+Xero App Store listing
+Not Included
+Not Included
+Optional
+Optional
+Required
+Eligible for Xero App Store promotional merchandising, access to in product placements and promotion in Xero channels, content and campaigns (requires Xero App Store listing)
+Not Included
+Not Included
+Eligible to sponsor Xero events: Xerocon, regional roadshows, educational events (requires Xero App Store listing)
+Not Included
+Not Included
+Developer Branding Guides and verified badges
+Not Included
+Not Included
+Access to self serve marketing resources and guides
+Eligible for Growth and App Awards Programs (requires Xero App Store listing)
+Not Included
+Not Included
+Programs: Channel Program, Developer Council, Custom Developer Programs
+New Features
+We have aligned benefits to ensure they scale seamlessly with your app's growth.
+Rapid Sync
+Rapid Sync will now be available to all certified apps and has been extended to all connections, not just connections that originate via the Xero App Store. This feature lifts the standard API limits for the first 30 minutes of a new organisation connection, improves the onboarding experience, accelerates your time to value with faster data import, and reduces friction - boosting customer conversion and retention.
+New Egress Usage Report
+A new report available in the app dashboard that shows your daily API consumption spanning two months of data usage. To access this report, log into the developer portal and look at the usage tab for your app
+Premium features in the Advanced plan
+Journals endpoint
+This endpoint is used for retrieving the complete set of journal entries for an organisation. This includes journals created automatically by Xero from source transactions (like invoices, bills, and payments).
+Xero Practice Manager (XPM) API
+Xero Practice Manager (XPM) is a practice management system designed for accounting firms to manage their workflow, time tracking, and job costing. The XPM API allows third-party apps and developers to programmatically connect to and interact with the data and functionality within a Xero Practice Manager account.
+Bulk Connections
+The Bulk Connections feature that allows a single user to connect multiple Xero organisations (tenants) to your app in one single OAuth 2.0 authorisation flow. This feature is primarily designed to improve the connection process for users who manage a large number of client organisations in Xero.
+Plan Fees, Connection Limits, and API Volume Usage
+App pricing is a flat monthly fee based on plan and includes a set allotment of data consumption via the Xero APIs. Additional data consumption is available at additional cost.
+Feature
+Starter
+Core
+Plus
+Advanced
+Enterprise
+Connections (maximum)
+5
+50
+1000
+10,000
+No limit
+Monthly Tier Fee
+No charge
+$35 AUD
+$245 AUD
+$1445 AUD
+Price on Application
+Monthly Xero API usage (Ingress GBs)
+Unlimited
+Unlimited
+Unlimited
+Unlimited
+Unlimited
+Monthly Xero API usage (Egress GBs)*
+n/a
+10 GBs
+50 GBs
+250 GBs
+Volume on Application
+Overage Xero API usage egress pricing (per GB)
+n/a
+$2.40 AUD
+$2.40 AUD
+$2.40 AUD
+Price on Application
+Pricing is tax exclusive
+*We exclude the organisation endpoint from this usage allotment
+To find your egress GBs,
+log in to the developer portal
+and look at the usage tab for your app.
+Connection count and API data consumption via the Xero API is measured and priced at the app level. Apps cannot share connection counts or API volume used, even if they are from the same developer.
+Connection counts and API metering will be available in the developer dashboard for all apps beginning 4 December, 2025.
+API data egress volume via the Xero APIs is based on gigabytes used and is a monthly allotment. These reset on the first of the calendar month (using UTC timezone), allowing you a new allotment, as long as you have an active payment method on file with Xero Developer. This is also the billing cycle.
+Payments are accepted via registered credit card. Your card details will be required when moving from the Starter to the Core plan.
+Payments will occur (via the registered credit card) on the first of the following month, after the last billing month.
+Failed payments will show on the billing page, where you can view all invoices and payments.
+Glossary
+Connections:
+customer or tenants connected to your app via a valid OAuth connection
+API Usage Ingress:
+the process of sending new or updated accounting and financial data from your external app to a connected Xero organisation.
+API Usage Egress:
+the process of extracting or downloading accounting and financial data from a connected Xero organisation to your external app or system.
+Support and Resources
+Please review our
+FAQs
+to learn more about the pricing and policy changes as well as learn how to better optimise your app’s API usage and inactive connections.

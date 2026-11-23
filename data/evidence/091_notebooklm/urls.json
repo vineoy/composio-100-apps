@@ -1,0 +1,77 @@
+{
+ "app": "NotebookLM",
+ "queries": [
+  "NotebookLM API authentication documentation",
+  "NotebookLM MCP server",
+  "NotebookLM API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+  "https://github.com/future-agi/cookbooks/blob/main/notebooklm/API_DOCUMENTATION.md",
+  "https://github.com/moodRobotics/notebooklm-mcp-server",
+  "https://github.com/khengyun/notebooklm-mcp"
+ ],
+ "search_hits": [
+  {
+   "title": "Create and manage notebooks (API) | Gemini Notebook ...",
+   "href": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks"
+  },
+  {
+   "title": "cookbooks/notebooklm/API_DOCUMENTATION.md at main \u00b7 future ...",
+   "href": "https://github.com/future-agi/cookbooks/blob/main/notebooklm/API_DOCUMENTATION.md"
+  },
+  {
+   "title": "notebooklm-ts-api/docs/authentication.md at main ... - GitHub",
+   "href": "https://github.com/HenriqueCosta05/notebooklm-ts-api/blob/main/docs/authentication.md"
+  },
+  {
+   "title": "Authentication - NBLM Docs",
+   "href": "https://k-dash.github.io/nblm-rs/getting-started/authentication/"
+  },
+  {
+   "title": "NotebookLM Enterprise API \u2014 REST",
+   "href": "https://integrations.sh/notebooklm.google/notebooklm-enterprise-api/"
+  },
+  {
+   "title": "GitHub - moodRobotics/notebooklm-mcp-server: Universal ...",
+   "href": "https://github.com/moodRobotics/notebooklm-mcp-server"
+  },
+  {
+   "title": "NotebookLM MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/pleaseprompto/notebooklm-mcp"
+  },
+  {
+   "title": "NotebookLM MCP Server: Complete Guide (2026) - mcp.directory",
+   "href": "https://mcp.directory/blog/notebooklm-mcp-complete-guide-2026"
+  },
+  {
+   "title": "GitHub - khengyun/notebooklm-mcp: Professional Automation for ...",
+   "href": "https://github.com/khengyun/notebooklm-mcp"
+  },
+  {
+   "title": "NotebookLM MCP Server and API: What Works in 2026",
+   "href": "https://www.notebooktools.com/blog/notebooklm-mcp"
+  },
+  {
+   "title": "NotebookLM Pricing: Everything You Need to Know in 2026",
+   "href": "https://notebooktoolkit.com/blog/notebooklm-pricing-guide"
+  },
+  {
+   "title": "NotebookLM Pricing 2026: Free vs Google AI Plus, Pro, Ultra",
+   "href": "https://www.notebooktools.com/blog/notebooklm-pricing-plans"
+  },
+  {
+   "title": "Is NotebookLM Free in 2026? Pricing, Limits, and Plus Tier ...",
+   "href": "https://notebooktoolkit.com/blog/is-notebooklm-free"
+  },
+  {
+   "title": "NotebookLM Pricing 2026: Free vs Plus vs Workspace Plans",
+   "href": "https://www.layer3labs.io/guides/notebooklm-pricing"
+  },
+  {
+   "title": "NotebookLM Pricing 2026: Free vs Paid Plans and Team Costs",
+   "href": "https://saascrmreview.com/notebooklm-pricing/"
+  }
+ ],
+ "fetched_at": "2026-11-23T22:40:41.839320"
+}

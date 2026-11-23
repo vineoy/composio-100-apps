@@ -1,0 +1,77 @@
+{
+ "app": "GitHub",
+ "queries": [
+  "GitHub API authentication documentation",
+  "GitHub MCP server",
+  "GitHub API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+  "https://docs.github.com/en/rest/authentication",
+  "https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server",
+  "https://docs.github.com/en/rest"
+ ],
+ "search_hits": [
+  {
+   "title": "Authenticating to the REST API - GitHub Docs",
+   "href": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api"
+  },
+  {
+   "title": "Authenticating to the REST API - GitHub Docs",
+   "href": "https://docs.github.com/en/rest/authentication"
+  },
+  {
+   "title": "Authentication | GitHub Agentic Workflows",
+   "href": "https://github.github.com/gh-aw/reference/auth/"
+  },
+  {
+   "title": "GitHub API v3 | GitHub Developer Guide",
+   "href": "https://octokit.github.io/routes/cache/api.github.com/v3/index.html"
+  },
+  {
+   "title": "Authentication and Authorization | github/rest-api-description | DeepWiki",
+   "href": "https://deepwiki.com/github/rest-api-description/3.5-authentication-and-authorization"
+  },
+  {
+   "title": "Setting up the GitHub MCP Server",
+   "href": "https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/set-up-the-github-mcp-server"
+  },
+  {
+   "title": "Configuring the GitHub MCP Server for GitHub Enterprise",
+   "href": "https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/customize-copilot/extend-copilot-with-tools-and-context/enterprise-configuration"
+  },
+  {
+   "title": "Official GitHub MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/github-mcp-server"
+  },
+  {
+   "title": "A practical guide on how to use the GitHub MCP server",
+   "href": "https://github.blog/ai-and-ml/generative-ai/a-practical-guide-on-how-to-use-the-github-mcp-server/"
+  },
+  {
+   "title": "Introduction to MCP Server - Training | Microsoft Learn",
+   "href": "https://learn.microsoft.com/en-us/training/modules/mcp-server/"
+  },
+  {
+   "title": "GitHub's plans - GitHub Docs",
+   "href": "https://docs.github.com/en/get-started/learning-about-github/githubs-plans"
+  },
+  {
+   "title": "GitHub Pricing & API Plans | APIs.io",
+   "href": "https://apis.io/plans/github/github-plans-pricing/"
+  },
+  {
+   "title": "GitHub Models AI models \u2014 pricing & benchmarks | CloudPrice",
+   "href": "https://cloudprice.net/models/providers/github_models"
+  },
+  {
+   "title": "GitHub's plans - GitHub Enterprise Cloud Docs",
+   "href": "https://docs.github.com/enterprise-cloud@latest/get-started/learning-about-github/githubs-plans"
+  },
+  {
+   "title": "GitHub Models Pricing 2026: Free Tier and Paid Costs",
+   "href": "https://www.activepieces.com/blog/github-models-pricing-2026-free-tier-and-paid-costs"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:38:01.739841"
+}

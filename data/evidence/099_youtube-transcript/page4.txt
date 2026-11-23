@@ -1,0 +1,35 @@
+URL: https://transcriptapi.com/docs/
+FETCHED: 2026-11-23T22:49:22.889776
+VIA: direct
+
+TranscriptAPI Documentation | TranscriptAPI.com
+Skip to content
+TranscriptAPI Documentation
+Extract YouTube video transcripts with a simple API call or through Model Context Protocol
+Get Started
+View API Reference
+Quick Access
+Section titled “Quick Access”
+API Reference
+Complete guide to transcripts, search, channel, and playlist endpoints with
+authentication, parameters, and examples.
+View API Reference →
+MCP Integration
+Use TranscriptAPI with Model Context Protocol for seamless integration with
+AI tools.
+View MCP Documentation →
+Guides & Tutorials
+Step-by-step guides for integrating TranscriptAPI into your applications and
+workflows.
+MCP Integration Guides:
+ChatGPT Setup
+Claude Setup
+OpenAI Agent Builder
+LLMS.txt
+AI-friendly documentation format for LLM context. Download the complete docs
+in a single text file.
+Download LLMS.txt →
+Support & Billing
+Get help with billing, credits, and other account-related questions.
+Contact Us
+Billing & Credits

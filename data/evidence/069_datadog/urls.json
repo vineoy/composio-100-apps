@@ -1,0 +1,77 @@
+{
+ "app": "Datadog",
+ "queries": [
+  "Datadog API authentication documentation",
+  "Datadog MCP server",
+  "Datadog API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://docs.datadoghq.com/api",
+  "https://docs.datadoghq.com/api/latest/authentication",
+  "https://docs.datadoghq.com/api/latest",
+  "https://docs.datadoghq.com/mcp_server/"
+ ],
+ "search_hits": [
+  {
+   "title": "Authentication - Datadog API",
+   "href": "https://docs.datadoghq.com/api/latest/authentication/"
+  },
+  {
+   "title": "Datadog API Reference",
+   "href": "https://docs.datadoghq.com/api/latest/"
+  },
+  {
+   "title": "Modernize Datadog API authentication with scoped credentials",
+   "href": "https://www.datadoghq.com/blog/datadog-api-authentication/"
+  },
+  {
+   "title": "Datadog Apps API Documentation",
+   "href": "https://datadoghq.dev/apps/"
+  },
+  {
+   "title": "Datadog API Documentation - Read the Docs",
+   "href": "https://dogapi.readthedocs.io/_/downloads/en/latest/pdf/"
+  },
+  {
+   "title": "Datadog MCP Server",
+   "href": "https://docs.datadoghq.com/mcp_server/"
+  },
+  {
+   "title": "Set Up the Datadog MCP Server - docs.datadoghq.com",
+   "href": "https://docs.datadoghq.com/mcp_server/setup/?tab=antigravity"
+  },
+  {
+   "title": "MCP Server | CLI | AI Agent-Ready Observability | Datadog",
+   "href": "https://www.datadoghq.com/product/ai/mcp-server/"
+  },
+  {
+   "title": "Datadog MCP Server - GitHub",
+   "href": "https://github.com/GeLi2001/datadog-mcp-server"
+  },
+  {
+   "title": "Datadog MCP Server: Connect your AI agents to Datadog tools ...",
+   "href": "https://www.datadoghq.com/blog/datadog-remote-mcp-server/"
+  },
+  {
+   "title": "Pricing - Datadog",
+   "href": "https://www.datadoghq.com/pricing/"
+  },
+  {
+   "title": "Datadog Pricing Comparison | Datadog",
+   "href": "https://www.datadoghq.com/pricing/list/"
+  },
+  {
+   "title": "Datadog API Reference",
+   "href": "https://docs.datadoghq.com/api/latest/"
+  },
+  {
+   "title": "Pricing - Datadog Infrastructure and Application Monitoring",
+   "href": "https://docs.datadoghq.com/account_management/billing/pricing/"
+  },
+  {
+   "title": "Datadog pricing (2026): what a small team actually pays",
+   "href": "https://fixter.dev/blog/datadog-pricing"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:44:26.669106"
+}

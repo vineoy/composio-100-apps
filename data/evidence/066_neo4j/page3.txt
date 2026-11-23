@@ -1,0 +1,51 @@
+URL: https://neo4j.com/docs/mcp/current/
+FETCHED: 2026-11-23T17:41:23.067039
+VIA: direct
+
+Introduction - Neo4j MCP
+Skip to content
+Neo4j MCP
+Product Version
+Version 2 (Current)
+Version 1
+Is this page helpful?
+Raise an issue
+Introduction
+Neo4j MCP implements the Model Context Protocol (MCP), an open standard that lets applications connect to external data sources and tools.
+It bridges any MCP-compatible client and your Neo4j instance, giving that client direct, structured access to your graph database.
+AI assistants and agents are the most common MCP clients today, tools like Claude, Cursor, or VS Code with MCP support.
+But MCP itself doesn’t require AI.
+Any application that implements the MCP client specification can connect to Neo4j through it, whether or not a model is involved.
+Neo4j MCP is built for:
+Developers who want to query Neo4j conversationally while prototyping.
+Data scientists and analysts exploring graph data without deep Cypher® expertise.
+Platform teams deploying shared tooling that needs structured, auditable access to Neo4j.
+Application builders using Neo4j as a knowledge source or reasoning backend, including in multi-agent systems.
+A connected client can:
+Explore your graph schema - discover node labels, relationship types, and property keys, and reason about your data model without knowing it in advance.
+Run Cypher queries - execute reads and writes against your database from natural language prompts or programmatic calls.
+Inspect and analyze data - retrieve nodes, relationships, and paths to answer questions, generate summaries, or feed other workflows.
+Prerequisites
+A running Neo4j database instance. Options include
+Aura
+,
+neo4j-desktop
+or
+self-managed
+.
+The APOC plugin installed in the Neo4j instance.
+Any MCP-compatible client, e.g.
+VSCode
+with
+MCP support
+.
+Optional requirements
+The Graph Data Science (GDS) library is optional.
+See
+GDS requirement
+for details.
+Examples for natural language prompts
+Here are some example prompts you can try in Copilot or any other MCP client:
+"What does my Neo4j instance contain? List all node labels, relationship types, and property keys."
+"Find all Person nodes and their relationships in my Neo4j instance."
+"Create a new User node with a name 'John' in my Neo4j instance."

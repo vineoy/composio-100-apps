@@ -1,0 +1,70 @@
+URL: https://neo4j.com/docs/http-api/current/
+FETCHED: 2026-11-23T17:41:23.066016
+VIA: direct
+
+Introduction - HTTP API
+Skip to content
+HTTP API
+Product Version
+Version 2026.10 (Current)
+Version 5
+Version 4.4
+Is this page helpful?
+Raise an issue
+Introduction
+Not available on Aura
+Deprecated in 5.26
+The transactional HTTP API is deprecated and replaced by the Query API.
+See the
+Neo4j Query API
+documentation for more information.
+The Neo4j HTTP API allows to execute a series of Cypher statements against a Neo4j server through HTTP requests.
+The main use case of the HTTP API is for developing client applications in languages for which there is no supported library.
+If there exists an official library (driver) for the language you are using, consider using that instead — see
+Create applications
+.
+By default, the API uses port 7474 for HTTP and port 7473 for HTTPS.
+This guide assumes that you have:
+A running instance of Neo4j — If you don’t have one,
+install Neo4j locally
+or sign up for an
+Aura cloud instance
+.
+Some familiarity with
+Cypher
+— If you are new to it, check out
+Getting started → Cypher
+.
+To execute queries through the HTTP API, you may use either:
+Implicit transactions
+— you just submit queries, the API takes care of the transaction handling for you
+Explicit transactions
+— you control the lifecycle of the transaction (open, commit, rollback), within which you can execute queries.
+As of Neo4j 5.17, the HTTP API supports HTTP/2 as well as HTTP/1.1, unless either is explicitly disabled in the server configuration setting
+server.http_enabled_transports
+.
+It’s up to the client to initiate a connection with the preferred protocol.
+Glossary
+Aura
+Aura
+is Neo4j’s fully managed cloud service.
+It comes with both free and paid plans.
+Cypher
+Cypher
+is Neo4j’s graph query language that lets you retrieve data from the database.
+It is like SQL, but for graphs.
+ACID
+Atomicity, Consistency, Isolation, Durability (ACID) are properties guaranteeing that database transactions are processed reliably.
+An ACID-compliant DBMS ensures that the data in the database remains accurate and consistent despite failures.
+causal consistency
+A database is causally consistent if read and write queries are seen by every member of the cluster in the same order.
+This is stronger than eventual consistency.
+transaction
+A transaction is a unit of work that is either
+committed
+in its entirety or
+rolled back
+on failure.
+An example is a bank transfer: it involves multiple steps, but they must
+all
+succeed or be reverted, to avoid money being subtracted from one account but not added to the other.

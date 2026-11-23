@@ -1,0 +1,44 @@
+URL: https://docs.waterfall.io/v1/api-keys-overview
+FETCHED: 2026-11-23T20:12:05.498810
+VIA: direct
+
+API Keys Management - Waterfall.io API Documentation
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Use a Waterfall master API key to create, list, and modify sub-keys for your account. Separate keys let you track usage by team, environment, or integration and manage each key’s active status and request rate limit.
+These operations require a master API key. Contact your account manager if you need key management enabled for your account.
+Available operations
+Operation
+Endpoint
+Use it to
+List keys
+GET /v1/api-keys
+Review keys and their current settings.
+Create a key
+POST /v1/api-keys
+Add a sub-key with a label and request rate limit.
+Modify a key
+PUT /v1/api-keys
+Update a sub-key’s label, active status, or request rate limit.
+Authenticate these requests with your master key in
+x-api-key
+. The master key cannot be modified through these endpoints.
+Track usage by integration
+Give each sub-key a clear
+notes
+label, such as
+crm-production
+or
+signup-enrichment
+. Authenticate
+Account Reporter
+with that key to compare its
+key_usage
+with overall
+account_usage
+.
+per_interval
+controls requests per 60-second interval. It is a request rate limit, not a spending limit. A sub-key’s value cannot exceed the master key’s limit.

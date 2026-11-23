@@ -1,0 +1,76 @@
+{
+ "app": "Neo4j",
+ "queries": [
+  "Neo4j API authentication documentation",
+  "Neo4j MCP server",
+  "Neo4j API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://neo4j.com/docs/rest-docs/current/",
+  "https://neo4j.com/docs/http-api/current/",
+  "https://neo4j.com/docs/mcp/current/"
+ ],
+ "search_hits": [
+  {
+   "title": "The Neo4j REST API Documentation v3.5",
+   "href": "https://neo4j.com/docs/rest-docs/current/"
+  },
+  {
+   "title": "Introduction - HTTP API - Neo4j Graph Data Platform",
+   "href": "https://neo4j.com/docs/http-api/current/"
+  },
+  {
+   "title": "Aura API Endpoints configuration and Testing in Postman - Neo4j",
+   "href": "https://support.neo4j.com/s/article/16708073060115-Aura-API-Endpoints-configuration-and-Testing-in-Postman"
+  },
+  {
+   "title": "Neo4j Authentication API - API Evangelist APIs",
+   "href": "https://apis.apievangelist.com/store/neo4j-authentication-api/"
+  },
+  {
+   "title": "A lightweight approach to testing the Neo4j REST API with Authentication",
+   "href": "https://support.neo4j.com/s/article/214863378-A-lightweight-approach-to-testing-the-Neo4j-REST-API-with-Authentication"
+  },
+  {
+   "title": "Introduction - Neo4j MCP",
+   "href": "https://neo4j.com/docs/mcp/current/"
+  },
+  {
+   "title": "Model Context Protocol (MCP) Integrations for the Neo4j Graph Database",
+   "href": "https://neo4j.com/developer/genai-ecosystem/model-context-protocol-mcp/"
+  },
+  {
+   "title": "GitHub - da-okazaki/mcp-neo4j-server: mcp-neo4j-server",
+   "href": "https://github.com/da-okazaki/mcp-neo4j-server"
+  },
+  {
+   "title": "GitHub - Tobarrientos2/neo4j-mcpserver: A Neo4j MCP server ...",
+   "href": "https://github.com/Tobarrientos2/neo4j-mcpserver"
+  },
+  {
+   "title": "Neo4j MCP Server | Awesome MCP Servers",
+   "href": "https://mcpservers.org/servers/cxt9/neo4j-mcp"
+  },
+  {
+   "title": "Cloud & self-hosted graph database platform pricing | Neo4j",
+   "href": "https://neo4j.com/pricing/"
+  },
+  {
+   "title": "Free trial - Neo4j Aura",
+   "href": "https://neo4j.com/docs/aura/getting-started/free-trial/"
+  },
+  {
+   "title": "Neo4j Pricing (2026): Free vs Paid Plans Explained - Softwr",
+   "href": "https://www.softwr.com/pricing/neo4j"
+  },
+  {
+   "title": "Neo4j Pricing: AuraDB Capacity Rates and Self-Managed Editions",
+   "href": "https://www.modern-datatools.com/tools/neo4j/pricing"
+  },
+  {
+   "title": "Neo4j pricing (2026): free tier and limits - inetgeek.com",
+   "href": "https://inetgeek.com/databases/neo4j/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:41:23.067937"
+}

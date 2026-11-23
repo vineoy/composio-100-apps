@@ -1,0 +1,577 @@
+URL: https://linear.app/developers/oauth-2-0-authentication
+FETCHED: 2026-11-23T20:12:29.236240
+VIA: direct
+
+Skip to content →
+OAuth 2.0 authentication
+Linear supports OAuth2 authentication, which is recommended if you’re building applications to integrate with Linear.
+It is
+highly recommended
+you create a workspace for the purpose of managing the OAuth2 Application, as each admin user will have access.
+All OAuth2 applications were migrated to the new refresh token system on April 1, 2026.
+Specifically for CI and scheduled automation, refer to
+Client credentials token
+.
+Token lifetimes and renewal
+⁠
+The grant type determines how credentials are renewed. The actor determines whose identity the application uses. Using
+actor=app
+with an authorization-code grant does not remove the refresh-token requirement.
+Grant type
+Actor
+Access-token lifetime
+Renewal
+Authorization code
+user
+or
+app
+24 hours by default
+Exchange the refresh token for a new token pair.
+Client credentials
+app
+30 days
+Request a new access token. No refresh token is issued.
+Use
+expires_in
+from the token response to track when the access token expires. Tokens can also be revoked or replaced before they expire, so handle authentication failures even when the expected expiration time has not passed.
+Create an OAuth2 application
+⁠
+Create a new
+OAuth2 Application
+and configure the redirect callback URLs to your application.
+Redirect user access requests to Linear
+⁠
+When authorizing a user to the Linear API, redirect to an authorization URL with correct parameters and scopes:
+GET https://linear.app/oauth/authorize HTTP/1.1
+Name
+Description
+client_id
+(required) Client ID provided when you create the OAuth2 Application
+redirect_uri
+(required) Redirect URI
+response_type=code
+(required) Expected response type
+scope
+(required) Comma separated list of scopes:
+read
+- (Default) Read access for the user’s account. This scope will always be present.
+write
+- Write access for the user’s account. If your application only needs to create comments, use a more targeted scope
+issues:create
+- Allows creating and updating issues, creating their attachments, subscribing and unsubscribing from issues, and uploading files and images.
+comments:create
+- Allows creating new issue comments and uploading files and images. Does not allow editing comments.
+timeSchedule:write
+- Allows creating and modifying time schedules
+admin
+- User actor only. Grants access to admin-level endpoints. Request it only when needed.
+oauth:create
+- Allows creating OAuth applications.
+customer:read
+- App actor only. Allows reading customer data.
+customer:write
+- App actor only. Allows writing customer data.
+initiative:read
+- App actor only. Allows reading initiatives.
+initiative:write
+- App actor only. Allows writing initiatives.
+customView:read
+- App actor only. Allows reading workspace-wide shared views, not team, project, or initiative views.
+app:mentionable
+- App actor only. Allows users to mention the app.
+app:assignable
+- App actor only. Allows users to delegate issues to the app. It does not enable ordinary issue assignment.
+See
+App authentication
+for agent-specific scopes such as
+app:assignable
+or
+app:mentionable
+.
+state
+(optional,
+recommended
+) Prevents CSRF attacks and should always be supplied. Read more about it
+here
+.
+prompt=consent
+(optional) The consent screen is displayed every time, even if all scopes were previously granted. This can be useful if you want to give users the opportunity to connect multiple workspaces.
+actor
+Selects the identity the application acts as. The actor is not a permission; request permissions using scope:
+user
+- (Default) Resources are created as the user who authorized the application. This option should be used if you want each user to do their own authentication
+app
+- Resources are created as the application. Use this for agents and service accounts.
+PKCE
+⁠
+Linear supports the
+PKCE flow
+. To use this flow, you’ll need to include two additional parameters as part of your
+/authorize
+request:
+Name
+Description
+code_challenge
+(required) Code challenge you generated
+code_challenge_method
+(required) Either
+plain
+or
+S256
+, depending on whether the challenge is the plain verifier string or the SHA256 hash of the string
+Example
+⁠
+GET https://linear.app/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&state=SECURE_RANDOM&scope=read HTTP/1.1
+
+GET https://linear.app/oauth/authorize?client_id=client1&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fcallback&response_type=code&scope=read,write HTTP/1.1
+
+GET https://linear.app/oauth/authorize?client_id=client1&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fcallback&response_type=code&scope=read,write&code_challenge=challenge&code_challenge_method=S256 HTTP/1.1
+
+GET https://linear.app/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&state=SECURE_RANDOM&scope=read,comments:create HTTP/1.1
+
+GET https://linear.app/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&state=SECURE_RANDOM&actor=app&scope=read,customer:read HTTP/1.1
+The last two examples show a comment-only integration (read access plus comment creation, without general write access) and a read-only customer integration using the app actor.
+Handle the redirect URLs you specified in the OAuth2 Application
+⁠
+Once the user approves your application they will be redirected back to your application, with the OAuth authorization
+code
+in the URL params.
+Any
+state
+parameter you specified in step 2 will also be returned in the URL params and must match the value specified in step 2. If the values do not match, the request should not be trusted.
+Example
+⁠
+GET https://example.com/oauth/callback?code=9a5190f637d8b1ad0ca92ab3ec4c0d033ad6c862&state=b1ad0ca92 HTTP/1.1
+Exchange
+code
+for an access token
+⁠
+After receiving the
+code
+, you can exchange it for a Linear API access token:
+POST https://api.linear.app/oauth/token HTTP/1.1
+Pass parameters in body as
+URL-encoded form submission
+, where the
+Content-Type
+header must be
+application/x-www-form-urlencoded
+.
+Parameter
+Description
+code
+(required) Authorization code from the previous step
+redirect_uri
+(required) Same redirect URI which you used in the previous step
+client_id
+(required) Application’s client ID
+client_secret
+(required) Application’s client secret
+grant_type=authorization_code
+(required)
+PKCE
+⁠
+If you are using the PKCE flow, the parameters required by the
+/token
+endpoint are different:
+Name
+Description
+code
+(required) Authorization code from the previous step
+redirect_uri
+(required) Same redirect URI which you used in the previous step
+client_id
+(required) Application’s client ID
+client_secret
+(optional) Application’s client secret
+code_verifier
+(required) The code verifier for the PKCE request that you originally generated before the authorization request
+grant_type=authorization_code
+(required)
+Response
+⁠
+After a successful request, a valid access token and refresh token will be returned in the response. The access token is valid for 24 hours and will need to be refreshed when it expires. Example response:
+{  
+  "access_token": "00a21d8b0c4e2375114e49c067dfb81eb0d2076f48354714cd5df984d87b67cc",
+  "token_type": "Bearer",  
+  "expires_in": 86399,  
+  "scope": "read write",
+  "refresh_token": "sz0c8ffy95zj2ff6bh1hiausauw3dbfsu4gly1z4p49b5odqv8l7owunb654vg1f",
+}
+Note: OAuth apps created prior to Dec 1, 2023 will instead return
+scope
+as an array of strings in the token response.
+Refresh an access token
+⁠
+Each refresh token expires 30 days after issuance. A successful refresh returns a new access token and refresh token, with a new 30-day refresh-token lifetime. API requests do not extend either lifetime.
+Refresh before the access token expires to avoid interrupted requests. An expired access token can still be renewed while its refresh token remains valid.
+Save the returned credentials together and coordinate refreshes across processes sharing an authorization. If the current refresh token expires or is revoked, complete authorization again.
+For authorization, you have two options:
+Use HTTP basic authentication by passing a Base64-encoded
+client_id:client_secret
+string as an authorization header:
+Authorization: Basic <base64(client_id:client_secret)>
+Pass
+client_id
+and
+client_secret
+as parameters
+If your access token was generated using PKCE, you can simply pass
+client_id
+as a parameter.
+If a refresh succeeds but its response is lost, retry with the same refresh token within 30 minutes of the original successful refresh to recover the replacement credentials. Retrying does not extend this window. Save and use the returned credentials rather than continuing to use the old refresh token. This retry window does not restore explicitly revoked credentials or credentials replaced through an installation update.
+POST https://api.linear.app/oauth/token HTTP/1.1
+Pass parameters in body as
+URL-encoded form submission
+, where the
+Content-Type
+header must be
+application/x-www-form-urlencoded
+.
+Parameter
+Description
+refresh_token
+(required) Refresh token from the previous step
+grant_type=refresh_token
+(required)
+client_id
+(optional if you’re using HTTP basic authentication) Application’s client ID
+client_secret
+(optional if you’re using HTTP basic authentication or refreshing a token generated using PKCE) Application’s client secret
+Response
+⁠
+After a successful request, a new valid access token and a new refresh token will be returned in the response:
+{  
+  "access_token": "fxra4u0msw3bagb9rdn2i641bs52m9zo8ksoxljouygcu31nh8s2jf8fygbepy16",
+  "token_type": "Bearer",  
+  "expires_in": 86399,  
+  "scope": "read write",
+  "refresh_token": "qjmj51q8f8fnwe188702jarfqxwhdy6r5ivqy4yjuhw2crubm5e7nyu84un3marx",
+}
+Make an API request
+⁠
+Once you have obtained a valid access token, you can make a request to Linear’s GraphQL API. You can initialize the
+Linear Client
+with the access token:
+const client = new LinearClient({ accessToken: response.access_token })
+const me = await client.viewer
+Or pass the token as an authorization header:
+Authorization: Bearer <ACCESS_TOKEN>
+curl https://api.linear.app/graphql \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+  --data '{ "query": "{ viewer { id name } }" }' \
+When credentials become invalid
+⁠
+Tokens can become invalid before their reported expiry. Choose the recovery path that matches the grant and the event.
+Expiration.
+Refresh an expired access token using a valid refresh token, or request a new client-credentials token. If the refresh token has expired, complete authorization again. See
+refresh an access token
+.
+Revocation.
+An authorization can be revoked before its tokens expire. Refreshing cannot restore revoked credentials. An already-revoked historical token is not a reliable way to revoke the current credentials. Use the current authorization’s credentials and the
+revocation endpoint
+.
+Installation updates.
+Updating an authorization-code app installation replaces its current access and refresh credentials. Follow the
+installation update flow
+and update every process that shares the credentials.
+Client-credentials scope changes.
+Requesting different scopes replaces existing app-actor credentials for that app in that workspace, not across all workspaces. Keep scope sets consistent across processes. See
+client credentials tokens
+.
+Switching grants.
+A client-credentials request replaces an existing authorization-code app installation. To switch back to an authorization-code installation, revoke the existing authorization first.
+Secret rotation.
+Rotating the client secret revokes client-credentials tokens, but does not revoke authorization-code access and refresh token pairs. Refresh requests that require a secret must use the current secret. See
+rotating your client secret
+.
+Token cleanup.
+The 1,000-token limit is enforced through asynchronous cleanup, not a strict issuance ceiling. Cleanup retains the most recently used unexpired client-credentials tokens per app and workspace; unused tokens fall back to creation time. Request new credentials if cleanup invalidates a token.
+App deletion.
+Deleting the OAuth app revokes its related tokens. Refreshing cannot restore access.
+Revoke an access token
+⁠
+To revoke a user’s access, call the revocation endpoint and include the token to be revoked in the
+token
+form field of the request body.
+If available, include
+token_type_hint
+(
+access_token
+or
+refresh_token
+) to help the server identify the token.
+POST https://api.linear.app/oauth/revoke HTTP/1.1
+Note: For backwards compatibility, we still accept revocation via the
+Authorization
+header or the legacy
+access_token
+/
+refresh_token
+form fields. New integrations should use the
+token
+field. The
+token
+field must not be combined with legacy fields.
+Response
+⁠
+Expected HTTP status:
+200
+- token was revoked
+400
+- unable to revoke token (e.g. token was already revoked)
+401
+- unable to authenticate with the token
+Rotating your client secret
+⁠
+If your application’s credentials are ever exposed (for example, in a security incident on your own infrastructure) you can generate a new client secret or webhook signing secret without re-registering your application.
+From your application’s settings page in Linear, under
+Settings
+→
+API
+, select
+Rotate secret
+next to the credential you want to replace. Your client secret and your webhook signing secret each have their own control.
+Rotating your client secret immediately invalidates any client credentials tokens issued for your application. It does not revoke access or refresh tokens already granted to individual workspaces — those keep working, and will use your new secret the next time they’re refreshed. If you need to revoke those as well, do so separately (see “Revoking access tokens” above).
+Rotating your webhook signing secret takes effect immediately. Update your webhook handler to verify incoming payloads with the new secret at the same time you rotate it.
+Client credentials tokens
+⁠
+We support the
+client_credentials
+grant type for OAuth2 apps that use tokens for server-to-server communication and cannot support a user-initiated OAuth flow involving refresh tokens.
+Client-credentials tokens use the
+app
+actor, are valid for 30 days, and do not include a refresh token. Reuse the token across API requests and request a replacement shortly before it expires, using
+expires_in
+to track expiration. Handle authentication failures as well, since tokens can be revoked before they expire.
+You must first toggle on client credentials tokens for your OAuth2 app when creating or editing the app in Linear
+The token generated using this grant type will be an
+app
+actor token that has access to all public teams in the workspace and is valid for 30 days. You can learn more about
+app
+actor tokens
+here
+.
+The app user’s team access can be modified through the
+app details page
+for your app at any point after the token is generated. Since there is no refresh token paired with this access token, your server is expected to fetch a new token if it receives a 401 error when making a request with the previous token.
+Multiple client-credentials tokens can coexist when they request the same scopes. Keep scope sets consistent across processes. Scope changes, switching grants, and asynchronous cleanup can invalidate existing credentials. See
+when credentials become invalid
+for workspace scope, renewal, and recovery guidance.
+For increased security, we will also invalidate your app’s client credentials tokens if its client secret is rotated.
+Request
+⁠
+For authorization, you have two options:
+Use HTTP basic authentication by passing a Base64-encoded
+client_id:client_secret
+string as an authorization header:
+Authorization: Basic <base64(client_id:client_secret)>
+Pass
+client_id
+and
+client_secret
+as parameters
+POST https://api.linear.app/oauth/token HTTP/1.1
+Name
+Description
+grant_type=client_credentials
+(required)
+scope
+(required) Comma-separated list of scopes
+client_id
+(optional if you’re using HTTP basic authentication) Application’s client ID
+client_secret
+(optional if you’re using HTTP basic authentication) Application’s client secret
+Response
+⁠
+After a successful request, a new valid access token will be returned in the response:
+{  
+  "access_token": "fxra4u0msw3bagb9rdn2i621bs52m9zo8ksoxljouygcu31nh8s2jf8fygbepy16",
+  "token_type": "Bearer",  
+  "expires_in": 2591999,  
+  "scope": "read write",
+}
+If your OAuth2 app does not have client credentials tokens enabled, you will receive an error response:
+{
+  "error":"Error",
+  "error_description":"Client does not support the client_credentials grant type"
+}
+Previous
+Managing Customers
+Next
+OAuth actor authorization
+Token lifetimes and renewal
+Create an OAuth2 application
+Redirect user access requests to Linear
+PKCE
+Example
+Handle the redirect URLs you specified in the OAuth2 Application
+Example
+Exchange code for an access token
+PKCE
+Response
+Refresh an access token
+Response
+Make an API request
+When credentials become invalid
+Revoke an access token
+Response
+Rotating your client secret
+Client credentials tokens
+Request
+Response
+GET
+https://linear.app/oauth/authorize
+HTTP
+/
+1.1
+GET
+https://linear.app/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&state=SECURE_RANDOM&scope=read
+HTTP
+/
+1.1
+GET
+https://linear.app/oauth/authorize?client_id=client1&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fcallback&response_type=code&scope=read,write
+HTTP
+/
+1.1
+GET
+https://linear.app/oauth/authorize?client_id=client1&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fcallback&response_type=code&scope=read,write&code_challenge=challenge&code_challenge_method=S256
+HTTP
+/
+1.1
+GET
+https://linear.app/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&state=SECURE_RANDOM&scope=read,comments:create
+HTTP
+/
+1.1
+GET
+https://linear.app/oauth/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URL&state=SECURE_RANDOM&actor=app&scope=read,customer:read
+HTTP
+/
+1.1
+GET
+https://example.com/oauth/callback?code=9a5190f637d8b1ad0ca92ab3ec4c0d033ad6c862&state=b1ad0ca92
+HTTP
+/
+1.1
+POST
+https://api.linear.app/oauth/token
+HTTP
+/
+1.1
+{
+"access_token"
+:
+"00a21d8b0c4e2375114e49c067dfb81eb0d2076f48354714cd5df984d87b67cc"
+,
+"token_type"
+:
+"Bearer"
+,
+"expires_in"
+:
+86399
+,
+"scope"
+:
+"read write"
+,
+"refresh_token"
+:
+"sz0c8ffy95zj2ff6bh1hiausauw3dbfsu4gly1z4p49b5odqv8l7owunb654vg1f"
+,
+}
+POST
+https://api.linear.app/oauth/token
+HTTP
+/
+1.1
+{
+"access_token"
+:
+"fxra4u0msw3bagb9rdn2i641bs52m9zo8ksoxljouygcu31nh8s2jf8fygbepy16"
+,
+"token_type"
+:
+"Bearer"
+,
+"expires_in"
+:
+86399
+,
+"scope"
+:
+"read write"
+,
+"refresh_token"
+:
+"qjmj51q8f8fnwe188702jarfqxwhdy6r5ivqy4yjuhw2crubm5e7nyu84un3marx"
+,
+}
+const
+client
+=
+new
+LinearClient
+({ accessToken: response.access_token })
+const
+me
+=
+await
+client.viewer
+curl
+https://api.linear.app/graphql
+\
+-X
+POST
+\
+-H
+"Content-Type: application/json"
+\
+-H
+'Authorization: Bearer <ACCESS_TOKEN>'
+\
+--data
+'{ "query": "{ viewer { id name } }" }'
+\
+POST
+https://api.linear.app/oauth/revoke
+HTTP
+/
+1.1
+POST
+https://api.linear.app/oauth/token
+HTTP
+/
+1.1
+{
+"access_token"
+:
+"fxra4u0msw3bagb9rdn2i621bs52m9zo8ksoxljouygcu31nh8s2jf8fygbepy16"
+,
+"token_type"
+:
+"Bearer"
+,
+"expires_in"
+:
+2591999
+,
+"scope"
+:
+"read write"
+,
+}
+{
+"error"
+:
+"Error"
+,
+"error_description"
+:
+"Client does not support the client_credentials grant type"
+}
+OAuth 2.0 authentication – Linear Developers

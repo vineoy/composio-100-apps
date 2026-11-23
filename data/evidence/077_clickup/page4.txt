@@ -1,0 +1,110 @@
+URL: https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server
+FETCHED: 2026-11-23T22:19:02.232407
+VIA: direct
+
+ClickUp's MCP Server
+For AI agents: the docs index is at https://developer.clickup.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+The Model Context Protocol (MCP) is a secure, standardized framework that lets external AI agents interact with ClickUp Workspace data—like tasks, lists, folders, and docs—using natural language. MCP helps users, especially developers, automate workflows, connect third-party AI tools, and enable agentic AI features in their preferred apps, all while keeping security and user control tight.
+ClickUp's MCP Server is available on
+all plans
+.
+Setup instructions
+Learn how to
+setup your AI assistant
+with ClickUp's MCP server.
+Our MCP server URL is
+https://mcp.clickup.com/mcp
+.
+What you can do
+With ClickUp's MCP server, you can:
+Orchestrate task workflows
+: Manage tasks with assignees, priorities, and due dates across lists and spaces.
+Build executive reports
+: Create release notes, status updates, and portfolio summaries from tasks and docs.
+Track time
+: Log time entries and manage timers.
+Answer work questions
+: Search tasks, docs, and comments for quick answers.
+Collaborate in comments and chat
+: Summarize threads, extract action items, and post updates. And more!
+Supported MCP Clients
+ClickUp MCP supports all major MCP clients and Apps.
+Supported tools
+Learn about the
+tools
+available through ClickUp's MCP Server with example prompts you can use in your AI assistant.
+Rate limits
+ClickUp's MCP Server has rate limits that depend on two criteria:
+If your Workspace has purchased the Everything AI add-on.
+Your Workspace plan.
+📘
+Note:
+MCP usage and rate limits are subject to the terms of our
+fair use policy
+.
+Future restrictions may apply to ClickUp MCP features.
+ClickUp MCP usage and rate limits may change as we assess usage and costs.
+With the Everything AI add-on
+If your Workspace has purchased the
+Everything AI add-on
+, your MCP rate limits are the same as the
+rate limits
+for our Public API, which vary by plan.
+Without the Everything AI add-on
+If your Workspace has not purchased the Everything AI add-on, your MCP usage is subject to the following rate limits by plan:
+Plan
+MCP Calls per rolling 24 hours
+Free Forever
+100
+Core/Unlimited
+300
+Business
+1,000
+Business Plus
+2,500
+Enterprise
+5,000
+Enterprise Plus
+25,000
+Rolling 24-hour rate limits
+Limits are per Workspace and per client.
+Example: an Unlimited Workspace gets 300/24h for Claude and a separate 300/24h for Cursor.
+Each tool call counts as 1.
+initialize
+and
+tools/list
+don't count. When the limit is hit, the call returns
+RATE_LIMIT_EXCEEDED
+with
+retryAfter
+.
+Plans with no daily cap still follow the public API per-minute limits, and MCP shares that budget with the public API.
+MCP doesn't use AI Super Credits.
+The rolling 24-hour rate limits begin with your first request.
+For example, starting on Monday at 1 pm, you use the MCP to send 200 requests.
+On Tuesday, at 11 am, you send another 100 requests.
+You will be rate-limited and unable to send additional requests via MCP until 1 pm on Tuesday.
+Attempting to send requests while rate limited does not extend the 24 hour limit.
+Rate limits cannot be reset.
+FAQ
+Q. Can I authenticate with my own API keys or Auth access tokens?
+A.
+No, you cannot authenticate using your own API keys or Auth access tokens. We only support OAuth for authentication.
+Q. Why can't I delete things with the MCP?
+A.
+For the time being, we haven’t added any deletion tools as a safety measure. Feel free to leave your feedback here.
+Q. Can I search my apps with Connected Search using ClickUp MCP?
+A.
+No, it is not possible to search connected apps.
+Q. Can I connect my custom LLM Client?
+A.
+Yes, if your team builds an MCP client implementation that meets the following criteria:
+Implements the JSON-RPC 2.0 protocol over HTTP.
+Supports OAuth 2.1 with PKCE authentication.
+Follows the MCP specification.
+Updated
+about 2 months ago
+Did this page help you?
+Yes
+No
+Copy Page

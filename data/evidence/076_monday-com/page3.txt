@@ -1,0 +1,146 @@
+URL: https://developer.monday.com/api-reference/docs/integrate-with-monday-mcp
+FETCHED: 2026-11-23T20:23:23.714258
+VIA: direct
+
+Integrate with the monday MCP server
+For AI agents: the docs index is at https://developer.monday.com/api-reference/llms.txt. The index for every project on this site is at https://developer.monday.com/llms.txt. Append .md to any documentation page URL to get its markdown version.
+This guide walks you through connecting your own MCP client — an AI assistant, agent platform, or product feature — to the monday.com hosted MCP server. Pick an authentication path below, then follow the linked guide for setup details.
+Overview
+The hosted MCP server is the recommended way to connect to monday.com. It requires no local setup, updates automatically, and handles all the infrastructure for you.
+Server URL:
+https://mcp.monday.com/mcp
+Transport:
+Streamable HTTP
+Auth:
+OAuth 2.0 or Bearer token with a
+personal API token
+🚧
+SSE transport is deprecated and not supported.
+Older guides and configs may still reference
+https://mcp.monday.com/sse
+or an SSE-based transport. The hosted Platform MCP supports
+Streamable HTTP only
+at
+https://mcp.monday.com/mcp
+. Update any client that still points at
+/sse
+— SSE will not be brought back.
+📘
+The monday MCP server is a wrapper around the monday.com platform API.
+Every tool call executes in the context of the authenticated user and respects that user's monday.com permissions. See the
+MCP security overview
+for the full security architecture.
+Choosing an authentication path
+How you authenticate depends on what you're building:
+Use case
+Guide
+Before customers can connect
+Personal use and testing
+Authenticate with an API token
+Nothing else. No admin approval.
+Private / org-controlled access (who connects, which client, and
+which scopes
+limit MCP actions)
+Control MCP access with your own OAuth app
+You issue your own client credentials.
+Pre-approved third-party agents
+Compatible MCP clients
+Enabled by the hosted MCP permission. Usual connection flow.
+Additional MCP client for other monday.com accounts
+Dynamic client registration
+The customer's admin approves the connection and its redirect URIs through
+dynamic connectors
+.
+Org-wide access through your identity provider (currently Claude with Okta)
+Enterprise managed auth
+Your IdP admin and AI client admin set it up once. Members connect with no consent screen.
+The hosted MCP permission covers the pre-approved third-party agents. Dynamic connectors let an account admin approve any additional connection and its redirect URIs.
+Advanced configuration
+Specifying an API version
+The MCP server executes tool calls against the monday.com GraphQL API. You can pin a specific
+API version
+using the
+Api-Version
+header:
+JSON
+{
+  "mcpServers": {
+    "monday-mcp": {
+      "url": "https://mcp.monday.com/mcp",
+      "headers": {
+        "Api-Version": "2026-07"
+      }
+    }
+  }
+}
+Available tools
+The monday MCP server exposes more than 60 tools for reading and writing monday.com data. To view all available tools and their current parameters, use the
+tools/list
+MCP command, or browse the
+Platform MCP tools reference
+.
+The tool set may evolve over time — tools may be added, updated, or deprecated. Use
+tools/list
+to ensure your client always has the most up-to-date schemas.
+Rate limits
+MCP tool calls consume from your account's
+daily API call limit
+, just like direct API requests. Keep this in mind for agent-driven workflows that may issue many calls.
+Security and permissions
+User-scoped access:
+All actions taken over MCP appear as the user who authorized them. Access is determined by the authenticated user's monday.com permissions — users can only reach workspaces, boards, and items they already have access to.
+Token security:
+Store client secrets and all tokens securely (never commit them to version control), use HTTPS for all requests, implement proper token refresh logic, and revoke tokens when they're no longer needed.
+No token storage:
+The MCP server does not store or log customer OAuth tokens. Token lifecycle management (storage, rotation, revocation) is your responsibility.
+For the full security architecture — tenant isolation, AI-layer risks, and OWASP MCP Top 10 alignment — see the
+MCP security overview
+.
+Common issues
+Authentication failures
+Verify your redirect URL matches exactly in both your app settings and authorization request
+Ensure your client ID and client secret are correct
+Check that the requested scopes are enabled on your app's
+OAuth & Permissions
+page
+Confirm
+New OAuth flow
+is switched on under
+Build → OAuth & Permissions → New OAuth flow
+. A custom app cannot connect to MCP while this toggle is off
+Connection issues
+Verify the MCP server URL is
+https://mcp.monday.com/mcp
+(not
+https://mcp.monday.com/sse
+— SSE is deprecated and unsupported)
+Check that you're including a valid access token or API token in the
+Authorization
+header
+Verify the access token hasn't expired
+If your client config uses
+mcp-remote
+with an
+/sse
+URL, replace it with a direct Streamable HTTP config pointing at
+https://mcp.monday.com/mcp
+Additional connection
+A DCR client registers, then the user requests admin approval for the connection and its redirect URIs. See
+Dynamic connectors
+.
+Related resources:
+Authenticate with an API token
+Control MCP access with your own OAuth app
+Make your integration publicly available (DCR)
+Enterprise managed auth
+Dynamic connectors
+Compatible MCP clients
+Platform MCP tools reference
+MCP security overview
+OAuth documentation
+Updated
+about 1 month ago
+Did this page help you?
+Yes
+No
+Copy Page

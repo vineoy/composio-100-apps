@@ -14,7 +14,7 @@ SCHEMA = """{
  "auth_notes": "short detail, e.g. 'OAuth2 for user data; API key for server-side'",
  "access": "free_self_serve" | "trial_self_serve" | "paid_plan" | "admin_approval" | "partner_gated" | "no_public_api" | "unknown",
  "access_notes": "short detail, e.g. 'free developer edition; production needs paid plan'",
- "api_type": "REST" | "GraphQL" | "both" | "none" | "unknown",
+ "api_type": "REST" | "GraphQL" | "both" | "none" | "unknown" | "other",
  "api_breadth": "narrow" | "moderate" | "broad" | "very_broad" | "unknown",
  "api_notes": "short detail, e.g. 'REST + SOAP, hundreds of endpoints across clouds'",
  "existing_mcp": {"status": "official" | "community" | "none" | "unknown", "url": "link or empty", "notes": "short"},
@@ -138,13 +138,13 @@ def gather_docs(app, second_pass=False, reuse_evidence=False):
     # JS-rendered sites (e.g. Salesforce docs) return empty shells -> free reader fallback
     if len(docs) < 2:
         have = {d["url"].rstrip("/") for d in docs}
-        for u in urls[:4]:
+        for u in urls[:2]:
             if u.rstrip("/") in have:
                 continue
             d = P.fetch_jina(u)
             if d and len(d["text"]) > 500:
                 docs.append(d)
-            if len(docs) >= 3:
+            if len(docs) >= 2:
                 break
     docs = docs[:4]
     for i, d in enumerate(docs, 1):
@@ -164,7 +164,7 @@ def run(pass_no=1, only=None, resume=True, model=None):
     out_path = P.DATA / out_name
     done = {}
     if resume and out_path.exists():
-        done = {r["id"]: r for r in json.loads(out_path.read_text(encoding="utf-8"))}
+        done = {r["id"]: r for r in json.loads(out_path.read_text(encoding="utf-8")) if not r.get("error")}
     results = list(done.values())
     second = pass_no == 2
     for app in apps:
@@ -176,7 +176,8 @@ def run(pass_no=1, only=None, resume=True, model=None):
         try:
             docs, ev_dir = gather_docs(app, second_pass=second, reuse_evidence=second)
             prompt = build_prompt(app, docs, second_pass=second)
-            row, used_model = P.llm_json(prompt, model=model or ("gemini-2.5-flash" if second else None))
+            row, used_model = P.llm_json(prompt, model=model or ("gemini-3.5-flash-lite" if second else None),
+                                         max_retries=2)
             row.update({
                 "id": app["id"], "name": app["name"], "category": app["category"],
                 "composio_toolkit": P.composio_match(app["name"]),

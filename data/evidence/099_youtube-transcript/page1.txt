@@ -1,0 +1,4880 @@
+URL: https://transcriptapi.com/docs/api/
+FETCHED: 2026-11-23T22:49:22.881221
+VIA: direct
+
+YouTube Transcript API Reference | TranscriptAPI.com
+Skip to content
+YouTube Transcript API Reference
+The YouTube Transcript API provides a simple and reliable way to extract transcripts from YouTube videos programmatically. This complete reference covers authentication, request parameters, response formats, and practical examples.
+Want to test the API interactively? Try our
+Swagger UI
+where you can make live requests right in your browser.
+Base URL
+Section titled “Base URL”
+All API requests are made to:
+https://transcriptapi.com/api/v2
+Endpoints
+Section titled “Endpoints”
+The API provides the following endpoints:
+Endpoint
+Description
+Credits
+GET /youtube/transcript
+Extract video transcript (supports a
+language
+priority list)
+1
+GET /youtube/info
+Video metadata + available transcript languages
+Free
+GET /youtube/video/metadata
+Rich video metadata (structured description, channel, optional
+details
+/
+related
+)
+1
+GET /youtube/search
+Search videos, channels, playlists, or movies — with
+sort
+/
+upload_date
+/
+duration
+/
+features
+filters
+1
+GET /youtube/channel/resolve
+Resolve @handle/URL to channel ID
+Free
+GET /youtube/channel/info
+Channel profile / identity (title, handle, counts, tags, banners, tabs)
+1
+GET /youtube/channel/search
+Search within a channel (accepts @handle, URL, or UC… ID)
+1
+GET /youtube/channel/videos
+Paginated channel feed —
+tab=videos
+(default),
+shorts
+, or
+streams
+; optional
+sort
+1/page
+GET /youtube/channel/playlists
+Paginated channel playlists
+1/page
+GET /youtube/channel/posts
+Paginated community (Posts tab) content
+1/page
+GET /youtube/channel/sections
+Curated channel sections (
+featured
+Home page,
+podcasts
+,
+releases
+)
+1
+GET /youtube/channel/latest
+Latest 15 videos via RSS (accepts @handle, URL, or UC… ID)
+Free
+GET /youtube/playlist/videos
+Paginated playlist videos (accepts URL or playlist ID)
+1/page
+Quick Start
+Section titled “Quick Start”
+Here’s how to make your first API request:
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/transcript?video_url=dQw4w9WgXcQ
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Don’t have an API key yet?
+Get one from your dashboard
+.
+Expected Response:
+{
+"video_id"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"language"
+:
+"
+en
+"
+,
+"transcript"
+: [
+{
+"text"
+:
+"
+Never gonna give you up
+"
+,
+"start"
+:
+0.0
+,
+"duration"
+:
+4.12
+},
+{
+"text"
+:
+"
+Never gonna let you down
+"
+,
+"start"
+:
+4.12
+,
+"duration"
+:
+3.85
+}
+],
+"length_seconds"
+:
+213
+,
+"lengthText"
+:
+"
+3:33
+"
+}
+Try it Live
+Test this example and experiment with parameters in our
+interactive Swagger UI
+.
+Authentication
+Section titled “Authentication”
+The API uses Bearer token authentication. Include your API key in the
+Authorization
+header of every request:
+Authorization: Bearer YOUR_API_KEY
+Example:
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/transcript?video_url=...
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Get your API key from
+your API Keys dashboard
+.
+Security Best Practices
+Never expose your API key in client-side code
+Store API keys in environment variables
+Rotate keys regularly
+Use separate keys for different environments
+YouTube Transcript
+Section titled “YouTube Transcript”
+Request Parameters
+Section titled “Request Parameters”
+video_url (required)
+Section titled “video_url (required)”
+The YouTube video URL or video ID to fetch transcripts for.
+Property
+Value
+Type
+string
+Pattern
+^([a-zA-Z0-9_-]{11}|https?://.\*)$
+Required
+Yes
+Accepted Formats:
+Full YouTube URL:
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Short YouTube URL:
+https://youtu.be/dQw4w9WgXcQ
+Video ID only:
+dQw4w9WgXcQ
+Examples:
+Terminal window
+# Full URL
+?
+video_url
+=
+https://www.youtube.com/watch?
+v
+=
+dQw4w9WgXcQ
+# Short URL
+?
+video_url
+=
+https://youtu.be/dQw4w9WgXcQ
+# Video ID only
+?
+video_url
+=
+dQw4w9WgXcQ
+format (optional)
+Section titled “format (optional)”
+The output format for the transcript response.
+Property
+Value
+Type
+string
+Values
+json
+,
+text
+Default
+json
+json
+: Returns structured data with transcript segments
+text
+: Returns plain text transcript
+include_timestamp (optional)
+Section titled “include_timestamp (optional)”
+Whether to include timestamps in the transcript output.
+Property
+Value
+Type
+boolean
+Default
+true
+Behavior Matrix:
+Format
+include_timestamp
+Output
+json
+true
+Segments with
+text
+,
+start
+,
+duration
+json
+false
+Segments with only
+text
+text
+true
+Lines formatted as
+[123.45s] text
+text
+false
+Plain concatenated text
+send_metadata (optional)
+Section titled “send_metadata (optional)”
+Whether to include video metadata in the response.
+Property
+Value
+Type
+boolean
+Default
+false
+When enabled, includes:
+title
+: Video title
+author_name
+: Channel name
+author_url
+: Channel URL
+thumbnail_url
+: Video thumbnail
+language (optional)
+Section titled “language (optional)”
+A comma-separated
+priority list
+of language codes. The API returns the first one that’s available.
+Property
+Value
+Type
+string
+Default
+(omitted)
+— English, otherwise the video’s first available language
+Provide a list like
+de,en,asr
+; codes are tried left to right and the first available wins. If none resolve, you receive a
+404
+that lists the languages the video
+does
+offer.
+Codes are case-insensitive and region is ignored (
+en-GB
+/
+en-US
+→
+en
+,
+de-DE
+→
+de
+), so
+de
+matches a German track. Up to 10 codes.
+asr
+requests the video’s
+auto-generated
+captions (ASR = automatic speech recognition). Use
+asr-<code>
+(for example
+asr-hi
+) to request a specific auto-generated language.
+A plain code such as
+hi
+returns the human-made captions when they exist, otherwise the auto-generated ones (
+asr-hi
+).
+The
+language
+field in a
+200
+response is the
+resolved
+code (
+en
+,
+de
+,
+asr-hi
+, …), so you always know exactly which track you received.
+Detecting a video’s language
+When the response
+language
+comes back as an
+asr-<code>
+value (for example
+asr-hi
+), it tells you two things at once: the transcript is
+auto-generated
+, and the video’s spoken language is that code (here, Hindi). So requesting
+asr
+is a handy way to discover what language a video is in.
+Tip:
+Call
+GET /youtube/info
+first — it’s free — to see which languages a video offers.
+language_fallback (optional)
+Section titled “language_fallback (optional)”
+Only used together with
+language
+. Controls whether a plain code may fall back to auto-generated captions.
+Property
+Value
+Type
+boolean
+Default
+true
+true
+(default): a plain code such as
+hi
+returns the human-made captions when they exist, otherwise the auto-generated ones (
+asr-hi
+).
+false
+: a plain code returns
+human-made captions only
+. With
+false
+, a plain code whose
+kind
+is
+auto
+is skipped; request
+asr-<code>
+if you want that track. Codes are still tried left to right, so the first code in your list that has human-made captions is returned (for example
+language=ru,hi
+returns Hindi when Russian has only auto-generated captions). If none of your codes has human-made captions, you get the
+404
+with
+available_languages
+described below, and no credit is used.
+asr
+and
+asr-<code>
+still request auto-generated captions, whatever this is set to.
+Response Formats
+Section titled “Response Formats”
+The API supports multiple response formats based on your parameters:
+JSON with timestamps (default)
+JSON without timestamps
+Text with timestamps
+Text without timestamps
+{
+"video_id"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"language"
+:
+"
+en
+"
+,
+"transcript"
+: [
+{
+"text"
+:
+"
+Never gonna give you up
+"
+,
+"start"
+:
+0.0
+,
+"duration"
+:
+4.12
+},
+{
+"text"
+:
+"
+Never gonna let you down
+"
+,
+"start"
+:
+4.12
+,
+"duration"
+:
+3.85
+}
+],
+"metadata"
+: {
+"title"
+:
+"
+Rick Astley - Never Gonna Give You Up
+"
+,
+"author_name"
+:
+"
+RickAstleyVEVO
+"
+,
+"author_url"
+:
+"
+https://www.youtube.com/@RickAstley
+"
+,
+"thumbnail_url"
+:
+"
+https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg
+"
+},
+"length_seconds"
+:
+213
+,
+"lengthText"
+:
+"
+3:33
+"
+}
+{
+"video_id"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"language"
+:
+"
+en
+"
+,
+"transcript"
+: [
+{
+"text"
+:
+"
+Never gonna give you up
+"
+},
+{
+"text"
+:
+"
+Never gonna let you down
+"
+}
+],
+"length_seconds"
+:
+213
+,
+"lengthText"
+:
+"
+3:33
+"
+}
+{
+"video_id"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"language"
+:
+"
+en
+"
+,
+"transcript"
+:
+"
+[0.0s] Never gonna give you up
+\n
+[4.12s] Never gonna let you down
+\n
+[7.97s] Never gonna run around and desert you
+"
+,
+"length_seconds"
+:
+213
+,
+"lengthText"
+:
+"
+3:33
+"
+}
+{
+"video_id"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"language"
+:
+"
+en
+"
+,
+"transcript"
+:
+"
+Never gonna give you up Never gonna let you down Never gonna run around and desert you
+"
+,
+"length_seconds"
+:
+213
+,
+"lengthText"
+:
+"
+3:33
+"
+}
+Video length fields
+Section titled “Video length fields”
+Every
+200
+response also includes the total video length as two top-level fields — you don’t need any parameter to get them:
+Field
+Type
+Description
+length_seconds
+integer
+Total video length in whole seconds (e.g.
+213
+).
+lengthText
+string
+The same length, human-readable (e.g.
+3:33
+, or
+1:02:45
+for videos over an hour). Matches the
+lengthText
+from the search, channel, and playlist endpoints.
+Both are
+null
+when the source doesn’t expose a fixed length —
+live streams
+, and the rare fallback extraction path. They are independent of
+send_metadata
+.
+Response Headers
+Section titled “Response Headers”
+Header
+Description
+X-Cache-Status
+Cache status:
+HIT
+,
+PARTIAL-HIT
+, or
+MISS
+YouTube Video Info
+Section titled “YouTube Video Info”
+Discover a video’s metadata and the transcript languages it offers —
+before
+spending a transcript credit.
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/info?video_url=dQw4w9WgXcQ
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+{
+"video_id"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"metadata"
+: {
+"title"
+:
+"
+...
+"
+,
+"author_name"
+:
+"
+...
+"
+,
+"author_url"
+:
+"
+...
+"
+,
+"thumbnail_url"
+:
+"
+...
+"
+},
+"available_languages"
+: [
+{
+"code"
+:
+"
+en
+"
+,
+"name"
+:
+"
+English
+"
+,
+"kind"
+:
+"
+manual
+"
+},
+{
+"code"
+:
+"
+asr-en
+"
+,
+"name"
+:
+"
+English (auto-generated)
+"
+,
+"kind"
+:
+"
+auto
+"
+}
+]
+}
+Free
+— no credit is consumed. The same API key and active plan are required as for the transcript endpoint.
+Each
+available_languages
+code can be passed directly to the transcript endpoint’s
+language
+parameter (for example
+en
+, or
+asr-en
+for auto-generated English).
+kind
+shows which captions a code returns:
+manual
+(human-made) or
+auto
+(auto-generated by YouTube). A plain code such as
+ru
+returns the human-made track when one exists, otherwise the auto-generated one, so a plain code can show
+auto
+.
+asr-<code>
+is always
+auto
+.
+Returns
+404
+when the video does not exist or has no captions.
+Video Metadata
+Section titled “Video Metadata”
+GET /youtube/video/metadata
+Inspect a video’s metadata
+without needing captions
+— title, view/like-count text, publish date, a structured description with extracted links, an uploading-channel summary, and thumbnails. Unlike the free
+/youtube/info
+endpoint (which is scoped to transcript-language discovery), this returns the full metadata surface and can optionally pull heavier player-sourced data.
+Naming
+This endpoint was previously
+/youtube/video/info
+. That path still works as a hidden alias but is deprecated — use
+/youtube/video/metadata
+.
+Parameters
+Section titled “Parameters”
+Parameter
+Type
+Required
+Default
+Description
+video_url
+string
+Yes
+—
+YouTube video URL or 11-character video ID.
+include
+string
+No
+—
+Comma-separated extras:
+details
+,
+related
+.
+include=related
+— adds a
+related
+list of suggested videos.
+include=details
+— adds a
+details
+object with
+lengthSeconds
+,
+category
+,
+tags
+, official thumbnails, and the caption-track inventory. These come from YouTube’s player endpoint, which requires our proxied (production) path; where it can’t be read,
+details.available
+is
+false
+with a
+reason
+instead of guessed values.
+Display strings and numeric values are kept distinct; hidden counts are
+null
+, never
+0
+.
+Response
+Section titled “Response”
+{
+"videoId"
+:
+"
+dQw4w9WgXcQ
+"
+,
+"title"
+:
+"
+Rick Astley - Never Gonna Give You Up
+"
+,
+"viewCountText"
+:
+"
+1,600,000,000 views
+"
+,
+"viewCountShort"
+:
+"
+1.6B views
+"
+,
+"publishDate"
+:
+"
+2009-10-25
+"
+,
+"relativeDate"
+:
+"
+16 years ago
+"
+,
+"likeCountText"
+:
+"
+18M
+"
+,
+"description"
+:
+"
+The official video for ...
+"
+,
+"descriptionLinks"
+: [
+{
+"text"
+:
+"
+Listen On Spotify
+"
+,
+"url"
+:
+"
+https://open.spotify.com/...
+"
+}
+],
+"channel"
+: {
+"channelId"
+:
+"
+UCuAXFkgsw1L7xaCfnd5JJOw
+"
+,
+"name"
+:
+"
+Rick Astley
+"
+,
+"subscriberCountText"
+:
+"
+3.9M subscribers
+"
+,
+"thumbnails"
+: [
+...
+]
+},
+"thumbnails"
+: [
+...
+],
+"details"
+: {
+"available"
+:
+true
+,
+"lengthSeconds"
+:
+213
+,
+"category"
+:
+"
+Music
+"
+,
+"tags"
+: [
+"
+Rick Astley
+"
+,
+"
+Never Gonna Give You Up
+"
+],
+"isLiveContent"
+:
+false
+,
+"captionTracks"
+: [
+{
+"code"
+:
+"
+en
+"
+,
+"name"
+:
+"
+English
+"
+,
+"isAutoGenerated"
+:
+false
+}
+]
+},
+"related"
+: [
+{
+"kind"
+:
+"
+video
+"
+,
+"id"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+...
+"
+,
+"viewCountText"
+:
+"
+12M views
+"
+,
+"lengthText"
+:
+"
+3:32
+"
+,
+"channelName"
+:
+"
+...
+"
+}
+]
+}
+details
+and
+related
+are present only when requested via
+include
+.
+Freshness:
+cached for 5 minutes.
+Credit cost:
+1 credit per request.
+Example:
+Terminal window
+# Metadata only
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/video/metadata?video_url=dQw4w9WgXcQ
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# With player details + related videos
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/video/metadata?video_url=dQw4w9WgXcQ&include=details,related
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Search Endpoint
+Section titled “Search Endpoint”
+GET /youtube/search
+Search YouTube for videos or channels.
+Parameters
+Section titled “Parameters”
+Parameter
+Type
+Required
+Default
+Description
+q
+string
+Conditional
+—
+Search query (1–200 characters). Required for the first page.
+type
+string
+No
+video
+Result type:
+video
+,
+channel
+,
+playlist
+, or
+movie
+(first page only).
+sort
+string
+No
+relevance
+Sort order (first page):
+relevance
+or
+views
+(YouTube’s “Popularity”).
+upload_date
+string
+No
+—
+Upload-date window (first page, videos only):
+hour
+,
+today
+,
+week
+,
+month
+,
+year
+.
+duration
+string
+No
+—
+Duration bucket (first page, videos only):
+short
+(under 4m),
+medium
+(4–20m),
+long
+(over 20m).
+features
+string
+No
+—
+Comma-separated feature filters (first page), e.g.
+hd
+,
+subtitles
+,
+cc
+,
+live
+,
+4k
+,
+hdr
+,
+360
+,
+creative_commons
+.
+sp
+string
+No
+—
+Advanced: raw YouTube
+sp
+filter (base64). Overrides the structured filters above.
+continuation
+string
+Conditional
+—
+Continuation token from previous response (subsequent pages).
+Provide exactly one of
+q
+or
+continuation
+. When
+continuation
+is provided,
+q
+/
+type
+/filters are ignored (the token already encodes them).
+Filter availability
+sort
+,
+upload_date
+,
+duration
+,
+features
+, and
+sp
+apply to the
+first page only
+— pagination follows the encoded
+continuation_token
+. YouTube no longer offers upload-date or rating
+sort
+in search; use the
+upload_date
+window for recency instead.
+Each call returns YouTube’s full page (~20 items). Use
+continuation_token
+to fetch more.
+Response
+Section titled “Response”
+Video search
+Channel search
+{
+"results"
+: [
+{
+"type"
+:
+"
+video
+"
+,
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+The future of design — TED
+"
+,
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"channelTitle"
+:
+"
+TED
+"
+,
+"channelHandle"
+:
+"
+@TED
+"
+,
+"channelVerified"
+:
+true
+,
+"lengthText"
+:
+"
+12:34
+"
+,
+"viewCountText"
+:
+"
+3.4M views
+"
+,
+"publishedTimeText"
+:
+"
+2 years ago
+"
+,
+"hasCaptions"
+:
+true
+,
+"thumbnails"
+: [
+{
+"url"
+:
+"
+https://i.ytimg.com/vi/abc123xyz00/default.jpg
+"
+,
+"width"
+:
+120
+,
+"height"
+:
+90
+}
+]
+}
+],
+"result_count"
+:
+20
+,
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+}
+{
+"results"
+: [
+{
+"type"
+:
+"
+channel
+"
+,
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"title"
+:
+"
+TED
+"
+,
+"handle"
+:
+"
+@TED
+"
+,
+"url"
+:
+"
+https://www.youtube.com/@TED
+"
+,
+"description"
+:
+"
+Ideas worth spreading...
+"
+,
+"subscriberCount"
+:
+"
+23.8M subscribers
+"
+,
+"verified"
+:
+true
+,
+"rssUrl"
+:
+"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"thumbnails"
+: [
+...
+]
+}
+],
+"result_count"
+:
+5
+,
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+}
+Pagination flow:
+First request:
+?q=design&type=video
+— returns first page +
+continuation_token
+Next request:
+?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+— returns next page + new token
+Repeat until
+has_more
+is
+false
+or
+continuation_token
+is
+null
+Each page costs 1 credit.
+Example:
+Terminal window
+# First page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/search?q=innovation&type=video
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Filtered: most-viewed long videos uploaded this month
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/search?q=innovation&sort=views&duration=long&upload_date=month
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Next page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/search?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Endpoints
+Section titled “Channel Endpoints”
+Resolve Channel
+Section titled “Resolve Channel”
+GET /youtube/channel/resolve
+Resolve any channel reference (@handle, URL, or UC… ID) to a canonical UC… channel ID.
+Free — no credits charged.
+Parameter
+Type
+Required
+Description
+input
+string
+Yes
+@handle, channel URL, or UC… ID (1–200 characters)
+Response:
+{
+"channel_id"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"resolved_from"
+:
+"
+@TED
+"
+}
+Fast Path
+If
+input
+is already a valid UC… channel ID (24 characters starting with
+UC
+), the API returns immediately without any external lookup.
+Example:
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/resolve?input=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Search Within Channel
+Section titled “Search Within Channel”
+GET /youtube/channel/search
+Search for videos within a specific channel. Accepts an @handle, channel URL, or UC… channel ID.
+Parameter
+Type
+Required
+Default
+Description
+channel
+string
+Conditional
+—
+@handle, channel URL, or UC… channel ID (first page).
+q
+string
+Conditional
+—
+Search query (1–200 characters, first page).
+continuation
+string
+Conditional
+—
+Continuation token from previous response (subsequent pages).
+Provide exactly one of (
+channel
++
+q
+)
+or
+continuation
+. When
+continuation
+is provided,
+channel
+/
+q
+are ignored.
+Each call returns YouTube’s full page (~30 items). Use
+continuation_token
+to fetch more.
+Backwards Compatibility
+The legacy
+channel_id
+parameter still works but is hidden from API docs. Prefer using
+channel
+which accepts flexible input.
+Response:
+{
+"results"
+: [
+{
+"type"
+:
+"
+video
+"
+,
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+Video Title
+"
+,
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"channelTitle"
+:
+"
+TED
+"
+,
+"channelHandle"
+:
+"
+@TED
+"
+,
+"channelVerified"
+:
+true
+,
+"lengthText"
+:
+"
+12:34
+"
+,
+"viewCountText"
+:
+"
+2.1M views
+"
+,
+"publishedTimeText"
+:
+"
+3 months ago
+"
+,
+"hasCaptions"
+:
+true
+,
+"thumbnails"
+: [
+...
+]
+}
+],
+"result_count"
+:
+12
+,
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+}
+Pagination flow:
+First request:
+?channel=@TED&q=innovation
+— returns first page +
+continuation_token
+Next request:
+?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+— returns next page + new token
+Repeat until
+has_more
+is
+false
+or
+continuation_token
+is
+null
+Each page costs 1 credit.
+Example:
+Terminal window
+# First page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/search?channel=@TED&q=innovation
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Next page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/search?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Videos (Paginated)
+Section titled “Channel Videos (Paginated)”
+GET /youtube/channel/videos
+List a channel’s feed, paginated at ~100 per page. Accepts an @handle, channel URL, or UC… channel ID. Use
+tab
+to select the uploads feed (default), Shorts, or live streams, and
+sort
+to reorder it.
+Parameter
+Type
+Required
+Default
+Description
+channel
+string
+Conditional
+—
+@handle, channel URL, or UC… channel ID (first page).
+tab
+string
+No
+videos
+Which feed:
+videos
+(uploads),
+shorts
+, or
+streams
+(live). Repeat the same
+tab
+when paginating.
+sort
+string
+No
+—
+latest
+,
+popular
+, or
+oldest
+. Omit for the default uploads feed. Repeat the same
+sort
+when paginating.
+continuation
+string
+Conditional
+—
+Continuation token from previous response (next pages).
+Provide exactly one of
+channel
+or
+continuation
+. When paginating a
+shorts
+or
+streams
+feed, or any sorted feed, pass the same
+tab
+and
+sort
+values on every page.
+Backwards Compatibility
+The legacy
+channel_id
+parameter still works but is hidden from API docs. Prefer using
+channel
+which accepts flexible input.
+Sorting
+Section titled “Sorting”
+sort
+is opt-in, and
+omitting it is not the same as
+sort=latest
+— they read two different YouTube feeds:
+tab=videos
+, no
+sort
+tab=videos
++ any
+sort
+Source
+uploads playlist
+the channel’s Videos tab
+Page size
+~100
+~30
+playlist_info
+populated
+null
+Shorts
+mixed in with long-form uploads
+excluded — use
+tab=shorts
+Members-only videos
+excluded
+included, flagged
+members_only: true
+These are different
+sets
+, not one list in two orders. The uploads playlist interleaves Shorts with long-form uploads; the Videos tab holds long-form only and adds membership content. So
+sort=latest
+can return a different first video than omitting
+sort
+— the unsorted feed’s newest item may be a Short.
+Walking a full catalogue with
+sort
+set costs about 3.3x the pages, and therefore 3.3x the credits. Omit
+sort
+when you just want newest-first.
+tab=shorts
+and
+tab=streams
+read the same feed with or without
+sort
+; there,
+sort
+only reorders it.
+Every item carries
+members_only
+(a boolean,
+false
+unless YouTube badges the video “Members only”). Members-only items have
+viewCountText: null
+— YouTube does not publish view counts for them.
+Sorted response:
+{
+"results"
+: [
+{
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+Most-Watched Talk
+"
+,
+"lengthText"
+:
+"
+18:04
+"
+,
+"viewCountText"
+:
+"
+72M views
+"
+,
+"publishedTimeText"
+:
+"
+11 years ago
+"
+,
+"thumbnails"
+: [
+...
+],
+"members_only"
+:
+false
+}
+],
+"playlist_info"
+:
+null
+,
+"continuation_token"
+:
+"
+4qmFsgJkEhhVQ0F1VVVuVDZvRGVLd0U2djFOR1F4dWca...
+"
+,
+"has_more"
+:
+true
+}
+Response:
+{
+"results"
+: [
+{
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+Latest Video
+"
+,
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"channelTitle"
+:
+"
+TED
+"
+,
+"channelHandle"
+:
+"
+@TED
+"
+,
+"lengthText"
+:
+"
+15:22
+"
+,
+"viewCountText"
+:
+"
+3.2M views 2 weeks ago
+"
+,
+"thumbnails"
+: [
+...
+],
+"index"
+:
+"
+0
+"
+,
+"members_only"
+:
+false
+}
+],
+"playlist_info"
+: {
+"title"
+:
+"
+Uploads from TED
+"
+,
+"numVideos"
+:
+"
+5200
+"
+,
+"description"
+:
+""
+,
+"ownerName"
+:
+"
+TED
+"
+,
+"viewCount"
+:
+null
+},
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+}
+Pagination flow:
+First request:
+?channel=@TED
+— returns first ~100 videos +
+continuation_token
+Next request:
+?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+— returns next ~100 + new token
+Repeat until
+has_more
+is
+false
+or
+continuation_token
+is
+null
+Example:
+Terminal window
+# First page (using @handle)
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/videos?channel=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# First page (using channel URL)
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/videos?channel=https://www.youtube.com/@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Next page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/videos?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Most-viewed first (channel-tab feed, ~30/page)
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/videos?channel=@TED&sort=popular
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Oldest live streams first — repeat tab AND sort on every page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/videos?channel=@NASA&tab=streams&sort=oldest
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Info
+Section titled “Channel Info”
+GET /youtube/channel/info
+Fetch a channel’s profile: title, @handle, verified flag, subscriber/video-count text, description, keywords, tags, thumbnails, banners, and the tabs the channel exposes.
+Parameter
+Type
+Required
+Description
+channel
+string
+Yes
+@handle, channel URL, or UC… channel ID.
+Formatted counts are display strings (e.g.
+27.8M subscribers
+) and are
+null
+when YouTube does not expose them — never
+0
+. About-tab fields YouTube does not serve over an unauthenticated request (join date, total views, country, external links) are omitted rather than guessed.
+Response:
+{
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"title"
+:
+"
+TED
+"
+,
+"handle"
+:
+"
+@TED
+"
+,
+"verified"
+:
+true
+,
+"subscriberCountText"
+:
+"
+23.8M subscribers
+"
+,
+"videoCountText"
+:
+"
+4,300 videos
+"
+,
+"description"
+:
+"
+The TED Talks channel features ...
+"
+,
+"keywords"
+:
+"
+ted talks, technology, ...
+"
+,
+"tags"
+: [
+"
+TED
+"
+,
+"
+TED Talks
+"
+],
+"isFamilySafe"
+:
+true
+,
+"thumbnails"
+: [
+...
+],
+"banners"
+: [
+...
+],
+"availableTabs"
+: [
+"
+videos
+"
+,
+"
+shorts
+"
+,
+"
+playlists
+"
+,
+"
+community
+"
+]
+}
+Freshness:
+cached for 5 minutes.
+Credit cost:
+1 credit per request. Returns
+404
+when the channel does not exist (do not retry).
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/info?channel=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Playlists
+Section titled “Channel Playlists”
+GET /youtube/channel/playlists
+List the playlists shown on a channel (id, title, URL, video-count text, thumbnails), paginated.
+Parameter
+Type
+Required
+Description
+channel
+string
+Conditional
+@handle, channel URL, or UC… channel ID (first page).
+continuation
+string
+Conditional
+Continuation token from previous response (next pages).
+Provide exactly one of
+channel
+or
+continuation
+. Video-count text is a display string (e.g.
+11 videos
+) and is
+null
+when YouTube omits it — never
+0
+.
+Response:
+{
+"results"
+: [
+{
+"playlistId"
+:
+"
+PLabc...
+"
+,
+"title"
+:
+"
+Most-viewed talks
+"
+,
+"url"
+:
+"
+https://www.youtube.com/playlist?list=PLabc...
+"
+,
+"videoCountText"
+:
+"
+25 videos
+"
+,
+"thumbnails"
+: [
+...
+]
+}
+],
+"result_count"
+:
+30
+,
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+}
+Freshness:
+cached for 5 minutes.
+Credit cost:
+1 credit per page.
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/playlists?channel=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Posts
+Section titled “Channel Posts”
+GET /youtube/channel/posts
+List a channel’s community (Posts tab) content — text, publish time, like-count text, and any attachment (image, multi-image, video, playlist, or poll), paginated.
+Parameter
+Type
+Required
+Description
+channel
+string
+Conditional
+@handle, channel URL, or UC… channel ID (first page).
+continuation
+string
+Conditional
+Continuation token from previous response (next pages).
+Provide exactly one of
+channel
+or
+continuation
+. Channels with no community tab return an empty
+results
+list (HTTP 200, not an error).
+Response:
+{
+"results"
+: [
+{
+"postId"
+:
+"
+Ugkx...
+"
+,
+"authorName"
+:
+"
+TED
+"
+,
+"authorThumbnails"
+: [
+...
+],
+"text"
+:
+"
+New talk out now!
+"
+,
+"publishedTimeText"
+:
+"
+2 days ago
+"
+,
+"voteCountText"
+:
+"
+1.2K
+"
+,
+"attachment"
+: {
+"type"
+:
+"
+video
+"
+,
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+...
+"
+,
+"lengthText"
+:
+"
+12:34
+"
+}
+}
+],
+"result_count"
+:
+20
+,
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+}
+attachment.type
+is one of
+image
+,
+multi_image
+,
+video
+,
+playlist
+,
+poll
+(only the fields relevant to that type are present). Like counts are display strings —
+null
+when hidden, never
+0
+.
+Freshness:
+cached for 5 minutes.
+Credit cost:
+1 credit per page.
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/posts?channel=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Sections
+Section titled “Channel Sections”
+GET /youtube/channel/sections
+Return a channel’s curated sections (the shelves on its Home page and other curated tabs) in the channel’s own order — each shelf holds videos, playlists, shorts, or featured channels.
+Parameter
+Type
+Required
+Default
+Description
+channel
+string
+Yes
+—
+@handle, channel URL, or UC… channel ID.
+tab
+string
+No
+featured
+Which curated page:
+featured
+(Home),
+podcasts
+, or
+releases
+.
+podcasts
+and
+releases
+exist only on channels that have them (an empty
+results
+list otherwise). This endpoint is not paginated.
+Response:
+{
+"tab"
+:
+"
+featured
+"
+,
+"results"
+: [
+{
+"title"
+:
+"
+Popular videos
+"
+,
+"type"
+:
+"
+shelf
+"
+,
+"items"
+: [
+{
+"kind"
+:
+"
+video
+"
+,
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+...
+"
+,
+"viewCountText"
+:
+"
+12M views
+"
+,
+"thumbnails"
+: [
+...
+]
+}
+]
+}
+],
+"result_count"
+:
+8
+}
+items[].kind
+is one of
+video
+,
+playlist
+,
+short
+,
+channel
+.
+Freshness:
+cached for 5 minutes.
+Credit cost:
+1 credit per request. Returns
+404
+when the channel does not exist (do not retry).
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/sections?channel=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Channel Latest (RSS)
+Section titled “Channel Latest (RSS)”
+GET /youtube/channel/latest
+Get the latest 15 videos from a channel via YouTube RSS feed. Returns exact publish timestamps and view counts. Accepts an @handle, channel URL, or UC… channel ID.
+Free — no credits charged.
+Parameter
+Type
+Required
+Description
+channel
+string
+Yes
+@handle, channel URL, or UC… channel ID
+Backwards Compatibility
+The legacy
+channel_id
+parameter still works but is hidden from API docs. Prefer using
+channel
+which accepts flexible input.
+When YouTube’s feed is unavailable
+When YouTube’s feed is unavailable,
+published
+is approximate. The list then comes from the channel’s uploads (response header
+X-Data-Source: browse
+, plus
+X-Published-Approximate: true
+).
+published
+keeps the same ISO format but is worked out from times like “9 hours ago”.
+viewCount
+is only filled when YouTube shows the exact number, and
+updated
+,
+description
+and
+starRating
+are
+null
+. If YouTube is unreachable altogether, you get the last good list (up to 7 days old) with
+X-Cache-Status: STALE
+instead of an error. All of these responses stay free.
+Response:
+{
+"channel"
+: {
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"title"
+:
+"
+TED
+"
+,
+"author"
+:
+"
+TED
+"
+,
+"url"
+:
+"
+https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"published"
+:
+"
+2006-12-18T00:00:00Z
+"
+},
+"results"
+: [
+{
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+Latest Video Title
+"
+,
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"author"
+:
+"
+TED
+"
+,
+"published"
+:
+"
+2026-01-30T16:00:00Z
+"
+,
+"updated"
+:
+"
+2026-01-31T02:00:00Z
+"
+,
+"link"
+:
+"
+https://www.youtube.com/watch?v=abc123xyz00
+"
+,
+"description"
+:
+"
+Full video description...
+"
+,
+"thumbnail"
+: {
+"url"
+:
+"
+https://i1.ytimg.com/vi/abc123xyz00/hqdefault.jpg
+"
+,
+"width"
+:
+"
+480
+"
+,
+"height"
+:
+"
+360
+"
+},
+"viewCount"
+:
+"
+2287630
+"
+,
+"starRating"
+: {
+"average"
+:
+"
+4.92
+"
+,
+"count"
+:
+"
+45000
+"
+,
+"min"
+:
+"
+1
+"
+,
+"max"
+:
+"
+5
+"
+}
+}
+],
+"result_count"
+:
+15
+}
+Example:
+Terminal window
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/channel/latest?channel=@TED
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Playlist Endpoint
+Section titled “Playlist Endpoint”
+GET /youtube/playlist/videos
+List videos in a playlist, paginated at ~100 per page. Accepts a YouTube playlist URL or a bare playlist ID.
+Parameter
+Type
+Required
+Description
+playlist
+string
+Conditional
+YouTube playlist URL or playlist ID (PL…, UU…, LL…, FL…, OL…).
+continuation
+string
+Conditional
+Continuation token from previous response (next pages).
+Provide exactly one of
+playlist
+or
+continuation
+.
+Backwards Compatibility
+The legacy
+playlist_id
+parameter still works but is hidden from API docs. Prefer using
+playlist
+which accepts flexible input.
+Response:
+{
+"results"
+: [
+{
+"videoId"
+:
+"
+abc123xyz00
+"
+,
+"title"
+:
+"
+Playlist Video
+"
+,
+"channelId"
+:
+"
+UCAuUUnT6oDeKwE6v1NGQxug
+"
+,
+"channelTitle"
+:
+"
+TED
+"
+,
+"channelHandle"
+:
+"
+@TED
+"
+,
+"lengthText"
+:
+"
+10:05
+"
+,
+"viewCountText"
+:
+"
+1.5M views 6 months ago
+"
+,
+"thumbnails"
+: [
+...
+],
+"index"
+:
+"
+0
+"
+}
+],
+"playlist_info"
+: {
+"title"
+:
+"
+Best Tech of 2025
+"
+,
+"numVideos"
+:
+"
+47
+"
+,
+"description"
+:
+"
+My picks for the best tech this year
+"
+,
+"ownerName"
+:
+"
+TED
+"
+,
+"viewCount"
+:
+"
+5000000
+"
+},
+"continuation_token"
+:
+"
+4qmFsgKlARIYVVV1QVhGa2dz...
+"
+,
+"has_more"
+:
+true
+,
+"cached_at"
+:
+"
+2026-11-03T09:00:00Z
+"
+}
+Freshness:
+each page is cached for up to 30 minutes.
+cached_at
+is the UTC time the page was fetched from YouTube, so edits to a playlist (renames, added videos) show up within 30 minutes.
+Errors:
+a malformed
+continuation
+token returns HTTP 400
+{"detail": "Invalid request argument (e.g. a malformed continuation token)"}
+. Do not retry it; start again from the first page.
+Pagination:
+Same flow as channel/videos — use
+continuation_token
+from each response to fetch the next page.
+Example:
+Terminal window
+# First page (using playlist ID)
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/playlist/videos?playlist=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# First page (using playlist URL)
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/playlist/videos?playlist=https://www.youtube.com/playlist?list=PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Next page
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/playlist/videos?continuation=4qmFsgKlARIYVVV1QVhGa2dz...
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+Credit Usage & Billing
+Section titled “Credit Usage & Billing”
+Credit Cost
+Section titled “Credit Cost”
+Endpoint
+Credits per Request
+Notes
+GET /youtube/transcript
+1 credit
+Only charged on successful response (200)
+GET /youtube/info
+Free
+Transcript-language discovery; requires auth + ≥1 active credit
+GET /youtube/video/metadata
+1 credit
+Rich metadata;
+include=details,related
+does not change the cost
+GET /youtube/search
+1 credit
+Videos, channels, playlists, or movies (per page)
+GET /youtube/channel/resolve
+Free
+Requires auth + at least 1 active credit
+GET /youtube/channel/info
+1 credit
+Channel profile / identity
+GET /youtube/channel/search
+1 credit
+Search within a channel
+GET /youtube/channel/videos
+1 credit/page
+Paginated — each page (any
+tab
+/
+sort
+) costs 1 credit. A sorted
+tab=videos
+feed pages at ~30 instead of ~100, so a full walk costs ~3.3x
+GET /youtube/channel/playlists
+1 credit/page
+Paginated — each page costs 1 credit
+GET /youtube/channel/posts
+1 credit/page
+Paginated — each page costs 1 credit
+GET /youtube/channel/sections
+1 credit
+Curated sections (not paginated)
+GET /youtube/channel/latest
+Free
+Requires auth + at least 1 active credit
+GET /youtube/playlist/videos
+1 credit/page
+Paginated — each page costs 1 credit
+When Credits Are Charged
+Section titled “When Credits Are Charged”
+✅
+Successful requests
+(HTTP 200) - 1 credit (paid endpoints only)
+✅
+Cached responses
+(HTTP 200) - 1 credit (paid endpoints only)
+✅
+Free endpoints
+(HTTP 200) - 0 credits (requires at least 1 active credit)
+❌
+Failed requests
+(4xx, 5xx errors) - 0 credits
+❌
+Rate limited requests
+(HTTP 429) - 0 credits
+Credits are deducted in real-time only when a request is successfully returned.
+When credits are exhausted, the API returns
+HTTP 402 Payment Required
+.
+Rate Limits
+Section titled “Rate Limits”
+Rate limits depend on your plan:
+Plan
+Rate limit
+Starter Monthly
+200 requests per minute
+Starter Annual, OpenClaw
+300 requests per minute
+(more on request)
+The limit applies
+per account
+: all API keys on your account share it. Need more?
+Contact us
+.
+When You Hit the Limit
+Section titled “When You Hit the Limit”
+Requests over the limit return
+HTTP 429 Too Many Requests
+with a
+Retry-After
+header:
+Header
+Description
+Retry-After
+Seconds until you can retry (on 429 only)
+Best Practices
+Section titled “Best Practices”
+Implement exponential backoff
+on 429 errors
+Respect the
+Retry-After
+header
+value
+Cache responses
+when appropriate to reduce API calls
+Don’t retry failed requests
+more than 2 times within 3 seconds
+Monitor rate limit headers
+to avoid hitting limits
+Error Handling
+Section titled “Error Handling”
+The API uses standard HTTP status codes:
+Status Code
+Meaning
+Retry?
+Action
+200
+Success
+—
+Transcript returned, 1 credit charged
+400
+Bad Request
+❌ No
+Check your request parameters
+401
+Unauthorized
+❌ No
+Invalid or missing API key
+402
+Payment Required
+❌ No
+No credits remaining - visit
+billing
+404
+Not Found
+❌ No
+No transcript: see
+code
+(
+no_captions
+,
+video_unavailable
+,
+age_restricted
+,
+live_not_started
+)
+408
+Timeout / Retry
+✅
+Yes
+Temporary failure (bot detection, network) - retry in 1-5s
+422
+Validation Error
+❌ No
+Invalid YouTube URL or ID
+429
+Too Many Requests
+✅
+Yes
+Rate limit exceeded - retry after
+Retry-After
+header
+500
+Server Error
+⚠️ Maybe
+Contact support if persistent
+503
+Service Unavailable
+✅
+Yes
+Service temporarily down - retry in 1-5s
+Retry Strategy
+Section titled “Retry Strategy”
+For
+retryable errors
+(
+408
+,
+429
+,
+503
+):
+Wait
+the recommended delay (1-5 seconds, or check
+Retry-After
+header for 429)
+Retry
+up to 2-3 times with exponential backoff
+Give up
+after max retries and log the failure
+For
+non-retryable errors
+(
+400
+,
+401
+,
+402
+,
+404
+,
+422
+): Do not retry - fix the request parameters or check your account status.
+Error Response Format
+Section titled “Error Response Format”
+All error responses follow this format:
+{
+"detail"
+:
+"
+Human-readable error message
+"
+,
+"code"
+:
+"
+ERROR_CODE
+"
+}
+404 error codes
+Section titled “404 error codes”
+Every transcript
+404
+includes a machine-readable
+code
+, so you can tell the cause apart without parsing
+detail
+. The status stays
+404
+, and
+404
+s are never charged.
+code
+Meaning
+What to do
+no_captions
+The video exists and plays, but has no captions on YouTube, so no transcript exists.
+Don’t retry. Tell your user this video has no captions.
+video_unavailable
+The video can’t be retrieved: deleted, private, members-only, nonexistent, or not playable.
+Don’t retry. Check the URL or ID.
+age_restricted
+The video is age-restricted: YouTube only shows it to signed-in adults, so we can’t retrieve its transcript.
+Don’t retry. Tell your user transcripts aren’t available for age-restricted videos.
+live_not_started
+The video is a scheduled live stream or premiere that has not aired yet, so it has no captions yet.
+Try again after it has aired (not within seconds).
+no_transcript_for_requested_languages
+You passed
+language
+, and none of those languages exist. See
+available_languages
+below.
+Retry with one of the
+available_languages
+codes.
+{
+"detail"
+:
+"
+No transcript available for video tfLTHCpPsSY
+"
+,
+"code"
+:
+"
+no_captions
+"
+}
+{
+"detail"
+:
+"
+Video aaaaaaaaaaa not found or unavailable
+"
+,
+"code"
+:
+"
+video_unavailable
+"
+}
+{
+"detail"
+:
+"
+Video aaaaaaaaaaa is age-restricted: YouTube only shows it to signed-in adults, so no transcript is available
+"
+,
+"code"
+:
+"
+age_restricted
+"
+}
+{
+"detail"
+:
+"
+Video aaaaaaaaaaa is a live stream that has not started yet, try again after it has aired
+"
+,
+"code"
+:
+"
+live_not_started
+"
+}
+Branch on
+code
+, not on
+detail
+: the
+detail
+wording may change, and the codes won’t. New codes may be added later, so treat an unknown
+code
+like any other
+404
+.
+The same codes apply to
+/api/v1/youtube/transcript
+and
+/api/v2/youtube/transcript
+. In the MCP
+get_youtube_transcript
+tool, the error text ends with
+(code: no_captions)
+,
+(code: video_unavailable)
+,
+(code: age_restricted)
+or
+(code: live_not_started)
+.
+Changed 2026-10:
+age-restricted, private and members-only videos that YouTube reports as “login required” used to return a retryable
+408
+(“please retry”). They now return a permanent
+404
+:
+age_restricted
+for age-restricted videos,
+video_unavailable
+for private and members-only ones. Retrying never helped for any of them.
+Changed 2026-10:
+a scheduled live stream or premiere that has not aired yet used to return a
+404
+with
+code: "no_captions"
+. It now returns a
+404
+with
+code: "live_not_started"
+. It is still a
+404
+and still free. Try again after the stream has aired, when it may have captions.
+404 — No transcript for the requested languages
+Section titled “404 — No transcript for the requested languages”
+When you pass a
+language
+priority list and none of the requested codes are available, the response is a
+404
+that lists the languages the video
+does
+offer, so you can retry with a valid one:
+{
+"detail"
+:
+"
+No transcript available for the requested languages: en, de
+"
+,
+"code"
+:
+"
+no_transcript_for_requested_languages
+"
+,
+"available_languages"
+: [
+{
+"code"
+:
+"
+hi
+"
+,
+"name"
+:
+"
+Hindi
+"
+,
+"kind"
+:
+"
+manual
+"
+},
+{
+"code"
+:
+"
+asr-hi
+"
+,
+"name"
+:
+"
+Hindi (auto-generated)
+"
+,
+"kind"
+:
+"
+auto
+"
+}
+]
+}
+When you omit
+language
+, a video without captions returns a
+404
+with
+code: "no_captions"
+and no
+available_languages
+.
+A video gets the same answer with or without
+language
+when the problem is the video itself, not the languages:
+The video
+Answer (with or without
+language
+)
+Age-restricted
+404
+with
+code: "age_restricted"
+Private or members-only
+404
+with
+code: "video_unavailable"
+A live stream or premiere that hasn’t aired yet
+404
+with
+code: "live_not_started"
+Temporarily blocked by a YouTube check
+408
+, retry in a few seconds
+These answers have no
+available_languages
+. A
+no_transcript_for_requested_languages
+with an
+empty
+available_languages
+list means the video plays but has no captions in any language. None of these answers uses a credit.
+401 Unauthorized
+Section titled “401 Unauthorized”
+Includes a
+WWW-Authenticate
+header:
+WWW-Authenticate: Bearer
+402 Payment Required
+Section titled “402 Payment Required”
+Special format with action details:
+Insufficient Credits:
+{
+"detail"
+: {
+"message"
+:
+"
+You have an active plan, but you've run out of credits.
+"
+,
+"reason"
+:
+"
+insufficient_credits
+"
+,
+"action_label"
+:
+"
+Top up credits
+"
+,
+"action_url"
+:
+"
+https://transcriptapi.com/top-up
+"
+}
+}
+No Active Plan:
+{
+"detail"
+: {
+"message"
+:
+"
+You don't have an active paid plan yet.
+"
+,
+"reason"
+:
+"
+no_active_paid_plan
+"
+,
+"action_label"
+:
+"
+Go to billing to choose a plan
+"
+,
+"action_url"
+:
+"
+https://transcriptapi.com/billing
+"
+}
+}
+Code Examples
+Section titled “Code Examples”
+Here are complete examples in multiple languages:
+cURL
+Python
+JavaScript (Node.js)
+JavaScript (Browser)
+Terminal window
+# Basic request
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/transcript?video_url=dQw4w9WgXcQ
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# With all parameters
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/transcript?video_url=dQw4w9WgXcQ&format=json&include_timestamp=true&send_metadata=true
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+# Text format without timestamps
+curl
+-X
+GET
+"
+https://transcriptapi.com/api/v2/youtube/transcript?video_url=dQw4w9WgXcQ&format=text&include_timestamp=false
+"
+\
+-H
+"
+Authorization: Bearer YOUR_API_KEY
+"
+import
+requests
+import
+json
+# Configuration
+API_KEY
+=
+"
+YOUR_API_KEY
+"
+BASE_URL
+=
+"
+https://transcriptapi.com/api/v2
+"
+def
+get_transcript
+(
+video_url
+,
+format=
+"
+json
+"
+,
+include_timestamp=
+True
+,
+send_metadata=
+False
+)
+:
+"""
+Fetch YouTube video transcript
+"""
+headers
+=
+{
+"
+Authorization
+"
+:
+f
+"Bearer
+{API_KEY}
+"
+}
+params
+=
+{
+"
+video_url
+"
+: video_url,
+"
+format
+"
+:
+format
+,
+"
+include_timestamp
+"
+: include_timestamp,
+"
+send_metadata
+"
+: send_metadata
+}
+try
+:
+response
+=
+requests.
+get
+(
+f
+"
+{BASE_URL}
+/youtube/transcript"
+,
+headers
+=
+headers
+,
+params
+=
+params
+)
+# Check for errors
+response.
+raise_for_status
+()
+# Parse JSON response
+data
+=
+response.
+json
+()
+# Handle different formats
+if
+format
+==
+"
+json
+"
+:
+transcript
+=
+data[
+"
+transcript
+"
+]
+if
+include_timestamp:
+for
+segment
+in
+transcript:
+print
+(
+f
+"[
+{segment
+[
+'
+start
+'
+]
+}
+s]
+{segment
+[
+'
+text
+'
+]
+}
+"
+)
+else
+:
+for
+segment
+in
+transcript:
+print
+(
+segment
+[
+'
+text
+'
+])
+else
+:
+# Text format
+print
+(
+data
+[
+"
+transcript
+"
+])
+return
+data
+except
+requests.exceptions.HTTPError
+as
+e:
+if
+e.response.status_code
+==
+402
+:
+error_data
+=
+e.response.
+json
+()
+print
+(
+f
+"Payment required:
+{error_data
+[
+'
+detail
+'
+]
+[
+'
+message
+'
+]
+}
+"
+)
+print
+(
+f
+"Action:
+{error_data
+[
+'
+detail
+'
+]
+[
+'
+action_url
+'
+]
+}
+"
+)
+elif
+e.response.status_code
+in
+(
+408
+,
+429
+,
+503
+):
+# Retryable errors - implement backoff
+retry_after
+=
+e.response.headers.
+get
+(
+'
+Retry-After
+'
+,
+'
+5
+'
+)
+print
+(
+f
+"Retryable error (
+{e.response.status_code}
+). Retry after
+{retry_after}
+seconds"
+)
+elif
+e.response.status_code
+==
+404
+:
+print
+(
+"
+Video not found or has no transcript available
+"
+)
+else
+:
+print
+(
+f
+"HTTP error:
+{e}
+"
+)
+except
+Exception
+as
+e:
+print
+(
+f
+"Error:
+{e}
+"
+)
+# Example usage
+if
+__name__
+==
+"
+__main__
+"
+:
+# Basic usage
+get_transcript
+(
+"
+dQw4w9WgXcQ
+"
+)
+# With metadata
+data
+=
+get_transcript
+(
+"
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+"
+,
+send_metadata
+=
+True
+)
+if
+data
+and
+"
+metadata
+"
+in
+data:
+print
+(
+f
+"Title:
+{data
+[
+'
+metadata
+'
+]
+[
+'
+title
+'
+]
+}
+"
+)
+print
+(
+f
+"Author:
+{data
+[
+'
+metadata
+'
+]
+[
+'
+author_name
+'
+]
+}
+"
+)
+// Using native fetch (Node.js 18+) or install node-fetch for older versions
+const
+API_KEY
+=
+'
+YOUR_API_KEY
+'
+;
+const
+BASE_URL
+=
+'
+https://transcriptapi.com/api/v2
+'
+;
+async
+function
+getTranscript
+(
+videoUrl
+,
+options
+=
+{}
+)
+{
+const {
+format
+=
+'
+json
+'
+,
+includeTimestamp
+=
+true
+,
+sendMetadata
+=
+false
+} =
+options
+;
+const
+params
+=
+new
+URLSearchParams
+(
+{
+video_url:
+videoUrl
+,
+format:
+format
+,
+include_timestamp:
+includeTimestamp
+,
+send_metadata:
+sendMetadata
+}
+);
+try
+{
+const
+response
+= await
+fetch
+(
+`
+${
+BASE_URL
+}
+/youtube/transcript?
+${
+params
+}
+`
+,
+{
+headers: {
+'
+Authorization
+'
+:
+`
+Bearer
+${
+API_KEY
+}
+`
+}
+}
+);
+if
+(
+!
+response
+.
+ok
+) {
+const
+error
+= await
+response
+.
+json
+();
+if
+(
+response
+.
+status
+===
+402
+) {
+console
+.
+error
+(
+'
+Payment required:
+'
+,
+error
+.
+detail
+.
+message
+);
+console
+.
+error
+(
+'
+Action:
+'
+,
+error
+.
+detail
+.
+action_url
+);
+}
+else
+if
+([
+408
+,
+429
+,
+503
+]
+.
+includes
+(
+response
+.
+status
+)) {
+// Retryable errors - implement backoff
+const
+retryAfter
+=
+response
+.
+headers
+.
+get
+(
+'
+Retry-After
+'
+)
+||
+'
+5
+'
+;
+console
+.
+error
+(
+`
+Retryable error (
+${
+response
+.
+status
+}
+). Retry after
+${
+retryAfter
+}
+seconds
+`
+);
+}
+else
+if
+(
+response
+.
+status
+===
+404
+) {
+console
+.
+error
+(
+'
+Video not found or has no transcript available
+'
+);
+}
+else
+{
+console
+.
+error
+(
+'
+API Error:
+'
+,
+error
+.
+detail
+);
+}
+throw
+new
+Error
+(
+error
+.
+detail
+);
+}
+const
+data
+= await
+response
+.
+json
+();
+// Process transcript based on format
+if
+(
+format
+===
+'
+json
+'
+&&
+includeTimestamp
+) {
+data
+.
+transcript
+.
+forEach
+(
+segment
+=>
+{
+console
+.
+log
+(
+`
+[
+${
+segment
+.
+start
+}
+s]
+${
+segment
+.
+text
+}
+`
+);
+});
+}
+return
+data
+;
+}
+catch
+(
+error
+) {
+console
+.
+error
+(
+'
+Error fetching transcript:
+'
+,
+error
+);
+throw
+error
+;
+}
+}
+// Example usage with async/await
+(
+async
+()
+=>
+{
+try
+{
+// Basic usage
+const
+transcript
+= await
+getTranscript
+(
+'
+dQw4w9WgXcQ
+'
+);
+console
+.
+log
+(
+'
+Video ID:
+'
+,
+transcript
+.
+video_id
+);
+// With metadata
+const
+withMetadata
+= await
+getTranscript
+(
+'
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+'
+,
+{ sendMetadata:
+true
+}
+);
+if
+(
+withMetadata
+.
+metadata
+) {
+console
+.
+log
+(
+'
+Title:
+'
+,
+withMetadata
+.
+metadata
+.
+title
+);
+console
+.
+log
+(
+'
+Author:
+'
+,
+withMetadata
+.
+metadata
+.
+author_name
+);
+}
+// Text format without timestamps
+const
+plainText
+= await
+getTranscript
+(
+'
+dQw4w9WgXcQ
+'
+, {
+format:
+'
+text
+'
+,
+includeTimestamp:
+false
+}
+);
+console
+.
+log
+(
+'
+Plain text:
+'
+,
+plainText
+.
+transcript
+);
+}
+catch
+(
+error
+) {
+// Error already logged
+}
+})();
+// Browser JavaScript with Fetch API
+const
+API_KEY
+=
+'
+YOUR_API_KEY
+'
+;
+const
+BASE_URL
+=
+'
+https://transcriptapi.com/api/v2
+'
+;
+async
+function
+getYouTubeTranscript
+(
+videoUrl
+,
+options
+=
+{}
+)
+{
+const {
+format
+=
+'
+json
+'
+,
+includeTimestamp
+=
+true
+,
+sendMetadata
+=
+false
+} =
+options
+;
+const
+params
+=
+new
+URLSearchParams
+(
+{
+video_url:
+videoUrl
+,
+format:
+format
+,
+include_timestamp:
+includeTimestamp
+,
+send_metadata:
+sendMetadata
+}
+);
+try
+{
+const
+response
+= await
+fetch
+(
+`
+${
+BASE_URL
+}
+/youtube/transcript?
+${
+params
+}
+`
+,
+{
+method:
+'
+GET
+'
+,
+headers: {
+'
+Authorization
+'
+:
+`
+Bearer
+${
+API_KEY
+}
+`
+,
+'
+Content-Type
+'
+:
+'
+application/json
+'
+}
+}
+);
+if
+(
+!
+response
+.
+ok
+) {
+const
+error
+= await
+response
+.
+json
+();
+// Handle specific error cases
+switch
+(
+response
+.
+status
+) {
+case
+401
+:
+throw
+new
+Error
+(
+'
+Invalid API key
+'
+);
+case
+402
+:
+// Show payment required UI
+window
+.
+location
+.
+href
+=
+error
+.
+detail
+.
+action_url
+;
+break
+;
+case
+404
+:
+throw
+new
+Error
+(
+'
+Video not found or has no transcript
+'
+);
+case
+408
+:
+case
+503
+:
+// Retryable - temporary failure
+throw
+new
+Error
+(
+'
+Temporary failure. Please retry in a few seconds.
+'
+);
+case
+429
+:
+const
+retryAfter
+=
+response
+.
+headers
+.
+get
+(
+'
+Retry-After
+'
+);
+throw
+new
+Error
+(
+`
+Rate limited. Retry after
+${
+retryAfter
+}
+s
+`
+);
+default
+:
+throw
+new
+Error
+(
+error
+.
+detail
+||
+'
+API request failed
+'
+);
+}
+}
+return
+await
+response
+.
+json
+();
+}
+catch
+(
+error
+) {
+console
+.
+error
+(
+'
+Transcript fetch error:
+'
+,
+error
+);
+// Display user-friendly error
+if
+(
+error
+.
+message
+.
+includes
+(
+'
+Failed to fetch
+'
+)) {
+throw
+new
+Error
+(
+'
+Network error. Please check your connection.
+'
+);
+}
+throw
+error
+;
+}
+}
+// Example: Display transcript in DOM
+async
+function
+displayTranscript
+(
+videoUrl
+)
+{
+const
+container
+=
+document
+.
+getElementById
+(
+'
+transcript-container
+'
+);
+container
+.
+innerHTML
+=
+'
+Loading transcript...
+'
+;
+try
+{
+const
+data
+= await
+getYouTubeTranscript
+(
+videoUrl
+,
+{
+sendMetadata:
+true
+}
+);
+// Display metadata if available
+if
+(
+data
+.
+metadata
+) {
+container
+.
+innerHTML
+=
+`
+<h3>
+${
+data
+.
+metadata
+.
+title
+}
+</h3>
+<p>By:
+${
+data
+.
+metadata
+.
+author_name
+}
+</p>
+`
+;
+}
+// Display transcript
+const
+transcriptHtml
+=
+data
+.
+transcript
+.
+map
+(
+segment
+=>
+`
+<div class="transcript-segment">
+<span class="timestamp">[
+${
+segment
+.
+start
+}
+s]</span>
+<span class="text">
+${
+segment
+.
+text
+}
+</span>
+</div>
+`
+)
+.
+join
+(
+''
+);
+container
+.
+innerHTML
++=
+`
+<div class="transcript">
+${
+transcriptHtml
+}
+</div>
+`
+;
+}
+catch
+(
+error
+) {
+container
+.
+innerHTML
+=
+`
+<div class="error">
+Error:
+${
+error
+.
+message
+}
+</div>
+`
+;
+}
+}
+// Usage
+displayTranscript
+(
+'
+dQw4w9WgXcQ
+'
+);
+CORS Security
+Never expose your API key in client-side code. For production applications, make API requests through your backend server to keep your API key secure.
+Try it Live
+Want to try these examples interactively?
+Test them in our Swagger UI
+→
+Best Practices
+Section titled “Best Practices”
+Error Handling Strategies
+Section titled “Error Handling Strategies”
+Implement retry logic with exponential backoff
+async
+function
+fetchWithRetry
+(
+url
+,
+options
+,
+maxRetries
+=
+3
+)
+{
+const
+RETRYABLE_CODES
+=
+[
+408
+,
+429
+,
+503
+];
+for
+(
+let
+i
+=
+0
+;
+i
+<
+maxRetries
+;
+i
+++
+) {
+try
+{
+const
+response
+= await
+fetch
+(
+url
+,
+options
+);
+// Return immediately if not a retryable error
+if
+(
+!
+RETRYABLE_CODES
+.
+includes
+(
+response
+.
+status
+)) {
+return
+response
+;
+}
+// Calculate delay: use Retry-After header or exponential backoff
+const
+retryAfter
+=
+response
+.
+headers
+.
+get
+(
+"
+Retry-After
+"
+)
+||
+Math
+.
+pow
+(
+2
+,
+i
+);
+console
+.
+log
+(
+`
+Retryable error
+${
+response
+.
+status
+}
+, waiting
+${
+retryAfter
+}
+s...
+`
+);
+await
+new
+Promise
+(
+(
+resolve
+)
+=>
+setTimeout
+(
+resolve
+,
+retryAfter
+*
+1000
+));
+}
+catch
+(
+error
+) {
+// Network error - retry with backoff
+if
+(
+i
+===
+maxRetries
+-
+1
+)
+throw
+error
+;
+await
+new
+Promise
+(
+(
+resolve
+)
+=>
+setTimeout
+(
+resolve
+,
+Math
+.
+pow
+(
+2
+,
+i
+)
+*
+1000
+)
+);
+}
+}
+throw
+new
+Error
+(
+"
+Max retries exceeded
+"
+);
+}
+Handle payment required errors gracefully
+Redirect users to billing page
+Show clear messaging about credit status
+Provide action buttons for top-up
+Caching Recommendations
+Section titled “Caching Recommendations”
+Cache successful responses to reduce API calls
+Respect cache headers if provided
+Consider transcript immutability (transcripts rarely change)
+Implement cache invalidation for metadata
+Rate Limit Management
+Section titled “Rate Limit Management”
+Back off on
+429
+and wait the
+Retry-After
+seconds
+Implement request queuing when approaching limits
+Use exponential backoff on 429 errors
+Consider implementing client-side rate limiting
+Security
+Section titled “Security”
+Never expose API keys in client-side code
+Store API keys in environment variables
+Use backend proxy for browser applications
+Rotate API keys regularly
+Use separate keys for different environments
+Monitoring and Logging
+Section titled “Monitoring and Logging”
+Log all API responses including headers
+Monitor credit usage patterns
+Track rate limit approaches
+Set up alerts for 402 and 429 responses
+Monitor response times and cache hit rates
+Related Resources
+Section titled “Related Resources”
+Interactive API Docs (Swagger)
+Test API endpoints interactively with live requests in your browser.
+Getting Started Guide
+Quick start guide to get up and running with TranscriptAPI.
+MCP Integration
+Use TranscriptAPI with Model Context Protocol for AI workflows.
+Need Help?
+Section titled “Need Help?”
+If you have questions or need assistance:
+Visit our
+Contact page
+for support options
+Manage your account and billing at
+Billing

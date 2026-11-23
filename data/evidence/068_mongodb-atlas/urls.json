@@ -1,0 +1,77 @@
+{
+ "app": "MongoDB Atlas",
+ "queries": [
+  "MongoDB Atlas API authentication documentation",
+  "MongoDB Atlas MCP server",
+  "MongoDB Atlas API free tier developer credentials pricing"
+ ],
+ "urls": [
+  "https://www.mongodb.com/docs/atlas/api/",
+  "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+  "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/authentication",
+  "https://www.mongodb.com/docs/mcp-server/overview/"
+ ],
+ "search_hits": [
+  {
+   "title": "Atlas Administration API Authentication Methods - MongoDB",
+   "href": "https://www.mongodb.com/docs/atlas/api/api-authentication/"
+  },
+  {
+   "title": "Authentication | Atlas Admin API v2 documentation - MongoDB",
+   "href": "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/authentication"
+  },
+  {
+   "title": "Service Account Authentication \u2014 AtlasUI 0.3.4 documentation",
+   "href": "https://atlasui.readthedocs.io/en/latest/service_accounts.html"
+  },
+  {
+   "title": "mongodb-developer/atlas-admin-api-serviceaccount-auth - GitHub",
+   "href": "https://github.com/mongodb-developer/atlas-admin-api-serviceaccount-auth"
+  },
+  {
+   "title": "Atlas Administration API Authentication \u2014 MongoDB Atlas",
+   "href": "https://mongo.comcloud.xyz/docs/atlas/api/api-authentication/"
+  },
+  {
+   "title": "MongoDB MCP Server: Connect AI Agents to Your Data",
+   "href": "https://www.mongodb.com/products/tools/mcp-server"
+  },
+  {
+   "title": "MongoDB MCP Server Overview",
+   "href": "https://www.mongodb.com/docs/mcp-server/overview/"
+  },
+  {
+   "title": "MongoDB Atlas MCP Server - GitHub",
+   "href": "https://github.com/montumodi/mongodb-atlas-mcp-server"
+  },
+  {
+   "title": "MongoDB Atlas MCP Server",
+   "href": "https://mcpservers.org/servers/mongodb-developer/mcp-mongodb-atlas"
+  },
+  {
+   "title": "mongodb-mcp-server - npm",
+   "href": "https://www.npmjs.com/package/mongodb-mcp-server"
+  },
+  {
+   "title": "mongodb.com https://www.mongodb.com",
+   "href": "https://www.mongodb.com/?msockid=03e7b35ce1ce6b3d1389ab46e01c6ae9"
+  },
+  {
+   "title": "mongodb.com https://www.mongodb.com \u203a try \u203a download \u203a community",
+   "href": "https://www.mongodb.com/try/download/community?msockid=03e7b35ce1ce6b3d1389ab46e01c6ae9"
+  },
+  {
+   "title": "mongodb.com https://account.mongodb.com \u203a account",
+   "href": "https://account.mongodb.com/account"
+  },
+  {
+   "title": "w3schools.com https://www.w3schools.com \u203a mongodb",
+   "href": "https://www.w3schools.com/mongodb/"
+  },
+  {
+   "title": "mongodb.com https://discover.mongodb.com",
+   "href": "https://discover.mongodb.com/"
+  }
+ ],
+ "fetched_at": "2026-11-23T17:43:11.546840"
+}

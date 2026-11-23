@@ -1,0 +1,248 @@
+URL: https://developer.brex.com/docs/mcp.md
+FETCHED: 2026-11-23T22:36:57.043923
+VIA: direct
+
+# Brex MCP
+
+The Brex MCP server lets AI assistants interact directly with your Brex account: manage expenses, look up users, check cards, review banking transactions, track bills, and more through natural language.
+
+Beta
+The MCP server's tools may change as we continue developing new use cases and features.
+
+## Prerequisites
+
+1. **Accept the Developer API agreement.** An account admin or card admin must accept the Developer API agreement in **Settings → Developer**.
+2. **Enable the beta.** Go to **Settings → Beta features** in the Brex Dashboard and select **Brex in AI assistants**.
+
+Once enabled, all users in your Brex account can connect to the MCP server with their own credentials. This is different from the Brex Developer API, which requires admin-provisioned API tokens. Any employee can authorize via OAuth and access tools based on their Brex capabilities. The Access column in the tools table below shows which capability each tool requires.
+
+## Connect to the Brex MCP server
+
+The server is hosted at `https://api.brex.com/mcp` and supports any MCP-compatible client. Most clients handle authentication automatically with discovery. Just add the server URL and you'll be prompted to log in with your Brex account.
+
+### Claude Code
+
+```bash
+claude mcp add --transport http brex https://api.brex.com/mcp
+```
+
+Then verify the connection:
+
+```bash
+claude /mcp
+```
+
+### Claude Desktop
+
+Install the [Brex connector](https://claude.com/connectors/brex) from the Claude connectors directory.
+
+Alternatively, add it manually to your config file:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "brex": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://api.brex.com/mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+Restart Claude Desktop after saving. Requires Node.js v20+.
+
+### ChatGPT
+
+Install the [Brex app](https://chatgpt.com/apps/brex/asdk_app_6961bc9309ec819199ce7ce38b7d3bf1) from the ChatGPT app directory.
+
+### Cursor
+
+Open **Settings → MCP** and add a new server:
+
+- **Name**: `brex`
+- **Type**: `http`
+- **URL**: `https://api.brex.com/mcp`
+
+### Codex
+
+```bash
+codex mcp add brex --url https://api.brex.com/mcp
+```
+
+### Other MCP clients
+
+Any client that supports MCP HTTP transport can connect to `https://api.brex.com/mcp`. If your client supports OAuth with Dynamic Client Registration, authentication is handled automatically. Otherwise, use an API key (see below).
+
+## Authentication
+
+The Brex MCP server supports two authentication methods.
+
+### OAuth (recommended)
+
+MCP clients that support OAuth will automatically initiate a browser-based authorization flow when you first connect. No manual token setup required.
+
+- **Authorization server**: `https://accounts-api.brex.com/oauth2/default`
+- **Discovery endpoint**: `https://api.brex.com/.well-known/oauth-protected-resource/mcp`
+
+The server supports [Dynamic Client Registration (RFC 7591)](https://www.rfc-editor.org/rfc/rfc7591), so MCP clients don't need to be pre-registered. Sessions remain active, so you won't need to re-authorize on every use.
+
+You can view and revoke authorized sessions from **Settings → Personal settings → Connected integrations** in the Brex Dashboard.
+
+### API key
+
+For clients that don't support OAuth, or for programmatic access, account and card admins can authenticate with a Brex API token. Generate one from **Settings → Developer** in the Brex Dashboard.
+
+Pass it as a Bearer token in the Authorization header:
+
+```
+Authorization: Bearer YOUR_BREX_ACCESS_TOKEN
+```
+
+For example, in Claude Code:
+
+```bash
+claude mcp add --transport http brex https://api.brex.com/mcp \
+  --header "Authorization: Bearer YOUR_BREX_ACCESS_TOKEN"
+```
+
+Or in `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "brex": {
+      "type": "http",
+      "url": "https://api.brex.com/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_BREX_ACCESS_TOKEN"
+      }
+    }
+  }
+}
+```
+
+### Security best practices
+
+- **Prefer OAuth over API keys.** OAuth scopes access to what you authorize, and sessions can be revoked from the Dashboard.
+- **Use restricted tokens.** If using API keys, create tokens with only the scopes your use case needs.
+- **Enable human confirmation.** Configure your AI assistant to require approval before executing actions.
+- **Store tokens securely.** Use environment variables; never commit tokens to version control.
+- **Monitor usage.** Review API logs in the Brex Dashboard to track MCP activity.
+
+## Available tools
+
+Each tool requires a specific Brex capability. The Access column indicates which capability a user needs to call the tool. Your Brex permissions carry over; you only see and modify what you're authorized to. Actions like approvals and card management are not yet available via MCP.
+
+Card data
+Brex does not and will not expose raw card numbers (PANs), CVVs, or expiration dates over MCP. Card-related tools return only non-sensitive metadata such as card names, statuses, and limits.
+
+| Tool Name | Description | Access |
+|  --- | --- | --- |
+| `get_user_myself` | Get the current authenticated user. | All users |
+| `get_user_by_id` | Get a user by their unique ID. | All users |
+| `list_users_by_name_or_email` | List users by name or email. | All users |
+| `list_users` | List users with optional filtering and pagination. | All users |
+| `list_cost_centers` | List cost centers. | All users |
+| `list_departments` | List departments. | All users |
+| `list_locations` | List locations. | All users |
+| `list_legal_entities` | List legal entities. | All users |
+| `list_titles` | List employee titles. | All users |
+| `list_roles` | List Brex account roles. | All users |
+| `get_reward_points` | Get the Brex reward points balance and redemption eligibility for the authenticated account. | Users with view rewards capability |
+| `list_expenses` | List expenses with comprehensive filtering. | Users with view expenses capability |
+| `get_expense_by_id` | Get an expense by its ID. | Users with view expenses capability |
+| `query_expense_analytics` (deprecated) | Ask high-level company spend questions. Use `brex-analytics` instead. | Account admin or Card admin |
+| `brex-analytics` | Ask questions about your Brex accounts, including spend, banking, accounting, and more. | Account admin or Card admin |
+| `update_expense_memo` | Update memo for multiple expenses in bulk. | All users |
+| `upload_card_expense_receipt_from_urls` | Upload receipts to a card expense by downloading them from provided URLs. | All users |
+| `replace_attendees_for_card_expense` | Update attendees for a card expense. | All users |
+| `assign_limit_for_card_expenses` | Assign one or more card expenses to a spend limit. | All users |
+| `get_reimbursement_payout_date` | Get the expected payout date for a reimbursement expense. | All users |
+| `start_expense_download` | Start an asynchronous expense download job. | Users with view expenses capability |
+| `get_expense_download_result` | Check the status of an expense download job and get the download URL when ready. | All users |
+| `list_merchants` | Search card merchants by name. | All users |
+| `list_merchant_categories` | List merchant categories (e.g., Restaurants, Software, Travel). | All users |
+| `list_expense_categories` | List all available expense categories (also known as 'expense types' in Brex) for filtering expenses. | All users |
+| `list_cards` | List cards with comprehensive filtering. | All users |
+| `get_card_by_id` | Get a card by its ID. | Users with view cards and limits capability |
+| `get_expense_policy` | Get expense policy information for a limit as structured, validatable content. | Users with view policy capability |
+| `list_my_limits` | Get all spend limits that apply to the current user with pagination support. | All users |
+| `list_business_accounts` | List business bank accounts. | Users with view accounts and balances capability |
+| `get_business_account` | Get a business bank account by ID. | Users with view accounts and balances capability |
+| `list_banking_transactions` | List banking transactions with filtering. | Users with view accounts and balances capability |
+| `get_banking_transaction` | Get a banking transaction by ID. | Users with view accounts and balances capability |
+| `list_bills` | List bills with filtering. | Users with view bills and vendors capability |
+| `get_bill_by_id` | Get a bill by its ID. | Users with view bills and vendors capability |
+| `get_vendor_by_id` | Get a vendor by ID. | Users with view bills and vendors capability |
+| `list_vendors` | Get all vendors for the current authenticated user. | Users with view all bills/vendors capability |
+| `get_active_integration` | Get the active accounting integration. | Users with manage accounting integration capability |
+| `list_accounting_records` | List accounting records. | Users with view transactions capability |
+| `list_gl_accounts` | List general ledger accounts. | Users with manage mappings, fields, and rules capability |
+| `list_trips` | List travel trips across the company with filtering, sorting, and pagination. | Users with view travel capability |
+| `list_bookings` | List travel bookings across the company with filtering, sorting, and pagination. | Users with view travel capability |
+| `list_group_events` | List group travel events (company offsites, conferences, etc.) with filtering, sorting, and pagination. | Users with view travel capability |
+| `submit_feedback` | Submit feedback about the Brex API or MCP tools to the Brex product team on behalf of the user. | All users |
+
+## Example prompts
+
+Once connected, try these with your AI assistant:
+
+**Expense review**
+
+> "Show me all my expenses from the past month that are missing receipts."
+
+**User lookup**
+
+> "Find the user with email sarah@acme.com and show me their department and role."
+
+**Spend analysis**
+
+> "What are my current spend limits and how much budget do I have remaining?"
+
+**Company spend (admin)**
+
+> "What was our total spend on software last quarter?"
+
+**Banking**
+
+> "Show me the last 10 transactions on our primary business account."
+
+**Travel**
+
+> "List all upcoming trips booked for next month."
+
+## Troubleshooting
+
+### OAuth flow not completing
+
+1. Check that your browser allows popups from `accounts-api.brex.com`.
+2. Confirm the beta is enabled in **Settings → Beta features**.
+3. Try clearing your browser cookies for `accounts-api.brex.com` and reconnecting.
+
+### `401 Unauthorized`
+
+1. If using OAuth, your session may have expired. Reconnect to re-authorize.
+2. If using an API key, confirm the token includes the `Bearer` prefix.
+3. Generate a new token from **Settings → Developer** in the Brex Dashboard.
+
+### Tools not appearing
+
+1. Restart your AI assistant after adding the MCP server config.
+2. Check your assistant's logs for connection errors.
+3. Verify the JSON config has no syntax errors.
+
+### Connection timeouts
+
+1. Verify the URL is exactly `https://api.brex.com/mcp`.
+2. Check your network allows outbound HTTPS connections.
+3. If using `mcp-remote`, ensure Node.js v20+ is installed.
+
+## Resources
+
+- [Model Context Protocol specification](https://modelcontextprotocol.io)
+- [Brex API documentation](/)
+- [Brex API support](/docs/support)

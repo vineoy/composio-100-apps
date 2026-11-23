@@ -1,0 +1,21 @@
+URL: https://developers.fathom.ai/mcp-docs
+FETCHED: 2026-11-23T22:43:14.619913
+VIA: direct
+
+Overview - Fathom API
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+How to Connect the Fathom MCP Server
+Fathom now offers an official MCP (Model Context Protocol) server, allowing you to connect your Fathom meeting data to AI assistants like ChatGPT, Claude, and more. This guide walks you through setup on each supported platform.
+Choose your assistant
+ChatGPT
+Connect to the Fathom app in ChatGPT
+Claude
+Connect to the Fathom connector in Claude, or add the MCP in Claude Code
+Use with other tools
+Connect Fathom to any MCP-compatible tool using the server URL below, then authenticate to access your meeting data.
+MCP server URL:
+https://api.fathom.ai/mcp

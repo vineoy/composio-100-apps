@@ -1,0 +1,5 @@
+URL: https://mcp.ipayx.ai/mcp
+FETCHED: 2026-11-23T22:34:43.466025
+VIA: direct
+
+{"name":"iPayX FX Audit","version":"1.4.0","build":"hvujzsdwcoweirroubeh_880f33c9-9fed-48a2-b54a-aab868d0dba1_353","deployedAt":"2026-11-23T17:04:31.405Z","protocol":"MCP / JSON-RPC 2.0 (Streamable HTTP, spec 2025-03-26)","tools":["check_fx_mid_market_rate","audit_fx_transaction","full_forensic_fx_report","compare_fx_sources"],"endpoints":{"manifest":"/manifest.json","changelog":"/changelog","health":"/health","metrics":"/metrics","favicon":"/favicon.ico"},"docs":"https://www.ipayx.ai/developers","pricing":"https://www.ipayx.ai/pricing"}

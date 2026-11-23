@@ -1,0 +1,83 @@
+URL: https://developer.brex.com/guides/authentication
+FETCHED: 2026-11-23T22:36:57.038254
+VIA: direct
+
+Authentication
+Skip to content
+Quickstart
+Authentication
+Developer authentication
+Partner authentication
+User roles and permissions
+Pagination
+Rate limits
+Idempotency
+Error codes
+Versioning
+API Launch Stages
+Webhooks
+Onboarding
+Launch Checklist
+Authentication
+Developer authentication
+Partner authentication
+/
+Developer authentication
+Authentication
+Copy
+Copy for LLM
+Copy page as Markdown for LLMs
+View as Markdown
+Open this page as Markdown
+Open in ChatGPT
+Get insights from ChatGPT
+Open in Claude
+Get insights from Claude
+To start making calls to Brex APIs, generate a user token from your Brex dashboard and pass it along in your API call headers.
+1. Generate a user token
+Sign in to
+dashboard.brex.com
+as an
+account admin or card admin
+.
+Go to
+Developer > Settings
+.
+If your company has not accepted the developer API agreement, please review the terms and conditions. These must be accepted to use the developer API.
+Click
+Create Token
+.
+Create a name for your token that will help you identify it. Choose what level of data access you need for your application; these are the
+scopes
+your token will have.
+The next screen will confirm your previous selections. Make sure it looks good, then select
+Allow Access
+.
+Your token is now created. Copy and store the token securely. You won't be able to see it again.
+Back on the developer page of your Brex dashboard, you should see your token listed now. As a security measure, part of the string is obfuscated. If you lose it, create a new one and replace the token.
+Caution
+: Your user token is private and should not be shared. Never check it into version control or save it somewhere publicly accessible. If your user token is compromised or leaked, make sure to
+revoke
+it.
+2. Pass the user token in your API call headers
+To pass your user token to Brex APIs, add it as a header to your API calls in the following format:
+Authorization: "Bearer {{your user_token here}}"
+If, for example, your user token value is
+bxt_jBWQLZXtu1f4sVT6UjaWPp7Gh9nVGjzEZgRX
+, your header will be:
+Authorization: "Bearer bxt_jBWQLZXtu1f4sVT6UjaWPp7Gh9nVGjzEZgRX"
+Token revocation and expiration
+There are two scenarios where tokens will be invalid for authentication:
+User tokens will expire if they are not used to make an API call for 90 days
+User tokens associated to users in a non-active status will no longer work
+If your token is compromised, or you no longer need it, revoke the user token from the developer page in your Brex dashboard. Once revoked, any calls made with this token will immediately begin to fail.
+API Server
+Brex currently only offers a production API server at
+https://api.brex.com
+. This is the base URL for all API calls.
+Was this helpful?
+Previous page
+Quickstart
+Next page
+Partner authentication
+Ask AI

@@ -1,0 +1,47 @@
+URL: https://developers.clay.com/public-api/authentication
+FETCHED: 2026-11-23T17:37:17.148197
+VIA: direct
+
+Authentication - Clay docs
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Every request to the Clay Public API must include a Clay API key in the
+clay-api-key
+header. Store your key in an environment variable and pass it in the header:
+export
+CLAY_PUBLIC_API_KEY
+=
+"your_api_key"
+curl
+https://api.clay.com/public/v0/me
+\
+-H
+"clay-api-key:
+$CLAY_PUBLIC_API_KEY
+"
+API keys are tied to a Clay user and workspace access. Create one under
+API and CLI → API keys
+, with
+clay api-keys create --name "<key name>"
+in the CLI, or by asking your agent after installing the
+agent plugin
+. Keep keys server-side and do not expose them in browser code, mobile apps, public repositories, logs, or analytics tools.
+Header
+Header
+Required
+Description
+clay-api-key
+Yes
+Personal API key for the Clay Public API.
+Failed authentication
+Requests without a valid API key return a non-2xx response with the standard error shape:
+{
+"message"
+:
+"Authentication failed"
+}
+⌘
+I

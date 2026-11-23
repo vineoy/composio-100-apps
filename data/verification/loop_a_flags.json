@@ -10,5 +10,121 @@
  ],
  "7": [
   "auth_ungrounded:other: unknown"
+ ],
+ "21": [
+  "access_soft:free_not_in_docs"
+ ],
+ "24": [
+  "access_soft:free_not_in_docs"
+ ],
+ "26": [
+  "access_soft:free_not_in_docs"
+ ],
+ "27": [
+  "schema:api_type=other: MTProto / HTTP",
+  "auth_ungrounded:other: api id and hash"
+ ],
+ "30": [
+  "access_soft:free_not_in_docs"
+ ],
+ "35": [
+  "access_soft:free_not_in_docs"
+ ],
+ "39": [
+  "access_soft:free_not_in_docs"
+ ],
+ "40": [
+  "access_soft:free_not_in_docs"
+ ],
+ "41": [
+  "auth_ungrounded:oauth2"
+ ],
+ "42": [
+  "auth_ungrounded:other: application password",
+  "auth_ungrounded:basic"
+ ],
+ "43": [
+  "access_soft:free_not_in_docs"
+ ],
+ "48": [
+  "access_soft:free_not_in_docs"
+ ],
+ "49": [
+  "uncited_url:none",
+  "auth_ungrounded:oauth2",
+  "access_soft:free_not_in_docs"
+ ],
+ "50": [
+  "auth_ungrounded:other: private key"
+ ],
+ "54": [
+  "auth_ungrounded:api key"
+ ],
+ "55": [
+  "auth_ungrounded:other: skyfire",
+  "auth_ungrounded:other: machine payments protocol (mpp)",
+  "auth_ungrounded:other: x402 protocol",
+  "mcp_ungrounded",
+  "access_soft:free_not_in_docs"
+ ],
+ "56": [
+  "access_soft:free_not_in_docs"
+ ],
+ "57": [
+  "auth_ungrounded:basic"
+ ],
+ "58": [
+  "schema:api_type=other: Model Context Protocol",
+  "auth_ungrounded:unknown"
+ ],
+ "61": [
+  "access_soft:free_not_in_docs"
+ ],
+ "62": [
+  "auth_ungrounded:oauth2",
+  "access_soft:free_not_in_docs"
+ ],
+ "63": [
+  "access_soft:free_not_in_docs"
+ ],
+ "65": [
+  "access_soft:free_not_in_docs"
+ ],
+ "66": [
+  "auth_ungrounded:basic"
+ ],
+ "68": [
+  "access_soft:free_not_in_docs"
+ ],
+ "70": [
+  "access_soft:free_not_in_docs"
+ ],
+ "71": [
+  "access_soft:free_not_in_docs"
+ ],
+ "75": [
+  "auth_ungrounded:other: service account",
+  "auth_ungrounded:other: openid connect",
+  "access_soft:free_not_in_docs"
+ ],
+ "81": [
+  "access_soft:free_not_in_docs"
+ ],
+ "82": [
+  "access_soft:free_not_in_docs"
+ ],
+ "83": [
+  "uncited_url:https://developers.binance.com/en/docs/agent-native/overview",
+  "access_soft:free_not_in_docs"
+ ],
+ "84": [
+  "uncited_url:https://docs.withpaygent.com/_mcp/server"
+ ],
+ "89": [
+  "auth_ungrounded:unknown"
+ ],
+ "97": [
+  "auth_ungrounded:oauth2",
+  "access_soft:free_not_in_docs"
  ]
 }
