@@ -521,6 +521,11 @@ function downloadJson() {{
 
     (P.ROOT / "report").mkdir(exist_ok=True)
     (P.ROOT / "docs").mkdir(exist_ok=True)
+    # plain-ASCII text: replace long/typed dashes with a normal hyphen
+    page = (page
+            .replace("\u2010", "-").replace("\u2011", "-").replace("\u2012", "-")
+            .replace("\u2013", "-").replace("\u2014", "-").replace("\u2015", "-")
+            .replace("\u2212", "-"))
     (P.ROOT / "report" / "index.html").write_text(page, encoding="utf-8")
     (P.ROOT / "docs" / "index.html").write_text(page, encoding="utf-8")  # GitHub Pages
     print(f"Report written -> report/index.html + docs/index.html ({len(page)//1024} KB, {n} apps, source={source})")
