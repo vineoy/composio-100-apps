@@ -227,6 +227,357 @@
   }
  },
  {
+  "description": "CRM and sales automation platform for managing leads, contacts, opportunities, and activities",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "OAuth2 for user‑facing integrations; API key (HTTP Basic Auth) for server‑side scripts",
+  "access": "free_self_serve",
+  "access_notes": "API keys and OAuth apps can be created by any user with a free Close account; no paid gate required",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "REST API with dozens of endpoints for leads, contacts, opportunities, activities, custom fields, webhooks, etc.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No MCP server is announced"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.close.com/api/overview/oauth-authentication"
+   },
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "access",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developer.close.com/api/overview"
+   },
+   {
+    "claim": "buildability",
+    "url": "https://developer.close.com/api/overview"
+   }
+  ],
+  "confidence": "high",
+  "id": 8,
+  "name": "Close",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "close",
+   "name": "Close"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\008_close",
+   "seconds": 32.3,
+   "at": "2026-11-24T01:01:08.599968"
+  }
+ },
+ {
+  "description": "CRM and Sales platform providing a Developer API for integrations",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "Supports API keys (with X-Signature and X-Timestamp headers) and OAuth2.0 authorization code flow.",
+  "access": "unknown",
+  "access_notes": "unknown",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "REST API with OpenAPI specifications and Postman collections available.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No mentions of Model Context Protocol found in documentation."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.copper.com/introduction/authentication.html"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer.copper.co/api-reference/getting-started"
+   }
+  ],
+  "confidence": "high",
+  "id": 9,
+  "name": "Copper",
+  "category": "CRM and Sales",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "copper",
+   "name": "Copper"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\009_copper",
+   "seconds": 10.4,
+   "at": "2026-11-24T01:08:43.820216"
+  }
+ },
+ {
+  "description": "Zendesk provides a cloud‑based customer support platform with ticketing, help center, chat, and other omnichannel capabilities.",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "OAuth2 for user‑level access; API key (basic auth) for server‑side requests",
+  "access": "free_self_serve",
+  "access_notes": "API tokens and OAuth clients can be created by any Zendesk account, including free developer accounts",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "REST v2 API with dozens of endpoints across ticketing, help center, chat, and other product areas",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": "No public MCP server is announced by Zendesk"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/"
+   },
+   {
+    "claim": "access",
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://developer.zendesk.com/api-reference/"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://developer.zendesk.com/api-reference/"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://developer.zendesk.com/api-reference/"
+   }
+  ],
+  "confidence": "high",
+  "id": 11,
+  "name": "Zendesk",
+  "category": "Support and Helpdesk",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "zendesk",
+   "name": "Zendesk"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\011_zendesk",
+   "seconds": 34.9,
+   "at": "2026-11-24T01:09:18.688346"
+  }
+ },
+ {
+  "description": "Cloud-based customer support platform and helpdesk with REST APIs and MCP integration.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "Freshdesk API uses API key authentication.",
+  "access": "paid_plan",
+  "access_notes": "Supported plans include Growth, Pro, and Enterprise tiers.",
+  "api_type": "REST",
+  "api_breadth": "broad",
+  "api_notes": "REST API with numerous endpoints covering tickets, contacts, companies, agents, automation, time entries, and more.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk",
+   "notes": "Freshworks provides an official Model Context Protocol (MCP) server enabling tools like Claude and Cursor to connect to Freshdesk."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Freshdesk is a cloud-based customer support platform",
+    "url": "https://developers.freshdesk.com/api/"
+   },
+   {
+    "claim": "Freshdesk APIs belong to the Representational State Transfer (REST) category",
+    "url": "https://developers.freshdesk.com/api/"
+   },
+   {
+    "claim": "Freshdesk allows you to authenticate requests involved in MCP integration by using an API key only",
+    "url": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk"
+   },
+   {
+    "claim": "Supported plans include Growth, Pro, and Enterprise with action allowances",
+    "url": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk"
+   }
+  ],
+  "confidence": "high",
+  "id": 13,
+  "name": "Freshdesk",
+  "category": "Support and Helpdesk",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "freshdesk",
+   "name": "Freshdesk"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\013_freshdesk",
+   "seconds": 69.4,
+   "at": "2026-11-24T01:10:28.088774"
+  }
+ },
+ {
+  "description": "LiveAgent is a help‑desk platform that offers a REST API for managing tickets, customers, companies, knowledge base, and reporting.",
+  "auth_methods": [
+   "API key"
+  ],
+  "auth_notes": "API key passed as a query parameter (e.g., &apikey=value).",
+  "access": "unknown",
+  "access_notes": "Documentation shows API key usage but does not specify whether a paid plan or admin approval is required.",
+  "api_type": "REST",
+  "api_breadth": "moderate",
+  "api_notes": "The reference lists dozens of endpoints across agents, conversations, customers, companies, files, knowledgebase, reports, tags, etc.",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://www.liveagent.com/features/mcp-server/",
+   "notes": "LiveAgent publishes an MCP server for AI clients."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://support.liveagent.com/840770-Complete-API-reference"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://support.liveagent.com/840770-Complete-API-reference"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://support.liveagent.com/840770-Complete-API-reference"
+   },
+   {
+    "claim": "api_breadth",
+    "url": "https://support.liveagent.com/840770-Complete-API-reference"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://www.liveagent.com/features/mcp-server/"
+   }
+  ],
+  "confidence": "medium",
+  "id": 16,
+  "name": "LiveAgent",
+  "category": "Support and Helpdesk",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\016_liveagent",
+   "seconds": 40.0,
+   "at": "2026-11-24T01:11:08.117583"
+  }
+ },
+ {
+  "description": "Plain provides an identity and access management platform with API‑driven authentication and machine‑user support.",
+  "auth_methods": [
+   "OAuth2",
+   "API key"
+  ],
+  "auth_notes": "OAuth2 for user‑based access; API key (Bearer) for machine users and server‑side calls",
+  "access": "unknown",
+  "access_notes": "Documentation does not specify whether API credentials are free or require a paid plan",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "REST endpoints are accessed via Bearer tokens; no endpoint list is provided in the excerpts",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.inplain.app/ai/mcp",
+   "notes": "Plain offers an MCP server for Claude Code integration"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "auth_methods",
+    "url": "https://docs.plain.com/docs/graphql/authentication"
+   },
+   {
+    "claim": "auth_notes",
+    "url": "https://docs.plain.com/docs/graphql/authentication"
+   },
+   {
+    "claim": "api_type",
+    "url": "https://docs.plain.com/docs/graphql/authentication"
+   },
+   {
+    "claim": "existing_mcp",
+    "url": "https://docs.inplain.app/ai/mcp"
+   }
+  ],
+  "confidence": "medium",
+  "id": 17,
+  "name": "Plain",
+  "category": "Support and Helpdesk",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "plain",
+   "name": "Plain"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "pollinations/openai",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\017_plain",
+   "seconds": 45.8,
+   "at": "2026-11-24T01:11:53.878047"
+  }
+ },
+ {
   "description": "Customer service platform and helpdesk API for managing customer conversations, profiles, and support workflows",
   "auth_methods": [
    "Basic"
@@ -402,6 +753,54 @@
    "evidence_dir": "data\\evidence\\027_telegram",
    "seconds": 45.3,
    "at": "2026-11-24T00:01:21.153288"
+  }
+ },
+ {
+  "description": "WhatsApp Business Platform allows businesses to send and receive messages, automate communications, and integrate WhatsApp messaging into their tech stack.",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "Uses Bearer tokens (temporary access tokens or permanent system user access tokens) in the HTTP Authorization header.",
+  "access": "free_self_serve",
+  "access_notes": "Free access to test numbers, code samples, webhooks, and a sandbox via self-serve developer setup; messaging usage has per-message pricing.",
+  "api_type": "REST",
+  "api_breadth": "unknown",
+  "api_notes": "Provides REST endpoints for messaging, webhooks, and template management.",
+  "existing_mcp": {
+   "status": "none",
+   "url": "",
+   "notes": ""
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Free access to test numbers, code samples, webhooks, a sandbox and more",
+    "url": "https://whatsappbusiness.com/developers/developer-hub/"
+   },
+   {
+    "claim": "Use system user access token with Bearer scheme in HTTP header",
+    "url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/get-started"
+   }
+  ],
+  "confidence": "high",
+  "id": 28,
+  "name": "WhatsApp Business",
+  "category": "Communications and Messaging",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "whatsapp",
+   "name": "WhatsApp"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\028_whatsapp-business",
+   "seconds": 7.5,
+   "at": "2026-11-24T01:12:01.405591"
   }
  },
  {
@@ -1203,6 +1602,60 @@
   }
  },
  {
+  "description": "Cloud-scale monitoring and security platform for developers, IT operations teams, and business users",
+  "auth_methods": [
+   "API key",
+   "Bearer token",
+   "other: Application key"
+  ],
+  "auth_notes": "Authenticate via DD-API-KEY and optionally DD-APPLICATION-KEY headers",
+  "access": "free_self_serve",
+  "access_notes": "Anyone can sign up and obtain API credentials via free self-serve options",
+  "api_type": "REST",
+  "api_breadth": "very_broad",
+  "api_notes": "Resource-oriented HTTP REST API with numerous domain-specific endpoints",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://docs.datadoghq.com/mcp_server/",
+   "notes": "Datadog provides an official MCP Server"
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "The Datadog API is an HTTP REST API.",
+    "url": "https://docs.datadoghq.com/api"
+   },
+   {
+    "claim": "Authenticate to the API with an API key using the header DD-API-KEY. For some endpoints, you also need an Application key, which uses the header DD-APPLICATION-KEY.",
+    "url": "https://docs.datadoghq.com/api"
+   },
+   {
+    "claim": "Datadog MCP Server",
+    "url": "https://docs.datadoghq.com/mcp_server/"
+   }
+  ],
+  "confidence": "high",
+  "id": 69,
+  "name": "Datadog",
+  "category": "Developer, Infra and Data platforms",
+  "composio_toolkit": {
+   "exists": true,
+   "slug": "datadog",
+   "name": "Datadog"
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 4,
+   "evidence_dir": "data\\evidence\\069_datadog",
+   "seconds": 10.1,
+   "at": "2026-11-24T01:12:11.473632"
+  }
+ },
+ {
   "description": "Productivity and project management tool for notes, tasks, databases, and collaboration.",
   "auth_methods": [
    "OAuth2",
@@ -1495,6 +1948,61 @@
    "evidence_dir": "data\\evidence\\084_paygent-connect",
    "seconds": 4.1,
    "at": "2026-11-24T00:12:45.515743"
+  }
+ },
+ {
+  "description": "Forensic FX audit engine that detects hidden bank spreads vs mid-market benchmarks on currency transactions.",
+  "auth_methods": [
+   "Bearer token"
+  ],
+  "auth_notes": "Requires a Bearer token in the Authorization header starting with ipx_live_.",
+  "access": "unknown",
+  "access_notes": "Docs mention getting an API key, but pricing/signup tier specifics are not fully detailed in the snippet.",
+  "api_type": "REST",
+  "api_breadth": "narrow",
+  "api_notes": "REST API with 3 documented endpoints (audit, rates, audit/document).",
+  "existing_mcp": {
+   "status": "official",
+   "url": "https://mcp.ipayx.ai/mcp",
+   "notes": "iPayX FX Audit MCP server is live and listed on the official MCP Registry and Glama."
+  },
+  "buildability": {
+   "verdict": "ready",
+   "blocker": ""
+  },
+  "evidence": [
+   {
+    "claim": "Bearer auth used for API",
+    "url": "https://www.ipayx.ai/docs/api"
+   },
+   {
+    "claim": "3 endpoints provided in REST API",
+    "url": "https://www.ipayx.ai/docs/api"
+   },
+   {
+    "claim": "MCP server live and listed on official MCP registry",
+    "url": "https://mcp.ipayx.ai/mcp"
+   },
+   {
+    "claim": "MCP server info in marketplace section",
+    "url": "https://www.ipayx.ai/docs/api"
+   }
+  ],
+  "confidence": "high",
+  "id": 85,
+  "name": "iPayX",
+  "category": "Finance and Fintech",
+  "composio_toolkit": {
+   "exists": false,
+   "slug": null
+  },
+  "_meta": {
+   "pass": 2,
+   "model": "gemini-3.5-flash-lite",
+   "docs_fetched": 2,
+   "evidence_dir": "data\\evidence\\085_ipayx",
+   "seconds": 11.0,
+   "at": "2026-11-24T01:12:22.518389"
   }
  },
  {

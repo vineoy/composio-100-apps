@@ -190,6 +190,11 @@ def verification_section():
                    f"{tot.get('wrong',0)} were wrong, {tot.get('unsure',0)} were unclear. "
                    f"{tot.get('pre_fixed',0)} of the wrong ones had already been fixed by the checks above; "
                    f"{tot.get('human_fixed',0)} more were fixed from the human's correction.</p>")
+        _chg = acc.get("changed_by_verification_before_audit", 0)
+        if _chg:
+            out.append(f"<p class='muted'>During verification, <b>{_chg}</b> field answers were corrected. "
+                       "Where the human said the first-pass value was right, the verified value was kept "
+                       "and is listed in the conflicts section below.</p>")
         pf = []
         for f, p in acc.get("per_field", {}).items():
             label = {"auth_methods": "Login method", "access": "Sign-up access", "api_type": "API type",

@@ -477,7 +477,8 @@ def apply_corrections():
             r["auth_methods"] = [x.strip() for x in str(new).split(",")]
         else:
             r[field] = new
-        r.setdefault("verification", {})["corrections"] = r["verification"].get("corrections", []) + [c]
+        _ver = r.setdefault("verification", {})
+        _ver["corrections"] = _ver.get("corrections", []) + [c]
         applied += 1
     save("final.json", list(final.values()))
     print(f"Applied {applied} corrections -> final.json")

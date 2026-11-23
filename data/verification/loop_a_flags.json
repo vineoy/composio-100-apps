@@ -40,8 +40,8 @@
   "auth_ungrounded:oauth2"
  ],
  "42": [
-  "auth_ungrounded:other: application password",
-  "auth_ungrounded:basic"
+  "auth_ungrounded:basic",
+  "auth_ungrounded:other: application password"
  ],
  "43": [
   "access_soft:free_not_in_docs"
@@ -61,9 +61,9 @@
   "auth_ungrounded:api key"
  ],
  "55": [
+  "auth_ungrounded:other: x402 protocol",
   "auth_ungrounded:other: skyfire",
   "auth_ungrounded:other: machine payments protocol (mpp)",
-  "auth_ungrounded:other: x402 protocol",
   "mcp_ungrounded",
   "access_soft:free_not_in_docs"
  ],
@@ -103,8 +103,8 @@
   "access_soft:free_not_in_docs"
  ],
  "75": [
-  "auth_ungrounded:other: service account",
   "auth_ungrounded:other: openid connect",
+  "auth_ungrounded:other: service account",
   "access_soft:free_not_in_docs"
  ],
  "81": [

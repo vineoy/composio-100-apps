@@ -15,3 +15,4 @@ Thumbs.db
 data/*.log
 scratch_*.py
 *.tmp
+data/second_pass_ids.txt

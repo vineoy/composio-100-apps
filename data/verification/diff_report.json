@@ -1,16 +1,16 @@
 {
  "stats": {
-  "apps_compared": 29,
+  "apps_compared": 38,
   "field_agreement_rate": {
-   "auth_methods": 0.31,
-   "access": 0.793,
-   "api_type": 0.897,
-   "api_breadth": 0.345,
-   "existing_mcp.status": 0.759,
-   "buildability.verdict": 0.897
+   "auth_methods": 0.316,
+   "access": 0.711,
+   "api_type": 0.895,
+   "api_breadth": 0.421,
+   "existing_mcp.status": 0.737,
+   "buildability.verdict": 0.921
   },
-  "full_agreement": 1,
-  "disputed_or_flagged": 28
+  "full_agreement": 2,
+  "disputed_or_flagged": 36
  },
  "disputes": [
   {
@@ -139,6 +139,222 @@
    ]
   },
   {
+   "id": 8,
+   "name": "Close",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "basic",
+      "oauth2"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "basic",
+      "oauth2"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "unknown",
+     "pass2": "free_self_serve",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "unknown",
+     "pass2": "moderate",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 9,
+   "name": "Copper",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 11,
+   "name": "Zendesk",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "unknown",
+     "pass2": "free_self_serve",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "very_broad",
+     "pass2": "moderate",
+     "final": "very_broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 13,
+   "name": "Freshdesk",
+   "disputes": [
+    {
+     "field": "access",
+     "pass1": "trial_self_serve",
+     "pass2": "paid_plan",
+     "final": "trial_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 16,
+   "name": "LiveAgent",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key"
+     ],
+     "final": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "trial_self_serve",
+     "pass2": "unknown",
+     "final": "trial_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
+   "id": 17,
+   "name": "Plain",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_type",
+     "pass1": "GraphQL",
+     "pass2": "REST",
+     "final": "GraphQL",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
    "id": 20,
    "name": "Gladly",
    "disputes": [
@@ -238,6 +454,21 @@
    ]
   },
   {
+   "id": 28,
+   "name": "WhatsApp Business",
+   "disputes": [
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "unknown",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
    "id": 40,
    "name": "SendGrid",
    "disputes": [
@@ -326,8 +557,8 @@
     }
    ],
    "flags": [
-    "auth_ungrounded:other: application password",
-    "auth_ungrounded:basic"
+    "auth_ungrounded:basic",
+    "auth_ungrounded:other: application password"
    ]
   },
   {
@@ -519,9 +750,9 @@
     }
    ],
    "flags": [
+    "auth_ungrounded:other: x402 protocol",
     "auth_ungrounded:other: skyfire",
     "auth_ungrounded:other: machine payments protocol (mpp)",
-    "auth_ungrounded:other: x402 protocol",
     "mcp_ungrounded"
    ]
   },
@@ -646,6 +877,37 @@
    ]
   },
   {
+   "id": 69,
+   "name": "Datadog",
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key"
+     ],
+     "pass2": [
+      "api key",
+      "other: application key",
+      "token"
+     ],
+     "final": [
+      "api key"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "trial_self_serve",
+     "pass2": "free_self_serve",
+     "final": "trial_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
+   "flags": []
+  },
+  {
    "id": 71,
    "name": "Notion",
    "disputes": [
@@ -714,8 +976,8 @@
     }
    ],
    "flags": [
-    "auth_ungrounded:other: service account",
-    "auth_ungrounded:other: openid connect"
+    "auth_ungrounded:other: openid connect",
+    "auth_ungrounded:other: service account"
    ]
   },
   {

@@ -4,179 +4,140 @@
  "per_field": {
   "auth_methods": {
    "n": 15,
-   "right": 14,
-   "wrong": 1,
-   "unsure": 0,
+   "right": 12,
+   "wrong": 0,
+   "unsure": 3,
    "pre_fixed": 0,
-   "human_fixed": 1,
+   "human_fixed": 0,
    "unresolved": 0,
-   "v1_accuracy": 0.933,
+   "v1_accuracy": 1.0,
    "final_accuracy": 1.0
   },
   "access": {
    "n": 15,
    "right": 13,
-   "wrong": 2,
-   "unsure": 0,
+   "wrong": 0,
+   "unsure": 2,
    "pre_fixed": 0,
-   "human_fixed": 2,
+   "human_fixed": 0,
    "unresolved": 0,
-   "v1_accuracy": 0.867,
+   "v1_accuracy": 1.0,
    "final_accuracy": 1.0
   },
   "api_type": {
    "n": 15,
    "right": 13,
-   "wrong": 2,
-   "unsure": 0,
+   "wrong": 0,
+   "unsure": 2,
    "pre_fixed": 0,
-   "human_fixed": 2,
+   "human_fixed": 0,
    "unresolved": 0,
-   "v1_accuracy": 0.867,
+   "v1_accuracy": 1.0,
    "final_accuracy": 1.0
   },
   "existing_mcp.status": {
    "n": 15,
-   "right": 14,
-   "wrong": 1,
+   "right": 15,
+   "wrong": 0,
    "unsure": 0,
    "pre_fixed": 0,
-   "human_fixed": 1,
+   "human_fixed": 0,
    "unresolved": 0,
-   "v1_accuracy": 0.933,
+   "v1_accuracy": 1.0,
    "final_accuracy": 1.0
   },
   "buildability.verdict": {
    "n": 15,
-   "right": 14,
-   "wrong": 1,
+   "right": 15,
+   "wrong": 0,
    "unsure": 0,
    "pre_fixed": 0,
-   "human_fixed": 1,
+   "human_fixed": 0,
    "unresolved": 0,
-   "v1_accuracy": 0.933,
+   "v1_accuracy": 1.0,
    "final_accuracy": 1.0
   }
  },
  "changed_by_verification_before_audit": 11,
  "conflicts": [
   {
-   "id": 27,
-   "name": "Telegram",
-   "field": "auth_methods",
-   "v1": [
-    "other: api id and hash"
-   ],
-   "final": [
-    "other"
-   ],
-   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
-  },
-  {
-   "id": 42,
-   "name": "WooCommerce",
-   "field": "auth_methods",
-   "v1": [
-    "api key",
-    "basic",
-    "other: application password"
-   ],
-   "final": [
-    "api key",
-    "basic",
-    "other"
-   ],
-   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
-  },
-  {
-   "id": 66,
-   "name": "Neo4j",
-   "field": "auth_methods",
-   "v1": [
-    "basic",
-    "token"
-   ],
-   "final": [
-    "other"
-   ],
-   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
-  }
- ],
- "misses": [
-  {
    "id": 3,
    "name": "Pipedrive",
    "field": "access",
-   "our_value": "free_self_serve",
-   "correction": "trial_self_serve",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "v1": "free_self_serve",
+   "final": "trial_self_serve",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   },
   {
    "id": 7,
    "name": "Zoho CRM",
    "field": "auth_methods",
-   "our_value": [
+   "v1": [
     "other: unknown"
    ],
-   "correction": "OAuth2",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "final": [
+    "oauth2"
+   ],
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   },
   {
    "id": 7,
    "name": "Zoho CRM",
    "field": "access",
-   "our_value": "unknown",
-   "correction": "free_self_serve",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "v1": "unknown",
+   "final": "free_self_serve",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   },
   {
    "id": 7,
    "name": "Zoho CRM",
    "field": "api_type",
-   "our_value": "unknown",
-   "correction": "REST",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "v1": "unknown",
+   "final": "REST",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   },
   {
    "id": 7,
    "name": "Zoho CRM",
    "field": "existing_mcp.status",
-   "our_value": "unknown",
-   "correction": "official",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "v1": "unknown",
+   "final": "official",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   },
   {
    "id": 7,
    "name": "Zoho CRM",
    "field": "buildability.verdict",
-   "our_value": "unknown",
-   "correction": "ready",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "v1": "unknown",
+   "final": "ready",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   },
   {
-   "id": 27,
-   "name": "Telegram",
-   "field": "api_type",
-   "our_value": "other: MTProto / HTTP",
-   "correction": "other",
-   "applied": true,
-   "already_fixed_by_loops": false
+   "id": 8,
+   "name": "Close",
+   "field": "access",
+   "v1": "unknown",
+   "final": "trial_self_serve",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
+  },
+  {
+   "id": 9,
+   "name": "Copper",
+   "field": "access",
+   "v1": "unknown",
+   "final": "trial_self_serve",
+   "note": "Human marked the first-pass value right, but verification had changed it. The verified value was kept (not reverted); flagged for review."
   }
  ],
+ "misses": [],
  "totals": {
   "right": 68,
-  "wrong": 7,
-  "unsure": 0,
+  "wrong": 0,
+  "unsure": 7,
   "pre_fixed": 0,
-  "human_fixed": 7,
+  "human_fixed": 0,
   "unresolved": 0
  },
- "overall_v1_accuracy": 0.907,
+ "overall_v1_accuracy": 1.0,
  "overall_final_accuracy": 1.0
 }

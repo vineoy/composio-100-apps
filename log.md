@@ -67,8 +67,19 @@ Convention: `[time] ACTION — details / outcome`. Decision points and user inpu
 - [22:26] Added a **free fallback LLM**: Pollinations' OpenAI-compatible endpoint (`gpt-oss-20b`, no key, 1 request / 45 s per IP). `llm_json` now tries Gemini first (2 quick attempts) and falls back automatically; every row records which model produced it. This guarantees the remaining apps finish without paid quota.
 - [22:27] Rewrote `agent/report.py` as a **plain-language, non-technical case study** (light theme, six number cards, bar charts, a 100-app searchable table, a glossary, and a "misses shown honestly" section). Removed the earlier dense dark dashboard. Fixed a `bar_list` crash (dict vs list) and a misleading "five things" heading.
 - [22:28] Restarted the last 24 apps (74, 75, 78–81, 83–100) with Gemini-first + Pollinations fallback. Throughput ~10s/app on Gemini, ~45–75s/app on fallback. Added schema corrections for Telegram/Sherlock `api_type` normalization.
-- [22:31] Decided Loop B will run on a **sample** (all Loop-A-flagged apps + a random cross-category sample) instead of all 100, because the free tier cannot sustain 100 more long calls quickly. The report states the exact number checked; Loop A (100), Loop C (12 browser/fetch checks) and Loop D (15 human) still cover the rest.
+- [00:59] Pass 1 complete: 100/100 clean rows, no errors. Immediate Loop A: 38 flagged (19 hard, e.g. Zoho, Attio, number of MCP/API rows). Applied **45 verified corrections** (Pipedrive, Xero, Ramp, Telegram, Sherlock, Asana auth labels, Close/Copper/Zendesk/Plain trial access).
+- [01:00] With Gemini free quota fully capped, ran **Loop B (second pass) on a 30-app sample** (19 Loop-A-flagged apps + unknown/low-confidence 7 + 6 random across categories: 3,4,7,8,9,11,13,16,17,27,28,41,42,49,50,54,55,56,57,58,62,66,69,75,83,84,85,89,92,97). Sample id list: `data/second_pass_ids.txt`.
+- [01:02] Generated `data/final.json` (v1 + corrections), generated the human audit form, rebuilt the report: 100 apps, free 64 / gated 21 / official MCP 64, 16 catalog whitespace.
+- [01:03] Audit form ready — sent to the user: http://127.0.0.1:8765/data/verification/audit.html while Loop B runs.
+- [01:09] **Loop B complete** (re-run for the 8 missing sample ids): `data/pass2_b.log` — all 30 sample apps done, 0 errors.
+- [01:10] Reconcile: 38 apps compared, `data/final.json` regenerated. Arbiter settled 36 disputed/flagged fields. Field agreement: auth 31%, breadth 42%, MCP 74%, buildability 92%. Corrections re-applied. Report rebuilt (100 apps, free 64 / gated 21 / official MCP 64, 16 catalog whitespace).
+- [01:12] Regenerated `data/verification/audit.html` + report (stale accuracy.json from an early draft deleted so the report shows the audit as pending).
+- [01:13] Audit form ready again — sent to the user: http://127.0.0.1:8765/data/verification/audit.html. Remaining: user fills it, then `--ingest-audit` → `python run.py` → QA → commit.
 - [22:37] Spot-checked `access` labels against their own notes: **Pipedrive** said "14-day trial" but was labelled free → corrected to `trial_self_serve`. **Xero** was `partner_gated`; its developer pricing page shows a free Starter plan with demo-org API access, with app certification only for production → corrected to `free_self_serve` + clarified notes. QuickBooks' free Intuit developer sandbox stands as free. Also normalized `other: …` auth labels (Asana) to a single `other` and deduped, so the report does not show three "Other"s.
+- [01:22] **Human audit done.** `data/verification/audit_results.json` saved (15 apps, 75 marked fields).
+- [01:23] `--ingest-audit`: **overall_v1_accuracy 100%, overall_final_accuracy 100%** (68 right, 0 wrong, 7 unsure on the 15-app sample). `verification/accuracy.json` written (8 conflicts, mostly verified self-consistency corrections). Report rebuilt; the human-check section now shows accuracy before → after with counts and the corrections paragraph.
+- [01:24] Final QA + commit.
+
 
 
 ## Phase 2 — Research agent, first pass (100 apps)

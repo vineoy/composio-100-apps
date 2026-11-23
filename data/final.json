@@ -42,7 +42,7 @@
    "evidence_dir": "data\\evidence\\001_salesforce",
    "seconds": 49.5,
    "at": "2026-11-23T16:42:00.692285",
-   "finalized_at": "2026-11-24T00:23:17.065374"
+   "finalized_at": "2026-11-24T01:12:53.862152"
   },
   "verification": {
    "disputes": [
@@ -175,7 +175,7 @@
    "evidence_dir": "data\\evidence\\003_pipedrive",
    "seconds": 120.6,
    "at": "2026-11-23T16:35:31.638162",
-   "finalized_at": "2026-11-24T00:23:17.065505"
+   "finalized_at": "2026-11-24T01:12:53.862288"
   },
   "verification": {
    "disputes": [
@@ -211,8 +211,7 @@
      "url": "https://www.pipedrive.com/",
      "source": "self_consistency_check"
     }
-   ],
-   "human_corrected": true
+   ]
   }
  },
  {
@@ -272,7 +271,7 @@
    "evidence_dir": "data\\evidence\\004_attio",
    "seconds": 51.3,
    "at": "2026-11-23T16:36:22.912045",
-   "finalized_at": "2026-11-24T00:23:17.065554"
+   "finalized_at": "2026-11-24T01:12:53.862337"
   },
   "verification": {
    "disputes": [
@@ -474,7 +473,7 @@
    "evidence_dir": "data\\evidence\\007_zoho-crm",
    "seconds": 43.1,
    "at": "2026-11-23T16:38:42.347907",
-   "finalized_at": "2026-11-24T00:23:17.065645"
+   "finalized_at": "2026-11-24T01:12:53.862435"
   },
   "verification": {
    "disputes": [
@@ -602,8 +601,7 @@
      "url": "https://www.zoho.com/crm/developer/docs/api/v8/",
      "source": "loop_c_browser"
     }
-   ],
-   "human_corrected": true
+   ]
   },
   "buildability.blocker": ""
  },
@@ -643,7 +641,7 @@
     "url": "https://help.close.com/integrations/api-keys-oauth"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 8,
   "name": "Close",
   "category": "CRM and Sales",
@@ -658,12 +656,57 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\008_close",
    "seconds": 34.1,
-   "at": "2026-11-23T16:42:46.643839"
+   "at": "2026-11-23T16:42:46.643839",
+   "finalized_at": "2026-11-24T01:12:53.862476"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "basic",
+      "oauth2"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "basic",
+      "oauth2"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "unknown",
+     "pass2": "free_self_serve",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "unknown",
+     "pass2": "moderate",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass",
+   "agreement": "disputed",
    "corrections": [
     {
      "id": 8,
@@ -718,7 +761,7 @@
     "url": "https://developer.copper.co/api-reference/getting-started"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 9,
   "name": "Copper",
   "category": "CRM and Sales",
@@ -733,12 +776,41 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\009_copper",
    "seconds": 54.6,
-   "at": "2026-11-23T16:43:41.247280"
+   "at": "2026-11-23T16:43:41.247280",
+   "finalized_at": "2026-11-24T01:12:53.862513"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass",
+   "agreement": "disputed",
    "corrections": [
     {
      "id": 9,
@@ -852,7 +924,7 @@
     "url": "https://developer.zendesk.com/documentation/authentication/"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 11,
   "name": "Zendesk",
   "category": "Support and Helpdesk",
@@ -867,12 +939,57 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\011_zendesk",
    "seconds": 100.3,
-   "at": "2026-11-23T16:46:24.870650"
+   "at": "2026-11-23T16:46:24.870650",
+   "finalized_at": "2026-11-24T01:12:53.862578"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "basic",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "unknown",
+     "pass2": "free_self_serve",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_breadth",
+     "pass1": "very_broad",
+     "pass2": "moderate",
+     "final": "very_broad",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "existing_mcp.status",
+     "pass1": "unknown",
+     "pass2": "none",
+     "final": "unknown",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass",
+   "agreement": "disputed",
    "corrections": [
     {
      "id": 11,
@@ -975,7 +1092,7 @@
     "url": "https://support.freshdesk.com/support/solutions/articles/50000012670-model-context-protocol-mcp-integration-in-freshdesk"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 13,
   "name": "Freshdesk",
   "category": "Support and Helpdesk",
@@ -990,12 +1107,22 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\013_freshdesk",
    "seconds": 32.7,
-   "at": "2026-11-23T16:47:48.120155"
+   "at": "2026-11-23T16:47:48.120155",
+   "finalized_at": "2026-11-24T01:12:53.862643"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "access",
+     "pass1": "trial_self_serve",
+     "pass2": "paid_plan",
+     "final": "trial_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass"
+   "agreement": "disputed"
   }
  },
  {
@@ -1155,7 +1282,7 @@
     "url": "https://www.liveagent.com/features/mcp-server/"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 16,
   "name": "LiveAgent",
   "category": "Support and Helpdesk",
@@ -1169,12 +1296,40 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\016_liveagent",
    "seconds": 74.9,
-   "at": "2026-11-23T16:50:42.818819"
+   "at": "2026-11-23T16:50:42.818819",
+   "finalized_at": "2026-11-24T01:12:53.862762"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key"
+     ],
+     "final": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "trial_self_serve",
+     "pass2": "unknown",
+     "final": "trial_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass"
+   "agreement": "disputed"
   }
  },
  {
@@ -1209,7 +1364,7 @@
     "url": "https://docs.inplain.app/ai/mcp"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 17,
   "name": "Plain",
   "category": "Support and Helpdesk",
@@ -1224,12 +1379,41 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\017_plain",
    "seconds": 43.2,
-   "at": "2026-11-23T16:51:26.037686"
+   "at": "2026-11-23T16:51:26.037686",
+   "finalized_at": "2026-11-24T01:12:53.862805"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "pass2": [
+      "api key",
+      "oauth2"
+     ],
+     "final": [
+      "api key",
+      "oauth2",
+      "token"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "api_type",
+     "pass1": "GraphQL",
+     "pass2": "REST",
+     "final": "GraphQL",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass",
+   "agreement": "disputed",
    "corrections": [
     {
      "id": 17,
@@ -1405,7 +1589,7 @@
    "evidence_dir": "data\\evidence\\020_gladly",
    "seconds": 27.5,
    "at": "2026-11-23T16:54:56.926583",
-   "finalized_at": "2026-11-24T00:23:17.065942"
+   "finalized_at": "2026-11-24T01:12:53.862883"
   },
   "verification": {
    "disputes": [
@@ -1769,7 +1953,7 @@
    "evidence_dir": "data\\evidence\\026_discord",
    "seconds": 54.0,
    "at": "2026-11-23T17:00:16.042742",
-   "finalized_at": "2026-11-24T00:23:17.066081"
+   "finalized_at": "2026-11-24T01:12:53.863035"
   },
   "verification": {
    "disputes": [
@@ -1859,7 +2043,7 @@
    "evidence_dir": "data\\evidence\\027_telegram",
    "seconds": 50.1,
    "at": "2026-11-23T17:01:06.197167",
-   "finalized_at": "2026-11-24T00:23:17.066117"
+   "finalized_at": "2026-11-24T01:12:53.863076"
   },
   "verification": {
    "disputes": [
@@ -1910,8 +2094,7 @@
      "url": "https://core.telegram.org/api",
      "source": "schema_normalization"
     }
-   ],
-   "human_corrected": true
+   ]
   }
  },
  {
@@ -1948,7 +2131,7 @@
     "url": "https://whatsappbusiness.com/products/platform-pricing/"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 28,
   "name": "WhatsApp Business",
   "category": "Communications and Messaging",
@@ -1963,12 +2146,22 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\028_whatsapp-business",
    "seconds": 46.2,
-   "at": "2026-11-23T17:01:52.383279"
+   "at": "2026-11-23T17:01:52.383279",
+   "finalized_at": "2026-11-24T01:12:53.863111"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "api_breadth",
+     "pass1": "moderate",
+     "pass2": "unknown",
+     "final": "moderate",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass"
+   "agreement": "disputed"
   }
  },
  {
@@ -2669,7 +2862,7 @@
    "evidence_dir": "data\\evidence\\040_sendgrid",
    "seconds": 55.3,
    "at": "2026-11-23T17:16:35.694971",
-   "finalized_at": "2026-11-24T00:23:17.066409"
+   "finalized_at": "2026-11-24T01:12:53.863781"
   },
   "verification": {
    "disputes": [
@@ -2756,7 +2949,7 @@
    "evidence_dir": "data\\evidence\\041_shopify",
    "seconds": 138.1,
    "at": "2026-11-23T17:18:53.847229",
-   "finalized_at": "2026-11-24T00:23:17.066446"
+   "finalized_at": "2026-11-24T01:12:53.863878"
   },
   "verification": {
    "disputes": [
@@ -2836,7 +3029,7 @@
    "evidence_dir": "data\\evidence\\042_woocommerce",
    "seconds": 145.6,
    "at": "2026-11-23T17:21:19.488411",
-   "finalized_at": "2026-11-24T00:23:17.066484"
+   "finalized_at": "2026-11-24T01:12:53.863972"
   },
   "verification": {
    "disputes": [
@@ -2861,8 +3054,8 @@
     }
    ],
    "flags": [
-    "auth_ungrounded:other: application password",
-    "auth_ungrounded:basic"
+    "auth_ungrounded:basic",
+    "auth_ungrounded:other: application password"
    ],
    "agreement": "disputed"
   }
@@ -2918,7 +3111,7 @@
    "evidence_dir": "data\\evidence\\043_bigcommerce",
    "seconds": 94.3,
    "at": "2026-11-23T17:22:53.779210",
-   "finalized_at": "2026-11-24T00:23:17.066518"
+   "finalized_at": "2026-11-24T01:12:53.864069"
   },
   "verification": {
    "disputes": [
@@ -3309,7 +3502,7 @@
    "evidence_dir": "data\\evidence\\049_amazon-selling-partner",
    "seconds": 17.0,
    "at": "2026-11-23T17:29:44.776454",
-   "finalized_at": "2026-11-24T00:23:17.066700"
+   "finalized_at": "2026-11-24T01:12:53.864553"
   },
   "verification": {
    "disputes": [
@@ -3407,7 +3600,7 @@
    "evidence_dir": "data\\evidence\\050_fanbasis",
    "seconds": 25.2,
    "at": "2026-11-23T17:30:10.020468",
-   "finalized_at": "2026-11-24T00:23:17.066745"
+   "finalized_at": "2026-11-24T01:12:53.864735"
   },
   "verification": {
    "disputes": [
@@ -3766,7 +3959,7 @@
    "evidence_dir": "data\\evidence\\054_mrscraper",
    "seconds": 30.4,
    "at": "2026-11-23T17:34:23.498605",
-   "finalized_at": "2026-11-24T00:23:17.066872"
+   "finalized_at": "2026-11-24T01:12:53.865126"
   },
   "verification": {
    "disputes": [
@@ -3860,7 +4053,7 @@
    "evidence_dir": "data\\evidence\\055_apify",
    "seconds": 22.0,
    "at": "2026-11-23T17:34:45.547791",
-   "finalized_at": "2026-11-24T00:23:17.066933"
+   "finalized_at": "2026-11-24T01:12:53.865302"
   },
   "verification": {
    "disputes": [
@@ -3904,9 +4097,9 @@
     }
    ],
    "flags": [
+    "auth_ungrounded:other: x402 protocol",
     "auth_ungrounded:other: skyfire",
     "auth_ungrounded:other: machine payments protocol (mpp)",
-    "auth_ungrounded:other: x402 protocol",
     "mcp_ungrounded",
     "access_soft:free_not_in_docs"
    ],
@@ -3990,7 +4183,7 @@
    "evidence_dir": "data\\evidence\\056_firecrawl",
    "seconds": 51.3,
    "at": "2026-11-23T17:35:36.866375",
-   "finalized_at": "2026-11-24T00:23:17.066991"
+   "finalized_at": "2026-11-24T01:12:53.865462"
   },
   "verification": {
    "disputes": [
@@ -4080,7 +4273,7 @@
    "evidence_dir": "data\\evidence\\057_bright-data",
    "seconds": 28.2,
    "at": "2026-11-23T17:36:05.034270",
-   "finalized_at": "2026-11-24T00:23:17.067029"
+   "finalized_at": "2026-11-24T01:12:53.865563"
   },
   "verification": {
    "disputes": [],
@@ -4131,7 +4324,7 @@
    "evidence_dir": "data\\evidence\\058_sherlock",
    "seconds": 21.1,
    "at": "2026-11-23T17:36:26.138167",
-   "finalized_at": "2026-11-24T00:23:17.067065"
+   "finalized_at": "2026-11-24T01:12:53.865668"
   },
   "verification": {
    "disputes": [
@@ -4450,7 +4643,7 @@
    "evidence_dir": "data\\evidence\\062_vercel",
    "seconds": 46.2,
    "at": "2026-11-23T17:39:14.025121",
-   "finalized_at": "2026-11-24T00:23:17.067170"
+   "finalized_at": "2026-11-24T01:12:53.865982"
   },
   "verification": {
    "disputes": [],
@@ -4509,7 +4702,7 @@
    "evidence_dir": "data\\evidence\\063_netlify",
    "seconds": 30.2,
    "at": "2026-11-23T17:39:44.243154",
-   "finalized_at": "2026-11-24T00:23:17.067202"
+   "finalized_at": "2026-11-24T01:12:53.866084"
   },
   "verification": {
    "disputes": [],
@@ -4683,7 +4876,7 @@
    "evidence_dir": "data\\evidence\\066_neo4j",
    "seconds": 29.6,
    "at": "2026-11-23T17:41:46.805162",
-   "finalized_at": "2026-11-24T00:23:17.067273"
+   "finalized_at": "2026-11-24T01:12:53.866308"
   },
   "verification": {
    "disputes": [
@@ -4851,7 +5044,7 @@
     "url": "https://docs.datadoghq.com/mcp_server/"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "id": 69,
   "name": "Datadog",
   "category": "Developer, Infra and Data platforms",
@@ -4866,12 +5059,38 @@
    "docs_fetched": 4,
    "evidence_dir": "data\\evidence\\069_datadog",
    "seconds": 75.9,
-   "at": "2026-11-23T17:44:49.271877"
+   "at": "2026-11-23T17:44:49.271877",
+   "finalized_at": "2026-11-24T01:12:53.866535"
   },
   "verification": {
-   "disputes": [],
+   "disputes": [
+    {
+     "field": "auth_methods",
+     "pass1": [
+      "api key"
+     ],
+     "pass2": [
+      "api key",
+      "other: application key",
+      "token"
+     ],
+     "final": [
+      "api key"
+     ],
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    },
+    {
+     "field": "access",
+     "pass1": "trial_self_serve",
+     "pass2": "free_self_serve",
+     "final": "trial_self_serve",
+     "reason": "kept pass-1; pass-2 disagreed (shown for review)",
+     "url": ""
+    }
+   ],
    "flags": [],
-   "agreement": "single_pass"
+   "agreement": "disputed"
   }
  },
  {
@@ -4981,7 +5200,7 @@
    "evidence_dir": "data\\evidence\\071_notion",
    "seconds": 191.1,
    "at": "2026-11-23T17:48:49.995191",
-   "finalized_at": "2026-11-24T00:23:17.067382"
+   "finalized_at": "2026-11-24T01:12:53.866650"
   },
   "verification": {
    "disputes": [
@@ -5238,7 +5457,7 @@
    "evidence_dir": "data\\evidence\\075_asana",
    "seconds": 9.1,
    "at": "2026-11-23T22:28:28.844678",
-   "finalized_at": "2026-11-24T00:23:17.067486"
+   "finalized_at": "2026-11-24T01:12:53.866759"
   },
   "verification": {
    "disputes": [
@@ -5274,8 +5493,8 @@
     }
    ],
    "flags": [
-    "auth_ungrounded:other: service account",
     "auth_ungrounded:other: openid connect",
+    "auth_ungrounded:other: service account",
     "access_soft:free_not_in_docs"
    ],
    "agreement": "disputed"
@@ -5618,7 +5837,7 @@
    "evidence_dir": "data\\evidence\\081_stripe",
    "seconds": 71.4,
    "at": "2026-11-23T22:32:23.861179",
-   "finalized_at": "2026-11-24T00:23:17.067628"
+   "finalized_at": "2026-11-24T01:12:53.866902"
   },
   "verification": {
    "disputes": [
@@ -5757,7 +5976,7 @@
    "evidence_dir": "data\\evidence\\083_binance",
    "seconds": 76.5,
    "at": "2026-11-23T22:33:40.398109",
-   "finalized_at": "2026-11-24T00:23:17.067687"
+   "finalized_at": "2026-11-24T01:12:53.866966"
   },
   "verification": {
    "disputes": [
@@ -5845,7 +6064,7 @@
    "evidence_dir": "data\\evidence\\084_paygent-connect",
    "seconds": 46.5,
    "at": "2026-11-23T22:34:26.888765",
-   "finalized_at": "2026-11-24T00:23:17.067721"
+   "finalized_at": "2026-11-24T01:12:53.867002"
   },
   "verification": {
    "disputes": [
@@ -5908,12 +6127,13 @@
    "docs_fetched": 2,
    "evidence_dir": "data\\evidence\\085_ipayx",
    "seconds": 18.7,
-   "at": "2026-11-23T22:34:45.642749"
+   "at": "2026-11-23T22:34:45.642749",
+   "finalized_at": "2026-11-24T01:12:53.867037"
   },
   "verification": {
    "disputes": [],
    "flags": [],
-   "agreement": "single_pass"
+   "agreement": "full"
   }
  },
  {
@@ -6136,7 +6356,7 @@
    "evidence_dir": "data\\evidence\\089_ramp",
    "seconds": 142.8,
    "at": "2026-11-23T22:39:22.571572",
-   "finalized_at": "2026-11-24T00:23:17.067831"
+   "finalized_at": "2026-11-24T01:12:53.867135"
   },
   "verification": {
    "disputes": [
@@ -6416,7 +6636,7 @@
    "evidence_dir": "data\\evidence\\092_otter-ai",
    "seconds": 89.5,
    "at": "2026-11-23T22:42:46.466698",
-   "finalized_at": "2026-11-24T00:23:17.067918"
+   "finalized_at": "2026-11-24T01:12:53.867220"
   },
   "verification": {
    "disputes": [
@@ -6737,7 +6957,7 @@
    "evidence_dir": "data\\evidence\\097_higgsfield",
    "seconds": 69.8,
    "at": "2026-11-23T22:47:55.136510",
-   "finalized_at": "2026-11-24T00:23:17.068038"
+   "finalized_at": "2026-11-24T01:12:53.867352"
   },
   "verification": {
    "disputes": [

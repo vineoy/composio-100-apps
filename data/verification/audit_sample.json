@@ -16,16 +16,20 @@
   "name": "Zoho CRM"
  },
  {
-  "id": 20,
-  "name": "Gladly"
+  "id": 8,
+  "name": "Close"
+ },
+ {
+  "id": 9,
+  "name": "Copper"
+ },
+ {
+  "id": 11,
+  "name": "Zendesk"
  },
  {
   "id": 26,
   "name": "Discord"
- },
- {
-  "id": 27,
-  "name": "Telegram"
  },
  {
   "id": 40,
@@ -34,10 +38,6 @@
  {
   "id": 41,
   "name": "Shopify"
- },
- {
-  "id": 42,
-  "name": "WooCommerce"
  },
  {
   "id": 54,
